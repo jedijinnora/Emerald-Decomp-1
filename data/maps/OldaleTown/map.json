@@ -111,6 +111,34 @@
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_MART",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_OLDALE_TOWN_TOWER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_OLDALE_TOWN_NATURE_SHOP",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 26,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_OLDALE_GLADE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 27,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_OLDALE_GLADE",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

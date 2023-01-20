@@ -1063,3 +1063,11 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/LittlerootTown_BigHouse_1F/scripts.inc"
 
 	.include "data/maps/LittlerootTown_BigHouse_2F/scripts.inc"
+
+	.include "data/maps/Oldale_Glade/scripts.inc"
+
+	.include "data/maps/OldaleTown_NatureShop/scripts.inc"
+
+	.include "data/maps/OldaleTown_Tower_1F/scripts.inc"
+
+	.include "data/maps/OldaleTown_Tower_2F/scripts.inc"
