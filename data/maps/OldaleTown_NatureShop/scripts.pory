@@ -1,1 +1,25 @@
-mapscripts OldaleTown_NatureShop_MapScripts {}
+mapscripts OldaleTown_NatureShop_MapScripts {
+
+}
+
+
+script OldaleTown_NatureShop_EventScript_Clerk {
+	lock
+	message(format("Welcome to Oldale Town Natural Supply."))
+	waitmessage
+	pokemart(Oldale_NatureShop_Mart)
+	msgbox(format("Get out there and enjoy the world!"))
+	release
+}
+
+mart Oldale_NatureShop_Mart {
+	ITEM_BERRY_JUICE
+    ITEM_MIRACLE_SEED
+    ITEM_WHITE_HERB
+    ITEM_MENTAL_HERB
+    ITEM_POWER_HERB
+    ITEM_ABSORB_BULB
+    ITEM_BIG_ROOT
+    ITEM_LUMINOUS_MOSS
+    ITEM_SHED_SHELL
+}
