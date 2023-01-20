@@ -102,7 +102,9 @@
     "LittlerootTown_MaysHouse_2F",
     "LittlerootTown_ProfessorBirchsLab",
     "LittlerootTown_BigHouse_1F",
-    "LittlerootTown_BigHouse_2F"
+    "LittlerootTown_BigHouse_2F",
+    "LittlerootTown_House1",
+    "LittlerootTown_House2"
   ],
   "gMapGroup_IndoorOldale": [
     "OldaleTown_House1",
