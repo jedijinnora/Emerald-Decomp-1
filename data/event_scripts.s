@@ -1061,23 +1061,19 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/LittlerootTown_BigHouse_1F/scripts.inc"
-
 	.include "data/maps/LittlerootTown_BigHouse_2F/scripts.inc"
-
-	.include "data/maps/Oldale_Glade/scripts.inc"
-
-	.include "data/maps/OldaleTown_NatureShop/scripts.inc"
-
-	.include "data/maps/OldaleTown_Tower_1F/scripts.inc"
-
-	.include "data/maps/OldaleTown_Tower_2F/scripts.inc"
-
 	.include "data/maps/LittlerootTown_House1/scripts.inc"
-
 	.include "data/maps/LittlerootTown_House2/scripts.inc"
 
-	.include "data/maps/EmeraldCape/scripts.inc"
+	.include "data/maps/OldaleTown_Tower_1F/scripts.inc"
+	.include "data/maps/OldaleTown_Tower_2F/scripts.inc"
+	.include "data/maps/Oldale_Glade/scripts.inc"
+	.include "data/maps/OldaleTown_NatureShop/scripts.inc"
 
+	.include "data/maps/EmeraldCape/scripts.inc"
 	.include "data/maps/PokemonLeague/scripts.inc"
 
-	.include "data/maps/MossdeepCity_Port/scripts.inc"
+	.include "data/maps/MossdeepCity_Harbor/scripts.inc"
+	.include "data/maps/MossdeepCity_HarborInterior/scripts.inc"
+
+	.include "data/maps/MossdeepCity_Connector/scripts.inc"

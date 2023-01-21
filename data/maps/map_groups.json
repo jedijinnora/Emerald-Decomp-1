@@ -95,8 +95,7 @@
     "Underwater_Route105",
     "Underwater_Route125",
     "EmeraldCape",
-    "PokemonLeague",
-    "MossdeepCity_Port"
+    "PokemonLeague"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -270,7 +269,10 @@
     "MossdeepCity_SpaceCenter_1F",
     "MossdeepCity_SpaceCenter_2F",
     "MossdeepCity_GameCorner_1F",
-    "MossdeepCity_GameCorner_B1F"
+    "MossdeepCity_GameCorner_B1F",
+    "MossdeepCity_Harbor",
+    "MossdeepCity_HarborInterior",
+    "MossdeepCity_Connector"
   ],
   "gMapGroup_IndoorSootopolis": [
     "SootopolisCity_Gym_1F",

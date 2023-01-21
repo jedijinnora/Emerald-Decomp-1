@@ -87,7 +87,7 @@
       "width": 64,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/EverGrandeCity/border.bin",
       "blockdata_filepath": "data/layouts/EverGrandeCity/map.bin"
     },
@@ -4512,14 +4512,34 @@
       "blockdata_filepath": "data/layouts/PokemonLeague/map.bin"
     },
     {
-      "id": "LAYOUT_MOSSDEEP_CITY_PORT",
-      "name": "MossdeepCity_Port_Layout",
+      "id": "LAYOUT_MOSSDEEP_CITY_HARBOR",
+      "name": "MossdeepCity_Harbor_Layout",
       "width": 32,
-      "height": 32,
+      "height": 26,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
-      "border_filepath": "data/layouts/MossdeepCity_Port/border.bin",
-      "blockdata_filepath": "data/layouts/MossdeepCity_Port/map.bin"
+      "border_filepath": "data/layouts/MossdeepCity_Harbor/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCity_Harbor/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_CITY_HARBOR_INTERIOR",
+      "name": "MossdeepCity_HarborInterior_Layout",
+      "width": 17,
+      "height": 13,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_IslandHarbor",
+      "border_filepath": "data/layouts/MossdeepCity_HarborInterior/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCity_HarborInterior/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_CITY_CONNECTOR",
+      "name": "MossdeepCity_Connector_Layout",
+      "width": 48,
+      "height": 33,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MossdeepCity_Connector/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCity_Connector/map.bin"
     }
   ]
 }
