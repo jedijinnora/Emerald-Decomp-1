@@ -84,10 +84,10 @@
     {
       "id": "LAYOUT_EVER_GRANDE_CITY",
       "name": "EverGrandeCity_Layout",
-      "width": 40,
-      "height": 80,
+      "width": 64,
+      "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_EverGrande",
+      "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/EverGrandeCity/border.bin",
       "blockdata_filepath": "data/layouts/EverGrandeCity/map.bin"
     },
@@ -4510,6 +4510,16 @@
       "secondary_tileset": "gTileset_EverGrande",
       "border_filepath": "data/layouts/PokemonLeague/border.bin",
       "blockdata_filepath": "data/layouts/PokemonLeague/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_CITY_PORT",
+      "name": "MossdeepCity_Port_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/MossdeepCity_Port/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCity_Port/map.bin"
     }
   ]
 }

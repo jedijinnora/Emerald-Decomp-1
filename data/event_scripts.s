@@ -1079,3 +1079,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/EmeraldCape/scripts.inc"
 
 	.include "data/maps/PokemonLeague/scripts.inc"
+
+	.include "data/maps/MossdeepCity_Port/scripts.inc"

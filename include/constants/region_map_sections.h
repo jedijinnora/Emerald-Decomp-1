@@ -138,7 +138,7 @@
 #define MAPSEC_SILPH_CO                     0x86
 #define MAPSEC_POKEMON_MANSION              0x87
 #define MAPSEC_KANTO_SAFARI_ZONE            0x88
-#define MAPSEC_POKEMON_LEAGUE               0x89
+#define MAPSEC_INDIGO_LEAGUE                0x89
 #define MAPSEC_ROCK_TUNNEL                  0x8A
 #define MAPSEC_SEAFOAM_ISLANDS              0x8B
 #define MAPSEC_POKEMON_TOWER                0x8C
