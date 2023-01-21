@@ -123,10 +123,10 @@
     {
       "map_section": "MAPSEC_EVER_GRANDE_CITY",
       "name": "EVER GRANDE CITY",
-      "x": 27,
+      "x": 26,
       "y": 8,
       "width": 1,
-      "height": 2
+      "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_101",
@@ -1099,8 +1099,8 @@
     {
       "map_section": "MAPSEC_POKEMON_LEAGUE",
       "name": "POKéMON LEAGUE",
-      "x": 0,
-      "y": 0,
+      "x": 27,
+      "y": 8,
       "width": 1,
       "height": 1
     },
@@ -1708,6 +1708,14 @@
       "map_section": "MAPSEC_OLDALE_RUINS",
       "name": "OLDALE RUINS",
       "x": 5,
+      "y": 9,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_EMERALD_CAPE",
+      "name": "EMERALD CAPE",
+      "x": 27,
       "y": 9,
       "width": 1,
       "height": 1

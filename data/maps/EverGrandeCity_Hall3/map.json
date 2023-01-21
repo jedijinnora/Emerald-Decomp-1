@@ -3,7 +3,7 @@
   "name": "EverGrandeCity_Hall3",
   "layout": "LAYOUT_EVER_GRANDE_CITY_SHORT_HALL",
   "music": "MUS_VICTORY_ROAD",
-  "region_map_section": "MAPSEC_EVER_GRANDE_CITY",
+  "region_map_section": "MAPSEC_POKEMON_LEAGUE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -12,8 +12,10 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
-  "object_events": [],
+  "connections": 0,
+  "object_events": [
+
+  ],
   "warp_events": [
     {
       "x": 5,
@@ -44,6 +46,10 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

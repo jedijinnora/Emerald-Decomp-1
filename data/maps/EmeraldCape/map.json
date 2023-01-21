@@ -1,0 +1,47 @@
+{
+  "id": "MAP_EMERALD_CAPE",
+  "name": "EmeraldCape",
+  "layout": "LAYOUT_EMERALD_CAPE",
+  "music": "MUS_EVER_GRANDE",
+  "region_map_section": "MAPSEC_EMERALD_CAPE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_CITY",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE128",
+      "offset": 3,
+      "direction": "left"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 20,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_VICTORY_ROAD_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 29,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

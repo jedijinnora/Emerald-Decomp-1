@@ -4490,6 +4490,26 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/LittlerootTown_House2/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_EMERALD_CAPE",
+      "name": "EmeraldCape_Layout",
+      "width": 40,
+      "height": 42,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_EverGrande",
+      "border_filepath": "data/layouts/EmeraldCape/border.bin",
+      "blockdata_filepath": "data/layouts/EmeraldCape/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_LEAGUE",
+      "name": "PokemonLeague_Layout",
+      "width": 40,
+      "height": 42,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_EverGrande",
+      "border_filepath": "data/layouts/PokemonLeague/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonLeague/map.bin"
     }
   ]
 }
