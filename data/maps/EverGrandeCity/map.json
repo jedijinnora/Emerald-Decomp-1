@@ -92,7 +92,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 29,
+      "x": 30,
       "y": 30,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
