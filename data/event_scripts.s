@@ -1077,3 +1077,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/MossdeepCity_HarborInterior/scripts.inc"
 
 	.include "data/maps/MossdeepCity_Connector/scripts.inc"
+
+	.include "data/maps/LittlerootTown_PokemonCenter_1F/scripts.inc"
