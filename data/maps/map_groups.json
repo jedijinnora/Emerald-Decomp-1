@@ -273,7 +273,9 @@
     "MossdeepCity_GameCorner_B1F",
     "MossdeepCity_Harbor",
     "MossdeepCity_HarborInterior",
-    "MossdeepCity_Connector"
+    "MossdeepCity_Connector",
+    "MossdeepCity_ArrivalFerry",
+    "MossdeepCity_ArrivalFerry_Room"
   ],
   "gMapGroup_IndoorSootopolis": [
     "SootopolisCity_Gym_1F",
