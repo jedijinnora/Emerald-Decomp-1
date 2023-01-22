@@ -32,6 +32,11 @@
       "map": "MAP_EMERALD_CAPE",
       "offset": -3,
       "direction": "right"
+    },
+    {
+      "map": "MAP_EVER_GRANDE_CITY",
+      "offset": 66,
+      "direction": "up"
     }
   ],
   "object_events": [

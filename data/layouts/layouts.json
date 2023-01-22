@@ -84,8 +84,8 @@
     {
       "id": "LAYOUT_EVER_GRANDE_CITY",
       "name": "EverGrandeCity_Layout",
-      "width": 64,
-      "height": 40,
+      "width": 100,
+      "height": 48,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/EverGrandeCity/border.bin",
