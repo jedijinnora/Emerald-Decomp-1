@@ -24,14 +24,14 @@
   ],
   "warp_events": [
     {
-      "x": 23,
+      "x": 5,
       "y": 12,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_HARBOR_INTERIOR",
       "dest_warp_id": "0"
     },
     {
-      "x": 23,
+      "x": 5,
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_CONNECTOR",
