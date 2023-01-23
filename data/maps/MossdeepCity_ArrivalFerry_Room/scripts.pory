@@ -1,1 +1,114 @@
 mapscripts MossdeepCity_ArrivalFerry_Room_MapScripts {}
+
+script MossdeepCity_ArrivalFerry_Room_EventScript_Pokedex {
+    lockall
+    playfanfare(MUS_OBTAIN_ITEM)
+    message(format("{PLAYER} picked up the POKEDEX!"))
+    waitfanfare
+    closemessage
+    setflag(FLAG_SYS_POKEDEX_GET)
+    setflag(FLAG_ADVENTURE_STARTED)
+    setflag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_POKEDEX)
+    special(SetUnlockedPokedexFlags)
+    setvar(VAR_CABLE_CLUB_TUTORIAL_STATE, 1)
+    removeobject(5)
+    releaseall
+    end
+}
+
+script MossdeepCity_ArrivalFerry_Room_EventScript_UnderBed {
+    lockall
+    msgbox(format("You check under the bed..."))
+    if(flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_POKEBLOCK_CASE)) {
+        msgbox(format("There's nothing but dust here."))
+        releaseall
+        end
+    }
+    msgbox(format("Hey! There's a bunch of your stuff down here!"))
+    setflag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_POKEBLOCK_CASE)
+    giveitem(ITEM_POKEBLOCK_CASE)
+    giveitem(ITEM_POKE_DOLL, 1)
+    giveitem(ITEM_POKE_BALL, 3)
+    msgbox(format("You knock some dirt off your shoes and put them on."))
+    setflag(FLAG_SYS_B_DASH)
+    releaseall
+    end
+}
+
+script MossdeepCity_ArrivalFerry_Room_EventScript_TrashCan {
+    lockall
+    msgbox(format("You look through the trash can for anything important..."))
+    if(flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_NDEX)) {
+        msgbox(format("Just trash and papers you don't need."))
+        releaseall
+        end
+    }
+    msgbox(format("This data drive looks interesting!"))
+    if(flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_POKEDEX)) {
+        setflag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_NDEX)
+        playfanfare(MUS_OBTAIN_ITEM)
+        message(format("Installed the National Dex Expansion!"))
+        waitfanfare
+        closemessage
+        setflag(FLAG_SYS_NATIONAL_DEX)
+        special(EnableNationalPokedex)
+        releaseall
+        end
+    }
+    msgbox(format("You don't have anything you can do with this."))
+    releaseall
+    end
+}
+
+script MossdeepCity_ArrivalFerry_Room_EventScript_Bag {
+    lockall
+    msgbox(format("It's the satchel with your starter POKEMON!"))
+
+    //choose from selection
+    StarterChoice:
+    message(format("Er... Which one did you pick again?"))
+    multichoice(25, 5, MULTI_STARTER_CHOICE, 1)
+    closemessage
+    switch(var(VAR_RESULT)) {
+        case 0: 
+            setvar(VAR_STARTER_CHOICE, SPECIES_TURTWIG)
+            bufferspeciesname(STR_VAR_1, SPECIES_TURTWIG)
+        case 1:
+            setvar(VAR_STARTER_CHOICE, SPECIES_CHIMCHAR)
+            bufferspeciesname(STR_VAR_1, SPECIES_CHIMCHAR)  
+        case 2:
+            setvar(VAR_STARTER_CHOICE, SPECIES_PIPLUP)
+            bufferspeciesname(STR_VAR_1, SPECIES_PIPLUP)
+        default:
+            msgbox(format("Something went wrong! 1"))
+    }
+    closemessage
+    showmonpic(VAR_STARTER_CHOICE, 10, 3)
+    msgbox(format("Did you pick {STR_VAR_1}?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        hidemonpic
+        goto(StarterChoice)
+    }
+
+    //get starter
+    hidemonpic
+    playfanfare(MUS_OBTAIN_ITEM)
+    givemon(VAR_STARTER_CHOICE, 5, ITEM_ORAN_BERRY)
+    waitfanfare 
+    setflag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_BAG)
+    removeobject(2)
+    setflag(FLAG_SYS_POKEMON_GET)
+
+    //nickname
+    msgbox(format("Did you nickname your starter?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+
+    //ending message
+    msgbox(format("With your first POKEMON back at your side you are ready to take on the world!"))
+    msgbox(format("...As soon as you finish cleaning up after yourself."))
+    releaseall
+    end
+}

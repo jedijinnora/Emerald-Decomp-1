@@ -1,3 +1,14 @@
+MossdeepCity_ArrivalFerry_Room_EventScript_ItemPotion::
+	finditem ITEM_POTION
+	end
+
+MossdeepCity_ArrivalFerry_Room_EventScript_ItemPokeBall::
+	finditem ITEM_POKE_BALL
+	end
+
+
+
+
 Route102_EventScript_ItemPotion::
 	finditem ITEM_POTION
 	end
