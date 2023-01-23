@@ -1,7 +1,180 @@
-mapscripts MossdeepCity_ArrivalFerry_Room_MapScripts {}
+mapscripts MossdeepCity_ArrivalFerry_Room_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_CLEANUP_STATE, 0: MossdeepCity_ArrivalFerry_Room_EventScript_Init
+    ] 
+}
+
+
+
+
+script MossdeepCity_ArrivalFerry_Room_EventScript_Init {
+    lock
+    fadescreen(FADE_TO_BLACK)
+    delay(60)
+    fadescreen(FADE_FROM_BLACK)
+    delay(30)
+    applymovement(1, Exclaim)
+    msgbox(format("Ah, the sleeper awakens! It's been twenty hours since you burst in here like a hurricane and fell straight asleep!"))
+    applymovement(1, ApproachPlayer)
+    waitmovement(1)
+    applymovement(1, Seethe)
+    waitmovement(1)
+    msgbox(format("Not a moment too soon! Zut alors! Look at all this rubbish!"))
+    msgbox(format("You tossed your belongings all over our room in your sleep! I spent the whole trip from SINNOH shielding myself from your clumsy bombardment!"))
+    msgbox(format("Who do you think is going to remedy the deplorable state of your side of this cabin, your mother?"))
+    msgbox(format("I'm certain she is a woman of prodigious talent, but she is most definitely not present in our current locale!"))
+    waitmessage
+    applymovement(1, Seethe)
+    waitmovement(1)
+    msgbox(format("What? It's too early for this?"))
+    waitmessage
+    applymovement(1, Seethe)
+    waitmovement(1)
+    msgbox(format("Then let me speak in language even a buffoon like you shall comprehend:"))
+    applymovement(1, Seethe)
+    waitmovement(1)
+    msgbox(format("PICK UP YOUR SHIT!"))
+    waitmessage
+    applymovement(1, Seethe)
+    waitmovement(1)
+    applymovement(1, ApproachDoor)
+    waitmovement(1)
+    setobjectxyperm(1, 5, 8)
+    setvar(VAR_CLEANUP_STATE, 1)
+    release
+    end
+}
+
+movement Exclaim {
+    emote_exclamation_mark
+}
+
+movement ApproachPlayer {
+    walk_left * 4
+    face_up
+}
+
+movement ApproachDoor {
+    walk_right * 2
+    walk_down * 3
+    face_up
+}
+
+movement Seethe {
+    walk_in_place_fast_up * 2
+}
+
+movement MoveUp {
+    walk_up
+}
+
+movement Leave {
+    walk_in_place_down
+}
+
+movement Face_Player {
+    face_player
+}
+
+movement Face_Left {
+    face_left
+}
+
+movement Face_Right {
+    face_right
+}
+
+script MossdeepCity_ArrivalFerry_Room_EventScript_Madman {
+    lock
+    applymovement(1, Face_Player)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 4) {
+        applymovement(OBJ_EVENT_ID_PLAYER, Face_Right)
+        waitmovement(OBJ_EVENT_ID_PLAYER)
+    }
+
+    call(MossdeepCity_ArrivalFerry_Room_EventScript_CheckCleanup)
+    switch(var(VAR_CLEANUP_STATE)) {
+        case 3:
+            call(MossdeepCity_ArrivalFerry_Room_EventScript_Finished)
+        case 2:
+            call(MossdeepCity_ArrivalFerry_Room_EventScript_GoFind)
+        default:
+            call(MossdeepCity_ArrivalFerry_Room_EventScript_GoClean)
+    }
+    release
+    end
+}
+
+
+    //0 = Starting state
+    //1 = need to clean visible items
+    //2 = all visible items picked up, necessary hidden items remain
+    //3 = all necessary items gathered
+    //4 = exit from room has occurred
+script MossdeepCity_ArrivalFerry_Room_EventScript_CheckCleanup {
+    if (flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_POKE_BALL1) && flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_POKE_BALL2) && flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_POTION) && flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_POKEDEX) && flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_BAG)) {
+        setvar(VAR_CLEANUP_STATE, 2)
+        if (flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_POKEBLOCK_CASE) && flag(FLAG_SYS_NATIONAL_DEX)) {
+            setvar(VAR_CLEANUP_STATE, 3)
+        }
+    }
+    return
+}
+
+//cleanup 1
+script MossdeepCity_ArrivalFerry_Room_EventScript_GoClean {
+    lock
+    applymovement(1, Seethe)
+    waitmovement(1)
+    applymovement(OBJ_EVENT_ID_PLAYER, MoveUp)
+    waitmovement(OBJ_EVENT_ID_PLAYER)
+    msgbox(format("Not good enough! We won't depart until you have retrieved all of your belongings!"))
+    msgbox(format("Be grateful I am not making you carry out your trash. To be clear:"))
+    msgbox(format("MORE CLEANING!"))
+    waitmessage
+    release
+    end
+}
+
+//cleanup 2
+script MossdeepCity_ArrivalFerry_Room_EventScript_GoFind {
+    lock
+    applymovement(1, Seethe)
+    waitmovement(1)
+    applymovement(OBJ_EVENT_ID_PLAYER, MoveUp)
+    waitmovement(OBJ_EVENT_ID_PLAYER)
+    msgbox(format("What? You cannot think of anywhere else to clean?"))
+    msgbox(format("I am astonished that a ludicrously imbecilic individual such as yourself has been sent to Hoenn by the eminent Professor Rowan."))
+    msgbox(format("Make certain you retrieved your disgusting shoes from beneath the bed!"))
+    msgbox(format("And be sure to check the trash can! A nincompoop like you has likely thrown away valuable items!"))
+    waitmessage
+    release
+    end
+}
+
+//cleanup 3
+script MossdeepCity_ArrivalFerry_Room_EventScript_Finished {
+    lock
+    msgbox(format("That's much better, isn't it?"))
+    msgbox(format("It's important to neaten up after yourself! Cleaning staff are people too, don't give them unnecessary work!"))
+    msgbox(format("Anyways, we've arrived at MOSSDEEP CITY. You mumbled something about coming to HOENN as an exchange student before you collapsed."))
+    msgbox(format("I'm sure you're eager to stretch your legs! Let's make tracks!"))
+    waitmessage
+    applymovement(1, Leave)
+    playfanfare(SE_DOOR)
+    waitfanfare
+    waitmovement(1)
+    setflag(FLAG_HIDE_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_ROOMMATE)
+    removeobject(1)
+    setvar(VAR_CLEANUP_STATE, 4)
+    release
+    end
+}
+
 
 script MossdeepCity_ArrivalFerry_Room_EventScript_Pokedex {
-    lockall
+    lock
     playfanfare(MUS_OBTAIN_ITEM)
     message(format("{PLAYER} picked up the POKEDEX!"))
     waitfanfare
@@ -11,16 +184,17 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_Pokedex {
     setflag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_POKEDEX)
     special(SetUnlockedPokedexFlags)
     setvar(VAR_CABLE_CLUB_TUTORIAL_STATE, 1)
+    setflag(FLAG_HIDE_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_ROOMMATE)
     removeobject(5)
-    releaseall
+    release
     end
 }
 
 script MossdeepCity_ArrivalFerry_Room_EventScript_UnderBed {
-    lockall
+    lock
     msgbox(format("You check under the bed..."))
     if(flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_POKEBLOCK_CASE)) {
-        msgbox(format("There's nothing but dust here."))
+        msgbox(format("You find nothing but dust here."))
         releaseall
         end
     }
@@ -30,43 +204,46 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_UnderBed {
     giveitem(ITEM_POKE_DOLL, 1)
     giveitem(ITEM_POKE_BALL, 3)
     msgbox(format("You knock some dirt off your shoes and put them on."))
+    playfanfare(MUS_OBTAIN_ITEM)
     setflag(FLAG_SYS_B_DASH)
-    releaseall
+    release
     end
 }
 
 script MossdeepCity_ArrivalFerry_Room_EventScript_TrashCan {
-    lockall
-    msgbox(format("You look through the trash can for anything important..."))
-    if(flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_NDEX)) {
-        msgbox(format("Just trash and papers you don't need."))
-        releaseall
+    lock
+    if(flag(FLAG_SYS_NATIONAL_DEX)) {
+        msgbox(format("Just food wrappers and papers you don't need."))
+        release
         end
     }
-    msgbox(format("This data drive looks interesting!"))
+    msgbox(format("There's a data drive in this trash can that looks important!"))
     if(flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_POKEDEX)) {
-        setflag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_NDEX)
+        msgbox(format("Installed the National Dex Expansion!"))
         playfanfare(MUS_OBTAIN_ITEM)
-        message(format("Installed the National Dex Expansion!"))
         waitfanfare
-        closemessage
+        waitmessage
         setflag(FLAG_SYS_NATIONAL_DEX)
         special(EnableNationalPokedex)
-        releaseall
+        msgbox(format("Can you imagine coming all the way to HOENN thinking a regional POKéDEX would be sufficient?"))
+        waitmessage
+        release
         end
     }
-    msgbox(format("You don't have anything you can do with this."))
-    releaseall
+    msgbox(format("Unfortunately, you don't have anything to do with it right now."))
+    release
     end
 }
 
 script MossdeepCity_ArrivalFerry_Room_EventScript_Bag {
-    lockall
+    lock
     msgbox(format("It's the satchel with your starter POKEMON!"))
+    waitmessage
 
     //choose from selection
     StarterChoice:
     message(format("Er... Which one did you pick again?"))
+    waitmessage
     multichoice(25, 5, MULTI_STARTER_CHOICE, 1)
     closemessage
     switch(var(VAR_RESULT)) {
@@ -108,7 +285,7 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_Bag {
 
     //ending message
     msgbox(format("With your first POKEMON back at your side you are ready to take on the world!"))
-    msgbox(format("...As soon as you finish cleaning up after yourself."))
-    releaseall
+    msgbox(format("...Assuming you've cleaned up enough that the madman will let you out the door."))
+    release
     end
 }

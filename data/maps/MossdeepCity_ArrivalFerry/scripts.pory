@@ -1,1 +1,94 @@
 mapscripts MossdeepCity_ArrivalFerry_MapScripts {}
+
+
+
+
+
+
+script MossdeepCity_ArrivalFerry_EventScript_Father {
+    lockall
+    msgbox(format("Not now. Daddy has to finish an important thing on his phone."))
+    releaseall
+    end
+}
+
+script MossdeepCity_ArrivalFerry_EventScript_LittleGirl {
+    lockall
+    applymovement(4, Face_Player)
+    msgbox(format("I hope we leave soon. I have to go potty!"))
+    releaseall
+    end
+}
+
+script MossdeepCity_ArrivalFerry_EventScript_Maniac {
+    lockall
+    applymovement(5, Face_Player)
+    msgbox(format("I can't wait to see the SPACE CENTER! I've been dying to visit their exhibition hall since I was a little boy watching shuttle launches on TV."))
+    releaseall
+    end
+}
+
+script MossdeepCity_ArrivalFerry_EventScript_Picknicker {
+    lockall
+    applymovement(6, Face_Player)
+    msgbox(format("Oh, no, please go right ahead. I haven't been waiting long to disembark or anything."))
+    releaseall
+    end
+}
+
+script MossdeepCity_ArrivalFerry_EventScript_Lass {
+    lockall
+    applymovement(7, Face_Player)
+    msgbox(format("What kind of POKéMON are you looking to find in HOENN? I'm thinking of trying to catch a NATU in MOSSDEEP before traveling further."))
+    releaseall
+    end
+}
+
+script MossdeepCity_ArrivalFerry_EventScript_Executive {
+    lockall
+    msgbox(format("What? Tell them that's utterly unacceptable! If they won't sell we can simply run them out of business!"))
+    applymovement(8, Face_Player)
+    msgbox(format("Excuse me, I'm on the phone! Stop bothering me while I'm trying to give orders! The nerve!"))
+    waitmessage
+    applymovement(8, Face_Left)
+    waitmovement(8)
+    releaseall
+    end
+}
+
+script MossdeepCity_ArrivalFerry_EventScript_Ace {
+    lockall
+    applymovement(9, Face_Player)
+    msgbox(format("I came to HOENN to run the gym circuit here after getting six badges in SINNOH. It's a great opportunity to catch some rare POKéMON before I prep my team for an Elite Four challenge."))
+    msgbox(format("I kind of regret taking the ferry with my uncle though. He keeps shouting into his phone all day about 'market share' and 'alpha'. That's what I get for traveling with family."))
+    releaseall
+    end
+}
+
+
+script MossdeepCity_ArrivalFerry_EventScript_Lemonade {
+    giveitem(ITEM_LEMONADE)
+    setflag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_LEMONADE)
+    VitaminC:
+    msgbox(format("Drink up dearie, have some vitamin C."))
+    waitmessage
+    releaseall
+    end
+}
+
+
+script MossdeepCity_ArrivalFerry_EventScript_Mom {
+    lockall
+    applymovement(10, Face_Player)
+    if (flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_LEMONADE)) {
+        goto(VitaminC)
+    }
+    msgbox(format("Dear, you have some bags under your eyes. Why don't you have something to refresh yourself?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        call(MossdeepCity_ArrivalFerry_EventScript_Lemonade)
+    }
+    msgbox(format("All right then, come back if you change your mind."))
+    releaseall
+    end
+}
+

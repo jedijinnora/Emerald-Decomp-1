@@ -16,16 +16,16 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_BARD",
-      "x": 5,
-      "y": 8,
+      "x": 7,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "MossdeepCity_ArrivalFerry_Room_EventScript_Madman",
+      "flag": "FLAG_HIDE_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_ROOMMATE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIRCHS_BAG",
@@ -115,9 +115,27 @@
       "x": 4,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var": "VAR_CLEANUP_STATE",
+      "var_value": "2",
+      "script": "MossdeepCity_ArrivalFerry_Room_EventScript_Madman"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_CLEANUP_STATE",
+      "var_value": "1",
+      "script": "MossdeepCity_ArrivalFerry_Room_EventScript_Madman"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_CLEANUP_STATE",
+      "var_value": "3",
+      "script": "MossdeepCity_ArrivalFerry_Room_EventScript_Madman"
     }
   ],
   "bg_events": [
@@ -127,7 +145,7 @@
       "y": 8,
       "elevation": 0,
       "item": "ITEM_SODA_POP",
-      "flag": "FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_SODA_POP"
+      "flag": "FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_SODA_POP1"
     },
     {
       "type": "sign",
@@ -152,6 +170,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MossdeepCity_ArrivalFerry_Room_EventScript_UnderBed"
+    },
+    {
+      "type": "hidden_item",
+      "x": 7,
+      "y": 5,
+      "elevation": 0,
+      "item": "ITEM_FRESH_WATER",
+      "flag": "FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_FRESH_WATER"
+    },
+    {
+      "type": "hidden_item",
+      "x": 1,
+      "y": 8,
+      "elevation": 0,
+      "item": "ITEM_SODA_POP",
+      "flag": "FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_SODA_POP2"
     }
   ]
 }

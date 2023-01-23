@@ -2,7 +2,7 @@ gText_Birch_Welcome::
 	.string "Hi! Sorry to keep you waiting!\p"
 	.string "Welcome to the world of POKéMON!\p"
 	.string "My name is BIRCH.\p"
-	.string "But everyone calls me the POKéMON\n"
+	.string "Many simply call me the POKéMON\n"
 	.string "PROFESSOR.\p"
 	.string "$"
 
@@ -44,9 +44,9 @@ gText_Birch_SoItsPlayer::
 
 gText_Birch_YourePlayer::
 	.string "Ah, okay!\p"
-	.string "You're {PLAYER} who's moving to my\n"
-	.string "home region of HOENN.\l"
-	.string "I get it now!\p"
+	.string "You're {PLAYER} who's traveling\n"
+	.string "from SINNOH to HOENN. I get it now!\l"
+	.string "Maybe we'll see each other soon!\p"
 	.string "$"
 
 gText_Birch_AreYouReady::
