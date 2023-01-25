@@ -1,3 +1,12 @@
+@@Generic item ball script
+Common_EventScript_FindItem::
+	callnative GetObjectEventTrainerRangeFromTemplate
+	finditem VAR_RESULT
+	end
+
+
+
+
 MossdeepCity_ArrivalFerry_Room_EventScript_ItemPotion::
 	finditem ITEM_POTION
 	end
