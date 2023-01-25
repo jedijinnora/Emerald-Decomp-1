@@ -4,38 +4,35 @@ mapscripts MossdeepCity_ArrivalFerry_Room_MapScripts {
     ] 
 }
 
-
-
-
 script MossdeepCity_ArrivalFerry_Room_EventScript_Init {
     lock
-    fadescreen(FADE_TO_BLACK)
     delay(60)
-    fadescreen(FADE_FROM_BLACK)
-    delay(30)
+    setrespawn(HEAL_LOCATION_MOSSDEEP_CITY)
     applymovement(1, Exclaim)
-    msgbox(format("Ah, the sleeper awakens! It's been twenty hours since you burst in here like a hurricane and fell straight asleep!"))
+    msgbox(format("Ah, the sleeper awakens! It feels like an eternity since you burst in here like a hurricane and fell straight asleep!"))
+    msgbox(format("Consider yourself lucky that I am not such a boor to deny someone their beauty sleep..."))
     applymovement(1, ApproachPlayer)
     waitmovement(1)
-    applymovement(1, Seethe)
+    applymovement(1, SeetheU)
     waitmovement(1)
-    msgbox(format("Not a moment too soon! Zut alors! Look at all this rubbish!"))
+    msgbox(format("But this is ridiculous! Zut alors! Look at all this rubbish! Get up!"))
     msgbox(format("You tossed your belongings all over our room in your sleep! I spent the whole trip from SINNOH shielding myself from your clumsy bombardment!"))
     msgbox(format("Who do you think is going to remedy the deplorable state of your side of this cabin, your mother?"))
     msgbox(format("I'm certain she is a woman of prodigious talent, but she is most definitely not present in our current locale!"))
+    msgbox(format("I have my book and water and was ready to leave hours ago but here I am babying some layabout who thinks they are too important to respect other people's schedules!"))
     waitmessage
-    applymovement(1, Seethe)
+    applymovement(1, SeetheU)
     waitmovement(1)
     msgbox(format("What? It's too early for this?"))
     waitmessage
-    applymovement(1, Seethe)
+    applymovement(1, SeetheU)
     waitmovement(1)
     msgbox(format("Then let me speak in language even a buffoon like you shall comprehend:"))
-    applymovement(1, Seethe)
+    applymovement(1, SeetheU)
     waitmovement(1)
     msgbox(format("PICK UP YOUR SHIT!"))
     waitmessage
-    applymovement(1, Seethe)
+    applymovement(1, SeetheU)
     waitmovement(1)
     applymovement(1, ApproachDoor)
     waitmovement(1)
@@ -60,8 +57,20 @@ movement ApproachDoor {
     face_up
 }
 
-movement Seethe {
+movement SeetheU {
     walk_in_place_fast_up * 2
+}
+
+movement SeetheD {
+    walk_in_place_fast_down * 2
+}
+
+movement SeetheL {
+    walk_in_place_fast_left * 2
+}
+
+movement SeetheR {
+    walk_in_place_fast_right * 2
 }
 
 movement MoveUp {
@@ -125,13 +134,13 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_CheckCleanup {
 //cleanup 1
 script MossdeepCity_ArrivalFerry_Room_EventScript_GoClean {
     lock
-    applymovement(1, Seethe)
+    applymovement(1, SeetheU)
     waitmovement(1)
     applymovement(OBJ_EVENT_ID_PLAYER, MoveUp)
     waitmovement(OBJ_EVENT_ID_PLAYER)
     msgbox(format("Not good enough! We won't depart until you have retrieved all of your belongings!"))
-    msgbox(format("Be grateful I am not making you carry out your trash. To be clear:"))
-    msgbox(format("MORE CLEANING!"))
+    msgbox(format("Be grateful I am not making us carry out our trash. To be clear:"))
+    msgbox(format("LET'S SEE SOME MORE CLEANING!"))
     waitmessage
     release
     end
@@ -140,7 +149,7 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_GoClean {
 //cleanup 2
 script MossdeepCity_ArrivalFerry_Room_EventScript_GoFind {
     lock
-    applymovement(1, Seethe)
+    applymovement(1, SeetheU)
     waitmovement(1)
     applymovement(OBJ_EVENT_ID_PLAYER, MoveUp)
     waitmovement(OBJ_EVENT_ID_PLAYER)
@@ -162,8 +171,8 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_Finished {
     msgbox(format("I'm sure you're eager to stretch your legs! Let's make tracks!"))
     waitmessage
     applymovement(1, Leave)
-    playfanfare(SE_DOOR)
-    waitfanfare
+    playse(SE_EXIT)
+    waitse
     waitmovement(1)
     setflag(FLAG_HIDE_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_ROOMMATE)
     removeobject(1)

@@ -1,1 +1,29 @@
-mapscripts MossdeepCity_HarborInterior_MapScripts {}
+mapscripts MossdeepCity_HarborInterior_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_SINNOH_FERRY_STATE, 0: MossdeepCity_HarborInterior_EventScript_Init
+
+    ]
+}
+
+
+script MossdeepCity_HarborInterior_EventScript_Init {
+    lockall
+    msgbox(format("Hello World"))
+
+    setvar(VAR_SINNOH_FERRY_STATE, 1)
+    releaseall
+    end
+}
+
+
+
+script MossdeepCity_HarborInterior_EventScript_FerryMan {
+    lockall
+    msgbox(format("Ahoy, {PLAYER}! Are you wanting to take the ferry?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("Where do you want to go?"))
+    }
+
+    releaseall
+    end
+}

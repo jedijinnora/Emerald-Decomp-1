@@ -1825,6 +1825,21 @@ const u8 gText_PokeBalls[] = _("POKé BALLS");
 const u8 gText_Berry[] = _("BERRY");
 const u8 gText_Berries[] = _("BERRIES");
 
+
+//ADDED STRINGS
+
+//Starter Multichoice
 const u8 gText_Turtwig[] = _("TURTWIG");
 const u8 gText_Chimchar[] = _("CHIMCHAR");
 const u8 gText_Piplup[] = _("PIPLUP");
+
+//Ferry Multichoices (many already exist for SS TIDAL)
+//const u8 gText_Dewford[] = _("DEWFORD"); already exists above
+const u8 gText_EverGrande[] = _("EVER GRANDE");
+//const u8 gText_Lilycove[] = _("LILYCOVE"); already exists above
+//const u8 gText_Littleroot[] = _("LITTLEROOT"); already exists above
+const u8 gText_Mossdeep[] = _("MOSSDEEP");
+const u8 gText_Rustboro[] = _("RUSTBORO");
+//const u8 gText_Slateport[] = _("SLATEPORT"); already exists above
+const u8 gText_Sootopolis[] = _("SOOTOPOLIS");
+//const u8 gText_SouthernIsland[] = _("SOUTHERN ISLAND"); already exists above

@@ -1,7 +1,30 @@
 mapscripts MossdeepCity_ArrivalFerry_MapScripts {}
 
 
+script MossdeepCity_ArrivalFerry_EventScript_Sailor {
+    lockall
+    applymovement(1, Face_Player)
+    msgbox(format("Ahoy, {PLAYER}! I hear we have you to thank for picking up that awful mess in Cabin 1!"))
+    msgbox(format("Are you and your cabin-mate ready to disembark the ferry?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        warp(MAP_MOSSDEEP_CITY_HARBOR_INTERIOR, -1, 8, 4)
+        releaseall
+        end
+    }
+    msgbox(format("Fine, fine, check back with me when you are ready to depart."))
+    releaseall
+    end
+}
 
+script MossdeepCity_ArrivalFerry_EventScript_Madman {
+    lockall
+    applymovement(2, SeetheL)
+    waitmovement(2)
+    msgbox(format("{PLAYER}! Let's talk to this crewman and head out to Mossdeep!"))
+    waitmessage
+    releaseall
+    end
+}
 
 
 
@@ -46,7 +69,10 @@ script MossdeepCity_ArrivalFerry_EventScript_Lass {
 
 script MossdeepCity_ArrivalFerry_EventScript_Executive {
     lockall
-    msgbox(format("What? Tell them that's utterly unacceptable! If they won't sell we can simply run them out of business!"))
+    if(!flag(FLAG_TEMP_8)) {
+         msgbox(format("What? Tell them that counter-offer is simply unacceptable! If they won't sell at my eminently reasonable price we will simply run them out of business!"))
+        setflag(FLAG_TEMP_8)
+    }
     applymovement(8, Face_Player)
     msgbox(format("Excuse me, I'm on the phone! Stop bothering me while I'm trying to give orders! The nerve!"))
     waitmessage

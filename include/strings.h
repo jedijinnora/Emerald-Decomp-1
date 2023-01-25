@@ -3032,9 +3032,23 @@ extern const u8 gText_PkmnsNickname[];
 extern const u8 gText_TellHimTheWords[];
 
 // Added Strings
+
+//Starter choice
 extern const u8 gText_Turtwig[];
 extern const u8 gText_Chimchar[];
 extern const u8 gText_Piplup[];
+
+//Ferry destinations
+//extern const u8 gText_Dewford[]; already exists above
+extern const u8 gText_EverGrande[];
+extern const u8 gText_Lilycove[];
+extern const u8 gText_Littleroot[];
+extern const u8 gText_Mossdeep[];
+extern const u8 gText_Rustboro[];
+//extern const u8 gText_Slateport[]; already exists above
+extern const u8 gText_Sootopolis[];
+//extern const u8 gText_SouthernIsland[]; already exists above
+
 
 
 #endif // GUARD_STRINGS_H
