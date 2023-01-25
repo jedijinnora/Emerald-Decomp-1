@@ -1656,6 +1656,9 @@ static void Task_WaitStopSurfing(u8 taskId)
 {
     struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
 
+    //Adds ground effects on dismount
+    playerObjEvent->triggerGroundEffectsOnMove = TRUE;
+
     if (ObjectEventClearHeldMovementIfFinished(playerObjEvent))
     {
         ObjectEventSetGraphicsId(playerObjEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
