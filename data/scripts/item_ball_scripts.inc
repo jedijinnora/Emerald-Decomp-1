@@ -5,19 +5,6 @@ Common_EventScript_FindItem::
 	end
 
 
-
-
-MossdeepCity_ArrivalFerry_Room_EventScript_ItemPotion::
-	finditem ITEM_POTION
-	end
-
-MossdeepCity_ArrivalFerry_Room_EventScript_ItemPokeBall::
-	finditem ITEM_POKE_BALL
-	end
-
-
-
-
 Route102_EventScript_ItemPotion::
 	finditem ITEM_POTION
 	end
@@ -340,10 +327,6 @@ RustboroCity_EventScript_ItemXDefend::
 
 LilycoveCity_EventScript_ItemMaxRepel::
 	finditem ITEM_MAX_REPEL
-	end
-
-MossdeepCity_EventScript_ItemNetBall::
-	finditem ITEM_NET_BALL
 	end
 
 PetalburgWoods_EventScript_ItemXAttack::
