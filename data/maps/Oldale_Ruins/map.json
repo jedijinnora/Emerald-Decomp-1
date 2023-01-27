@@ -1,0 +1,41 @@
+{
+  "id": "MAP_OLDALE_RUINS",
+  "name": "Oldale_Ruins",
+  "layout": "LAYOUT_OLDALE_RUINS",
+  "music": "MUS_SEALED_CHAMBER",
+  "region_map_section": "MAPSEC_OLDALE_RUINS",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_OLDALE_GLADE",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 5,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_OLDALE_GLADE",
+      "dest_warp_id": "3"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

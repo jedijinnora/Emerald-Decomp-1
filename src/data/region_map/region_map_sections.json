@@ -1719,6 +1719,22 @@
       "y": 9,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_VERDANT_FOREST",
+      "name": "VERDANT FOREST",
+      "x": 4,
+      "y": 7,
+      "width": 2,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_DEWFORD_RESORT",
+      "name": "",
+      "x": 1,
+      "y": 14,
+      "width": 1,
+      "height": 1
     }
   ]
 }

@@ -65,6 +65,8 @@
 #define MAP_UNDERWATER_ROUTE125 (56 | (0 << 8))
 #define MAP_EMERALD_CAPE        (57 | (0 << 8))
 #define MAP_POKEMON_LEAGUE      (58 | (0 << 8))
+#define MAP_DEWFORD_RESORT      (59 | (0 << 8))
+#define MAP_VERDANT_FOREST      (60 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -416,6 +418,7 @@
 #define MAP_ALTERING_CAVE                            (106 | (24 << 8))
 #define MAP_METEOR_FALLS_STEVENS_CAVE                (107 | (24 << 8))
 #define MAP_OLDALE_GLADE                             (108 | (24 << 8))
+#define MAP_OLDALE_RUINS                             (109 | (24 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (25 << 8))
@@ -606,6 +609,9 @@
 
 // gMapGroup_IndoorRoute124
 #define MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE (0 | (33 << 8))
+#define MAP_ROUTE124_OBSERVATORY_1F                (1 | (33 << 8))
+#define MAP_ROUTE124_HOUSE                         (2 | (33 << 8))
+#define MAP_ROUTE124_OBSERVATORY_2F                (3 | (33 << 8))
 
 #define MAP_GROUPS_COUNT 34
 

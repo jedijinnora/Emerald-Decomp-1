@@ -1083,3 +1083,15 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/MossdeepCity_ArrivalFerry/scripts.inc"
 
 	.include "data/maps/MossdeepCity_ArrivalFerry_Room/scripts.inc"
+
+	.include "data/maps/Oldale_Ruins/scripts.inc"
+
+	.include "data/maps/Route124_Observatory_1F/scripts.inc"
+
+	.include "data/maps/Route124_House/scripts.inc"
+
+	.include "data/maps/Route124_Observatory_2F/scripts.inc"
+
+	.include "data/maps/Dewford_Resort/scripts.inc"
+
+	.include "data/maps/Verdant_Forest/scripts.inc"

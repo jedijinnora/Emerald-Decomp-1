@@ -115,7 +115,7 @@
       "id": "LAYOUT_DEWFORD_TOWN",
       "name": "DewfordTown_Layout",
       "width": 20,
-      "height": 20,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/DewfordTown/border.bin",
@@ -145,7 +145,7 @@
       "id": "LAYOUT_VERDANTURF_TOWN",
       "name": "VerdanturfTown_Layout",
       "width": 20,
-      "height": 20,
+      "height": 24,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/VerdanturfTown/border.bin",
@@ -718,8 +718,8 @@
       "height": 7,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Contest",
-      "border_filepath": "data/layouts/FallarborTown_LeftoverRSContestLobby/border.bin",
-      "blockdata_filepath": "data/layouts/FallarborTown_LeftoverRSContestLobby/map.bin"
+      "border_filepath": "data/layouts/FallarborTown_LeftoverR\u0000\u0000\u0000\u0000testLobby/border.bin",
+      "blockdata_filepath": "data/layouts/FallarborTown_LeftoverR\u0000\u0000\u0000\u0000testLobby/map.bin"
     },
     {
       "id": "LAYOUT_FALLARBOR_TOWN_LEFTOVER_RSCONTEST_HALL",
@@ -4570,6 +4570,66 @@
       "secondary_tileset": "gTileset_InsideShip",
       "border_filepath": "data/layouts/MossdeepCity_ArrivalFerry_Room/border.bin",
       "blockdata_filepath": "data/layouts/MossdeepCity_ArrivalFerry_Room/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLDALE_RUINS",
+      "name": "Oldale_Ruins_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/Oldale_Ruins/border.bin",
+      "blockdata_filepath": "data/layouts/Oldale_Ruins/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE124_OBSERVATORY_1F",
+      "name": "Route124_Observatory_1F_Layout",
+      "width": 20,
+      "height": 16,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Route124_Observatory_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Route124_Observatory_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE124_HOUSE",
+      "name": "Route124_House_Layout",
+      "width": 12,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Route124_House/border.bin",
+      "blockdata_filepath": "data/layouts/Route124_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE124_OBSERVATORY_2F",
+      "name": "Route124_Observatory_2F_Layout",
+      "width": 20,
+      "height": 16,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/Route124_Observatory_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Route124_Observatory_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_RESORT",
+      "name": "Dewford_Resort_Layout",
+      "width": 60,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/Dewford_Resort/border.bin",
+      "blockdata_filepath": "data/layouts/Dewford_Resort/map.bin"
+    },
+    {
+      "id": "LAYOUT_VERDANT_FOREST",
+      "name": "Verdant_Forest_Layout",
+      "width": 70,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/Verdant_Forest/border.bin",
+      "blockdata_filepath": "data/layouts/Verdant_Forest/map.bin"
     }
   ]
 }

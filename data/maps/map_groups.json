@@ -95,7 +95,9 @@
     "Underwater_Route105",
     "Underwater_Route125",
     "EmeraldCape",
-    "PokemonLeague"
+    "PokemonLeague",
+    "Dewford_Resort",
+    "Verdant_Forest"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -446,7 +448,8 @@
     "TerraCave_End",
     "AlteringCave",
     "MeteorFalls_StevensCave",
-    "Oldale_Glade"
+    "Oldale_Glade",
+    "Oldale_Ruins"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",
@@ -636,6 +639,9 @@
     "Route119_House"
   ],
   "gMapGroup_IndoorRoute124": [
-    "Route124_DivingTreasureHuntersHouse"
+    "Route124_DivingTreasureHuntersHouse",
+    "Route124_Observatory_1F",
+    "Route124_House",
+    "Route124_Observatory_2F"
   ]
 }

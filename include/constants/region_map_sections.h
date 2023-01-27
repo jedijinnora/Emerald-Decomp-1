@@ -89,6 +89,7 @@
 #define MAPSEC_SKY_PILLAR                   0x55
 #define MAPSEC_SECRET_BASE                  0x56
 #define MAPSEC_DYNAMIC                      0x57
+
 #define MAPSEC_PALLET_TOWN                  0x58
 #define MAPSEC_VIRIDIAN_CITY                0x59
 #define MAPSEC_PEWTER_CITY                  0x5A
@@ -198,6 +199,7 @@
 #define MAPSEC_VIAPOIS_CHAMBER              0xC2
 #define MAPSEC_EMBER_SPA                    0xC3
 #define MAPSEC_SPECIAL_AREA                 0xC4
+
 #define MAPSEC_AQUA_HIDEOUT                 0xC5
 #define MAPSEC_MAGMA_HIDEOUT                0xC6
 #define MAPSEC_MIRAGE_TOWER                 0xC7
@@ -214,10 +216,14 @@
 #define MAPSEC_ALTERING_CAVE                0xD2
 #define MAPSEC_NAVEL_ROCK                   0xD3
 #define MAPSEC_TRAINER_HILL                 0xD4
+
 #define MAPSEC_OLDALE_RUINS                 0xD5
 #define MAPSEC_EMERALD_CAPE                 0xD6
 #define MAPSEC_POKEMON_LEAGUE               0xD7
-#define MAPSEC_NONE                         0xD8
+#define MAPSEC_DEWFORD_RESORT               0xD8
+#define MAPSEC_VERDANT_FOREST               0xD9
+
+#define MAPSEC_NONE                         0xDA
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

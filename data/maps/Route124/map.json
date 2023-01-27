@@ -42,8 +42,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 34,
-      "y": 25,
+      "x": 37,
+      "y": 34,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 5,
@@ -264,7 +264,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 26,
-      "y": 62,
+      "y": 61,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -307,14 +307,14 @@
       "x": 7,
       "y": 76,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE124",
+      "dest_map": "MAP_ROUTE124_HOUSE",
       "dest_warp_id": "0"
     },
     {
       "x": 18,
       "y": 72,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE124",
+      "dest_map": "MAP_ROUTE124_OBSERVATORY_1F",
       "dest_warp_id": "0"
     }
   ],
