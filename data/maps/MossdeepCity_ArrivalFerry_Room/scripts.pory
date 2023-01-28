@@ -4,39 +4,45 @@ mapscripts MossdeepCity_ArrivalFerry_Room_MapScripts {
     ] 
 }
 
+//Object IDs
+const ROOMMATE_ID = 1
+
+//TEMPs used
+//VAR_TEMP_1 and VAR_TEMP_2 for Player x,y determination
+
 script MossdeepCity_ArrivalFerry_Room_EventScript_Init {
     lock
     delay(60)
     setrespawn(HEAL_LOCATION_MOSSDEEP_CITY)
-    applymovement(1, Exclaim)
+    applymovement(ROOMMATE_ID, Exclaim)
     msgbox(format("Ah, the sleeper awakens! It feels like an eternity since you burst in here like a hurricane and fell straight asleep!"))
     msgbox(format("Consider yourself lucky that I am not such a boor to deny someone their beauty sleep..."))
-    applymovement(1, ApproachPlayer)
-    waitmovement(1)
-    applymovement(1, SeetheU)
-    waitmovement(1)
+    applymovement(ROOMMATE_ID, ApproachPlayer)
+    waitmovement(ROOMMATE_ID)
+    applymovement(ROOMMATE_ID, SeetheU)
+    waitmovement(ROOMMATE_ID)
     msgbox(format("But this is ridiculous! Zut alors! Look at all this rubbish! Get up!"))
     msgbox(format("You tossed your belongings all over our room in your sleep! I spent the whole trip from SINNOH shielding myself from your clumsy bombardment!"))
     msgbox(format("Who do you think is going to remedy the deplorable state of your side of this cabin, your mother?"))
     msgbox(format("I'm certain she is a woman of prodigious talent, but she is most definitely not present in our current locale!"))
     msgbox(format("I have my book and water and was ready to leave hours ago but here I am babying some layabout who thinks they are too important to respect other people's schedules!"))
     waitmessage
-    applymovement(1, SeetheU)
-    waitmovement(1)
+    applymovement(ROOMMATE_ID, SeetheU)
+    waitmovement(ROOMMATE_ID)
     msgbox(format("What? It's too early for this?"))
     waitmessage
-    applymovement(1, SeetheU)
-    waitmovement(1)
+    applymovement(ROOMMATE_ID, SeetheU)
+    waitmovement(ROOMMATE_ID)
     msgbox(format("Then let me speak in language even a buffoon like you shall comprehend:"))
-    applymovement(1, SeetheU)
-    waitmovement(1)
+    applymovement(ROOMMATE_ID, SeetheU)
+    waitmovement(ROOMMATE_ID)
     msgbox(format("PICK UP YOUR SHIT!"))
     waitmessage
-    applymovement(1, SeetheU)
-    waitmovement(1)
-    applymovement(1, ApproachDoor)
-    waitmovement(1)
-    setobjectxyperm(1, 5, 8)
+    applymovement(ROOMMATE_ID, SeetheU)
+    waitmovement(ROOMMATE_ID)
+    applymovement(ROOMMATE_ID, ApproachDoor)
+    waitmovement(ROOMMATE_ID)
+    setobjectxyperm(ROOMMATE_ID, 5, 8)
     setvar(VAR_CLEANUP_STATE, 1)
     release
     end
@@ -95,7 +101,7 @@ movement Face_Right {
 
 script MossdeepCity_ArrivalFerry_Room_EventScript_Madman {
     lock
-    applymovement(1, Face_Player)
+    applymovement(ROOMMATE_ID, Face_Player)
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
     if (var(VAR_TEMP_1) == 4) {
         applymovement(OBJ_EVENT_ID_PLAYER, Face_Right)
@@ -134,8 +140,8 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_CheckCleanup {
 //cleanup 1
 script MossdeepCity_ArrivalFerry_Room_EventScript_GoClean {
     lock
-    applymovement(1, SeetheU)
-    waitmovement(1)
+    applymovement(ROOMMATE_ID, SeetheU)
+    waitmovement(ROOMMATE_ID)
     applymovement(OBJ_EVENT_ID_PLAYER, MoveUp)
     waitmovement(OBJ_EVENT_ID_PLAYER)
     msgbox(format("Not good enough! We won't depart until you have retrieved all of your belongings!"))
@@ -149,8 +155,8 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_GoClean {
 //cleanup 2
 script MossdeepCity_ArrivalFerry_Room_EventScript_GoFind {
     lock
-    applymovement(1, SeetheU)
-    waitmovement(1)
+    applymovement(ROOMMATE_ID, SeetheU)
+    waitmovement(ROOMMATE_ID)
     applymovement(OBJ_EVENT_ID_PLAYER, MoveUp)
     waitmovement(OBJ_EVENT_ID_PLAYER)
     msgbox(format("What? You cannot think of anywhere else to clean?"))
@@ -170,12 +176,12 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_Finished {
     msgbox(format("Anyways, we've arrived at MOSSDEEP CITY. You mumbled something about coming to HOENN as an exchange student before you collapsed."))
     msgbox(format("I'm sure you're eager to stretch your legs! Let's make tracks!"))
     waitmessage
-    applymovement(1, Leave)
+    applymovement(ROOMMATE_ID, Leave)
     playse(SE_EXIT)
     waitse
-    waitmovement(1)
+    waitmovement(ROOMMATE_ID)
     setflag(FLAG_HIDE_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_ROOMMATE)
-    removeobject(1)
+    removeobject(ROOMMATE_ID)
     setvar(VAR_CLEANUP_STATE, 4)
     release
     end
@@ -293,7 +299,7 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_Bag {
     }
 
     //ending message
-    msgbox(format("With your first POKEMON back at your side you are ready to take on the world!"))
+    msgbox(format("With your first POKéMON back at your side you are ready to take on the world!"))
     msgbox(format("...Assuming you've cleaned up enough that the madman will let you out the door."))
     release
     end

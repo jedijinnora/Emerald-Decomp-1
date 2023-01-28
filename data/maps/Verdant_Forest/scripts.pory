@@ -1,1 +1,281 @@
-mapscripts Verdant_Forest_MapScripts {}
+mapscripts Verdant_Forest_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: VerdantForest_OnTransition
+}
+
+//Object IDs
+const WOMAN_ID = 6
+const LITTLE_GIRL_ID = 7
+const MANIAC_ID = 8
+
+//TEMPs used
+//VAR_TEMP_2 = Temptation level
+//VAR_TEMP_3 = Disturbance level
+//VAR_TEMP_4 = Guardian species
+//VAR_TEMP_5 = Guardian item
+//FLAG_TEMP_8 = Maniac intro
+//FLAG_TEMP_9 = Maniac defeated
+
+
+script VerdantForest_OnTransition {
+    setvar(VAR_TEMP_2, 0) 
+    setvar(VAR_TEMP_3, 0) 
+    random(10) //To determine which fairy is the Guardian
+    setvar(VAR_TEMP_5, ITEM_SITRUS_BERRY) 
+    switch(var(VAR_RESULT)) {
+        case 0: //WHIMSICOTT
+            setvar(VAR_TEMP_4, SPECIES_WHIMSICOTT)
+            setvar(VAR_TEMP_5, ITEM_FOCUS_SASH)
+        case 1: //GRIMMSNARL
+            setvar(VAR_TEMP_4, SPECIES_GRIMMSNARL)
+        case 2: //HATTERENE
+            setvar(VAR_TEMP_4, SPECIES_HATTERENE)
+            setvar(VAR_TEMP_5, ITEM_TWISTED_SPOON)
+        case 3: //RIBOMBEE
+            setvar(VAR_TEMP_4, SPECIES_RIBOMBEE)
+            setvar(VAR_TEMP_5, ITEM_SILVER_POWDER)
+        case 4: //SHIINOTIC
+            setvar(VAR_TEMP_4, SPECIES_SHIINOTIC)
+            setvar(VAR_TEMP_5, ITEM_KEBIA_BERRY)
+        case 5: //RAPIDASH-G
+            setvar(VAR_TEMP_4, SPECIES_RAPIDASH_GALARIAN)
+            setvar(VAR_TEMP_5, ITEM_LIECHI_BERRY)
+        case 6: //AROMATISSE
+            setvar(VAR_TEMP_4, SPECIES_AROMATISSE)
+        case 7: //SLURPUFF
+            setvar(VAR_TEMP_4, SPECIES_SLURPUFF)
+        case 8: //GRANBULL
+            setvar(VAR_TEMP_4, SPECIES_GRANBULL)
+            setvar(VAR_TEMP_5, ITEM_WHITE_HERB)
+        default: //FLORGES
+            setvar(VAR_TEMP_4, SPECIES_FLORGES)
+    }
+}
+
+script VerdantForest_EventScript_Maniac {
+    lockall
+    applymovement(MANIAC_ID, Face_Player)
+    goto_if_set(FLAG_TEMP_8, ResearchBattle)
+    msgbox(format("I'm studying the relationship between the BUG and FAIRY types."))
+    waitmessage
+    msgbox(format("It seems that POKéMON with the FAIRY type are weak against BUG-type attacks."))
+    waitmessage
+    setflag(FLAG_TEMP_8)
+    call_if_unset(FLAG_ITEM_VERDANT_FOREST_TANGA_BERRY, VerdantForest_EventScript_Tanga)
+    ResearchBattle:
+    call_if_unset(FLAG_TEMP_9, VerdantForest_EventScript_ResearchBattle)
+    releaseall
+    end
+}
+
+script VerdantForest_EventScript_Tanga {
+    giveitem(ITEM_TANGA_BERRY, 5)
+    setflag(FLAG_ITEM_VERDANT_FOREST_TANGA_BERRY)
+    msgbox(format("If you doubt me, take these for your FAIRY-type POKéMON and see for yourself."))
+    waitmessage
+    return
+}
+
+script VerdantForest_EventScript_ResearchBattle {
+    msgbox(format("Want to battle to help me further my research?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        msgbox(format("Hmph. Fine then. Go away."))
+        releaseall
+        end
+    }
+    //TODO: battle
+    setflag(FLAG_TEMP_9)
+    return
+}
+
+script VerdantForest_EventScript_LittleGirl {
+    lockall
+    applymovement(LITTLE_GIRL_ID, Face_Player)
+    msgbox(format("Puff, puff."))
+    waitmessage
+    msgbox(format("The other kids - puff - said the fairies can't get you - puff - if you don't stop - puff - moving."))
+    waitmessage
+    releaseall
+    end
+}
+
+script VerdantForest_EventScript_Woman {
+    lockall
+    applymovement(WOMAN_ID, Face_Player)
+    msgbox(format("This forest is peaceful as long as you don't trespass too far."))
+    waitmessage
+    if (var(VAR_TEMP_2) > 2) {
+        msgbox(format("Oh? You seem to have wandered further than you should..."))
+        waitmessage
+        if (var(VAR_TEMP_2) > 8) {
+            addvar(VAR_TEMP_3, 3)
+            msgbox(format("I can no longer help you. If you leave now misfortune might pass you by."))
+            waitmessage
+            releaseall
+            end
+        }
+        msgbox(format("Why don't you have a drink of water to clear your head?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == NO) {
+            addvar(VAR_TEMP_2, 1)
+            msgbox(format("Suit yourself."))
+            waitmessage
+        } else {
+            setvar(VAR_TEMP_2, 0)
+            addvar(VAR_TEMP_3, 4)
+            playfanfare(MUS_OBTAIN_BERRY)
+            waitfanfare
+            msgbox(format("You take a drink of tepid water..."))
+            waitmessage
+            msgbox(format("The world seems a little less bright. You're a bit sweaty."))
+            waitmessage
+        }
+    } else {
+        msgbox(format("I love the flowers here, though I never pick any. They're best admired from a distance."))
+        waitmessage
+    }
+    releaseall
+    end
+}
+
+script VerdantForest_EventScript_Flowerbox {
+    lockall
+    msgbox(format("A crate full of pretty flowers gathered by the people of VERDANTURF."))
+    releaseall
+    end
+}
+
+script VerdantForest_EventScript_FairyFlowerbox_Lower {
+    lockall
+    msgbox(format("The crate is full of beautifully cut flowers which seem fresh and perfectly preserved."))
+    if (var(VAR_TEMP_2) > 7) {
+        msgbox(format("You are overcome with the urge to take some for yourself!"))
+        goto(LowerTemptation)
+    }
+    msgbox(format("Will you take one of the blossoms?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        addvar(VAR_TEMP_2, 1)
+        msgbox(format("Probably a wise choice."))
+        call(Verdant_Forest_EventScript_Danger)
+        releaseall
+        end
+    }
+    LowerTemptation:
+    msgbox(format("You grab for a flower, but it crumbles to dust in your hand."))
+    playmoncry(SPECIES_FLOETTE, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    msgbox(format("An angry fae leaps forth to challenge you!"))
+    waitmessage
+    setwildbattle(SPECIES_FLOETTE, 25)
+    dowildbattle
+    setvar(VAR_TEMP_2, 0)
+    msgbox(format("The sweet smell of flowers is a little less cloying now."))
+    addvar(VAR_TEMP_3, 1)
+    releaseall
+    end
+}
+
+script VerdantForest_EventScript_FairyFlowerbox_Upper {
+    lockall
+    msgbox(format("The crate is full of artfully placed flowers which drip sweet pollen. Their intoxicating beauty tempts you."))
+    if (var(VAR_TEMP_2) > 7) {
+        msgbox(format("You are overcome with need!"))
+        goto(UpperTemptation)
+    }
+    msgbox(format("Will you take one of the blossoms?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        addvar(VAR_TEMP_2, 3)
+        msgbox(format("So pretty..."))
+        call(Verdant_Forest_EventScript_Danger)
+        releaseall
+        end
+    }
+    UpperTemptation:
+    msgbox(format("You dreamily raise a bloom to your face to inhale its sweet scent only to choke on a noxious cloud of ash."))
+    playmoncry(SPECIES_FLOETTE, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    msgbox(format("An enraged fae leaps forth to challenge you!"))
+    waitmessage
+    setwildbattle(SPECIES_FLOETTE, 35, ITEM_FAIRY_GEM)
+    dowildbattle
+    setvar(VAR_TEMP_2, 0)
+    msgbox(format("The sweet smell of flowers is a little less cloying now."))
+    addvar(VAR_TEMP_3, 2)
+    releaseall
+    end
+}
+
+script Verdant_Forest_EventScript_Danger {
+    if (var(VAR_TEMP_2) > 7) {
+        msgbox(format("It is agonizing to wrench your gaze away from the flowers. Perhaps that's enough temptation for today."))
+        waitmessage
+    }
+    return
+}
+
+script VerdantForest_EventScript_Quiet {
+    msgbox(format("With its protector vanquished, the Guardian's tree is silent. The forest watches you with quiet hatred."))
+    releaseall
+    end
+}
+
+script VerdantForest_EventScript_FaeTree {
+    lockall
+    call_if_set(FLAG_TEMP_1, VerdantForest_EventScript_Quiet)
+    msgbox(format("This tree is the center of the forest's energy."))
+    waitmessage
+    if (var(VAR_TEMP_3) > 11) {
+        msgbox(format("The attention upon you is overwhelming!"))
+        call(VerdantForest_EventScript_Guardian)
+    } elif (var(VAR_TEMP_3) > 7) {
+        msgbox(format("You feel cold despite the warm sun. The hair on the back of your neck tingles. Petals rustle and leaves fall. There is no breeze."))
+        addvar(VAR_TEMP_3, 3)
+        playmoncry(VAR_TEMP_4, CRY_MODE_ENCOUNTER)
+    } elif (var(VAR_TEMP_3) > 3) {
+        msgbox(format("You sense hostility from the flowers around you. Maybe it's best for you to go elsewhere."))
+        addvar(VAR_TEMP_3, 2)
+        playmoncry(SPECIES_FLOETTE, CRY_MODE_ENCOUNTER)
+    } else {
+        msgbox(format("Something is watching you curiously."))
+        addvar(VAR_TEMP_3, 1)
+        playmoncry(SPECIES_FLABEBE, CRY_MODE_ENCOUNTER)
+    }
+    releaseall
+    end
+}
+
+script VerdantForest_EventScript_Guardian {
+    msgbox(format("The guardian of the forest emerges to punish you!"))
+    call_if_unset(FLAG_ETERNAL_ENCOUNTERED, VerdantForest_EventScript_Eternal)    
+    GuardianFight:
+    playmoncry(VAR_TEMP_4, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 0, 1, 1)
+    setwildbattle(VAR_TEMP_4, 50, VAR_TEMP_5)
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    if ((var(VAR_RESULT) == B_OUTCOME_RAN) || (var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED)) {
+        msgbox(format("You cannot flee from the anger of the fae!"))
+        setvar(VAR_TEMP_5, ITEM_SITRUS_BERRY) //Prevent item farming
+        goto(GuardianFight)
+    }
+    setflag(FLAG_TEMP_1)
+    setvar(VAR_TEMP_2, 0)
+    setvar(VAR_TEMP_3, 0)
+    releaseall
+    end
+}
+
+script VerdantForest_EventScript_Eternal {
+    setflag(FLAG_ETERNAL_ENCOUNTERED)
+    playmoncry(SPECIES_FLOETTE_ETERNAL_FLOWER, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    delay(40)
+    msgbox(format("An eldritch wind is blowing!"))
+    waitmessage
+    playmoncry(SPECIES_FLOETTE_ETERNAL_FLOWER, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    setwildbattle(SPECIES_FLOETTE_ETERNAL_FLOWER, 50, ITEM_PIXIE_PLATE)
+    settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 1, 1, 1)
+    dowildbattle
+    releaseall
+    end
+}

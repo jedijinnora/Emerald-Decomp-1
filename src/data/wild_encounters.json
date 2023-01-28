@@ -12319,33 +12319,33 @@
             "encounter_rate": 0,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 2,
+                "max_level": 17,
                 "species": "SPECIES_CUTIEFLY"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 20,
                 "species": "SPECIES_PETILIL"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 20,
                 "species": "SPECIES_COTTONEE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 6,
+                "max_level": 13,
                 "species": "SPECIES_SPRITZEE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 6,
+                "max_level": 13,
                 "species": "SPECIES_SWIRLIX"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 2,
+                "max_level": 17,
                 "species": "SPECIES_FLABEBE"
               },
               {
@@ -12354,29 +12354,29 @@
                 "species": "SPECIES_CHIKORITA"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 20,
                 "species": "SPECIES_IMPIDIMP"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 12,
+                "max_level": 22,
                 "species": "SPECIES_CARNIVINE"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 9,
+                "max_level": 19,
                 "species": "SPECIES_PONYTA_GALARIAN"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 32,
+                "max_level": 39,
                 "species": "SPECIES_MORGREM"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_FLOETTE"
+                "min_level": 25,
+                "max_level": 32,
+                "species": "SPECIES_PHANTUMP"
               }
             ]
           },

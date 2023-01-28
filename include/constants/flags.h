@@ -664,19 +664,22 @@
 #define FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_POKEBLOCK_CASE   (FLAGS_ADDED_1_START + 0x07)
 #define FLAG_HIDE_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_ROOMMATE         (FLAGS_ADDED_1_START + 0x08)
 #define FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM_FRESH_WATER      (FLAGS_ADDED_1_START + 0x09)
+
 #define FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_LEMONADE              (FLAGS_ADDED_1_START + 0x0A)
+
 #define FLAG_ITEM_MOSSDEEP_CITY_RARE_CANDY                          (FLAGS_ADDED_1_START + 0x0B)
 #define FLAG_ITEM_MOSSDEEP_CITY_MAX_REVIVE                          (FLAGS_ADDED_1_START + 0x0C)
 #define FLAG_ITEM_MOSSDEEP_CITY_ELIXIR                              (FLAGS_ADDED_1_START + 0x0D)
-#define FLAG_UNUSED_0x272  0x272 // Unused Flag
-#define FLAG_UNUSED_0x273  0x273 // Unused Flag
-#define FLAG_UNUSED_0x274  0x274 // Unused Flag
-#define FLAG_UNUSED_0x275  0x275 // Unused Flag
-#define FLAG_UNUSED_0x276  0x276 // Unused Flag
-#define FLAG_UNUSED_0x277  0x277 // Unused Flag
-#define FLAG_UNUSED_0x278  0x278 // Unused Flag
-#define FLAG_UNUSED_0x279  0x279 // Unused Flag
-#define FLAG_UNUSED_0x27A  0x27A // Unused Flag
+
+#define FLAG_ETERNAL_ENCOUNTERED                                    (FLAGS_ADDED_1_START + 0x0E)
+#define FLAG_HIDE_VERDANT_FOREST_LITTLE_GIRL                        (FLAGS_ADDED_1_START + 0x0F)
+#define FLAG_ITEM_VERDANT_FOREST_TANGA_BERRY                        (FLAGS_ADDED_1_START + 0x10)
+#define FLAG_ITEM_VERDANT_FOREST_ELIXIR                             (FLAGS_ADDED_1_START + 0x11)
+#define FLAG_ITEM_VERDANT_FOREST_MAX_ETHER                          (FLAGS_ADDED_1_START + 0x12)
+#define FLAG_ITEM_VERDANT_FOREST_POKE_DOLL                          (FLAGS_ADDED_1_START + 0x13)
+#define FLAG_ITEM_VERDANT_FOREST_HONEY1                             (FLAGS_ADDED_1_START + 0x14)
+#define FLAG_ITEM_VERDANT_FOREST_HONEY2                             (FLAGS_ADDED_1_START + 0x15)
+#define FLAG_ITEM_VERDANT_FOREST_HONEY3                             (FLAGS_ADDED_1_START + 0x16)
 #define FLAG_UNUSED_0x27B  0x27B // Unused Flag
 #define FLAG_UNUSED_0x27C  0x27C // Unused Flag
 #define FLAG_UNUSED_0x27D  0x27D // Unused Flag
