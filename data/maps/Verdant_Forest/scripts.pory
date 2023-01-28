@@ -7,7 +7,7 @@ const WOMAN_ID = 6
 const LITTLE_GIRL_ID = 7
 const MANIAC_ID = 8
 
-//TEMPs used
+//TEMPs used:
 //VAR_TEMP_2 = Temptation level
 //VAR_TEMP_3 = Disturbance level
 //VAR_TEMP_4 = Guardian species
