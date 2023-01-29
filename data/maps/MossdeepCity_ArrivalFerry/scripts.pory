@@ -17,7 +17,7 @@ const MOM_ID = 10
 
 script MossdeepCity_ArrivalFerry_EventScript_Sailor {
     lockall
-    applymovement(SAILOR_ID, Face_Player)
+    applymovement(SAILOR_ID, Common_Movement_FacePlayer)
     msgbox(format("Ahoy, {PLAYER}! I hear we have you to thank for picking up that awful mess in Cabin 1!"))
     msgbox(format("Are you and your cabin-mate ready to disembark the ferry?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES) {
@@ -51,7 +51,7 @@ script MossdeepCity_ArrivalFerry_EventScript_Father {
 
 script MossdeepCity_ArrivalFerry_EventScript_LittleGirl {
     lockall
-    applymovement(LITTLE_GIRL_ID, Face_Player)
+    applymovement(LITTLE_GIRL_ID, Common_Movement_FacePlayer)
     msgbox(format("I hope we leave soon. I have to go potty!"))
     releaseall
     end
@@ -59,7 +59,7 @@ script MossdeepCity_ArrivalFerry_EventScript_LittleGirl {
 
 script MossdeepCity_ArrivalFerry_EventScript_Maniac {
     lockall
-    applymovement(MANIAC_ID, Face_Player)
+    applymovement(MANIAC_ID, Common_Movement_FacePlayer)
     msgbox(format("I can't wait to see the SPACE CENTER! I've been dying to visit their exhibition hall since I was a little boy watching shuttle launches on TV."))
     releaseall
     end
@@ -67,7 +67,7 @@ script MossdeepCity_ArrivalFerry_EventScript_Maniac {
 
 script MossdeepCity_ArrivalFerry_EventScript_Picnicker {
     lockall
-    applymovement(PICNICKER_ID, Face_Player)
+    applymovement(PICNICKER_ID, Common_Movement_FacePlayer)
     msgbox(format("Oh, no, please go right ahead. I haven't been waiting long to disembark or anything."))
     releaseall
     end
@@ -75,7 +75,7 @@ script MossdeepCity_ArrivalFerry_EventScript_Picnicker {
 
 script MossdeepCity_ArrivalFerry_EventScript_Lass {
     lockall
-    applymovement(LASS_ID, Face_Player)
+    applymovement(LASS_ID, Common_Movement_FacePlayer)
     msgbox(format("What kind of POKéMON are you looking to find in HOENN? I'm thinking of trying to catch a NATU in MOSSDEEP before traveling further."))
     releaseall
     end
@@ -87,10 +87,10 @@ script MossdeepCity_ArrivalFerry_EventScript_Executive {
          msgbox(format("What? Tell them that counter-offer is simply unacceptable! If they won't sell at my eminently reasonable price we will simply run them out of business!"))
         setflag(FLAG_TEMP_8)
     }
-    applymovement(EXECUTIVE_ID, Face_Player)
+    applymovement(EXECUTIVE_ID, Common_Movement_FacePlayer)
     msgbox(format("Excuse me, I'm on the phone! Stop bothering me while I'm trying to give orders! The nerve!"))
     waitmessage
-    applymovement(EXECUTIVE_ID, Face_Left)
+    applymovement(EXECUTIVE_ID, Common_Movement_FaceLeft)
     waitmovement(EXECUTIVE_ID)
     releaseall
     end
@@ -98,7 +98,7 @@ script MossdeepCity_ArrivalFerry_EventScript_Executive {
 
 script MossdeepCity_ArrivalFerry_EventScript_Ace {
     lockall
-    applymovement(ACE_ID, Face_Player)
+    applymovement(ACE_ID, Common_Movement_FacePlayer)
     msgbox(format("I came to HOENN to run the gym circuit here after getting six badges in SINNOH. It's a great opportunity to catch some rare POKéMON before I prep my team for an Elite Four challenge."))
     msgbox(format("I kind of regret taking the ferry with my uncle though. He keeps shouting into his phone all day about 'market share' and 'alpha'. That's what I get for traveling with family."))
     releaseall
@@ -119,7 +119,7 @@ script MossdeepCity_ArrivalFerry_EventScript_Lemonade {
 
 script MossdeepCity_ArrivalFerry_EventScript_Mom {
     lockall
-    applymovement(MOM_ID, Face_Player)
+    applymovement(MOM_ID, Common_Movement_FacePlayer)
     if (flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_LEMONADE)) {
         goto(VitaminC)
     }

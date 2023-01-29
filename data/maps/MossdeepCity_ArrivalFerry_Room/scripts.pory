@@ -15,7 +15,7 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_Init {
     delay(60)
     setrespawn(HEAL_LOCATION_MOSSDEEP_CITY)
     setvar(VAR_PAINTER_STATE, 1)
-    applymovement(ROOMMATE_ID, Exclaim)
+    applymovement(ROOMMATE_ID, Common_Movement_ExclamationMark)
     msgbox(format("Ah, the sleeper awakens! It feels like an eternity since you burst in here like a hurricane and fell straight asleep!"))
     msgbox(format("Consider yourself lucky that I am not such a boor to deny someone their beauty sleep..."))
     applymovement(ROOMMATE_ID, ApproachPlayer)
@@ -47,10 +47,6 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_Init {
     setvar(VAR_CLEANUP_STATE, 1)
     release
     end
-}
-
-movement Exclaim {
-    emote_exclamation_mark
 }
 
 movement ApproachPlayer {
@@ -88,24 +84,12 @@ movement Leave {
     walk_in_place_down
 }
 
-movement Face_Player {
-    face_player
-}
-
-movement Face_Left {
-    face_left
-}
-
-movement Face_Right {
-    face_right
-}
-
 script MossdeepCity_ArrivalFerry_Room_EventScript_Madman {
     lock
-    applymovement(ROOMMATE_ID, Face_Player)
+    applymovement(ROOMMATE_ID, Common_Movement_FacePlayer)
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
     if (var(VAR_TEMP_1) == 4) {
-        applymovement(OBJ_EVENT_ID_PLAYER, Face_Right)
+        applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
         waitmovement(OBJ_EVENT_ID_PLAYER)
     }
 

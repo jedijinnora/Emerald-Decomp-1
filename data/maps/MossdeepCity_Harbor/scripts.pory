@@ -6,7 +6,7 @@ const PAINTER_ID = 4
 
 script MossdeepCity_Harbor_EventScript_Sailor {
     lockall
-    applymovement(SAILOR_ID, Face_Player)
+    applymovement(SAILOR_ID, Common_Movement_FacePlayer)
     msgbox(format("The ferry system is fantastic! If you don't want to sail the waves yourself, you can come back to the harbor and catch a ride to any port in HOENN."))
     waitmessage
     releaseall
@@ -48,7 +48,7 @@ movement FromRight {
 
 script MossdeepCity_Harbor_EventScript_ApproachLeft {
     lockall
-    applymovement(PAINTER_ID, Exclaim)
+    applymovement(PAINTER_ID, Common_Movement_ExclamationMark)
     waitmovement(PAINTER_ID)
     applymovement(PAINTER_ID, ToLeft)
     waitmovement(PAINTER_ID)
@@ -61,7 +61,7 @@ script MossdeepCity_Harbor_EventScript_ApproachLeft {
 
 script MossdeepCity_Harbor_EventScript_ApproachCenter {
     lockall
-    applymovement(PAINTER_ID, Exclaim)
+    applymovement(PAINTER_ID, Common_Movement_ExclamationMark)
     waitmovement(PAINTER_ID)
     applymovement(PAINTER_ID, ToCenter)
     waitmovement(PAINTER_ID)
@@ -74,7 +74,7 @@ script MossdeepCity_Harbor_EventScript_ApproachCenter {
 
 script MossdeepCity_Harbor_EventScript_ApproachRight {
     lockall
-    applymovement(PAINTER_ID, Exclaim)
+    applymovement(PAINTER_ID, Common_Movement_ExclamationMark)
     waitmovement(PAINTER_ID)
     applymovement(PAINTER_ID, ToRight)
     waitmovement(PAINTER_ID)
@@ -115,7 +115,7 @@ script MossdeepCity_Harbor_EventScript_ArtSpeech {
     msgbox(format("I speak, of course of you! What changes shall you bring to our world?"))
     msgbox(format("Are you a hero, a conqueror, a humble explorer, or the avatar of some far-off god...?"))
     msgbox(format("The possibilities are endless."))
-    applymovement(PAINTER_ID, Exclaim)
+    applymovement(PAINTER_ID, Common_Movement_ExclamationMark)
     msgbox(format("Oh, I'm so sorry, I got caught up in my imagination.")) 
     msgbox(format("Your arrival inspired the finishing touches to a painting I have been stuck on for days. I hope you don't mind my rambling."))
     msgbox(format("I like to fancy myself a painter and poet both. My name is Wren. Like you, I am a newcomer to HOENN."))
@@ -129,7 +129,7 @@ script MossdeepCity_Harbor_EventScript_ArtSpeech {
 
 script MossdeepCity_Harbor_EventScript_Painter {
     lockall
-    applymovement(PAINTER_ID, Face_Player)
+    applymovement(PAINTER_ID, Common_Movement_FacePlayer)
     msgbox(format("Once I finish painting here..."))
     msgbox(format("I have heard tales of a cave to the north, where certain caverns are accessible during the low tide."))
     msgbox(format("I think I will explore its secrets for myself, and then find a place nearby that inspires my soul."))
