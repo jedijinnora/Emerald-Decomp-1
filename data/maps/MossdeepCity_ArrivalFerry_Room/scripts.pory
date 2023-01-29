@@ -14,6 +14,7 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_Init {
     lock
     delay(60)
     setrespawn(HEAL_LOCATION_MOSSDEEP_CITY)
+    setvar(VAR_PAINTER_STATE, 1)
     applymovement(ROOMMATE_ID, Exclaim)
     msgbox(format("Ah, the sleeper awakens! It feels like an eternity since you burst in here like a hurricane and fell straight asleep!"))
     msgbox(format("Consider yourself lucky that I am not such a boor to deny someone their beauty sleep..."))
