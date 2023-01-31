@@ -9,6 +9,7 @@
     "gMapGroup_IndoorFallarbor",
     "gMapGroup_IndoorVerdanturf",
     "gMapGroup_IndoorPacifidlog",
+    "gMapGroup_IndoorMeteor",
     "gMapGroup_IndoorPetalburg",
     "gMapGroup_IndoorSlateport",
     "gMapGroup_IndoorMauville",
@@ -172,6 +173,9 @@
     "PacifidlogTown_House3",
     "PacifidlogTown_House4",
     "PacifidlogTown_House5"
+  ],
+  "gMapGroup_IndoorMeteor": [
+
   ],
   "gMapGroup_IndoorPetalburg": [
     "PetalburgCity_WallysHouse",
