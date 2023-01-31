@@ -4630,6 +4630,66 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Verdant_Forest/border.bin",
       "blockdata_filepath": "data/layouts/Verdant_Forest/map.bin"
+    },
+    {
+      "id": "LAYOUT_CROSSGATE_HILLS",
+      "name": "CrossgateHills_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/CrossgateHills/border.bin",
+      "blockdata_filepath": "data/layouts/CrossgateHills/map.bin"
+    },
+    {
+      "id": "LAYOUT_LITTLEROOT_SHORE",
+      "name": "LittlerootShore_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/LittlerootShore/border.bin",
+      "blockdata_filepath": "data/layouts/LittlerootShore/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEWDROP_GLEN",
+      "name": "DewdropGlen_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/DewdropGlen/border.bin",
+      "blockdata_filepath": "data/layouts/DewdropGlen/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEAFOAM_COVE_1F",
+      "name": "SeafoamCove_1F_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/SeafoamCove_1F/border.bin",
+      "blockdata_filepath": "data/layouts/SeafoamCove_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_FORINA",
+      "name": "Forina_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/Forina/border.bin",
+      "blockdata_filepath": "data/layouts/Forina/map.bin"
+    },
+    {
+      "id": "LAYOUT_METEOR_VILLAGE",
+      "name": "MeteorVillage_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fallarbor",
+      "border_filepath": "data/layouts/MeteorVillage/border.bin",
+      "blockdata_filepath": "data/layouts/MeteorVillage/map.bin"
     }
   ]
 }

@@ -1095,3 +1095,15 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Dewford_Resort/scripts.inc"
 
 	.include "data/maps/Verdant_Forest/scripts.inc"
+
+	.include "data/maps/CrossgateHills/scripts.inc"
+
+	.include "data/maps/LittlerootShore/scripts.inc"
+
+	.include "data/maps/DewdropGlen/scripts.inc"
+
+	.include "data/maps/SeafoamCove_1F/scripts.inc"
+
+	.include "data/maps/Forina/scripts.inc"
+
+	.include "data/maps/MeteorVillage/scripts.inc"

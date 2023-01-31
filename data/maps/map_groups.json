@@ -97,7 +97,12 @@
     "EmeraldCape",
     "PokemonLeague",
     "Dewford_Resort",
-    "Verdant_Forest"
+    "Verdant_Forest",
+    "CrossgateHills",
+    "LittlerootShore",
+    "DewdropGlen",
+    "Forina",
+    "MeteorVillage"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -449,7 +454,8 @@
     "AlteringCave",
     "MeteorFalls_StevensCave",
     "Oldale_Glade",
-    "Oldale_Ruins"
+    "Oldale_Ruins",
+    "SeafoamCove_1F"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

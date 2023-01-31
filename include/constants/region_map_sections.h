@@ -65,9 +65,9 @@
 #define MAPSEC_ABANDONED_SHIP               0x3D
 #define MAPSEC_NEW_MAUVILLE                 0x3E
 #define MAPSEC_METEOR_FALLS                 0x3F
-#define MAPSEC_METEOR_FALLS2                0x40
+#define MAPSEC_METEOR_VILLAGE             0x40
 #define MAPSEC_MT_PYRE                      0x41
-#define MAPSEC_AQUA_HIDEOUT_OLD             0x42
+#define MAPSEC_CROSSGATE_HILLS              0x42
 #define MAPSEC_SHOAL_CAVE                   0x43
 #define MAPSEC_SEAFLOOR_CAVERN              0x44
 #define MAPSEC_UNDERWATER_SEAFLOOR_CAVERN   0x45
@@ -76,9 +76,9 @@
 #define MAPSEC_CAVE_OF_ORIGIN               0x48
 #define MAPSEC_SOUTHERN_ISLAND              0x49
 #define MAPSEC_FIERY_PATH                   0x4A
-#define MAPSEC_FIERY_PATH2                  0x4B
+#define MAPSEC_LITTLEROOT_SHORE             0x4B
 #define MAPSEC_JAGGED_PASS                  0x4C
-#define MAPSEC_JAGGED_PASS2                 0x4D
+#define MAPSEC_DEWDROP_GLEN                 0x4D
 #define MAPSEC_SEALED_CHAMBER               0x4E
 #define MAPSEC_UNDERWATER_SEALED_CHAMBER    0x4F
 #define MAPSEC_SCORCHED_SLAB                0x50
@@ -222,8 +222,14 @@
 #define MAPSEC_POKEMON_LEAGUE               0xD7
 #define MAPSEC_DEWFORD_RESORT               0xD8
 #define MAPSEC_VERDANT_FOREST               0xD9
+#define MAPSEC_MOSSDEEP_CAVERNS             0xDA
+#define MAPSEC_VALLEY_OF_STEEL              0xDB
+#define MAPSEC_SANDSWEPT_DESERT             0xDC
+#define MAPSEC_FORINA                       0xDD
+#define MAPSEC_SEAFOAM_COVE                 0xDE
+#define MAPSEC_SLATEPORT_BEACH              0xDF
 
-#define MAPSEC_NONE                         0xDA
+#define MAPSEC_NONE                         0xDF
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

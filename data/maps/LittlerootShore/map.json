@@ -1,0 +1,39 @@
+{
+  "id": "MAP_LITTLEROOT_SHORE",
+  "name": "LittlerootShore",
+  "layout": "LAYOUT_LITTLEROOT_SHORE",
+  "music": "MUS_ROUTE120",
+  "region_map_section": "MAPSEC_LITTLEROOT_SHORE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_DEWDROP_GLEN",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE107",
+      "offset": -13,
+      "direction": "down"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

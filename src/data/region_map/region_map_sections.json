@@ -513,26 +513,10 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_METEOR_FALLS2",
-      "name": "METEOR FALLS",
-      "x": 1,
-      "y": 2,
-      "width": 1,
-      "height": 1
-    },
-    {
       "map_section": "MAPSEC_MT_PYRE",
       "name": "MT. PYRE",
       "x": 16,
       "y": 4,
-      "width": 1,
-      "height": 1
-    },
-    {
-      "map_section": "MAPSEC_AQUA_HIDEOUT_OLD",
-      "name": "{AQUA} HIDEOUT",
-      "x": 19,
-      "y": 3,
       "width": 1,
       "height": 1
     },
@@ -601,26 +585,10 @@
       "height": 1
     },
     {
-      "map_section": "MAPSEC_FIERY_PATH2",
-      "name": "FIERY PATH",
-      "x": 7,
-      "y": 3,
-      "width": 1,
-      "height": 1
-    },
-    {
       "map_section": "MAPSEC_JAGGED_PASS",
       "name": "JAGGED PASS",
       "x": 6,
       "y": 3,
-      "width": 1,
-      "height": 1
-    },
-    {
-      "map_section": "MAPSEC_JAGGED_PASS2",
-      "name": "JAGGED PASS",
-      "x": 7,
-      "y": 2,
       "width": 1,
       "height": 1
     },
@@ -684,7 +652,7 @@
       "map_section": "MAPSEC_SKY_PILLAR",
       "name": "SKY PILLAR",
       "x": 19,
-      "y": 10,
+      "y": 9,
       "width": 1,
       "height": 1
     },
@@ -1730,7 +1698,7 @@
     },
     {
       "map_section": "MAPSEC_DEWFORD_RESORT",
-      "name": "",
+      "name": "DEWFORD RESORT",
       "x": 1,
       "y": 14,
       "width": 1,
