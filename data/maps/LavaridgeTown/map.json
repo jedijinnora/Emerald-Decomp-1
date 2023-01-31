@@ -22,7 +22,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
-      "x": 8,
+      "x": 20,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -35,7 +35,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-      "x": 5,
+      "x": 17,
       "y": 1,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -48,7 +48,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
-      "x": 5,
+      "x": 17,
       "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -61,7 +61,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
-      "x": 10,
+      "x": 22,
       "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
@@ -74,7 +74,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN",
-      "x": 4,
+      "x": 16,
       "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
@@ -87,7 +87,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN",
-      "x": 5,
+      "x": 17,
       "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
@@ -100,7 +100,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_3",
-      "x": 6,
+      "x": 17,
       "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -113,7 +113,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
-      "x": 12,
+      "x": 24,
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -126,7 +126,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
-      "x": 4,
+      "x": 16,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -140,42 +140,42 @@
   ],
   "warp_events": [
     {
-      "x": 12,
+      "x": 24,
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_HERB_SHOP",
       "dest_warp_id": "0"
     },
     {
-      "x": 5,
+      "x": 17,
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_GYM_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 15,
+      "x": 27,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_MART",
       "dest_warp_id": "0"
     },
     {
-      "x": 9,
+      "x": 21,
       "y": 6,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 16,
+      "x": 28,
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_HOUSE",
       "dest_warp_id": "0"
     },
     {
-      "x": 9,
+      "x": 21,
       "y": 2,
       "elevation": 3,
       "dest_map": "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
@@ -185,7 +185,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 6,
+      "x": 18,
       "y": 3,
       "elevation": 3,
       "var": "TRIGGER_RUN_IMMEDIATELY",
@@ -196,7 +196,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 14,
+      "x": 26,
       "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -204,7 +204,7 @@
     },
     {
       "type": "sign",
-      "x": 7,
+      "x": 19,
       "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -212,7 +212,7 @@
     },
     {
       "type": "sign",
-      "x": 17,
+      "x": 29,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -220,7 +220,7 @@
     },
     {
       "type": "sign",
-      "x": 13,
+      "x": 25,
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -228,7 +228,7 @@
     },
     {
       "type": "sign",
-      "x": 10,
+      "x": 22,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -236,7 +236,7 @@
     },
     {
       "type": "sign",
-      "x": 16,
+      "x": 28,
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -244,7 +244,7 @@
     },
     {
       "type": "sign",
-      "x": 11,
+      "x": 23,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -252,7 +252,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 4,
+      "x": 16,
       "y": 5,
       "elevation": 3,
       "item": "ITEM_ICE_HEAL",

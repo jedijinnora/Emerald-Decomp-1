@@ -1107,3 +1107,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Forina/scripts.inc"
 
 	.include "data/maps/MeteorVillage/scripts.inc"
+
+	.include "data/maps/ValleyOfSteel/scripts.inc"
