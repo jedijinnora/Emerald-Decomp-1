@@ -1706,11 +1706,35 @@
     },
     {
       "map_section": "MAPSEC_METEOR_VILLAGE",
-      "name": "",
+      "name": "METEOR VILLAGE",
       "x": 1,
       "y": 3,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_FORINA",
+      "name": "FORINA",
+      "x": 2,
+      "y": 3,
+      "width": 3,
+      "height": 2
+    },
+    {
+      "map_section": "MAPSEC_MILLENNIUM_FIELD",
+      "name": "MILLENNIUM FIELD",
+      "x": 3,
+      "y": 2,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_VALLEY_OF_STEEL",
+      "name": "VALLEY OF STEEL",
+      "x": 5,
+      "y": 4,
+      "width": 2,
+      "height": 2
     }
   ]
 }

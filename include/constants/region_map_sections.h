@@ -228,8 +228,9 @@
 #define MAPSEC_FORINA                       0xDD
 #define MAPSEC_SEAFOAM_COVE                 0xDE
 #define MAPSEC_SLATEPORT_BEACH              0xDF
+#define MAPSEC_MILLENNIUM_FIELD             0xE0
 
-#define MAPSEC_NONE                         0xDF
+#define MAPSEC_NONE                         0xE1
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

@@ -73,6 +73,7 @@
 #define MAP_FORINA              (64 | (0 << 8))
 #define MAP_METEOR_VILLAGE      (65 | (0 << 8))
 #define MAP_VALLEY_OF_STEEL     (66 | (0 << 8))
+#define MAP_MILLENNIUM_FIELD    (67 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))

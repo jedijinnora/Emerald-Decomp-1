@@ -4674,7 +4674,7 @@
     {
       "id": "LAYOUT_FORINA",
       "name": "Forina_Layout",
-      "width": 120,
+      "width": 90,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fallarbor",
@@ -4685,7 +4685,7 @@
       "id": "LAYOUT_METEOR_VILLAGE",
       "name": "MeteorVillage_Layout",
       "width": 40,
-      "height": 40,
+      "height": 48,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/MeteorVillage/border.bin",
@@ -4694,12 +4694,22 @@
     {
       "id": "LAYOUT_VALLEY_OF_STEEL",
       "name": "ValleyOfSteel_Layout",
-      "width": 60,
+      "width": 40,
       "height": 60,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/ValleyOfSteel/border.bin",
       "blockdata_filepath": "data/layouts/ValleyOfSteel/map.bin"
+    },
+    {
+      "id": "LAYOUT_MILLENNIUM_FIELD",
+      "name": "MillenniumField_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/MillenniumField/border.bin",
+      "blockdata_filepath": "data/layouts/MillenniumField/map.bin"
     }
   ]
 }
