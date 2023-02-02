@@ -4704,8 +4704,8 @@
     {
       "id": "LAYOUT_MILLENNIUM_FIELD",
       "name": "MillenniumField_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 40,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/MillenniumField/border.bin",

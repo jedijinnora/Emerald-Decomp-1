@@ -12971,6 +12971,75 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_MILLENNIUM_FIELD",
+          "base_label": "gMillenniumField0",
+          "land_mons": {
+            "encounter_rate": 30,
+            "mons": [
+              {
+                "min_level": 6,
+                "max_level": 21,
+                "species": "SPECIES_MEOWTH"
+              },
+              {
+                "min_level": 7,
+                "max_level": 21,
+                "species": "SPECIES_SKITTY"
+              },
+              {
+                "min_level": 6,
+                "max_level": 21,
+                "species": "SPECIES_MEOWTH_GALARIAN"
+              },
+              {
+                "min_level": 6,
+                "max_level": 21,
+                "species": "SPECIES_ROOKIDEE"
+              },
+              {
+                "min_level": 8,
+                "max_level": 26,
+                "species": "SPECIES_DEERLING_AUTUMN"
+              },
+              {
+                "min_level": 7,
+                "max_level": 17,
+                "species": "SPECIES_CHINGLING"
+              },
+              {
+                "min_level": 6,
+                "max_level": 21,
+                "species": "SPECIES_MEOWTH_ALOLAN"
+              },
+              {
+                "min_level": 11,
+                "max_level": 33,
+                "species": "SPECIES_MINIOR"
+              },
+              {
+                "min_level": 11,
+                "max_level": 33,
+                "species": "SPECIES_SOLROCK"
+              },
+              {
+                "min_level": 11,
+                "max_level": 33,
+                "species": "SPECIES_LUNATONE"
+              },
+              {
+                "min_level": 7,
+                "max_level": 21,
+                "species": "SPECIES_EEVEE"
+              },
+              {
+                "min_level": 7,
+                "max_level": 21,
+                "species": "SPECIES_ESPURR"
+              }
+            ]
+          }
         }
       ]
     },
