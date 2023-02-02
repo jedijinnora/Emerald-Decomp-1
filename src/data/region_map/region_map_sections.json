@@ -1735,6 +1735,14 @@
       "y": 4,
       "width": 2,
       "height": 2
+    },
+    {
+      "map_section": "MAPSEC_DEWDROP_GLEN",
+      "name": "DEWDROP GLEN",
+      "x": 4,
+      "y": 12,
+      "width": 1,
+      "height": 1
     }
   ]
 }

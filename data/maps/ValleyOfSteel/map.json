@@ -19,11 +19,6 @@
       "direction": "down"
     },
     {
-      "map": "MAP_FORINA",
-      "offset": -12,
-      "direction": "left"
-    },
-    {
       "map": "MAP_LAVARIDGE_TOWN",
       "offset": 0,
       "direction": "up"
