@@ -22,6 +22,11 @@
       "map": "MAP_LAVARIDGE_TOWN",
       "offset": 0,
       "direction": "up"
+    },
+    {
+      "map": "MAP_FORINA",
+      "offset": -20,
+      "direction": "left"
     }
   ],
   "object_events": [
