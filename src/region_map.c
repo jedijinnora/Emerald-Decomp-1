@@ -1831,13 +1831,18 @@ static void LoadFlyDestIcons(void)
 #define sIconMapSec   data[0]
 #define sFlickerTimer data[1]
 
+/*
+    Jinnora: Need to fix/mess with the Ever Grande part of the map, it looks
+    a little weird with the pink dots over the city. It's functional though 
+    and I'd rather not have to mess with the multi-name code
+*/
 static void CreateFlyDestIcons(void)
 {
     u16 canFlyFlag;
     u16 mapSecId;
     u16 x;
     u16 y;
-    u16 i;
+    u16 i; //Jinnora: used for additional locations loop
     u16 width;
     u16 height;
     u16 shape;
@@ -1873,7 +1878,7 @@ static void CreateFlyDestIcons(void)
         canFlyFlag++;
     }
 
-    //Jinnora: adding a second loop to try to handle additional locations
+    //Jinnora: adding a second loop to handle additional locations
     for (i = 0; i < 3; i++) {
         switch(i) {
             case 0: //Meteor Village
