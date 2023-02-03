@@ -1,1 +1,252 @@
-mapscripts MillenniumField_MapScripts {}
+mapscripts MillenniumField_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: MillenniumField_EventScript_OnTransition
+}
+
+//Object IDs:
+const PIKACHU_ID = 5
+const TRIATHLETE_M_ID = 6
+const EXPERT_F_ID = 7
+const COOK_ID = 8
+const PICNICKER_ID = 9
+const LITTLE_GIRL_1_ID = 10
+const WOMAN_1_ID = 11
+const EXPERT_M_ID = 12
+const KECLEON_ID = 13  //x0y30 starting place
+const NINJA_BOY_ID = 14
+const POKEFAN_ID = 15
+const MOM_ID = 16
+const SKITTY_ID = 17
+const LITTLE_GIRL_2_ID = 18
+const MAN_ID = 20
+const TRIATHLETE_F_ID = 21
+
+//TEMPs Used:
+//VAR_TEMP_1 = Pikachu item
+//VAR_TEMP_2 = Kecleon item
+//VAR_TEMP_3 = Kecleon successes
+//VAR_TEMP_4 = Kecleon spot
+
+script MillenniumField_EventScript_OnTransition {
+    call(MillenniumField_EventScript_ResetPikachu)
+    call(MillenniumField_EventScript_ResetKecleon)
+    end
+}
+
+script MillenniumField_EventScript_ResetPikachu {
+    random(100)
+    if (var(VAR_RESULT) < 32) {
+         setvar(VAR_TEMP_1, ITEM_LAVA_COOKIE)
+    } elif (var(VAR_RESULT) < 64) {
+        setvar(VAR_TEMP_1, ITEM_FLUFFY_TAIL)
+    } elif (var(VAR_RESULT) < 72) {
+        setvar(VAR_TEMP_1, ITEM_LIGHT_BALL)
+    } elif (var(VAR_RESULT) < 80) {
+        setvar(VAR_TEMP_1, ITEM_STAR_PIECE)
+    } elif (var(VAR_RESULT) < 89) {
+        setvar(VAR_TEMP_1, ITEM_PP_UP)
+    } elif (var(VAR_RESULT) < 93) {
+        setvar(VAR_TEMP_1, ITEM_BOTTLE_CAP)
+    } elif (var(VAR_RESULT) < 96) {
+        setvar(VAR_TEMP_1, ITEM_PP_MAX)
+    } elif (var(VAR_RESULT) < 99) {
+        setvar(VAR_TEMP_1, ITEM_COMET_SHARD)
+    } else {
+        setvar(VAR_TEMP_1, ITEM_GOLD_BOTTLE_CAP)
+    }
+    return
+}
+
+script MillenniumField_EventScript_ResetKecleon {
+    setobjectxyperm(KECLEON_ID, 0, 30)
+    random(12)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            setvar(VAR_TEMP_2, ITEM_BERRY_JUICE)
+        case 1:
+            setvar(VAR_TEMP_2, ITEM_AIR_BALLOON)
+        case 2:
+            setvar(VAR_TEMP_2, ITEM_EJECT_BUTTON)
+        case 3:
+            setvar(VAR_TEMP_2, ITEM_EJECT_PACK)
+        case 4:
+            setvar(VAR_TEMP_2, ITEM_EXPERT_BELT)
+        case 5:
+            setvar(VAR_TEMP_2, ITEM_FOCUS_SASH)
+        case 6:
+            setvar(VAR_TEMP_2, ITEM_SMOKE_BALL)
+        case 7:
+            setvar(VAR_TEMP_2, ITEM_RING_TARGET)
+        case 8:
+            setvar(VAR_TEMP_2, ITEM_QUICK_CLAW)
+        case 9:
+            setvar(VAR_TEMP_2, ITEM_MENTAL_HERB)
+        case 10:
+            setvar(VAR_TEMP_2, ITEM_RED_CARD)
+        default:
+            setvar(VAR_TEMP_2, ITEM_LUCKY_EGG)
+    }
+    return
+}
+
+//Pikachu will hand out a daily party favor randomly chosen:
+//0-31: Lava cookie
+//32-63: Fluffy tail
+//64-71: Light ball
+//72-79: Star piece
+//80-88: PP Up
+//89-92: Bottle cap
+//93-95: PP Max
+//96-97: Comet shard
+//99: Golden bottle cap
+script MillenniumField_EventScript_Pikachu {
+    lockall
+    applymovement(PIKACHU_ID, Common_Movement_FacePlayer)
+    goto_if_set(FLAG_DAILY_PIKACHU_FAVOR, SeeYouTomorrow)
+    playmoncry(SPECIES_PIKACHU, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    msgbox(format("Pikachu happily pushes a festival favor into your hands!"))
+    setflag(FLAG_DAILY_PIKACHU_FAVOR)
+    giveitem(VAR_TEMP_1)
+    msgbox(format("Nice, free gift!"))
+    waitmessage
+    releaseall
+    end
+    SeeYouTomorrow:
+    playmoncry(SPECIES_PIKACHU, CRY_MODE_WEAK)
+    waitmoncry
+    msgbox(format("Pikachu has already given you a festival gift today. No double dipping!"))
+    waitmessage
+    releaseall
+    end
+}
+
+script MillenniumField_EventScript_Kecleon {
+    lockall
+    applymovement(KECLEON_ID, Common_Movement_FacePlayer)
+    if (flag(FLAG_DAILY_KECLEON_WON)) {
+        playmoncry(SPECIES_KECLEON, CRY_MODE_ENCOUNTER)
+        waitmoncry
+        msgbox(format("Kecleon looks forward to challenging you tomorrow!"))
+        waitmessage
+    } elif (var(VAR_TEMP_3) == 4) {
+        call(MillenniumField_EventScript_KecleonPrize)
+    } elif (var(VAR_TEMP_3) > 0) {
+        call(MillenniumField_EventScript_KecleonVanish)
+    } elif (flag(FLAG_DAILY_KECLEON_HUNT)) {
+        playmoncry(SPECIES_KECLEON, CRY_MODE_ENCOUNTER)
+        waitmoncry
+        msgbox(format("Kecleon taunts you for your failure earlier today!"))
+        waitmessage
+    } else {
+        setflag(FLAG_DAILY_KECLEON_HUNT)
+        msgbox(format("Kecleon challenges you to a game of hide and seek!"))
+        waitmessage
+        call(MillenniumField_EventScript_KecleonVanish)
+    }
+    releaseall
+    end
+}
+
+script MillenniumField_EventScript_KecleonPrize {
+    setflag(FLAG_DAILY_KECLEON_WON)
+    setvar(VAR_TEMP_3, -1)
+    playfanfare(MUS_LEVEL_UP)
+    waitfanfare
+    msgbox(format("Kecleon acknowledges his defeat, and presents you with your prize!"))
+    giveitem(VAR_TEMP_2)
+    playmoncry(SPECIES_KECLEON, CRY_MODE_WEAK)
+    waitmoncry
+    applymovement(KECLEON_ID, KecleonVanish)
+    waitmovement(KECLEON_ID)
+    setobjectxy(KECLEON_ID, 0, 30)
+    setobjectxyperm(KECLEON_ID, 0, 30)
+    applymovement(KECLEON_ID, KecleonAppear)
+    waitmovement(KECLEON_ID)
+    msgbox(format("Come back tomorrow to play again!"))
+    waitmessage
+    releaseall
+    end
+}
+
+script MillenniumField_EventScript_KecleonVanish {
+    addvar(VAR_TEMP_3, 1)
+    playmoncry(SPECIES_KECLEON, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    applymovement(KECLEON_ID, KecleonVanish)
+    waitmovement(KECLEON_ID)
+    RandomizeKecleon:
+    random(12)
+    if (var(VAR_RESULT) == VAR_TEMP_4)  {
+        goto(RandomizeKecleon)
+    }
+    switch(var(VAR_RESULT)) {
+        case 0:
+            setobjectxy(KECLEON_ID, 17, 39)
+            setobjectxyperm(KECLEON_ID, 17, 39)
+        case 1:
+            setobjectxy(KECLEON_ID, 4, 13)
+            setobjectxyperm(KECLEON_ID, 4, 13)
+        case 2:
+            setobjectxy(KECLEON_ID, 8, 6)
+            setobjectxyperm(KECLEON_ID, 8, 6)
+        case 3:
+            setobjectxy(KECLEON_ID, 17, 5)
+            setobjectxyperm(KECLEON_ID, 17, 5)
+        case 4:
+            setobjectxy(KECLEON_ID, 28, 6)
+            setobjectxyperm(KECLEON_ID, 28, 6)
+        case 5:
+            setobjectxy(KECLEON_ID, 35, 17)
+            setobjectxyperm(KECLEON_ID, 35, 17)
+        case 6:
+            setobjectxy(KECLEON_ID, 27, 34)
+            setobjectxyperm(KECLEON_ID, 27, 34)
+        case 7:
+            setobjectxy(KECLEON_ID, 39, 32)
+            setobjectxyperm(KECLEON_ID, 39, 32)
+        case 8:
+            setobjectxy(KECLEON_ID, 31, 22)
+            setobjectxyperm(KECLEON_ID, 31, 22)
+        case 9:
+            setobjectxy(KECLEON_ID, 25, 19)
+            setobjectxyperm(KECLEON_ID, 25, 19)
+        case 10:
+            setobjectxy(KECLEON_ID, 12, 19)
+            setobjectxyperm(KECLEON_ID, 12, 19)
+        default:
+            setobjectxy(KECLEON_ID, 21, 14)
+            setobjectxyperm(KECLEON_ID, 21, 14)
+    }
+    setvar(VAR_TEMP_4, VAR_RESULT)
+    applymovement(KECLEON_ID, KecleonAppear)
+    waitmovement(KECLEON_ID)
+    return
+}
+
+movement KecleonAppear {
+    set_visible
+}
+
+movement KecleonVanish {
+	set_invisible
+	delay_16
+	set_visible
+	delay_16
+	set_invisible
+	delay_8
+	set_visible
+	delay_8
+	set_invisible
+	delay_8
+	set_visible
+	delay_8
+	set_invisible
+	delay_4
+	set_visible
+	delay_4
+	set_invisible
+	delay_4
+	set_visible
+	delay_4
+	set_invisible
+}

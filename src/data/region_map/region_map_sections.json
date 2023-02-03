@@ -477,7 +477,7 @@
       "name": "PETALBURG WOODS",
       "x": 0,
       "y": 8,
-      "width": 1,
+      "width": 2,
       "height": 1
     },
     {
@@ -1741,6 +1741,14 @@
       "name": "DEWDROP GLEN",
       "x": 4,
       "y": 12,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_LITTLEROOT_SHORE",
+      "name": "LITTLEROOT SHORE",
+      "x": 4,
+      "y": 13,
       "width": 1,
       "height": 1
     }
