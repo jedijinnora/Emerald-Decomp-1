@@ -290,6 +290,9 @@ static const u8 sMapHealLocations[][3] =
     [MAPSEC_LILYCOVE_CITY] = {MAP_GROUP(LILYCOVE_CITY), MAP_NUM(LILYCOVE_CITY), HEAL_LOCATION_LILYCOVE_CITY},
     [MAPSEC_MOSSDEEP_CITY] = {MAP_GROUP(MOSSDEEP_CITY), MAP_NUM(MOSSDEEP_CITY), HEAL_LOCATION_MOSSDEEP_CITY},
     [MAPSEC_SOOTOPOLIS_CITY] = {MAP_GROUP(SOOTOPOLIS_CITY), MAP_NUM(SOOTOPOLIS_CITY), HEAL_LOCATION_SOOTOPOLIS_CITY},
+    [MAPSEC_METEOR_VILLAGE] = {MAP_GROUP(METEOR_VILLAGE), MAP_NUM(METEOR_VILLAGE), HEAL_LOCATION_METEOR_VILLAGE},
+    [MAPSEC_EMERALD_CAPE] = {MAP_GROUP(EMERALD_CAPE), MAP_NUM(EMERALD_CAPE), HEAL_LOCATION_EMERALD_CAPE},
+    [MAPSEC_POKEMON_LEAGUE] = {MAP_GROUP(POKEMON_LEAGUE), MAP_NUM(POKEMON_LEAGUE), HEAL_LOCATION_POKEMON_LEAGUE},
     [MAPSEC_EVER_GRANDE_CITY] = {MAP_GROUP(EVER_GRANDE_CITY), MAP_NUM(EVER_GRANDE_CITY), HEAL_LOCATION_EVER_GRANDE_CITY},
     [MAPSEC_ROUTE_101] = {MAP_GROUP(ROUTE101), MAP_NUM(ROUTE101), HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_102] = {MAP_GROUP(ROUTE102), MAP_NUM(ROUTE102), HEAL_LOCATION_NONE},
@@ -1195,6 +1198,12 @@ static u8 GetMapsecType(u16 mapSecId)
         return FlagGet(FLAG_VISITED_MOSSDEEP_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_SOOTOPOLIS_CITY:
         return FlagGet(FLAG_VISITED_SOOTOPOLIS_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_METEOR_VILLAGE:
+        return FlagGet(FLAG_VISITED_METEOR_VILLAGE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_EMERALD_CAPE:
+        return FlagGet(FLAG_VISITED_EMERALD_CAPE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_POKEMON_LEAGUE:
+        return FlagGet(FLAG_VISITED_POKEMON_LEAGUE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_EVER_GRANDE_CITY:
         return FlagGet(FLAG_VISITED_EVER_GRANDE_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_BATTLE_FRONTIER:
@@ -1746,6 +1755,11 @@ static void DrawFlyDestTextWindow(void)
     if (sFlyMap->regionMap.mapSecType > MAPSECTYPE_NONE && sFlyMap->regionMap.mapSecType <= MAPSECTYPE_BATTLE_FRONTIER)
     {
         namePrinted = FALSE;
+        /*
+        JINNORA: Commenting out the Ever Grande multi-name case since 
+                 I just split it into multiple maps (EGC, Emerald Cape,
+                 Pokemon League)
+        
         for (i = 0; i < ARRAY_COUNT(sMultiNameFlyDestinations); i++)
         {
             if (sFlyMap->regionMap.mapSecId == sMultiNameFlyDestinations[i].mapSecId)
@@ -1765,6 +1779,7 @@ static void DrawFlyDestTextWindow(void)
                 break;
             }
         }
+        */
         if (!namePrinted)
         {
             if (sDrawFlyDestTextWindow == TRUE)
@@ -1822,6 +1837,7 @@ static void CreateFlyDestIcons(void)
     u16 mapSecId;
     u16 x;
     u16 y;
+    u16 i;
     u16 width;
     u16 height;
     u16 shape;
@@ -1855,6 +1871,51 @@ static void CreateFlyDestIcons(void)
             gSprites[spriteId].sIconMapSec = mapSecId;
         }
         canFlyFlag++;
+    }
+
+    //Jinnora: adding a second loop to try to handle additional locations
+    for (i = 0; i < 3; i++) {
+        switch(i) {
+            case 0: //Meteor Village
+                mapSecId = MAPSEC_METEOR_VILLAGE;
+                canFlyFlag = FLAG_VISITED_METEOR_VILLAGE;
+                break;
+            case 1: //Emerald Cape
+                mapSecId = MAPSEC_EMERALD_CAPE;
+                canFlyFlag = FLAG_VISITED_EMERALD_CAPE;
+                break;
+            case 2: //Pokemon League
+                mapSecId = MAPSEC_POKEMON_LEAGUE;
+                canFlyFlag = FLAG_VISITED_POKEMON_LEAGUE;
+                break;
+            default:
+        }
+
+
+        GetMapSecDimensions(mapSecId, &x, &y, &width, &height);
+        x = (x + MAPCURSOR_X_MIN) * 8 + 4;
+        y = (y + MAPCURSOR_Y_MIN) * 8 + 4;
+
+        if (width == 2)
+            shape = SPRITE_SHAPE(16x8);
+        else if (height == 2)
+            shape = SPRITE_SHAPE(8x16);
+        else
+            shape = SPRITE_SHAPE(8x8);
+
+        spriteId = CreateSprite(&sFlyDestIconSpriteTemplate, x, y, 10);
+        if (spriteId != MAX_SPRITES)
+        {
+            gSprites[spriteId].oam.shape = shape;
+
+            if (FlagGet(canFlyFlag))
+                gSprites[spriteId].callback = SpriteCB_FlyDestIcon;
+            else
+                shape += 3;
+
+            StartSpriteAnim(&gSprites[spriteId], shape);
+            gSprites[spriteId].sIconMapSec = mapSecId;
+        }
     }
 }
 

@@ -174,11 +174,10 @@ script MillenniumField_EventScript_KecleonVanish {
     waitmoncry
     applymovement(KECLEON_ID, KecleonVanish)
     waitmovement(KECLEON_ID)
-    RandomizeKecleon:
-    random(14)
-    if (var(VAR_RESULT) == VAR_TEMP_4)  {
-        goto(RandomizeKecleon)
-    }
+    setvar(VAR_TEMP_4, VAR_RESULT)
+    do {
+        random(15)
+    } while (var(VAR_RESULT) == VAR_TEMP_4)
     switch(var(VAR_RESULT)) {
         case 0:
             setobjectxy(KECLEON_ID, 17, 39)
@@ -219,6 +218,9 @@ script MillenniumField_EventScript_KecleonVanish {
         case 12:
             setobjectxy(KECLEON_ID, 8, 16)
             setobjectxyperm(KECLEON_ID, 8, 16)
+        case 13:
+            setobjectxy(KECLEON_ID, 23, 5)
+            setobjectxyperm(KECLEON_ID, 23, 5)
         default:
             setobjectxy(KECLEON_ID, 21, 14)
             setobjectxyperm(KECLEON_ID, 21, 14)
