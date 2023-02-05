@@ -174,7 +174,6 @@ script MillenniumField_EventScript_KecleonVanish {
     waitmoncry
     applymovement(KECLEON_ID, KecleonVanish)
     waitmovement(KECLEON_ID)
-    setvar(VAR_TEMP_4, VAR_RESULT)
     do {
         random(15)
     } while (var(VAR_RESULT) == VAR_TEMP_4)
@@ -182,50 +181,64 @@ script MillenniumField_EventScript_KecleonVanish {
         case 0:
             setobjectxy(KECLEON_ID, 17, 39)
             setobjectxyperm(KECLEON_ID, 17, 39)
+            setvar(VAR_TEMP_4, 0)
         case 1:
             setobjectxy(KECLEON_ID, 4, 13)
             setobjectxyperm(KECLEON_ID, 4, 13)
+            setvar(VAR_TEMP_4, 1)
         case 2:
             setobjectxy(KECLEON_ID, 8, 6)
             setobjectxyperm(KECLEON_ID, 8, 6)
+            setvar(VAR_TEMP_4, 2)
         case 3:
             setobjectxy(KECLEON_ID, 17, 5)
             setobjectxyperm(KECLEON_ID, 17, 5)
+            setvar(VAR_TEMP_4, 3)
         case 4:
             setobjectxy(KECLEON_ID, 28, 6)
             setobjectxyperm(KECLEON_ID, 28, 6)
+            setvar(VAR_TEMP_4, 4)
         case 5:
             setobjectxy(KECLEON_ID, 35, 17)
             setobjectxyperm(KECLEON_ID, 35, 17)
+            setvar(VAR_TEMP_4, 5)
         case 6:
             setobjectxy(KECLEON_ID, 27, 34)
             setobjectxyperm(KECLEON_ID, 27, 34)
+            setvar(VAR_TEMP_4, 6)
         case 7:
             setobjectxy(KECLEON_ID, 39, 32)
             setobjectxyperm(KECLEON_ID, 39, 32)
+            setvar(VAR_TEMP_4, 7)
         case 8:
             setobjectxy(KECLEON_ID, 31, 22)
             setobjectxyperm(KECLEON_ID, 31, 22)
+            setvar(VAR_TEMP_4, 8)
         case 9:
             setobjectxy(KECLEON_ID, 25, 19)
             setobjectxyperm(KECLEON_ID, 25, 19)
+            setvar(VAR_TEMP_4, 9)
         case 10:
             setobjectxy(KECLEON_ID, 12, 19)
             setobjectxyperm(KECLEON_ID, 12, 19)
+            setvar(VAR_TEMP_4, 10)
         case 11:
             setobjectxy(KECLEON_ID, 12, 31)
             setobjectxyperm(KECLEON_ID, 12, 31)
+            setvar(VAR_TEMP_4, 11)
         case 12:
             setobjectxy(KECLEON_ID, 8, 16)
             setobjectxyperm(KECLEON_ID, 8, 16)
+            setvar(VAR_TEMP_4, 12)
         case 13:
             setobjectxy(KECLEON_ID, 23, 5)
             setobjectxyperm(KECLEON_ID, 23, 5)
+            setvar(VAR_TEMP_4, 13)
         default:
             setobjectxy(KECLEON_ID, 21, 14)
             setobjectxyperm(KECLEON_ID, 21, 14)
+            setvar(VAR_TEMP_4, 14)
     }
-    setvar(VAR_TEMP_4, VAR_RESULT)
     applymovement(KECLEON_ID, KecleonAppear)
     waitmovement(KECLEON_ID)
     return
