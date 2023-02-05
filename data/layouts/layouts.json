@@ -4710,6 +4710,76 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/MillenniumField/border.bin",
       "blockdata_filepath": "data/layouts/MillenniumField/map.bin"
+    },
+    {
+      "id": "LAYOUT_SLATEPORT_BEACH",
+      "name": "SlateportBeach_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/SlateportBeach/border.bin",
+      "blockdata_filepath": "data/layouts/SlateportBeach/map.bin"
+    },
+    {
+      "id": "LAYOUT_METEOR_VILLAGE_CENTRAL_HALL",
+      "name": "MeteorVillage_CentralHall_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MeteorVillage_CentralHall/border.bin",
+      "blockdata_filepath": "data/layouts/MeteorVillage_CentralHall/map.bin"
+    },
+    {
+      "id": "LAYOUT_METEOR_VILLAGE_LOREKEEPER_CAVE",
+      "name": "MeteorVillage_LorekeeperCave_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MeteorVillage_LorekeeperCave/border.bin",
+      "blockdata_filepath": "data/layouts/MeteorVillage_LorekeeperCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_METEOR_VILLAGE_HOUSE1",
+      "name": "MeteorVillage_House1_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/MeteorVillage_House1/border.bin",
+      "blockdata_filepath": "data/layouts/MeteorVillage_House1/map.bin"
+    },
+    {
+      "id": "LAYOUT_METEOR_VILLAGE_HOUSE2",
+      "name": "MeteorVillage_House2_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/MeteorVillage_House2/border.bin",
+      "blockdata_filepath": "data/layouts/MeteorVillage_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_METEOR_VILLAGE_HOUSE3",
+      "name": "MeteorVillage_House3_Layout",
+      "width": 10,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/MeteorVillage_House3/border.bin",
+      "blockdata_filepath": "data/layouts/MeteorVillage_House3/map.bin"
+    },
+    {
+      "id": "LAYOUT_METEOR_VILLAGE_ANTHROPOLOGY_HOUSE",
+      "name": "MeteorVillage_AnthropologyHouse_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/MeteorVillage_AnthropologyHouse/border.bin",
+      "blockdata_filepath": "data/layouts/MeteorVillage_AnthropologyHouse/map.bin"
     }
   ]
 }

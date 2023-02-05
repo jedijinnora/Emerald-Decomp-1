@@ -74,6 +74,7 @@
 #define MAP_METEOR_VILLAGE      (65 | (0 << 8))
 #define MAP_VALLEY_OF_STEEL     (66 | (0 << 8))
 #define MAP_MILLENNIUM_FIELD    (67 | (0 << 8))
+#define MAP_SLATEPORT_BEACH     (68 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -145,6 +146,12 @@
 #define MAP_PACIFIDLOG_TOWN_HOUSE5            (6 | (7 << 8))
 
 // gMapGroup_IndoorMeteor
+#define MAP_METEOR_VILLAGE_CENTRAL_HALL       (0 | (8 << 8))
+#define MAP_METEOR_VILLAGE_LOREKEEPER_CAVE    (1 | (8 << 8))
+#define MAP_METEOR_VILLAGE_HOUSE1             (2 | (8 << 8))
+#define MAP_METEOR_VILLAGE_HOUSE2             (3 | (8 << 8))
+#define MAP_METEOR_VILLAGE_HOUSE3             (4 | (8 << 8))
+#define MAP_METEOR_VILLAGE_ANTHROPOLOGY_HOUSE (5 | (8 << 8))
 
 // gMapGroup_IndoorPetalburg
 #define MAP_PETALBURG_CITY_WALLYS_HOUSE      (0 | (9 << 8))

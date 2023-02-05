@@ -166,7 +166,7 @@
       "x": 18,
       "y": 17,
       "elevation": 0,
-      "dest_map": "MAP_METEOR_VILLAGE",
+      "dest_map": "MAP_METEOR_VILLAGE_CENTRAL_HALL",
       "dest_warp_id": "0"
     },
     {
@@ -180,35 +180,35 @@
       "x": 31,
       "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_METEOR_VILLAGE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 14,
-      "y": 24,
-      "elevation": 0,
-      "dest_map": "MAP_METEOR_VILLAGE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 22,
-      "y": 24,
-      "elevation": 0,
-      "dest_map": "MAP_METEOR_VILLAGE",
+      "dest_map": "MAP_METEOR_VILLAGE_LOREKEEPER_CAVE",
       "dest_warp_id": "0"
     },
     {
       "x": 28,
       "y": 16,
       "elevation": 0,
-      "dest_map": "MAP_METEOR_VILLAGE",
+      "dest_map": "MAP_METEOR_VILLAGE_HOUSE1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_METEOR_VILLAGE_HOUSE2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 22,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_METEOR_VILLAGE_HOUSE3",
       "dest_warp_id": "0"
     },
     {
       "x": 7,
       "y": 35,
       "elevation": 0,
-      "dest_map": "MAP_METEOR_VILLAGE",
+      "dest_map": "MAP_METEOR_VILLAGE_ANTHROPOLOGY_HOUSE",
       "dest_warp_id": "0"
     }
   ],

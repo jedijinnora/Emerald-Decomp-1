@@ -105,7 +105,8 @@
     "Forina",
     "MeteorVillage",
     "ValleyOfSteel",
-    "MillenniumField"
+    "MillenniumField",
+    "SlateportBeach"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -177,7 +178,12 @@
     "PacifidlogTown_House5"
   ],
   "gMapGroup_IndoorMeteor": [
-
+    "MeteorVillage_CentralHall",
+    "MeteorVillage_LorekeeperCave",
+    "MeteorVillage_House1",
+    "MeteorVillage_House2",
+    "MeteorVillage_House3",
+    "MeteorVillage_AnthropologyHouse"
   ],
   "gMapGroup_IndoorPetalburg": [
     "PetalburgCity_WallysHouse",

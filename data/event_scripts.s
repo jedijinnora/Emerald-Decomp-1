@@ -1111,3 +1111,17 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/ValleyOfSteel/scripts.inc"
 
 	.include "data/maps/MillenniumField/scripts.inc"
+
+	.include "data/maps/SlateportBeach/scripts.inc"
+
+	.include "data/maps/MeteorVillage_CentralHall/scripts.inc"
+
+	.include "data/maps/MeteorVillage_LorekeeperCave/scripts.inc"
+
+	.include "data/maps/MeteorVillage_House1/scripts.inc"
+
+	.include "data/maps/MeteorVillage_House2/scripts.inc"
+
+	.include "data/maps/MeteorVillage_House3/scripts.inc"
+
+	.include "data/maps/MeteorVillage_AnthropologyHouse/scripts.inc"

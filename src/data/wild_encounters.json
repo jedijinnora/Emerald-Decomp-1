@@ -9286,7 +9286,7 @@
               {
                 "min_level": 5,
                 "max_level": 19,
-                "species": "SPECIES_ARON"
+                "species": "SPECIES_ORICORIO_POM_POM"
               },
               {
                 "min_level": 4,
@@ -9331,7 +9331,7 @@
               {
                 "min_level": 15,
                 "max_level": 25,
-                "species": "SPECIES_WINGULL"
+                "species": "SPECIES_MANTYKE"
               },
               {
                 "min_level": 25,
@@ -9341,7 +9341,7 @@
               {
                 "min_level": 25,
                 "max_level": 30,
-                "species": "SPECIES_PELIPPER"
+                "species": "SPECIES_MANTINE"
               }
             ]
           },
@@ -12868,12 +12868,12 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_DEINO"
+                "species": "SPECIES_APPLIN"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_APPLIN"
+                "species": "SPECIES_DEINO"
               },
               {
                 "min_level": 5,

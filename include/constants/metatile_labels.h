@@ -367,8 +367,13 @@
 #define METATILE_MossdeepGym_YellowArrow_Right  0x250
 
 // gTileset_Mossdeep
-#define METATILE_Mossdeep_Door              0x2A1
-#define METATILE_Mossdeep_Door_SpaceCenter  0x2ED
+#define METATILE_Mossdeep_Door                                              0x2A1
+#define METATILE_Mossdeep_Door_SpaceCenter                                  0x2ED
+#define METATILE_Mossdeep_METATILE_MossdeepGameCorner_CounterClosed_Bottom  0x232
+#define METATILE_Mossdeep_METATILE_MossdeepGameCorner_CounterClosed_Top     0x22A
+#define METATILE_Mossdeep_METATILE_MossdeepGameCorner_CounterOpen_Bottom    0x234
+#define METATILE_Mossdeep_METATILE_MossdeepGameCorner_CounterOpen_Top       0x22C
+#define METATILE_Mossdeep_METATILE_MossdeepGym_YellowArrow_Right            0x250
 
 // gTileset_Pacifidlog
 #define METATILE_Pacifidlog_Door                               0x21A
