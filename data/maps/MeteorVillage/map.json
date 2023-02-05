@@ -40,7 +40,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MeteorVillage_EventScript_ExpertF",
       "flag": "0"
     },
     {
@@ -53,20 +53,20 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MeteorVillage_EventScript_ExpertM",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 24,
-      "y": 16,
+      "x": 22,
+      "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MeteorVillage_EventScript_BlackBelt",
       "flag": "0"
     },
     {
@@ -79,7 +79,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MeteorVillage_EventScript_BugCatcher",
       "flag": "0"
     },
     {
@@ -87,12 +87,12 @@
       "x": 30,
       "y": 5,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MeteorVillage_EventScript_Girl2",
       "flag": "0"
     },
     {
@@ -105,7 +105,7 @@
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MeteorVillage_EventScript_Girl3",
       "flag": "0"
     },
     {
@@ -213,7 +213,24 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_METEOR_VILLAGE_STATE",
+      "var_value": "1",
+      "script": "NULL"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_METEOR_VILLAGE_STATE",
+      "var_value": "0",
+      "script": "MeteorVillage_EventScript_Warning"
+    }
   ],
   "bg_events": [
     {
@@ -222,7 +239,7 @@
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "MeteorVillage_EventScript_MeteorVillageSign"
     },
     {
       "type": "sign",
@@ -230,7 +247,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "MeteorVillage_EventScript_MeteorFallsSign"
     },
     {
       "type": "sign",
@@ -238,7 +255,7 @@
       "y": 37,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "MeteorVillage_EventScript_AnthropologySign"
     }
   ]
 }

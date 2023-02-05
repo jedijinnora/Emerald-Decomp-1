@@ -1,1 +1,146 @@
-mapscripts MeteorVillage_MapScripts {}
+mapscripts MeteorVillage_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: MeteorVillage_EventScript_OnTransition
+}
+
+//Object IDs:
+const EXPERT_F_ID = 1
+const EXPERT_M_ID = 2
+const BLACK_BELT_ID = 3
+const BUG_CATCHER_ID = 4
+const GIRL2_ID = 5
+const GIRL3_ID = 6
+
+
+//TEMPs Used:
+//FLAG_TEMP_1 - ExpertF judgment
+
+script MeteorVillage_EventScript_OnTransition {
+    setflag(FLAG_VISITED_METEOR_VILLAGE)
+    setvar(VAR_METEOR_VILLAGE_STATE, 0)
+    end
+}
+
+script MeteorVillage_EventScript_ExpertF {
+    lockall
+    applymovement(EXPERT_F_ID, Common_Movement_FacePlayer)
+    //add goto checking a flag for further events
+    goto_if_set(FLAG_TEMP_1, Instructions)
+    msgbox(format("Hello, young one. Let me take a look at you."))
+    waitmessage
+    setflag(FLAG_TEMP_1)
+    msgbox(format("Hmm..."))
+    waitmessage
+    msgbox(format("No, you aren't the one. Disappointing."))
+    waitmessage
+    releaseall
+    end
+
+    Instructions:
+    msgbox(format("It isn't who you are, it's who you could be."))
+    waitmessage
+    applymovement(EXPERT_F_ID, Common_Movement_FaceAwayPlayer)
+    msgbox(format("Perhaps you could surprise me..."))
+    waitmessage
+    applymovement(EXPERT_F_ID, Common_Movement_FacePlayer)
+    msgbox(format("Return if you make progress towards enlightenment."))
+    waitmessage
+    releaseall
+    end
+}
+
+script MeteorVillage_EventScript_ExpertM {
+    lockall
+    applymovement(EXPERT_M_ID, Common_Movement_FacePlayer)
+    msgbox(format("Another outsider? I hope you are more respectful of our privacy than those anthropologists."))
+    waitmessage
+    msgbox(format("They claim their interest in our traditions is simply intellectual curiosity."))
+    waitmessage
+    msgbox(format("Hmph! I'd like to see them blasted out of the village."))
+    waitmessage
+    msgbox(format("We know better than to allow them to steal our secrets."))
+    waitmessage
+    releaseall
+    end
+}
+
+script MeteorVillage_EventScript_BlackBelt {
+    lock
+    applymovement(BLACK_BELT_ID, Common_Movement_FacePlayer)
+    msgbox(format("Up this slope is the original training grounds of our ancestors."))
+    msgbox(format("Watch out! If you mess around, Aster will kick your butt."))
+    waitmessage
+    setvar(VAR_METEOR_VILLAGE_STATE, 1)
+    applymovement(BLACK_BELT_ID, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
+    releaseall
+    return
+}
+
+script MeteorVillage_EventScript_Warning {
+    lockall
+    applymovement(BLACK_BELT_ID, Common_Movement_ExclamationMark)
+    playse(SE_PIN)
+    waitmovement(0)
+    waitbuttonpress
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+    waitmovement(0)
+    call(MeteorVillage_EventScript_BlackBelt)
+    releaseall
+    end
+}
+
+script MeteorVillage_EventScript_BugCatcher {
+    lockall
+    applymovement(BUG_CATCHER_ID, Common_Movement_FacePlayer)
+    msgbox(format("You see this trail of sacred ash? It creates a metaphysical barrier between the village and outside influence."))
+    waitmessage
+    msgbox(format("Our village is shielded on three sides by mountain rock. The ash fills the gap at the mouth of the valley, keeping us safe from malign spirits."))
+    waitmessage
+    releaseall
+    end
+}
+
+script MeteorVillage_EventScript_Girl2 {
+    lockall
+    applymovement(GIRL2_ID, Common_Movement_FacePlayer)
+    msgbox(format(""))
+    waitmessage
+    releaseall
+    end
+}
+
+script MeteorVillage_EventScript_Girl3 {
+    lockall
+    applymovement(GIRL3_ID, Common_Movement_FacePlayer)
+    msgbox(format(""))
+    waitmessage
+    releaseall
+    end
+}
+
+script MeteorVillage_EventScript_MeteorFallsSign {
+    lockall
+	msgbox(format("{UP_ARROW} Meteor Falls"))
+	msgbox(format("Access to Route 114 and Fallarbor Town."))
+	waitmessage
+	releaseall
+	end
+}
+
+script MeteorVillage_EventScript_MeteorVillageSign {
+    lockall
+	msgbox(format("METEOR VILLAGE"))
+	msgbox(format("Home of the last Draconids."))
+    msgbox(format("Here we venerate Hoenn's most ancient traditions."))
+	waitmessage
+	releaseall
+	end
+}
+
+script MeteorVillage_EventScript_AnthropologySign {
+    lockall
+	msgbox(format("Anthropology Field Lab"))
+	waitmessage
+	releaseall
+	end
+}
