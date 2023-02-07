@@ -9254,12 +9254,12 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 3,
+                "min_level": 4,
                 "max_level": 17,
                 "species": "SPECIES_WINGULL"
               },
               {
-                "min_level": 3,
+                "min_level": 4,
                 "max_level": 17,
                 "species": "SPECIES_ZIGZAGOON"
               },
@@ -9269,12 +9269,12 @@
                 "species": "SPECIES_MEDITITE"
               },
               {
-                "min_level": 5,
+                "min_level": 4,
                 "max_level": 19,
                 "species": "SPECIES_WHISMUR"
               },
               {
-                "min_level": 3,
+                "min_level": 4,
                 "max_level": 17,
                 "species": "SPECIES_ODDISH"
               },
@@ -9284,22 +9284,22 @@
                 "species": "SPECIES_NATU"
               },
               {
-                "min_level": 5,
+                "min_level": 11,
                 "max_level": 19,
                 "species": "SPECIES_ORICORIO_POM_POM"
               },
               {
-                "min_level": 4,
+                "min_level": 7,
                 "max_level": 18,
                 "species": "SPECIES_PURRLOIN"
               },
               {
-                "min_level": 3,
+                "min_level": 6,
                 "max_level": 17,
                 "species": "SPECIES_LOTAD"
               },
               {
-                "min_level": 3,
+                "min_level": 6,
                 "max_level": 17,
                 "species": "SPECIES_SEEDOT"
               },

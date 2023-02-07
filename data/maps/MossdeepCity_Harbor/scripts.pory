@@ -49,6 +49,7 @@ movement FromRight {
 script MossdeepCity_Harbor_EventScript_ApproachLeft {
     lockall
     applymovement(PAINTER_ID, Common_Movement_ExclamationMark)
+    playse(SE_PIN)
     waitmovement(PAINTER_ID)
     applymovement(PAINTER_ID, ToLeft)
     waitmovement(PAINTER_ID)
@@ -62,6 +63,7 @@ script MossdeepCity_Harbor_EventScript_ApproachLeft {
 script MossdeepCity_Harbor_EventScript_ApproachCenter {
     lockall
     applymovement(PAINTER_ID, Common_Movement_ExclamationMark)
+    playse(SE_PIN)
     waitmovement(PAINTER_ID)
     applymovement(PAINTER_ID, ToCenter)
     waitmovement(PAINTER_ID)
@@ -75,6 +77,7 @@ script MossdeepCity_Harbor_EventScript_ApproachCenter {
 script MossdeepCity_Harbor_EventScript_ApproachRight {
     lockall
     applymovement(PAINTER_ID, Common_Movement_ExclamationMark)
+    playse(SE_PIN)
     waitmovement(PAINTER_ID)
     applymovement(PAINTER_ID, ToRight)
     waitmovement(PAINTER_ID)

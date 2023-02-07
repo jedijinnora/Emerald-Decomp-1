@@ -34,7 +34,7 @@
     {
       "id": "LAYOUT_RUSTBORO_CITY",
       "name": "RustboroCity_Layout",
-      "width": 40,
+      "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
@@ -84,7 +84,7 @@
     {
       "id": "LAYOUT_EVER_GRANDE_CITY",
       "name": "EverGrandeCity_Layout",
-      "width": 100,
+      "width": 71,
       "height": 48,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
@@ -434,7 +434,7 @@
     {
       "id": "LAYOUT_ROUTE128",
       "name": "Route128_Layout",
-      "width": 120,
+      "width": 141,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mossdeep",
@@ -4504,8 +4504,8 @@
     {
       "id": "LAYOUT_POKEMON_LEAGUE",
       "name": "PokemonLeague_Layout",
-      "width": 40,
-      "height": 42,
+      "width": 42,
+      "height": 36,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_EverGrande",
       "border_filepath": "data/layouts/PokemonLeague/border.bin",
