@@ -1975,6 +1975,45 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
                 }
                 break;
             }
+            case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM | F_TRAINER_PARTY_CUSTOM_STATS:
+            {
+                const struct TrainerMonItemCustomMovesCustomStats *partyData = gTrainers[trainerNum].party.ItemCustomMovesCustomStats;
+
+                for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
+                    nameHash += gSpeciesNames[partyData[i].species][j];
+
+                personalityValue += nameHash << 8;
+                fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
+
+                //get personality value with correct nature
+                do
+                {
+                personalityValue = Random32();
+                }
+                while (partyData[i].nature != GetNatureFromPersonality(personalityValue));
+
+                //create mon with the desired nature
+                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+
+                //set held item and ability
+                SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
+                SetMonData(&party[i], MON_DATA_ABILITY_NUM, &partyData[i].abilityNum);
+
+                //set custom moves
+                for (j = 0; j < MAX_MON_MOVES; j++)
+                {
+                    SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
+                    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
+                }
+
+                //set custom EVs
+                for (j = 0; j < NUM_STATS; j++)
+                {
+                    SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].evs[j]);
+                }
+                CalculateMonStats(&party[i]);
+                break;
+            }
             }
 
         #if B_TRAINER_CLASS_POKE_BALLS >= GEN_7

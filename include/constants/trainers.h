@@ -376,5 +376,6 @@
 // Pokémon.
 #define F_TRAINER_PARTY_CUSTOM_MOVESET (1 << 0)
 #define F_TRAINER_PARTY_HELD_ITEM      (1 << 1)
+#define F_TRAINER_PARTY_CUSTOM_STATS   (1 << 2) //Jinnora: indicates custom nature/EV spread/ability
 
 #endif  // GUARD_TRAINERS_H
