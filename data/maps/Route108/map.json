@@ -20,14 +20,14 @@
     },
     {
       "map": "MAP_ROUTE109",
-      "offset": -40,
-      "direction": "right"
+      "offset": 40,
+      "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 52,
+      "x": 32,
       "y": 13,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_UP_LEFT_DOWN_RIGHT",
@@ -40,8 +40,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 35,
-      "y": 12,
+      "x": 15,
+      "y": 9,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 1,
@@ -53,8 +53,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 13,
-      "y": 13,
+      "x": 47,
+      "y": 10,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
       "movement_range_x": 0,
@@ -66,8 +66,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 8,
-      "y": 7,
+      "x": 36,
+      "y": 8,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_RIGHT",
       "movement_range_x": 6,
@@ -79,7 +79,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
-      "x": 41,
+      "x": 21,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -92,7 +92,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 43,
+      "x": 23,
       "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -105,7 +105,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 42,
+      "x": 22,
       "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -119,7 +119,7 @@
   ],
   "warp_events": [
     {
-      "x": 29,
+      "x": 9,
       "y": 6,
       "elevation": 3,
       "dest_map": "MAP_ABANDONED_SHIP_DECK",
@@ -132,7 +132,7 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 38,
+      "x": 18,
       "y": 14,
       "elevation": 3,
       "item": "ITEM_RARE_CANDY",
