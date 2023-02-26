@@ -214,8 +214,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 31,
-      "y": 59,
+      "x": 30,
+      "y": 53,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -505,7 +505,7 @@
     {
       "type": "hidden_item",
       "x": 15,
-      "y": 49,
+      "y": 52,
       "elevation": 3,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_115_HEART_SCALE"

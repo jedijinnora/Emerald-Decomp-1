@@ -4634,10 +4634,10 @@
     {
       "id": "LAYOUT_CROSSGATE_HILLS",
       "name": "CrossgateHills_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 40,
+      "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
+      "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/CrossgateHills/border.bin",
       "blockdata_filepath": "data/layouts/CrossgateHills/map.bin"
     },
@@ -4780,6 +4780,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/MeteorVillage_AnthropologyHouse/border.bin",
       "blockdata_filepath": "data/layouts/MeteorVillage_AnthropologyHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_SANDSWEPT_DESERT",
+      "name": "SandsweptDesert_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/SandsweptDesert/border.bin",
+      "blockdata_filepath": "data/layouts/SandsweptDesert/map.bin"
     }
   ]
 }

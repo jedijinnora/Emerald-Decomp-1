@@ -1125,3 +1125,5 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/MeteorVillage_House3/scripts.inc"
 
 	.include "data/maps/MeteorVillage_AnthropologyHouse/scripts.inc"
+
+	.include "data/maps/SandsweptDesert/scripts.inc"

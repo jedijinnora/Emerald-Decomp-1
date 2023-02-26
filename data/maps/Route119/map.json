@@ -22,6 +22,11 @@
       "map": "MAP_FORTREE_CITY",
       "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_CROSSGATE_HILLS",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [

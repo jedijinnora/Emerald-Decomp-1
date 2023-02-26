@@ -27,6 +27,16 @@
       "map": "MAP_ROUTE112",
       "offset": 20,
       "direction": "left"
+    },
+    {
+      "map": "MAP_VALLEY_OF_STEEL",
+      "offset": 80,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_CROSSGATE_HILLS",
+      "offset": -20,
+      "direction": "right"
     }
   ],
   "object_events": [
