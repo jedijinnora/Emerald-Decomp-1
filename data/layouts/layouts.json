@@ -45,7 +45,7 @@
       "id": "LAYOUT_FORTREE_CITY",
       "name": "FortreeCity_Layout",
       "width": 40,
-      "height": 20,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/FortreeCity/border.bin",
@@ -4494,7 +4494,7 @@
     {
       "id": "LAYOUT_EMERALD_CAPE",
       "name": "EmeraldCape_Layout",
-      "width": 40,
+      "width": 42,
       "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_EverGrande",
