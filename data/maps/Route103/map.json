@@ -27,6 +27,11 @@
       "map": "MAP_VERDANT_FOREST",
       "offset": -6,
       "direction": "up"
+    },
+    {
+      "map": "MAP_OLDALE_RUINS",
+      "offset": 36,
+      "direction": "down"
     }
   ],
   "object_events": [

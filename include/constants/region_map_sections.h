@@ -229,8 +229,9 @@
 #define MAPSEC_SEAFOAM_COVE                 0xDE
 #define MAPSEC_SLATEPORT_BEACH              0xDF
 #define MAPSEC_MILLENNIUM_FIELD             0xE0
+#define MAPSEC_UNDERWATER_MOSSDEEP_CAVERNS  0xE1
 
-#define MAPSEC_NONE                         0xE1
+#define MAPSEC_NONE                         0xE2
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

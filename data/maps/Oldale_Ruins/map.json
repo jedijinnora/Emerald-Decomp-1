@@ -12,21 +12,32 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "map": "MAP_ROUTE103",
+      "offset": -36,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_OLDALE_TOWN",
+      "offset": 0,
+      "direction": "left"
+    }
+  ],
   "object_events": [
 
   ],
   "warp_events": [
     {
-      "x": 4,
-      "y": 7,
+      "x": 7,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_GLADE",
       "dest_warp_id": "2"
     },
     {
-      "x": 5,
-      "y": 7,
+      "x": 8,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_GLADE",
       "dest_warp_id": "3"

@@ -1767,6 +1767,22 @@
       "y": 12,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_MOSSDEEP_CAVERNS",
+      "name": "MOSSDEEP CAVERNS",
+      "x": 25,
+      "y": 5,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_UNDERWATER_MOSSDEEP_CAVERNS",
+      "name": "",
+      "x": 25,
+      "y": 5,
+      "width": 1,
+      "height": 1
     }
   ]
 }

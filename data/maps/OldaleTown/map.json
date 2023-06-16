@@ -25,15 +25,20 @@
     },
     {
       "map": "MAP_ROUTE102",
-      "offset": 0,
+      "offset": 2,
       "direction": "left"
+    },
+    {
+      "map": "MAP_OLDALE_RUINS",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 15,
-      "y": 15,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -46,7 +51,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 16,
-      "y": 15,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -59,7 +64,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 17,
-      "y": 15,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -72,7 +77,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 18,
-      "y": 15,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -86,56 +91,56 @@
   "warp_events": [
     {
       "x": 5,
-      "y": 7,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_HOUSE1",
       "dest_warp_id": "0"
     },
     {
       "x": 16,
-      "y": 20,
+      "y": 22,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_HOUSE2",
       "dest_warp_id": "0"
     },
     {
       "x": 6,
-      "y": 16,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 13,
-      "y": 7,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_MART",
       "dest_warp_id": "0"
     },
     {
       "x": 19,
-      "y": 10,
+      "y": 12,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_TOWER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 25,
-      "y": 17,
+      "y": 19,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_NATURE_SHOP",
       "dest_warp_id": "0"
     },
     {
       "x": 26,
-      "y": 8,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_GLADE",
       "dest_warp_id": "0"
     },
     {
       "x": 27,
-      "y": 8,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_GLADE",
       "dest_warp_id": "1"
@@ -148,7 +153,7 @@
     {
       "type": "sign",
       "x": 10,
-      "y": 13,
+      "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OldaleTown_EventScript_TownSign"
@@ -156,7 +161,7 @@
     {
       "type": "sign",
       "x": 7,
-      "y": 16,
+      "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
@@ -164,7 +169,7 @@
     {
       "type": "sign",
       "x": 14,
-      "y": 7,
+      "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
@@ -172,7 +177,7 @@
     {
       "type": "sign",
       "x": 8,
-      "y": 16,
+      "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
@@ -180,7 +185,7 @@
     {
       "type": "sign",
       "x": 15,
-      "y": 7,
+      "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
@@ -188,7 +193,7 @@
     {
       "type": "sign",
       "x": 17,
-      "y": 11,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"
@@ -196,7 +201,7 @@
     {
       "type": "sign",
       "x": 25,
-      "y": 10,
+      "y": 12,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"
@@ -204,7 +209,7 @@
     {
       "type": "sign",
       "x": 26,
-      "y": 18,
+      "y": 20,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"

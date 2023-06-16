@@ -105,7 +105,7 @@
       "id": "LAYOUT_OLDALE_TOWN",
       "name": "OldaleTown_Layout",
       "width": 36,
-      "height": 24,
+      "height": 28,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/OldaleTown/border.bin",
@@ -4790,6 +4790,76 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/SandsweptDesert/border.bin",
       "blockdata_filepath": "data/layouts/SandsweptDesert/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_CAVERNS_MEDITATION_POOL",
+      "name": "MossdeepCaverns_MeditationPool_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MossdeepCaverns_MeditationPool/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCaverns_MeditationPool/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_CAVERNS_1F",
+      "name": "MossdeepCaverns_1F_Layout",
+      "width": 20,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MossdeepCaverns_1F/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCaverns_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_CAVERNS_B1F",
+      "name": "MossdeepCaverns_B1F_Layout",
+      "width": 32,
+      "height": 32,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MossdeepCaverns_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCaverns_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_CAVERNS_B2F",
+      "name": "MossdeepCaverns_B2F_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MossdeepCaverns_B2F/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCaverns_B2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOSSDEEP_CAVERNS_DIVE_CHAMBER",
+      "name": "MossdeepCaverns_DiveChamber_Layout",
+      "width": 16,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MossdeepCaverns_DiveChamber/border.bin",
+      "blockdata_filepath": "data/layouts/MossdeepCaverns_DiveChamber/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERWATER_MOSSDEEP_CAVERNS",
+      "name": "Underwater_Mossdeep_Caverns_Layout",
+      "width": 16,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/Underwater_Mossdeep_Caverns/border.bin",
+      "blockdata_filepath": "data/layouts/Underwater_Mossdeep_Caverns/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNDERWATER_ROUTE125_CAVE",
+      "name": "Underwater_Route125_Cave_Layout",
+      "width": 12,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Underwater",
+      "border_filepath": "data/layouts/Underwater_Route125_Cave/border.bin",
+      "blockdata_filepath": "data/layouts/Underwater_Route125_Cave/map.bin"
     }
   ]
 }

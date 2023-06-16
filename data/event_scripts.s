@@ -1127,3 +1127,17 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/MeteorVillage_AnthropologyHouse/scripts.inc"
 
 	.include "data/maps/SandsweptDesert/scripts.inc"
+
+	.include "data/maps/MossdeepCaverns_MeditationPool/scripts.inc"
+
+	.include "data/maps/MossdeepCaverns_1F/scripts.inc"
+
+	.include "data/maps/MossdeepCaverns_B1F/scripts.inc"
+
+	.include "data/maps/MossdeepCaverns_B2F/scripts.inc"
+
+	.include "data/maps/MossdeepCaverns_DiveChamber/scripts.inc"
+
+	.include "data/maps/Underwater_Mossdeep_Caverns/scripts.inc"
+
+	.include "data/maps/Underwater_Route125_Cave/scripts.inc"

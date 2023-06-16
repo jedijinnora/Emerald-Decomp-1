@@ -1,0 +1,40 @@
+{
+  "id": "MAP_UNDERWATER_MOSSDEEP_CAVERNS",
+  "name": "Underwater_Mossdeep_Caverns",
+  "layout": "LAYOUT_UNDERWATER_MOSSDEEP_CAVERNS",
+  "music": "MUS_UNDERWATER",
+  "region_map_section": "MAPSEC_UNDERWATER_MOSSDEEP_CAVERNS",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERWATER",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_MOSSDEEP_CAVERNS_DIVE_CHAMBER",
+      "offset": 0,
+      "direction": "emerge"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 9,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_UNDERWATER_ROUTE125_CAVE",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

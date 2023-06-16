@@ -106,7 +106,9 @@
     "ValleyOfSteel",
     "MillenniumField",
     "SlateportBeach",
-    "SandsweptDesert"
+    "SandsweptDesert",
+    "Underwater_Mossdeep_Caverns",
+    "Underwater_Route125_Cave"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -467,7 +469,12 @@
     "MeteorFalls_StevensCave",
     "Oldale_Glade",
     "Oldale_Ruins",
-    "SeafoamCove_1F"
+    "SeafoamCove_1F",
+    "MossdeepCaverns_MeditationPool",
+    "MossdeepCaverns_1F",
+    "MossdeepCaverns_B1F",
+    "MossdeepCaverns_B2F",
+    "MossdeepCaverns_DiveChamber"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",
