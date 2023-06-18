@@ -3,7 +3,7 @@
   "name": "PowerPlant",
   "layout": "LAYOUT_POWER_PLANT",
   "music": "MUS_RUSTBORO",
-  "region_map_section": "MAPSEC_POWER_PLANT",
+  "region_map_section": "MAPSEC_MAUVILLE_POWER_PLANT",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
@@ -90,8 +90,8 @@
       "x": 3,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_POWER_PLANT",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NEW_MAUVILLE_ENTRANCE",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [
