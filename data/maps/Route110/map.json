@@ -27,6 +27,11 @@
       "map": "MAP_ROUTE103",
       "offset": 60,
       "direction": "left"
+    },
+    {
+      "map": "MAP_POWER_PLANT",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -501,13 +506,6 @@
   ],
   "warp_events": [
     {
-      "x": 35,
-      "y": 24,
-      "elevation": 3,
-      "dest_map": "MAP_NEW_MAUVILLE_ENTRANCE",
-      "dest_warp_id": "0"
-    },
-    {
       "x": 11,
       "y": 66,
       "elevation": 0,
@@ -760,6 +758,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route110_EventScript_CyclingRoadSign"
+    },
+    {
+      "type": "sign",
+      "x": 36,
+      "y": 24,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
     }
   ]
 }

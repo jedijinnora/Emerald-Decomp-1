@@ -34,7 +34,8 @@
     "gMapGroup_IndoorRoute113",
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
-    "gMapGroup_IndoorRoute124"
+    "gMapGroup_IndoorRoute124",
+    "gMapGroup_IndoorDewfordResort"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -108,7 +109,8 @@
     "SandsweptDesert",
     "Underwater_Mossdeep_Caverns",
     "Underwater_Route125_Cave",
-    "MeteorVillage_Edge"
+    "MeteorVillage_Edge",
+    "PowerPlant"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -484,7 +486,10 @@
     "OldaleRuins_Chamber_5",
     "OldaleRuins_B1F",
     "OldaleRuins_B2F",
-    "ScorchedSlab_B1F"
+    "ScorchedSlab_B1F",
+    "GraniteCave_ResortExits",
+    "ChampionsCut",
+    "ForestHeart"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",
@@ -678,5 +683,11 @@
     "Route124_Observatory_1F",
     "Route124_House",
     "Route124_Observatory_2F"
+  ],
+  "gMapGroup_IndoorDewfordResort": [
+    "DewfordResort_BeachHouse_1",
+    "DewfordResort_BeachHouse_2",
+    "DewfordResort_LifeguardHouse",
+    "DewfordResort_StaffHouse"
   ]
 }

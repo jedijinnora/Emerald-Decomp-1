@@ -1161,3 +1161,19 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/ScorchedSlab_B1F/scripts.inc"
 
 	.include "data/maps/LavaridgeTown_House2/scripts.inc"
+
+	.include "data/maps/DewfordResort_BeachHouse_1/scripts.inc"
+
+	.include "data/maps/DewfordResort_BeachHouse_2/scripts.inc"
+
+	.include "data/maps/DewfordResort_LifeguardHouse/scripts.inc"
+
+	.include "data/maps/DewfordResort_StaffHouse/scripts.inc"
+
+	.include "data/maps/GraniteCave_ResortExits/scripts.inc"
+
+	.include "data/maps/PowerPlant/scripts.inc"
+
+	.include "data/maps/ChampionsCut/scripts.inc"
+
+	.include "data/maps/ForestHeart/scripts.inc"

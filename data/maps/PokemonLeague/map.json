@@ -84,8 +84,8 @@
       "x": 10,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_POKEMON_LEAGUE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_CHAMPIONS_CUT",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

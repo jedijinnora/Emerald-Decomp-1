@@ -1,0 +1,41 @@
+{
+  "id": "MAP_DEWFORD_RESORT_BEACH_HOUSE_2",
+  "name": "DewfordResort_BeachHouse_2",
+  "layout": "LAYOUT_DEWFORD_RESORT_BEACH_HOUSE_2",
+  "music": "MUS_DEWFORD",
+  "region_map_section": "MAPSEC_DEWFORD_RESORT",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_DEWFORD_RESORT",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 5,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_DEWFORD_RESORT",
+      "dest_warp_id": "2"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

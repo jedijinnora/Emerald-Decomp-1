@@ -67,18 +67,18 @@
 #define MAP_POKEMON_LEAGUE              (58 | (0 << 8))
 #define MAP_DEWFORD_RESORT              (59 | (0 << 8))
 #define MAP_VERDANT_FOREST              (60 | (0 << 8))
-#define MAP_CROSSGATE_HILLS             (61 | (0 << 8))
-#define MAP_LITTLEROOT_SHORE            (62 | (0 << 8))
-#define MAP_DEWDROP_GLEN                (63 | (0 << 8))
-#define MAP_FORINA                      (64 | (0 << 8))
-#define MAP_METEOR_VILLAGE              (65 | (0 << 8))
-#define MAP_VALLEY_OF_STEEL             (66 | (0 << 8))
-#define MAP_MILLENNIUM_FIELD            (67 | (0 << 8))
-#define MAP_SLATEPORT_BEACH             (68 | (0 << 8))
-#define MAP_SANDSWEPT_DESERT            (69 | (0 << 8))
-#define MAP_UNDERWATER_MOSSDEEP_CAVERNS (70 | (0 << 8))
-#define MAP_UNDERWATER_ROUTE125_CAVE    (71 | (0 << 8))
-#define MAP_METEOR_VILLAGE_EDGE         (72 | (0 << 8))
+#define MAP_LITTLEROOT_SHORE            (61 | (0 << 8))
+#define MAP_DEWDROP_GLEN                (62 | (0 << 8))
+#define MAP_FORINA                      (63 | (0 << 8))
+#define MAP_METEOR_VILLAGE              (64 | (0 << 8))
+#define MAP_VALLEY_OF_STEEL             (65 | (0 << 8))
+#define MAP_MILLENNIUM_FIELD            (66 | (0 << 8))
+#define MAP_SLATEPORT_BEACH             (67 | (0 << 8))
+#define MAP_SANDSWEPT_DESERT            (68 | (0 << 8))
+#define MAP_UNDERWATER_MOSSDEEP_CAVERNS (69 | (0 << 8))
+#define MAP_UNDERWATER_ROUTE125_CAVE    (70 | (0 << 8))
+#define MAP_METEOR_VILLAGE_EDGE         (71 | (0 << 8))
+#define MAP_POWER_PLANT                 (72 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -455,6 +455,9 @@
 #define MAP_OLDALE_RUINS_B1F                         (122 | (25 << 8))
 #define MAP_OLDALE_RUINS_B2F                         (123 | (25 << 8))
 #define MAP_SCORCHED_SLAB_B1F                        (124 | (25 << 8))
+#define MAP_GRANITE_CAVE_RESORT_EXITS                (125 | (25 << 8))
+#define MAP_CHAMPIONS_CUT                            (126 | (25 << 8))
+#define MAP_FOREST_HEART                             (127 | (25 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (26 << 8))
@@ -649,6 +652,12 @@
 #define MAP_ROUTE124_HOUSE                         (2 | (34 << 8))
 #define MAP_ROUTE124_OBSERVATORY_2F                (3 | (34 << 8))
 
-#define MAP_GROUPS_COUNT 35
+// gMapGroup_IndoorDewfordResort
+#define MAP_DEWFORD_RESORT_BEACH_HOUSE_1   (0 | (35 << 8))
+#define MAP_DEWFORD_RESORT_BEACH_HOUSE_2   (1 | (35 << 8))
+#define MAP_DEWFORD_RESORT_LIFEGUARD_HOUSE (2 | (35 << 8))
+#define MAP_DEWFORD_RESORT_STAFF_HOUSE     (3 | (35 << 8))
+
+#define MAP_GROUPS_COUNT 36
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

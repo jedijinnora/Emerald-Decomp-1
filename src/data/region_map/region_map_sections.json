@@ -1107,8 +1107,8 @@
     {
       "map_section": "MAPSEC_POWER_PLANT",
       "name": "POWER PLANT",
-      "x": 0,
-      "y": 0,
+      "x": 9,
+      "y": 7,
       "width": 1,
       "height": 1
     },
@@ -1789,6 +1789,14 @@
       "name": "SANDSWEPT DESERT",
       "x": 9,
       "y": 3,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_FOREST_HEART",
+      "name": "FOREST HEART",
+      "x": 1,
+      "y": 8,
       "width": 1,
       "height": 1
     }

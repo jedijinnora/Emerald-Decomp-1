@@ -24,8 +24,8 @@
     {
       "id": "LAYOUT_MAUVILLE_CITY",
       "name": "MauvilleCity_Layout",
-      "width": 40,
-      "height": 20,
+      "width": 60,
+      "height": 21,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/MauvilleCity/border.bin",
@@ -1835,7 +1835,7 @@
       "id": "LAYOUT_NEW_MAUVILLE_ENTRANCE",
       "name": "NewMauville_Entrance_Layout",
       "width": 9,
-      "height": 9,
+      "height": 22,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/NewMauville_Entrance/border.bin",
@@ -4960,6 +4960,86 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/LavaridgeTown_House2/border.bin",
       "blockdata_filepath": "data/layouts/LavaridgeTown_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_RESORT_BEACH_HOUSE_1",
+      "name": "DewfordResort_BeachHouse_1_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/DewfordResort_BeachHouse_1/border.bin",
+      "blockdata_filepath": "data/layouts/DewfordResort_BeachHouse_1/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_RESORT_BEACH_HOUSE_2",
+      "name": "DewfordResort_BeachHouse_2_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/DewfordResort_BeachHouse_2/border.bin",
+      "blockdata_filepath": "data/layouts/DewfordResort_BeachHouse_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_RESORT_LIFEGUARD_HOUSE",
+      "name": "DewfordResort_LifeguardHouse_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/DewfordResort_LifeguardHouse/border.bin",
+      "blockdata_filepath": "data/layouts/DewfordResort_LifeguardHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEWFORD_RESORT_STAFF_HOUSE",
+      "name": "DewfordResort_StaffHouse_Layout",
+      "width": 9,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/DewfordResort_StaffHouse/border.bin",
+      "blockdata_filepath": "data/layouts/DewfordResort_StaffHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_GRANITE_CAVE_RESORT_EXITS",
+      "name": "GraniteCave_ResortExits_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/GraniteCave_ResortExits/border.bin",
+      "blockdata_filepath": "data/layouts/GraniteCave_ResortExits/map.bin"
+    },
+    {
+      "id": "LAYOUT_POWER_PLANT",
+      "name": "PowerPlant_Layout",
+      "width": 30,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mauville",
+      "border_filepath": "data/layouts/PowerPlant/border.bin",
+      "blockdata_filepath": "data/layouts/PowerPlant/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAMPIONS_CUT",
+      "name": "ChampionsCut_Layout",
+      "width": 50,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ChampionsCut/border.bin",
+      "blockdata_filepath": "data/layouts/ChampionsCut/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOREST_HEART",
+      "name": "ForestHeart_Layout",
+      "width": 42,
+      "height": 42,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/ForestHeart/border.bin",
+      "blockdata_filepath": "data/layouts/ForestHeart/map.bin"
     }
   ]
 }

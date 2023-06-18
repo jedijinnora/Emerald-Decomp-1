@@ -65,9 +65,9 @@
 #define MAPSEC_ABANDONED_SHIP               0x3D
 #define MAPSEC_NEW_MAUVILLE                 0x3E
 #define MAPSEC_METEOR_FALLS                 0x3F
-#define MAPSEC_METEOR_VILLAGE             0x40
+#define MAPSEC_METEOR_VILLAGE               0x40
 #define MAPSEC_MT_PYRE                      0x41
-#define MAPSEC_CROSSGATE_HILLS              0x42
+#define MAPSEC_FOREST_HEART                 0x42
 #define MAPSEC_SHOAL_CAVE                   0x43
 #define MAPSEC_SEAFLOOR_CAVERN              0x44
 #define MAPSEC_UNDERWATER_SEAFLOOR_CAVERN   0x45
@@ -230,8 +230,9 @@
 #define MAPSEC_SLATEPORT_BEACH              0xDF
 #define MAPSEC_MILLENNIUM_FIELD             0xE0
 #define MAPSEC_UNDERWATER_MOSSDEEP_CAVERNS  0xE1
+#define MAPSEC_POWER_PLANT                  0xE2
 
-#define MAPSEC_NONE                         0xE2
+#define MAPSEC_NONE                         0xE3
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE
