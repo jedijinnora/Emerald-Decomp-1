@@ -230,7 +230,7 @@
 #define MAPSEC_SLATEPORT_BEACH              0xDF
 #define MAPSEC_MILLENNIUM_FIELD             0xE0
 #define MAPSEC_UNDERWATER_MOSSDEEP_CAVERNS  0xE1
-#define MAPSEC_POWER_PLANT                  0xE2
+#define MAPSEC_MAUVILLE_POWER_PLANT         0xE2
 
 #define MAPSEC_NONE                         0xE3
 
