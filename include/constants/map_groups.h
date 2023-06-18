@@ -78,6 +78,7 @@
 #define MAP_SANDSWEPT_DESERT            (69 | (0 << 8))
 #define MAP_UNDERWATER_MOSSDEEP_CAVERNS (70 | (0 << 8))
 #define MAP_UNDERWATER_ROUTE125_CAVE    (71 | (0 << 8))
+#define MAP_METEOR_VILLAGE_EDGE         (72 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -117,6 +118,7 @@
 #define MAP_LAVARIDGE_TOWN_MART              (4 | (4 << 8))
 #define MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F (5 | (4 << 8))
 #define MAP_LAVARIDGE_TOWN_POKEMON_CENTER_2F (6 | (4 << 8))
+#define MAP_LAVARIDGE_TOWN_HOUSE2            (7 | (4 << 8))
 
 // gMapGroup_IndoorFallarbor
 #define MAP_FALLARBOR_TOWN_MART                    (0 | (5 << 8))
@@ -444,6 +446,15 @@
 #define MAP_MOSSDEEP_CAVERNS_B1F                     (113 | (25 << 8))
 #define MAP_MOSSDEEP_CAVERNS_B2F                     (114 | (25 << 8))
 #define MAP_MOSSDEEP_CAVERNS_DIVE_CHAMBER            (115 | (25 << 8))
+#define MAP_OLDALE_RUINS_CENTER                      (116 | (25 << 8))
+#define MAP_OLDALE_RUINS_CHAMBER_1                   (117 | (25 << 8))
+#define MAP_OLDALE_RUINS_CHAMBER_2                   (118 | (25 << 8))
+#define MAP_OLDALE_RUINS_CHAMBER_3                   (119 | (25 << 8))
+#define MAP_OLDALE_RUINS_CHAMBER_4                   (120 | (25 << 8))
+#define MAP_OLDALE_RUINS_CHAMBER_5                   (121 | (25 << 8))
+#define MAP_OLDALE_RUINS_B1F                         (122 | (25 << 8))
+#define MAP_OLDALE_RUINS_B2F                         (123 | (25 << 8))
+#define MAP_SCORCHED_SLAB_B1F                        (124 | (25 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (26 << 8))

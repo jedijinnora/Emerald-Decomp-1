@@ -29,13 +29,8 @@
       "direction": "left"
     },
     {
-      "map": "MAP_VALLEY_OF_STEEL",
-      "offset": 80,
-      "direction": "left"
-    },
-    {
-      "map": "MAP_CROSSGATE_HILLS",
-      "offset": -20,
+      "map": "MAP_SANDSWEPT_DESERT",
+      "offset": 40,
       "direction": "right"
     }
   ],
@@ -185,8 +180,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 32,
-      "y": 66,
+      "x": 23,
+      "y": 64,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
       "movement_range_x": 0,
@@ -537,7 +532,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
       "x": 29,
-      "y": 77,
+      "y": 78,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
       "movement_range_x": 1,
@@ -550,7 +545,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 22,
-      "y": 77,
+      "y": 78,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
@@ -562,8 +557,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 37,
-      "y": 77,
+      "x": 36,
+      "y": 78,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
@@ -666,13 +661,6 @@
       "y": 58,
       "elevation": 0,
       "dest_map": "MAP_MIRAGE_TOWER_1F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 31,
-      "y": 113,
-      "elevation": 0,
-      "dest_map": "MAP_TRAINER_HILL_ENTRANCE",
       "dest_warp_id": "0"
     }
   ],
@@ -982,6 +970,33 @@
       "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "Route111_EventScript_SandstormTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 63,
+      "elevation": 3,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "Route111_EventScript_SandstormTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 64,
+      "elevation": 3,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "Route111_EventScript_SandstormTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 65,
+      "elevation": 3,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "Route111_EventScript_SandstormTrigger"
     }
   ],
   "bg_events": [
@@ -1107,19 +1122,11 @@
     },
     {
       "type": "hidden_item",
-      "x": 35,
-      "y": 66,
+      "x": 29,
+      "y": 93,
       "elevation": 0,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_111_RARE_CANDY"
-    },
-    {
-      "type": "sign",
-      "x": 24,
-      "y": 116,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route111_EventScript_TrainerHillSign"
     }
   ]
 }

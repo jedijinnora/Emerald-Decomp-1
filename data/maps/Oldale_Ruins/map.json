@@ -25,7 +25,19 @@
     }
   ],
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BALTOY_DOLL",
+      "x": 32,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
   ],
   "warp_events": [
     {
@@ -41,6 +53,48 @@
       "elevation": 0,
       "dest_map": "MAP_OLDALE_GLADE",
       "dest_warp_id": "3"
+    },
+    {
+      "x": 20,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_OLDALE_RUINS_CENTER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_OLDALE_RUINS_CHAMBER_1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 10,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_OLDALE_RUINS_CHAMBER_2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_OLDALE_RUINS_CHAMBER_3",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 26,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_OLDALE_RUINS_CHAMBER_4",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 30,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_OLDALE_RUINS_CHAMBER_5",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

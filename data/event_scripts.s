@@ -1141,3 +1141,25 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/Underwater_Mossdeep_Caverns/scripts.inc"
 
 	.include "data/maps/Underwater_Route125_Cave/scripts.inc"
+
+	.include "data/maps/MeteorVillage_Edge/scripts.inc"
+
+	.include "data/maps/OldaleRuins_Center/scripts.inc"
+
+	.include "data/maps/OldaleRuins_Chamber_1/scripts.inc"
+
+	.include "data/maps/OldaleRuins_Chamber_2/scripts.inc"
+
+	.include "data/maps/OldaleRuins_Chamber_3/scripts.inc"
+
+	.include "data/maps/OldaleRuins_Chamber_4/scripts.inc"
+
+	.include "data/maps/OldaleRuins_Chamber_5/scripts.inc"
+
+	.include "data/maps/OldaleRuins_B1F/scripts.inc"
+
+	.include "data/maps/OldaleRuins_B2F/scripts.inc"
+
+	.include "data/maps/ScorchedSlab_B1F/scripts.inc"
+
+	.include "data/maps/LavaridgeTown_House2/scripts.inc"

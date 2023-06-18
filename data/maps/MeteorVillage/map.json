@@ -27,6 +27,11 @@
       "map": "MAP_FORINA",
       "offset": 21,
       "direction": "right"
+    },
+    {
+      "map": "MAP_METEOR_VILLAGE_EDGE",
+      "offset": -3,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -159,6 +164,19 @@
       "trainer_sight_or_berry_tree_id": "BERRY_TREE_METEOR_VILLAGE_PETAYA",
       "script": "BerryTreeScript",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TWIN",
+      "x": 32,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -173,8 +191,8 @@
       "x": 9,
       "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_METEOR_VILLAGE",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_METEOR_FALLS_B1F_1R",
+      "dest_warp_id": "6"
     },
     {
       "x": 31,

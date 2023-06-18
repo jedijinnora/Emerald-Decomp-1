@@ -1783,6 +1783,14 @@
       "y": 5,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SANDSWEPT_DESERT",
+      "name": "SANDSWEPT DESERT",
+      "x": 9,
+      "y": 3,
+      "width": 1,
+      "height": 1
     }
   ]
 }

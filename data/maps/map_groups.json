@@ -108,7 +108,8 @@
     "SlateportBeach",
     "SandsweptDesert",
     "Underwater_Mossdeep_Caverns",
-    "Underwater_Route125_Cave"
+    "Underwater_Route125_Cave",
+    "MeteorVillage_Edge"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -147,7 +148,8 @@
     "LavaridgeTown_House",
     "LavaridgeTown_Mart",
     "LavaridgeTown_PokemonCenter_1F",
-    "LavaridgeTown_PokemonCenter_2F"
+    "LavaridgeTown_PokemonCenter_2F",
+    "LavaridgeTown_House2"
   ],
   "gMapGroup_IndoorFallarbor": [
     "FallarborTown_Mart",
@@ -474,7 +476,16 @@
     "MossdeepCaverns_1F",
     "MossdeepCaverns_B1F",
     "MossdeepCaverns_B2F",
-    "MossdeepCaverns_DiveChamber"
+    "MossdeepCaverns_DiveChamber",
+    "OldaleRuins_Center",
+    "OldaleRuins_Chamber_1",
+    "OldaleRuins_Chamber_2",
+    "OldaleRuins_Chamber_3",
+    "OldaleRuins_Chamber_4",
+    "OldaleRuins_Chamber_5",
+    "OldaleRuins_B1F",
+    "OldaleRuins_B2F",
+    "ScorchedSlab_B1F"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",
