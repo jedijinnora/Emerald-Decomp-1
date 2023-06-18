@@ -1096,8 +1096,6 @@ Common_EventScript_LegendaryFlewAway::
 
 	.include "data/maps/Verdant_Forest/scripts.inc"
 
-	.include "data/maps/CrossgateHills/scripts.inc"
-
 	.include "data/maps/LittlerootShore/scripts.inc"
 
 	.include "data/maps/DewdropGlen/scripts.inc"
