@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_LAVARIDGE_TOWN",
-      "offset": -12,
+      "offset": -13,
       "direction": "right"
     },
     {
