@@ -20,13 +20,18 @@
     },
     {
       "map": "MAP_LAVARIDGE_TOWN",
-      "offset": 37,
+      "offset": 36,
       "direction": "left"
     },
     {
       "map": "MAP_ROUTE111",
       "offset": -20,
       "direction": "right"
+    },
+    {
+      "map": "MAP_VALLEY_OF_STEEL",
+      "offset": -8,
+      "direction": "down"
     }
   ],
   "object_events": [

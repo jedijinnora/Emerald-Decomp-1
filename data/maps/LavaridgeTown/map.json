@@ -15,18 +15,13 @@
   "connections": [
     {
       "map": "MAP_ROUTE112",
-      "offset": -37,
+      "offset": -36,
       "direction": "right"
     },
     {
       "map": "MAP_FORINA",
-      "offset": 12,
+      "offset": 13,
       "direction": "left"
-    },
-    {
-      "map": "MAP_VALLEY_OF_STEEL",
-      "offset": 0,
-      "direction": "down"
     }
   ],
   "object_events": [
