@@ -2,7 +2,7 @@
   "id": "MAP_SANDSWEPT_DESERT",
   "name": "SandsweptDesert",
   "layout": "LAYOUT_SANDSWEPT_DESERT",
-  "music": "MUS_ROUTE111",
+  "music": "MUS_DESERT",
   "region_map_section": "MAPSEC_SANDSWEPT_DESERT",
   "requires_flash": false,
   "weather": "WEATHER_SANDSTORM",

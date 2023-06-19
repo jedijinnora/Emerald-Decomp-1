@@ -32,6 +32,7 @@ struct BagPocket
 extern const struct Item gItems[];
 extern struct BagPocket gBagPockets[];
 
+//Jinnora: must remain non-static to preserve bag sort functionality
 u16 GetBagItemQuantity(u16 *quantity);
 void ApplyNewEncryptionKeyToBagItems(u32 newKey);
 void ApplyNewEncryptionKeyToBagItems_(u32 newKey);
