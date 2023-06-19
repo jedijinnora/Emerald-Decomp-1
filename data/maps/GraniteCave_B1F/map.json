@@ -12,12 +12,12 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 15,
-      "y": 21,
+      "x": 8,
+      "y": 48,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -26,6 +26,45 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GraniteCave_B1F_EventScript_ItemPokeBall",
       "flag": "FLAG_ITEM_GRANITE_CAVE_B1F_POKE_BALL"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 24,
+      "y": 45,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_RockSmash",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 25,
+      "y": 45,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 26,
+      "y": 45,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -40,8 +79,8 @@
       "x": 4,
       "y": 21,
       "elevation": 3,
-      "dest_map": "MAP_GRANITE_CAVE_1F",
-      "dest_warp_id": "2"
+      "dest_map": "MAP_GRANITE_CAVE_RESORT_EXITS",
+      "dest_warp_id": "0"
     },
     {
       "x": 29,
@@ -77,8 +116,26 @@
       "elevation": 3,
       "dest_map": "MAP_GRANITE_CAVE_B2F",
       "dest_warp_id": "4"
+    },
+    {
+      "x": 5,
+      "y": 40,
+      "elevation": 0,
+      "dest_map": "MAP_GRANITE_CAVE_RESORT_EXITS",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 28,
+      "y": 48,
+      "elevation": 0,
+      "dest_map": "MAP_GRANITE_CAVE_RESORT_EXITS",
+      "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }
