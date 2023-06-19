@@ -729,6 +729,7 @@ static void GetRoomInflictedStatus(void)
     switch (sStatusFlags)
     {
     case STATUS1_FREEZE:
+    case STATUS1_FROSTBITE:
         gSpecialVar_Result = PIKE_STATUS_FREEZE;
         break;
     case STATUS1_BURN:
@@ -818,6 +819,7 @@ static bool8 DoesAbilityPreventStatus(struct Pokemon *mon, u32 status)
     switch (status)
     {
     case STATUS1_FREEZE:
+    case STATUS1_FROSTBITE:
         if (ability == ABILITY_MAGMA_ARMOR)
             ret = TRUE;
         break;
@@ -834,7 +836,7 @@ static bool8 DoesAbilityPreventStatus(struct Pokemon *mon, u32 status)
             ret = TRUE;
         break;
     case STATUS1_TOXIC_POISON:
-        if (ability == ABILITY_IMMUNITY)
+        if (ability == ABILITY_IMMUNITY || ability == ABILITY_PASTEL_VEIL)
             ret = TRUE;
         break;
     }
@@ -848,24 +850,25 @@ static bool8 DoesTypePreventStatus(u16 species, u32 status)
     switch (status)
     {
     case STATUS1_TOXIC_POISON:
-        if (gSpeciesInfo[species].type1 == TYPE_STEEL || gSpeciesInfo[species].type1 == TYPE_POISON
-            || gSpeciesInfo[species].type2 == TYPE_STEEL || gSpeciesInfo[species].type2 == TYPE_POISON)
+        if (gSpeciesInfo[species].types[0] == TYPE_STEEL || gSpeciesInfo[species].types[0] == TYPE_POISON
+            || gSpeciesInfo[species].types[1] == TYPE_STEEL || gSpeciesInfo[species].types[1] == TYPE_POISON)
             ret = TRUE;
         break;
     case STATUS1_FREEZE:
-        if (gSpeciesInfo[species].type1 == TYPE_ICE || gSpeciesInfo[species].type2 == TYPE_ICE)
+    case STATUS1_FROSTBITE:
+        if (gSpeciesInfo[species].types[0] == TYPE_ICE || gSpeciesInfo[species].types[1] == TYPE_ICE)
             ret = TRUE;
         break;
     case STATUS1_PARALYSIS:
-        if (gSpeciesInfo[species].type1 == TYPE_GROUND || gSpeciesInfo[species].type2 == TYPE_GROUND
+        if (gSpeciesInfo[species].types[0] == TYPE_GROUND || gSpeciesInfo[species].types[1] == TYPE_GROUND
         #if B_PARALYZE_ELECTRIC >= GEN_6
-            || gSpeciesInfo[species].type1 == TYPE_ELECTRIC || gSpeciesInfo[species].type2 == TYPE_ELECTRIC
+            || gSpeciesInfo[species].types[0] == TYPE_ELECTRIC || gSpeciesInfo[species].types[1] == TYPE_ELECTRIC
         #endif
         )
             ret = TRUE;
         break;
     case STATUS1_BURN:
-        if (gSpeciesInfo[species].type1 == TYPE_FIRE || gSpeciesInfo[species].type2 == TYPE_FIRE)
+        if (gSpeciesInfo[species].types[0] == TYPE_FIRE || gSpeciesInfo[species].types[1] == TYPE_FIRE)
             ret = TRUE;
         break;
     case STATUS1_SLEEP:
@@ -913,7 +916,11 @@ static bool8 TryInflictRandomStatus(void)
         if (rand < 35)
             sStatusFlags = STATUS1_TOXIC_POISON;
         else if (rand < 60)
+        #if B_USE_FROSTBITE == TRUE
+            sStatusFlags = STATUS1_FROSTBITE;
+        #else
             sStatusFlags = STATUS1_FREEZE;
+        #endif
         else if (rand < 80)
             sStatusFlags = STATUS1_PARALYSIS;
         else if (rand < 90)
@@ -950,6 +957,7 @@ static bool8 TryInflictRandomStatus(void)
     switch (sStatusFlags)
     {
     case STATUS1_FREEZE:
+    case STATUS1_FROSTBITE:
         sStatusMon = PIKE_STATUSMON_DUSCLOPS;
         break;
     case STATUS1_BURN:

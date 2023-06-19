@@ -1030,7 +1030,7 @@ static bool8 TryGetRandomWildMonIndexByType(const struct WildPokemon *wildMon, u
 
     for (validMonCount = 0, i = 0; i < numMon; i++)
     {
-        if (gSpeciesInfo[wildMon[i].species].type1 == type || gSpeciesInfo[wildMon[i].species].type2 == type)
+        if (gSpeciesInfo[wildMon[i].species].types[0] == type || gSpeciesInfo[wildMon[i].species].types[1] == type)
             validIndexes[validMonCount++] = i;
     }
 
@@ -1097,7 +1097,11 @@ static void ApplyCleanseTagEncounterRateMod(u32 *encRate)
 
 bool8 TryDoDoubleWildBattle(void)
 {
+#if B_DOUBLE_WILD_REQUIRE_2_MONS == TRUE
     if (GetSafariZoneFlag() || GetMonsStateToDoubles() != PLAYER_HAS_TWO_USABLE_MONS)
+#else
+    if (GetSafariZoneFlag())
+#endif
         return FALSE;
 #if B_FLAG_FORCE_DOUBLE_WILD != 0
     else if (FlagGet(B_FLAG_FORCE_DOUBLE_WILD))
