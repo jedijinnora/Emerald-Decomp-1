@@ -17,7 +17,62 @@
 
   ],
   "warp_events": [
-
+    {
+      "x": 15,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SOUTHERN_ISLAND_CLEARING",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 16,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SOUTHERN_ISLAND_CLEARING",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 14,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SOUTHERN_ISLAND_CLEARING",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 17,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_SOUTHERN_ISLAND_CLEARING",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SOUTHERN_ISLAND_LATIOS_GLEN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SOUTHERN_ISLAND_LATIOS_GLEN",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 30,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SOUTHERN_ISLAND_LATIAS_GLEN",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_SOUTHERN_ISLAND_LATIAS_GLEN",
+      "dest_warp_id": "1"
+    }
   ],
   "coord_events": [
 

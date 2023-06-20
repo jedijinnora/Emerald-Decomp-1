@@ -1799,6 +1799,14 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SUMMER_SEA",
+      "name": "SUMMER SEA",
+      "x": 11,
+      "y": 13,
+      "width": 2,
+      "height": 1
     }
   ]
 }

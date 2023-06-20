@@ -231,8 +231,9 @@
 #define MAPSEC_MILLENNIUM_FIELD             0xE0
 #define MAPSEC_UNDERWATER_MOSSDEEP_CAVERNS  0xE1
 #define MAPSEC_MAUVILLE_POWER_PLANT         0xE2
+#define MAPSEC_SUMMER_SEA                   0xE3
 
-#define MAPSEC_NONE                         0xE3
+#define MAPSEC_NONE                         0xE4
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

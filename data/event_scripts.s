@@ -1189,3 +1189,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/SouthernIsland_LatiosGlen/scripts.inc"
 
 	.include "data/maps/SouthernIsland_LatiasGlen/scripts.inc"
+
+	.include "data/maps/SummerSea/scripts.inc"
+
+	.include "data/maps/SouthernIsland_Clearing/scripts.inc"

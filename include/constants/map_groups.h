@@ -79,6 +79,7 @@
 #define MAP_UNDERWATER_ROUTE125_CAVE    (70 | (0 << 8))
 #define MAP_METEOR_VILLAGE_EDGE         (71 | (0 << 8))
 #define MAP_POWER_PLANT                 (72 | (0 << 8))
+#define MAP_SUMMER_SEA                  (73 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -667,6 +668,7 @@
 #define MAP_SOUTHERN_ISLAND_FORK        (1 | (37 << 8))
 #define MAP_SOUTHERN_ISLAND_LATIOS_GLEN (2 | (37 << 8))
 #define MAP_SOUTHERN_ISLAND_LATIAS_GLEN (3 | (37 << 8))
+#define MAP_SOUTHERN_ISLAND_CLEARING    (4 | (37 << 8))
 
 #define MAP_GROUPS_COUNT 38
 

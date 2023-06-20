@@ -112,7 +112,8 @@
     "Underwater_Mossdeep_Caverns",
     "Underwater_Route125_Cave",
     "MeteorVillage_Edge",
-    "PowerPlant"
+    "PowerPlant",
+    "SummerSea"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -700,6 +701,7 @@
     "SouthernIsland",
     "SouthernIsland_Fork",
     "SouthernIsland_LatiosGlen",
-    "SouthernIsland_LatiasGlen"
+    "SouthernIsland_LatiasGlen",
+    "SouthernIsland_Clearing"
   ]
 }

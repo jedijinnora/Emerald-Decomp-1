@@ -5065,7 +5065,7 @@
       "id": "LAYOUT_SOUTHERN_ISLAND",
       "name": "SouthernIsland_Layout",
       "width": 60,
-      "height": 60,
+      "height": 45,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/SouthernIsland/border.bin",
@@ -5074,8 +5074,8 @@
     {
       "id": "LAYOUT_SOUTHERN_ISLAND_FORK",
       "name": "SouthernIsland_Fork_Layout",
-      "width": 40,
-      "height": 20,
+      "width": 32,
+      "height": 24,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/SouthernIsland_Fork/border.bin",
@@ -5100,6 +5100,26 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/SouthernIsland_LatiasGlen/border.bin",
       "blockdata_filepath": "data/layouts/SouthernIsland_LatiasGlen/map.bin"
+    },
+    {
+      "id": "LAYOUT_SUMMER_SEA",
+      "name": "SummerSea_Layout",
+      "width": 60,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Pacifidlog",
+      "border_filepath": "data/layouts/SummerSea/border.bin",
+      "blockdata_filepath": "data/layouts/SummerSea/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOUTHERN_ISLAND_CLEARING",
+      "name": "SouthernIsland_Clearing_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/SouthernIsland_Clearing/border.bin",
+      "blockdata_filepath": "data/layouts/SouthernIsland_Clearing/map.bin"
     }
   ]
 }
