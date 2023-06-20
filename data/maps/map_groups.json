@@ -35,7 +35,9 @@
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
     "gMapGroup_IndoorRoute124",
-    "gMapGroup_IndoorDewfordResort"
+    "gMapGroup_IndoorDewfordResort",
+    "gMapGroup_IndoorLittlerootShore",
+    "gMapGroup_SouthernIsland"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -689,5 +691,15 @@
     "DewfordResort_BeachHouse_2",
     "DewfordResort_LifeguardHouse",
     "DewfordResort_StaffHouse"
+  ],
+  "gMapGroup_IndoorLittlerootShore": [
+    "LittlerootShore_Harbor",
+    "LittlerootShore_House"
+  ],
+  "gMapGroup_SouthernIsland": [
+    "SouthernIsland",
+    "SouthernIsland_Fork",
+    "SouthernIsland_LatiosGlen",
+    "SouthernIsland_LatiasGlen"
   ]
 }

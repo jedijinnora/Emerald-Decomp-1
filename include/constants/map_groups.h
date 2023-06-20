@@ -658,6 +658,16 @@
 #define MAP_DEWFORD_RESORT_LIFEGUARD_HOUSE (2 | (35 << 8))
 #define MAP_DEWFORD_RESORT_STAFF_HOUSE     (3 | (35 << 8))
 
-#define MAP_GROUPS_COUNT 36
+// gMapGroup_IndoorLittlerootShore
+#define MAP_LITTLEROOT_SHORE_HARBOR (0 | (36 << 8))
+#define MAP_LITTLEROOT_SHORE_HOUSE  (1 | (36 << 8))
+
+// gMapGroup_SouthernIsland
+#define MAP_SOUTHERN_ISLAND             (0 | (37 << 8))
+#define MAP_SOUTHERN_ISLAND_FORK        (1 | (37 << 8))
+#define MAP_SOUTHERN_ISLAND_LATIOS_GLEN (2 | (37 << 8))
+#define MAP_SOUTHERN_ISLAND_LATIAS_GLEN (3 | (37 << 8))
+
+#define MAP_GROUPS_COUNT 38
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

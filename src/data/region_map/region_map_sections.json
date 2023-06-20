@@ -92,7 +92,7 @@
       "map_section": "MAPSEC_FORTREE_CITY",
       "name": "FORTREE CITY",
       "x": 12,
-      "y": 0,
+      "y": 1,
       "width": 1,
       "height": 1
     },
@@ -107,7 +107,7 @@
     {
       "map_section": "MAPSEC_MOSSDEEP_CITY",
       "name": "MOSSDEEP CITY",
-      "x": 24,
+      "x": 23,
       "y": 5,
       "width": 2,
       "height": 1
@@ -197,7 +197,7 @@
       "name": "ROUTE 109",
       "x": 8,
       "y": 13,
-      "width": 5,
+      "width": 3,
       "height": 1
     },
     {
@@ -276,17 +276,17 @@
       "map_section": "MAPSEC_ROUTE_119",
       "name": "ROUTE 119",
       "x": 11,
-      "y": 0,
+      "y": 1,
       "width": 1,
-      "height": 6
+      "height": 5
     },
     {
       "map_section": "MAPSEC_ROUTE_120",
       "name": "ROUTE 120",
       "x": 13,
-      "y": 0,
+      "y": 1,
       "width": 1,
-      "height": 4
+      "height": 3
     },
     {
       "map_section": "MAPSEC_ROUTE_121",
@@ -317,13 +317,13 @@
       "name": "ROUTE 124",
       "x": 20,
       "y": 3,
-      "width": 4,
+      "width": 3,
       "height": 3
     },
     {
       "map_section": "MAPSEC_ROUTE_125",
       "name": "ROUTE 125",
-      "x": 24,
+      "x": 23,
       "y": 3,
       "width": 2,
       "height": 2
@@ -355,15 +355,15 @@
     {
       "map_section": "MAPSEC_ROUTE_129",
       "name": "ROUTE 129",
-      "x": 24,
+      "x": 23,
       "y": 10,
-      "width": 2,
+      "width": 3,
       "height": 1
     },
     {
       "map_section": "MAPSEC_ROUTE_130",
       "name": "ROUTE 130",
-      "x": 21,
+      "x": 20,
       "y": 10,
       "width": 3,
       "height": 1
@@ -373,7 +373,7 @@
       "name": "ROUTE 131",
       "x": 18,
       "y": 10,
-      "width": 3,
+      "width": 2,
       "height": 1
     },
     {
@@ -390,7 +390,7 @@
       "x": 13,
       "y": 10,
       "width": 1,
-      "height": 5
+      "height": 4
     },
     {
       "map_section": "MAPSEC_ROUTE_134",
@@ -523,8 +523,8 @@
     {
       "map_section": "MAPSEC_SHOAL_CAVE",
       "name": "SHOAL CAVE",
-      "x": 24,
-      "y": 4,
+      "x": 23,
+      "y": 3,
       "width": 1,
       "height": 1
     },
@@ -1755,7 +1755,7 @@
     {
       "map_section": "MAPSEC_MOSSDEEP_CAVERNS",
       "name": "MOSSDEEP CAVERNS",
-      "x": 25,
+      "x": 24,
       "y": 5,
       "width": 1,
       "height": 1

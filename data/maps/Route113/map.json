@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE112",
-      "offset": 60,
+      "offset": 76,
       "direction": "down"
     },
     {
@@ -255,7 +255,7 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 88,
+      "x": 104,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
@@ -293,21 +293,21 @@
     },
     {
       "type": "weather",
-      "x": 86,
+      "x": 102,
       "y": 9,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 85,
+      "x": 101,
       "y": 10,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 85,
+      "x": 101,
       "y": 11,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
@@ -342,28 +342,28 @@
     },
     {
       "type": "weather",
-      "x": 94,
+      "x": 110,
       "y": 8,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 94,
+      "x": 110,
       "y": 9,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 94,
+      "x": 110,
       "y": 10,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 94,
+      "x": 110,
       "y": 11,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
@@ -377,21 +377,21 @@
     },
     {
       "type": "weather",
-      "x": 87,
+      "x": 103,
       "y": 8,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 87,
+      "x": 103,
       "y": 6,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
     },
     {
       "type": "weather",
-      "x": 87,
+      "x": 103,
       "y": 7,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
@@ -400,7 +400,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 85,
+      "x": 101,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

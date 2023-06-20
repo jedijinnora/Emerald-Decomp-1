@@ -1177,3 +1177,15 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/ChampionsCut/scripts.inc"
 
 	.include "data/maps/ForestHeart/scripts.inc"
+
+	.include "data/maps/LittlerootShore_Harbor/scripts.inc"
+
+	.include "data/maps/LittlerootShore_House/scripts.inc"
+
+	.include "data/maps/SouthernIsland/scripts.inc"
+
+	.include "data/maps/SouthernIsland_Fork/scripts.inc"
+
+	.include "data/maps/SouthernIsland_LatiosGlen/scripts.inc"
+
+	.include "data/maps/SouthernIsland_LatiasGlen/scripts.inc"

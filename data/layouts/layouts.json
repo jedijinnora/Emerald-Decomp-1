@@ -5,7 +5,7 @@
       "id": "LAYOUT_PETALBURG_CITY",
       "name": "PetalburgCity_Layout",
       "width": 30,
-      "height": 30,
+      "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/PetalburgCity/border.bin",
@@ -174,8 +174,8 @@
     {
       "id": "LAYOUT_ROUTE102",
       "name": "Route102_Layout",
-      "width": 50,
-      "height": 20,
+      "width": 70,
+      "height": 24,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route102/border.bin",
@@ -184,7 +184,7 @@
     {
       "id": "LAYOUT_ROUTE103",
       "name": "Route103_Layout",
-      "width": 80,
+      "width": 96,
       "height": 22,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
@@ -224,7 +224,7 @@
     {
       "id": "LAYOUT_ROUTE107",
       "name": "Route107_Layout",
-      "width": 80,
+      "width": 96,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
@@ -244,7 +244,7 @@
     {
       "id": "LAYOUT_ROUTE109",
       "name": "Route109_Layout",
-      "width": 40,
+      "width": 100,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Slateport",
@@ -284,7 +284,7 @@
     {
       "id": "LAYOUT_ROUTE113",
       "name": "Route113_Layout",
-      "width": 100,
+      "width": 116,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fallarbor",
@@ -294,7 +294,7 @@
     {
       "id": "LAYOUT_ROUTE114",
       "name": "Route114_Layout",
-      "width": 40,
+      "width": 60,
       "height": 80,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fallarbor",
@@ -314,7 +314,7 @@
     {
       "id": "LAYOUT_ROUTE116",
       "name": "Route116_Layout",
-      "width": 100,
+      "width": 120,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
@@ -324,7 +324,7 @@
     {
       "id": "LAYOUT_ROUTE117",
       "name": "Route117_Layout",
-      "width": 60,
+      "width": 76,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
@@ -5040,6 +5040,66 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/ForestHeart/border.bin",
       "blockdata_filepath": "data/layouts/ForestHeart/map.bin"
+    },
+    {
+      "id": "LAYOUT_LITTLEROOT_SHORE_HARBOR",
+      "name": "LittlerootShore_Harbor_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/LittlerootShore_Harbor/border.bin",
+      "blockdata_filepath": "data/layouts/LittlerootShore_Harbor/map.bin"
+    },
+    {
+      "id": "LAYOUT_LITTLEROOT_SHORE_HOUSE",
+      "name": "LittlerootShore_House_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/LittlerootShore_House/border.bin",
+      "blockdata_filepath": "data/layouts/LittlerootShore_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOUTHERN_ISLAND",
+      "name": "SouthernIsland_Layout",
+      "width": 60,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/SouthernIsland/border.bin",
+      "blockdata_filepath": "data/layouts/SouthernIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOUTHERN_ISLAND_FORK",
+      "name": "SouthernIsland_Fork_Layout",
+      "width": 40,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/SouthernIsland_Fork/border.bin",
+      "blockdata_filepath": "data/layouts/SouthernIsland_Fork/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOUTHERN_ISLAND_LATIOS_GLEN",
+      "name": "SouthernIsland_LatiosGlen_Layout",
+      "width": 27,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/SouthernIsland_LatiosGlen/border.bin",
+      "blockdata_filepath": "data/layouts/SouthernIsland_LatiosGlen/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOUTHERN_ISLAND_LATIAS_GLEN",
+      "name": "SouthernIsland_LatiasGlen_Layout",
+      "width": 27,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/SouthernIsland_LatiasGlen/border.bin",
+      "blockdata_filepath": "data/layouts/SouthernIsland_LatiasGlen/map.bin"
     }
   ]
 }
