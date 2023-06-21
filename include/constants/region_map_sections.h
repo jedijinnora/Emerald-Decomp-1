@@ -200,8 +200,8 @@
 #define MAPSEC_EMBER_SPA                    0xC3
 #define MAPSEC_SPECIAL_AREA                 0xC4
 
-#define MAPSEC_AQUA_HIDEOUT                 0xC5
-#define MAPSEC_MAGMA_HIDEOUT                0xC6
+#define MAPSEC_MONSU_ISLAND                 0xC5
+#define MAPSEC_MAGMA_CAVES                  0xC6
 #define MAPSEC_MIRAGE_TOWER                 0xC7
 #define MAPSEC_BIRTH_ISLAND                 0xC8
 #define MAPSEC_FARAWAY_ISLAND               0xC9
@@ -232,8 +232,13 @@
 #define MAPSEC_UNDERWATER_MOSSDEEP_CAVERNS  0xE1
 #define MAPSEC_MAUVILLE_POWER_PLANT         0xE2
 #define MAPSEC_SUMMER_SEA                   0xE3
+#define MAPSEC_UNDERWATER_ROUTE_134         0xE4
+#define MAPSEC_UNDERWATER_ROUTE_109         0xE5
+#define MAPSEC_UNDERWATER_TITANS_GRAVE      0xE6
+#define MAPSEC_TITANS_GRAVE                 0xE7
+#define MAPSEC_WISHMAKERS_WELL              0xE8
 
-#define MAPSEC_NONE                         0xE4
+#define MAPSEC_NONE                         0xE9
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE
