@@ -1819,7 +1819,7 @@
     {
       "map_section": "MAPSEC_UNDERWATER_TITANS_GRAVE",
       "name": "UNDERWATER",
-      "x": 11,
+      "x": 10,
       "y": 13,
       "width": 1,
       "height": 1
@@ -1843,7 +1843,7 @@
     {
       "map_section": "MAPSEC_TITANS_GRAVE",
       "name": "TITAN'S GRAVE",
-      "x": 11,
+      "x": 10,
       "y": 13,
       "width": 1,
       "height": 1
