@@ -363,13 +363,6 @@
     },
     {
       "type": "weather",
-      "x": 110,
-      "y": 11,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
       "x": 19,
       "y": 14,
       "elevation": 3,

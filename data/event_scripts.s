@@ -1064,47 +1064,48 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/LittlerootTown_BigHouse_2F/scripts.inc"
 	.include "data/maps/LittlerootTown_House1/scripts.inc"
 	.include "data/maps/LittlerootTown_House2/scripts.inc"
+	.include "data/maps/LittlerootTown_PokemonCenter_1F/scripts.inc"
 
+	.include "data/maps/DewdropGlen/scripts.inc"
+
+	.include "data/maps/LittlerootShore/scripts.inc"
+	.include "data/maps/LittlerootShore_Harbor/scripts.inc"
+	.include "data/maps/LittlerootShore_House/scripts.inc"
+	
 	.include "data/maps/OldaleTown_Tower_1F/scripts.inc"
 	.include "data/maps/OldaleTown_Tower_2F/scripts.inc"
 	.include "data/maps/Oldale_Glade/scripts.inc"
 	.include "data/maps/OldaleTown_NatureShop/scripts.inc"
+	.include "data/maps/Oldale_Ruins/scripts.inc"
+	.include "data/maps/OldaleRuins_Center/scripts.inc"
+	.include "data/maps/OldaleRuins_Chamber_1/scripts.inc"
+	.include "data/maps/OldaleRuins_Chamber_2/scripts.inc"
+	.include "data/maps/OldaleRuins_Chamber_3/scripts.inc"
+	.include "data/maps/OldaleRuins_Chamber_4/scripts.inc"
+	.include "data/maps/OldaleRuins_Chamber_5/scripts.inc"
+	.include "data/maps/OldaleRuins_B1F/scripts.inc"
+	.include "data/maps/OldaleRuins_B2F/scripts.inc"
 
 	.include "data/maps/EmeraldCape/scripts.inc"
 	.include "data/maps/PokemonLeague/scripts.inc"
 
 	.include "data/maps/MossdeepCity_Harbor/scripts.inc"
 	.include "data/maps/MossdeepCity_HarborInterior/scripts.inc"
-
 	.include "data/maps/MossdeepCity_Connector/scripts.inc"
-
-	.include "data/maps/LittlerootTown_PokemonCenter_1F/scripts.inc"
-
 	.include "data/maps/MossdeepCity_ArrivalFerry/scripts.inc"
-
 	.include "data/maps/MossdeepCity_ArrivalFerry_Room/scripts.inc"
 
-	.include "data/maps/Oldale_Ruins/scripts.inc"
-
 	.include "data/maps/Route124_Observatory_1F/scripts.inc"
-
 	.include "data/maps/Route124_House/scripts.inc"
-
 	.include "data/maps/Route124_Observatory_2F/scripts.inc"
 
 	.include "data/maps/Dewford_Resort/scripts.inc"
 
 	.include "data/maps/Verdant_Forest/scripts.inc"
 
-	.include "data/maps/LittlerootShore/scripts.inc"
-
-	.include "data/maps/DewdropGlen/scripts.inc"
-
 	.include "data/maps/SeafoamCove_1F/scripts.inc"
 
 	.include "data/maps/Forina/scripts.inc"
-
-	.include "data/maps/MeteorVillage/scripts.inc"
 
 	.include "data/maps/ValleyOfSteel/scripts.inc"
 
@@ -1112,62 +1113,33 @@ Common_EventScript_LegendaryFlewAway::
 
 	.include "data/maps/SlateportBeach/scripts.inc"
 
+	.include "data/maps/MeteorVillage/scripts.inc"
 	.include "data/maps/MeteorVillage_CentralHall/scripts.inc"
-
 	.include "data/maps/MeteorVillage_LorekeeperCave/scripts.inc"
-
 	.include "data/maps/MeteorVillage_House1/scripts.inc"
-
 	.include "data/maps/MeteorVillage_House2/scripts.inc"
-
 	.include "data/maps/MeteorVillage_House3/scripts.inc"
-
 	.include "data/maps/MeteorVillage_AnthropologyHouse/scripts.inc"
+	.include "data/maps/MeteorVillage_Edge/scripts.inc"
 
 	.include "data/maps/SandsweptDesert/scripts.inc"
 
 	.include "data/maps/MossdeepCaverns_MeditationPool/scripts.inc"
-
 	.include "data/maps/MossdeepCaverns_1F/scripts.inc"
-
 	.include "data/maps/MossdeepCaverns_B1F/scripts.inc"
-
 	.include "data/maps/MossdeepCaverns_B2F/scripts.inc"
-
 	.include "data/maps/MossdeepCaverns_DiveChamber/scripts.inc"
-
 	.include "data/maps/Underwater_Mossdeep_Caverns/scripts.inc"
 
 	.include "data/maps/Underwater_Route125_Cave/scripts.inc"
-
-	.include "data/maps/MeteorVillage_Edge/scripts.inc"
-
-	.include "data/maps/OldaleRuins_Center/scripts.inc"
-
-	.include "data/maps/OldaleRuins_Chamber_1/scripts.inc"
-
-	.include "data/maps/OldaleRuins_Chamber_2/scripts.inc"
-
-	.include "data/maps/OldaleRuins_Chamber_3/scripts.inc"
-
-	.include "data/maps/OldaleRuins_Chamber_4/scripts.inc"
-
-	.include "data/maps/OldaleRuins_Chamber_5/scripts.inc"
-
-	.include "data/maps/OldaleRuins_B1F/scripts.inc"
-
-	.include "data/maps/OldaleRuins_B2F/scripts.inc"
 
 	.include "data/maps/ScorchedSlab_B1F/scripts.inc"
 
 	.include "data/maps/LavaridgeTown_House2/scripts.inc"
 
 	.include "data/maps/DewfordResort_BeachHouse_1/scripts.inc"
-
 	.include "data/maps/DewfordResort_BeachHouse_2/scripts.inc"
-
 	.include "data/maps/DewfordResort_LifeguardHouse/scripts.inc"
-
 	.include "data/maps/DewfordResort_StaffHouse/scripts.inc"
 
 	.include "data/maps/GraniteCave_ResortExits/scripts.inc"
@@ -1178,18 +1150,10 @@ Common_EventScript_LegendaryFlewAway::
 
 	.include "data/maps/ForestHeart/scripts.inc"
 
-	.include "data/maps/LittlerootShore_Harbor/scripts.inc"
-
-	.include "data/maps/LittlerootShore_House/scripts.inc"
-
 	.include "data/maps/SouthernIsland/scripts.inc"
-
 	.include "data/maps/SouthernIsland_Fork/scripts.inc"
-
 	.include "data/maps/SouthernIsland_LatiosGlen/scripts.inc"
-
 	.include "data/maps/SouthernIsland_LatiasGlen/scripts.inc"
+	.include "data/maps/SouthernIsland_Clearing/scripts.inc"
 
 	.include "data/maps/SummerSea/scripts.inc"
-
-	.include "data/maps/SouthernIsland_Clearing/scripts.inc"
