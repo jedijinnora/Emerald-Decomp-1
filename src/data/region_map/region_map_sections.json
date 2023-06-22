@@ -402,7 +402,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_124",
-      "name": "UNDERWATER",
+      "name": "ROUTE 124",
       "x": 20,
       "y": 3,
       "width": 4,
@@ -410,7 +410,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_126",
-      "name": "UNDERWATER",
+      "name": "ROUTE 126",
       "x": 20,
       "y": 6,
       "width": 3,
@@ -418,7 +418,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_127",
-      "name": "UNDERWATER",
+      "name": "ROUTE 127",
       "x": 23,
       "y": 6,
       "width": 3,
@@ -426,7 +426,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_128",
-      "name": "UNDERWATER",
+      "name": "ROUTE 128",
       "x": 23,
       "y": 9,
       "width": 4,
@@ -1610,7 +1610,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_105",
-      "name": "UNDERWATER",
+      "name": "ROUTE 105",
       "x": 0,
       "y": 10,
       "width": 1,
@@ -1626,7 +1626,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_129",
-      "name": "UNDERWATER",
+      "name": "ROUTE 129",
       "x": 24,
       "y": 10,
       "width": 2,
@@ -1810,7 +1810,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_ROUTE_134",
-      "name": "UNDERWATER",
+      "name": "ROUTE 134",
       "x": 9,
       "y": 10,
       "width": 4,
@@ -1834,7 +1834,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_ROUTE_109",
-      "name": "UNDERWATER",
+      "name": "ROUTE 109",
       "x": 8,
       "y": 13,
       "width": 3,

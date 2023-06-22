@@ -19,11 +19,6 @@
       "direction": "down"
     },
     {
-      "map": "MAP_ROUTE110",
-      "offset": -60,
-      "direction": "right"
-    },
-    {
       "map": "MAP_VERDANT_FOREST",
       "offset": -6,
       "direction": "up"

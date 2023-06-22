@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE103",
-      "offset": -36,
+      "offset": -40,
       "direction": "up"
     },
     {
@@ -27,7 +27,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_BALTOY_DOLL",
-      "x": 32,
+      "x": 36,
       "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -41,56 +41,56 @@
   ],
   "warp_events": [
     {
-      "x": 7,
+      "x": 11,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_GLADE",
       "dest_warp_id": "2"
     },
     {
-      "x": 8,
+      "x": 12,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_GLADE",
       "dest_warp_id": "3"
     },
     {
-      "x": 20,
+      "x": 24,
       "y": 26,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_RUINS_CENTER",
       "dest_warp_id": "0"
     },
     {
-      "x": 20,
+      "x": 24,
       "y": 34,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_RUINS_CHAMBER_1",
       "dest_warp_id": "0"
     },
     {
-      "x": 10,
+      "x": 14,
       "y": 27,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_RUINS_CHAMBER_2",
       "dest_warp_id": "0"
     },
     {
-      "x": 14,
+      "x": 18,
       "y": 17,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_RUINS_CHAMBER_3",
       "dest_warp_id": "0"
     },
     {
-      "x": 26,
+      "x": 30,
       "y": 17,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_RUINS_CHAMBER_4",
       "dest_warp_id": "0"
     },
     {
-      "x": 30,
+      "x": 34,
       "y": 27,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_RUINS_CHAMBER_5",
