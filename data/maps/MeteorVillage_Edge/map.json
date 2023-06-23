@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_METEOR_VILLAGE",
-      "offset": 3,
+      "offset": 0,
       "direction": "left"
     }
   ],

@@ -15,12 +15,12 @@
   "connections": [
     {
       "map": "MAP_ROUTE121",
-      "offset": -20,
+      "offset": 0,
       "direction": "up"
     },
     {
       "map": "MAP_ROUTE123",
-      "offset": -100,
+      "offset": -80,
       "direction": "down"
     }
   ],
@@ -29,7 +29,7 @@
   ],
   "warp_events": [
     {
-      "x": 22,
+      "x": 44,
       "y": 29,
       "elevation": 0,
       "dest_map": "MAP_MT_PYRE_1F",

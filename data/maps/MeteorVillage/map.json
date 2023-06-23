@@ -30,7 +30,7 @@
     },
     {
       "map": "MAP_METEOR_VILLAGE_EDGE",
-      "offset": -3,
+      "offset": 0,
       "direction": "right"
     }
   ],
