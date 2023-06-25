@@ -1290,12 +1290,12 @@ static const u16 sNaturePowerMoves[BATTLE_TERRAIN_COUNT] =
 
 static const u16 sPickupItems[] =
 {
-    ITEM_POTION,
+    ITEM_PREMIER_BALL,
     ITEM_ANTIDOTE,
     ITEM_SUPER_POTION,
-    ITEM_PREMIER_BALL,
-    ITEM_SUPER_REPEL,
     ITEM_QUICK_BALL,
+    ITEM_SUPER_REPEL,
+    ITEM_CHERISH_BALL,
     ITEM_POKE_DOLL,
     ITEM_FULL_HEAL,
     ITEM_ULTRA_BALL,
@@ -1321,7 +1321,7 @@ static const u16 sRarePickupItems[] =
     ITEM_MAX_REVIVE,
     ITEM_PP_MAX,
     ITEM_MAX_ELIXIR,
-    ITEM_LEFTOVERS,
+    ITEM_BOTTLE_CAP,
     ITEM_COMET_SHARD,
 };
 

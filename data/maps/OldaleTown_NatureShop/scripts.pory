@@ -15,7 +15,7 @@ script OldaleTown_NatureShop_EventScript_Clerk {
 mart Oldale_NatureShop_Mart {
     ITEM_FRESH_WATER
 	ITEM_BERRY_JUICE
-    ITEM_MIRACLE_SEED
+    ITEM_MIRROR_HERB
     ITEM_WHITE_HERB
     ITEM_MENTAL_HERB
     ITEM_POWER_HERB
