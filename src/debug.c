@@ -948,6 +948,9 @@ static void DebugAction_Util_Fly(u8 taskId)
     FlagSet(FLAG_VISITED_EVER_GRANDE_CITY);
     FlagSet(FLAG_LANDMARK_POKEMON_LEAGUE);
     FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
+    FlagSet(FLAG_VISITED_METEOR_VILLAGE);
+    FlagSet(FLAG_VISITED_EMERALD_CAPE);
+    FlagSet(FLAG_VISITED_POKEMON_LEAGUE);
     Debug_DestroyMenu_Full(taskId);
     SetMainCallback2(CB2_OpenFlyMap);
 }
@@ -1558,6 +1561,9 @@ static void DebugAction_Flags_ToggleFlyFlags(u8 taskId)
     FlagToggle(FLAG_VISITED_EVER_GRANDE_CITY);
     FlagToggle(FLAG_LANDMARK_POKEMON_LEAGUE);
     FlagToggle(FLAG_LANDMARK_BATTLE_FRONTIER);
+    FlagToggle(FLAG_VISITED_METEOR_VILLAGE);
+    FlagToggle(FLAG_VISITED_EMERALD_CAPE);
+    FlagToggle(FLAG_VISITED_POKEMON_LEAGUE);
 }
 static void DebugAction_Flags_ToggleBadgeFlags(u8 taskId)
 {
