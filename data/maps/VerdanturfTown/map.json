@@ -181,14 +181,6 @@
     },
     {
       "type": "sign",
-      "x": 2,
-      "y": 8,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VerdanturfTown_EventScript_BattleTentSign"
-    },
-    {
-      "type": "sign",
       "x": 8,
       "y": 3,
       "elevation": 0,
