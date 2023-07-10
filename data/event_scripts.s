@@ -1157,3 +1157,8 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/SouthernIsland_Clearing/scripts.inc"
 
 	.include "data/maps/SummerSea/scripts.inc"
+	.include "data/maps/SeafoamCove_B1F/scripts.inc"
+
+	.include "data/maps/SeafoamCove_B2F/scripts.inc"
+
+	.include "data/maps/SootopolisConnector/scripts.inc"

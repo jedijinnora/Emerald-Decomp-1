@@ -319,7 +319,8 @@
     "SootopolisCity_House7",
     "SootopolisCity_LotadAndSeedotHouse",
     "SootopolisCity_MysteryEventsHouse_1F",
-    "SootopolisCity_MysteryEventsHouse_B1F"
+    "SootopolisCity_MysteryEventsHouse_B1F",
+    "SootopolisConnector"
   ],
   "gMapGroup_IndoorEverGrande": [
     "EverGrandeCity_SidneysRoom",
@@ -492,7 +493,9 @@
     "ScorchedSlab_B1F",
     "GraniteCave_ResortExits",
     "ChampionsCut",
-    "ForestHeart"
+    "ForestHeart",
+    "SeafoamCove_B1F",
+    "SeafoamCove_B2F"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

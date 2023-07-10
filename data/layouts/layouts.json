@@ -1284,8 +1284,8 @@
     {
       "id": "LAYOUT_RUSTURF_TUNNEL",
       "name": "RusturfTunnel_Layout",
-      "width": 36,
-      "height": 50,
+      "width": 48,
+      "height": 48,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_RusturfTunnel",
       "border_filepath": "data/layouts/RusturfTunnel/border.bin",
@@ -1554,7 +1554,7 @@
     {
       "id": "LAYOUT_SEAFLOOR_CAVERN_ROOM9",
       "name": "SeafloorCavern_Room9_Layout",
-      "width": 27,
+      "width": 30,
       "height": 46,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
@@ -5120,6 +5120,36 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/SouthernIsland_Clearing/border.bin",
       "blockdata_filepath": "data/layouts/SouthernIsland_Clearing/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEAFOAM_COVE_B1F",
+      "name": "SeafoamCove_B1F_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/SeafoamCove_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/SeafoamCove_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEAFOAM_COVE_B2F",
+      "name": "SeafoamCove_B2F_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/SeafoamCove_B2F/border.bin",
+      "blockdata_filepath": "data/layouts/SeafoamCove_B2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOOTOPOLIS_CONNECTOR",
+      "name": "SootopolisConnector_Layout",
+      "width": 28,
+      "height": 36,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/SootopolisConnector/border.bin",
+      "blockdata_filepath": "data/layouts/SootopolisConnector/map.bin"
     }
   ]
 }

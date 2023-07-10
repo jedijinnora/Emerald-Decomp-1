@@ -58,14 +58,14 @@
     {
       "x": 6,
       "y": 8,
-      "elevation": 0,
+      "elevation": 3,
       "dest_map": "MAP_ROUTE124",
       "dest_warp_id": "2"
     },
     {
       "x": 5,
       "y": 8,
-      "elevation": 0,
+      "elevation": 3,
       "dest_map": "MAP_ROUTE124",
       "dest_warp_id": "2"
     }
@@ -78,24 +78,24 @@
       "type": "hidden_item",
       "x": 2,
       "y": 1,
-      "elevation": 0,
-      "item": "ITEM_NONE",
+      "elevation": 3,
+      "item": "ITEM_LEFTOVERS",
       "flag": "FLAG_TEMP_1"
     },
     {
       "type": "hidden_item",
       "x": 1,
       "y": 4,
-      "elevation": 0,
-      "item": "ITEM_NONE",
+      "elevation": 3,
+      "item": "ITEM_GOLD_BOTTLE_CAP",
       "flag": "FLAG_TEMP_1"
     },
     {
       "type": "hidden_item",
       "x": 11,
       "y": 8,
-      "elevation": 0,
-      "item": "ITEM_NONE",
+      "elevation": 3,
+      "item": "ITEM_COVERT_CLOAK",
       "flag": "FLAG_TEMP_1"
     }
   ]

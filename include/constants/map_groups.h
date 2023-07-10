@@ -286,6 +286,7 @@
 #define MAP_SOOTOPOLIS_CITY_LOTAD_AND_SEEDOT_HOUSE   (12 | (16 << 8))
 #define MAP_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F  (13 | (16 << 8))
 #define MAP_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_B1F (14 | (16 << 8))
+#define MAP_SOOTOPOLIS_CONNECTOR                     (15 | (16 << 8))
 
 // gMapGroup_IndoorEverGrande
 #define MAP_EVER_GRANDE_CITY_SIDNEYS_ROOM      (0 | (17 << 8))
@@ -459,6 +460,8 @@
 #define MAP_GRANITE_CAVE_RESORT_EXITS                (125 | (25 << 8))
 #define MAP_CHAMPIONS_CUT                            (126 | (25 << 8))
 #define MAP_FOREST_HEART                             (127 | (25 << 8))
+#define MAP_SEAFOAM_COVE_B1F                         (128 | (25 << 8))
+#define MAP_SEAFOAM_COVE_B2F                         (129 | (25 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (26 << 8))
