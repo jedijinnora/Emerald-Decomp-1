@@ -55,6 +55,15 @@
       "var": "VAR_NEW_MAUVILLE_STATE",
       "var_value": "0",
       "script": "NewMauville_Entrance_EventScript_Door"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 15,
+      "elevation": 3,
+      "var": "VAR_NEW_MAUVILLE_STATE",
+      "var_value": "0",
+      "script": "NewMauville_Entrance_EventScript_Door"
     }
   ],
   "bg_events": [

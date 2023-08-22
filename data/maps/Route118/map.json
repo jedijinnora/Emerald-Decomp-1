@@ -188,8 +188,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 28,
-      "y": 8,
+      "x": 31,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -201,7 +201,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 7,
+      "x": 8,
       "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -266,7 +266,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 7,
+      "x": 8,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -292,20 +292,7 @@
     }
   ],
   "warp_events": [
-    {
-      "x": 42,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 9,
-      "y": 6,
-      "elevation": 0,
-      "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
-      "dest_warp_id": "0"
-    }
+
   ],
   "coord_events": [
 
@@ -343,8 +330,8 @@
     },
     {
       "type": "secret_base",
-      "x": 29,
-      "y": 5,
+      "x": 62,
+      "y": 4,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_YELLOW_CAVE1_2"
     },

@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE116",
-      "offset": -99,
+      "offset": -92,
       "direction": "up"
     },
     {
@@ -25,14 +25,14 @@
     },
     {
       "map": "MAP_VERDANT_FOREST",
-      "offset": -5,
+      "offset": 2,
       "direction": "down"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_2",
-      "x": 5,
+      "x": 12,
       "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
@@ -45,7 +45,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
-      "x": 10,
+      "x": 17,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -58,7 +58,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
-      "x": 8,
+      "x": 15,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
@@ -71,7 +71,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 8,
+      "x": 15,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
@@ -85,42 +85,42 @@
   ],
   "warp_events": [
     {
-      "x": 13,
+      "x": 20,
       "y": 3,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN_MART",
       "dest_warp_id": "0"
     },
     {
-      "x": 17,
+      "x": 24,
       "y": 3,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 11,
+      "x": 18,
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN_WANDAS_HOUSE",
       "dest_warp_id": "0"
     },
     {
-      "x": 9,
+      "x": 16,
       "y": 1,
       "elevation": 0,
       "dest_map": "MAP_RUSTURF_TUNNEL",
       "dest_warp_id": "1"
     },
     {
-      "x": 2,
+      "x": 9,
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE",
       "dest_warp_id": "0"
     },
     {
-      "x": 18,
+      "x": 25,
       "y": 15,
       "elevation": 0,
       "dest_map": "MAP_VERDANTURF_TOWN_HOUSE",
@@ -133,7 +133,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 15,
+      "x": 22,
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -141,7 +141,7 @@
     },
     {
       "type": "sign",
-      "x": 15,
+      "x": 22,
       "y": 6,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -149,7 +149,7 @@
     },
     {
       "type": "sign",
-      "x": 18,
+      "x": 25,
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -157,7 +157,7 @@
     },
     {
       "type": "sign",
-      "x": 8,
+      "x": 15,
       "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -165,7 +165,7 @@
     },
     {
       "type": "sign",
-      "x": 14,
+      "x": 21,
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -173,7 +173,7 @@
     },
     {
       "type": "sign",
-      "x": 19,
+      "x": 26,
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -181,8 +181,8 @@
     },
     {
       "type": "sign",
-      "x": 8,
-      "y": 3,
+      "x": 15,
+      "y": 2,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VerdanturfTown_EventScript_RusturfTunnelSign"

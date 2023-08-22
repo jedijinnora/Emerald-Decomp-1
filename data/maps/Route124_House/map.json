@@ -89,14 +89,6 @@
       "elevation": 3,
       "item": "ITEM_GOLD_BOTTLE_CAP",
       "flag": "FLAG_TEMP_1"
-    },
-    {
-      "type": "hidden_item",
-      "x": 11,
-      "y": 8,
-      "elevation": 3,
-      "item": "ITEM_COVERT_CLOAK",
-      "flag": "FLAG_TEMP_1"
     }
   ]
 }

@@ -29,8 +29,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 14,
-      "y": 31,
+      "x": 15,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -44,10 +44,10 @@
   "warp_events": [
     {
       "x": 7,
-      "y": 5,
+      "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_MOSSDEEP_CITY_CONNECTOR",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_MOSSDEEP_CITY",
+      "dest_warp_id": "9"
     },
     {
       "x": 6,

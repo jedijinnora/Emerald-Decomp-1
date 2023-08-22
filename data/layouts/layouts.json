@@ -144,7 +144,7 @@
     {
       "id": "LAYOUT_VERDANTURF_TOWN",
       "name": "VerdanturfTown_Layout",
-      "width": 21,
+      "width": 28,
       "height": 24,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
@@ -247,7 +247,7 @@
       "width": 120,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/Route109/border.bin",
       "blockdata_filepath": "data/layouts/Route109/map.bin"
     },
@@ -314,7 +314,7 @@
     {
       "id": "LAYOUT_ROUTE116",
       "name": "Route116_Layout",
-      "width": 120,
+      "width": 122,
       "height": 32,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
@@ -325,7 +325,7 @@
       "id": "LAYOUT_ROUTE117",
       "name": "Route117_Layout",
       "width": 76,
-      "height": 20,
+      "height": 24,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route117/border.bin",
@@ -374,7 +374,7 @@
     {
       "id": "LAYOUT_ROUTE122",
       "name": "Route122_Layout",
-      "width": 70,
+      "width": 80,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lilycove",
@@ -384,7 +384,7 @@
     {
       "id": "LAYOUT_ROUTE123",
       "name": "Route123_Layout",
-      "width": 140,
+      "width": 150,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lilycove",
@@ -4654,7 +4654,7 @@
     {
       "id": "LAYOUT_SEAFOAM_COVE_1F",
       "name": "SeafoamCove_1F_Layout",
-      "width": 20,
+      "width": 40,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
@@ -4774,7 +4774,7 @@
     {
       "id": "LAYOUT_SANDSWEPT_DESERT",
       "name": "SandsweptDesert_Layout",
-      "width": 40,
+      "width": 30,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
