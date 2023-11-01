@@ -1162,3 +1162,9 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/SeafoamCove_B2F/scripts.inc"
 
 	.include "data/maps/SootopolisConnector/scripts.inc"
+
+	.include "data/maps/EverGrandeCity_Building1/scripts.inc"
+
+	.include "data/maps/EverGrandeCity_Building2/scripts.inc"
+
+	.include "data/maps/EverGrandeCity_Headquarters_1F/scripts.inc"

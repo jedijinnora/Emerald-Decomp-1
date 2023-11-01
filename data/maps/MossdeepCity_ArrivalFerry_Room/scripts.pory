@@ -25,7 +25,7 @@ script MossdeepCity_ArrivalFerry_Room_EventScript_Init {
     applymovement(ROOMMATE_ID, SeetheU)
     waitmovement(ROOMMATE_ID)
     msgbox(format("But this is ridiculous! Zut alors! Look at all this rubbish! Get up!"))
-    msgbox(format("You tossed your belongings all over our room in your sleep! I spent the whole trip from SINNOH shielding myself from your clumsy bombardment!"))
+    msgbox(format("You tossed your belongings all over our room! I spent the whole trip from SINNOH shielding myself from your clumsy bombardment!"))
     msgbox(format("Who do you think is going to remedy the deplorable state of your side of this cabin, your mother?"))
     msgbox(format("I'm certain she is a woman of prodigious talent, but she is most definitely not present in our current locale!"))
     msgbox(format("I have my book and water and was ready to leave hours ago but here I am babying some layabout who thinks they are too important to respect other people's schedules!"))

@@ -5150,6 +5150,36 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/SootopolisConnector/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisConnector/map.bin"
+    },
+    {
+      "id": "LAYOUT_EVER_GRANDE_CITY_BUILDING1",
+      "name": "EverGrandeCity_Building1_Layout",
+      "width": 12,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BattleFrontier",
+      "border_filepath": "data/layouts/EverGrandeCity_Building1/border.bin",
+      "blockdata_filepath": "data/layouts/EverGrandeCity_Building1/map.bin"
+    },
+    {
+      "id": "LAYOUT_EVER_GRANDE_CITY_BUILDING2",
+      "name": "EverGrandeCity_Building2_Layout",
+      "width": 12,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/EverGrandeCity_Building2/border.bin",
+      "blockdata_filepath": "data/layouts/EverGrandeCity_Building2/map.bin"
+    },
+    {
+      "id": "LAYOUT_EVER_GRANDE_CITY_HEADQUARTERS_1F",
+      "name": "EverGrandeCity_Headquarters_1F_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/EverGrandeCity_Headquarters_1F/border.bin",
+      "blockdata_filepath": "data/layouts/EverGrandeCity_Headquarters_1F/map.bin"
     }
   ]
 }
