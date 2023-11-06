@@ -34,14 +34,14 @@
       "y": 18,
       "elevation": 0,
       "dest_map": "MAP_SOUTHERN_ISLAND_FORK",
-      "dest_warp_id": "6"
+      "dest_warp_id": "4"
     },
     {
       "x": 14,
       "y": 18,
       "elevation": 0,
       "dest_map": "MAP_SOUTHERN_ISLAND_FORK",
-      "dest_warp_id": "7"
+      "dest_warp_id": "5"
     }
   ],
   "coord_events": [
