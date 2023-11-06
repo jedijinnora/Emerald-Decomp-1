@@ -7167,7 +7167,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_FOCUS_PUNCH,
+        .secondaryId = MOVE_WORK_UP,
     },
 
     [ITEM_TM02_SWORDS_DANCE] =
@@ -7179,7 +7179,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_DRAGON_CLAW,
+        .secondaryId = MOVE_SWORDS_DANCE,
     },
 
     [ITEM_TM03_PROTECT] =
@@ -7191,7 +7191,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_WATER_PULSE,
+        .secondaryId = MOVE_PROTECT,
     },
 
     [ITEM_TM04_ENDURE] =
@@ -7203,7 +7203,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_CALM_MIND,
+        .secondaryId = MOVE_ENDURE,
     },
 
     [ITEM_TM05_FALSE_SWIPE] =
@@ -7215,7 +7215,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_ROAR,
+        .secondaryId = MOVE_FALSE_SWIPE,
     },
 
     [ITEM_TM06_SUBSTITUTE] =
@@ -7227,7 +7227,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_TOXIC,
+        .secondaryId = MOVE_SUBSTITUTE,
     },
 
     [ITEM_TM07_SLEEP_TALK] =
@@ -7239,7 +7239,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_HAIL,
+        .secondaryId = MOVE_SLEEP_TALK,
     },
 
     [ITEM_TM08_SAFEGUARD] =
@@ -7251,7 +7251,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_BULK_UP,
+        .secondaryId = MOVE_SAFEGUARD,
     },
 
     [ITEM_TM09_ROAR] =
@@ -7263,7 +7263,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_BULLET_SEED,
+        .secondaryId = MOVE_ROAR,
     },
 
     [ITEM_TM10_FACADE] =
@@ -7275,7 +7275,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_HIDDEN_POWER,
+        .secondaryId = MOVE_FACADE,
     },
 
     [ITEM_TM11_BODY_SLAM] =
@@ -7287,7 +7287,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SUNNY_DAY,
+        .secondaryId = MOVE_BODY_SLAM,
     },
 
     [ITEM_TM12_HYPER_BEAM] =
@@ -7299,7 +7299,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_TAUNT,
+        .secondaryId = MOVE_HYPER_BEAM,
     },
 
     [ITEM_TM13_GIGA_IMPACT] =
@@ -7311,7 +7311,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_ICE_BEAM,
+        .secondaryId = MOVE_GIGA_IMPACT,
     },
 
     [ITEM_TM14_NATURAL_GIFT] =
@@ -7323,7 +7323,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_BLIZZARD,
+        .secondaryId = MOVE_NATURAL_GIFT,
     },
 
     [ITEM_TM15_BULK_UP] =
@@ -7335,7 +7335,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_HYPER_BEAM,
+        .secondaryId = MOVE_BULK_UP,
     },
 
     [ITEM_TM16_BRICK_BREAK] =
@@ -7347,7 +7347,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_LIGHT_SCREEN,
+        .secondaryId = MOVE_BRICK_BREAK,
     },
 
     [ITEM_TM17_FOCUS_BLAST] =
@@ -7359,10 +7359,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_PROTECT,
+        .secondaryId = MOVE_FOCUS_BLAST,
     },
 
-    [ITEM_TM18_LOW_SWEEP] =
+    [ITEM_TM18_DRAIN_PUNCH] =
     {
         .name = _("TM18"),
         .price = 2000,
@@ -7371,7 +7371,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_RAIN_DANCE,
+        .secondaryId = MOVE_DRAIN_PUNCH,
     },
 
     [ITEM_TM19_DEFOG] =
@@ -7383,7 +7383,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_GIGA_DRAIN,
+        .secondaryId = MOVE_DEFOG,
     },
 
     [ITEM_TM20_ROOST] =
@@ -7395,7 +7395,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SAFEGUARD,
+        .secondaryId = MOVE_ROOST,
     },
 
     [ITEM_TM21_DUAL_WINGBEAT] =
@@ -7407,7 +7407,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_FRUSTRATION,
+        .secondaryId = MOVE_DUAL_WINGBEAT,
     },
 
     [ITEM_TM22_ACROBATICS] =
@@ -7419,7 +7419,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SOLAR_BEAM,
+        .secondaryId = MOVE_ACROBATICS,
     },
 
     [ITEM_TM23_TOXIC] =
@@ -7431,7 +7431,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_IRON_TAIL,
+        .secondaryId = MOVE_TOXIC,
     },
 
     [ITEM_TM24_POISON_JAB] =
@@ -7443,7 +7443,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_THUNDERBOLT,
+        .secondaryId = MOVE_POISON_JAB,
     },
 
     [ITEM_TM25_GUNK_SHOT] =
@@ -7455,7 +7455,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_THUNDER,
+        .secondaryId = MOVE_GUNK_SHOT,
     },
 
     [ITEM_TM26_SLUDGE_BOMB] =
@@ -7467,7 +7467,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_EARTHQUAKE,
+        .secondaryId = MOVE_SLUDGE_BOMB,
     },
 
     [ITEM_TM27_SLUDGE_WAVE] =
@@ -7479,7 +7479,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_RETURN,
+        .secondaryId = MOVE_SLUDGE_WAVE,
     },
 
     [ITEM_TM28_EARTHQUAKE] =
@@ -7491,7 +7491,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_DIG,
+        .secondaryId = MOVE_EARTHQUAKE,
     },
 
     [ITEM_TM29_EARTH_POWER] =
@@ -7503,7 +7503,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_PSYCHIC,
+        .secondaryId = MOVE_EARTH_POWER,
     },
 
     [ITEM_TM30_DIG] =
@@ -7515,7 +7515,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SHADOW_BALL,
+        .secondaryId = MOVE_DIG,
     },
 
     [ITEM_TM31_BULLDOZE] =
@@ -7527,7 +7527,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_BRICK_BREAK,
+        .secondaryId = MOVE_BULLDOZE,
     },
 
     [ITEM_TM32_SANDSTORM] =
@@ -7539,7 +7539,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_DOUBLE_TEAM,
+        .secondaryId = MOVE_SANDSTORM,
     },
 
     [ITEM_TM33_STEALTH_ROCK] =
@@ -7551,7 +7551,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_REFLECT,
+        .secondaryId = MOVE_STEALTH_ROCK,
     },
 
     [ITEM_TM34_ROCK_SLIDE] =
@@ -7563,7 +7563,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SHOCK_WAVE,
+        .secondaryId = MOVE_ROCK_SLIDE,
     },
 
     [ITEM_TM35_STONE_EDGE] =
@@ -7575,7 +7575,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_FLAMETHROWER,
+        .secondaryId = MOVE_STONE_EDGE,
     },
 
     [ITEM_TM36_ROCK_TOMB] =
@@ -7587,7 +7587,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SLUDGE_BOMB,
+        .secondaryId = MOVE_ROCK_TOMB,
     },
 
     [ITEM_TM37_POWER_GEM] =
@@ -7599,7 +7599,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SANDSTORM,
+        .secondaryId = MOVE_POWER_GEM,
     },
 
     [ITEM_TM38_U_TURN] =
@@ -7611,7 +7611,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_FIRE_BLAST,
+        .secondaryId = MOVE_U_TURN,
     },
 
     [ITEM_TM39_BUG_BUZZ] =
@@ -7623,7 +7623,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_ROCK_TOMB,
+        .secondaryId = MOVE_BUG_BUZZ,
     },
 
     [ITEM_TM40_LEECH_LIFE] =
@@ -7635,7 +7635,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_AERIAL_ACE,
+        .secondaryId = MOVE_LEECH_LIFE,
     },
 
     [ITEM_TM41_SHADOW_BALL] =
@@ -7647,7 +7647,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_TORMENT,
+        .secondaryId = MOVE_SHADOW_BALL,
     },
 
     [ITEM_TM42_PHANTOM_FORCE] =
@@ -7659,7 +7659,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_FACADE,
+        .secondaryId = MOVE_PHANTOM_FORCE,
     },
 
     [ITEM_TM43_IRON_DEFENSE] =
@@ -7671,7 +7671,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SECRET_POWER,
+        .secondaryId = MOVE_IRON_DEFENSE,
     },
 
     [ITEM_TM44_IRON_HEAD] =
@@ -7683,7 +7683,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_REST,
+        .secondaryId = MOVE_IRON_HEAD,
     },
 
     [ITEM_TM45_FLASH_CANNON] =
@@ -7695,7 +7695,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_ATTRACT,
+        .secondaryId = MOVE_FLASH_CANNON,
     },
 
     [ITEM_TM46_WILL_O_WISP] =
@@ -7707,7 +7707,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_THIEF,
+        .secondaryId = MOVE_WILL_O_WISP,
     },
 
     [ITEM_TM47_SUNNY_DAY] =
@@ -7719,7 +7719,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_STEEL_WING,
+        .secondaryId = MOVE_SUNNY_DAY,
     },
 
     [ITEM_TM48_FLAMETHROWER] =
@@ -7731,7 +7731,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SKILL_SWAP,
+        .secondaryId = MOVE_FLAMETHROWER,
     },
 
     [ITEM_TM49_FIRE_BLAST] =
@@ -7743,10 +7743,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SNATCH,
+        .secondaryId = MOVE_FIRE_BLAST,
     },
 
-    [ITEM_TM_OVERHEAT] =
+    [ITEM_TM50_OVERHEAT] =
     {
         .name = _("TM50"),
         .price = 3000,
@@ -7758,7 +7758,7 @@ const struct Item gItems[] =
         .secondaryId = MOVE_OVERHEAT,
     },
 
-    [ITEM_TM51] =
+    [ITEM_TM51_FLAME_CHARGE] =
     {
         .name = _("TM51"),
         .price = 3000,
@@ -7767,10 +7767,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_FLAME_CHARGE,
     },
 
-    [ITEM_TM52] =
+    [ITEM_TM52_FIRE_PUNCH] =
     {
         .name = _("TM52"),
         .price = 3000,
@@ -7779,10 +7779,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_FIRE_PUNCH,
     },
 
-    [ITEM_TM53] =
+    [ITEM_TM53_RAIN_DANCE] =
     {
         .name = _("TM53"),
         .price = 3000,
@@ -7791,10 +7791,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_RAIN_DANCE,
     },
 
-    [ITEM_TM54] =
+    [ITEM_TM54_AQUA_TAIL] =
     {
         .name = _("TM54"),
         .price = 3000,
@@ -7803,10 +7803,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_AQUA_TAIL,
     },
 
-    [ITEM_TM55] =
+    [ITEM_TM55_FLIP_TURN] =
     {
         .name = _("TM55"),
         .price = 3000,
@@ -7815,10 +7815,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_FLIP_TURN,
     },
 
-    [ITEM_TM56] =
+    [ITEM_TM56_HYDRO_PUMP] =
     {
         .name = _("TM56"),
         .price = 3000,
@@ -7827,10 +7827,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_HYDRO_PUMP,
     },
 
-    [ITEM_TM57] =
+    [ITEM_TM57_WAVE_CRASH] =
     {
         .name = _("TM57"),
         .price = 3000,
@@ -7839,10 +7839,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_WAVE_CRASH,
     },
 
-    [ITEM_TM58] =
+    [ITEM_TM58_SEED_BOMB] =
     {
         .name = _("TM58"),
         .price = 3000,
@@ -7851,10 +7851,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_SEED_BOMB,
     },
 
-    [ITEM_TM59] =
+    [ITEM_TM59_POWER_WHIP] =
     {
         .name = _("TM59"),
         .price = 3000,
@@ -7863,10 +7863,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_POWER_WHIP,
     },
 
-    [ITEM_TM60] =
+    [ITEM_TM60_ENERGY_BALL] =
     {
         .name = _("TM60"),
         .price = 3000,
@@ -7875,10 +7875,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_ENERGY_BALL,
     },
 
-    [ITEM_TM61] =
+    [ITEM_TM61_GIGA_DRAIN] =
     {
         .name = _("TM61"),
         .price = 3000,
@@ -7887,10 +7887,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_GIGA_DRAIN,
     },
 
-    [ITEM_TM62] =
+    [ITEM_TM62_GRASS_KNOT] =
     {
         .name = _("TM62"),
         .price = 3000,
@@ -7899,10 +7899,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_GRASS_KNOT,
     },
 
-    [ITEM_TM63] =
+    [ITEM_TM63_SOLAR_BEAM] =
     {
         .name = _("TM63"),
         .price = 3000,
@@ -7911,10 +7911,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_SOLAR_BEAM,
     },
 
-    [ITEM_TM64] =
+    [ITEM_TM64_THUNDER_WAVE] =
     {
         .name = _("TM64"),
         .price = 3000,
@@ -7923,10 +7923,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_THUNDER_WAVE,
     },
 
-    [ITEM_TM65] =
+    [ITEM_TM65_THUNDER_PUNCH] =
     {
         .name = _("TM65"),
         .price = 3000,
@@ -7935,10 +7935,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_THUNDER_PUNCH,
     },
 
-    [ITEM_TM66] =
+    [ITEM_TM66_THUNDERBOLT] =
     {
         .name = _("TM66"),
         .price = 3000,
@@ -7947,10 +7947,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_THUNDERBOLT,
     },
 
-    [ITEM_TM67] =
+    [ITEM_TM67_THUNDER] =
     {
         .name = _("TM67"),
         .price = 3000,
@@ -7959,10 +7959,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_THUNDER,
     },
 
-    [ITEM_TM68] =
+    [ITEM_TM68_VOLT_SWITCH] =
     {
         .name = _("TM68"),
         .price = 3000,
@@ -7971,10 +7971,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_VOLT_SWITCH,
     },
 
-    [ITEM_TM69] =
+    [ITEM_TM69_WILD_CHARGE] =
     {
         .name = _("TM69"),
         .price = 3000,
@@ -7983,10 +7983,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_WILD_CHARGE,
     },
 
-    [ITEM_TM70] =
+    [ITEM_TM70_CALM_MIND] =
     {
         .name = _("TM70"),
         .price = 3000,
@@ -7995,10 +7995,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_CALM_MIND,
     },
 
-    [ITEM_TM71] =
+    [ITEM_TM71_AGILITY] =
     {
         .name = _("TM71"),
         .price = 3000,
@@ -8007,10 +8007,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_AGILITY,
     },
 
-    [ITEM_TM72] =
+    [ITEM_TM72_AMNESIA] =
     {
         .name = _("TM72"),
         .price = 3000,
@@ -8019,10 +8019,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_AMNESIA,
     },
 
-    [ITEM_TM73] =
+    [ITEM_TM73_REST] =
     {
         .name = _("TM73"),
         .price = 3000,
@@ -8031,10 +8031,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_REST,
     },
 
-    [ITEM_TM74] =
+    [ITEM_TM74_REFLECT] =
     {
         .name = _("TM74"),
         .price = 3000,
@@ -8043,10 +8043,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_REFLECT,
     },
 
-    [ITEM_TM75] =
+    [ITEM_TM75_LIGHT_SCREEN] =
     {
         .name = _("TM75"),
         .price = 3000,
@@ -8055,10 +8055,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_LIGHT_SCREEN,
     },
 
-    [ITEM_TM76] =
+    [ITEM_TM76_TRICK_ROOM] =
     {
         .name = _("TM76"),
         .price = 3000,
@@ -8067,10 +8067,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_TRICK_ROOM,
     },
 
-    [ITEM_TM77] =
+    [ITEM_TM77_TRICK] =
     {
         .name = _("TM77"),
         .price = 3000,
@@ -8079,10 +8079,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_TRICK,
     },
 
-    [ITEM_TM78] =
+    [ITEM_TM78_SKILL_SWAP] =
     {
         .name = _("TM78"),
         .price = 3000,
@@ -8091,10 +8091,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_SKILL_SWAP,
     },
 
-    [ITEM_TM79] =
+    [ITEM_TM79_TELEPORT] =
     {
         .name = _("TM79"),
         .price = 3000,
@@ -8103,10 +8103,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_TELEPORT,
     },
 
-    [ITEM_TM80] =
+    [ITEM_TM80_PSYCHIC] =
     {
         .name = _("TM80"),
         .price = 3000,
@@ -8115,10 +8115,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_PSYCHIC,
     },
 
-    [ITEM_TM81] =
+    [ITEM_TM81_PSYSHOCK] =
     {
         .name = _("TM81"),
         .price = 3000,
@@ -8127,10 +8127,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_PSYSHOCK,
     },
 
-    [ITEM_TM82] =
+    [ITEM_TM82_ZEN_HEADBUTT] =
     {
         .name = _("TM82"),
         .price = 3000,
@@ -8139,10 +8139,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_ZEN_HEADBUTT,
     },
 
-    [ITEM_TM83] =
+    [ITEM_TM83_HAIL] =
     {
         .name = _("TM83"),
         .price = 3000,
@@ -8151,10 +8151,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_HAIL,
     },
 
-    [ITEM_TM84] =
+    [ITEM_TM84_ICE_PUNCH] =
     {
         .name = _("TM84"),
         .price = 3000,
@@ -8163,10 +8163,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_ICE_PUNCH,
     },
 
-    [ITEM_TM85] =
+    [ITEM_TM85_ICE_BEAM] =
     {
         .name = _("TM85"),
         .price = 3000,
@@ -8175,10 +8175,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_ICE_BEAM,
     },
 
-    [ITEM_TM86] =
+    [ITEM_TM86_BLIZZARD] =
     {
         .name = _("TM86"),
         .price = 3000,
@@ -8187,10 +8187,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_BLIZZARD,
     },
 
-    [ITEM_TM87] =
+    [ITEM_TM87_ICICLE_CRASH] =
     {
         .name = _("TM87"),
         .price = 3000,
@@ -8199,10 +8199,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_ICICLE_CRASH,
     },
 
-    [ITEM_TM88] =
+    [ITEM_TM88_DRAGON_CLAW] =
     {
         .name = _("TM88"),
         .price = 3000,
@@ -8211,10 +8211,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_DRAGON_CLAW,
     },
 
-    [ITEM_TM89] =
+    [ITEM_TM89_DRAGON_PULSE] =
     {
         .name = _("TM89"),
         .price = 3000,
@@ -8223,10 +8223,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_DRAGON_PULSE,
     },
 
-    [ITEM_TM90] =
+    [ITEM_TM90_DRAGON_TAIL] =
     {
         .name = _("TM90"),
         .price = 3000,
@@ -8235,10 +8235,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_DRAGON_TAIL,
     },
 
-    [ITEM_TM91] =
+    [ITEM_TM91_NASTY_PLOT] =
     {
         .name = _("TM91"),
         .price = 3000,
@@ -8247,10 +8247,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_NASTY_PLOT,
     },
 
-    [ITEM_TM92] =
+    [ITEM_TM92_PARTING_SHOT] =
     {
         .name = _("TM92"),
         .price = 3000,
@@ -8259,10 +8259,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_PARTING_SHOT,
     },
 
-    [ITEM_TM93] =
+    [ITEM_TM93_TAUNT] =
     {
         .name = _("TM93"),
         .price = 3000,
@@ -8271,10 +8271,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_TAUNT,
     },
 
-    [ITEM_TM94] =
+    [ITEM_TM94_DARK_PULSE] =
     {
         .name = _("TM94"),
         .price = 3000,
@@ -8283,10 +8283,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_DARK_PULSE,
     },
 
-    [ITEM_TM95] =
+    [ITEM_TM95_THIEF] =
     {
         .name = _("TM95"),
         .price = 3000,
@@ -8295,10 +8295,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_THIEF,
     },
 
-    [ITEM_TM96] =
+    [ITEM_TM96_FOUL_PLAY] =
     {
         .name = _("TM96"),
         .price = 3000,
@@ -8307,10 +8307,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_FOUL_PLAY,
     },
 
-    [ITEM_TM97] =
+    [ITEM_TM97_PLAY_ROUGH] =
     {
         .name = _("TM97"),
         .price = 3000,
@@ -8319,10 +8319,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_PLAY_ROUGH,
     },
 
-    [ITEM_TM98] =
+    [ITEM_TM98_DAZZLING_GLEAM] =
     {
         .name = _("TM98"),
         .price = 3000,
@@ -8331,10 +8331,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_DAZZLING_GLEAM,
     },
 
-    [ITEM_TM99] =
+    [ITEM_TM99_MOONBLAST] =
     {
         .name = _("TM99"),
         .price = 3000,
@@ -8343,10 +8343,10 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_MOONBLAST,
     },
 
-    [ITEM_TM100] =
+    [ITEM_TM100_DRAINING_KISS] =
     {
         .name = _("TM100"),
         .price = 3000,
@@ -8355,7 +8355,7 @@ const struct Item gItems[] =
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
+        .secondaryId = MOVE_DRAINING_KISS,
     },
 
     [ITEM_HM_CUT] =

@@ -3117,9 +3117,9 @@ static const u8 sTM17Desc[] = _(
     "lower Sp. Def.");
 
 static const u8 sTM18Desc[] = _(
-    "Attacks the foe's\n"
-    "legs, lowering its\n"
-    "Speed.");
+    "Recovers half the\n"
+    "HP of the damage \n"
+    "this move inflicts.");
 
 static const u8 sTM19Desc[] = _(
     "Blows away spikes,\n"
@@ -3528,8 +3528,8 @@ static const u8 sTM99Desc[] = _(
 
 static const u8 sTM100Desc[] = _(
     "A kiss that steals\n"
-    "half the damage\n"
-    "inflicted.");
+    "three fourths the\n"
+    "damage inflicted.");
 
 static const u8 sHM01Desc[] = _(
     "Attacks the foe\n"
