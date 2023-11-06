@@ -307,6 +307,8 @@
 #define MAP_EVER_GRANDE_CITY_BUILDING1         (15 | (17 << 8))
 #define MAP_EVER_GRANDE_CITY_BUILDING2         (16 | (17 << 8))
 #define MAP_EVER_GRANDE_CITY_HEADQUARTERS_1F   (17 | (17 << 8))
+#define MAP_ARRIVAL_FERRY_ROOM                 (18 | (17 << 8))
+#define MAP_ARRIVAL_FERRY_CORRIDOR             (19 | (17 << 8))
 
 // gMapGroup_IndoorRoute104
 #define MAP_ROUTE104_MR_BRINEYS_HOUSE         (0 | (18 << 8))

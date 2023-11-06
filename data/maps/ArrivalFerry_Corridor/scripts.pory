@@ -1,21 +1,14 @@
-mapscripts MossdeepCity_ArrivalFerry_MapScripts {}
+mapscripts ArrivalFerry_Corridor_MapScripts {}
 
 //Object IDs
-const SAILOR_ID = 1
 const MADMAN_ID = 2
-const LITTLE_GIRL_ID = 4
-const MANIAC_ID = 5
-const PICNICKER_ID = 6
-const LASS_ID = 7
-const EXECUTIVE_ID = 8
-const ACE_ID = 9
-const MOM_ID = 10
+
 
 //TEMPs used
 //FLAG_TEMP_8 for Executive phone call intro
 
 
-script MossdeepCity_ArrivalFerry_EventScript_Sailor {
+script ArrivalFerry_Corridor_EventScript_Sailor {
     lock
     faceplayer
     msgbox(format("Ahoy, {PLAYER}! I hear we have you to thank for picking up that awful mess in Cabin 1!"))
@@ -30,7 +23,7 @@ script MossdeepCity_ArrivalFerry_EventScript_Sailor {
     end
 }
 
-script MossdeepCity_ArrivalFerry_EventScript_Madman {
+script ArrivalFerry_Corridor_EventScript_Madman {
     lock
     applymovement(MADMAN_ID, SeetheL)
     waitmovement(MADMAN_ID)
@@ -42,14 +35,14 @@ script MossdeepCity_ArrivalFerry_EventScript_Madman {
 
 
 
-script MossdeepCity_ArrivalFerry_EventScript_Father {
+script ArrivalFerry_Corridor_EventScript_Father {
     lock
     msgbox(format("Not now. Daddy has to finish an important thing on his phone."))
     release
     end
 }
 
-script MossdeepCity_ArrivalFerry_EventScript_LittleGirl {
+script ArrivalFerry_Corridor_EventScript_LittleGirl {
     lock
     faceplayer
     msgbox(format("I hope we leave soon. I have to go potty!"))
@@ -57,7 +50,7 @@ script MossdeepCity_ArrivalFerry_EventScript_LittleGirl {
     end
 }
 
-script MossdeepCity_ArrivalFerry_EventScript_Maniac {
+script ArrivalFerry_Corridor_EventScript_Maniac {
     lock
     faceplayer
     msgbox(format("I can't wait to see the SPACE CENTER! I've been dying to visit their exhibition hall since I was a little boy watching shuttle launches on TV."))
@@ -65,7 +58,7 @@ script MossdeepCity_ArrivalFerry_EventScript_Maniac {
     end
 }
 
-script MossdeepCity_ArrivalFerry_EventScript_Picnicker {
+script ArrivalFerry_Corridor_EventScript_Picnicker {
     lock
     faceplayer
     msgbox(format("Oh, no, please go right ahead. I haven't been waiting long to disembark or anything."))
@@ -73,7 +66,7 @@ script MossdeepCity_ArrivalFerry_EventScript_Picnicker {
     end
 }
 
-script MossdeepCity_ArrivalFerry_EventScript_Lass {
+script ArrivalFerry_Corridor_EventScript_Lass {
     lock
     faceplayer
     msgbox(format("What kind of POKéMON are you looking to find in HOENN? I'm thinking of trying to catch a NATU in MOSSDEEP before traveling further."))
@@ -81,7 +74,7 @@ script MossdeepCity_ArrivalFerry_EventScript_Lass {
     end
 }
 
-script MossdeepCity_ArrivalFerry_EventScript_Executive {
+script ArrivalFerry_Corridor_EventScript_Executive {
     lock
     if(!flag(FLAG_TEMP_8)) {
          msgbox(format("What? Tell them that counter-offer is simply unacceptable! If they won't sell at my eminently reasonable price we will simply run them out of business!"))
@@ -96,7 +89,7 @@ script MossdeepCity_ArrivalFerry_EventScript_Executive {
     end
 }
 
-script MossdeepCity_ArrivalFerry_EventScript_Ace {
+script ArrivalFerry_Corridor_EventScript_Ace {
     lock
     faceplayer
     msgbox(format("I came to HOENN to run the gym circuit here after getting six badges in SINNOH. It's a great opportunity to catch some rare POKéMON before I prep my team for an Elite Four challenge."))
@@ -106,7 +99,7 @@ script MossdeepCity_ArrivalFerry_EventScript_Ace {
 }
 
 
-script MossdeepCity_ArrivalFerry_EventScript_Lemonade {
+script ArrivalFerry_Corridor_EventScript_Lemonade {
     giveitem(ITEM_LEMONADE)
     setflag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_LEMONADE)
     VitaminC:
@@ -117,7 +110,7 @@ script MossdeepCity_ArrivalFerry_EventScript_Lemonade {
 }
 
 
-script MossdeepCity_ArrivalFerry_EventScript_Mom {
+script ArrivalFerry_Corridor_EventScript_Mom {
     lock
     faceplayer
     if (flag(FLAG_ITEM_MOSSDEEP_CITY_ARRIVAL_FERRY_LEMONADE)) {
@@ -125,7 +118,7 @@ script MossdeepCity_ArrivalFerry_EventScript_Mom {
     }
     msgbox(format("Dear, you have some bags under your eyes. Why don't you have something to refresh yourself?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES) {
-        call(MossdeepCity_ArrivalFerry_EventScript_Lemonade)
+        call(ArrivalFerry_Corridor_EventScript_Lemonade)
     }
     msgbox(format("All right then, come back if you change your mind."))
     release

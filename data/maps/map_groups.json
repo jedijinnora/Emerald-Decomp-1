@@ -297,12 +297,7 @@
     "MossdeepCity_SpaceCenter_1F",
     "MossdeepCity_SpaceCenter_2F",
     "MossdeepCity_GameCorner_1F",
-    "MossdeepCity_GameCorner_B1F",
-    "MossdeepCity_Harbor",
-    "MossdeepCity_HarborInterior",
-    "MossdeepCity_Connector",
-    "MossdeepCity_ArrivalFerry",
-    "MossdeepCity_ArrivalFerry_Room"
+    "MossdeepCity_GameCorner_B1F"
   ],
   "gMapGroup_IndoorSootopolis": [
     "SootopolisCity_Gym_1F",
@@ -340,7 +335,9 @@
     "EverGrandeCity_PokemonLeague_2F",
     "EverGrandeCity_Building1",
     "EverGrandeCity_Building2",
-    "EverGrandeCity_Headquarters_1F"
+    "EverGrandeCity_Headquarters_1F",
+    "ArrivalFerry_Room",
+    "ArrivalFerry_Corridor"
   ],
   "gMapGroup_IndoorRoute104": [
     "Route104_MrBrineysHouse",

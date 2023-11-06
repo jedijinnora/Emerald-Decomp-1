@@ -1089,12 +1089,6 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/EmeraldCape/scripts.inc"
 	.include "data/maps/PokemonLeague/scripts.inc"
 
-	.include "data/maps/MossdeepCity_Harbor/scripts.inc"
-	.include "data/maps/MossdeepCity_HarborInterior/scripts.inc"
-	.include "data/maps/MossdeepCity_Connector/scripts.inc"
-	.include "data/maps/MossdeepCity_ArrivalFerry/scripts.inc"
-	.include "data/maps/MossdeepCity_ArrivalFerry_Room/scripts.inc"
-
 	.include "data/maps/Route124_Observatory_1F/scripts.inc"
 	.include "data/maps/Route124_House/scripts.inc"
 	.include "data/maps/Route124_Observatory_2F/scripts.inc"
@@ -1168,3 +1162,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/EverGrandeCity_Building2/scripts.inc"
 
 	.include "data/maps/EverGrandeCity_Headquarters_1F/scripts.inc"
+
+	.include "data/maps/ArrivalFerry_Room/scripts.inc"
+
+	.include "data/maps/ArrivalFerry_Corridor/scripts.inc"

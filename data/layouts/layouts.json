@@ -4512,36 +4512,6 @@
       "blockdata_filepath": "data/layouts/PokemonLeague/map.bin"
     },
     {
-      "id": "LAYOUT_MOSSDEEP_CITY_HARBOR",
-      "name": "MossdeepCity_Harbor_Layout",
-      "width": 20,
-      "height": 27,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
-      "border_filepath": "data/layouts/MossdeepCity_Harbor/border.bin",
-      "blockdata_filepath": "data/layouts/MossdeepCity_Harbor/map.bin"
-    },
-    {
-      "id": "LAYOUT_MOSSDEEP_CITY_HARBOR_INTERIOR",
-      "name": "MossdeepCity_HarborInterior_Layout",
-      "width": 17,
-      "height": 13,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_IslandHarbor",
-      "border_filepath": "data/layouts/MossdeepCity_HarborInterior/border.bin",
-      "blockdata_filepath": "data/layouts/MossdeepCity_HarborInterior/map.bin"
-    },
-    {
-      "id": "LAYOUT_MOSSDEEP_CITY_CONNECTOR",
-      "name": "MossdeepCity_Connector_Layout",
-      "width": 48,
-      "height": 24,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
-      "border_filepath": "data/layouts/MossdeepCity_Connector/border.bin",
-      "blockdata_filepath": "data/layouts/MossdeepCity_Connector/map.bin"
-    },
-    {
       "id": "LAYOUT_LITTLEROOT_TOWN_POKEMON_CENTER_1F",
       "name": "LittlerootTown_PokemonCenter_1F_Layout",
       "width": 14,
@@ -4550,26 +4520,6 @@
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/LittlerootTown_PokemonCenter_1F/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_PokemonCenter_1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_MOSSDEEP_CITY_ARRIVAL_FERRY",
-      "name": "MossdeepCity_ArrivalFerry_Layout",
-      "width": 18,
-      "height": 13,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/MossdeepCity_ArrivalFerry/border.bin",
-      "blockdata_filepath": "data/layouts/MossdeepCity_ArrivalFerry/map.bin"
-    },
-    {
-      "id": "LAYOUT_MOSSDEEP_CITY_ARRIVAL_FERRY_ROOM",
-      "name": "MossdeepCity_ArrivalFerry_Room_Layout",
-      "width": 9,
-      "height": 10,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_InsideShip",
-      "border_filepath": "data/layouts/MossdeepCity_ArrivalFerry_Room/border.bin",
-      "blockdata_filepath": "data/layouts/MossdeepCity_ArrivalFerry_Room/map.bin"
     },
     {
       "id": "LAYOUT_OLDALE_RUINS",
@@ -5180,6 +5130,16 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/EverGrandeCity_Headquarters_1F/border.bin",
       "blockdata_filepath": "data/layouts/EverGrandeCity_Headquarters_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ARRIVAL_FERRY_ROOM",
+      "name": "ArrivalFerry_Room_Layout",
+      "width": 9,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/ArrivalFerry_Room/border.bin",
+      "blockdata_filepath": "data/layouts/ArrivalFerry_Room/map.bin"
     }
   ]
 }
