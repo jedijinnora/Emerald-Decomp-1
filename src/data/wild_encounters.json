@@ -12245,40 +12245,6 @@
           }
         },
         {
-          "map": "MAP_MOSSDEEP_CITY_CONNECTOR",
-          "base_label": "gMossdeepCity_Connector0",
-          "rock_smash_mons": {
-            "encounter_rate": 10,
-            "mons": [
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_GEODUDE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_ROGGENROLA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_GEODUDE_ALOLAN"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NOSEPASS"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_SHUCKLE"
-              }
-            ]
-          }
-        },
-        {
           "map": "MAP_UNDERWATER_ROUTE125",
           "base_label": "gUnderwater_Route1250",
           "water_mons": {

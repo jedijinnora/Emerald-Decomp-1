@@ -2,7 +2,7 @@
   "id": "MAP_EVER_GRANDE_CITY_HEADQUARTERS_1F",
   "name": "EverGrandeCity_Headquarters_1F",
   "layout": "LAYOUT_EVER_GRANDE_CITY_HEADQUARTERS_1F",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_RUSTBORO",
   "region_map_section": "MAPSEC_EVER_GRANDE_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EverGrandeCity_Headquarters_1F_EventScript_DeskLady",
       "flag": "0"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EverGrandeCity_Headquarters_1F_EventScript_Beauty",
       "flag": "0"
     },
     {
@@ -50,7 +50,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EverGrandeCity_Headquarters_1F_EventScript_LeftScientist",
       "flag": "0"
     },
     {
@@ -63,7 +63,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EverGrandeCity_Headquarters_1F_EventScript_RightScientist",
       "flag": "0"
     },
     {
@@ -76,7 +76,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EverGrandeCity_Headquarters_1F_EventScript_SecurityMan",
       "flag": "0"
     },
     {
@@ -89,13 +89,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EverGrandeCity_Headquarters_1F_EventScript_GameBoyKid",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LINK_RS_MAY",
-      "x": 10,
-      "y": 7,
+      "graphics_id": "OBJ_EVENT_GFX_MOVING_BOX",
+      "x": 8,
+      "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -103,19 +103,19 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_SYS_POKENAV_GET"
     }
   ],
   "warp_events": [
     {
-      "x": 10,
+      "x": 9,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_EVER_GRANDE_CITY",
       "dest_warp_id": "5"
     },
     {
-      "x": 9,
+      "x": 10,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_EVER_GRANDE_CITY",

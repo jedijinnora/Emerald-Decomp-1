@@ -1,39 +1,222 @@
-raw `
-EverGrandeCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, EverGrandeCity_OnTransition
-	.byte 0
+mapscripts EverGrandeCity_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : EverGrandeCity_OnTransition
+}
 
-EverGrandeCity_OnTransition:
-	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+script EverGrandeCity_OnTransition {
+	setflag(FLAG_VISITED_EVER_GRANDE_CITY)
+	end
+}
+
+//Object IDs
+
+
+//TEMPs used
+//FLAG_TEMP_1 Sailor intro
+//FLAG_TEMP_2 TuberM intro
+//FLAG_TEMP_3 and FLAG_TEMP_4 Gentleman conversation
+//FLAG_TEMP_5 Maniac intro
+
+
+script EverGrandeCity_EventScript_CaveBlocked {
+	lock
+	faceplayer
+	msgbox(format("I'm sorry, this shortcut to the Pokemon League is for administrative staff. You'll have to become Champion first."))
+	release
+	end
+}
+
+script EverGrandeCity_EventScript_Sailor {
+	lock
+	faceplayer
+	goto_if_set(FLAG_TEMP_1, BuildingDirections)
+	msgbox(format("Ahoy, {PLAYER}! The ferry won't leave for a while. Explore the city and make sure you are all squared away for your journey!"))
+	setflag(FLAG_TEMP_1)
+	BuildingDirections:
+	msgbox(format("Check-in is at the big building north of the plaza. You can't miss it!"))
+	release
+	end
+}
+
+script EverGrandeCity_EventScript_TuberM {
+	lock
+	faceplayer
+	if (flag(FLAG_TEMP_2)) {
+		msgbox(format("Actually, there's an intersection of four maps behind me. I'm protecting your game from the extra graphics load. You should be grateful!"))
+		clearflag(FLAG_TEMP_2)
+		release
+		end
+	}
+	msgbox(format("This is my section of the beach. No big kids allowed!"))
+	setflag(FLAG_TEMP_2)
+	release
+	end
+}
+
+script EverGrandeCity_EventScript_Beauty {
+	lock
+	faceplayer
+	msgbox(format("I love the beach. The view is pretty, and the sand feels soothing on my bare feet."))
+	msgbox(format("When I was a little girl I used to spend hours collecting pretty shells and digging for treasure."))
+	msgbox(format("I think it's sad that as we grow older we lose the wonder and excitement that filled our lives as children."))
+	msgbox(format("Now I come here every day after work to remind myself that all my adult worries are small compared to the magnificence of the world."))
+	release
+	end
+}
+
+script EverGrandeCity_EventScript_TuberF {
+	lock
+	faceplayer
+	msgbox(format("My brother has his stupid section of the beach. I've got this awesome rock!"))
+	release
+	end
+}
+
+script EverGrandeCity_EventScript_Painter {
+	lock
+	msgbox(format("Oops!"))
+	msgbox(format("Oh well, another happy tree."))
+	release
+	end
+}
+
+script EverGrandeCity_EventScript_Lass {
+	lock
+	faceplayer
+	msgbox(format("Living in Ever Grande City means I get to catch a lot of glimpses of the Elite Four."))
+	random(5)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("Brandon has a lot of strong Pokémon from all the ancient ruins he's explored."))
+		case 1:
+			msgbox(format("I think Lucy is hot, but her style is a bit too edgy for my taste."))
+		case 2:
+			msgbox(format("Glacia sometimes visits the beach during the summer and has her Pokémon ice things up for a bit. The kids love it!"))
+		case 3:
+			msgbox(format("Drake intimidates me, honestly. He's a crusty old sailor from the Draconid tribes, and the strongest after the Champion."))
+		default:
+			msgbox(format("Did you know Champion Annabel is a Faller? She slipped through a crack from another universe and lost her memory, but still became one of the strongest trainers in the world!"))
+	}
+	release
+	end
+}
+
+script EverGrandeCity_EventScript_Gentleman {
+	lock
+	faceplayer
+	goto_if_set(FLAG_TEMP_3, Harrumph)
+	goto_if_set(FLAG_TEMP_4, Archipelago)
+	msgbox(format("Er-hem! Do you know who I am?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		setflag(FLAG_TEMP_3)
+		Harrumph:
+        msgbox(format("Hmph. Kids these days. Go fight a Gym Leader or something."))
+        release
+        end
+    } else {
+		setflag(FLAG_TEMP_4)
+		msgbox(format("That's right! I used to set energy policy throughout the Hoenn Archipelago. Hah! Still got it!"))
+		release
+		end
+	}
+	Archipelago:
+	msgbox(format("The Hoenn Archipelago refers to the islands to the east of mainland Hoenn."))
+	msgbox(format("That includes Mossdeep, Sootopolis, Ever Grande, Pacifidlog, and a whole bundle of places with no permanent settlements."))
+	msgbox(format("Want to start a fight in a boring meeting? Ask an intern whether Dewford and the southern islands should be grouped in the Archipelago!"))
+	msgbox(format("Ah, the Director hated my shenanigans."))
+	release
+	end
+}
+
+script EverGrandeCity_EventScript_Fisherman {
+	lock
+	faceplayer
+	checkitem(ITEM_OLD_ROD)
+	if(var(VAR_RESULT)) {
+		goto(GoodRodCheck)
+	}
+
+	msgbox(format("A promising Trainer! Tell me, do you like to fish?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		msgbox(format("A shame, but I suppose fishing isn't for everyone."))
+		release
+		end
+	}
+	msgbox(format("Excellent! Here's a little something to get you started!"))
+	giveitem(ITEM_OLD_ROD)
+	waitmessage
+	release
 	end
 
-EverGrandeCity_EventScript_VictoryRoadSign::
-	msgbox EverGrandeCity_Text_EnteringVictoryRoad, MSGBOX_SIGN
+	GoodRodCheck:
+	checkitem(ITEM_GOOD_ROD)
+	if(var(VAR_RESULT)) {
+		goto(SuperRodCheck)
+	}
+	msgbox(format("If you want a better fishing rod, my younger brother hangs around the river east of Mauville City."))
+	release
 	end
 
-EverGrandeCity_EventScript_CitySign::
-	msgbox EverGrandeCity_Text_CitySign, MSGBOX_SIGN
+	SuperRodCheck:
+	checkitem(ITEM_SUPER_ROD)
+	if(var(VAR_RESULT)) {
+		msgbox(format("Hey {PLAYER}! How are the fish biting?"))
+		release
+		end
+	}
+	msgbox(format("If you're looking to upgrade to the ultimate fishing rod, seek out my older brother in Mossdeep!"))
+	release
 	end
+}
 
-EverGrandeCity_EventScript_PokemonLeagueSign::
-	msgbox EverGrandeCity_Text_EnteringPokemonLeague, MSGBOX_SIGN
+script EverGrandeCity_EventScript_SchoolKidM {
+	lock
+	faceplayer
+	msgbox(format("They say it's good luck to catch a Pokémon here before challenging the Elite Four."))
+	msgbox(format("There's even a whole superstition around which Pokémon are lucky or unlucky!"))
+	msgbox(format("Finding an Absol means bad luck in your future, but I think that's ridiculous! Absol are cool! That's way better than any lame Xatu or Oricorio."))
+	release
 	end
+}
 
-EverGrandeCity_EventScript_SetVisitedEverGrande::
-	setflag FLAG_VISITED_EVER_GRANDE_CITY
-	setvar VAR_TEMP_1, 1
+script EverGrandeCity_EventScript_Mom {
+	lock
+	faceplayer
+	msgbox(format("My kids make everything a competition."))
+	msgbox(format("I hope when they get old enough to challenge the gym circuit they will drive each other to greater heights with that competitiveness."))
+	msgbox(format("Until then, I'm stuck here dealing with every tantrum and argument."))
+	release
 	end
+}
 
-EverGrandeCity_Text_EnteringVictoryRoad:
-	.string "ENTERING VICTORY ROAD$"
+script EverGrandeCity_EventScript_Hiker {
+	lock
+	faceplayer
+	goto_if_set(FLAG_GIVEN_POWER_ITEMS, WinstrateHint)
+	msgbox(format("A full League challenge? In this economy? You'll want these!"))
+	setflag(FLAG_GIVEN_POWER_ITEMS)
+	giveitem(ITEM_POWER_WEIGHT)
+	giveitem(ITEM_POWER_BRACER)
+	giveitem(ITEM_POWER_BELT)
+	giveitem(ITEM_POWER_LENS)
+	giveitem(ITEM_POWER_BAND)
+	giveitem(ITEM_POWER_ANKLET)
+	msgbox(format("Power items can be held by Pokémon to influence the Effort Values they gain in battle."))
+	WinstrateHint:
+	msgbox(format("I hand out one free set of power items to newbie trainers. If you want more, the Winstrate family sells them. They live north of Mauville."))
+	release
+	end
+}
 
-EverGrandeCity_Text_EnteringPokemonLeague:
-	.string "ENTERING POKéMON LEAGUE\n"
-	.string "CENTER GATE$"
-
-EverGrandeCity_Text_CitySign:
-	.string "EVER GRANDE CITY\p"
-	.string "“The paradise of flowers, the sea,\n"
-	.string "and POKéMON.”$"
-
-`
+script EverGrandeCity_EventScript_Maniac {
+	lock
+	faceplayer
+	if(flag(FLAG_TEMP_5)) {
+		goto(GoodLuck)
+	}
+	setflag(FLAG_TEMP_5)
+	msgbox(format("Unknown trainer spotted! Sinnohan accent detected! Conclusion: you're here to challenge the Hoenn League!"))
+	GoodLuck:
+	msgbox(format("Good luck, stranger! You'll need it."))
+	release
+	end
+}

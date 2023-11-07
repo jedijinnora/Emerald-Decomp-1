@@ -1,1 +1,316 @@
 mapscripts EverGrandeCity_Headquarters_1F_MapScripts {}
+
+//Object IDs
+const LOCALID_DESKLADY = 1
+const LOCALID_BOX = 7
+
+//TEMPs Used:
+//FLAG_TEMP_1 SecurityMan intro
+//FLAG_TEMP_2 Konami intro
+
+
+script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
+	lock
+	faceplayer
+    goto_if_set(FLAG_SYS_NATIONAL_DEX, CheerBye)
+
+	msgbox(format("Welcome to Hoenn! I see you are one of this year's foreign exchange students."))
+    msgbox(format("You'll need a fully upgraded National Pokédex to be able to view data on all the Pokémon in this region."))
+    msgbox(format("One moment please..."))
+    waitmessage
+
+    delay(10)
+    applymovement(LOCALID_DESKLADY, Common_Movement_FaceLeft)
+    waitmovement(LOCALID_DESKLADY)
+    delay(10)
+    removeobject(LOCALID_BOX)
+    delay(10)
+    applymovement(LOCALID_DESKLADY, Common_Movement_FaceDown)
+    waitmovement(LOCALID_DESKLADY)
+    delay(10)
+
+    setflag(FLAG_SYS_NATIONAL_DEX)
+    special(EnableNationalPokedex)
+    playfanfare(MUS_OBTAIN_ITEM)
+    waitfanfare
+    msgbox(format("That's your Pokédex taken care of!"))
+    waitmessage
+
+    msgbox(format("You also get a Pokénav. This one is a new edition, so it may be a little buggy."))
+    setflag(FLAG_SYS_POKENAV_GET)
+    setflag(FLAG_RECEIVED_POKENAV)
+    setflag(FLAG_ADDED_MATCH_CALL_TO_POKENAV)
+    playfanfare(MUS_OBTAIN_ITEM)
+    waitfanfare
+    msgbox(format("I'm legally required to inform you that attempting to damage, modify, upgrade, or customize your Pokénav without speaking to a licensed representative of the Devon Corporation is a felony under Hoenn law and will void your warranty."))
+    msgbox(format("Isn't that delightful? Sorry, this bigwig at Devon has been complaining about patent violation or some other legal muck. We used to just have Silph Co. goons screaming on the phone about re-usable TMs..."))
+    
+    msgbox(format("You're all set! I'll update the system with your information."))
+    msgbox(format("Speak to the sailor at the dock to use the ferry."))
+    msgbox(format("If you want more information on where to go or would like to activate optional challenges, speak to my associates at the computers in the corner."))
+
+    CheerBye:
+    goto_if_set(FLAG_SYS_GAME_CLEAR, CheerChamp)
+    msgbox(format("Go get 'em, future Champion!"))
+    release
+    end
+    CheerChamp:
+    msgbox(format("Go get 'em, Champion {PLAYER}!"))
+	release
+	end
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_Beauty {
+	lock
+	faceplayer
+	msgbox(format("Government buildings are surprisingly mundane. You think it's all high-security and labyrinthine bureaucracy, but it's just full of regular office workers."))
+    msgbox(format("Action movies lied to me! Why can't reality be more like fiction?"))
+	release
+	end
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_LeftScientist {
+	lock
+	faceplayer
+    goto_if_unset(FLAG_SYS_NATIONAL_DEX, GoCheckIn)
+	msgbox(format("In the original Pokémon Emerald, the sequence of Gyms was largely determined by the need to obtain various HMs to move around the Hoenn region."))
+    msgbox(format("In Beryl Emerald, the ferry system has been expanded: Lilycove, Mossdeep, Sootopolis, Ever Grande, Slateport, Littleroot, Dewford, and Rustboro are all available destinations."))
+    msgbox(format("This and other map changes makes it possible to challenge the Gyms in any order. Gym leaders may use different teams depending on which badge you are challenging them for, and the levels of enemy trainers will be scaled based on your number of badges."))
+    msgbox(format("Each badge you earn grants you a choice of HM, further expanding your ability to move around the region."))
+	
+    LeftMenu:
+    msgbox(format("What would you like to hear more about?")) //multichoice Level Caps, Routes to each Gym, Optional Challenges, Unlimited Candy, No info needed
+
+    msgbox(format("Sorry, it seems further options haven't been coded yet."))
+    goto(ScientistOut)
+
+    CapsInfo:
+    msgbox(format("0 badge level cap: 16"))
+    msgbox(format("1 badge level cap: 25"))
+    msgbox(format("2 badge level cap: 34"))
+    msgbox(format("3 badge level cap: 43"))
+    msgbox(format("4 badge level cap: 52"))
+    msgbox(format("5 badge level cap: 61"))
+    msgbox(format("6 badge level cap: 70"))
+    msgbox(format("7 badge level cap: 79"))
+    msgbox(format("8 badge level cap: 87"))
+    msgbox(format("elite 4 level cap: 90"))
+    msgbox(format("postgame level cap: 100"))
+    goto(LeftMenu)
+
+
+    CandyInfo:
+    msgbox(format("The unlimited candy option removes all methods of gaining experience except an unlimited rare candy key item, which can level your Pokémon to your current cap."))
+    msgbox(format("This may be especially desirable for players attempting nuzlockes or those who wish to remove grinding."))
+    msgbox(format("However, if you want mid-battle level ups you'll have to manage your experience points the old-fashioned way!"))
+
+    CandyEnable:
+    msgbox(format("Would you like to enable the unlimited candy option?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        goto(LeftMenu)
+    }
+    msgbox(format("Unlimited candy enabled! Don't do too many drugs, kid!"))
+    //giveitem
+    //setflag
+    goto(LeftMenu)
+
+    CandyDisable:
+    msgbox(format("Would you like to disable the unlimited candy option?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        goto(LeftMenu)
+    }
+    msgbox(format("Unlimited candy disabled! Illegal drugs are subject to confiscation!"))
+    //removeitem
+    //clearflag
+    goto(LeftMenu)
+
+    RoutesInfo:
+    msgbox(format("I can tell you routes to any Gym! No HMs needed!"))
+    //multichoice with all gym destinations
+
+    msgbox(format("To get to Rustboro, just take the ferry! Rustboro is a classic first badge to obtain."))
+
+    msgbox(format("To get to Dewford, just take the ferry!"))
+
+    msgbox(format("To get to Mauville, take the ferry to Slateport and journey north through Route 110!"))
+
+    msgbox(format("To get to Lavaridge, take the ferry to Rustboro and journey east through Route 116 and then northeast through Forina!"))
+    msgbox(format("For a slightly longer and more dangerous route, start from Slateport and head north on Route 110 to Mauville. Then find the entrance to the Valley of Steel on Route 117 and go north!"))
+    msgbox(format("Real explorers head north from Rustboro through Route 115, Meteor Falls, and Route 114 to Fallarbor. Then west via Route 113, south on Route 111 until you can access the Cable Car station on Route 112, and finally south from Mt. Chimney through Jagged Pass!"))
+
+    msgbox(format("To get to Petalburg, you can take the ferry to Littleroot, head north until you reach Oldale, and then go west through Route 102."))
+    msgbox(format("Or take the ferry to Rustboro and head south through Route 104 and Petalburg Woods!"))
+
+    msgbox(format("To get to Fortree, take the ferry to Lilycove and then journey west through Route 123 and north through Route 121."))
+    msgbox(format("If you go to Mauville and get a Bike, you can cross the narrow bridge over Route 118 and take Route 119 north to Fortree."))
+
+    msgbox(format("To get to Mossdeep, just take the ferry! I wouldn't recommend it for your first badge though, it's one of the more challenging Gyms."))
+
+    msgbox(format("To get to Sootopolis, just take the ferry! I wouldn't recommend it for your first badge though, it's one of the more challenging Gyms."))
+
+    ChallengesInfo:
+    msgbox(format("My colleague handles this game's optional challenges. If that interests you, speak to him!"))
+    goto(LeftMenu)
+
+
+
+
+    GoCheckIn:
+    msgbox(format("You have to check in at the main desk before I can help you with anything."))
+    ScientistOut:
+    msgbox(format("May the odds be ever in your favor."))
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(VAR_LAST_TALKED)
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_RightScientist {
+	lock
+	faceplayer
+    goto_if_unset(FLAG_SYS_NATIONAL_DEX, GoCheckIn)
+	msgbox(format("There are two optional challenges available: ROGUE and HMFREE."))
+
+    RightMenu:
+    msgbox(format("What challenge would you like to hear more about?")) //multichoice General info, HMFree info, Rogue info, No info needed
+    msgbox(format("Sorry, it seems further options haven't been coded yet."))
+    goto(ScientistOut)
+
+    GeneralInfo:
+    msgbox(format("The two optional challenges may be enabled or disabled freely prior to leaving Ever Grande City for the first time."))
+    msgbox(format("Speak to me after becoming Champion and I will reward you for any challenges completed. Alternatively, return here prior to becoming Champion and I will allow you to forfeit your challenges if you turn out to be, as the phrase goes, a total scrub."))
+    msgbox(format("While an optional challenge is active you will be forced to use the SET and NOITEM battle styles. Additional challenges such as monotype or nuzlocke runs are the responsibility of the player to manage."))
+
+    HMFreeInfo:
+    msgbox(format("It is possible to reach any Gym in the Hoenn region without the use of any HMs. In the standard game, one HM of your choice is awarded each time you get a new badge."))
+    msgbox(format("In the HMFREE challenge no HMs will be rewarded by Gym Leaders. This severely restricts the areas you can fully explore and limits you from many useful items."))
+    msgbox(format("You will have to acquire all 8 badges without the use of HMs, and then return here."))
+    msgbox(format("Once you have 8 badges, I will teleport you to the beginning of Victory Road, which will have obstacles removed or circumvented so you can proceed without needing HMs."))
+    msgbox(format("Speak to me after becoming Champion, and I will give you all 8 HMs and shiny 6IV versions of Turtwig, Chimchar, and Piplup."))
+
+    HMFreeEnable:
+    msgbox(format("Would you like to enable the HMFREE challenge?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        goto(RightMenu)
+    }
+    msgbox(format("Sorry, this hasn't been implemented yet."))
+    //setflag
+	goto(RightMenu)
+
+    HMFreeDisable:
+    msgbox(format("Would you like to disable the HMFREE challenge?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        goto(RightMenu)
+    }
+    msgbox(format("Sorry, this hasn't been implemented yet."))
+    //clearflag
+	goto(RightMenu)
+
+    RogueInfo:
+    msgbox(format("In the standard game, you may ride the ferry around the Hoenn region as much or as little as you like."))
+    msgbox(format("In the ROGUE challenge you begin with just one ferry ride. Further ferry rides are only available if you have beaten another Gym since your last use."))
+    msgbox(format("In addition, all the rules of the HMFREE challenge apply."))
+    msgbox(format("Beware! It is possible to softlock yourself if you choose to visit Dewford, Mossdeep, or Sootopolis twice. Visiting Lilycove twice without obtaining a Bike can also softlock you."))
+    msgbox(format("Speak to me after becoming Champion and I will unlock unlimited use of the ferry and additional rewards."))
+    msgbox(format("Along with the HMFREE rewards you will receive a shiny 6IV Imposter Ditto and other gifts which are secret for now."))
+
+    RogueEnable:
+    msgbox(format("Would you like to enable the ROGUE challenge?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        goto(RightMenu)
+    }
+    msgbox(format("Sorry, this hasn't been implemented yet."))
+	goto(RightMenu)
+
+    RogueDisable:
+    msgbox(format("Would you like to disable the ROGUE challenge?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        goto(RightMenu)
+    }
+    msgbox(format("Sorry, this hasn't been implemented yet."))
+	goto(RightMenu)
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_SecurityMan {
+	lock
+	faceplayer
+    goto_if_set(FLAG_TEMP_1, OhNoAirPods)
+    setflag(FLAG_TEMP_1)
+	msgbox(format("I'm a security officer. Check out my badge! You should respect my authority, or else!"))
+    release
+    end
+
+    OhNoAirPods:
+    msgbox(format("Seriously, though, I just stand here and watch for people getting too rowdy. I'm extremely bored! They confiscated my airpods last week."))
+	release
+	end
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_GameBoyKid {
+	lock
+    goto_if_set(FLAG_TEMP_2, UsefulCode)
+    setflag(FLAG_TEMP_2)
+    msgbox(format("Never forget:"))
+    msgbox(format("{UP_ARROW} {UP_ARROW} {DOWN_ARROW} {DOWN_ARROW} {LEFT_ARROW} {RIGHT_ARROW} {LEFT_ARROW} {RIGHT_ARROW} B A start."))
+    goto(EndCode)
+
+    UsefulCode:
+    waitmessage
+    msgbox(format("Want another code?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        msgbox(format("Affirmative."))
+        goto(EndCode)
+    }
+    random(7)
+    switch(var(VAR_RESULT)) {
+        case 0: 
+            goto(ShoalCaveCode)
+        case 1: 
+            goto(SeafoamCode1_1)
+        case 2: 
+            goto(SeafoamCode1_2)
+        case 3: 
+            goto(SeafoamCode2_1)
+        case 4: 
+            goto(SeafoamCode2_2)
+        case 5: 
+            goto(TrickCode1)
+        default: 
+            goto(TrickCode2)
+    }
+
+    ShoalCaveCode:
+    msgbox(format("Don't be a sucker. Call ur mom if you have encountered ShoalShock!"))
+    msgbox(format("{UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW}"))
+	goto(UsefulCode)
+
+    SeafoamCode1_1:
+    msgbox(format("You need help with this one? Total n00b."))
+    msgbox(format("{DOWN_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {UP_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW}"))
+    goto(UsefulCode)
+    SeafoamCode1_2:
+    msgbox(format("How many Swordfish can fit in one password file? You look like someone who thinks that's a reasonable question."))
+    msgbox(format("{UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {UP_ARROW} {RIGHT_ARROW}"))
+    goto(UsefulCode)
+    SeafoamCode2_1:
+    msgbox(format("I goin in ur cave, taking ur icicles!"))
+    msgbox(format("{LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {DOWN_ARROW}"))
+    goto(UsefulCode)
+    SeafoamCode2_2:
+    msgbox(format("Articuno can't Kanto deez nuts!"))
+    msgbox(format("{LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {UP_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {UP_ARROW}"))
+    goto(UsefulCode)
+
+    TrickCode1:
+    msgbox(format("I hacked the Trick Master!"))
+    msgbox(format("{RIGHT_ARROW} {UP_ARROW} {RIGHT_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {DOWN_ARROW}"))
+    goto(UsefulCode)
+    TrickCode2:
+    msgbox(format("In ur Trick House, lootin ur doorz!"))
+    msgbox(format("{UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {UP_ARROW}"))
+    goto(UsefulCode)
+
+    EndCode:
+    release
+    end
+}
