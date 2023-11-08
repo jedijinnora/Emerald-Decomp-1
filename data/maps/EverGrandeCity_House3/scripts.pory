@@ -1,0 +1,82 @@
+mapscripts EverGrandeCity_House3_MapScripts {}
+
+
+script EverGrandeCity_House3_EventScript_Ellie {
+    lock
+    faceplayer
+    msgbox(format("I am Ellie, this region's Ice-type specialist. Elite Four Glacia is my aunt."))
+    goto_if_set(FLAG_RECEIVED_EVER_GRANDE_CITY_HOUSE3_ICE_GEM, IceMenu)
+    msgbox(format("Here, something to help your most powerful Ice Pokémon."))
+    giveitem(ITEM_ICE_GEM)
+    setflag(FLAG_RECEIVED_EVER_GRANDE_CITY_HOUSE3_ICE_GEM)
+    IceMenu:
+    msgbox(format("How can I help you, student of winter?"))
+    dynmultichoice(0,0, FALSE, 6, 0, DYN_MULTICHOICE_CB_NONE, "Information", "Move Tutor", "Single Battle", "Double Battle", "Challenge Battle")
+    switch(var(VAR_RESULT)) {
+        case 0:
+            msgbox(format("You may face me in a single, double, or challenge battle. For each team you defeat, I will offer to teach additional Ice-type moves."))
+            goto(IceMenu)
+        case 1:
+            IceTutor:
+            //do a dynamic multistack with move options based on opponent flag states
+            //single battle unlocks: Aurora Beam, Ice Hammer
+
+            //double battle unlocks: Ice Shard, Frost Breath, Icy Wind
+
+            //challenge unlocks: Haze, Freeze-Dry
+
+            dynmultipush("Cancel", 7)
+            msgbox(format("Which move should I teach?"))
+            dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+            switch(var(VAR_RESULT)) {
+                case 0:
+                    //teach Aurora Beam
+                case 1:
+                    //teach Ice Hammer
+                case 2:
+                    //teach Ice Shard
+                case 3:
+                    //teach Frost Breath
+                case 4:
+                    //teach Icy Wind
+                case 5:
+                    //teach Haze
+                case 6:
+                    //teach Freeze-Dry
+                default:
+                    goto(IceMenu)
+            }
+        case 2:
+            msgbox(format("Defeating me in a single battle will unlock Aurora Beam and Ice Hammer."))
+            msgbox(format("Shall we proceed?"), MSGBOX_YESNO)
+            //battle
+            goto(IceMenu)
+        case 3:
+            msgbox(format("Defeating me in a double battle will unlock Ice Shard, Frost Breath, and Icy Wind."))
+            msgbox(format("Are your Pokémon ready?"), MSGBOX_YESNO)
+            //battle
+            goto(IceMenu)
+        case 4:
+            msgbox(format("Defeating me in a challenge battle will unlock Haze and Freeze-Dry."))
+            msgbox(format("For the challenge battle, you must bring a team of only Ice-type Pokémon."))
+            msgbox(format("Are you prepared?"), MSGBOX_YESNO)
+            //check team comp
+
+            //battle
+            goto(IceMenu)
+        default:
+            IceGoodbye:
+            msgbox(format("Farewell."))
+            release
+            end
+    }
+    release
+    end
+}
+
+script EverGrandeCity_House3_EventScript_Cushion {
+    lock
+    msgbox(format("Despite the warm day, this cushion is perfectly cool to the touch."))
+    release
+    end
+}

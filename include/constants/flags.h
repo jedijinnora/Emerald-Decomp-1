@@ -66,17 +66,19 @@
 #define FLAG_HIDE_POKEMON_LEAGUE_PAINTER            0x33
 #define FLAG_COMPLETED_PAINTER_QUEST                0x34
 
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
-#define FLAG_UNUSED_0x036    0x36 // Unused Flag
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
-#define FLAG_UNUSED_0x038    0x38 // Unused Flag
-#define FLAG_UNUSED_0x039    0x39 // Unused Flag
-#define FLAG_UNUSED_0x03A    0x3A // Unused Flag
-#define FLAG_UNUSED_0x03B    0x3B // Unused Flag
-#define FLAG_UNUSED_0x03C    0x3C // Unused Flag
-#define FLAG_UNUSED_0x03D    0x3D // Unused Flag
-#define FLAG_UNUSED_0x03E    0x3E // Unused Flag
-#define FLAG_UNUSED_0x03F    0x3F // Unused Flag
+//Jinnora: added flags for various configs
+#define FLAG_EXP_SHARE          0x35 
+#define FLAG_INVERSE_BATTLE     0x36 
+#define FLAG_FORCE_DOUBLE_WILD  0x37 
+#define FLAG_SMART_WILD_AI      0x38 
+#define FLAG_NO_BAG_USE         0x39
+#define FLAG_NO_CATCHING        0x3A
+#define FLAG_NO_ENCOUNTER       0x3B 
+#define FLAG_NO_TRAINER_SEE     0x3C
+#define FLAG_NO_COLLISION       0x3D
+#define FLAG_FORCE_SHINY        0x3E
+#define FLAG_FORCE_NO_SHINY     0x3F
+
 #define FLAG_UNUSED_0x040    0x40 // Unused Flag
 #define FLAG_UNUSED_0x041    0x41 // Unused Flag
 #define FLAG_UNUSED_0x042    0x42 // Unused Flag
@@ -666,8 +668,8 @@
 #define FLAG_ITEM_ARRIVAL_FERRY_ROOM_FRESH_WATER                    (FLAGS_ADDED_1_START + 0x05)
 #define FLAG_ITEM_ARRIVAL_FERRY_CORRIDOR_LEMONADE                   (FLAGS_ADDED_1_START + 0x06)
 #define FLAG_GIVEN_POWER_ITEMS                                      (FLAGS_ADDED_1_START + 0x07)
-#define FLAG_ITEM_0x08                                              (FLAGS_ADDED_1_START + 0x08)
-#define FLAG_ITEM_0x09                                              (FLAGS_ADDED_1_START + 0x09)
+#define FLAG_ITEM_EVER_GRANDE_CITY_HEADQUARTERS_3F_LINKING_CORD     (FLAGS_ADDED_1_START + 0x08)
+#define FLAG_RECEIVED_EVER_GRANDE_CITY_HOUSE3_ICE_GEM                   (FLAGS_ADDED_1_START + 0x09)
 #define FLAG_ITEM_0x0A                                              (FLAGS_ADDED_1_START + 0x0A)
 
 #define FLAG_ITEM_MOSSDEEP_CITY_RARE_CANDY                          (FLAGS_ADDED_1_START + 0x0B)

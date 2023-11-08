@@ -156,7 +156,7 @@
 #define VAR_CONTEST_TYPE                                 0x4088
 #define VAR_SECRET_BASE_INITIALIZED                      0x4089
 #define VAR_CONTEST_PRIZE_PICKUP                         0x408A
-#define VAR_SINNOH_FERRY_STATE                           0x408B // JINNORA: Used for various harbor scenes
+#define VAR_UNUSED_0x408B                                0x408B
 #define VAR_LITTLEROOT_HOUSES_STATE_BRENDAN              0x408C
 #define VAR_LITTLEROOT_RIVAL_STATE                       0x408D
 #define VAR_BOARD_BRINEY_BOAT_STATE                      0x408E
@@ -174,7 +174,7 @@
 #define VAR_RUSTURF_TUNNEL_STATE                         0x409A
 #define VAR_METEOR_VILLAGE_STATE                         0x409B // JINNORA: Map variable for Meteor Village
 #define VAR_ELITE_4_STATE                                0x409C
-#define VAR_UNUSED_0x409D                                0x409D // Unused Var
+#define VAR_START_TERRAIN                                0x409D // JINNORA: added for battle config options
 #define VAR_UNUSED_0x409E                                0x409E // Unused Var
 #define VAR_MOSSDEEP_SPACE_CENTER_STATE                  0x409F
 #define VAR_SLATEPORT_HARBOR_STATE                       0x40A0

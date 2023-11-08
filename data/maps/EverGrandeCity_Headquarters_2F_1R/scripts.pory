@@ -1,0 +1,63 @@
+mapscripts EverGrandeCity_Headquarters_2F_1R_MapScripts {}
+
+script EverGrandeCity_Headquarters_2F_1R_EventScript_Woman1 {
+    lock
+    msgbox(format("If you'll sign here, here, and here, we can file this form and move on to 47-C, subsection 12.4..."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_2F_1R_EventScript_Woman2 {
+    lock
+    faceplayer
+    msgbox(format("Excuse you, I'm next in line."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_2F_1R_EventScript_OldLady {
+    lock
+    msgbox(format("I'm on a fixed income! If you can't help me, I don't know what I'll do..."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_2F_1R_EventScript_OldMan {
+    lock
+    msgbox(format("I'm sorry ma'am, I'm not allowed to change the rules."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_2F_1R_EventScript_DevonRep {
+    lock
+    faceplayer
+    msgbox(format("Check out our top-of-the-line Pokénav upgrades! Our simple subscription payment plans let you unlock every feature disabled by default!"))
+    msgbox(format("You aren't interested? C'mon, these deals won't be here forever..."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_2F_1R_EventScript_BugCatcher {
+    lock
+    faceplayer
+    msgbox(format("Dang, I don't have the money to pay for the upgrades I want."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_2F_1R_EventScript_Boy {
+    lock
+    faceplayer
+    msgbox(format("I hate the decor here. It's all Devon Corporation red and Devon brand couches."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_2F_1R_EventScript_LittleGirl {
+    lock
+    faceplayer
+    msgbox(format("Hi! I'm bored! None of the big people here will talk to me!"))
+    release
+    end
+}

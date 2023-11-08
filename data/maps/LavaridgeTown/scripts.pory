@@ -1,31 +1,80 @@
+mapscripts LavaridgeTown_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : LavaridgeTown_OnTransition
+}
+
+script LavaridgeTown_OnTransition {
+	setflag(FLAG_VISITED_LAVARIDGE_TOWN)
+	end
+}
+
+script LavaridgeTown_EventScript_HotSpringsTrigger {
+	specialvar(VAR_RESULT, GetPlayerFacingDirection)
+	if (var(VAR_RESULT) == DIR_SOUTH) {
+		incrementgamestat(GAME_STAT_ENTERED_HOT_SPRINGS)
+	}
+	end
+}
+
+script LavaridgeTown_EventScript_EggWoman {
+	lock 
+	faceplayer
+	goto_if_set(FLAG_RECEIVED_LAVARIDGE_EGG, ReceivedEgg)
+	msgbox(format("I have here a Pokémon egg I'd hoped to hatch in the warm sand by the hot springs."))
+	msgbox(format("You seem to be a capable Trainer. Would you take this Egg and keep it with your Pokémon until it hatches?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == YES) {
+		getpartysize
+		if (var(VAR_RESULT) == PARTY_SIZE) {
+			msgbox(format("Oh? You have too many Pokémon to carry this Egg."))
+			release
+			end
+		}
+		msgbox(format("Good! I hope you'll walk plenty with this Egg!"))
+		setflag(FLAG_RECEIVED_LAVARIDGE_EGG)
+		playfanfare(MUS_OBTAIN_ITEM)
+		msgbox(format("{PLAYER} received the Egg."))
+		random(12)
+		switch(var(VAR_RESULT)) {
+			case 0:
+				giveegg(SPECIES_LARVESTA)
+			case 1:
+			case 2:
+				giveegg(SPECIES_RIOLU)
+			case 3:
+			case 4:
+			case 5:
+				giveegg(SPECIES_MUNCHLAX)
+			case 6:
+			case 7:
+			case 8:
+				giveegg(SPECIES_BONSLY)
+			default:
+				giveegg(SPECIES_CHINGLING)
+		}
+		waitfanfare
+		release
+		end
+	}
+	msgbox(format("As you wish, then..."))
+	msgbox(format("If you have a change of heart, I'll be here."))
+	release
+	end
+	
+	ReceivedEgg:
+	random(3)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("A soak in the hot springs should do you good. Have you gone already today?"))
+		case 1:
+			msgbox(format("It's a shame that the warmth of the hot springs wasn't enough to hatch that egg. Still, I'm convinced that heat would help it hatch faster. Perhaps you should keep eggs near a fiery-hot Pokémon?"))
+		default:
+			msgbox(format("Pokémon have such different biologies, but nearly every species reproduces by laying eggs. Why is that, do you think?"))
+	}
+	release
+	end
+}
+
+
 raw `
-
-LavaridgeTown_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, LavaridgeTown_OnTransition
-	.byte 0
-
-LavaridgeTown_OnTransition:
-	setflag FLAG_VISITED_LAVARIDGE_TOWN
-	call_if_set FLAG_WHITEOUT_TO_LAVARIDGE, LavaridgeTown_EventScript_ClearLavaridgeWhiteOut
-	call_if_set FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, LavaridgeTown_EventScript_ShowMtChimneyTrainers
-	end
-
-LavaridgeTown_EventScript_ClearLavaridgeWhiteOut::
-	clearflag FLAG_WHITEOUT_TO_LAVARIDGE
-	return
-
-LavaridgeTown_EventScript_ShowMtChimneyTrainers::
-	clearflag FLAG_HIDE_MT_CHIMNEY_TRAINERS
-	return
-
-LavaridgeTown_EventScript_HotSpringsTrigger::
-	specialvar VAR_RESULT, GetPlayerFacingDirection
-	goto_if_eq VAR_RESULT, DIR_SOUTH, LavaridgeTown_EventScript_EnteredHotSprings
-	end
-
-LavaridgeTown_EventScript_EnteredHotSprings::
-	incrementgamestat GAME_STAT_ENTERED_HOT_SPRINGS
-	end
 
 LavaridgeTown_EventScript_ExpertM::
 	msgbox LavaridgeTown_Text_HotSpringsNeverRunDry, MSGBOX_NPC
@@ -51,38 +100,6 @@ LavaridgeTown_EventScript_ExpertF::
 	msgbox LavaridgeTown_Text_OhYouLikeHotSprings, MSGBOX_NPC
 	end
 
-LavaridgeTown_EventScript_EggWoman::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_LAVARIDGE_EGG, LavaridgeTown_EventScript_ReceivedEgg
-	msgbox LavaridgeTown_Text_HaveEggWillYouTakeIt, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, LavaridgeTown_EventScript_DeclineEgg
-	getpartysize
-	goto_if_eq VAR_RESULT, PARTY_SIZE, LavaridgeTown_EventScript_NoRoomForEgg
-	msgbox LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_LAVARIDGE_EGG
-	playfanfare MUS_OBTAIN_ITEM
-	message LavaridgeTown_Text_ReceivedTheEgg
-	waitfanfare
-	giveegg SPECIES_WYNAUT
-	release
-	end
-
-LavaridgeTown_EventScript_ReceivedEgg::
-	msgbox LavaridgeTown_Text_EverySoOftenEggFoundAtDayCare, MSGBOX_DEFAULT
-	release
-	end
-
-LavaridgeTown_EventScript_NoRoomForEgg::
-	msgbox LavaridgeTown_Text_NoRoomForThisEgg, MSGBOX_DEFAULT
-	release
-	end
-
-LavaridgeTown_EventScript_DeclineEgg::
-	msgbox LavaridgeTown_Text_AsYouWishThen, MSGBOX_DEFAULT
-	release
-	end
-
 LavaridgeTown_EventScript_TownSign::
 	msgbox LavaridgeTown_Text_TownSign, MSGBOX_SIGN
 	end
@@ -94,40 +111,6 @@ LavaridgeTown_EventScript_GymSign::
 LavaridgeTown_EventScript_HerbShopSign::
 	msgbox LavaridgeTown_Text_HerbShopSign, MSGBOX_SIGN
 	end
-
-LavaridgeTown_Text_HaveEggWillYouTakeIt:
-	.string "I have here an EGG.\p"
-	.string "I'd hoped to hatch it by covering it in\n"
-	.string "hot sand by the hot springs.\l"
-	.string "But that doesn't seem to be enough…\p"
-	.string "I've heard it would be best if it were\n"
-	.string "kept together with POKéMON and\l"
-	.string "carried about.\p"
-	.string "You are a TRAINER, yes?\n"
-	.string "And your POKéMON radiate vitality.\p"
-	.string "So, what say you?\n"
-	.string "Will you take this EGG to hatch?$"
-
-LavaridgeTown_Text_HopeYoullWalkPlentyWithEgg:
-	.string "Good! I hope you'll walk plenty with\n"
-	.string "this here EGG!$"
-
-LavaridgeTown_Text_ReceivedTheEgg:
-	.string "{PLAYER} received the EGG.$"
-
-LavaridgeTown_Text_NoRoomForThisEgg:
-	.string "Oh? You've too many POKéMON.\n"
-	.string "There's no room for this EGG…$"
-
-LavaridgeTown_Text_AsYouWishThen:
-	.string "As you wish, then…\p"
-	.string "If you have a change of heart about\n"
-	.string "hatching this EGG, I will be here.$"
-
-LavaridgeTown_Text_EverySoOftenEggFoundAtDayCare:
-	.string "Every so often, an EGG will be found at\n"
-	.string "the POKéMON DAY CARE.\p"
-	.string "Or at least that's how the rumor goes.$"
 
 LavaridgeTown_Text_HotSpringsNeverRunDry:
 	.string "We draw as much hot water as we need,\n"

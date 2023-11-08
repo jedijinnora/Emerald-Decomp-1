@@ -1166,3 +1166,19 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/ArrivalFerry_Room/scripts.inc"
 
 	.include "data/maps/ArrivalFerry_Corridor/scripts.inc"
+
+	.include "data/maps/EverGrandeCity_Headquarters_2F_1R/scripts.inc"
+
+	.include "data/maps/EverGrandeCity_Headquarters_2F_2R/scripts.inc"
+
+	.include "data/maps/EverGrandeCity_Headquarters_3F/scripts.inc"
+
+	.include "data/maps/EverGrandeCity_Mart/scripts.inc"
+
+	.include "data/maps/EverGrandeCity_House1/scripts.inc"
+
+	.include "data/maps/EverGrandeCity_House2/scripts.inc"
+
+	.include "data/maps/EverGrandeCity_NatureShop/scripts.inc"
+
+	.include "data/maps/EverGrandeCity_House3/scripts.inc"

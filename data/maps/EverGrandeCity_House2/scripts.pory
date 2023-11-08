@@ -1,0 +1,60 @@
+mapscripts EverGrandeCity_House2_MapScripts {}
+
+script EverGrandeCity_House2_EventScript_ExpertM {
+    lock
+    faceplayer
+    goto_if_set(FLAG_TEMP_1, SpecialistHint)
+    setflag(FLAG_TEMP_1)
+    msgbox(format("I traveled all over the Hoenn region in my younger years."))
+    msgbox(format("Did you know? In addition to the Gym Leaders, there are trainers who specialize in every type. They can offer you challenging battles and teach your Pokémon a variety of moves."))
+    SpecialistHint:
+    random(18)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            msgbox(format("Gym Leader Moore of Lavaridge is getting a bit old for battles. His granddaughter Flannery is likely to take over when he retires."))
+        case 1:
+            msgbox(format("Wallace is a bit flamboyant for my tastes, but Juan has mentored him into an excellent Water-type specialist."))
+        case 2:
+            msgbox(format("Grass types rule the jungles near Fortree. Seek out Quinn if you'd like to learn their ways."))
+        case 3:
+            msgbox(format("Engineer Scotty handles Mauville's new power plant. His Electivire used to work at Unova's nuclear power stations."))
+        case 4:
+            msgbox(format("Leader Sabitha of Mossdeep gave birth to twins a couple years back. I hear they have even greater psychic powers than their mother!"))
+        case 5:
+            msgbox(format("The most cunning and vicious trainers hone their Dark-type Pokémon in the caves near Dewford. Sidney, the Gym Leader, will know the best local tutor."))
+        case 6:
+            msgbox(format("Verdanturf is a peaceful town hiding from the vicious cruelties of the fairies. There was a girl who walked the meadows without fear, but I cannot tell you her name."))
+        case 7:
+            msgbox(format("Norman is a solid trainer all around. Bit sketchy the way he hangs around Petalburg waiting for his chance to be Gym Leader, but the man does know his Normal types."))
+        case 8:
+            msgbox(format("Hoenn's best expert on fossils lives just outside Fallarbor Town. Be sure to bring your best sense of humor! His jokes aren't for everyone."))
+        case 9:
+            msgbox(format("Ruin maniacs are a little crazed, and Dusty's been digging through the desert almost as long as I've been alive. His Ground-types are matched only by Elite Four Brandon."))
+        case 10:
+            msgbox(format("Hogarth's a good lad, helping around the Rustboro Trainer's School. I once heard a rumor his Aggron could fly! Either he or a girl named Roxanne will be the next Gym Leader, mark my words."))
+        case 11:
+            msgbox(format("Bug Catchers may not have the best reputations, but if you underestimate the power of a swarm Hebert in Oldale will be more than happy to school you."))
+        case 12:
+            msgbox(format("Because Lilycove is the closest city to Mt. Pyre, I'd look there for a Ghost-type specialist."))
+        case 13:
+            msgbox(format("If you'd like to see your Pokémon dance through the skies, Winona could teach them something. She lives in Pacifidlog, last I knew."))
+        case 14:
+            msgbox(format("I heard the newest Lorekeeper of the Draconids is a young woman named Aster."))
+        case 15:
+            msgbox(format("Claudius gives me the shivers. If he weren't teaching Poison types in Slateport I could see him making good money as an actor. Only villain roles, naturally."))
+        case 16:
+            msgbox(format("The rough-and-tumble surfers at Dewford Resort have some of the best Fighting types. Brawly's obsessed with dethroning Sidney as Gym Leader, so if you want instruction find a lifeguard named Buffy."))
+        default:
+            msgbox(format("Ellie is the local Ice-type specialist here in Ever Grande. She's Elite Four Glacia's niece!"))    
+    }
+    release
+    end
+}
+
+script EverGrandeCity_House2_EventScript_Boy {
+    lock
+    faceplayer
+    msgbox(format("Ellie lives southeast of the plaza. I think she got tired of every trainer seeking her out, so she blocked off the easy paths to her house."))
+    release
+    end
+}

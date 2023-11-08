@@ -1,0 +1,45 @@
+mapscripts EverGrandeCity_NatureShop_MapScripts {}
+
+script EverGrandeCity_NatureShop_EventScript_Shopkeeper {
+    lock
+    msgbox(format("We sell natural items relating to the Effort Values of Pokémon."))
+    waitmessage
+    pokemart(EverGrandeCityNatureMart)
+    msgbox(format("Best of luck, Trainer!"))
+    release
+    end
+}
+
+mart EverGrandeCityNatureMart {
+    ITEM_POMEG_BERRY
+    ITEM_KELPSY_BERRY
+    ITEM_QUALOT_BERRY
+    ITEM_HONDEW_BERRY
+    ITEM_GREPA_BERRY
+    ITEM_TAMATO_BERRY
+    ITEM_HEALTH_FEATHER
+    ITEM_MUSCLE_FEATHER
+    ITEM_RESIST_FEATHER
+    ITEM_GENIUS_FEATHER
+    ITEM_CLEVER_FEATHER
+    ITEM_SWIFT_FEATHER
+}
+
+script EverGrandeCity_NatureShop_EventScript_Girl {
+    lock
+    faceplayer
+    msgbox(format("The items sold here are so useful! The berries reduce Effort Values if you've made a mistake training a Pokémon. The feathers make it easy to precisely finish your competitive spreads."))
+    release
+    end
+}
+
+script EverGrandeCity_NatureShop_EventScript_Ziggy {
+    lock
+    faceplayer
+    delay(10)
+    playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_NORMAL)
+    waitmoncry
+    msgbox(format("Zigzagoon looks at you expectantly. Perhaps he would like a treat?"))
+    release
+    end
+}

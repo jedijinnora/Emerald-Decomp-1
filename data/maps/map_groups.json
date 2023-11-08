@@ -337,7 +337,15 @@
     "EverGrandeCity_Building2",
     "EverGrandeCity_Headquarters_1F",
     "ArrivalFerry_Room",
-    "ArrivalFerry_Corridor"
+    "ArrivalFerry_Corridor",
+    "EverGrandeCity_Headquarters_2F_1R",
+    "EverGrandeCity_Headquarters_2F_2R",
+    "EverGrandeCity_Headquarters_3F",
+    "EverGrandeCity_Mart",
+    "EverGrandeCity_House1",
+    "EverGrandeCity_House2",
+    "EverGrandeCity_NatureShop",
+    "EverGrandeCity_House3"
   ],
   "gMapGroup_IndoorRoute104": [
     "Route104_MrBrineysHouse",

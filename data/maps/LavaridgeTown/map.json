@@ -200,10 +200,17 @@
       "dest_warp_id": "3"
     },
     {
+      "x": 21,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_LAVARIDGE_TOWN_HOUSE2",
+      "dest_warp_id": "0"
+    },
+    {
       "x": 9,
       "y": 27,
       "elevation": 0,
-      "dest_map": "MAP_LAVARIDGE_TOWN_HOUSE2",
+      "dest_map": "MAP_LAVARIDGE_TOWN",
       "dest_warp_id": "0"
     }
   ],

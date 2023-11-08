@@ -1,1 +1,17 @@
 mapscripts EverGrandeCity_Building1_MapScripts {}
+
+script EverGrandeCity_Building1_EventScript_ExpertF {
+    lock
+    faceplayer
+    msgbox(format("When updated, I will trade my Chatot for a Floatzel."))
+    release
+    end
+}
+
+script EverGrandeCity_Building1_EventScript_BlackBelt {
+    lock
+    faceplayer
+    msgbox(format("I'm trying to encourage my grandma to start swimming more! Good exercise is important for everyone! When's the last time you worked up a sweat?"))
+    release
+    end
+}

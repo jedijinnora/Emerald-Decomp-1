@@ -40,7 +40,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MossdeepCity_EventScript_Kirlia",
       "flag": "0"
     },
     {
@@ -53,7 +53,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MossdeepCity_EventScript_Beauty",
       "flag": "0"
     },
     {
@@ -105,7 +105,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MossdeepCity_EventScript_Ferry",
       "flag": "0"
     },
     {
@@ -131,7 +131,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "MossdeepCity_EventScript_Sailor",
       "flag": "0"
     },
     {
@@ -150,8 +150,8 @@
   ],
   "warp_events": [
     {
-      "x": 28,
-      "y": 9,
+      "x": 18,
+      "y": 16,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_HOUSE1",
       "dest_warp_id": "0"
@@ -171,8 +171,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 47,
-      "y": 24,
+      "x": 28,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_HOUSE2",
       "dest_warp_id": "0"
@@ -185,8 +185,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 78,
-      "y": 15,
+      "x": 47,
+      "y": 24,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_HOUSE3",
       "dest_warp_id": "0"
@@ -199,8 +199,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 18,
-      "y": 16,
+      "x": 78,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CITY_HOUSE4",
       "dest_warp_id": "1"
@@ -224,6 +224,13 @@
       "y": 32,
       "elevation": 0,
       "dest_map": "MAP_MOSSDEEP_CAVERNS_MEDITATION_POOL",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 35,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_MOSSDEEP_CITY_GAME_CORNER_1F",
       "dest_warp_id": "0"
     }
   ],
@@ -293,7 +300,7 @@
       "y": 29,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "MossdeepCity_EventScript_ConnectorSign"
+      "script": "MossdeepCity_EventScript_CavernsSign"
     },
     {
       "type": "sign",
@@ -310,6 +317,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MossdeepCity_EventScript_WhiteRock"
+    },
+    {
+      "type": "sign",
+      "x": 84,
+      "y": 28,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "MossdeepCity_EventScript_FerrySign"
     }
   ]
 }

@@ -28,11 +28,37 @@ script EverGrandeCity_EventScript_CaveBlocked {
 script EverGrandeCity_EventScript_Sailor {
 	lock
 	faceplayer
+	goto_if_set(FLAG_SYS_NATIONAL_DEX, FerryMenu)
 	goto_if_set(FLAG_TEMP_1, BuildingDirections)
 	msgbox(format("Ahoy, {PLAYER}! The ferry won't leave for a while. Explore the city and make sure you are all squared away for your journey!"))
 	setflag(FLAG_TEMP_1)
 	BuildingDirections:
 	msgbox(format("Check-in is at the big building north of the plaza. You can't miss it!"))
+	release
+	end
+
+	FerryMenu:
+	msgbox(format("Ahoy, {PLAYER}! The ferry is ready to take you to your next destination!"))
+	msgbox(format("Where would you like to go?"))
+	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Rustboro", "Dewford", "Littleroot", "Slateport", "Sootopolis", "Mossdeep", "Lilycove")
+	switch(var(VAR_RESULT)) {
+		case 0:
+			warp(MAP_RUSTBORO_CITY, -1, 14, 12)
+		case 1:
+			warp(MAP_DEWFORD_RESORT, -1, 6, 16)
+		case 2:
+			warp(MAP_LITTLEROOT_SHORE, -1, 26, 21)
+		case 3:
+			warp(MAP_SLATEPORT_CITY_HARBOR, -1, 7, 10)
+		case 4:
+			warp(MAP_SOOTOPOLIS_CITY, -1, 21, 44)
+		case 5:
+			warp(MAP_MOSSDEEP_CITY, -1, 87, 36)
+		case 6:
+			warp(MAP_LILYCOVE_CITY_HARBOR, -1, 7, 10)
+		default:
+			msgbox(format("See you later, then!"))
+	}
 	release
 	end
 }

@@ -1,0 +1,73 @@
+mapscripts EverGrandeCity_Headquarters_2F_2R_MapScripts {}
+
+script EverGrandeCity_Headquarters_2F_2R_EventScript_Cameraman {
+	lock
+	msgbox(format("Two inches to your right... chin up just a hair... perfect!"))
+	release
+	end
+}
+
+script EverGrandeCity_Headquarters_2F_2R_EventScript_Reporter {
+	lock
+	faceplayer
+	msgbox(format("Stay out of the way, we're getting ready to host an important broadcast with a member of the Devon Corporation."))
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(VAR_LAST_TALKED)
+	release
+	end
+}
+
+script EverGrandeCity_Headquarters_2F_2R_EventScript_Madman {
+	lock
+	faceplayer
+	msgbox(format("Aha! Here we see how the sausage is made!"))
+    msgbox(format("Observe how the corporate swine is aided by the money-grubbing media in his infiltration of our government offices!"))
+    msgbox(format("What we need, my friend, is some change. Viva la revolucion!"))
+	release
+	end
+}
+
+script EverGrandeCity_Headquarters_2F_2R_EventScript_DevonStooge {
+	lock
+	faceplayer
+	msgbox(format("What do you think? Does my suit look sharp enough?"))
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(VAR_LAST_TALKED)
+	release
+	end
+}
+
+script EverGrandeCity_Headquarters_2F_2R_EventScript_Youngster {
+	lock
+	faceplayer
+	msgbox(format("I sat here because I thought I'd get to be on TV!"))
+    msgbox(format("But they're just sitting there setting up and I need to be home in like ten minutes!"))
+	release
+	end
+}
+
+script EverGrandeCity_Headquarters_2F_2R_EventScript_Teala {
+	lock
+	faceplayer
+	msgbox(format("Oh, I'm off-duty at the moment. You're probably mistaking me for one of my dozens of identical coworkers."))
+	release
+	end
+}
+
+script EverGrandeCity_Headquarters_2F_2R_EventScript_ExpertF {
+	lock
+	faceplayer
+	msgbox(format("My great-granddaughter ran ahead of me..."))
+    msgbox(format("Even a small flight of stairs really takes it out of me."))
+    msgbox(format("While you're young and spry you don't often think about how difficult our usual architecture is for people who have trouble moving, like the elderly and those in wheelchairs."))
+	release
+	end
+}
+
+script EverGrandeCity_Headquarters_2F_2R_EventScript_Guard {
+	lock
+	msgbox(format("Buddy, don't you think that's enough conspiracy theories?"))
+    msgbox(format("You should take a walk outside and make another tinfoil hat or something."))
+	release
+	end
+}

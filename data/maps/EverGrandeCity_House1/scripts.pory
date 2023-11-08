@@ -1,0 +1,11 @@
+mapscripts EverGrandeCity_House1_MapScripts {}
+
+script EverGrandeCity_House1_EventScipt_Gentleman {
+    lock
+    faceplayer
+    msgbox(format("I heard Millennium Field is now hosting its summer festival year-round."))
+    msgbox(format("I could offer some complaint about the commercialization of our traditions..."))
+    msgbox(format("But honestly I'm just disappointed I've gotten too old to travel comfortably and enjoy the celebrations like I would if I were fifty again."))
+    release
+    end
+}

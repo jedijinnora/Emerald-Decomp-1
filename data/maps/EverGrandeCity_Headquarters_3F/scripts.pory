@@ -1,0 +1,120 @@
+mapscripts EverGrandeCity_Headquarters_3F_MapScripts {}
+
+script EverGrandeCity_Headquarters_3F_EventScript_Maniac {
+    lock
+    faceplayer
+    msgbox(format("This job used to be a lot more bearable, but my friend quit last week. I still need money to pay for food, rent, and internet, so I'm stuck here."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_3F_EventScript_Beauty {
+    lock
+    faceplayer
+    msgbox(format("A lot of the world's problems would be solved if we exiled all middle managers to some small island. Or is that just wishful thinking?"))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_3F_EventScript_Supervisor {
+    lock
+    faceplayer
+    msgbox(format("I am this shift's supervisor, so naturally I take on the most important and vital tasks myself."))
+    msgbox(format("That means I continually monitor my subordinates and make sure everything is done exactly the way I want it!"))
+    msgbox(format("I don't think I get enough appreciation from my coworkers."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_3F_EventScript_Boy {
+    lock
+    faceplayer
+    msgbox(format("Another day, another poorly written SQL query to sanitize before some soccer mom injects something and takes the server down."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_3F_EventScript_Scientist {
+    lock
+    faceplayer
+    msgbox(format("Ever try writing code for a boss who doesn't know what they want and can't understand anything technical?"))
+    msgbox(format("Now imagine that, but the design constraints are set by politicians working in committee."))
+    msgbox(format("That's what I deal with every day."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_3F_EventScript_Woman {
+    lock
+    faceplayer
+    msgbox(format("I'm worried about Lanette. Lots of corporations have been complaining since she published the encryption keys to Silph's TMs."))
+    msgbox(format("The latest set of Silph corporate security who came through looking for her seemed particularly nasty."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_3F_EventScript_GameBoyKid {
+    lock
+    faceplayer
+    goto_if_set(FLAG_ITEM_EVER_GRANDE_CITY_HEADQUARTERS_3F_LINKING_CORD, LanetteHint)
+    msgbox(format("I work here as a security consultant. Can you keep a secret?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        msgbox(format("Lame."))
+        release
+        end
+    }
+    msgbox(format("I used to be a bit of a blackhat. My old gang of friends is still up to their tricks. They're the ones who cracked Silph's encryption scheme and made all TMs reusable!"))
+    msgbox(format("I could give you a hint where to find them, if you're interested?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        msgbox(format("Really? Single use TMs and mandatory trade evolutions are ancient history. Ah, I guess you're a genwunner."))
+        release
+        end
+    }
+    goto_if_unset(FLAG_ITEM_EVER_GRANDE_CITY_HEADQUARTERS_3F_LINKING_CORD, TestFirst)
+    LanetteHint:
+    msgbox(format("Hey, you found the Linking Cord! Another useful item brought to you by helpful hackers!"))
+    msgbox(format("Bill in Kanto is a yes-man for Team Rocket and the Indigo government. But here in Hoenn Lanette is in charge of the PC system. She lives on Route 114 and isn't afraid to stand up to the man."))
+    release
+    end
+    TestFirst:
+    msgbox(format("You gotta prove yourself a bit first. Find the hidden item in this room and come back. It'll be useful, I promise!"))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_3F_EventScript_LittleGirl {
+    lock
+    faceplayer
+    msgbox(format("I'm not supposed to be here, but at this point I'll get in a lot of trouble."))
+    msgbox(format("I guess I'm just waiting for someone to come yell at me. I hope Grandma's okay."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_3F_EventScript_Computer1 {
+    lock
+    msgbox(format("The computer is displaying someone's account. The top three messages all have the subject line, “Yesterday's meeting should have been an email.”"))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_3F_EventScript_Computer2 {
+    lock
+    msgbox(format("You don't have a login to use this computer."))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_3F_EventScript_Centauri {
+    lock
+    msgbox(format("Someone has taped a message to this computer. It looks like a quote. Continue reading?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("“I sit in my cubicle, here on the motherworld. When I die, they will put my body in a box and dispose of it in the cold ground.”"))
+        msgbox(format("“And in all the million ages to come, I will never breathe or laugh or twitch again.”"))
+        msgbox(format("“So won't you run and play with me here among the teeming mass of humanity? The universe has spared us this moment.”"))
+        msgbox(format("This quote is from the 1999 game Alpha Centauri, written by Brian Reynolds."))
+        msgbox(format("On top is a sticky note that reads, “I quit.”"))
+    }
+    release
+    end
+}

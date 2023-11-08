@@ -1,63 +1,144 @@
 mapscripts MossdeepCity_MapScripts {}
 
+script MossdeepCity_EventScript_Kirlia {
+	lock
+	faceplayer
+	playmoncry(SPECIES_KIRLIA, CRY_MODE_NORMAL)
+	msgbox(format("Kirr!"))
+	waitmessage
+	waitmoncry
+	release
+	end
+}
 
+script MossdeepCity_EventScript_Beauty {
+	lock
+	faceplayer
+
+	checkitem(ITEM_TM79_TELEPORT)
+	if(var(VAR_RESULT) == NO) {
+		msgbox(format("You look like someone who could use this!"))
+		giveitem(ITEM_TM79_TELEPORT)
+	}
+	msgbox(format("Teleport allows your Pokémon to switch out with an ally. In the field, it returns you to your last used healing location."))
+	release
+	end
+}
+
+script MossdeepCity_EventScript_Painter {
+	lock
+	faceplayer
+	msgbox(format("Mossdeep Painter script"))
+	release
+	end
+}
+
+script MossdeepCity_EventScript_Sailor {
+	lock
+	faceplayer
+	msgbox(format("Sailors learn quickly to respect the sea. Water-type Pokémon grow without limit in the ocean depths."))
+	msgbox(format("The only man I know crazy enough to explore Hoenn's deep trenches is Archie. You might find him in Lilycove or at the Oceanic Museum."))
+	release
+	end
+}
+
+script MossdeepCity_EventScript_Ferry {
+	lock
+	faceplayer
+	msgbox(format("Ahoy, {PLAYER}! The ferry is ready to take you to your next destination!"))
+	msgbox(format("Where would you like to go?"))
+	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Rustboro", "Dewford", "Littleroot", "Slateport", "Sootopolis", "Ever Grande", "Lilycove")
+	switch(var(VAR_RESULT)) {
+		case 0:
+			warp(MAP_RUSTBORO_CITY, -1, 14, 12)
+		case 1:
+			warp(MAP_DEWFORD_RESORT, -1, 6, 16)
+		case 2:
+			warp(MAP_LITTLEROOT_SHORE, -1, 26, 21)
+		case 3:
+			warp(MAP_SLATEPORT_CITY_HARBOR, -1, 7, 10)
+		case 4:
+			warp(MAP_SOOTOPOLIS_CITY, -1, 21, 44)
+		case 5:
+			warp(MAP_EVER_GRANDE_CITY, -1, 24, 30)
+		case 6:
+			warp(MAP_LILYCOVE_CITY_HARBOR, -1, 7, 10)
+		default:
+			msgbox(format("See you later, then!"))
+	}
+	release
+	end
+}
+
+script MossdeepCity_EventScript_PsychicM {
+	lock
+	faceplayer
+	msgbox(format(""))
+	release
+	end
+}
 
 script MossdeepCity_EventScript_CitySign {
-	lockall
+	lock
 	msgbox(format("MOSSDEEP CITY"))
 	msgbox(format("The island of science and psionics."))
 	waitmessage
-	releaseall
+	release
 	end
 }
 
 script MossdeepCity_EventScript_GymSign {
-	lockall
+	lock
 	msgbox(Text_GymSign)
 	waitmessage
-	releaseall
+	release
 	end
 }
 
 text Text_GymSign {
 	"MOSSDEEP CITY POKéMON GYM\n"
-	"LEADER: SHARON\p"
-	"HOENN's premier psychic."
+	"LEADER: Sabitha\p"
+	"Hoenn's premier psychic."
 	"$"
 }
 
 script MossdeepCity_EventScript_SpaceCenterSign {
-	lockall
-	msgbox(format("SPACE, SCIENCE, AND PSIONICS CENTER"))
-	msgbox(format("Integrating cutting edge investigation and mystical tradition to unveil the universe's greatest mysteries."))
+	lock
+	msgbox(format("MOSSDEEP SPACE CENTER"))
+	msgbox(format("The closest place to space."))
 	waitmessage
-	releaseall
+	release
 	end
 }
 
 script MossdeepCity_EventScript_MeditationSign {
-	lockall
+	lock
 	msgbox(format("MEDITATION CAVE"))
 	msgbox(format("Come hone your focus amidst quiet waves."))
 	waitmessage
-	releaseall
+	release
 	end
 }
 
-script MossdeepCity_EventScript_ConnectorSign {
-	lockall
-	msgbox(format("MOSSDEEP CONNECTOR"))
-	msgbox(format("North: Space, Science, and Psionics Center."))
-	msgbox(format("East: Mossdeep Ferry Terminal."))
+script MossdeepCity_EventScript_CavernsSign {
+	lock
+	msgbox(format("MOSSDEEP CAVERNS"))
 	waitmessage
-	releaseall
+	release
 	end
 }
 
 script MossdeepCity_EventScript_WhiteRock {
-	lockall
+	lock
 	msgbox(format("The white rock glitters under the sun."))
 	waitmessage
-	releaseall
+	release
+	end
+}
+
+script MossdeepCity_EventScript_FerrySign {
+	lock
+	msgbox(format("Mossdeep Ferry"))
+	release
 	end
 }

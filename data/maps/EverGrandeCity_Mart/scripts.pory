@@ -1,0 +1,63 @@
+mapscripts EverGrandeCity_Mart_MapScripts {}
+
+script EverGrandeCity_Mart_EventScript_Clerk {
+    lock
+	faceplayer
+    msgbox(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(0)
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+script EverGrandeCity_Mart_EventScript_Youngster {
+    lock
+	faceplayer
+    msgbox(format("Marts stock items based on how many badges you have. It's so cool!"))
+    msgbox(format("I don't have any badges yet though."))
+	release
+	end
+}
+
+script EverGrandeCity_Mart_EventScript_Twin {
+    lock
+	faceplayer
+    goto_if_set(FLAG_TEMP_1, HeyThanks)
+    msgbox(format("Hey! Can I have a Soda Pop?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        NoPop:
+        msgbox(format("Awww..."))
+        release
+        end
+    }
+    checkitem(ITEM_SODA_POP)
+    if(var(VAR_RESULT) == FALSE) {
+        msgbox(format("You don't have any! No lying!"))
+        release
+        end
+    }
+    removeitem(ITEM_SODA_POP)
+    msgbox(format("Thanks! You can have this!"))
+    setflag(FLAG_TEMP_1)
+    random(25)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            giveitem(ITEM_STARF_BERRY)
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            giveitem(ITEM_BERRY_JUICE)
+        default:
+            giveitem(ITEM_SITRUS_BERRY)
+    }
+	release
+	end
+
+    HeyThanks:
+    msgbox(format("Thanks!"))
+    release
+    end
+}

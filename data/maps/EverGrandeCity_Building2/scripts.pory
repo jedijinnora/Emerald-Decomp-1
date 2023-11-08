@@ -1,1 +1,27 @@
 mapscripts EverGrandeCity_Building2_MapScripts {}
+
+script EverGrandeCity_Building2_EventScript_GameBoyKid {
+    lock
+    msgbox("Teehee!")
+    msgbox(format("I can feel my brain turning to mush."))
+    release
+    end
+}
+
+script EverGrandeCity_Building2_EventScript_Lass {
+    lock
+    faceplayer
+    msgbox(format("My little brother spends all day playing video games. Why can't he stop hogging the TV and go outside?"))
+    release
+    end
+}
+
+script EverGrandeCity_Building2_EventScript_Man {
+    lock
+    faceplayer
+    msgbox(format("Ever Grande City is mostly populated by government workers and their families. Things have been steadily getting a little worse for us since the Devon Corporation started getting more involved."))
+    msgbox(format("They say your vote matters, but when corporations are allowed to spend their vast revenues on political campaigns..."))
+    msgbox(format("The old idea of one person, one vote is pretty meaningless now that money is so influential in politics."))
+    release
+    end
+}
