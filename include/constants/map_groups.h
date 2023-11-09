@@ -213,6 +213,7 @@
 #define MAP_RUSTBORO_CITY_FLAT2_2F          (14 | (12 << 8))
 #define MAP_RUSTBORO_CITY_FLAT2_3F          (15 | (12 << 8))
 #define MAP_RUSTBORO_CITY_HOUSE3            (16 | (12 << 8))
+#define MAP_RUSTBORO_CITY_HOUSE4            (17 | (12 << 8))
 
 // gMapGroup_IndoorFortree
 #define MAP_FORTREE_CITY_HOUSE1            (0 | (13 << 8))
@@ -673,8 +674,7 @@
 #define MAP_DEWFORD_RESORT_STAFF_HOUSE     (3 | (35 << 8))
 
 // gMapGroup_IndoorLittlerootShore
-#define MAP_LITTLEROOT_SHORE_HARBOR (0 | (36 << 8))
-#define MAP_LITTLEROOT_SHORE_HOUSE  (1 | (36 << 8))
+#define MAP_LITTLEROOT_SHORE_HOUSE (0 | (36 << 8))
 
 // gMapGroup_SouthernIsland
 #define MAP_SOUTHERN_ISLAND             (0 | (37 << 8))

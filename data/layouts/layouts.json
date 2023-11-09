@@ -4992,26 +4992,6 @@
       "blockdata_filepath": "data/layouts/ForestHeart/map.bin"
     },
     {
-      "id": "LAYOUT_LITTLEROOT_SHORE_HARBOR",
-      "name": "LittlerootShore_Harbor_Layout",
-      "width": 20,
-      "height": 20,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/LittlerootShore_Harbor/border.bin",
-      "blockdata_filepath": "data/layouts/LittlerootShore_Harbor/map.bin"
-    },
-    {
-      "id": "LAYOUT_LITTLEROOT_SHORE_HOUSE",
-      "name": "LittlerootShore_House_Layout",
-      "width": 20,
-      "height": 20,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
-      "border_filepath": "data/layouts/LittlerootShore_House/border.bin",
-      "blockdata_filepath": "data/layouts/LittlerootShore_House/map.bin"
-    },
-    {
       "id": "LAYOUT_SOUTHERN_ISLAND",
       "name": "SouthernIsland_Layout",
       "width": 60,

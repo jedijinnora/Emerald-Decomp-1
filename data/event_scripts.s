@@ -1069,8 +1069,6 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/DewdropGlen/scripts.inc"
 
 	.include "data/maps/LittlerootShore/scripts.inc"
-	.include "data/maps/LittlerootShore_Harbor/scripts.inc"
-	.include "data/maps/LittlerootShore_House/scripts.inc"
 	
 	.include "data/maps/OldaleTown_Tower_1F/scripts.inc"
 	.include "data/maps/OldaleTown_Tower_2F/scripts.inc"
@@ -1186,3 +1184,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/MossdeepCity_House5/scripts.inc"
 
 	.include "data/maps/SlateportCity_House2/scripts.inc"
+
+	.include "data/maps/LittlerootShore_House/scripts.inc"
+
+	.include "data/maps/RustboroCity_House4/scripts.inc"

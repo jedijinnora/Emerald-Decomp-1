@@ -246,7 +246,8 @@
     "RustboroCity_Flat2_1F",
     "RustboroCity_Flat2_2F",
     "RustboroCity_Flat2_3F",
-    "RustboroCity_House3"
+    "RustboroCity_House3",
+    "RustboroCity_House4"
   ],
   "gMapGroup_IndoorFortree": [
     "FortreeCity_House1",
@@ -707,7 +708,6 @@
     "DewfordResort_StaffHouse"
   ],
   "gMapGroup_IndoorLittlerootShore": [
-    "LittlerootShore_Harbor",
     "LittlerootShore_House"
   ],
   "gMapGroup_SouthernIsland": [
