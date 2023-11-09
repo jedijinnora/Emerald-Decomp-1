@@ -1182,3 +1182,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/EverGrandeCity_NatureShop/scripts.inc"
 
 	.include "data/maps/EverGrandeCity_House3/scripts.inc"
+
+	.include "data/maps/MossdeepCity_House5/scripts.inc"
+
+	.include "data/maps/SlateportCity_House2/scripts.inc"

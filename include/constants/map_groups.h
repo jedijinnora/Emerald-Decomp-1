@@ -183,6 +183,7 @@
 #define MAP_SLATEPORT_CITY_POKEMON_CENTER_1F       (11 | (10 << 8))
 #define MAP_SLATEPORT_CITY_POKEMON_CENTER_2F       (12 | (10 << 8))
 #define MAP_SLATEPORT_CITY_MART                    (13 | (10 << 8))
+#define MAP_SLATEPORT_CITY_HOUSE2                  (14 | (10 << 8))
 
 // gMapGroup_IndoorMauville
 #define MAP_MAUVILLE_CITY_GYM               (0 | (11 << 8))
@@ -264,6 +265,7 @@
 #define MAP_MOSSDEEP_CITY_SPACE_CENTER_2F   (10 | (15 << 8))
 #define MAP_MOSSDEEP_CITY_GAME_CORNER_1F    (11 | (15 << 8))
 #define MAP_MOSSDEEP_CITY_GAME_CORNER_B1F   (12 | (15 << 8))
+#define MAP_MOSSDEEP_CITY_HOUSE5            (13 | (15 << 8))
 
 // gMapGroup_IndoorSootopolis
 #define MAP_SOOTOPOLIS_CITY_GYM_1F                   (0 | (16 << 8))

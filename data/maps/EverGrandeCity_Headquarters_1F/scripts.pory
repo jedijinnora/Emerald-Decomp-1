@@ -14,9 +14,8 @@ script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
 	faceplayer
     goto_if_set(FLAG_SYS_NATIONAL_DEX, CheerBye)
 
-	msgbox(format("Welcome to Hoenn! I see you are one of this year's foreign exchange students."))
-    msgbox(format("You'll need a fully upgraded Pokédex to be able to view data on all the Pokémon in this region."))
-    msgbox(format("One moment please..."))
+	msgbox(format("You must be our foreign exchange student from Sinnoh. Welcome to Hoenn!"))
+    msgbox(format("Let me grab a box for you."))
     waitmessage
 
     delay(10)
@@ -29,6 +28,8 @@ script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
     waitmovement(LOCALID_DESKLADY)
     delay(10)
 
+    msgbox(format("You'll need a fully upgraded Pokédex to be able to view data on all the Pokémon in this region."))
+    msgbox(format("One moment please…"))
     setflag(FLAG_SYS_NATIONAL_DEX)
     special(EnableNationalPokedex)
     playfanfare(MUS_OBTAIN_ITEM)
@@ -43,7 +44,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
     playfanfare(MUS_OBTAIN_ITEM)
     waitfanfare
     msgbox(format("I'm legally required to inform you that attempting to damage, modify, upgrade, or customize your Pokénav without speaking to a licensed representative of the Devon Corporation is a felony under Hoenn law and will void your warranty."))
-    msgbox(format("Isn't that delightful? Sorry, this bigwig at Devon has been complaining about patent violation or some other legal muck. We used to just have Silph Co. goons screaming on the phone about re-usable TMs..."))
+    msgbox(format("Isn't that delightful? Sorry, this bigwig at Devon has been complaining about patent violation or some other legal muck. We used to just have Silph Co. goons screaming on the phone about re-usable TMs…"))
     
     msgbox(format("You're all set! I'll update the system with your information."))
     msgbox(format("Speak to the sailor at the dock to use the ferry."))
@@ -270,65 +271,111 @@ script EverGrandeCity_Headquarters_1F_EventScript_GameBoyKid {
     goto_if_set(FLAG_TEMP_2, UsefulCode)
     setflag(FLAG_TEMP_2)
     msgbox(format("Never forget: \n {UP_ARROW} {UP_ARROW} {DOWN_ARROW} {DOWN_ARROW} {LEFT_ARROW} {RIGHT_ARROW} {LEFT_ARROW} {RIGHT_ARROW} B A start."))
-    goto(EndCode)
+    release
+    end
 
     UsefulCode:
     waitmessage
     msgbox(format("Want another code?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == NO) {
         msgbox(format("Affirmative."))
-        goto(EndCode)
+        release
+        end
     }
     random(8)
     switch(var(VAR_RESULT)) {
         case 0: 
-            goto(ShoalCaveCode)
+            msgbox(format("Don't forget to call ur mom if you have encountered ShoalShock!"))
+            msgbox(format("{UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW}"))	
         case 1: 
-            goto(SeafoamCode1_1)
+            msgbox(format("You need help with this one? Total n00b. \n {DOWN_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {UP_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW}"))
         case 2: 
-            goto(SeafoamCode1_2)
+            msgbox(format("How many Swordfish can 1d10t5 like you fit in one password file?"))
+            msgbox(format("{UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {UP_ARROW} {RIGHT_ARROW}"))
         case 3: 
-            goto(SeafoamCode2_1)
+            msgbox(format("I goin in ur cave, taking ur icicles! \n {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {DOWN_ARROW}"))
         case 4: 
-            goto(SeafoamCode2_2)
+            msgbox(format("Articuno can't Kanto deez nuts! \n {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {UP_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {UP_ARROW}"))
         case 5: 
-            goto(TrickCode1)
+            msgbox(format("I hacked the Trick Master! \n {RIGHT_ARROW} {UP_ARROW} {RIGHT_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {DOWN_ARROW}"))
         case 6: 
-            goto(TrickCode2)
+            msgbox(format("In ur Trick House, lootin ur doorz! \n {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {UP_ARROW}"))
         default:
             msgbox(format("GAME OVER! Insert quarter to play again."))
             clearflag(FLAG_TEMP_2)
             release
             end
     }
+    goto(UsefulCode)
+}
 
-    ShoalCaveCode:
-    msgbox(format("Don't forget to call ur mom if you have encountered ShoalShock!"))
-    msgbox(format("{UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW}"))
-	goto(UsefulCode)
-
-    SeafoamCode1_1:
-    msgbox(format("You need help with this one? Total n00b. \n {DOWN_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {UP_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW}"))
-    goto(UsefulCode)
-    SeafoamCode1_2:
-    msgbox(format("How many Swordfish can 1d10t5 like you fit in one password file?"))
-    msgbox(format("{UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {UP_ARROW} {RIGHT_ARROW}"))
-    goto(UsefulCode)
-    SeafoamCode2_1:
-    msgbox(format("I goin in ur cave, taking ur icicles! \n {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {DOWN_ARROW}"))
-    goto(UsefulCode)
-    SeafoamCode2_2:
-    msgbox(format("Articuno can't Kanto deez nuts! \n {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {UP_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {UP_ARROW}"))
-    goto(UsefulCode)
-
-    TrickCode1:
-    msgbox(format("I hacked the Trick Master! \n {RIGHT_ARROW} {UP_ARROW} {RIGHT_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {DOWN_ARROW}"))
-    goto(UsefulCode)
-    TrickCode2:
-    msgbox(format("In ur Trick House, lootin ur doorz! \n {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {UP_ARROW}"))
-    goto(UsefulCode)
-
-    EndCode:
+script EverGrandeCity_Headquarters_1F_EventScript_ScientistCredits {
+    lock
+    faceplayer
+    msgbox(format("Greetings! I can tell you about many of the resources and features Jinnora used while creating this game."))
+    msgbox(format("You should also find this info in the README.txt or in the master forum posts about the game, along with links."))
+    CreditsMenu:
+    msgbox(format("Which would you like to hear about?"))
+    dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "General resources used", "Features included")
+    switch(var(VAR_RESULT)) {
+        case 0:
+            ResourcesMenu:
+            msgbox(format("Which resource interests you?"))
+            dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Team Aqua's Hideout", "Porymap", "Poryscript", "RHH Discord", "Pokeemerald Tutorials Master")
+            switch(var(VAR_RESULT)) {
+                case 0:
+                    msgbox(format("Team Aqua's Hideout is a Youtube channel with many helpful guides on using the decompilation projects. These were an amazing resource throughout the project."))
+                    goto(ResourcesMenu)
+                case 1:
+                    msgbox(format("Porymap is a software developed by huderlem for the decomp projects that allows easy editing of all the maps in the game. A lot of time was spent using this application!"))
+                    goto(ResourcesMenu)
+                case 2:
+                    msgbox(format("Poryscript is a scripting language developed by huderlem, much easier to use than the game's default .inc syntax. Nearly all NPC scripts created for this game were written in Poryscript!"))
+                    goto(ResourcesMenu)
+                case 3:
+                    msgbox(format("Rom Hacking Hideout is the community which created the pokeemerald-expansion repository this project is based on. You may have noticed their credits scene in the game intro. A big thanks to everyone who continues to work on the expansion project!"))
+                    goto(ResourcesMenu)
+                case 4:
+                    msgbox(format("The tutorials master page located on GitHub at pret/pokeemerald/wiki/Tutorials was an invaluable resource for locating guides to many of the QOL changes that are incorporated into this game."))
+                    goto(ResourcesMenu)
+                default:
+                    goto(CreditsMenu)
+            }
+        case 1:
+            FeaturesMenu:
+            msgbox(format("Features will be listed by order of inclusion into this project."))
+            msgbox(format("Which kind of features would you like to hear about?"))
+            dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Player quality of life", "Creator quality of life", "Bug fixes", "Game knowledge/minor tweaks")
+            switch(var(VAR_RESULT)) {
+                case 0:
+                    msgbox(format("Nature stat colors, by DizzyEgg."))
+                    msgbox(format("Bag sorting, by ghoulslash."))
+                    msgbox(format("IV/EV summary screen, by BuffelSaft."))
+                    msgbox(format("Increased bag size, by MapleFall."))
+                    msgbox(format("Fast Berry interactions, by dunsparce9."))
+                    msgbox(format("Mart items by badge count, by ghoulslash."))
+                    goto(FeaturesMenu)
+                case 1:
+                    msgbox(format("Generic item ball script, by Deokishisu."))
+                    msgbox(format("Dynamic multichoice, by SBird."))
+                    goto(FeaturesMenu)
+                case 2:
+                    msgbox(format("Disable Union room check, from the tutorial master list."))
+                    msgbox(format("Surf dismount ground effects, from the tutorial master list."))
+                    goto(FeaturesMenu)
+                case 3:
+                    msgbox(format("Lanette's PC from game start, by devolov."))
+                    msgbox(format("Change Birch's intro Pokémon, by Avara."))
+                    msgbox(format("Modify Pickup items, by Lunos."))
+                    msgbox(format("Change default text speed, by Avara."))
+                    msgbox(format("Allow forgetting of HM moves, by Lunos, thespbgamer, and Jaizu."))
+                    goto(FeaturesMenu)
+                default:
+                    goto(CreditsMenu)
+            }
+        default:
+    }
+    msgbox(format("Be seeing you!"))
     release
     end
 }

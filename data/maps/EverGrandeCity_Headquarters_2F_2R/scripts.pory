@@ -2,7 +2,7 @@ mapscripts EverGrandeCity_Headquarters_2F_2R_MapScripts {}
 
 script EverGrandeCity_Headquarters_2F_2R_EventScript_Cameraman {
 	lock
-	msgbox(format("Two inches to your right... chin up just a hair... perfect!"))
+	msgbox(format("Two inches to your right… chin up just a hair… perfect!"))
 	release
 	end
 }
@@ -57,7 +57,7 @@ script EverGrandeCity_Headquarters_2F_2R_EventScript_Teala {
 script EverGrandeCity_Headquarters_2F_2R_EventScript_ExpertF {
 	lock
 	faceplayer
-	msgbox(format("My great-granddaughter ran ahead of me..."))
+	msgbox(format("My great-granddaughter ran ahead of me…"))
     msgbox(format("Even a small flight of stairs really takes it out of me."))
     msgbox(format("While you're young and spry you don't often think about how difficult our usual architecture is for people who have trouble moving, like the elderly and those in wheelchairs."))
 	release

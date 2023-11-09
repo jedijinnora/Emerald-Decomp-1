@@ -102,7 +102,7 @@ script MillenniumField_EventScript_Pikachu {
     lockall
     applymovement(PIKACHU_ID, Common_Movement_FacePlayer)
     goto_if_set(FLAG_DAILY_PIKACHU_FAVOR, SeeYouTomorrow)
-    playmoncry(SPECIES_PIKACHU, CRY_MODE_ENCOUNTER)
+    playmoncry(SPECIES_PIKACHU, CRY_MODE_NORMAL)
     waitmoncry
     msgbox(format("Pikachu happily pushes a festival favor into your hands!"))
     setflag(FLAG_DAILY_PIKACHU_FAVOR)
@@ -124,7 +124,7 @@ script MillenniumField_EventScript_Kecleon {
     lockall
     applymovement(KECLEON_ID, Common_Movement_FacePlayer)
     if (flag(FLAG_DAILY_KECLEON_WON)) {
-        playmoncry(SPECIES_KECLEON, CRY_MODE_ENCOUNTER)
+        playmoncry(SPECIES_KECLEON, CRY_MODE_NORMAL)
         waitmoncry
         msgbox(format("Kecleon looks forward to challenging you tomorrow!"))
         waitmessage
@@ -170,7 +170,7 @@ script MillenniumField_EventScript_KecleonPrize {
 
 script MillenniumField_EventScript_KecleonVanish {
     addvar(VAR_TEMP_3, 1)
-    playmoncry(SPECIES_KECLEON, CRY_MODE_ENCOUNTER)
+    playmoncry(SPECIES_KECLEON, CRY_MODE_NORMAL)
     waitmoncry
     applymovement(KECLEON_ID, KecleonVanish)
     waitmovement(KECLEON_ID)

@@ -43,9 +43,9 @@
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
 
-//JINNORA: Painter quest flags
-#define FLAG_HIDE_MOSSDEEP_HARBOR_PAINTER           0x20
-#define FLAG_HIDE_ROUTE_125_PAINTER                 0x21
+//JINNORA: type tutor gems
+#define FLAG_RECEIVED_EVER_GRANDE_CITY_HOUSE3_ICE_GEM       0x20
+#define FLAG_RECEIVED_SLATEPORT_CITY_HOUSE2_POISON_GEM      0x21
 #define FLAG_HIDE_FORINA_PAINTER                    0x22
 #define FLAG_HIDE_DESERT_PAINTER                    0x23
 #define FLAG_HIDE_ROUTE_119_PAINTER                 0x24
@@ -669,7 +669,7 @@
 #define FLAG_ITEM_ARRIVAL_FERRY_CORRIDOR_LEMONADE                   (FLAGS_ADDED_1_START + 0x06)
 #define FLAG_GIVEN_POWER_ITEMS                                      (FLAGS_ADDED_1_START + 0x07)
 #define FLAG_ITEM_EVER_GRANDE_CITY_HEADQUARTERS_3F_LINKING_CORD     (FLAGS_ADDED_1_START + 0x08)
-#define FLAG_RECEIVED_EVER_GRANDE_CITY_HOUSE3_ICE_GEM                   (FLAGS_ADDED_1_START + 0x09)
+#define FLAG_UNUSED_0x09                                            (FLAGS_ADDED_1_START + 0x09)
 #define FLAG_ITEM_0x0A                                              (FLAGS_ADDED_1_START + 0x0A)
 
 #define FLAG_ITEM_MOSSDEEP_CITY_RARE_CANDY                          (FLAGS_ADDED_1_START + 0x0B)
@@ -857,7 +857,7 @@
 #define FLAG_HIDE_LUGIA                                             0x320
 #define FLAG_HIDE_HO_OH                                             0x321
 #define FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER                    0x322
-#define FLAG_HIDE_SLATEPORT_CITY_CONTEST_REPORTER                   0x323
+#define FLAG_UNUSED_0x323                                           0x323//Jinnora: was for RS slateport contest reporter
 #define FLAG_HIDE_MAUVILLE_CITY_WALLY                               0x324
 #define FLAG_HIDE_MAUVILLE_CITY_WALLYS_UNCLE                        0x325
 #define FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WALLY                0x326

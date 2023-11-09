@@ -1,4 +1,11 @@
-mapscripts MossdeepCity_MapScripts {}
+mapscripts MossdeepCity_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : MossdeepCityOnTransition
+}
+
+script MossdeepCityOnTransition {
+	setflag(FLAG_VISITED_MOSSDEEP_CITY)
+	end
+}
 
 script MossdeepCity_EventScript_Kirlia {
 	lock
@@ -20,7 +27,7 @@ script MossdeepCity_EventScript_Beauty {
 		msgbox(format("You look like someone who could use this!"))
 		giveitem(ITEM_TM79_TELEPORT)
 	}
-	msgbox(format("Teleport allows your Pokémon to switch out with an ally. In the field, it returns you to your last used healing location."))
+	msgbox(format("Teleport allows your Pokémon to switch out with an ally. In the field, it returns you to your last healing location."))
 	release
 	end
 }
@@ -47,7 +54,7 @@ script MossdeepCity_EventScript_Ferry {
 	faceplayer
 	msgbox(format("Ahoy, {PLAYER}! The ferry is ready to take you to your next destination!"))
 	msgbox(format("Where would you like to go?"))
-	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Rustboro", "Dewford", "Littleroot", "Slateport", "Sootopolis", "Ever Grande", "Lilycove")
+	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Rustboro", "Dewford", "Littleroot", "Slateport", "Lilycove", "Sootopolis", "Ever Grande")
 	switch(var(VAR_RESULT)) {
 		case 0:
 			warp(MAP_RUSTBORO_CITY, -1, 14, 12)
@@ -56,13 +63,13 @@ script MossdeepCity_EventScript_Ferry {
 		case 2:
 			warp(MAP_LITTLEROOT_SHORE, -1, 26, 21)
 		case 3:
-			warp(MAP_SLATEPORT_CITY_HARBOR, -1, 7, 10)
+			warp(MAP_SLATEPORT_CITY, -1, 39, 16)
 		case 4:
-			warp(MAP_SOOTOPOLIS_CITY, -1, 21, 44)
+			warp(MAP_LILYCOVE_CITY, -1, 11, 35)
 		case 5:
-			warp(MAP_EVER_GRANDE_CITY, -1, 24, 30)
+			warp(MAP_SOOTOPOLIS_CITY, -1, 21, 44)
 		case 6:
-			warp(MAP_LILYCOVE_CITY_HARBOR, -1, 7, 10)
+			warp(MAP_EVER_GRANDE_CITY, -1, 24, 30)
 		default:
 			msgbox(format("See you later, then!"))
 	}
@@ -73,15 +80,15 @@ script MossdeepCity_EventScript_Ferry {
 script MossdeepCity_EventScript_PsychicM {
 	lock
 	faceplayer
-	msgbox(format(""))
+	msgbox(format("Every day, I go to the meditation cave and train against Tate & Liza. Then I run from the deepest part of Mossdeep Caverns to the top of the Space Center!"))
+	msgbox(format("Do you think if I add a hundred push-ups and sit-ups to my routine, I can become the strongest man in Hoenn?"))
 	release
 	end
 }
 
 script MossdeepCity_EventScript_CitySign {
 	lock
-	msgbox(format("MOSSDEEP CITY"))
-	msgbox(format("The island of science and psionics."))
+	msgbox(format("MOSSDEEP CITY \n “The island of science and psionics.”"))
 	waitmessage
 	release
 	end
@@ -104,8 +111,7 @@ text Text_GymSign {
 
 script MossdeepCity_EventScript_SpaceCenterSign {
 	lock
-	msgbox(format("MOSSDEEP SPACE CENTER"))
-	msgbox(format("The closest place to space."))
+	msgbox(format("MOSSDEEP SPACE CENTER \n “The closest place to space.”"))
 	waitmessage
 	release
 	end
@@ -113,8 +119,7 @@ script MossdeepCity_EventScript_SpaceCenterSign {
 
 script MossdeepCity_EventScript_MeditationSign {
 	lock
-	msgbox(format("MEDITATION CAVE"))
-	msgbox(format("Come hone your focus amidst quiet waves."))
+	msgbox(format("MEDITATION CAVE \n Come hone your focus amidst quiet waves."))
 	waitmessage
 	release
 	end
@@ -122,8 +127,7 @@ script MossdeepCity_EventScript_MeditationSign {
 
 script MossdeepCity_EventScript_CavernsSign {
 	lock
-	msgbox(format("MOSSDEEP CAVERNS"))
-	waitmessage
+	msgbox(format("MOSSDEEP CAVERNS \n Visit the island's untamed depths."))
 	release
 	end
 }
@@ -131,14 +135,13 @@ script MossdeepCity_EventScript_CavernsSign {
 script MossdeepCity_EventScript_WhiteRock {
 	lock
 	msgbox(format("The white rock glitters under the sun."))
-	waitmessage
 	release
 	end
 }
 
 script MossdeepCity_EventScript_FerrySign {
 	lock
-	msgbox(format("Mossdeep Ferry"))
+	msgbox(format("HOENN FAST FERRY \n Mossdeep Terminal"))
 	release
 	end
 }

@@ -2,7 +2,7 @@ mapscripts EverGrandeCity_Headquarters_2F_1R_MapScripts {}
 
 script EverGrandeCity_Headquarters_2F_1R_EventScript_Woman1 {
     lock
-    msgbox(format("If you'll sign here, here, and here, we can file this form and move on to 47-C, subsection 12.4..."))
+    msgbox(format("If you'll sign here, here, and here, we can file this form and move on to 47-C, subsection 12.4…"))
     release
     end
 }
@@ -17,7 +17,7 @@ script EverGrandeCity_Headquarters_2F_1R_EventScript_Woman2 {
 
 script EverGrandeCity_Headquarters_2F_1R_EventScript_OldLady {
     lock
-    msgbox(format("I'm on a fixed income! If you can't help me, I don't know what I'll do..."))
+    msgbox(format("I'm on a fixed income! If you can't help me, I don't know what I'll do…"))
     release
     end
 }
@@ -33,7 +33,7 @@ script EverGrandeCity_Headquarters_2F_1R_EventScript_DevonRep {
     lock
     faceplayer
     msgbox(format("Check out our top-of-the-line Pokénav upgrades! Our simple subscription payment plans let you unlock every feature disabled by default!"))
-    msgbox(format("You aren't interested? C'mon, these deals won't be here forever..."))
+    msgbox(format("You aren't interested? C'mon, these deals won't be here forever…"))
     release
     end
 }

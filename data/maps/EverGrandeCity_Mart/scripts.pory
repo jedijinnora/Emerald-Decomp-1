@@ -27,7 +27,7 @@ script EverGrandeCity_Mart_EventScript_Twin {
     msgbox(format("Hey! Can I have a Soda Pop?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == NO) {
         NoPop:
-        msgbox(format("Awww..."))
+        msgbox(format("Awww…"))
         release
         end
     }

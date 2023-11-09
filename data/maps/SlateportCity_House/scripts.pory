@@ -1,25 +1,79 @@
-raw `
-SlateportCity_House_MapScripts::
-	.byte 0
+mapscripts SlateportCity_House_MapScripts {}
 
-SlateportCity_House_EventScript_PokefanM::
-	msgbox SlateportCity_House_Text_NatureToDoWithStatGains, MSGBOX_NPC
+script SlateportCity_House_EventScript_PokefanM {
+	lock
+	faceplayer
+	msgbox(format("In addition to tutors of every type, I've heard there are tutors who specialize in punching, biting, set damage, multi-hit, weather, terrain, and guaranteed hit moves!"))
+	msgbox(format("I don't know where they all are, though."))
+	release
 	end
+}
 
-SlateportCity_House_EventScript_Girl::
-	msgbox SlateportCity_House_Text_MustBeGoingToBattleTent, MSGBOX_NPC
+script SlateportCity_House_EventScript_Girl {
+	lock
+	faceplayer
+	msgbox(format("I know all of the moves available to teach via TM!"))
+	TypeMenu:
+	msgbox(format("Which type would you like to know about?"))
+	dynmultichoice(0,0, FALSE, 6, 0, DYN_MULTICHOICE_CB_NONE, "Normal", "Fighting", "Flying", "Poison", "Ground", "Rock", "Bug", "Ghost", "Steel", "Fire", "Water", "Grass", "Electric", "Psychic", "Ice", "Dragon", "Dark", "Fairy")
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("The Normal-type TMs teach Work Up, Swords Dance, Protect, Endure, False Swipe, Substitute, Sleep Talk, Safeguard, Roar, Facade, Body Slam, Hyper Beam, Giga Impact, and Natural Gift."))
+			goto(TypeMenu)
+		case 1:
+			msgbox(format("The Fighting-type TMs teach Bulk Up, Brick Break, Focus Blast, and Drain Punch."))
+			goto(TypeMenu)
+		case 2:
+			msgbox(format("The Flying-type TMs teach Defog, Roost, Dual Wingbeat, and Acrobatics."))
+			goto(TypeMenu)
+		case 3:
+			msgbox(format("The Poison-type TMs teach Toxic, Poison Jab, Gunk Shot, Sludge Bomb, and Sludge Wave."))
+			goto(TypeMenu)
+		case 4:
+			msgbox(format("The Ground-type TMs teach Earthquake, Earth Power, Dig, and Bulldoze."))
+			goto(TypeMenu)
+		case 5:
+			msgbox(format("The Rock-type TMs teach Sandstorm, Stealth Rock, Rock Slide, Stone Edge, Rock Tomb, and Power Gem."))
+			goto(TypeMenu)
+		case 6:
+			msgbox(format("The Bug-type TMs teach U-Turn, Bug Buzz, and Leech Life."))
+			goto(TypeMenu)
+		case 7:
+			msgbox(format("The Ghost-type TMs teach Shadow Ball and Phantom Force."))
+			goto(TypeMenu)
+		case 8:
+			msgbox(format("The Steel-type TMs teach Iron Defense, Iron Head, and Flash Cannon."))
+			goto(TypeMenu)
+		case 9:
+			msgbox(format("The Fire-type TMs teach Will-o-wisp, Sunny Day, Flamethrower, Fire Blast, Overheat, Flame Charge, and Fire Punch."))
+			goto(TypeMenu)
+		case 10:
+			msgbox(format("The Water-type TMs teach Rain Dance, Aqua Tail, Flip Turn, Hydro Pump, and Wave Crash."))
+			goto(TypeMenu)
+		case 11:
+			msgbox(format("The Grass-type TMs teach Seed Bomb, Power Whip, Energy Ball, Giga Drain, Grass Knot, and Solar Beam."))
+			goto(TypeMenu)
+		case 12:
+			msgbox(format("The Electric-type TMs teach Thunder Wave, Thunder Punch, Thunderbolt, Thunder, Volt Switch, and Wild Charge."))
+			goto(TypeMenu)
+		case 13:
+			msgbox(format("The Psychic-type TMs teach Calm Mind, Agility, Amnesia, Rest, Reflect, Light Screen, Trick Room, Trick, Skill Swap, Teleport, Psychic, Psyshock, and Zen Headbutt."))
+			goto(TypeMenu)
+		case 14:
+			msgbox(format("The Ice-type TMs teach Hail, Ice Punch, Ice Beam, Blizzard, and Icicle Crash."))
+			goto(TypeMenu)
+		case 15:
+			msgbox(format("The Dragon-type TMs teach Dragon Claw, Dragon Pulse, and Dragon Tail."))
+			goto(TypeMenu)
+		case 16:
+			msgbox(format("The Dark-type TMs teach Nasty Plot, Parting Shot, Taunt, Dark Pulse, Thief, and Foul Play."))
+			goto(TypeMenu)
+		case 17:
+			msgbox(format("The Fairy-type TMs teach Play Rough, Dazzling Gleam, Moonblast, and Draining Kiss."))
+			goto(TypeMenu)
+		default:
+	}
+	msgbox(format("Good luck finding them all!"))
+	release
 	end
-
-SlateportCity_House_Text_NatureToDoWithStatGains:
-	.string "My POKéMON has a HASTY nature.\p"
-	.string "It has higher SPEED compared to\n"
-	.string "my other POKéMON.\p"
-	.string "Maybe their nature has something to\n"
-	.string "do with the stat gains of POKéMON.$"
-
-SlateportCity_House_Text_MustBeGoingToBattleTent:
-	.string "You're a TRAINER, aren't you?\p"
-	.string "Since you came to SLATEPORT CITY,\n"
-	.string "you must be going to the BATTLE TENT.$"
-
-`
+}

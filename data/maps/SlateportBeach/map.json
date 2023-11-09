@@ -2,7 +2,7 @@
   "id": "MAP_SLATEPORT_BEACH",
   "name": "SlateportBeach",
   "layout": "LAYOUT_SLATEPORT_BEACH",
-  "music": "MUS_SLATEPORT",
+  "music": "MUS_ROUTE104",
   "region_map_section": "MAPSEC_SLATEPORT_BEACH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

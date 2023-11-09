@@ -11,7 +11,7 @@ script EverGrandeCity_House3_EventScript_Ellie {
     setflag(FLAG_RECEIVED_EVER_GRANDE_CITY_HOUSE3_ICE_GEM)
     IceMenu:
     msgbox(format("How can I help you, student of winter?"))
-    dynmultichoice(0,0, FALSE, 6, 0, DYN_MULTICHOICE_CB_NONE, "Information", "Move Tutor", "Single Battle", "Double Battle", "Challenge Battle")
+    dynmultichoice(0,0, FALSE, 6, 0, DYN_MULTICHOICE_CB_NONE, "Information", "Move Tutor", "Single Battle", "Double Battle", "Challenge Battle", "Other Ice Moves?")
     switch(var(VAR_RESULT)) {
         case 0:
             msgbox(format("You may face me in a single, double, or challenge battle. For each team you defeat, I will offer to teach additional Ice-type moves."))
@@ -19,30 +19,32 @@ script EverGrandeCity_House3_EventScript_Ellie {
         case 1:
             IceTutor:
             //do a dynamic multistack with move options based on opponent flag states
-            //single battle unlocks: Aurora Beam, Ice Hammer
+            //single battle unlocks: Aurora Beam1, Ice Hammer5
 
-            //double battle unlocks: Ice Shard, Frost Breath, Icy Wind
+            //double battle unlocks: Ice Shard6, Frost Breath3, Icy Wind7
 
-            //challenge unlocks: Haze, Freeze-Dry
+            //challenge unlocks: Haze4, Freeze-Dry2, Sheer Cold8
 
-            dynmultipush("Cancel", 7)
+            dynmultipush("Cancel", 8)
             msgbox(format("Which move should I teach?"))
             dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
             switch(var(VAR_RESULT)) {
                 case 0:
                     //teach Aurora Beam
                 case 1:
-                    //teach Ice Hammer
-                case 2:
-                    //teach Ice Shard
-                case 3:
-                    //teach Frost Breath
-                case 4:
-                    //teach Icy Wind
-                case 5:
-                    //teach Haze
-                case 6:
                     //teach Freeze-Dry
+                case 2:
+                    //teach Frost Breath
+                case 3:
+                    //teach Haze
+                case 4:
+                    //teach Ice Hammer
+                case 5:
+                    //teach Ice Shard
+                case 6:
+                    //teach Icy Wind
+                case 7:
+                    //teach Sheer Cold
                 default:
                     goto(IceMenu)
             }
@@ -57,12 +59,15 @@ script EverGrandeCity_House3_EventScript_Ellie {
             //battle
             goto(IceMenu)
         case 4:
-            msgbox(format("Defeating me in a challenge battle will unlock Haze and Freeze-Dry."))
+            msgbox(format("Defeating me in a challenge battle will unlock Haze, Sheer Cold, and Freeze-Dry."))
             msgbox(format("For the challenge battle, you must bring a team of only Ice-type Pokémon."))
             msgbox(format("Are you prepared?"), MSGBOX_YESNO)
             //check team comp
 
             //battle
+            goto(IceMenu)
+        case 5:
+            msgbox(format("There are other tutors around the region who will teach the moves Ice Fang, Icicle Spear, and Ice Spinner."))
             goto(IceMenu)
         default:
             IceGoodbye:

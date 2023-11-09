@@ -66,7 +66,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EverGrandeCity_EventScript_Sailor",
+      "script": "EverGrandeCity_EventScript_Ferry",
       "flag": "0"
     },
     {
@@ -223,7 +223,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EverGrandeCity_EventScript_Painter",
-      "flag": "FLAG_HIDE_EVER_GRANDE_CITY_PAINTER"
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
@@ -420,7 +420,7 @@
       "y": 19,
       "elevation": 5,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "EverGrandeCity_EventScript_CitySign"
     },
     {
       "type": "sign",
@@ -452,7 +452,15 @@
       "y": 11,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "EverGrandeCity_EventScript_CaveSign"
+    },
+    {
+      "type": "sign",
+      "x": 50,
+      "y": 22,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EverGrandeCity_EventScript_PlazaSign"
     }
   ]
 }

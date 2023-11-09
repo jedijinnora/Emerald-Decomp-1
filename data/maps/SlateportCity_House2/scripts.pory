@@ -1,0 +1,83 @@
+mapscripts SlateportCity_House2_MapScripts {}
+
+script SlateportCity_House2_EventScript_Claudius {
+    lock
+    faceplayer
+    msgbox(format("Well, well well…"))
+    msgbox(format("Aren't you just a cute cut of fresh meat."))
+    msgbox(format("I am Claudius, this region's premier Poison-type specialist. You may encounter another, but she is a pale shadow compared to myself."))
+    goto_if_set(FLAG_RECEIVED_SLATEPORT_CITY_HOUSE2_POISON_GEM, PoisonMenu)
+    msgbox(format("Here, something to aid the potency of your venom."))
+    giveitem(ITEM_POISON_GEM)
+    setflag(FLAG_RECEIVED_SLATEPORT_CITY_HOUSE2_POISON_GEM)
+    PoisonMenu:
+    msgbox(format("What new toxin do you desire?"))
+    dynmultichoice(0,0, FALSE, 6, 0, DYN_MULTICHOICE_CB_NONE, "Information", "Move Tutor", "Single Battle", "Double Battle", "Challenge Battle", "Other Poison Moves?")
+    switch(var(VAR_RESULT)) {
+        case 0:
+            msgbox(format("You may face me in a single, double, or challenge battle. For each team you defeat, I will offer to teach additional Poison-type moves."))
+            goto(PoisonMenu)
+        case 1:
+            PoisonTutor:
+            //do a dynamic multistack with move options based on opponent flag states
+            //single battle unlocks: Venoshock9, Acid Armor1
+
+            //double battle unlocks: Coil4, Acid Spray2, Gastro Acid5, Venom Drench8
+
+            //challenge unlocks: Toxic Spikes7, Clear Smog3, Poison Tail6
+
+            dynmultipush("Cancel", 9)
+            msgbox(format("Which move should I teach?"))
+            dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+            switch(var(VAR_RESULT)) {
+                case 0:
+                    //teach Acid Armor
+                case 1:
+                    //teach Acid Spray
+                case 2:
+                    //teach Clear Smog
+                case 3:
+                    //teach Coil
+                case 4:
+                    //teach Gastro Acid
+                case 5:
+                    //teach Poison Tail
+                case 6:
+                    //teach Toxic Spikes
+                case 7:
+                    //teach Venom Drench
+                case 8:
+                    //teach Venoshock
+                default:
+                    goto(PoisonMenu)
+            }
+        case 2:
+            msgbox(format("Defeating me in a single battle will unlock Venoshock and Acid Armor."))
+            msgbox(format("Shall we proceed?"), MSGBOX_YESNO)
+            //battle
+            goto(PoisonMenu)
+        case 3:
+            msgbox(format("Defeating me in a double battle will unlock Coil, Acid Spray, Gastro Acid, and Venom Drench."))
+            msgbox(format("Are your Pokémon ready?"), MSGBOX_YESNO)
+            //battle
+            goto(PoisonMenu)
+        case 4:
+            msgbox(format("Defeating me in a challenge battle will unlock Toxic Spikes, Clear Smog, and Poison Tail."))
+            msgbox(format("For the challenge battle, you must bring a team of only Poison-type Pokémon."))
+            msgbox(format("Are you prepared?"), MSGBOX_YESNO)
+            //check team comp
+
+            //battle
+            goto(PoisonMenu)
+        case 5:
+            msgbox(format("There are other tutors around the region who will teach the moves Poison Fang and Cross Poison."))
+            goto(PoisonMenu)
+        default:
+            PoisonGoodbye:
+            msgbox(format("I eagerly await your return…"))
+            release
+            end
+    }
+    release
+    end
+}
