@@ -39,6 +39,21 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 12,
+      "y": 42,
+      "elevation": 0,
+      "item": "ITEM_RED_SHARD",
+      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_127_RED_SHARD"
+    },
+    {
+      "type": "hidden_item",
+      "x": 34,
+      "y": 72,
+      "elevation": 0,
+      "item": "ITEM_BLUE_SHARD",
+      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_127_BLUE_SHARD"
+    }
   ]
 }

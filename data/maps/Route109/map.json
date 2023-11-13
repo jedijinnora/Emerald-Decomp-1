@@ -223,7 +223,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM36_ROCK_TOMB",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_TM36"
     }
   ],
   "warp_events": [
@@ -233,6 +233,29 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 68,
+      "y": 4,
+      "elevation": 0,
+      "item": "ITEM_NUGGET",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_109_NUGGET"
+    },
+    {
+      "type": "hidden_item",
+      "x": 85,
+      "y": 35,
+      "elevation": 0,
+      "item": "ITEM_GREEN_SHARD",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_109_GREEN_SHARD"
+    },
+    {
+      "type": "hidden_item",
+      "x": 13,
+      "y": 26,
+      "elevation": 0,
+      "item": "ITEM_BLUE_SHARD",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_109_BLUE_SHARD"
+    }
   ]
 }

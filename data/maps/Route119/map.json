@@ -413,7 +413,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM67_THUNDER",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_TM67"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIRCHS_BAG",
@@ -439,7 +439,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_DAMP_ROCK",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_ROUTE_119_DAMP_ROCK"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -452,7 +452,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_GRIP_CLAW",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_ROUTE_119_GRIP_CLAW"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -465,7 +465,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_BINDING_BAND",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_ROUTE_119_BINDING_BAND"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -478,7 +478,20 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_CLEAR_AMULET",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_ROUTE_119_CLEAR_AMULET"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 3,
+      "y": 56,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_ABILITY_CAPSULE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_ROUTE_119_ABILITY_CAPSULE"
     }
   ],
   "warp_events": [
@@ -761,6 +774,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route119_EventScript_TrainerTipsDecoration"
+    },
+    {
+      "type": "hidden_item",
+      "x": 20,
+      "y": 29,
+      "elevation": 0,
+      "item": "ITEM_RARE_CANDY",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_119_RARE_CANDY"
+    },
+    {
+      "type": "hidden_item",
+      "x": 38,
+      "y": 62,
+      "elevation": 0,
+      "item": "ITEM_REVIVAL_HERB",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_119_REVIVAL_HERB"
     }
   ]
 }

@@ -88,7 +88,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM69_WILD_CHARGE",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_TM69"
     }
   ],
   "warp_events": [
@@ -118,6 +118,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "NULL"
+    },
+    {
+      "type": "hidden_item",
+      "x": 10,
+      "y": 13,
+      "elevation": 0,
+      "item": "ITEM_ELECTRIC_SEED",
+      "flag": "FLAG_HIDDEN_ITEM_POWER_PLANT_ELECTRIC_SEED"
     }
   ]
 }

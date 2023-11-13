@@ -2,7 +2,7 @@
   "id": "MAP_OLDALE_RUINS_B2F",
   "name": "OldaleRuins_B2F",
   "layout": "LAYOUT_OLDALE_RUINS_B2F",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_SEALED_CHAMBER",
   "region_map_section": "MAPSEC_OLDALE_RUINS",
   "requires_flash": true,
   "weather": "WEATHER_NONE",
@@ -10,7 +10,7 @@
   "allow_cycling": true,
   "allow_escaping": true,
   "allow_running": true,
-  "show_map_name": true,
+  "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
@@ -138,16 +138,16 @@
       "x": 12,
       "y": 10,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_STAR_PIECE",
+      "flag": "FLAG_HIDDEN_ITEM_OLDALE_RUINS_B2F_STAR_PIECE_1"
     },
     {
       "type": "hidden_item",
       "x": 8,
       "y": 6,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_STAR_PIECE",
+      "flag": "FLAG_HIDDEN_ITEM_OLDALE_RUINS_B2F_STAR_PIECE_1"
     }
   ]
 }

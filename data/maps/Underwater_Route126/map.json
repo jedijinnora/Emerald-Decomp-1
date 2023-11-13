@@ -45,6 +45,37 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 10,
+      "y": 32,
+      "elevation": 0,
+      "item": "ITEM_BOTTLE_CAP",
+      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_BOTTLE_CAP_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 29,
+      "y": 65,
+      "elevation": 0,
+      "item": "ITEM_BOTTLE_CAP",
+      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_BOTTLE_CAP_2"
+    },
+    {
+      "type": "hidden_item",
+      "x": 11,
+      "y": 39,
+      "elevation": 0,
+      "item": "ITEM_YELLOW_SHARD",
+      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_YELLOW_SHARD"
+    },
+    {
+      "type": "hidden_item",
+      "x": 41,
+      "y": 19,
+      "elevation": 0,
+      "item": "ITEM_BIG_PEARL",
+      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_BIG_PEARL"
+    }
   ]
 }

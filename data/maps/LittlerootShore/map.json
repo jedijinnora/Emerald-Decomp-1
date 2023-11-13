@@ -101,7 +101,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_CHOICE_SPECS",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_LITTLEROOT_SHORE_CHOICE_SPECS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
@@ -166,6 +166,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LittlerootShore_EventScript_FerrySign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 13,
+      "y": 27,
+      "elevation": 3,
+      "item": "ITEM_PEARL",
+      "flag": "FLAG_HIDDEN_ITEM_LITTLEROOT_SHORE_PEARL"
+    },
+    {
+      "type": "hidden_item",
+      "x": 15,
+      "y": 15,
+      "elevation": 0,
+      "item": "ITEM_HEART_SCALE",
+      "flag": "FLAG_HIDDEN_ITEM_LITTLEROOT_SHORE_HEART_SCALE"
     }
   ]
 }

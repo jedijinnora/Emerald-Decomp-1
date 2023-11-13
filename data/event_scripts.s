@@ -1188,3 +1188,9 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/LittlerootShore_House/scripts.inc"
 
 	.include "data/maps/RustboroCity_House4/scripts.inc"
+
+	.include "data/maps/Route114_HackersHideaway/scripts.inc"
+
+	.include "data/maps/AlteringCave_UpperFloor_1/scripts.inc"
+
+	.include "data/maps/AlteringCave_UpperFloor_2/scripts.inc"

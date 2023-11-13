@@ -155,7 +155,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM82_ZEN_HEADBUTT",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_TM82"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
@@ -195,6 +195,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 64,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_PEARL_STRING",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_ROUTE_127_PEARL_STRING"
     }
   ],
   "warp_events": [
@@ -244,6 +257,30 @@
       "y": 24,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_YELLOW_CAVE1_3"
+    },
+    {
+      "type": "hidden_item",
+      "x": 62,
+      "y": 5,
+      "elevation": 0,
+      "item": "ITEM_PSYCHIC_SEED",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_127_PSYCHIC_SEED"
+    },
+    {
+      "type": "hidden_item",
+      "x": 51,
+      "y": 66,
+      "elevation": 0,
+      "item": "ITEM_HEART_SCALE",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_127_HEART_SCALE_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 47,
+      "y": 16,
+      "elevation": 0,
+      "item": "ITEM_HEART_SCALE",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_127_HEART_SCALE_2"
     }
   ]
 }

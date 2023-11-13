@@ -3,22 +3,8 @@ mapscripts MillenniumField_MapScripts {
 }
 
 //Object IDs:
-const PIKACHU_ID = 5
-const TRIATHLETE_M_ID = 6
-const EXPERT_F_ID = 7
-const COOK_ID = 8
-const PICNICKER_ID = 9
-const LITTLE_GIRL_1_ID = 10
-const WOMAN_1_ID = 11
-const EXPERT_M_ID = 12
-const KECLEON_ID = 13  //x0y30 starting place
-const NINJA_BOY_ID = 14
-const POKEFAN_ID = 15
-const MOM_ID = 16
-const SKITTY_ID = 17
-const LITTLE_GIRL_2_ID = 18
-const MAN_ID = 20
-const TRIATHLETE_F_ID = 21
+const LOCALID_KECLEON = 13  //x0y30 starting place
+const LOCALID_NINJABOY = 14
 
 //TEMPs Used:
 //VAR_TEMP_1 = Pikachu item
@@ -57,7 +43,7 @@ script MillenniumField_EventScript_ResetPikachu {
 }
 
 script MillenniumField_EventScript_ResetKecleon {
-    setobjectxyperm(KECLEON_ID, 0, 30)
+    setobjectxyperm(LOCALID_KECLEON, 0, 30)
     random(12)
     switch(var(VAR_RESULT)) {
         case 0:
@@ -99,8 +85,8 @@ script MillenniumField_EventScript_ResetKecleon {
 //96-97: Comet shard
 //99: Golden bottle cap
 script MillenniumField_EventScript_Pikachu {
-    lockall
-    applymovement(PIKACHU_ID, Common_Movement_FacePlayer)
+    lock
+    faceplayer
     goto_if_set(FLAG_DAILY_PIKACHU_FAVOR, SeeYouTomorrow)
     playmoncry(SPECIES_PIKACHU, CRY_MODE_NORMAL)
     waitmoncry
@@ -109,20 +95,133 @@ script MillenniumField_EventScript_Pikachu {
     giveitem(VAR_TEMP_1)
     msgbox(format("Nice, free gift!"))
     waitmessage
-    releaseall
+    release
     end
     SeeYouTomorrow:
     playmoncry(SPECIES_PIKACHU, CRY_MODE_WEAK)
     waitmoncry
     msgbox(format("Pikachu has already given you a festival gift today. No double dipping!"))
     waitmessage
-    releaseall
+    release
     end
 }
 
+script MillenniumField_EventScript_TriathleteM {
+    lock
+    faceplayer
+    msgbox(format("I bought a Galarica Wreath for my Slowpoke, but he won't evolve!"))
+    msgbox(format("What a lousy excuse for a Water-type! I hope a Shellder eats him!"))
+    release
+    end
+}
+
+script MillenniumField_EventScript_ExpertF {
+    lock
+    faceplayer
+    msgbox(format("My family has been caretakers for this festival ground for generations."))
+    msgbox(format("No matter how old I get, there are always more young people excited to come here for the first time."))
+    msgbox(format("I think being around their happiness keeps me young at heart."))
+    release
+    end
+}
+
+script MillenniumField_EventScript_Cook {
+    lock
+	faceplayer
+    msgbox(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(MillenniumFieldCookMart)
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+mart MillenniumFieldCookMart {
+    ITEM_PEWTER_CRUNCHIES
+    ITEM_RAGE_CANDY_BAR
+    ITEM_OLD_GATEAU
+    ITEM_CASTELIACONE
+    ITEM_LUMIOSE_GALETTE
+    ITEM_SHALOUR_SABLE
+    ITEM_BIG_MALASADA
+    ITEM_WHIPPED_DREAM
+    ITEM_STRAWBERRY_SWEET
+    ITEM_LOVE_SWEET
+    ITEM_BERRY_SWEET
+    ITEM_CLOVER_SWEET
+    ITEM_FLOWER_SWEET
+    ITEM_STAR_SWEET
+    ITEM_RIBBON_SWEET
+}
+
+script MillenniumField_EventScript_Picnicker {
+    lock
+	faceplayer
+    msgbox(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(MillenniumFieldPicnickerMart)
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+mart MillenniumFieldPicnickerMart {
+    ITEM_SWEET_APPLE
+    ITEM_TART_APPLE
+    ITEM_CRACKED_POT
+    ITEM_CHIPPED_POT
+    ITEM_GALARICA_CUFF
+    ITEM_GALARICA_WREATH
+    ITEM_SACHET
+}
+
+script MillenniumField_EventScript_LittleGirl {
+    lock
+    faceplayer
+    msgbox(format("Hi! I really love making my own ice cream!"))
+    msgbox(format("Could you trade me a big ice cream Pokémon to help me?"), MSGBOX_YESNO)
+    //TODO: trade vanilluxe for snom
+    //give 3 casteliacone after trade
+    release
+    end
+}
+
+script MillenniumField_EventScript_Woman1 {
+    lock
+    faceplayer
+    msgbox(format("I have here a scrappy Fighting-type Pokémon."))
+    msgbox(format("I'm looking for an extremely fluffy Pokémon, one I could bundle around myself like a scarf."))
+    msgbox(format("Do you have a Furret? I'd trade you my Tyrogue."))
+    //toto trade furret for tyrogue
+    release
+    end
+}
+
+script MillenniumField_EventScript_ExpertM {
+    lock
+	faceplayer
+    msgbox(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(MillenniumFieldExpertMMart)
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+mart MillenniumFieldExpertMMart {
+    ITEM_LEVEL_BALL
+    ITEM_LURE_BALL
+    ITEM_MOON_BALL
+    ITEM_FRIEND_BALL
+    ITEM_LOVE_BALL
+    ITEM_FAST_BALL
+    ITEM_HEAVY_BALL
+    ITEM_SPORT_BALL
+}
+
 script MillenniumField_EventScript_Kecleon {
-    lockall
-    applymovement(KECLEON_ID, Common_Movement_FacePlayer)
+    lock
+    faceplayer
     if (flag(FLAG_DAILY_KECLEON_WON)) {
         playmoncry(SPECIES_KECLEON, CRY_MODE_NORMAL)
         waitmoncry
@@ -143,7 +242,7 @@ script MillenniumField_EventScript_Kecleon {
         waitmessage
         call(MillenniumField_EventScript_KecleonVanish)
     }
-    releaseall
+    release
     end
 }
 
@@ -156,15 +255,15 @@ script MillenniumField_EventScript_KecleonPrize {
     giveitem(VAR_TEMP_2)
     playmoncry(SPECIES_KECLEON, CRY_MODE_WEAK)
     waitmoncry
-    applymovement(KECLEON_ID, KecleonVanish)
-    waitmovement(KECLEON_ID)
-    setobjectxy(KECLEON_ID, 0, 30)
-    setobjectxyperm(KECLEON_ID, 0, 30)
-    applymovement(KECLEON_ID, KecleonAppear)
-    waitmovement(KECLEON_ID)
+    applymovement(LOCALID_KECLEON, KecleonVanish)
+    waitmovement(LOCALID_KECLEON)
+    setobjectxy(LOCALID_KECLEON, 0, 30)
+    setobjectxyperm(LOCALID_KECLEON, 0, 30)
+    applymovement(LOCALID_KECLEON, KecleonAppear)
+    waitmovement(LOCALID_KECLEON)
     msgbox(format("Come back tomorrow to play again!"))
     waitmessage
-    releaseall
+    release
     end
 }
 
@@ -172,75 +271,75 @@ script MillenniumField_EventScript_KecleonVanish {
     addvar(VAR_TEMP_3, 1)
     playmoncry(SPECIES_KECLEON, CRY_MODE_NORMAL)
     waitmoncry
-    applymovement(KECLEON_ID, KecleonVanish)
-    waitmovement(KECLEON_ID)
+    applymovement(LOCALID_KECLEON, KecleonVanish)
+    waitmovement(LOCALID_KECLEON)
     do {
         random(15)
     } while (var(VAR_RESULT) == VAR_TEMP_4)
     switch(var(VAR_RESULT)) {
         case 0:
-            setobjectxy(KECLEON_ID, 17, 39)
-            setobjectxyperm(KECLEON_ID, 17, 39)
+            setobjectxy(LOCALID_KECLEON, 17, 39)
+            setobjectxyperm(LOCALID_KECLEON, 17, 39)
             setvar(VAR_TEMP_4, 0)
         case 1:
-            setobjectxy(KECLEON_ID, 4, 13)
-            setobjectxyperm(KECLEON_ID, 4, 13)
+            setobjectxy(LOCALID_KECLEON, 4, 13)
+            setobjectxyperm(LOCALID_KECLEON, 4, 13)
             setvar(VAR_TEMP_4, 1)
         case 2:
-            setobjectxy(KECLEON_ID, 8, 6)
-            setobjectxyperm(KECLEON_ID, 8, 6)
+            setobjectxy(LOCALID_KECLEON, 8, 6)
+            setobjectxyperm(LOCALID_KECLEON, 8, 6)
             setvar(VAR_TEMP_4, 2)
         case 3:
-            setobjectxy(KECLEON_ID, 17, 5)
-            setobjectxyperm(KECLEON_ID, 17, 5)
+            setobjectxy(LOCALID_KECLEON, 17, 5)
+            setobjectxyperm(LOCALID_KECLEON, 17, 5)
             setvar(VAR_TEMP_4, 3)
         case 4:
-            setobjectxy(KECLEON_ID, 28, 6)
-            setobjectxyperm(KECLEON_ID, 28, 6)
+            setobjectxy(LOCALID_KECLEON, 28, 6)
+            setobjectxyperm(LOCALID_KECLEON, 28, 6)
             setvar(VAR_TEMP_4, 4)
         case 5:
-            setobjectxy(KECLEON_ID, 35, 17)
-            setobjectxyperm(KECLEON_ID, 35, 17)
+            setobjectxy(LOCALID_KECLEON, 35, 17)
+            setobjectxyperm(LOCALID_KECLEON, 35, 17)
             setvar(VAR_TEMP_4, 5)
         case 6:
-            setobjectxy(KECLEON_ID, 27, 34)
-            setobjectxyperm(KECLEON_ID, 27, 34)
+            setobjectxy(LOCALID_KECLEON, 27, 34)
+            setobjectxyperm(LOCALID_KECLEON, 27, 34)
             setvar(VAR_TEMP_4, 6)
         case 7:
-            setobjectxy(KECLEON_ID, 39, 32)
-            setobjectxyperm(KECLEON_ID, 39, 32)
+            setobjectxy(LOCALID_KECLEON, 39, 32)
+            setobjectxyperm(LOCALID_KECLEON, 39, 32)
             setvar(VAR_TEMP_4, 7)
         case 8:
-            setobjectxy(KECLEON_ID, 31, 22)
-            setobjectxyperm(KECLEON_ID, 31, 22)
+            setobjectxy(LOCALID_KECLEON, 31, 22)
+            setobjectxyperm(LOCALID_KECLEON, 31, 22)
             setvar(VAR_TEMP_4, 8)
         case 9:
-            setobjectxy(KECLEON_ID, 25, 19)
-            setobjectxyperm(KECLEON_ID, 25, 19)
+            setobjectxy(LOCALID_KECLEON, 25, 19)
+            setobjectxyperm(LOCALID_KECLEON, 25, 19)
             setvar(VAR_TEMP_4, 9)
         case 10:
-            setobjectxy(KECLEON_ID, 12, 19)
-            setobjectxyperm(KECLEON_ID, 12, 19)
+            setobjectxy(LOCALID_KECLEON, 12, 19)
+            setobjectxyperm(LOCALID_KECLEON, 12, 19)
             setvar(VAR_TEMP_4, 10)
         case 11:
-            setobjectxy(KECLEON_ID, 12, 31)
-            setobjectxyperm(KECLEON_ID, 12, 31)
+            setobjectxy(LOCALID_KECLEON, 12, 31)
+            setobjectxyperm(LOCALID_KECLEON, 12, 31)
             setvar(VAR_TEMP_4, 11)
         case 12:
-            setobjectxy(KECLEON_ID, 8, 16)
-            setobjectxyperm(KECLEON_ID, 8, 16)
+            setobjectxy(LOCALID_KECLEON, 8, 16)
+            setobjectxyperm(LOCALID_KECLEON, 8, 16)
             setvar(VAR_TEMP_4, 12)
         case 13:
-            setobjectxy(KECLEON_ID, 23, 5)
-            setobjectxyperm(KECLEON_ID, 23, 5)
+            setobjectxy(LOCALID_KECLEON, 23, 5)
+            setobjectxyperm(LOCALID_KECLEON, 23, 5)
             setvar(VAR_TEMP_4, 13)
         default:
-            setobjectxy(KECLEON_ID, 21, 14)
-            setobjectxyperm(KECLEON_ID, 21, 14)
+            setobjectxy(LOCALID_KECLEON, 21, 14)
+            setobjectxyperm(LOCALID_KECLEON, 21, 14)
             setvar(VAR_TEMP_4, 14)
     }
-    applymovement(KECLEON_ID, KecleonAppear)
-    waitmovement(KECLEON_ID)
+    applymovement(LOCALID_KECLEON, KecleonAppear)
+    waitmovement(LOCALID_KECLEON)
     return
 }
 
@@ -270,4 +369,94 @@ movement KecleonVanish {
 	set_visible
 	delay_4
 	set_invisible
+}
+
+script MillenniumField_EventScript_NinjaBoy {
+    lock
+    faceplayer
+    playse(SE_PIN)
+    applymovement(LOCALID_NINJABOY, Common_Movement_ExclamationMark)
+    waitmovement(LOCALID_NINJABOY)
+    msgbox(format("You can see me?! I guess my ninja abilities need work…"))
+    msgbox(format("I figured the Expert Belt I got for beating Kecleon at hide and seek would improve my skills."))
+    msgbox(format("Okay! I'll find myself a Covert Cloak. Know anybody with one?"))
+    release
+    end
+}
+
+script MillenniumField_EventScript_PokefanF {
+    lock
+    faceplayer
+    msgbox(format("Legend says that Millennium Field is built over the resting place of the Mythical Pokémon Jirachi."))
+    msgbox(format("Jirachi hibernates until a particular comet appears in the sky. Then it wakes for seven days and grants wishes to whomever finds it."))
+    msgbox(format("What do you think would happen if someone wished for world peace or happiness for everyone?"))
+    msgbox(format("Would that be a safe request to make of such a powerful creature?"))
+    release
+    end
+}
+
+script MillenniumField_EventScript_Mom {
+    lock
+    faceplayer
+    msgbox(format("Wishmaker's Well is not open to visitors."))
+    release
+    end
+}
+
+script MillenniumField_EventScript_Skitty {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SKITTY, CRY_MODE_NORMAL)
+    msgbox(format("Kitty!"))
+    release
+    end
+}
+
+script MillenniumField_EventScript_Twin {
+    lock
+    faceplayer
+    msgbox(format("Ugh, my sister always makes way more ice cream than we can eat before it melts."))
+    msgbox(format("Could you trade me a Pokémon with a lot of spoons to help me eat all our ice cream?"))
+    //todo trade alakazam for morpeko
+    release
+    end
+}
+
+script MillenniumField_EventScript_Man4 {
+    lock
+    faceplayer
+    msgbox(format("Groan…\p Driving all the way out here with supplies for the festival really takes it out of me."))
+    release
+    end
+}
+
+script MillenniumField_EventScript_TriathleteF {
+    lock
+    faceplayer
+    msgbox(format("I love how the festival runs year-round."))
+    msgbox(format("You can buy items from other regions here!"))
+    release
+    end
+}
+
+script MillenniumField_EventScript_FieldSign {
+    lock
+    msgbox(format("MILLENNIUM FIELD \n “The eternal festival ground.”"))
+    release
+    end
+}
+
+script MillenniumField_EventScript_WellSign {
+    lock
+    msgbox(format("WISHMAKER'S WELL \n “Where lost wishes sleep forever.”"))
+    release
+    end
+}
+
+script MillenniumField_EventScript_KecleonSign {
+    lock
+    msgbox(format("Hide and seek rules:\n Speak to Kecleon to begin."))
+    msgbox(format("Find Kecleon 4 times without leaving Millennium Field to win!"))
+    release
+    end
 }

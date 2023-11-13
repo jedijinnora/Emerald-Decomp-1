@@ -132,7 +132,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM45_FLASH_CANNON",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_TM45"
     }
   ],
   "warp_events": [
@@ -148,6 +148,21 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 14,
+      "y": 58,
+      "elevation": 0,
+      "item": "ITEM_BIG_PEARL",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL"
+    },
+    {
+      "type": "hidden_item",
+      "x": 11,
+      "y": 95,
+      "elevation": 0,
+      "item": "ITEM_POWER_HERB",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_105_POWER_HERB"
+    }
   ]
 }

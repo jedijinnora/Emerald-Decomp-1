@@ -1520,7 +1520,7 @@ static void StopCameraShake(u8 taskId)
 
 bool8 FoundBlackGlasses(void)
 {
-    return FlagGet(FLAG_HIDDEN_ITEM_ROUTE_116_BLACK_GLASSES);
+    return FlagGet(FLAG_TEMP_1F);//Jinnora: changed since this hidden item does not exist
 }
 
 void SetRoute119Weather(void)

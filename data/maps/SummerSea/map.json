@@ -41,18 +41,18 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM46_WILL_O_WISP",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_TM46"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 15,
-      "y": 14,
-      "elevation": 0,
+      "x": 16,
+      "y": 15,
+      "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "4",
       "script": "NULL",
       "flag": "0"
     },
@@ -123,10 +123,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
-      "x": 15,
-      "y": 8,
+      "x": 13,
+      "y": 12,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -161,6 +161,29 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 19,
+      "y": 37,
+      "elevation": 3,
+      "item": "ITEM_BIG_PEARL",
+      "flag": "FLAG_HIDDEN_ITEM_SUMMER_SEA_BIG_PEARL"
+    },
+    {
+      "type": "hidden_item",
+      "x": 6,
+      "y": 24,
+      "elevation": 0,
+      "item": "ITEM_YELLOW_SHARD",
+      "flag": "FLAG_HIDDEN_ITEM_SUMMER_SEA_YELLOW_SHARD"
+    },
+    {
+      "type": "hidden_item",
+      "x": 37,
+      "y": 15,
+      "elevation": 3,
+      "item": "ITEM_RED_SHARD",
+      "flag": "FLAG_HIDDEN_ITEM_SUMMER_SEA_RED_SHARD"
+    }
   ]
 }

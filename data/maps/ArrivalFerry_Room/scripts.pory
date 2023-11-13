@@ -16,9 +16,10 @@ script ArrivalFerry_Room_EventScript_Init {
     delay(60)
     setrespawn(HEAL_LOCATION_EVER_GRANDE_CITY)
     setvar(VAR_PAINTER_STATE, 1)
-    applymovement(LOCALID_ROOMMATE, Common_Movement_ExclamationMark)
     playse(SE_PIN)
-    delay(20)
+    applymovement(LOCALID_ROOMMATE, Common_Movement_ExclamationMark)
+    waitmovement(LOCALID_ROOMMATE)
+    delay(15)
     msgbox(format("Ah, the sleeper awakens! It feels like an eternity since you burst in here like a hurricane and fell straight asleep!"))
     msgbox(format("Consider yourself lucky that I am not such a boor to deny someone their beauty sleep..."))
     applymovement(LOCALID_ROOMMATE, ApproachPlayer)
@@ -116,7 +117,7 @@ script ArrivalFerry_Room_EventScript_Madman {
     //3 = all necessary items gathered
     //4 = exit from room has occurred
 script ArrivalFerry_Room_EventScript_CheckCleanup {
-    if (flag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_POTION) && flag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_SUPER_POTION) && flag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_ESCAPE_ROPE) && flag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_BAG)) {
+    if (flag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_POTION) && flag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_SUPER_POTION) && flag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_ESCAPE_ROPE) && flag(FLAG_HIDE_ARRIVAL_FERRY_ROOM_BAG)) {
         setvar(VAR_CLEANUP_STATE, 2)
         if (flag(FLAG_SYS_B_DASH) && flag(FLAG_SYS_POKEDEX_GET)) {
             setvar(VAR_CLEANUP_STATE, 3)
@@ -250,7 +251,7 @@ script ArrivalFerry_Room_EventScript_Bag {
     playfanfare(MUS_OBTAIN_ITEM)
     givemon(VAR_STARTER_CHOICE, 5, ITEM_ORAN_BERRY)
     waitfanfare 
-    setflag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_BAG)
+    setflag(FLAG_HIDE_ARRIVAL_FERRY_ROOM_BAG)
     removeobject(LOCALID_BAG)
     setflag(FLAG_SYS_POKEMON_GET)
 

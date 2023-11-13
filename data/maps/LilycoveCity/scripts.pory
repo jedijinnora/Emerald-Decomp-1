@@ -1,4 +1,4 @@
-mapscripts MyMapsLilycoveCity_MapScriptscripts {
+mapscripts LilycoveCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : LilycoveCity_OnTransition
 }
 
@@ -9,11 +9,14 @@ script LilycoveCity_OnTransition {
 	end
 }
 
+const LOCALID_MAN_1 = 13
+const LOCALID_WOMAN_1 = 12
+
 script LilycoveCity_EventScript_Sailor2 {
 	lock
 	faceplayer
-	msgbox(format("Sometimes you can see pods of Wailmer near the city or on Route 124."))
-	msgbox(format("Because of the ferry, they don't come as close as they used to."))
+	msgbox(format("Sometimes you can see pods of Wailmer on Route 124."))
+	msgbox(format("Because of the ferry, they don't come as close to the city as they used to."))
 	release
 	end
 }
@@ -30,7 +33,7 @@ script LilycoveCity_EventScript_Girl {
 script LilycoveCity_EventScript_Man3 {
 	lock
 	faceplayer
-	msgbox(format("I'm not one for Contests, but I do like making Pokéblocks to use at the Safari Zone."))
+	msgbox(format("I'm not one for Contests, but I do like making {POKEBLOCK}s to use at the Safari Zone."))
 	release
 	end
 }
@@ -97,6 +100,26 @@ script LilycoveCity_EventScript_FerrySign {
 	end
 }
 
+script LilycoveCity_EventScript_Man1 {
+	lock
+	faceplayer
+	msgbox(LilycoveCity_Text_JustArrivedAndSawRarePokemon)
+	applymovement(LOCALID_MAN_1, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+	end
+}
+
+script LilycoveCity_EventScript_Woman1 {
+	lock
+	faceplayer
+	msgbox(LilycoveCity_Text_HoneymoonVowToSeeRarePokemon)
+	applymovement(LOCALID_WOMAN_1, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+	end
+}
+
 raw `
 .set LOCALID_WOMAN_1, 19
 .set LOCALID_MAN_1, 20
@@ -127,18 +150,6 @@ LilycoveCity_EventScript_ExpertM1::
 
 LilycoveCity_EventScript_ExpertF::
 	msgbox LilycoveCity_Text_SixtyYearsAgoHusbandProposed, MSGBOX_SIGN
-	end
-
-LilycoveCity_EventScript_Man1::
-	lockall
-	msgbox LilycoveCity_Text_JustArrivedAndSawRarePokemon, MSGBOX_NPC
-	applymovement LOCALID_MAN_1, Common_Movement_FaceOriginalDirection
-	end
-
-LilycoveCity_EventScript_Woman1::
-	lockall
-	msgbox LilycoveCity_Text_HoneymoonVowToSeeRarePokemon, MSGBOX_NPC
-	applymovement LOCALID_WOMAN_1, Common_Movement_FaceOriginalDirection
 	end
 
 LilycoveCity_EventScript_CitySign::
@@ -227,7 +238,7 @@ LilycoveCity_Text_MotelSign:
 
 LilycoveCity_Text_MuseumSign:
 	.string "LILYCOVE MUSEUM\p"
-	.string "Pokémon Masterpiece Collection\n"
+	.string "“Pokémon Masterpiece Collection\n"
 	.string "on exhibit!”$"
 
 LilycoveCity_Text_MuseumSignPlayersExhibit:
@@ -252,7 +263,7 @@ LilycoveCity_Text_FasterSpinBetterPokeblocks:
 	.string "People have to work together to get it\n"
 	.string "to spin faster.\p"
 	.string "The faster you can make it spin, the\n"
-	.string "better {POKEBLOCK}S you can get, I've heard.$"
+	.string "better {POKEBLOCK}s you can get, I've heard.$"
 
 LilycoveCity_Text_ExplainBerryBlender:
 	.string "It's used for making a kind of candy\n"

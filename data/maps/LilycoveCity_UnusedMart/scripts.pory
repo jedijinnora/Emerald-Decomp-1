@@ -1,5 +1,12 @@
-raw `
-LilycoveCity_UnusedMart_MapScripts::
-	.byte 0
+mapscripts LilycoveCity_UnusedMart_MapScripts {}
 
-`
+script LilycoveCity_UnusedMart_EventScript_Clerk {
+    lock
+	faceplayer
+    msgbox(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(0)
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}

@@ -166,7 +166,15 @@
       "y": 11,
       "elevation": 0,
       "item": "ITEM_EVIOLITE",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_HIDDEN_ITEM_GRANITE_CAVE_B2F_EVIOLITE"
+    },
+    {
+      "type": "hidden_item",
+      "x": 28,
+      "y": 6,
+      "elevation": 0,
+      "item": "ITEM_PP_MAX",
+      "flag": "FLAG_HIDDEN_ITEM_GRANITE_CAVE_B2F_PP_MAX"
     }
   ]
 }

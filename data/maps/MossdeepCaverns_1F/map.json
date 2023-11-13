@@ -73,8 +73,8 @@
       "x": 13,
       "y": 27,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_EVERSTONE",
+      "flag": "FLAG_HIDDEN_ITEM_MOSSDEEP_CAVERNS_1F_EVERSTONE"
     }
   ]
 }

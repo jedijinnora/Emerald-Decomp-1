@@ -1,7 +1,80 @@
-raw `
-RustboroCity_Gym_MapScripts::
-	.byte 0
+mapscripts RustboroCity_Gym_MapScripts {}
 
+script RustboroCity_Gym_EventScript_GymGuide {
+	lock
+	faceplayer
+
+	release
+	end
+}
+
+script RustboroCity_Gym_EventScript_Noland {
+	lock
+	faceplayer
+
+	release
+	end
+}
+
+script RustboroCIty_Gym_EventScript_GiveHM {
+	msgbox(format("For earning a new badge, you receive an HM!"))
+	checkitem(ITEM_HM01)
+	if(!var(VAR_RESULT)) {
+		dynmultipush("HM01 Cut", 1)
+	}
+	checkitem(ITEM_HM02)
+	if(!var(VAR_RESULT)) {
+		dynmultipush("HM02 Fly", 2)
+	}
+	checkitem(ITEM_HM03_SURF)
+	if(!var(VAR_RESULT)) {
+		dynmultipush("HM03 Surf", 3)
+	}
+	checkitem(ITEM_HM04_STRENGTH)
+	if(!var(VAR_RESULT)) {
+		dynmultipush("HM04 Strength", 4)
+	}
+	checkitem(ITEM_HM05_FLASH)
+	if(!var(VAR_RESULT)) {
+		dynmultipush("HM05 Flash", 5)
+	}
+	checkitem(ITEM_HM06_ROCK_SMASH)
+	if(!var(VAR_RESULT)) {
+		dynmultipush("HM06 Rock Smash", 6)
+	}
+	checkitem(ITEM_HM07_WATERFALL)
+	if(!var(VAR_RESULT)) {
+		dynmultipush("HM07 Waterfall", 7)
+	}
+	checkitem(ITEM_HM08_DIVE)
+	if(!var(VAR_RESULT)) {
+		dynmultipush("HM08 Dive", 8)
+	}
+	dynmultistack(0,0,TRUE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			giveitem(ITEM_HM01_CUT)
+		case 2:
+			giveitem(ITEM_HM02_FLY)
+		case 3:
+			giveitem(ITEM_HM03_SURF)
+		case 4:
+			giveitem(ITEM_HM04_STRENGTH)
+		case 5:
+			giveitem(ITEM_HM05_FLASH)
+		case 6:
+			giveitem(ITEM_HM06_ROCK_SMASH)
+		case 7:
+			giveitem(ITEM_HM07_WATERFALL)
+		case 8:
+			giveitem(ITEM_HM08_DIVE)
+		default:
+			msgbox(format("something went wrong attempting to give an HM!"))
+	}
+	return
+}
+
+raw `
 RustboroCity_Gym_EventScript_Roxanne::
 	trainerbattle_single TRAINER_ROXANNE_1, RustboroCity_Gym_Text_RoxanneIntro, RustboroCity_Gym_Text_RoxanneDefeat, RustboroCity_Gym_EventScript_RoxanneDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
@@ -54,7 +127,7 @@ RustboroCity_Gym_EventScript_Marc::
 	msgbox RustboroCity_Gym_Text_MarcPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-RustboroCity_Gym_EventScript_GymGuide::
+RustboroCity_Gym_EventScript_GymGuideOriginal::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_RUSTBORO_GYM, RustboroCity_Gym_EventScript_GymGuidePostVictory

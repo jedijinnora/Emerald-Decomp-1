@@ -26,6 +26,7 @@
     "gMapGroup_IndoorRoute117",
     "gMapGroup_IndoorRoute121",
     "gMapGroup_Dungeons",
+    "gMapGroup_Dungeons2",
     "gMapGroup_IndoorDynamic",
     "gMapGroup_SpecialArea",
     "gMapGroup_IndoorRoute104Prototype",
@@ -365,7 +366,8 @@
   "gMapGroup_IndoorRoute114": [
     "Route114_FossilManiacsHouse",
     "Route114_FossilManiacsTunnel",
-    "Route114_LanettesHouse"
+    "Route114_LanettesHouse",
+    "Route114_HackersHideaway"
   ],
   "gMapGroup_IndoorRoute116": [
     "Route116_TunnelersRestHouse"
@@ -504,9 +506,13 @@
     "ScorchedSlab_B1F",
     "GraniteCave_ResortExits",
     "ChampionsCut",
-    "ForestHeart",
+    "ForestHeart"
+  ],
+  "gMapGroup_Dungeons2": [
     "SeafoamCove_B1F",
-    "SeafoamCove_B2F"
+    "SeafoamCove_B2F",
+    "AlteringCave_UpperFloor_1",
+    "AlteringCave_UpperFloor_2"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

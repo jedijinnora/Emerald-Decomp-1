@@ -142,6 +142,21 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 83,
+      "y": 14,
+      "elevation": 3,
+      "item": "ITEM_BIG_PEARL",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_107_BIG_PEARL"
+    },
+    {
+      "type": "hidden_item",
+      "x": 3,
+      "y": 11,
+      "elevation": 3,
+      "item": "ITEM_PEARL",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_107_PEARL"
+    }
   ]
 }

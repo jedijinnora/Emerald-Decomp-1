@@ -1,353 +1,333 @@
+mapscripts RustboroCity_DevonCorp_2F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : RustboroCity_DevonCorp_2F_OnTransition
+}
+
+const LOCALID_FOSSIL_SCIENTIST = 5
+
+script RustboroCity_DevonCorp_2F_OnTransition {
+	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_SetFossilReady {
+	setvar(VAR_FOSSIL_RESURRECTION_STATE, 2)
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_Woman1 {
+	lock
+	faceplayer
+	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
+	msgbox(format("Devon funds a lot of blue-sky research when the President thinks we'll end up with a useful product."))
+	msgbox(format("Are we making the world better with our projects? \p Or are we just making our civilization consume resources faster and faster?"))
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_Woman2 {
+	lock
+	faceplayer
+	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
+	msgbox(format("If you're stuck on a programming project, try working with a friend or explaining your code to a rubber ducky."))
+	msgbox(format("You can notice a lot more when you force yourself to verbalize your thoughts."))
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_Scientist1 {
+	lock
+	faceplayer
+	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
+	msgbox(format("What will people do when we succeed in developing superhuman Artificial General Intelligence?"))
+	msgbox(format("Do you think we'll all die before or immediately after the AI paperclips the rest of the Earth into “profits” for its shareholders?"))
+	msgbox(format("…"))
+	msgbox(format("You know, it might be a good idea to solve the alignment problem before charging ahead with bigger and bigger training runs."))
+	msgbox(format("But there's no money to be made by doing that, so we keep racing for the cliff."))
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_Scientist2 {
+	lock
+	faceplayer
+	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
+	msgbox(format("I've been trying to develop new types of Poké Ball."))
+	msgbox(format("I know profits are important to the President…"))
+	msgbox(format("But I can't help but think we're being forced into bad design decisions simply because the marketing team says it'll increase revenue."))
+	release
+	end
+}
+
+
+script RustboroCity_DevonCorp_2F_EventScript_OfficeGuard {
+	lock
+	faceplayer
+	msgbox(format("The public isn't allowed on the upper floor."))
+	msgbox(format("President Stone has much more important work to do than speaking to random Trainers!"))
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_Scientist3 {
+	lock
+	faceplayer
+	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
+	msgbox(format("I've been trying to develop Porygon-based software applications."))
+	msgbox(format("It feels a little unethical, though, the way I can just fork a fresh Porygon whenever something goes wrong."))
+	msgbox(format("How many Porygon have been created and discarded in a lab, do you think?"))
+	release
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_FossilScientist {
+	lock
+	faceplayer
+	goto_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 2, FossilReady)
+	goto_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, FossilInProgress)
+	msgbox(RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils)
+	checkitem(ITEM_HELIX_FOSSIL)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Helix Fossil", 0)
+	}
+	checkitem(ITEM_DOME_FOSSIL)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Dome Fossil", 1)
+	}
+	checkitem(ITEM_OLD_AMBER)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Old Amber", 2)
+	}
+	checkitem(ITEM_ROOT_FOSSIL)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Root Fossil", 3)
+	}
+	checkitem(ITEM_CLAW_FOSSIL)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Claw Fossil", 4)
+	}
+	checkitem(ITEM_ARMOR_FOSSIL)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Armor Fossil", 5)
+	}
+	checkitem(ITEM_SKULL_FOSSIL)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Skull Fossil", 6)
+	}
+	checkitem(ITEM_COVER_FOSSIL)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Cover Fossil", 7)
+	}
+	checkitem(ITEM_PLUME_FOSSIL)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Plume Fossil", 8)
+	}
+	checkitem(ITEM_JAW_FOSSIL)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Jaw Fossil", 9)
+	}
+	checkitem(ITEM_SAIL_FOSSIL)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Sail Fossil", 10)
+	}
+	goto_if_set(FLAG_TEMP_1, FossilMenu)
+	release
+	end
+	FossilMenu:
+	clearflag(FLAG_TEMP_1)
+	playse(SE_PIN)
+	applymovement(LOCALID_FOSSIL_SCIENTIST, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	delay(20)
+	msgbox(RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		goto(DeclineFossil)
+	}
+	dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			removeitem(ITEM_HELIX_FOSSIL)
+			bufferitemname(STR_VAR_1, ITEM_HELIX_FOSSIL)
+			setvar(VAR_WHICH_FOSSIL_REVIVED, 0)
+			setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)
+		case 1:
+			removeitem(ITEM_DOME_FOSSIL)
+			bufferitemname(STR_VAR_1, ITEM_DOME_FOSSIL)
+			setvar(VAR_WHICH_FOSSIL_REVIVED, 1)
+			setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)	
+		case 2:
+			removeitem(ITEM_OLD_AMBER)
+			bufferitemname(STR_VAR_1, ITEM_OLD_AMBER)
+			setvar(VAR_WHICH_FOSSIL_REVIVED, 2)
+			setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)
+		case 3:
+			removeitem(ITEM_ROOT_FOSSIL)
+			bufferitemname(STR_VAR_1, ITEM_ROOT_FOSSIL)
+			setvar(VAR_WHICH_FOSSIL_REVIVED, 3)
+			setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)	
+		case 4:
+			removeitem(ITEM_CLAW_FOSSIL)
+			bufferitemname(STR_VAR_1, ITEM_CLAW_FOSSIL)
+			setvar(VAR_WHICH_FOSSIL_REVIVED, 4)
+			setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)	
+		case 5:
+			removeitem(ITEM_ARMOR_FOSSIL)
+			bufferitemname(STR_VAR_1, ITEM_ARMOR_FOSSIL)
+			setvar(VAR_WHICH_FOSSIL_REVIVED, 5)
+			setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)	
+		case 6:
+			removeitem(ITEM_SKULL_FOSSIL)
+			bufferitemname(STR_VAR_1, ITEM_SKULL_FOSSIL)
+			setvar(VAR_WHICH_FOSSIL_REVIVED, 6)
+			setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)	
+		case 7:
+			removeitem(ITEM_COVER_FOSSIL)
+			bufferitemname(STR_VAR_1, ITEM_COVER_FOSSIL)
+			setvar(VAR_WHICH_FOSSIL_REVIVED, 7)
+			setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)	
+		case 8:
+			removeitem(ITEM_PLUME_FOSSIL)
+			bufferitemname(STR_VAR_1, ITEM_PLUME_FOSSIL)
+			setvar(VAR_WHICH_FOSSIL_REVIVED, 8)
+			setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)	
+		case 9:
+			removeitem(ITEM_JAW_FOSSIL)
+			bufferitemname(STR_VAR_1, ITEM_JAW_FOSSIL)
+			setvar(VAR_WHICH_FOSSIL_REVIVED, 9)
+			setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)	
+		case 10:
+			removeitem(ITEM_SAIL_FOSSIL)
+			bufferitemname(STR_VAR_1, ITEM_SAIL_FOSSIL)
+			setvar(VAR_WHICH_FOSSIL_REVIVED, 10)
+			setvar(VAR_FOSSIL_RESURRECTION_STATE, 1)	
+		default:
+			goto(DeclineFossil)
+	}
+	msgbox(RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher)
+
+	FossilInProgress:
+	msgbox(RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime)
+	release
+	end
+
+	DeclineFossil:
+	msgbox(format("Oh, is that so? \p Come back another time if you'd like to resurrect fossils with me."))
+	release
+	end
+
+	FossilReady:
+	switch(var(VAR_WHICH_FOSSIL_REVIVED)) {
+		case 0:
+			bufferspeciesname(STR_VAR_1, SPECIES_OMANYTE)
+			bufferspeciesname(STR_VAR_2, SPECIES_OMANYTE)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_OMANYTE)
+		case 1:
+			bufferspeciesname(STR_VAR_1, SPECIES_KABUTO)
+			bufferspeciesname(STR_VAR_2, SPECIES_KABUTO)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_KABUTO)
+		case 2:
+			bufferspeciesname(STR_VAR_1, SPECIES_AERODACTYL)
+			bufferspeciesname(STR_VAR_2, SPECIES_AERODACTYL)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_AERODACTYL)
+		case 3:
+			bufferspeciesname(STR_VAR_1, SPECIES_LILEEP)
+			bufferspeciesname(STR_VAR_2, SPECIES_LILEEP)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LILEEP)
+		case 4:
+			bufferspeciesname(STR_VAR_1, SPECIES_ANORITH)
+			bufferspeciesname(STR_VAR_2, SPECIES_ANORITH)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ANORITH)
+		case 5:
+			bufferspeciesname(STR_VAR_1, SPECIES_CRANIDOS)
+			bufferspeciesname(STR_VAR_2, SPECIES_CRANIDOS)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CRANIDOS)
+		case 6:
+			bufferspeciesname(STR_VAR_1, SPECIES_SHIELDON)
+			bufferspeciesname(STR_VAR_2, SPECIES_SHIELDON)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SHIELDON)
+		case 7:
+			bufferspeciesname(STR_VAR_1, SPECIES_TIRTOUGA)
+			bufferspeciesname(STR_VAR_2, SPECIES_TIRTOUGA)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TIRTOUGA)
+		case 8:
+			bufferspeciesname(STR_VAR_1, SPECIES_ARCHEN)
+			bufferspeciesname(STR_VAR_2, SPECIES_ARCHEN)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARCHEN)
+		case 9:
+			bufferspeciesname(STR_VAR_1, SPECIES_TYRUNT)
+			bufferspeciesname(STR_VAR_2, SPECIES_TYRUNT)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TYRUNT)
+		case 10:
+			bufferspeciesname(STR_VAR_1, SPECIES_AMAURA)
+			bufferspeciesname(STR_VAR_2, SPECIES_AMAURA)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_AMAURA)
+		default:
+		msgbox(format("ERROR:Something went very wrong while reviving a fossil!"))
+		release
+		end
+	}
+	msgbox(RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife)
+	givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+	playfanfare(MUS_OBTAIN_ITEM)
+	msgbox(RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher)
+	waitmessage
+	waitfanfare
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, FossilToParty)
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, FossilToPC)
+
+	FossilToParty:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	}
+	goto(FossilEnd)
+
+	FossilToPC:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	call(Common_EventScript_TransferredToPC)
+
+	FossilEnd:
+	setvar(VAR_FOSSIL_RESURRECTION_STATE, 0)
+	release
+	end
+}
+
 raw `
-.set LOCALID_FOSSIL_SCIENTIST, 5
-
-RustboroCity_DevonCorp_2F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, RustboroCity_DevonCorp_2F_OnTransition
-	.byte 0
-
-RustboroCity_DevonCorp_2F_OnTransition:
-	call_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_SetFossilReady::
-	setvar VAR_FOSSIL_RESURRECTION_STATE, 2
-	return
-
-RustboroCity_DevonCorp_2F_EventScript_TalkToPokemonScientist::
-	lock
-	faceplayer
-	call_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady
-	msgbox RustboroCity_DevonCorp_2F_Text_DeviceForTalkingToPokemon, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_BallScientist::
-	lock
-	faceplayer
-	call_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady
-	goto_if_set FLAG_MET_DEVON_EMPLOYEE, RustboroCity_DevonCorp_2F_EventScript_DevelopedBalls
-	msgbox RustboroCity_DevonCorp_2F_Text_DevelopingNewBalls, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_DevelopedBalls::
-	msgbox RustboroCity_DevonCorp_2F_Text_WeFinallyMadeNewBalls, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_PokenavScientist::
-	lock
-	faceplayer
-	call_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady
-	goto_if_set FLAG_RECEIVED_POKENAV, RustboroCity_DevonCorp_2F_EventScript_HasPokenav
-	msgbox RustboroCity_DevonCorp_2F_Text_IMadePokenav, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_HasPokenav::
-	msgbox RustboroCity_DevonCorp_2F_Text_WowThatsAPokenav, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_PokemonDreamsScientist::
-	lock
-	faceplayer
-	call_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady
-	msgbox RustboroCity_DevonCorp_2F_Text_DeviceToVisualizePokemonDreams, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_FossilScientist::
-	lock
-	faceplayer
-	goto_if_eq VAR_FOSSIL_RESURRECTION_STATE, 2, RustboroCity_DevonCorp_2F_EventScript_FossilMonReady
-	goto_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_StillRegenerating
-	msgbox RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils, MSGBOX_DEFAULT
-	checkitem ITEM_ROOT_FOSSIL
-	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeRootFossil
-	checkitem ITEM_CLAW_FOSSIL
-	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_NoticeClawFossil
-	release
-	end
-
-@ This whole section has needless duplication and could be condensed considerably
-RustboroCity_DevonCorp_2F_EventScript_NoticeRootFossil::
-	closemessage
-	playse SE_PIN
-	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_Delay48
-	waitmovement 0
-	msgbox RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
-	checkitem ITEM_CLAW_FOSSIL
-	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_ChooseFossil
-	goto RustboroCity_DevonCorp_2F_EventScript_GiveRootFossil
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_GiveRootFossil::
-	bufferitemname STR_VAR_1, ITEM_ROOT_FOSSIL
-	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
-	removeitem ITEM_ROOT_FOSSIL
-	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
-	setvar VAR_WHICH_FOSSIL_REVIVED, 1
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_NoticeClawFossil::
-	closemessage
-	playse SE_PIN
-	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_FOSSIL_SCIENTIST, Common_Movement_Delay48
-	waitmovement 0
-	msgbox RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil
-	checkitem ITEM_ROOT_FOSSIL
-	goto_if_eq VAR_RESULT, TRUE, RustboroCity_DevonCorp_2F_EventScript_ChooseFossil
-	goto RustboroCity_DevonCorp_2F_EventScript_GiveClawFossil
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_GiveClawFossil::
-	bufferitemname STR_VAR_1, ITEM_CLAW_FOSSIL
-	msgbox RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher, MSGBOX_DEFAULT
-	removeitem ITEM_CLAW_FOSSIL
-	setvar VAR_FOSSIL_RESURRECTION_STATE, 1
-	setvar VAR_WHICH_FOSSIL_REVIVED, 2
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_DeclineGiveFossil::
-	msgbox RustboroCity_DevonCorp_2F_Text_OhIsThatSo, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_StillRegenerating::
-	msgbox RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_FossilMonReady::
-	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 1, RustboroCity_DevonCorp_2F_EventScript_LileepReady
-	goto_if_eq VAR_WHICH_FOSSIL_REVIVED, 2, RustboroCity_DevonCorp_2F_EventScript_AnorithReady
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_LileepReady::
-	bufferspeciesname STR_VAR_2, SPECIES_LILEEP
-	msgbox RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
-	goto RustboroCity_DevonCorp_2F_EventScript_ReceiveLileep
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_AnorithReady::
-	bufferspeciesname STR_VAR_2, SPECIES_ANORITH
-	msgbox RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife, MSGBOX_DEFAULT
-	goto RustboroCity_DevonCorp_2F_EventScript_ReceiveAnorith
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_ReceiveLileep::
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LILEEP
-	givemon SPECIES_LILEEP, 20
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, RustboroCity_DevonCorp_2F_EventScript_ReceiveLileepParty
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, RustboroCity_DevonCorp_2F_EventScript_ReceiveLileepPC
-	goto Common_EventScript_NoMoreRoomForPokemon
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_ReceiveLileepParty::
-	call RustboroCity_DevonCorp_2F_EventScript_ReceivedLileepFanfare
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_FinishReceivingLileep
-	call Common_EventScript_GetGiftMonPartySlot
-	call Common_EventScript_NameReceivedPartyMon
-	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingLileep
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_ReceiveLileepPC::
-	call RustboroCity_DevonCorp_2F_EventScript_ReceivedLileepFanfare
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_TransferLileepToPC
-	call Common_EventScript_NameReceivedBoxMon
-	goto RustboroCity_DevonCorp_2F_EventScript_TransferLileepToPC
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_TransferLileepToPC::
-	call Common_EventScript_TransferredToPC
-	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingLileep
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_ReceivedLileepFanfare::
-	bufferspeciesname STR_VAR_2, SPECIES_LILEEP
-	playfanfare MUS_OBTAIN_ITEM
-	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
-	waitmessage
-	waitfanfare
-	bufferspeciesname STR_VAR_1, SPECIES_LILEEP
-	return
-
-RustboroCity_DevonCorp_2F_EventScript_FinishReceivingLileep::
-	setvar VAR_FOSSIL_RESURRECTION_STATE, 0
-	setflag FLAG_RECEIVED_REVIVED_FOSSIL_MON
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_ReceiveAnorith::
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ANORITH
-	givemon SPECIES_ANORITH, 20
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, RustboroCity_DevonCorp_2F_EventScript_ReceiveAnorithParty
-	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, RustboroCity_DevonCorp_2F_EventScript_ReceiveAnorithPC
-	goto Common_EventScript_NoMoreRoomForPokemon
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_ReceiveAnorithParty::
-	call RustboroCity_DevonCorp_2F_EventScript_ReceivedAnorithFanfare
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_FinishReceivingAnorith
-	call Common_EventScript_GetGiftMonPartySlot
-	call Common_EventScript_NameReceivedPartyMon
-	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingAnorith
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_ReceiveAnorithPC::
-	call RustboroCity_DevonCorp_2F_EventScript_ReceivedAnorithFanfare
-	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, RustboroCity_DevonCorp_2F_EventScript_TransferAnorithToPC
-	call Common_EventScript_NameReceivedBoxMon
-	goto RustboroCity_DevonCorp_2F_EventScript_TransferAnorithToPC
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_TransferAnorithToPC::
-	call Common_EventScript_TransferredToPC
-	goto RustboroCity_DevonCorp_2F_EventScript_FinishReceivingAnorith
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_ReceivedAnorithFanfare::
-	bufferspeciesname STR_VAR_2, SPECIES_ANORITH
-	playfanfare MUS_OBTAIN_ITEM
-	message RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher
-	waitmessage
-	waitfanfare
-	bufferspeciesname STR_VAR_1, SPECIES_ANORITH
-	return
-
-RustboroCity_DevonCorp_2F_EventScript_FinishReceivingAnorith::
-	setvar VAR_FOSSIL_RESURRECTION_STATE, 0
-	setflag FLAG_RECEIVED_REVIVED_FOSSIL_MON
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_ChooseFossil::
-	message RustboroCity_DevonCorp_2F_Text_TwoFossilsPickOne
-	waitmessage
-	multichoice 17, 6, MULTI_FOSSIL, FALSE
-	switch VAR_RESULT
-	case 0, RustboroCity_DevonCorp_2F_EventScript_ChooseClawFossil
-	case 1, RustboroCity_DevonCorp_2F_EventScript_ChooseRootFossil
-	case 2, RustboroCity_DevonCorp_2F_EventScript_CancelFossilSelect
-	case MULTI_B_PRESSED, RustboroCity_DevonCorp_2F_EventScript_CancelFossilSelect
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_ChooseClawFossil::
-	goto RustboroCity_DevonCorp_2F_EventScript_GiveClawFossil
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_ChooseRootFossil::
-	goto RustboroCity_DevonCorp_2F_EventScript_GiveRootFossil
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_CancelFossilSelect::
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_MatchCallScientist::
-	lock
-	faceplayer
-	call_if_eq VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady
-	goto_if_ge VAR_RUSTBORO_CITY_STATE, 6, RustboroCity_DevonCorp_2F_EventScript_WorkOnNext
-	msgbox RustboroCity_DevonCorp_2F_Text_DevelopNewPokenavFeature, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_DevonCorp_2F_EventScript_WorkOnNext::
-	msgbox RustboroCity_DevonCorp_2F_Text_WhatToWorkOnNext, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_DevonCorp_2F_Text_DeviceForTalkingToPokemon:
-	.string "We're developing a device for talking\n"
-	.string "with POKéMON.\p"
-	.string "But we haven't had much success…$"
-
-RustboroCity_DevonCorp_2F_Text_DevelopingNewBalls:
-	.string "I'm developing new kinds of\n"
-	.string "POKé BALLS…\p"
-	.string "But I haven't made much headway…$"
-
-RustboroCity_DevonCorp_2F_Text_WeFinallyMadeNewBalls:
-	.string "We finally made new kinds of\n"
-	.string "POKé BALLS!\p"
-	.string "The REPEAT BALL makes it easier to\n"
-	.string "catch POKéMON you've caught before.\p"
-	.string "The TIMER BALL gets better at catching\n"
-	.string "POKéMON the longer a battle runs.\p"
-	.string "Both are proudly developed by\n"
-	.string "the DEVON CORPORATION.\p"
-	.string "Please give them a try!$"
-
-RustboroCity_DevonCorp_2F_Text_IMadePokenav:
-	.string "I made the POKéNAV!\p"
-	.string "As an engineer, I feel blessed to have\n"
-	.string "made something so great!$"
-
-RustboroCity_DevonCorp_2F_Text_WowThatsAPokenav:
-	.string "Oh, wow!\n"
-	.string "That's a POKéNAV!\p"
-	.string "It came about as a result of our\n"
-	.string "PRESIDENT's desire to learn about\l"
-	.string "the feelings of POKéMON.\p"
-	.string "Would you like me to describe its\n"
-	.string "features in detail?\p"
-	.string "No, no. I think you'll find out just by\n"
-	.string "trying the POKéNAV out.$"
-
-RustboroCity_DevonCorp_2F_Text_DeviceToVisualizePokemonDreams:
-	.string "I'm trying to develop a device that\n"
-	.string "visually reproduces the dreams of\l"
-	.string "POKéMON…\p"
-	.string "But it's not going well.$"
-
 RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils:
 	.string "I've been trying to develop a device\n"
-	.string "that resurrects POKéMON from fossils…\p"
+	.string "that resurrects Pokémon from fossils…\p"
 	.string "And, it's working!$"
 
 RustboroCity_DevonCorp_2F_Text_WantToBringFossilBackToLife:
 	.string "Wait! That thing you have there…\n"
-	.string "Is that a POKéMON fossil?\p"
-	.string "Would you like to bring that POKéMON\n"
+	.string "Is that a Pokémon fossil?\p"
+	.string "Would you like to bring that Pokémon\n"
 	.string "back to life?\p"
 	.string "I can with my newly developed\n"
-	.string "FOSSIL REGENERATOR.$"
-
-RustboroCity_DevonCorp_2F_Text_OhIsThatSo:
-	.string "Oh, is that so?\p"
-	.string "DEVON's technological expertise\n"
-	.string "is outstanding, I tell you.$"
-
-RustboroCity_DevonCorp_2F_Text_TwoFossilsPickOne:
-	.string "Oh, now that's a surprise!\n"
-	.string "You have not one, but two, fossils?\p"
-	.string "Unfortunately, my machine can only\n"
-	.string "regenerate one POKéMON at a time.\p"
-	.string "Would you like to pick one of your\n"
-	.string "fossils for regeneration?$"
+	.string "Fossil Regenerator.$"
 
 RustboroCity_DevonCorp_2F_Text_HandedFossilToResearcher:
 	.string "Excellent!\n"
 	.string "Let's do this right away.\p"
 	.string "{PLAYER} handed the {STR_VAR_1} to\n"
-	.string "the DEVON RESEARCHER.$"
+	.string "the Devon scientist.$"
 
 RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime:
-	.string "The FOSSIL REGENERATOR, which I made,\n"
+	.string "The Fossil Regenerator which I made\n"
 	.string "is incredible.\p"
 	.string "But it has one drawback--it takes\n"
 	.string "a long time to work.\p"
@@ -356,31 +336,12 @@ RustboroCity_DevonCorp_2F_Text_FossilRegeneratorTakesTime:
 
 RustboroCity_DevonCorp_2F_Text_FossilizedMonBroughtBackToLife:
 	.string "Thanks for waiting!\p"
-	.string "Your fossilized POKéMON has been\n"
+	.string "Your fossilized Pokémon has been\n"
 	.string "brought back to life!\p"
-	.string "The fossil was an ancient POKéMON.\n"
-	.string "{STR_VAR_2}, it was!$"
+	.string "The fossil was the ancient Pokémon\n"
+	.string "{STR_VAR_2}!$"
 
 RustboroCity_DevonCorp_2F_Text_ReceivedMonFromResearcher:
 	.string "{PLAYER} received {STR_VAR_2} from\n"
-	.string "the DEVON RESEARCHER.$"
-
-@ Unused
-RustboroCity_DevonCorp_2F_Text_TooManyPokemon:
-	.string "Uh-oh, you've got too many POKéMON.\n"
-	.string "You have no room for this one.$"
-
-RustboroCity_DevonCorp_2F_Text_DevelopNewPokenavFeature:
-	.string "I'm trying to develop a new feature\n"
-	.string "for the POKéNAV…\p"
-	.string "But it's not going well.$"
-
-RustboroCity_DevonCorp_2F_Text_WhatToWorkOnNext:
-	.string "Well, now what shall I work on\n"
-	.string "developing next?\p"
-	.string "Our company allows us to make our\n"
-	.string "inspirations into reality.\p"
-	.string "One couldn't ask for a better\n"
-	.string "environment as an engineer.$"
-
+	.string "the Devon scientist.$"
 `

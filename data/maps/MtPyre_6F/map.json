@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM42_PHANTOM_FORCE",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_TM42"
     }
   ],
   "warp_events": [
@@ -74,6 +74,13 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 6,
+      "y": 8,
+      "elevation": 0,
+      "item": "ITEM_REAPER_CLOTH",
+      "flag": "FLAG_HIDDEN_ITEM_MT_PYRE_6F_REAPER_CLOTH"
+    }
   ]
 }

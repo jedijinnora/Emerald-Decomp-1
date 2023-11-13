@@ -102,6 +102,13 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 8,
+      "y": 6,
+      "elevation": 0,
+      "item": "ITEM_MAX_REVIVE",
+      "flag": "FLAG_HIDDEN_ITEM_MT_PYRE_3F_MAX_REVIVE"
+    }
   ]
 }

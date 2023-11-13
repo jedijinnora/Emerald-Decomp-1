@@ -437,7 +437,7 @@
       "width": 141,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mossdeep",
+      "secondary_tileset": "gTileset_EverGrande",
       "border_filepath": "data/layouts/Route128/border.bin",
       "blockdata_filepath": "data/layouts/Route128/map.bin"
     },
@@ -4197,7 +4197,7 @@
       "width": 32,
       "height": 24,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
+      "secondary_tileset": "gTileset_RusturfTunnel",
       "border_filepath": "data/layouts/AlteringCave/border.bin",
       "blockdata_filepath": "data/layouts/AlteringCave/map.bin"
     },
@@ -4495,7 +4495,7 @@
       "id": "LAYOUT_EMERALD_CAPE",
       "name": "EmeraldCape_Layout",
       "width": 42,
-      "height": 42,
+      "height": 45,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_EverGrande",
       "border_filepath": "data/layouts/EmeraldCape/border.bin",
@@ -5150,6 +5150,36 @@
       "secondary_tileset": "gTileset_Lab",
       "border_filepath": "data/layouts/EverGrandeCity_Headquarters_3F/border.bin",
       "blockdata_filepath": "data/layouts/EverGrandeCity_Headquarters_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE114_HACKERS_HIDEAWAY",
+      "name": "Route114_HackersHideaway_Layout",
+      "width": 16,
+      "height": 12,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/Route114_HackersHideaway/border.bin",
+      "blockdata_filepath": "data/layouts/Route114_HackersHideaway/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALTERING_CAVE_UPPER_FLOOR_1",
+      "name": "AlteringCave_UpperFloor_1_Layout",
+      "width": 32,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/AlteringCave_UpperFloor_1/border.bin",
+      "blockdata_filepath": "data/layouts/AlteringCave_UpperFloor_1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ALTERING_CAVE_UPPER_FLOOR_2",
+      "name": "AlteringCave_UpperFloor_2_Layout",
+      "width": 32,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/AlteringCave_UpperFloor_2/border.bin",
+      "blockdata_filepath": "data/layouts/AlteringCave_UpperFloor_2/map.bin"
     }
   ]
 }

@@ -61,7 +61,7 @@ script VerdantForest_EventScript_Maniac {
     msgbox(format("It seems that POKéMON with the FAIRY type are weak against BUG-type attacks."))
     waitmessage
     setflag(FLAG_TEMP_8)
-    call_if_unset(FLAG_ITEM_VERDANT_FOREST_TANGA_BERRY, VerdantForest_EventScript_Tanga)
+    call_if_unset(FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY, VerdantForest_EventScript_Tanga)
     ResearchBattle:
     call_if_unset(FLAG_TEMP_9, VerdantForest_EventScript_ResearchBattle)
     releaseall
@@ -70,7 +70,7 @@ script VerdantForest_EventScript_Maniac {
 
 script VerdantForest_EventScript_Tanga {
     giveitem(ITEM_TANGA_BERRY, 5)
-    setflag(FLAG_ITEM_VERDANT_FOREST_TANGA_BERRY)
+    setflag(FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY)
     msgbox(format("If you doubt me, take these for your FAIRY-type POKéMON and see for yourself."))
     waitmessage
     return

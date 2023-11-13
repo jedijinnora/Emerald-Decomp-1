@@ -142,7 +142,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM81_PSYSHOCK",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_TM81"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
@@ -166,9 +166,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_BRIGHT_POWDER",
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_ELIXIR",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_ROUTE_128_MAX_ELIXIR"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
@@ -198,7 +198,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 101,
+      "x": 100,
       "y": 21,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -207,7 +207,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_BRIGHT_POWDER",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_ROUTE_128_BRIGHT_POWDER"
     }
   ],
   "warp_events": [
@@ -217,6 +217,29 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 66,
+      "y": 14,
+      "elevation": 0,
+      "item": "ITEM_GREEN_SHARD",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_128_GREEN_SHARD"
+    },
+    {
+      "type": "hidden_item",
+      "x": 44,
+      "y": 28,
+      "elevation": 0,
+      "item": "ITEM_YELLOW_SHARD",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_128_YELLOW_SHARD"
+    },
+    {
+      "type": "hidden_item",
+      "x": 132,
+      "y": 14,
+      "elevation": 0,
+      "item": "ITEM_BOTTLE_CAP",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_128_BOTTLE_CAP"
+    }
   ]
 }

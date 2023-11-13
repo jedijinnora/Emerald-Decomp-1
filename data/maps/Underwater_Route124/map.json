@@ -34,6 +34,37 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 66,
+      "y": 34,
+      "elevation": 0,
+      "item": "ITEM_HEART_SCALE",
+      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_124_HEART_SCALE"
+    },
+    {
+      "type": "hidden_item",
+      "x": 42,
+      "y": 5,
+      "elevation": 0,
+      "item": "ITEM_BIG_PEARL",
+      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_124_BIG_PEARL"
+    },
+    {
+      "type": "hidden_item",
+      "x": 42,
+      "y": 51,
+      "elevation": 0,
+      "item": "ITEM_DEEP_SEA_SCALE",
+      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_124_DEEP_SEA_SCALE"
+    },
+    {
+      "type": "hidden_item",
+      "x": 14,
+      "y": 40,
+      "elevation": 0,
+      "item": "ITEM_DEEP_SEA_TOOTH",
+      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_124_DEEP_SEA_TOOTH"
+    }
   ]
 }

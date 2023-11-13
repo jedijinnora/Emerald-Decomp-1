@@ -103,7 +103,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM03_PROTECT",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_ITEM_TM03"
     }
   ],
   "warp_events": [
@@ -131,8 +131,8 @@
       "x": 35,
       "y": 8,
       "elevation": 3,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_GOLD_BOTTLE_CAP",
+      "flag": "FLAG_HIDDEN_ITEM_CHAMPIONS_CUT_GOLD_BOTTLE_CAP"
     }
   ]
 }

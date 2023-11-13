@@ -35,6 +35,29 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 131,
+      "y": 26,
+      "elevation": 0,
+      "item": "ITEM_RED_SHARD",
+      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_134_RED_SHARD"
+    },
+    {
+      "type": "hidden_item",
+      "x": 103,
+      "y": 29,
+      "elevation": 0,
+      "item": "ITEM_YELLOW_SHARD",
+      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_134_YELLOW_SHARD"
+    },
+    {
+      "type": "hidden_item",
+      "x": 58,
+      "y": 25,
+      "elevation": 0,
+      "item": "ITEM_BLUE_SHARD",
+      "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_134_BLUE_SHARD"
+    }
   ]
 }
