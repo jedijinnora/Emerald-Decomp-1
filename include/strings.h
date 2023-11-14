@@ -523,6 +523,7 @@ extern const u8 gText_SpDef[];
 extern const u8 gText_Speed[];
 extern const u8 gText_Dash[];
 extern const u8 gText_Plus[];
+extern const u8 gText_Nickname[];
 
 //pokedex text
 extern const u8 gText_CryOf[];
@@ -3044,18 +3045,5 @@ extern const u8 gText_ExpShareOff[];
 extern const u8 gText_Turtwig[];
 extern const u8 gText_Chimchar[];
 extern const u8 gText_Piplup[];
-
-//Ferry destinations
-//extern const u8 gText_Dewford[]; already exists above
-extern const u8 gText_EverGrande[];
-extern const u8 gText_Lilycove[];
-extern const u8 gText_Littleroot[];
-extern const u8 gText_Mossdeep[];
-extern const u8 gText_Rustboro[];
-//extern const u8 gText_Slateport[]; already exists above
-extern const u8 gText_Sootopolis[];
-//extern const u8 gText_SouthernIsland[]; already exists above
-
-
 
 #endif // GUARD_STRINGS_H

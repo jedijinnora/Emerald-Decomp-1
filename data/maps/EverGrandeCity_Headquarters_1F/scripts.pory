@@ -355,6 +355,10 @@ script EverGrandeCity_Headquarters_1F_EventScript_ScientistCredits {
                     msgbox(format("Fast Berry interactions, by dunsparce9."))
                     msgbox(format("Berry trees remain until picked, by BuffelSaft."))
                     msgbox(format("Mart items by badge count, by ghoulslash."))
+                    msgbox(format("Swap Poké Balls via bag use, by Lunos."))
+                    msgbox(format("Match call only for rematch, by devolov."))
+                    msgbox(format("Nickname Pokémon from party menu, by Shinny456, TheXaman, Lunos and Zadien."))
+                    msgbox(format("Use HMs as long as a party Pokémon could learn them, by devolov and ScyrousFX."))
                     goto(FeaturesMenu)
                 case 1:
                     msgbox(format("Generic item ball script, by Deokishisu."))
@@ -363,6 +367,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_ScientistCredits {
                 case 2:
                     msgbox(format("Disable Union room check, from the tutorial master list."))
                     msgbox(format("Surf dismount ground effects, from the tutorial master list."))
+                    msgbox(format("Poison Heal protects from overworld poison, by Lunos."))
                     goto(FeaturesMenu)
                 case 3:
                     msgbox(format("Lanette's PC from game start, by devolov."))
