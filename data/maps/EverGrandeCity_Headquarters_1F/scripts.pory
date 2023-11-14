@@ -353,6 +353,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_ScientistCredits {
                     msgbox(format("IV/EV summary screen, by BuffelSaft."))
                     msgbox(format("Increased bag size, by MapleFall."))
                     msgbox(format("Fast Berry interactions, by dunsparce9."))
+                    msgbox(format("Berry trees remain until picked, by BuffelSaft."))
                     msgbox(format("Mart items by badge count, by ghoulslash."))
                     goto(FeaturesMenu)
                 case 1:

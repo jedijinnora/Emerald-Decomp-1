@@ -132,6 +132,14 @@ script Route124_DivingTreasureHuntersHouse_EventScript_TreasureHunter {
 	goto(CheckShards)
 }
 
+script Route124_DivingTreasureHuntersHouse_EventScript_Kid {
+	lock
+	faceplayer
+	msgbox(format("You can also trade Shards for TMs with a meteorologist at the Weather Institute!"))
+	release
+	end
+}
+
 script Route124_DivingTreasureHuntersHouse_EventScript_ShardTradeBoard {
 	msgbox(Route124_DivingTreasureHuntersHouse_Text_ShardTradeBoard, MSGBOX_SIGN)
 }

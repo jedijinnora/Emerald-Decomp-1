@@ -1,29 +1,23 @@
-raw `
-Route119_House_MapScripts::
-	.byte 0
+mapscripts Route119_House_MapScripts {}
 
-Route119_House_EventScript_Woman::
-	msgbox Route119_House_Text_RumorAboutCaveOfOrigin, MSGBOX_NPC
+script Route119_House_EventScript_Woman {
+	lock
+	faceplayer
+	msgbox(format("My uncle loves his Wingull even more than I do!"))
+	msgbox(format("I think he's the greatest sailor that ever lived."))
+	msgbox(format("If you ever need someone to take you to myesterious places across the sea…"))
+	msgbox(format("You should find him at his cottage on Route 104."))
+	release
 	end
+}
 
-Route119_House_EventScript_Wingull::
+script Route119_House_EventScript_Wingull {
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_WINGULL, CRY_MODE_NORMAL
-	msgbox Route119_House_Text_Wingull, MSGBOX_DEFAULT
+	playmoncry(SPECIES_WINGULL, CRY_MODE_NORMAL)
+	msgbox("WINGULL: Pihyoh!")
 	waitmoncry
 	release
 	end
-
-Route119_House_Text_RumorAboutCaveOfOrigin:
-	.string "I heard about a cave called the CAVE\n"
-	.string "OF ORIGIN.\p"
-	.string "People rumor that the spirits of\n"
-	.string "POKéMON are revived there. Could\l"
-	.string "something like that really happen?$"
-
-Route119_House_Text_Wingull:
-	.string "WINGULL: Pihyoh!$"
-
-`
+}
