@@ -359,6 +359,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_ScientistCredits {
                     msgbox(format("Match call only for rematch, by devolov."))
                     msgbox(format("Nickname Pokémon from party menu, by Shinny456, TheXaman, Lunos and Zadien."))
                     msgbox(format("Use HMs as long as a party Pokémon could learn them, by devolov and ScyrousFX."))
+                    msgbox(format("Relearn moves from party menu, by Diego Mertens."))
                     goto(FeaturesMenu)
                 case 1:
                     msgbox(format("Generic item ball script, by Deokishisu."))

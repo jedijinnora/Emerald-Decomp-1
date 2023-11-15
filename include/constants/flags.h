@@ -65,7 +65,7 @@
 
 #define FLAG_PENDING_DAYCARE_EGG        0x32
 #define FLAG_UNUSED_0x33                0x33//Jinnora: save for other daycare things?
-#define FLAG_UNUSED_0x34                0x34//Jinnora: save for other daycare things?
+#define FLAG_MOVE_RELEARN_PARTY         0x34//Jinnora: for returning to party from move relearner
 
 //Jinnora: added flags for various configs
 #define FLAG_EXP_SHARE          0x35 
@@ -92,8 +92,8 @@
 #define FLAG_GIVEN_ARRIVAL_FERRY_CORRIDOR_LEMONADE  0x47
 #define FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY       0x48
 #define FLAG_ETERNAL_ENCOUNTERED                    0x49
-#define FLAG_UNUSED_0x04A    0x4A // Unused Flag
-#define FLAG_UNUSED_0x04B    0x4B // Unused Flag
+#define FLAG_BEACH_BATTLE_VICTORY                   0x4A
+#define FLAG_BEACH_BATTLE_STARTED                   0x4B
 #define FLAG_UNUSED_0x04C    0x4C // Unused Flag
 #define FLAG_UNUSED_0x04D    0x4D // Unused Flag
 #define FLAG_UNUSED_0x04E    0x4E // Unused Flag

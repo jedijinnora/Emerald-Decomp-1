@@ -56,9 +56,9 @@ script VerdantForest_EventScript_Maniac {
     applymovement(MANIAC_ID, Common_Movement_FacePlayer)
     goto_if_set(FLAG_TEMP_8, ResearchBattle)
     BugFairy:
-    msgbox(format("I'm studying the relationship between the BUG and FAIRY types."))
+    msgbox(format("I'm studying the relationship between the Bug and Fairy types."))
     waitmessage
-    msgbox(format("It seems that POKéMON with the FAIRY type are weak against BUG-type attacks."))
+    msgbox(format("It seems that Pokémon with the Fairy type are resistant against Bug-type attacks."))
     waitmessage
     setflag(FLAG_TEMP_8)
     call_if_unset(FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY, VerdantForest_EventScript_Tanga)
@@ -71,7 +71,7 @@ script VerdantForest_EventScript_Maniac {
 script VerdantForest_EventScript_Tanga {
     giveitem(ITEM_TANGA_BERRY, 5)
     setflag(FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY)
-    msgbox(format("If you doubt me, take these for your FAIRY-type POKéMON and see for yourself."))
+    msgbox(format("I thought it should be the other way around, but these Berries aren't useful for Fairy-types."))
     waitmessage
     return
 }
@@ -140,7 +140,7 @@ script VerdantForest_EventScript_Woman {
 
 script VerdantForest_EventScript_Flowerbox {
     lockall
-    msgbox(format("A crate full of pretty flowers gathered by the people of VERDANTURF."))
+    msgbox(format("A crate full of pretty flowers gathered by the people of Verdanturf."))
     releaseall
     end
 }

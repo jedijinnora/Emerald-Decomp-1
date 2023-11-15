@@ -25,6 +25,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "party_menu.h"//for move relearner from party
+
 /*
  * Move relearner state machine
  * ------------------------
@@ -679,7 +681,18 @@ static void DoMoveRelearnerMain(void)
         if (!gPaletteFade.active)
         {
             FreeMoveRelearnerResources();
-            SetMainCallback2(CB2_ReturnToField);
+
+            //this section changed for move relearner thru party
+            if (FlagGet(FLAG_MOVE_RELEARN_PARTY))
+			{
+				CB2_ReturnToPartyMenuFromSummaryScreen();
+				FlagClear(FLAG_MOVE_RELEARN_PARTY);
+			}
+			else
+			{
+                //the original is just this line:
+				SetMainCallback2(CB2_ReturnToField);
+			}
         }
         break;
     case MENU_STATE_FADE_FROM_SUMMARY_SCREEN:
@@ -707,9 +720,19 @@ static void DoMoveRelearnerMain(void)
             {
                 u16 moveId = GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_MOVE1 + sMoveRelearnerStruct->moveSlot);
 
+                //implemented gen 5's pp restrictions when teaching new move
+                u8 oldPP;
+
                 StringCopy(gStringVar3, gMoveNames[moveId]);
                 RemoveMonPPBonus(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->moveSlot);
+
+                oldPP = GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_PP1 + GetMoveSlotToReplace(), NULL);
+
                 SetMonMoveSlot(&gPlayerParty[sMoveRelearnerStruct->partyMon], GetCurrentSelectedMove(), sMoveRelearnerStruct->moveSlot);
+
+                if (GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_PP1 + GetMoveSlotToReplace(), NULL) > oldPP)
+                    SetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_PP1 + GetMoveSlotToReplace(), &oldPP);
+
                 StringCopy(gStringVar2, gMoveNames[GetCurrentSelectedMove()]);
                 PrintMessageWithPlaceholders(gText_MoveRelearnerAndPoof);
                 sMoveRelearnerStruct->state = MENU_STATE_DOUBLE_FANFARE_FORGOT_MOVE;

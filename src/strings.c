@@ -1835,6 +1835,9 @@ const u8 gText_Berries[] = _("BERRIES");
 //added for party nickname
 const u8 gText_Nickname[] = _("NICKNAME");
 
+//added for party move relearn
+const u8 gText_Moves_Menu[] = _("Change Moves");
+
 //exp share strings
 const u8 gText_ExpShareOn[] = _("The Exp. Share has been turned on.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTIL_PRESS}");
