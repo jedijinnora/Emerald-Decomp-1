@@ -49,7 +49,7 @@ script EverGrandeCity_EventScript_Ferry {
 		case 2:
 			warp(MAP_LITTLEROOT_SHORE, -1, 26, 21)
 		case 3:
-			warp(MAP_SLATEPORT_CITY, -1, 39, 16)
+			warp(MAP_SLATEPORT_CITY, -1, 11, 26)
 		case 4:
 			warp(MAP_SOOTOPOLIS_CITY, -1, 21, 44)
 		case 5:
@@ -249,21 +249,21 @@ script EverGrandeCity_EventScript_Maniac {
 
 script EverGrandeCity_EventScript_CitySign {
 	lock
-	msgbox(format("EVER GRANDE CITY"))
+	msgbox(format("Ever Grande City"))
 	release
 	end
 }
 
 script EverGrandeCity_EventScript_PlazaSign {
 	lock
-	msgbox(format("EVER GRANDE PLAZA"))
+	msgbox(format("Ever Grande Plaza"))
 	release
 	end
 }
 
 script EverGrandeCity_EventScript_CaveSign {
 	lock
-	msgbox(format("CHAMPION'S CUT \n Access to Pokémon League"))
+	msgbox(format("Champion's Cut \n Access to Pokémon League"))
 	release
 	end
 }

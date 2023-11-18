@@ -12,7 +12,7 @@ script Dewford_Resort_EventScript_Ferry {
 		case 1:
 			warp(MAP_LITTLEROOT_SHORE, -1, 26, 21)
 		case 2:
-			warp(MAP_SLATEPORT_CITY, -1, 39, 16)
+			warp(MAP_SLATEPORT_CITY, -1, 11, 26)
 		case 3:
 			warp(MAP_LILYCOVE_CITY, -1, 11, 35)
 		case 4:

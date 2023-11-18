@@ -80,7 +80,7 @@
       "y": 1,
       "elevation": 3,
       "item": "ITEM_LEFTOVERS",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_124_HOUSE_LEFTOVERS"
     },
     {
       "type": "hidden_item",
@@ -88,7 +88,7 @@
       "y": 4,
       "elevation": 3,
       "item": "ITEM_GOLD_BOTTLE_CAP",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_124_HOUSE_GOLD_BOTTLE_CAP"
     }
   ]
 }

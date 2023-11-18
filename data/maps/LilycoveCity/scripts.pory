@@ -95,7 +95,7 @@ script LilycoveCity_EventScript_FatMan {
 
 script LilycoveCity_EventScript_FerrySign {
 	lock
-	msgbox(format("HOENN FAST FERRY \n Lilycove Terminal"))
+	msgbox(format("Hoenn Fast Ferry \n Lilycove Terminal"))
 	release
 	end
 }
@@ -301,7 +301,7 @@ script LilycoveCity_EventScript_Ferry {
 		case 2:
 			warp(MAP_LITTLEROOT_SHORE, -1, 26, 21)
 		case 3:
-			warp(MAP_SLATEPORT_CITY, -1, 39, 16)
+			warp(MAP_SLATEPORT_CITY, -1, 11, 26)
 		case 4:
 			warp(MAP_MOSSDEEP_CITY, -1, 87, 36)
 		case 5:

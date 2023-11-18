@@ -63,7 +63,7 @@ script MossdeepCity_EventScript_Ferry {
 		case 2:
 			warp(MAP_LITTLEROOT_SHORE, -1, 26, 21)
 		case 3:
-			warp(MAP_SLATEPORT_CITY, -1, 39, 16)
+			warp(MAP_SLATEPORT_CITY, -1, 11, 26)
 		case 4:
 			warp(MAP_LILYCOVE_CITY, -1, 11, 35)
 		case 5:
@@ -141,7 +141,7 @@ script MossdeepCity_EventScript_WhiteRock {
 
 script MossdeepCity_EventScript_FerrySign {
 	lock
-	msgbox(format("HOENN FAST FERRY \n Mossdeep Terminal"))
+	msgbox(format("Hoenn Fast Ferry \n Mossdeep Terminal"))
 	release
 	end
 }

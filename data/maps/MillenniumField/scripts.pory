@@ -179,7 +179,8 @@ script MillenniumField_EventScript_LittleGirl {
     lock
     faceplayer
     msgbox(format("Hi! I really love making my own ice cream!"))
-    msgbox(format("Could you trade me a big ice cream Pokémon to help me?"), MSGBOX_YESNO)
+    msgbox(format("Could you trade me a big ice cream Pokémon to help me make more?"), MSGBOX_YESNO)
+    msgbox(format("I have this Snom I'd give you in return."))
     //TODO: trade vanilluxe for snom
     //give 3 casteliacone after trade
     release
@@ -412,11 +413,12 @@ script MillenniumField_EventScript_Skitty {
     end
 }
 
-script MillenniumField_EventScript_Twin {
+script MillenniumField_EventScript_LittleBoy {
     lock
     faceplayer
     msgbox(format("Ugh, my sister always makes way more ice cream than we can eat before it melts."))
     msgbox(format("Could you trade me a Pokémon with a lot of spoons to help me eat all our ice cream?"))
+    msgbox(format("I'll give you a Morpeko in exchange!"))
     //todo trade alakazam for morpeko
     release
     end
@@ -441,14 +443,14 @@ script MillenniumField_EventScript_TriathleteF {
 
 script MillenniumField_EventScript_FieldSign {
     lock
-    msgbox(format("MILLENNIUM FIELD \n “The eternal festival ground.”"))
+    msgbox(format("Millennium Field \n “The eternal festival ground.”"))
     release
     end
 }
 
 script MillenniumField_EventScript_WellSign {
     lock
-    msgbox(format("WISHMAKER'S WELL \n “Where lost wishes sleep forever.”"))
+    msgbox(format("Wishmaker's Well \n “Where lost wishes sleep forever.”"))
     release
     end
 }

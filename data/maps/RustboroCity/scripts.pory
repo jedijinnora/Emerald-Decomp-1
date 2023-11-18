@@ -29,6 +29,7 @@ script RustboroCity_EventScript_NinjaBoy {
 	faceplayer
 	msgbox(format("Hi! I love Shroomish!"))
 	//TODO: check and reward player if shroomish in party
+	//allow teaching of Spore
 	release
 	end
 }
@@ -45,7 +46,7 @@ script RustboroCity_EventScript_Boy2 {
 	lock
 	faceplayer
 	msgbox(format("Did you know you can swap your Pokémon's ball by using a Pokéball from the bag?"))
-	//TODO: implement lunos's feature branch that allows this
+	//lunos's feature branch allows this
 	release
 	end
 }
@@ -102,7 +103,7 @@ script RustboroCity_EventScript_Boy1 {
 
 script RustboroCity_EventScript_GymSign {
 	lock
-	msgbox(format("RUSTBORO CITY POKéMON GYM \n LEADER: Noland \p “The master industrialist!”"), MSGBOX_SIGN)
+	msgbox(format("Rustboro City Pokémon Gym \n Leader: Noland \p “The master industrialist!”"), MSGBOX_SIGN)
 	release
 	end
 }
@@ -123,14 +124,14 @@ script RustboroCity_EventScript_CitySign {
 
 script RustboroCity_EventScript_TunnelSign {
 	lock
-	msgbox(format("Route 116 {RIGHT_ARROW} \n Rusturf Tunnel beginning construction!"), MSGBOX_SIGN)
+	msgbox(format("Route 116 {RIGHT_ARROW} \p Access to Forina and Rusturf Tunnel."), MSGBOX_SIGN)
 	release
 	end
 }
 
 script RustboroCity_EventScript_CuttersHouseSign {
 	lock
-	msgbox(format("CUTTER'S HOUSE \p Come learn the power of critical hits!"), MSGBOX_SIGN)
+	msgbox(format("Cutter's House \p Come learn the power of critical hits!"), MSGBOX_SIGN)
 	release
 	end
 }
@@ -145,17 +146,17 @@ script RustboroCity_EventScript_DevonCorpSign {
 raw `
 
 RustboroCity_Text_DevonCorpSign:
-	.string "DEVON CORPORATION\p"
+	.string "Devon Corporation\p"
 	.string "“For all your living needs, we make\n"
 	.string "it all.”$"
 
 RustboroCity_Text_CitySign:
-	.string "RUSTBORO CITY\p"
+	.string "Rustboro City\p"
 	.string "“The city probing the integration of\n"
 	.string "nature and science.”$"
 
 RustboroCity_Text_TrainersSchoolSign:
-	.string "POKéMON TRAINER'S SCHOOL\p"
+	.string "Pokémon Trainer's School\p"
 	.string "“We'll teach you anything about\n"
 	.string "Pokémon!”$"
 `
@@ -171,7 +172,7 @@ script RustboroCity_EventScript_Ferry {
 		case 1:
 			warp(MAP_LITTLEROOT_SHORE, -1, 26, 21)
 		case 2:
-			warp(MAP_SLATEPORT_CITY, -1, 39, 16)
+			warp(MAP_SLATEPORT_CITY, -1, 11, 26)
 		case 3:
 			warp(MAP_LILYCOVE_CITY, -1, 11, 35)
 		case 4:

@@ -21,18 +21,17 @@ script MeteorVillage_EventScript_OnTransition {
 }
 
 script MeteorVillage_EventScript_ExpertF {
-    lockall
-    applymovement(EXPERT_F_ID, Common_Movement_FacePlayer)
+    lock
+    faceplayer
+
     //add goto checking a flag for further events
     goto_if_set(FLAG_TEMP_1, Instructions)
     msgbox(format("Hello, young one. Let me take a look at you."))
     waitmessage
     setflag(FLAG_TEMP_1)
     msgbox(format("Hmm..."))
-    waitmessage
     msgbox(format("No, you aren't the one. Disappointing."))
-    waitmessage
-    releaseall
+    release
     end
 
     Instructions:
@@ -43,104 +42,83 @@ script MeteorVillage_EventScript_ExpertF {
     waitmessage
     applymovement(EXPERT_F_ID, Common_Movement_FacePlayer)
     msgbox(format("Return if you make progress towards enlightenment."))
-    waitmessage
-    releaseall
+    release
     end
 }
 
 script MeteorVillage_EventScript_ExpertM {
-    lockall
-    applymovement(EXPERT_M_ID, Common_Movement_FacePlayer)
+    lock
+    faceplayer
     msgbox(format("Another outsider? I hope you are more respectful of our privacy than those anthropologists."))
-    waitmessage
     msgbox(format("They claim their interest in our traditions is simply intellectual curiosity."))
-    waitmessage
     msgbox(format("Hmph! I'd like to see them blasted out of the village."))
-    waitmessage
     msgbox(format("We know better than to allow them to steal our secrets."))
-    waitmessage
-    releaseall
+    release
     end
 }
 
 script MeteorVillage_EventScript_BlackBelt {
     lock
-    applymovement(BLACK_BELT_ID, Common_Movement_FacePlayer)
+    faceplayer
     msgbox(format("Up this slope is the original training grounds of our ancestors."))
     msgbox(format("Watch out! If you mess around, Aster will kick your butt."))
     waitmessage
     setvar(VAR_METEOR_VILLAGE_STATE, 1)
-    applymovement(BLACK_BELT_ID, Common_Movement_FaceOriginalDirection)
-    waitmovement(0)
-    releaseall
-    return
+    release
+    end
 }
 
 script MeteorVillage_EventScript_Warning {
-    lockall
+    lock
     applymovement(BLACK_BELT_ID, Common_Movement_ExclamationMark)
     playse(SE_PIN)
     waitmovement(0)
-    waitbuttonpress
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
     waitmovement(0)
     call(MeteorVillage_EventScript_BlackBelt)
-    releaseall
+    release
     end
 }
 
 script MeteorVillage_EventScript_BugCatcher {
-    lockall
-    applymovement(BUG_CATCHER_ID, Common_Movement_FacePlayer)
+    lock
+    faceplayer
     msgbox(format("You see this trail of sacred ash? It creates a metaphysical barrier between the village and outside influence."))
-    waitmessage
-    msgbox(format("Our village is shielded on three sides by mountain rock. The ash fills the gap at the mouth of the valley, keeping us safe from malign spirits."))
-    waitmessage
-    releaseall
+    msgbox(format("Our village is shielded on three sides by mountain rock. The ash fills the gap to keep us safe from malign spirits."))
+    release
     end
 }
 
 script MeteorVillage_EventScript_Girl2 {
-    lockall
-    applymovement(GIRL2_ID, Common_Movement_FacePlayer)
+    lock
+    faceplayer
     msgbox(format(""))
-    waitmessage
-    releaseall
+    release
     end
 }
 
 script MeteorVillage_EventScript_Girl3 {
-    lockall
-    applymovement(GIRL3_ID, Common_Movement_FacePlayer)
+    lock
+    faceplayer
     msgbox(format(""))
-    waitmessage
-    releaseall
+    release
     end
 }
 
 script MeteorVillage_EventScript_MeteorFallsSign {
-    lockall
+    lock
 	msgbox(format("{UP_ARROW} Meteor Falls"))
 	msgbox(format("Access to Route 114 and Fallarbor Town."))
-	waitmessage
-	releaseall
+	release
 	end
 }
 
 script MeteorVillage_EventScript_MeteorVillageSign {
-    lockall
-	msgbox(format("METEOR VILLAGE"))
-	msgbox(format("Home of the last Draconids."))
-    msgbox(format("Here we venerate Hoenn's most ancient traditions."))
-	waitmessage
-	releaseall
+	msgbox(format("Meteor Village\n“Home of the last Draconids.”"), MSGBOX_SIGN)
 	end
 }
 
 script MeteorVillage_EventScript_AnthropologySign {
-    lockall
-	msgbox(format("Anthropology Field Lab"))
-	waitmessage
-	releaseall
+	msgbox(format("Anthropology Field Lab"), MSGBOX_SIGN)
 	end
 }

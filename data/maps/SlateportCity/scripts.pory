@@ -10,7 +10,7 @@ script SlateportCityOnTransition {
 
 script SlateportCity_EventScript_FerrySign {
 	lock
-	msgbox(format("HOENN FAST FERRY \n Slateport Terminal"))
+	msgbox(format("Hoenn Fast Ferry \n Slateport Terminal"))
 	release
 	end
 }
@@ -306,7 +306,7 @@ mart SlateportMailMart {
 }
 
 script SlateportCity_EventScript_ScottsHouseSign {
-	msgbox(format("SCOTT'S HOUSE\p“Building the future of Pokémon \nbattles!”"))
+	msgbox(format("Scott's House\p“Building the future of Pokémon \nbattles!”"), MSGBOX_SIGN)
 	end
 }
 
@@ -582,17 +582,17 @@ SlateportCity_Text_BuyBricksSoDecorWontGetDirty:
 	.string "when I leave them out.$"
 
 SlateportCity_Text_PokemonFanClubSign:
-	.string "POKéMON FAN CLUB\n"
-	.string "“Calling all fans of POKéMON!”$"
+	.string "Pokémon FAN CLUB\n"
+	.string "“Calling all fans of Pokémon!”$"
 
 SlateportCity_Text_OceanicMuseumSign:
 	.string "“The endless sea sustains\n"
 	.string "all life.”\p"
-	.string "OCEANIC MUSEUM$"
+	.string "Oceanic Museum$"
 
 SlateportCity_Text_CitySign:
-	.string "SLATEPORT CITY\p"
-	.string "“The port where people and POKéMON\n"
+	.string "Slateport City\p"
+	.string "“The port where people and Pokémon\n"
 	.string "cross paths.”$"
 
 SlateportCity_Text_MarketSign:

@@ -20,7 +20,7 @@ script LittlerootShore_EventScript_Ferry {
 		case 1:
 			warp(MAP_DEWFORD_RESORT, -1, 6, 16)
 		case 2:
-			warp(MAP_SLATEPORT_CITY, -1, 39, 16)
+			warp(MAP_SLATEPORT_CITY, -1, 11, 26)
 		case 3:
 			warp(MAP_LILYCOVE_CITY, -1, 11, 35)
 		case 4:
@@ -38,7 +38,7 @@ script LittlerootShore_EventScript_Ferry {
 
 script LittlerootShore_EventScript_FerrySign {
 	lock
-	msgbox(format("HOENN FAST FERRY \n Littleport Terminal"))
+	msgbox(format("Hoenn Fast Ferry \n Littleport Terminal"))
 	release
 	end
 }

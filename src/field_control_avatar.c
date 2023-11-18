@@ -596,7 +596,7 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
         }
         if (ShouldDoScottFortreeCall() == TRUE)
         {
-            ScriptContext_SetupScript(Route119_EventScript_ScottWonAtFortreeGymCall);
+            //deleted this scott call
             return TRUE;
         }
         if (ShouldDoScottBattleFrontierCall() == TRUE)

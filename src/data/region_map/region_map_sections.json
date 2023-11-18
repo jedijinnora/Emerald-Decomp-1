@@ -122,7 +122,7 @@
     },
     {
       "map_section": "MAPSEC_EVER_GRANDE_CITY",
-      "name": "EVER GRANDE CITY",
+      "name": "Ever Grande City",
       "x": 26,
       "y": 8,
       "width": 1,
@@ -354,7 +354,7 @@
     },
     {
       "map_section": "MAPSEC_ROUTE_129",
-      "name": "ROUTE 129",
+      "name": "Route 129",
       "x": 23,
       "y": 10,
       "width": 3,
@@ -362,7 +362,7 @@
     },
     {
       "map_section": "MAPSEC_ROUTE_130",
-      "name": "ROUTE 130",
+      "name": "Route 130",
       "x": 20,
       "y": 10,
       "width": 3,
@@ -378,7 +378,7 @@
     },
     {
       "map_section": "MAPSEC_ROUTE_132",
-      "name": "ROUTE 132",
+      "name": "Route 132",
       "x": 14,
       "y": 10,
       "width": 3,
@@ -402,7 +402,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_124",
-      "name": "ROUTE 124",
+      "name": "Route 124",
       "x": 20,
       "y": 3,
       "width": 4,
@@ -410,7 +410,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_126",
-      "name": "ROUTE 126",
+      "name": "Route 126",
       "x": 20,
       "y": 6,
       "width": 3,
@@ -418,7 +418,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_127",
-      "name": "ROUTE 127",
+      "name": "Route 127",
       "x": 23,
       "y": 6,
       "width": 3,
@@ -426,7 +426,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_128",
-      "name": "ROUTE 128",
+      "name": "Route 128",
       "x": 23,
       "y": 9,
       "width": 4,
@@ -522,7 +522,7 @@
     },
     {
       "map_section": "MAPSEC_SHOAL_CAVE",
-      "name": "SHOAL CAVE",
+      "name": "Shoal Cave",
       "x": 23,
       "y": 3,
       "width": 1,
@@ -538,7 +538,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_SEAFLOOR_CAVERN",
-      "name": "Underwater",
+      "name": "Seafloor Cavern",
       "x": 24,
       "y": 9,
       "width": 1,
@@ -1538,7 +1538,7 @@
     },
     {
       "map_section": "MAPSEC_MONSU_ISLAND",
-      "name": "MONSU ISLAND",
+      "name": "Monsu Island",
       "x": 19,
       "y": 3,
       "width": 1,
@@ -1546,7 +1546,7 @@
     },
     {
       "map_section": "MAPSEC_MAGMA_CAVES",
-      "name": "MAGMA CAVES",
+      "name": "Magma Caves",
       "x": 6,
       "y": 3,
       "width": 1,
@@ -1610,7 +1610,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_105",
-      "name": "ROUTE 105",
+      "name": "Route 105",
       "x": 0,
       "y": 10,
       "width": 1,
@@ -1618,7 +1618,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_125",
-      "name": "Underwater",
+      "name": "Route 125",
       "x": 24,
       "y": 3,
       "width": 2,
@@ -1626,7 +1626,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_129",
-      "name": "ROUTE 129",
+      "name": "Route 129",
       "x": 24,
       "y": 10,
       "width": 2,
@@ -1666,7 +1666,7 @@
     },
     {
       "map_section": "MAPSEC_OLDALE_RUINS",
-      "name": "OLDALE RUINS",
+      "name": "Oldale Ruins",
       "x": 5,
       "y": 9,
       "width": 1,
@@ -1674,7 +1674,7 @@
     },
     {
       "map_section": "MAPSEC_EMERALD_CAPE",
-      "name": "EMERALD CAPE",
+      "name": "Emerald Cape",
       "x": 27,
       "y": 9,
       "width": 1,
@@ -1682,7 +1682,7 @@
     },
     {
       "map_section": "MAPSEC_VERDANT_FOREST",
-      "name": "VERDANT FOREST",
+      "name": "Verdant Forest",
       "x": 4,
       "y": 7,
       "width": 2,
@@ -1690,7 +1690,7 @@
     },
     {
       "map_section": "MAPSEC_DEWFORD_RESORT",
-      "name": "DEWFORD RESORT",
+      "name": "Dewford Resort",
       "x": 1,
       "y": 14,
       "width": 1,
@@ -1698,7 +1698,7 @@
     },
     {
       "map_section": "MAPSEC_METEOR_VILLAGE",
-      "name": "METEOR VILLAGE",
+      "name": "Meteor Village",
       "x": 1,
       "y": 3,
       "width": 1,
@@ -1706,7 +1706,7 @@
     },
     {
       "map_section": "MAPSEC_FORINA",
-      "name": "FORINA",
+      "name": "Forina",
       "x": 2,
       "y": 3,
       "width": 3,
@@ -1714,7 +1714,7 @@
     },
     {
       "map_section": "MAPSEC_MILLENNIUM_FIELD",
-      "name": "MILLENNIUM FIELD",
+      "name": "Millennium Field",
       "x": 3,
       "y": 2,
       "width": 1,
@@ -1722,7 +1722,7 @@
     },
     {
       "map_section": "MAPSEC_VALLEY_OF_STEEL",
-      "name": "VALLEY OF STEEL",
+      "name": "Valley of Steel",
       "x": 6,
       "y": 4,
       "width": 2,
@@ -1730,7 +1730,7 @@
     },
     {
       "map_section": "MAPSEC_DEWDROP_GLEN",
-      "name": "DEWDROP GLEN",
+      "name": "Dewdrop Glen",
       "x": 4,
       "y": 12,
       "width": 1,
@@ -1738,7 +1738,7 @@
     },
     {
       "map_section": "MAPSEC_LITTLEROOT_SHORE",
-      "name": "LITTLEROOT SHORE",
+      "name": "Littleroot Shore",
       "x": 4,
       "y": 13,
       "width": 1,
@@ -1746,7 +1746,7 @@
     },
     {
       "map_section": "MAPSEC_SLATEPORT_BEACH",
-      "name": "SLATEPORT BEACH",
+      "name": "Slateport Beach",
       "x": 8,
       "y": 12,
       "width": 1,
@@ -1754,7 +1754,7 @@
     },
     {
       "map_section": "MAPSEC_MOSSDEEP_CAVERNS",
-      "name": "MOSSDEEP CAVERNS",
+      "name": "Mossdeep Caverns",
       "x": 24,
       "y": 5,
       "width": 1,
@@ -1762,7 +1762,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_MOSSDEEP_CAVERNS",
-      "name": "UNDERWATER",
+      "name": "Mossdeep Caverns",
       "x": 25,
       "y": 5,
       "width": 1,
@@ -1770,7 +1770,7 @@
     },
     {
       "map_section": "MAPSEC_SANDSWEPT_DESERT",
-      "name": "SANDSWEPT OASIS",
+      "name": "Sandswept Oasis",
       "x": 9,
       "y": 3,
       "width": 1,
@@ -1778,7 +1778,7 @@
     },
     {
       "map_section": "MAPSEC_FOREST_HEART",
-      "name": "FOREST HEART",
+      "name": "Forest Heart",
       "x": 1,
       "y": 8,
       "width": 1,
@@ -1786,7 +1786,7 @@
     },
     {
       "map_section": "MAPSEC_MAUVILLE_POWER_PLANT",
-      "name": "POWER PLANT",
+      "name": "Power Plant",
       "x": 9,
       "y": 7,
       "width": 1,
@@ -1794,7 +1794,7 @@
     },
     {
       "map_section": "MAPSEC_SEAFOAM_COVE",
-      "name": "SEAFOAM COVE",
+      "name": "Seafoam Cove",
       "x": 21,
       "y": 4,
       "width": 1,
@@ -1802,7 +1802,7 @@
     },
     {
       "map_section": "MAPSEC_SUMMER_SEA",
-      "name": "SUMMER SEA",
+      "name": "Summer Sea",
       "x": 11,
       "y": 13,
       "width": 2,
@@ -1810,7 +1810,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_ROUTE_134",
-      "name": "ROUTE 134",
+      "name": "Route 134",
       "x": 9,
       "y": 10,
       "width": 4,
@@ -1818,7 +1818,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_TITANS_GRAVE",
-      "name": "UNDERWATER",
+      "name": "Titan's Grave",
       "x": 10,
       "y": 13,
       "width": 1,
@@ -1826,7 +1826,7 @@
     },
     {
       "map_section": "MAPSEC_WISHMAKERS_WELL",
-      "name": "WISHMAKER'S WELL",
+      "name": "Wishmaker's Well",
       "x": 3,
       "y": 2,
       "width": 1,
@@ -1834,7 +1834,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_ROUTE_109",
-      "name": "ROUTE 109",
+      "name": "Route 109",
       "x": 8,
       "y": 13,
       "width": 3,
@@ -1842,7 +1842,7 @@
     },
     {
       "map_section": "MAPSEC_TITANS_GRAVE",
-      "name": "TITAN'S GRAVE",
+      "name": "Titan's Grave",
       "x": 10,
       "y": 13,
       "width": 1,

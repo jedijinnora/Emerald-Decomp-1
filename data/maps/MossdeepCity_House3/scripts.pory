@@ -1,52 +1,45 @@
-raw `
-MossdeepCity_House3_MapScripts::
-	.byte 0
+mapscripts MossdeepCity_House3_MapScripts {}
 
-MossdeepCity_House3_EventScript_SuperRodFisherman::
+script MossdeepCity_House3_EventScript_SuperRodFisherman {
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_SUPER_ROD, MossdeepCity_House3_EventScript_ReceivedSuperRod
-	msgbox MossdeepCity_House3_Text_YouWantSuperRod, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MossdeepCity_House3_EventScript_DeclineSuperRod
-	msgbox MossdeepCity_House3_Text_SuperRodIsSuper, MSGBOX_DEFAULT
-	giveitem ITEM_SUPER_ROD
-	setflag FLAG_RECEIVED_SUPER_ROD
-	msgbox MossdeepCity_House3_Text_TryDroppingRodInWater, MSGBOX_DEFAULT
+	checkitem(ITEM_SUPER_ROD)
+	if(var(VAR_RESULT)) {
+		goto(WantSuperRematch)
+	}
+
+	msgbox(format("Hey there, Trainer! A Super Rod really is super! Say all you want, but this baby can catch Pokémon off the seafloor!"))
+	msgbox("What do you think?\n You want it, don't you?", MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		msgbox("Hunh?\n Don't you like to fish?")
+	}
+	msgbox("You bet, you bet!\nAfter all, a Super Rod is really super!")
+	//TODO: check all Fisherman trainer flags
+
+	msgbox(format("Well done! You've explored far and wide to find all of my brethren. But there's one more Fisherman to go!"))
+	
+	SuperRodBattle:
+	//TODO: trainer battle
+	msgbox(format("I concede! You are worthy to take the biggest rod!"))
+	checkitem(ITEM_SUPER_ROD)
+	if(var(VAR_RESULT)) {
+		release
+		end
+	}
+	giveitem(ITEM_SUPER_ROD)
 	release
 	end
 
-MossdeepCity_House3_EventScript_ReceivedSuperRod::
-	msgbox MossdeepCity_House3_Text_GoAfterSeafloorPokemon, MSGBOX_DEFAULT
+	WantSuperRematch:
+	msgbox(format("Want to fight my ultimate team again?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		msgbox(format("I see, I see.\n You should go fish up some stronger Pokémon!"))
+		release
+		end
+	}
+
+	NeedMoreFishermen:
+	msgbox(format("If you want the Super Rod you'll have to prove your worth by beating every Fisherman in Hoenn!"))
 	release
 	end
-
-MossdeepCity_House3_EventScript_DeclineSuperRod::
-	msgbox MossdeepCity_House3_Text_DontYouLikeToFish, MSGBOX_DEFAULT
-	release
-	end
-
-MossdeepCity_House3_Text_YouWantSuperRod:
-	.string "Hey there, Trainer!\n"
-	.string "A Super Rod really is super!\p"
-	.string "Say all you want, but this baby can\n"
-	.string "catch Pokémon off the seafloor!\p"
-	.string "What do you think?\n"
-	.string "You want it, don't you?$"
-
-MossdeepCity_House3_Text_SuperRodIsSuper:
-	.string "You bet, you bet!\n"
-	.string "After all, a Super Rod is really super!$"
-
-MossdeepCity_House3_Text_TryDroppingRodInWater:
-	.string "If there's any water, try dropping in\n"
-	.string "your Rod and see what bites!$"
-
-MossdeepCity_House3_Text_DontYouLikeToFish:
-	.string "Hunh?\n"
-	.string "Don't you like to fish?$"
-
-MossdeepCity_House3_Text_GoAfterSeafloorPokemon:
-	.string "Go after the seafloor Pokémon with\n"
-	.string "your Super Rod.$"
-
-`
+}

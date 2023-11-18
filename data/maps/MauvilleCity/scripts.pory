@@ -18,8 +18,6 @@ MauvilleCity_OnTransition:
 	end
 
 MauvilleCity_EventScript_MoveWattsonBackToGym::
-	clearflag FLAG_HIDE_MAUVILLE_GYM_WATTSON
-	setflag FLAG_HIDE_MAUVILLE_CITY_WATTSON
 	setflag FLAG_WATTSON_REMATCH_AVAILABLE
 	return
 
@@ -602,7 +600,7 @@ MauvilleCity_Text_WattsonWontBeChallenge:
 
 MauvilleCity_Text_WattsonThanksTakeTM:
 	.string "Wattson: Wahahahaha!\p"
-	.string "I knew it, {PLAYER}{KUN}! I knew I'd made\n"
+	.string "I knew it, {PLAYER}! I knew I'd made\n"
 	.string "the right choice asking you!\p"
 	.string "This is my thanks--a TM containing\n"
 	.string "Thunderbolt!\p"

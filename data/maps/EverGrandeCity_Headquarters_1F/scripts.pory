@@ -99,9 +99,10 @@ script EverGrandeCity_Headquarters_1F_EventScript_LeftScientist {
     GymInfo:
     msgbox(format("In the original Pokémon Emerald, the sequence of Gyms was largely determined by the need to obtain various HMs to move around the Hoenn region."))
     msgbox(format("In Emerald Beryl, the ferry system has been expanded: Lilycove, Mossdeep, Sootopolis, Ever Grande, Slateport, Littleroot, Dewford, and Rustboro are all available destinations."))
-    msgbox(format("This and other map changes makes it possible to challenge the Gyms in any order. Gym leaders may use different teams depending on which badge you are challenging them for, and the levels of enemy trainers will be scaled based on your number of badges."))
-    msgbox(format("Each badge you earn grants you a choice of HM, further expanding your ability to move around the region."))
+    msgbox(format("This and other map changes makes it possible to challenge the Gyms in any order. Gym leaders may use different teams depending on which badge you are challenging them for, and enemy trainers' levels will scale based on your number of badges."))
     msgbox(format("Though levels will be scaled, beware of encountering trainers with fully evolved teams or competitive builds before you are ready!"))
+    msgbox(format("Gym leaders give you a choice of HM after winning a new badge, further expanding your ability to move around the region."))
+    msgbox(format("HMs may be used whenever you have the corresponding HM item in your Bag and a Pokémon in your party which could learn it."))
     goto(LeftMenu)
 
     CapsInfo:
@@ -121,16 +122,16 @@ script EverGrandeCity_Headquarters_1F_EventScript_LeftScientist {
     dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Enable infinite candies", "Disable infinite candies", "Return to previous menu")
     switch(var(VAR_RESULT)) {
         case 0:
-            //if(!flag(FLAG_INFINITE_CANDY)) {
+            if(!flag(FLAG_INFINITE_CANDY)) {
                 //giveitem(ITEM_INFINITE_CANDY)
-                //setflag(FLAG_INFINITE_CANDY)
-            //}
+                setflag(FLAG_INFINITE_CANDY)
+            }
             msgbox(format("Unlimited candy enabled! Don't do too many drugs, kid!"))
         case 1:
-            //if(flag(FLAG_INFINITE_CANDY)) {
+            if(flag(FLAG_INFINITE_CANDY)) {
                 //removeitem(ITEM_INFINITE_CANDY)
-                //clearflag(FLAG_INFINITE_CANDY)
-            //}
+                clearflag(FLAG_INFINITE_CANDY)
+            }
             msgbox(format("Unlimited candy disabled! Illegal drugs are subject to confiscation!"))
         case 2:
         default:
@@ -147,6 +148,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_LeftScientist {
             msgbox(format("To get to Dewford, just take the ferry! Dewford is a solid choice for your first badge, as long as you aren't afraid of the dark!"))
         case 2:
             msgbox(format("To get to Mauville, take the ferry to Slateport and journey north through Route 110!"))
+            msgbox(format("You could also pick up an Acro Bike in Lilycove and take the long way via Routes 121, 122, 123, and 118."))
         case 3:
             msgbox(format("To get to Lavaridge, take the ferry to Rustboro and journey east through Route 116 and then northeast through Forina!"))
             msgbox(format("For a slightly longer and more dangerous route, start from Slateport and head north on Route 110 to Mauville. Then find the entrance to the Valley of Steel on Route 117 and go north!"))
@@ -160,7 +162,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_LeftScientist {
         case 6:
             msgbox(format("To get to Mossdeep, just take the ferry! I wouldn't recommend it for your first badge though, it's one of the more challenging Gyms."))
         case 7:
-            msgbox(format("To get to Sootopolis, just take the ferry! I wouldn't recommend it for your first badge though, it's one of the more challenging Gyms."))
+            msgbox(format("To get to Sootopolis, just take the ferry! We use flying Pokémon to get you inside the caldera."))
         default:
             goto(LeftMenu)
     }
@@ -184,69 +186,68 @@ script EverGrandeCity_Headquarters_1F_EventScript_RightScientist {
 	lock
 	faceplayer
     goto_if_unset(FLAG_SYS_NATIONAL_DEX, GoCheckIn)
-	msgbox(format("There are two optional challenges available: HM-FREE and ROGUE."))
+	msgbox(format("I can tell you about Emerald Beryl's optional challenge settings."))
 
     RightMenu:
     msgbox(format("What would you like to hear more about?"))
-	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Optional challenge info", "HM-FREE info", "ROGUE info", "Modify optional challenges", "Other challenges")
+	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Optional challenge info", "HM Challenges info", "Ferry Challenge info", "Modify optional challenges", "Nuzlocke/Monotype?")
     switch(var(VAR_RESULT)) {
         case 0:
-            goto(GeneralInfo)
+            msgbox(format("Optional challenges may be enabled or disabled freely prior to leaving Ever Grande City for the first time."))
+            msgbox(format("Speak to me after becoming Champion and I will reward you for any challenges completed. Alternatively, return here prior to becoming Champion and I will allow you to forfeit your challenges if you turn out to be, as the phrase goes, a total scrub."))
+            msgbox(format("While an optional challenge is active you will be forced into the Set battle style and item use in battle will be disabled."))
         case 1:
-            goto(HMFREEInfo)
+            msgbox(format("It is possible to reach any Gym in the Hoenn region without the use of any HMs. In the standard game, one HM of your choice is awarded each time you get a new badge."))
+            msgbox(format("The Random HMs challenge gives you a random HM after each gym instead of allowing you to choose."))
+            msgbox(format("This challenge is mostly to make the game more interesting, and the reward is a sense of pride and accomplishment."))
+            msgbox(format("In the No HMs hallenge no HMs will be rewarded by Gym Leaders. This severely restricts the areas you can fully explore and limits you from many useful items and encounters."))
+            msgbox(format("You will have to acquire all 8 badges without the use of HMs, and then return here."))
+            msgbox(format("Once you have 8 badges, I will teleport you to the beginning of Victory Road, which will have obstacles removed or circumvented so you can proceed without needing HMs."))
+            msgbox(format("Speak to me after becoming Champion, and I will give you all 8 HMs and shiny 6IV versions of Turtwig, Chimchar, and Piplup."))
         case 2:
-            goto(RogueInfo)
+            msgbox(format("In the standard game, you may ride the ferry around the Hoenn region as much or as little as you like."))
+            msgbox(format("In the Ferry Challenge you begin with just one ferry ride. Further ferry rides are only available if you have beaten another Gym since your last use."))
+            msgbox(format("In addition, you must select either the Random HMs or No HMs challenge."))
+            msgbox(format("Beware! It is possible to softlock yourself if you choose to visit Dewford, Mossdeep, or Sootopolis twice. Visiting Lilycove twice without obtaining a Bike can also softlock you."))
+            msgbox(format("Speak to me after becoming Champion and I will unlock unlimited use of the ferry and additional rewards."))
+            msgbox(format("Along with the HM Challenge rewards you will receive a shiny 6IV Imposter Ditto and other gifts which are secret for now."))
         case 3:
-            goto(ModifyChallenges)
+            msgbox(format("Please select your desired option."))
+            dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "No challenges", "Activate Random HMs challenge", "Activate No HMs challenge", "Activate Ferry Challenge with Random HMs", "Activate Ferry Challenge with No HMs")
+            switch(var(VAR_RESULT)) {
+                case 0:
+                    clearflag(FLAG_CHALLENGE_HM_RANDOM)
+                    clearflag(FLAG_CHALLENGE_HM_NONE)
+                    clearflag(FLAG_CHALLENGE_FERRY_LIMIT)
+                    clearflag(FLAG_CHALLENGE_FERRY_TICKET)
+                    msgbox(format("All optional challenges removed."))
+                case 1:
+                    setflag(FLAG_CHALLENGE_HM_RANDOM)
+                    clearflag(FLAG_CHALLENGE_HM_NONE)
+                    msgbox(format("You activated the Random HMs challenge."))
+                case 2:
+                    setflag(FLAG_CHALLENGE_HM_RANDOM)
+                    setflag(FLAG_CHALLENGE_HM_NONE)
+                    msgbox(format("You activated the No HMs challenge."))
+                case 3:
+                    setflag(FLAG_CHALLENGE_HM_RANDOM)
+                    clearflag(FLAG_CHALLENGE_HM_NONE)
+                    setflag(FLAG_CHALLENGE_FERRY_LIMIT)
+                    setflag(FLAG_CHALLENGE_FERRY_TICKET)
+                    msgbox(format("You activated the Ferry challenge with Random HMs."))
+                case 4:
+                    setflag(FLAG_CHALLENGE_HM_RANDOM)
+                    setflag(FLAG_CHALLENGE_HM_NONE)
+                    setflag(FLAG_CHALLENGE_FERRY_LIMIT)
+                    setflag(FLAG_CHALLENGE_FERRY_TICKET)
+                    msgbox(format("You activated the Ferry challenge with No HMs."))
+                default:
+                    msgbox(format("Your previous challenge settings will be retained."))
+            }
         case 4:
             msgbox(format("Additional challenges such as monotype or nuzlocke runs are the responsibility of the player to manage."))
-            goto(RightMenu)
         default:
             goto(ScientistOut)
-    }
-
-    GeneralInfo:
-    msgbox(format("The two optional challenges may be enabled or disabled freely prior to leaving Ever Grande City for the first time."))
-    msgbox(format("Speak to me after becoming Champion and I will reward you for any challenges completed. Alternatively, return here prior to becoming Champion and I will allow you to forfeit your challenges if you turn out to be, as the phrase goes, a total scrub."))
-    msgbox(format("While an optional challenge is active you will be forced into the SET battle style and item use in battle will be set to FALSE."))
-    msgbox(format("Additional challenges such as monotype or nuzlocke runs are the responsibility of the player to manage."))
-    goto(RightMenu)
-
-    HMFREEInfo:
-    msgbox(format("It is possible to reach any Gym in the Hoenn region without the use of any HMs. In the standard game, one HM of your choice is awarded each time you get a new badge."))
-    msgbox(format("In the HM-FREE challenge no HMs will be rewarded by Gym Leaders. This severely restricts the areas you can fully explore and limits you from many useful items."))
-    msgbox(format("You will have to acquire all 8 badges without the use of HMs, and then return here."))
-    msgbox(format("Once you have 8 badges, I will teleport you to the beginning of Victory Road, which will have obstacles removed or circumvented so you can proceed without needing HMs."))
-    msgbox(format("Speak to me after becoming Champion, and I will give you all 8 HMs and shiny 6IV versions of Turtwig, Chimchar, and Piplup."))
-    goto(RightMenu)
-    
-    RogueInfo:
-    msgbox(format("In the standard game, you may ride the ferry around the Hoenn region as much or as little as you like."))
-    msgbox(format("In the ROGUE challenge you begin with just one ferry ride. Further ferry rides are only available if you have beaten another Gym since your last use."))
-    msgbox(format("In addition, all the rules of the HM-FREE challenge apply."))
-    msgbox(format("Beware! It is possible to softlock yourself if you choose to visit Dewford, Mossdeep, or Sootopolis twice. Visiting Lilycove twice without obtaining a Bike can also softlock you."))
-    msgbox(format("Speak to me after becoming Champion and I will unlock unlimited use of the ferry and additional rewards."))
-    msgbox(format("Along with the HM-FREE rewards you will receive a shiny 6IV Imposter Ditto and other gifts which are secret for now."))
-    goto(RightMenu)
-
-    ModifyChallenges:
-    msgbox(format("Please select your desired option."))
-    dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "No challenges", "Activate HM-FREE challenge only", "Activate ROGUE challenge")
-    switch(var(VAR_RESULT)) {
-        case 0:
-            //clearflag(FLAG_HMFREE_CHALLENGE)
-            //clearflag(FLAG_ROGUE_CHALLENGE)
-            msgbox(format("All optional challenges removed."))
-        case 1:
-            //setflag(FLAG_HMFREE_CHALLENGE)
-            //clearflag(FLAG_ROGUE_CHALLENGE)
-            msgbox(format("You have begun the HM-FREE challenge."))
-        case 2:
-            //setflag(FLAG_HMFREE_CHALLENGE)
-            //setflag(FLAG_ROGUE_CHALLENGE)
-            msgbox(format("You have begun the HM-FREE and ROGUE challenges."))
-        default:
-            msgbox(format("Your previous challenge settings will be retained."))
     }
     goto(RightMenu)
 }
@@ -282,7 +283,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_GameBoyKid {
         release
         end
     }
-    random(8)
+    random(9)
     switch(var(VAR_RESULT)) {
         case 0: 
             msgbox(format("Don't forget to call ur mom if you have encountered ShoalShock!"))
@@ -300,6 +301,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_GameBoyKid {
             msgbox(format("I hacked the Trick Master! \n {RIGHT_ARROW} {UP_ARROW} {RIGHT_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {DOWN_ARROW}"))
         case 6: 
             msgbox(format("In ur Trick House, lootin ur doorz! \n {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {UP_ARROW}"))
+        case 7:
+            msgbox(format("Is that a Sky Pillar in your pants or are you just happy to see me?"))
+            msgbox(format("{LEFT_ARROW} {UP_ARROW} {UP_ARROW} {UP_ARROW} {LEFT_ARROW} {UP_ARROW} {UP_ARROW} {UP_ARROW} {UP_ARROW} {RIGHT_ARROW} {RIGHT_ARROW} {RIGHT_ARROW} {UP_ARROW}"))
         default:
             msgbox(format("GAME OVER! Insert quarter to play again."))
             clearflag(FLAG_TEMP_2)
@@ -345,7 +349,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_ScientistCredits {
             FeaturesMenu:
             msgbox(format("Features will be listed by order of inclusion into this project."))
             msgbox(format("Which kind of features would you like to hear about?"))
-            dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Player quality of life", "Creator quality of life", "Bug fixes", "Game knowledge/minor tweaks")
+            dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Player quality of life", "Creator quality of life", "Bug fixes", "Game file knowledge/minor tweaks")
             switch(var(VAR_RESULT)) {
                 case 0:
                     msgbox(format("Nature stat colors, by DizzyEgg."))
@@ -364,9 +368,10 @@ script EverGrandeCity_Headquarters_1F_EventScript_ScientistCredits {
                 case 1:
                     msgbox(format("Generic item ball script, by Deokishisu."))
                     msgbox(format("Dynamic multichoice, by SBird."))
+                    msgbox(format("Decapitalization, by AsparagusEduardo"))
                     goto(FeaturesMenu)
                 case 2:
-                    msgbox(format("Disable Union room check, from the tutorial master list."))
+                    msgbox(format("Disable unnecessary Union Room check, from the tutorial master list."))
                     msgbox(format("Surf dismount ground effects, from the tutorial master list."))
                     msgbox(format("Poison Heal protects from overworld poison, by Lunos."))
                     goto(FeaturesMenu)
