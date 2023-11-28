@@ -1,3 +1,22 @@
+script Route111_OldLadysRestStop_EventScript_Twin {
+	lock
+	faceplayer
+	msgbox(format("You need goggles to be able to see in the sandstorm!"))
+	checkitem(ITEM_GO_GOGGLES)
+	if(var(VAR_RESULT) == FALSE) {
+		msgbox(format("Here! You should borrow my extra pair!"))
+		giveitem(ITEM_GO_GOGGLES)
+		msgbox(format("If you find some Safety Goggles you can protect your Pokémon from the sandstorm too."))
+		release
+		end
+	}
+	msgbox(format("I hope those Go-Goggles I gave you are working well!"))
+	msgbox(format("Have you caught a lot of desert Pokémon?"))
+	release
+	end
+}
+
+
 raw `
 Route111_OldLadysRestStop_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route111_OldLadysRestStop_OnTransition

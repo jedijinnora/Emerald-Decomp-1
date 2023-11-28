@@ -24,8 +24,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "FLAG_HIDE_ARRIVAL_FERRY_ROOM_ROOMMATE"
+      "script": "ArrivalFerry_Room_EventScript_Madman",
+      "flag": "FLAG_TEMP_11"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIRCHS_BAG",
@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ArrivalFerry_Room_EventScript_Bag",
-      "flag": "FLAG_HIDE_ARRIVAL_FERRY_ROOM_BAG"
+      "flag": "FLAG_TEMP_12"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",

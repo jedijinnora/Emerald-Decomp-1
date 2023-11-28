@@ -141,6 +141,7 @@
 #define MAP_VERDANTURF_TOWN_WANDAS_HOUSE            (6 | (6 << 8))
 #define MAP_VERDANTURF_TOWN_FRIENDSHIP_RATERS_HOUSE (7 | (6 << 8))
 #define MAP_VERDANTURF_TOWN_HOUSE                   (8 | (6 << 8))
+#define MAP_VERDANTURF_TOWN_HOUSE2                  (9 | (6 << 8))
 
 // gMapGroup_IndoorPacifidlog
 #define MAP_PACIFIDLOG_TOWN_POKEMON_CENTER_1F (0 | (7 << 8))
@@ -476,6 +477,7 @@
 #define MAP_SEAFOAM_COVE_B2F            (1 | (26 << 8))
 #define MAP_ALTERING_CAVE_UPPER_FLOOR_1 (2 | (26 << 8))
 #define MAP_ALTERING_CAVE_UPPER_FLOOR_2 (3 | (26 << 8))
+#define MAP_DESERT_UNDERPASS_1F         (4 | (26 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (27 << 8))

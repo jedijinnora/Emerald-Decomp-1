@@ -16,6 +16,9 @@ script EverGrandeCity_OnTransition {
 //FLAG_TEMP_3 and FLAG_TEMP_4 Gentleman conversation
 //FLAG_TEMP_5 Maniac intro
 
+//FLAG_TEMP_1E mainland gyms check
+//FLAG_TEMP_1F Surf check
+
 
 script EverGrandeCity_EventScript_CaveBlocked {
 	lock
@@ -28,37 +31,12 @@ script EverGrandeCity_EventScript_CaveBlocked {
 script EverGrandeCity_EventScript_Ferry {
 	lock
 	faceplayer
-	goto_if_set(FLAG_SYS_NATIONAL_DEX, FerryMenu)
+	goto_if_set(FLAG_SYS_NATIONAL_DEX, Common_EventScript_Ferry)
 	goto_if_set(FLAG_TEMP_1, BuildingDirections)
 	msgbox(format("Ahoy, {PLAYER}! The ferry won't leave for a while. Explore the city and make sure you are all squared away for your journey!"))
 	setflag(FLAG_TEMP_1)
 	BuildingDirections:
 	msgbox(format("Check-in is at the big building north of the plaza. You can't miss it!"))
-	release
-	end
-
-	FerryMenu:
-	msgbox(format("Ahoy, {PLAYER}! The ferry is ready to take you to your next destination!"))
-	msgbox(format("Where would you like to go?"))
-	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Rustboro", "Dewford", "Littleroot", "Slateport", "Sootopolis", "Mossdeep", "Lilycove")
-	switch(var(VAR_RESULT)) {
-		case 0:
-			warp(MAP_RUSTBORO_CITY, -1, 14, 12)
-		case 1:
-			warp(MAP_DEWFORD_RESORT, -1, 6, 16)
-		case 2:
-			warp(MAP_LITTLEROOT_SHORE, -1, 26, 21)
-		case 3:
-			warp(MAP_SLATEPORT_CITY, -1, 11, 26)
-		case 4:
-			warp(MAP_SOOTOPOLIS_CITY, -1, 21, 44)
-		case 5:
-			warp(MAP_MOSSDEEP_CITY, -1, 87, 36)
-		case 6:
-			warp(MAP_LILYCOVE_CITY, -1, 11, 35)
-		default:
-			msgbox(format("See you later, then!"))
-	}
 	release
 	end
 }
@@ -249,14 +227,14 @@ script EverGrandeCity_EventScript_Maniac {
 
 script EverGrandeCity_EventScript_CitySign {
 	lock
-	msgbox(format("Ever Grande City"))
+	msgbox(format("Ever Grande City\n“Flowering heart of the Hoenn region.”"))
 	release
 	end
 }
 
 script EverGrandeCity_EventScript_PlazaSign {
 	lock
-	msgbox(format("Ever Grande Plaza"))
+	msgbox(format("Ever Grande City\nLeague Plaza"))
 	release
 	end
 }
@@ -266,4 +244,150 @@ script EverGrandeCity_EventScript_CaveSign {
 	msgbox(format("Champion's Cut \n Access to Pokémon League"))
 	release
 	end
+}
+
+//Common ferry script for use at all terminals
+script Common_EventScript_Ferry {
+	lock
+	faceplayer
+	checkitem(ITEM_HM03_SURF)
+	if(var(VAR_RESULT)) {
+		//if the player has surf, allow any destination
+		setflag(FLAG_TEMP_1F)
+	} 
+	//check map and count badges
+	specialvar(VAR_RESULT, GetCurrentMapSec)
+	call(Common_EventScript_CountBadges)
+
+	//check if in Ever Grande and need to go teleport to Victory Road
+	if(flag(FLAG_CHALLENGE_FERRY_LIMIT) && var(VAR_NUM_BADGES) > 7 && !flag(FLAG_SYS_GAME_CLEAR) && var(VAR_RESULT) == 0x0F) {
+		msgbox(format("You need to talk to the scientist who handles the game's challenges to get a teleport to Victory Road!"))
+		release
+		end
+	}
+
+	//check ticket
+	call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_CheckFerryTicket)
+	if(var(VAR_RESULT) == 0x0E) {
+		//sootopolis city has a different intro
+		msgbox(format("Yo, {PLAYER}! The ferry can't reach inside the caldera, but we can take you by Flying Pokémon!"))
+	} else {
+		msgbox(format("Ahoy, {PLAYER}! The ferry is ready to take you to your next destination!"))
+	}
+
+	//check mainland gyms
+	//rustboro, mauville, lavaridge, petalburg, fortree
+	if (flag(FLAG_BADGE01_GET) && flag(FLAG_BADGE03_GET) && flag(FLAG_BADGE04_GET) && flag(FLAG_BADGE05_GET) && flag(FLAG_BADGE06_GET)) {
+		setflag(FLAG_TEMP_1E) //all mainland gyms defeated, must go to islands
+	}
+	
+	if (var(VAR_RESULT) != 0x0A && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_TEMP_1E) || flag(FLAG_TEMP_1F))) {
+		dynmultipush("Rustboro", 0)
+	}
+	if (var(VAR_RESULT) != 0x02 && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_BADGE02_GET) || flag(FLAG_TEMP_1F))) {
+		dynmultipush("Dewford", 1)
+	}
+	if (var(VAR_RESULT) != 0x4B && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_TEMP_1E) || flag(FLAG_TEMP_1F))) {
+		dynmultipush("Littleroot", 2)
+	}
+	if (var(VAR_RESULT) != 0x08 && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_TEMP_1E) || flag(FLAG_TEMP_1F))) {
+		dynmultipush("Slateport", 3)
+	}
+	if (var(VAR_RESULT) != 0x0C && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_TEMP_1E) || flag(FLAG_TEMP_1F))) {
+		dynmultipush("Lilycove", 4)
+	}
+	if (var(VAR_RESULT) != 0x0D && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_BADGE07_GET) || flag(FLAG_TEMP_1F))) {
+		dynmultipush("Mossdeep", 5)
+	}
+	if (var(VAR_RESULT) != 0x0E && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_BADGE08_GET) || flag(FLAG_TEMP_1F))) {
+		dynmultipush("Sootopolis", 6)
+	}
+	if (var(VAR_RESULT) != 0x0F && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || (var(VAR_NUM_BADGES) > 7) || flag(FLAG_TEMP_1F))) {
+		dynmultipush("Ever Grande", 7)
+	}
+
+	//finished all checks, do menu choice
+	msgbox(format("Where would you like to go?"))
+	dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+
+	//warp to new map, use ticket if doing challenge, set heal spawn to prevent locking
+	switch(var(VAR_RESULT)) {
+		case 0:
+			warp(MAP_RUSTBORO_CITY, -1, 11, 26)
+			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
+			setrespawn(HEAL_LOCATION_RUSTBORO_CITY)
+		case 1:
+			warp(MAP_DEWFORD_RESORT, -1, 6, 16)
+			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
+			setrespawn(HEAL_LOCATION_DEWFORD_TOWN)
+		case 2:
+			warp(MAP_LITTLEROOT_SHORE, -1, 26, 21)
+			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
+			setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE)
+		case 3:
+			warp(MAP_SLATEPORT_CITY, -1, 11, 26)
+			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
+			setrespawn(HEAL_LOCATION_SLATEPORT_CITY)
+		case 4:
+			warp(MAP_LILYCOVE_CITY, -1, 11, 35)
+			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
+			setrespawn(HEAL_LOCATION_LILYCOVE_CITY)
+		case 5:
+			warp(MAP_MOSSDEEP_CITY, -1, 87, 36)
+			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
+			setrespawn(HEAL_LOCATION_MOSSDEEP_CITY)
+		case 6:
+			warp(MAP_SOOTOPOLIS_CITY, -1, 21, 44)
+			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
+			setrespawn(HEAL_LOCATION_SOOTOPOLIS_CITY)
+		case 7:
+			warp(MAP_EVER_GRANDE_CITY, -1, 24, 30)
+			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
+			setrespawn(HEAL_LOCATION_EVER_GRANDE_CITY)
+		default:
+			msgbox(format("See you later, then!"))
+	}
+	release
+	end
+}
+
+script Common_EventScript_CheckFerryTicket {
+	goto_if_set(FLAG_CHALLENGE_FERRY_TICKET, Common_EventScript_NopReturn)
+	msgbox(format("Ahoy, {PLAYER}! Go refresh your ferry ticket by beating a Gym Leader!"))
+	release
+	end
+}
+
+script Common_EventScript_UseFerryTicket {
+	clearflag(FLAG_CHALLENGE_FERRY_TICKET)
+	return
+}
+
+script Common_EventScript_CountBadges {
+	setvar(VAR_NUM_BADGES, 0)
+	if(flag(FLAG_BADGE01_GET)) {
+		addvar(VAR_NUM_BADGES, 1)
+	}
+	if(flag(FLAG_BADGE02_GET)) {
+		addvar(VAR_NUM_BADGES, 1)
+	}
+	if(flag(FLAG_BADGE03_GET)) {
+		addvar(VAR_NUM_BADGES, 1)
+	}
+	if(flag(FLAG_BADGE04_GET)) {
+		addvar(VAR_NUM_BADGES, 1)
+	}
+	if(flag(FLAG_BADGE05_GET)) {
+		addvar(VAR_NUM_BADGES, 1)
+	}
+	if(flag(FLAG_BADGE06_GET)) {
+		addvar(VAR_NUM_BADGES, 1)
+	}
+	if(flag(FLAG_BADGE07_GET)) {
+		addvar(VAR_NUM_BADGES, 1)
+	}
+	if(flag(FLAG_BADGE08_GET)) {
+		addvar(VAR_NUM_BADGES, 1)
+	}
+	return
 }

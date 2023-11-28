@@ -357,8 +357,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 47,
-      "y": 43,
+      "x": 51,
+      "y": 56,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -392,12 +392,12 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_GOLD_BOTTLE_CAP",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_ROUTE_114_GOLD_BOTTLE_CAP"
+      "flag": "FLAG_ITEM_ROUTE_114_GOLD_BOTTLE_CAP_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 7,
-      "y": 31,
+      "x": 11,
+      "y": 37,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -409,21 +409,21 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 52,
-      "y": 60,
+      "x": 45,
+      "y": 29,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_BOTTLE_CAP",
+      "trainer_sight_or_berry_tree_id": "ITEM_GOLD_BOTTLE_CAP",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_ROUTE_114_BOTTLE_CAP"
+      "flag": "FLAG_ITEM_ROUTE_114_GOLD_BOTTLE_CAP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 11,
-      "y": 37,
+      "x": 38,
+      "y": 46,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -454,20 +454,6 @@
       "y": 36,
       "elevation": 0,
       "dest_map": "MAP_ROUTE114_LANETTES_HOUSE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 6,
-      "y": 46,
-      "elevation": 0,
-      "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 7,
-      "y": 4,
-      "elevation": 0,
-      "dest_map": "MAP_TERRA_CAVE_ENTRANCE",
       "dest_warp_id": "0"
     },
     {
@@ -589,8 +575,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 51,
-      "y": 33,
+      "x": 15,
+      "y": 72,
       "elevation": 3,
       "item": "ITEM_NUGGET",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_114_NUGGET"

@@ -1059,9 +1059,8 @@ ContestHall_EventScript_CheckRankIsMaster::
 ContestHall_EventScript_DontSkipPrize::
 	return
 
-@ This flag is never read
+@ This flag is never read, Jinnora deleted
 ContestHall_EventScript_SetSketchFlag::
-	setflag FLAG_CONTEST_SKETCH_CREATED
 	return
 
 ContestHall_EventScript_SetReadyForContestArtist::

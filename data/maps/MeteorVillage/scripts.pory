@@ -1,29 +1,20 @@
-mapscripts MeteorVillage_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION: MeteorVillage_EventScript_OnTransition
-}
-
-//Object IDs:
 const EXPERT_F_ID = 1
-const EXPERT_M_ID = 2
-const BLACK_BELT_ID = 3
-const BUG_CATCHER_ID = 4
-const GIRL2_ID = 5
-const GIRL3_ID = 6
-
 
 //TEMPs Used:
 //FLAG_TEMP_1 - ExpertF judgment
 
+mapscripts MeteorVillage_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: MeteorVillage_EventScript_OnTransition
+}
+
 script MeteorVillage_EventScript_OnTransition {
     setflag(FLAG_VISITED_METEOR_VILLAGE)
-    setvar(VAR_METEOR_VILLAGE_STATE, 0)
     end
 }
 
 script MeteorVillage_EventScript_ExpertF {
     lock
     faceplayer
-
     //add goto checking a flag for further events
     goto_if_set(FLAG_TEMP_1, Instructions)
     msgbox(format("Hello, young one. Let me take a look at you."))
@@ -40,7 +31,7 @@ script MeteorVillage_EventScript_ExpertF {
     applymovement(EXPERT_F_ID, Common_Movement_FaceAwayPlayer)
     msgbox(format("Perhaps you could surprise me..."))
     waitmessage
-    applymovement(EXPERT_F_ID, Common_Movement_FacePlayer)
+    faceplayer
     msgbox(format("Return if you make progress towards enlightenment."))
     release
     end
@@ -68,18 +59,6 @@ script MeteorVillage_EventScript_BlackBelt {
     end
 }
 
-script MeteorVillage_EventScript_Warning {
-    lock
-    applymovement(BLACK_BELT_ID, Common_Movement_ExclamationMark)
-    playse(SE_PIN)
-    waitmovement(0)
-    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
-    waitmovement(0)
-    call(MeteorVillage_EventScript_BlackBelt)
-    release
-    end
-}
-
 script MeteorVillage_EventScript_BugCatcher {
     lock
     faceplayer
@@ -89,7 +68,7 @@ script MeteorVillage_EventScript_BugCatcher {
     end
 }
 
-script MeteorVillage_EventScript_Girl2 {
+script MeteorVillage_EventScript_Aster {
     lock
     faceplayer
     msgbox(format(""))
@@ -105,11 +84,17 @@ script MeteorVillage_EventScript_Girl3 {
     end
 }
 
-script MeteorVillage_EventScript_MeteorFallsSign {
+script MeteorVillage_EventScript_Twin {
     lock
-	msgbox(format("{UP_ARROW} Meteor Falls"))
-	msgbox(format("Access to Route 114 and Fallarbor Town."))
-	release
+    faceplayer
+    msgbox(format("Zinnia: Have you met my big sister Aster? She's so cool!"))
+    msgbox(format("Zinnia: No, you can't go in. Aster said no outsiders allowed!"))
+    release
+    end
+}
+
+script MeteorVillage_EventScript_MeteorFallsSign {
+	msgbox(format("{UP_ARROW} Meteor Falls\nAccess to Route 114 and Fallarbor Town."), MSGBOX_SIGN)
 	end
 }
 

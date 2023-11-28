@@ -87,7 +87,7 @@
       "x": 8,
       "y": 10,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_ROTATE_COUNTERCLOCKWISE",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -100,7 +100,7 @@
       "x": 49,
       "y": 11,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -395,8 +395,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 4,
-      "y": 19,
+      "x": 19,
+      "y": 0,
       "elevation": 0,
       "item": "ITEM_MIRROR_HERB",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_117_MIRROR_HERB"

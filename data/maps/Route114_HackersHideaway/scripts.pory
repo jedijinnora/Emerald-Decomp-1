@@ -1,1 +1,129 @@
 mapscripts Route114_HackersHideaway_MapScripts {}
+
+script Route114_HackersHideaway_EventScript_PC {
+    msgbox(format("You don't have a login for this computer."), MSGBOX_SIGN)
+
+    //combat simulator or heal party
+    //check flags and request opponent index #
+    //generate battle
+    end
+}
+
+script Route114_HackersHideaway_EventScript_Machine {
+    msgbox(format("The intricate machine hums ominously."), MSGBOX_SIGN)
+    end
+}
+
+script Route114_HackersHideaway_EventScript_Lanette {
+    lock
+    faceplayer
+    msgbox("Welcome!")
+    release
+    end
+}
+
+script Route114_HackersHideaway_EventScript_Thompson {
+    lock
+    faceplayer
+    msgbox(format("I am Thompson, with a P as in psychology!"))
+    msgbox(format("I can teach your Pokémon reliable moves that never miss! Therefore, I am the superior sibling!"))
+    if (!flag(FLAG_MET_THOMPSON_HIT_MOVES)) {
+        msgbox(format("Now that you've met me, the apporopriate type experts will also teach these moves."))
+        setflag(FLAG_MET_THOMPSON_HIT_MOVES)
+    }
+    msgbox(format("Which move should I teach?"))
+    //multichoice
+    release
+    end
+}
+
+script Route114_HackersHideaway_EventScript_Thomson {
+    lock
+    faceplayer
+    msgbox(format("I am Thomson, with a P as in vuvuzela!"))
+    msgbox(format("I can teach your Pokémon reliable moves that deal set damage! Therefore, I am the superior sibling!"))
+    if (!flag(FLAG_MET_THOMSON_SET_MOVES)) {
+        msgbox(format("Now that you've met me, the apporopriate type experts will also teach these moves."))
+        setflag(FLAG_MET_THOMSON_SET_MOVES)
+    }
+    msgbox(format("Which move should I teach?"))
+    //multichoice
+    release
+    end
+}
+
+script Route114_HackersHideaway_EventScript_Maniac {
+    lock
+    faceplayer
+    msgbox(format("Hackerman: I am the most powerful man of all time."))
+    msgbox(format("Hackerman: My hacks transcend time and space…"))
+    msgbox(format("Hackerman: Use my custom algorithms to summon any past opponent to battle again!"))
+    msgbox(format("Hackerman: It was all written in assembly, so I make no promises as to your survival."))
+    release
+    end
+}
+
+script Route114_HackersHideaway_EventScript_Youngster {
+    lock
+    faceplayer
+    if(!flag(FLAG_RECEIVED_AMULET_COIN)) {
+        msgbox(format("Break the bank with this one cool trick!"))
+        giveitem(ITEM_AMULET_COIN)
+        setflag(FLAG_RECEIVED_AMULET_COIN)
+    }
+    msgbox(format("Stick it to the man by doubling the money you take from people weaker than you!"))
+    msgbox(format("…"))
+    msgbox(format("Actually, using an Amulet Coin feels kinda scummy. But tears can be dried using that sweet, sweet cash."))
+    release
+    end
+}
+
+script Route114_HackersHideaway_EventScript_GameBoyKid {
+    lock
+    faceplayer
+    msgbox("Need a link?")
+    waitmessage
+    pokemart(HackersHideaway_CordMart)
+    release
+    end
+}
+
+mart HackersHideaway_CordMart {
+    ITEM_LINKING_CORD
+}
+
+script Route114_HackersHideaway_EventScript_Man {
+    lock
+    faceplayer
+    checkitem(ITEM_TM97_PLAY_ROUGH)
+    if(!var(VAR_RESULT)) {
+        msgbox(format("Sigh…"))
+        msgbox(format("Something something your…"))
+        msgbox(format("Never mind, just take this."))
+        giveitem(ITEM_TM97_PLAY_ROUGH)
+        release
+        end
+    }
+    msgbox(format("Perhaps the Internet was a mistake."))
+    release
+    end
+}
+
+script Route114_HackersHideaway_EventScript_Woman {
+    lock
+    faceplayer
+    msgbox(format("Oh, when the developer implements mints I'll be able to reset a Pokémon to its original nature."))
+    release
+    end
+}
+
+script Route114_HackersHideaway_EventScript_Bard {
+    lock
+    faceplayer
+    msgbox(format("Hello again, {PLAYER}!"))
+    msgbox(format("The humor of some of these people, it is too much!"))
+    msgbox(format("Such crude insults and bourgeousie references! Tintin? Bah!"))
+    msgbox(format("If I wanted to read Herge, I would always pick the superior Quick & Flupke!"))
+    release
+    end
+}

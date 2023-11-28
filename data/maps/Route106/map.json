@@ -175,24 +175,16 @@
   ],
   "bg_events": [
     {
-      "type": "sign",
-      "x": 59,
-      "y": 21,
-      "elevation": 3,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route106_EventScript_TrainerTipsSign"
-    },
-    {
       "type": "hidden_item",
-      "x": 53,
-      "y": 20,
+      "x": 54,
+      "y": 21,
       "elevation": 0,
       "item": "ITEM_NUGGET",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_106_NUGGET"
     },
     {
       "type": "hidden_item",
-      "x": 65,
+      "x": 68,
       "y": 24,
       "elevation": 0,
       "item": "ITEM_HEART_SCALE",

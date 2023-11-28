@@ -1,1 +1,49 @@
 mapscripts MeteorVillage_CentralHall_MapScripts {}
+
+script MeteorVillage_CentralHall_EventScript_Baltoy {
+
+}
+
+script MeteorVillage_CentralHall_EventScript_Lass {
+    lock
+    faceplayer
+    msgbox(format("Legend says that after the ancient leviathans of the land, sky, and sea finished building the Hoenn region they fell into eternal slumber."))
+    msgbox(format("The Red, Green, and Blue Orbs contain the power needed to reawaken Groudon, Rayquaza, and Kyogre."))
+    msgbox(format("The Red and Blue Orbs rest atop Mt. Pyre, but the Green Orb was lost long ago."))
+    release
+    end
+}
+
+script MeteorVillage_CentralHall_EventScript_ExpertF {
+    lock
+    faceplayer
+    msgbox(format(""))
+    release
+    end
+}
+
+script MeteorVillage_CentralHall_EventScript_ExpertM {
+    lock
+    faceplayer
+    msgbox(format("Some visitors say we are fools, to live traditionally and disdain the conveniences of modern Hoenn."))
+    msgbox(format("If I owned a personal computer would the smiles of my grandchildren glow more brighly?"))
+    msgbox(format("If we grew our crops with industrial fertilizers and pesticides would the food I cook with my family taste any different?"))
+    msgbox(format("Don't let yourself be overawed by the material promises of modernity and forget the important things in life."))
+    release
+    end
+}
+
+script MeteorVillage_CentralHall_EventScript_Nurse {
+    lock
+    faceplayer
+    msgbox(format("Shall I heal your Pokémon?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        msgbox(format("Come again."))
+        release
+        end
+    }
+    call(Common_EventScript_OutOfCenterPartyHeal)
+    msgbox(format("May the stars light your way."))
+    release
+    end
+}

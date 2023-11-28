@@ -185,6 +185,19 @@
       "trainer_sight_or_berry_tree_id": "ITEM_PP_MAX",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_122_PP_MAX"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BIRCHS_BAG",
+      "x": 31,
+      "y": 36,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route122_EventScript_Stash",
+      "flag": "FLAG_HIDE_SECRET_STASH_ROUTE_122"
     }
   ],
   "warp_events": [
@@ -219,7 +232,7 @@
     {
       "type": "hidden_item",
       "x": 62,
-      "y": 34,
+      "y": 32,
       "elevation": 0,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_122_RARE_CANDY_2"

@@ -1,4 +1,5 @@
 mapscripts ArrivalFerry_Room_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : ArrivalFerry_Room_OnTransition
     MAP_SCRIPT_ON_FRAME_TABLE[
         VAR_CLEANUP_STATE, 0: ArrivalFerry_Room_EventScript_Init
     ] 
@@ -11,11 +12,18 @@ const LOCALID_BAG = 2
 //TEMPs used
 //VAR_TEMP_1 and VAR_TEMP_2 for Player x,y determination
 
+script ArrivalFerry_Room_OnTransition {
+    if (var(VAR_CLEANUP_STATE) > 3) {
+        setflag(FLAG_TEMP_11)
+        setflag(FLAG_TEMP_12)
+    }
+    end
+}
+
 script ArrivalFerry_Room_EventScript_Init {
     lock
     delay(60)
     setrespawn(HEAL_LOCATION_EVER_GRANDE_CITY)
-    setvar(VAR_PAINTER_STATE, 1)
     playse(SE_PIN)
     applymovement(LOCALID_ROOMMATE, Common_Movement_ExclamationMark)
     waitmovement(LOCALID_ROOMMATE)
@@ -41,7 +49,7 @@ script ArrivalFerry_Room_EventScript_Init {
     msgbox(format("Then let me speak in language even a buffoon like you shall comprehend:"))
     applymovement(LOCALID_ROOMMATE, SeetheU)
     waitmovement(LOCALID_ROOMMATE)
-    msgbox(format("PICK UP YOUR SHIT!"))
+    msgbox(format("Pick up your shit!"))
     waitmessage
     applymovement(LOCALID_ROOMMATE, SeetheU)
     waitmovement(LOCALID_ROOMMATE)
@@ -90,7 +98,7 @@ movement Leave {
 
 script ArrivalFerry_Room_EventScript_Madman {
     lock
-    applymovement(LOCALID_ROOMMATE, Common_Movement_FacePlayer)
+    faceplayer
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
     if (var(VAR_TEMP_1) == 4) {
         applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
@@ -117,7 +125,7 @@ script ArrivalFerry_Room_EventScript_Madman {
     //3 = all necessary items gathered
     //4 = exit from room has occurred
 script ArrivalFerry_Room_EventScript_CheckCleanup {
-    if (flag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_POTION) && flag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_SUPER_POTION) && flag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_ESCAPE_ROPE) && flag(FLAG_HIDE_ARRIVAL_FERRY_ROOM_BAG)) {
+    if (flag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_POTION) && flag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_SUPER_POTION) && flag(FLAG_ITEM_ARRIVAL_FERRY_ROOM_ESCAPE_ROPE) && flag(FLAG_TEMP_12)) {
         setvar(VAR_CLEANUP_STATE, 2)
         if (flag(FLAG_SYS_B_DASH) && flag(FLAG_SYS_POKEDEX_GET)) {
             setvar(VAR_CLEANUP_STATE, 3)
@@ -135,7 +143,7 @@ script ArrivalFerry_Room_EventScript_GoClean {
     waitmovement(OBJ_EVENT_ID_PLAYER)
     msgbox(format("Not good enough! We won't depart until you have retrieved all of your belongings!"))
     msgbox(format("Be grateful I am not making us carry out our trash. To be clear:"))
-    msgbox(format("LET'S SEE SOME MORE CLEANING!"))
+    msgbox(format("Show me some more cleaning!"))
     waitmessage
     release
     end
@@ -149,7 +157,7 @@ script ArrivalFerry_Room_EventScript_GoFind {
     applymovement(OBJ_EVENT_ID_PLAYER, MoveUp)
     waitmovement(OBJ_EVENT_ID_PLAYER)
     msgbox(format("What? You cannot think of anywhere else to clean?"))
-    msgbox(format("I am astonished that a ludicrously imbecilic individual such as yourself has been sent to Hoenn by the eminent Professor Rowan."))
+    msgbox(format("I am astonished that a ludicrously imbecilic individual such as yourself is capable of putting one foot in front of the other."))
     msgbox(format("Make certain you retrieved your disgusting shoes from beneath the bed!"))
     msgbox(format("And be sure to check your trash can! A nincompoop like you likely threw away valuable items!"))
     waitmessage
@@ -170,7 +178,7 @@ script ArrivalFerry_Room_EventScript_Finished {
     playse(SE_EXIT)
     waitse
     waitmovement(LOCALID_ROOMMATE)
-    setflag(FLAG_HIDE_ARRIVAL_FERRY_ROOM_ROOMMATE)
+    setflag(FLAG_TEMP_11)
     removeobject(LOCALID_ROOMMATE)
     setvar(VAR_CLEANUP_STATE, 4)
     release
@@ -179,7 +187,7 @@ script ArrivalFerry_Room_EventScript_Finished {
 
 script ArrivalFerry_Room_EventScript_UnderBed {
     lock
-    msgbox(format("You check under the bed..."))
+    msgbox(format("You check under the bed…"))
     if(flag(FLAG_SYS_B_DASH)) {
         msgbox(format("You find nothing but dust here."))
         release
@@ -207,7 +215,6 @@ script ArrivalFerry_Room_EventScript_TrashCan {
     waitfanfare
     closemessage
     setflag(FLAG_SYS_POKEDEX_GET)
-    setflag(FLAG_ADVENTURE_STARTED)
     setvar(VAR_CABLE_CLUB_TUTORIAL_STATE, 1)
     special(SetUnlockedPokedexFlags)
     release
@@ -221,7 +228,7 @@ script ArrivalFerry_Room_EventScript_Bag {
 
     //choose from selection
     StarterChoice:
-    message(format("Er... Which one did you pick again?"))
+    message(format("Er… Which one did you pick again?"))
     waitmessage
     multichoice(25, 5, MULTI_STARTER_CHOICE, 1)
     closemessage
@@ -251,7 +258,7 @@ script ArrivalFerry_Room_EventScript_Bag {
     playfanfare(MUS_OBTAIN_ITEM)
     givemon(VAR_STARTER_CHOICE, 5, ITEM_ORAN_BERRY)
     waitfanfare 
-    setflag(FLAG_HIDE_ARRIVAL_FERRY_ROOM_BAG)
+    setflag(FLAG_TEMP_12)
     removeobject(LOCALID_BAG)
     setflag(FLAG_SYS_POKEMON_GET)
 
@@ -264,7 +271,7 @@ script ArrivalFerry_Room_EventScript_Bag {
 
     //ending message
     msgbox(format("With your first Pokémon back at your side you are ready to take on the world!"))
-    msgbox(format("...Assuming you've cleaned up enough that the madman will let you out the door."))
+    msgbox(format("Assuming you've cleaned up enough that the madman will let you out the door…"))
     release
     end
 }

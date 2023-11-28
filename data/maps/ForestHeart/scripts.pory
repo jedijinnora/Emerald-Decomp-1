@@ -1,1 +1,34 @@
-mapscripts ForestHeart_MapScripts {}
+mapscripts ForestHeart_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : ForestHeart_OnTransition
+}
+
+const LOCALID_STASH = 2
+
+script ForestHeart_OnTransition {
+    call(ForestHeart_EventScript_TryMoveStash)
+    end
+}
+script ForestHeart_EventScript_TryMoveStash {
+	goto_if_set(FLAG_HIDE_SECRET_STASH_FOREST_HEART, Common_EventScript_NopReturn)
+	switch(var(VAR_SECRET_STASH_STATE)) {
+		case 0:
+			setobjectxyperm(LOCALID_STASH, 39, 3)
+		case 1:
+			setobjectxyperm(LOCALID_STASH, 2, 5)
+		case 2:
+			setobjectxyperm(LOCALID_STASH, 27, 31)
+		case 3:
+			setobjectxyperm(LOCALID_STASH, 12, 32)
+		default:
+			setobjectxyperm(LOCALID_STASH, 17, 9)
+	}
+	return
+}
+
+script ForestHeart_EventScript_Stash {
+	setvar(VAR_TEMP_D, ITEM_ZINC)
+	setvar(VAR_TEMP_E, ITEM_LEAF_STONE)
+	setvar(VAR_TEMP_F, ITEM_WATER_STONE)
+	call(Common_EventScript_SecretStash)
+	end
+}

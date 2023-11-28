@@ -1,1 +1,27 @@
 mapscripts MeteorVillage_House1_MapScripts {}
+
+script MeteorVillage_House1_EventScript_Man {
+    lock
+    faceplayer
+    if (flag(FLAG_TEMP_1)) {
+        msgbox(format("How is the little dragonslayer doing these days?"))
+        release
+        end
+    }
+    msgbox(format("Everyone here loves Dragon types."))
+    msgbox(format("This little one is out of place here, being a Steel/Fairy type."))
+    msgbox(format("You look like a strong Trainer. Would you take Mawile with you on your journey?"), MSGBOX_YESNO)
+    //give mawile
+
+    release
+    end
+}
+
+script MeteorVillage_House1_EventScript_Girl {
+    lock
+    faceplayer
+    msgbox(format("Every Dragon has in their heart the desire to transcend their physical limits and grow ever stronger."))
+    msgbox(format("I wonder what would happen if you trained a Pokémon until it could swim up a raging waterfall? What sort of power might that unlock…"))
+    release
+    end
+}

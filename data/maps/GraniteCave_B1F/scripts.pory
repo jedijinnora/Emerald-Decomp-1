@@ -4,6 +4,13 @@ mapscripts GraniteCave_B1F_MapScripts {
 	MAP_SCRIPT_ON_RESUME : GraniteCave_B1F_SetHoleWarp
 }
 
+script GraniteCave_B1F_EventScript_Stash {
+	setvar(VAR_TEMP_D, ITEM_IRON)
+	setvar(VAR_TEMP_E, ITEM_EVERSTONE)
+	setvar(VAR_TEMP_F, ITEM_DAWN_STONE)
+	call(Common_EventScript_SecretStash)
+}
+
 raw `
 GraniteCave_B1F_SetHoleWarp:
 	setstepcallback STEP_CB_CRACKED_FLOOR

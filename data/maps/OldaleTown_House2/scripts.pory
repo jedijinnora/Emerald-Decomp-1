@@ -1,22 +1,94 @@
-raw `
-OldaleTown_House2_MapScripts::
-	.byte 0
+mapscripts OldaleTown_House2_MapScripts {}
 
-OldaleTown_House2_EventScript_Woman::
-	msgbox OldaleTown_House2_Text_PokemonLevelUp, MSGBOX_NPC
+script OldaleTown_House2_EventScript_Woman {
+	lock
+	faceplayer
+	msgbox(format("It's wise to be kind rather than to be cruel."))
+	msgbox(format("It makes the world a better place, and you avoid making unnecessary enemies."))
+	release
 	end
+}
 
-OldaleTown_House2_EventScript_Man::
-	msgbox OldaleTown_House2_Text_YoullGoFurtherWithStrongPokemon, MSGBOX_NPC
-	end
+script OldaleTown_House2_EventScript_Hebert {
+    lock
+    faceplayer
+    msgbox(format("Hello. Call me Hebert. "))
+    goto_if_set(FLAG_RECEIVED_OLDALE_TOWN_HOUSE2_BUG_GEM, BugMenu)
+    msgbox(format("Here, something to help a Bug Pokémon."))
+    giveitem(ITEM_BUG_GEM)
+    setflag(FLAG_RECEIVED_OLDALE_TOWN_HOUSE2_BUG_GEM)
+    BugMenu:
+    msgbox(format("I just love how insects skitter around."))
+    dynmultichoice(0,0, FALSE, 6, 0, DYN_MULTICHOICE_CB_NONE, "Information", "Move Tutor", "Single Battle", "Double Battle", "Challenge Battle", "Other Bug Moves?")
+    switch(var(VAR_RESULT)) {
+        case 0:
+            msgbox(format("You may face me in a single, double, or challenge battle. For each team you defeat, I will offer to teach additional Bug-type moves."))
+            goto(BugMenu)
+        case 1:
+            BugTutor:
+            //do a dynamic multistack with move options based on opponent flag states
+            //single battle unlocks: Fury Cutter0, Lunge2, Silver Wind7, Skitter Smack8
 
-OldaleTown_House2_Text_PokemonLevelUp:
-	.string "When Pokémon battle, they eventually\n"
-	.string "level up and become stronger.$"
+            //double battle unlocks: Infestation1, Megahorn3, Pollen Puff4, Signal Beam6
 
-OldaleTown_House2_Text_YoullGoFurtherWithStrongPokemon:
-	.string "If the Pokémon with you become\n"
-	.string "stronger, you'll be able to go farther\l"
-	.string "away from here.$"
+            //challenge unlocks: Quiver Dance5, Sticky Web9, Tail Glow10
 
-`
+            dynmultipush("Cancel", 11)
+            msgbox(format("Which move should I teach?"))
+            dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+            switch(var(VAR_RESULT)) {
+                case 0:
+                    //teach Fury Cutter
+                case 1:
+                    //teach Infestation
+                case 2:
+                    //teach Lunge
+                case 3:
+                    //teach Megahorn
+                case 4:
+                    //teach Pollen Puff
+                case 5:
+                    //teach Quiver Dance
+                case 6:
+                    //teach Signal Beam
+                case 7:
+                    //teach Silver Wind
+				case 8:
+					//teach Skitter Smack
+				case 9:
+					//teach Sticky Web
+				case 10:
+					//teach Tail Glow
+                default:
+                    goto(BugMenu)
+            }
+        case 2:
+            msgbox(format("Defeating me in a single battle will unlock Fury Cutter, Lunch, Silver Wind, and Skitter Smack."))
+            msgbox(format("Does that sound copacetic?"), MSGBOX_YESNO)
+            //battle
+            goto(BugMenu)
+        case 3:
+            msgbox(format("Defeating me in a double battle will unlock Infestation, Megahorn, Pollen Puff, and Signal Beam."))
+            msgbox(format("Are your Pokémon ready?"), MSGBOX_YESNO)
+            //battle
+            goto(BugMenu)
+        case 4:
+            msgbox(format("Defeating me in a challenge battle will unlock Quiver Dance, Sticky Web, and Tail Glow."))
+            msgbox(format("For the challenge battle, you must bring a team of only Bug-type Pokémon."))
+            msgbox(format("Are you prepared?"), MSGBOX_YESNO)
+            //check team comp
+
+            //battle
+            goto(BugMenu)
+        case 5:
+            msgbox(format("There are other tutors around the region who will teach the moves Bug Bite, Pin Missile, and X-Scissor."))
+            goto(BugMenu)
+        default:
+            BugGoodbye:
+            msgbox(format("Later."))
+            release
+            end
+    }
+    release
+    end
+}

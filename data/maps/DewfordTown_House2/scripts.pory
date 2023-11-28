@@ -1,59 +1,29 @@
-raw `
-DewfordTown_House2_MapScripts::
-	.byte 0
+mapscripts DewfordTown_House2_MapScripts {}
 
-DewfordTown_House2_EventScript_Man::
+script DewfordTown_House2_EventScript_Man {
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_SILK_SCARF, DewfordTown_House2_EventScript_ExplainSilkScarf
-	msgbox DewfordTown_House2_Text_WantYouToHaveSilkScarf, MSGBOX_DEFAULT
-	giveitem ITEM_SILK_SCARF
-	goto_if_eq VAR_RESULT, FALSE, DewfordTown_House2_EventScript_NoRoomForScarf
-	setflag FLAG_RECEIVED_SILK_SCARF
+	goto_if_set(FLAG_TEMP_1, PlateInfo)
+	msgbox(format("Every Pokémon type has a corresponding held item that boosts the power of its moves."))
+	msgbox(format("But there's no such item for the Fairy type! Or at least, not besides the rumored seventeenth Plate."))
+	setflag(FLAG_TEMP_1)
 	release
 	end
 
-DewfordTown_House2_EventScript_NoRoomForScarf::
-	msgbox DewfordTown_House2_Text_NoRoom, MSGBOX_DEFAULT
+	PlateInfo:
+	msgbox(format("Oh, did you want to hear more about the Plates?"))
+	msgbox(format("They're said to be ancient artifacts the Celestica people engraved with their mastery of Pokémon types."))
+	msgbox(format("But the Celestica all died out, leaving only a few descendants in Sinnoh."))
 	release
 	end
+}
 
-DewfordTown_House2_EventScript_ExplainSilkScarf::
-	msgbox DewfordTown_House2_Text_ExplainSilkScarf, MSGBOX_DEFAULT
+script DewfordTown_House2_EventScript_Boy {
+	lock
+	faceplayer
+	msgbox(format("Wow, you crossed the sea to visit Dewford?"))
+	msgbox(format("I hope you didn't bring any invasive species with you."))
+	msgbox(format("A small island like this can have its ecosystem easily damaged by careless visitors."))
 	release
 	end
-
-DewfordTown_House2_EventScript_Boy::
-	msgbox DewfordTown_House2_Text_BrawlySoCool, MSGBOX_NPC
-	end
-
-DewfordTown_House2_Text_WantYouToHaveSilkScarf:
-	.string "Gorge your eyes on this!\p"
-	.string "It's a Silk Scarf. It's right at the\n"
-	.string "cutting edge of fashion, yeah!\p"
-	.string "Oh, I can see your eyes twinkling!\n"
-	.string "You appreciate my dazzling style!\p"
-	.string "Oh, you're a delight!\n"
-	.string "Here you go. I want you to have it!$"
-
-DewfordTown_House2_Text_NoRoom:
-	.string "Oh, you don't have room?\p"
-	.string "Now, listen tight, this Scarf is a must-\n"
-	.string "have! Why, I would sell all my items\l"
-	.string "in order to get it!$"
-
-DewfordTown_House2_Text_ExplainSilkScarf:
-	.string "The Silk Scarf raises the power of\n"
-	.string "Normal-type moves.\p"
-	.string "It's a marvelous Scarf that will go\n"
-	.string "with almost all Pokémon!$"
-
-DewfordTown_House2_Text_BrawlySoCool:
-	.string "Wow, you bothered to cross the sea\n"
-	.string "to visit Dewford?\p"
-	.string "Did you maybe come here because you\n"
-	.string "heard about Brawly?\p"
-	.string "He's so cool…\n"
-	.string "Everyone idolizes him.$"
-
-`
+}

@@ -1,1 +1,68 @@
 mapscripts MeteorVillage_House2_MapScripts {}
+
+script MeteorVillage_House2_EventScript_Twin {
+    lock
+    faceplayer
+    msgbox(format("Emmy: My brother and I wished on a Dragon Scale to go on a fantastic adventure, but it didn't come true…"))
+    msgbox(format("Emmy: I guess we'll have to grow up first."))
+    release
+    end
+}
+
+script MeteorVillage_House2_EventScript_LittleBoy {
+    lock
+    faceplayer
+	goto_if_set(FLAG_METEOR_VILLAGE_DRATINI_TRADE_COMPLETED, DratiniTradeCompleted)
+	setvar(VAR_0x8008, INGAME_TRADE_DRATINI)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
+	copyvar(VAR_0x8009, VAR_RESULT)
+	msgbox(format("Max: Our family could use a Tropius to help with our garden and crops."))
+    msgbox(format("Max: My sister and I have a Dratini we'd give you in exchange?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DeclineDratiniTrade)
+	msgbox(format("Thank you!"))
+	waitmessage
+	special(ChoosePartyMon)
+	waitstate
+	copyvar(VAR_0x800A, VAR_0x8004)
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, DeclineDratiniTrade)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	specialvar(VAR_RESULT, GetTradeSpecies)
+	copyvar(VAR_0x800B, VAR_RESULT)
+	goto_if_ne(VAR_RESULT, VAR_0x8009, SelectedNotTropius)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	special(CreateInGameTradePokemon)
+	special(DoInGameTradeScene)
+	waitstate
+	msgbox(format("I hope your dreams come true!"))
+	setflag(FLAG_METEOR_VILLAGE_DRATINI_TRADE_COMPLETED)
+	release
+	end
+
+	DeclineDratiniTrade:
+	msgbox(format("Awww."))
+	release
+	end
+
+	SelectedNotTropius:
+	msgbox(format("I thought Tropius had fruits growing on it? That doesn't look right."))
+	release
+	end
+
+	DratiniTradeCompleted:
+	msgbox(format("Max: It can be tricky to grow plants in the foothills here. Tropius helps a lot!"))
+    msgbox(format("Max: How is Quetzal doing with you? Has he grown up to be a big strong Dragonite yet?"))
+	release
+	end
+}
+
+script MeteorVillage_House2_EventScript_Woman {
+    lock
+    faceplayer
+    msgbox(format("We Draconids choose to pass down our stories face to face instead of writing them down."))
+    msgbox(format("It's only in the last century that the bulk of your society's knowledge has been moved outside the minds of its people."))
+    msgbox(format("What will the consequences of that be, do you think?"))
+    release
+    end
+}

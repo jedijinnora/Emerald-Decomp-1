@@ -1,1 +1,35 @@
-mapscripts DewdropGlen_MapScripts {}
+const LOCALID_STASH = 2
+
+
+mapscripts DewdropGlen_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : DewdropGlen_OnTransition
+}
+
+script DewdropGlen_OnTransition {
+    call(DewdropGlen_EventScript_TryMoveStash)
+    end
+}
+
+script DewdropGlen_EventScript_TryMoveStash {
+    goto_if_set(FLAG_HIDE_SECRET_STASH_DEWDROP_GLEN, Common_EventScript_NopReturn)
+    switch(var(VAR_SECRET_STASH_STATE)) {
+        case 0:
+            setobjectxyperm(LOCALID_STASH, 39, 11)
+        case 1:
+            setobjectxyperm(LOCALID_STASH, 27, 14)
+        case 2:
+            setobjectxyperm(LOCALID_STASH, 0, 6)
+        case 3:
+            setobjectxyperm(LOCALID_STASH, 0, 28)
+        default:
+            setobjectxyperm(LOCALID_STASH, 23, 36)
+    }
+}
+
+script DewdropGlen_EventScript_Stash {
+    setvar(VAR_TEMP_D, ITEM_CALCIUM)
+    setvar(VAR_TEMP_E, ITEM_DAWN_STONE)
+    setvar(VAR_TEMP_F, ITEM_LEAF_STONE)
+    call(Common_EventScript_SecretStash)
+    end
+}

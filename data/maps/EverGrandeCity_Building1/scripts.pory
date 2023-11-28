@@ -2,10 +2,50 @@ mapscripts EverGrandeCity_Building1_MapScripts {}
 
 script EverGrandeCity_Building1_EventScript_ExpertF {
     lock
-    faceplayer
-    msgbox(format("When updated, I will trade my Chatot for a Floatzel."))
-    release
-    end
+	faceplayer
+	goto_if_set(FLAG_EVER_GRANDE_CHATOT_TRADE_COMPLETED, ChatotTradeCompleted)
+	setvar(VAR_0x8008, INGAME_TRADE_CHATOT)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
+	copyvar(VAR_0x8009, VAR_RESULT)
+	msgbox("Hello, young one.")
+	msgbox(format("Would you do this old lady a favor and trade a Floatzel for my Chatot?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DeclineChatotTrade)
+	msgbox(format("Thank you. I haven't been able to take him out battling like he loves."))
+	waitmessage
+	special(ChoosePartyMon)
+	waitstate
+	copyvar(VAR_0x800A, VAR_0x8004)
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, DeclineChatotTrade)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	specialvar(VAR_RESULT, GetTradeSpecies)
+	copyvar(VAR_0x800B, VAR_RESULT)
+	goto_if_ne(VAR_RESULT, VAR_0x8009, SelectedNotFloatzel)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	special(CreateInGameTradePokemon)
+	special(DoInGameTradeScene)
+	waitstate
+	msgbox(format("I'll be much more comfortable going out to swim with Floatzel by my side."))
+	setflag(FLAG_EVER_GRANDE_CHATOT_TRADE_COMPLETED)
+	release
+	end
+
+	DeclineChatotTrade:
+	msgbox(format("Best of luck, young one."))
+	release
+	end
+
+	SelectedNotFloatzel:
+	bufferspeciesname(STR_VAR_1, VAR_0x8009)
+	msgbox(format("I may be old but even I can see that Pokémon isn't a Floatzel."))
+	release
+	end
+
+	ChatotTradeCompleted:
+	msgbox(format("How is Alex doing these days? I hope he's proved a worthwhile companion on your journey."))
+	release
+	end
 }
 
 script EverGrandeCity_Building1_EventScript_BlackBelt {

@@ -1,12 +1,19 @@
-raw `
-Route126_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route126_OnTransition
-	.byte 0
+mapscripts Route126_MapScripts {}
 
-Route126_OnTransition:
-	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
+script Route126_EventScript_Beauty {
+	lock
+	faceplayer
+	msgbox(format("I like to walk out here to remind myself how vast the world is outside of Sootopolis's protective walls…"))
+	release
 	end
+}
 
+script Route126_EventScript_Sign {
+	msgbox("Route 126\nInterior access to Sootopolis", MSGBOX_SIGN)
+	end
+}
+
+raw `
 Route126_EventScript_Barry::
 	trainerbattle_single TRAINER_BARRY, Route126_Text_BarryIntro, Route126_Text_BarryDefeat
 	msgbox Route126_Text_BarryPostBattle, MSGBOX_AUTOCLOSE

@@ -1,20 +1,22 @@
-raw `
-.set LOCALID_DAYCARE_MAN, 3
+const LOCALID_DAYCARE_MAN = 3
 
-Route117_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route117_OnTransition
-	.byte 0
+mapscripts Route117_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route117_OnTransition
+}
 
-Route117_OnTransition:
-	call Route117_EventScript_TryMoveDayCareMan
+script Route117_OnTransition {
+	call(Route117_EventScript_TryMoveDayCareMan)
 	end
+}
 
-Route117_EventScript_TryMoveDayCareMan::
-	goto_if_unset FLAG_PENDING_DAYCARE_EGG, Route117_EventScript_StopMoveDayCareMan
-	setobjectxyperm LOCALID_DAYCARE_MAN, 34, 6
-Route117_EventScript_StopMoveDayCareMan::
+script Route117_EventScript_TryMoveDayCareMan {
+	goto_if_unset(FLAG_PENDING_DAYCARE_EGG, Route117_StopMoveDayCareMan)
+	setobjectxyperm(LOCALID_DAYCARE_MAN, 51, 6)
+Route117_StopMoveDayCareMan:
 	return
+}
 
+raw `
 Route117_EventScript_Woman::
 	msgbox Route117_Text_ArentTheseFlowersPretty, MSGBOX_NPC
 	end

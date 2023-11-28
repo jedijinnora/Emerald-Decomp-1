@@ -1,3 +1,131 @@
+script FortreeCity_Gym_EventScript_GymGuide {
+	lock
+	faceplayer
+	if(flag(FLAG_SYS_GAME_CLEAR)) {
+		msgbox(format("Good to see you again, Champion {PLAYER}! I knew you had it in you!"), MSGBOX_NPC)
+		release
+		end
+	}
+	if(flag(FLAG_BADGE06_GET)) {
+		msgbox("Wonderful showing!\nA battle straight from the heart!", MSGBOX_NPC)
+		release
+		end
+	}
+	msgbox(FortreeCity_Gym_Text_GymGuideAdvice, MSGBOX_NPC)
+	release
+	end
+}
+
+text FortreeCity_Gym_Text_GymGuideAdvice {
+	"Ho, challenger! You've braved the\n"
+	"jungle of Hoenn to reach Fortree.\p"
+	"Now you face the master of nature's\n"
+	"wisdom, Gym Leader Spenser!\p"
+	"You'll have to push past Spenser's\n"
+	"students to reach the sage himself!"
+}
+
+script FortreeCity_Gym_EventScript_Spenser {
+	lock
+	faceplayer
+	goto_if_set(FLAG_SYS_GAME_CLEAR, SpenserRematch)
+	goto_if_set(FLAG_DEFEATED_FORTREE_GYM, SpenserEnd)
+	//check number of badges and return appropriate battle
+	switch(var(VAR_NUM_BADGES)) {
+		case 0:
+			//badge 1 team
+			trainerbattle_single(TRAINER_WINONA_1, FortreeCity_Gym_Text_SpenserIntro, FortreeCity_Gym_Text_SpenserDefeat, FortreeCity_Gym_EventScript_SpenserDefeated, NO_MUSIC)
+		case 1:
+			//badge 2 team
+		case 2:
+		case 3:
+			//badge 34 team
+		case 4:
+		case 5:
+		case 6:
+			//badge 567 team
+		case 7:
+			//badge 8 team
+			trainerbattle_single(TRAINER_WINONA_1, FortreeCity_Gym_Text_SpenserIntro, FortreeCity_Gym_Text_SpenserDefeat, FortreeCity_Gym_EventScript_SpenserDefeated, NO_MUSIC)
+		default:
+			goto_if_unset(FLAG_TEMP_1, SpenserRematch)
+	}
+	goto(SpenserEnd)
+
+	SpenserRematch:
+	goto_if_set(FLAG_TEMP_1, SpenserEnd)
+	msgbox("… … …\nSo, are you ready?", MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, SpenserEnd)
+	setflag(FLAG_TEMP_1)
+	cleartrainerflag(TRAINER_WINONA_1)
+	trainerbattle_single(TRAINER_WINONA_1, FortreeCity_Gym_Text_SpenserPreRematch, FortreeCity_Gym_Text_SpenserRematchDefeat)
+
+	SpenserEnd:
+	msgbox(FortreeCity_Gym_Text_SpenserPostBattle)
+	release
+	end
+}
+
+script FortreeCity_Gym_EventScript_SpenserDefeated {
+	message(FortreeCity_Gym_Text_ReceivedFeatherBadge)
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	setflag(FLAG_DEFEATED_FORTREE_GYM)
+	setflag(FLAG_BADGE06_GET)
+	setflag(FLAG_CHALLENGE_FERRY_TICKET)
+	addvar(VAR_NUM_BADGES, 1)
+	setvar(VAR_0x8008, 6)
+	call(Common_EventScript_SetGymTrainers)
+	call_if_unset(FLAG_CHALLENGE_HM_NONE, Gym_EventScript_GetHM)
+	msgbox(FortreeCity_Gym_Text_SpenserPostBattle)
+	return
+}
+
+text FortreeCity_Gym_Text_SpenserIntro {
+	"Spenser: My physical being is with\n"
+	"Pokémon always!\p"
+	"My heart beats as one with\n"
+	"Pokémon always!\p"
+	"Young one of a Trainer!\n"
+	"Do you believe in your Pokémon?\p"
+	"Can you believe them through\n"
+	"and through?\p"
+	"If your bonds of trust are frail,\n"
+	"you will never beat my brethren!"
+}
+
+text FortreeCity_Gym_Text_SpenserDefeat {
+	"Spenser: Gwahahah!\p"
+	"Hah, you never fell for my bluster!\n"
+	"Sorry for trying that stunt!\p"
+	"Here!"
+}
+
+text FortreeCity_Gym_Text_SpenserPostBattle {
+	"Spenser: Your Pokémon's eyes are \n"
+	"truly clear and unclouded.\p"
+	"I will eagerly await the next\n"
+	"opportunity to see you."
+}
+
+text FortreeCity_Gym_Text_SpenserPreRematch {
+	"Spenser: Gwahahah!\n"
+	"You must have developed a truly\l"
+	"formidable bond with your Pokémon.\p"
+	"So be it!\p"
+	"This time, I won't bluster or hold back.\n"
+	"This time, there's no fooling around.\p"
+	"Ready now?\n"
+	"Prepare to lose!"
+}
+
+text FortreeCity_Gym_Text_SpenserRematchDefeat {
+	"Spenser: Well, that was some display!\n"
+	"Even fully unleashed, my brethren\l"
+	"could not overpower you.\p"
+	"Your team spirit is truly admirable!\p"
+}
+
 raw `
 FortreeCity_Gym_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FortreeCity_Gym_OnTransition
@@ -15,58 +143,6 @@ FortreeCity_Gym_OnWarp:
 @ NOTE: This rotating gate puzzle makes use of VAR_TEMP_0 - VAR_TEMP_3
 FortreeCity_Gym_EventScript_InitRotatingGates::
 	special RotatingGate_InitPuzzleAndGraphics
-	end
-
-FortreeCity_Gym_EventScript_Winona::
-	trainerbattle_single TRAINER_WINONA_1, FortreeCity_Gym_Text_WinonaIntro, FortreeCity_Gym_Text_WinonaDefeat, FortreeCity_Gym_EventScript_WinonaDefeated, NO_MUSIC
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, FortreeCity_Gym_EventScript_WinonaRematch
-	goto_if_unset FLAG_RECEIVED_TM_AERIAL_ACE, FortreeCity_Gym_EventScript_GiveAerialAce2
-	msgbox FortreeCity_Gym_Text_WinonaPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-FortreeCity_Gym_EventScript_WinonaDefeated::
-	message FortreeCity_Gym_Text_ReceivedFeatherBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	msgbox FortreeCity_Gym_Text_ExplainFeatherBadgeTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_DEFEATED_FORTREE_GYM
-	setflag FLAG_BADGE06_GET
-	setvar VAR_0x8008, 6
-	call Common_EventScript_SetGymTrainers
-	call FortreeCity_Gym_EventScript_GiveAerialAce
-	closemessage
-	delay 30
-	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox FortreeCity_Gym_Text_RegisteredWinona, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_WINONA_MATCH_CALL
-	setvar VAR_SCOTT_FORTREE_CALL_STEP_COUNTER, 0
-	setflag FLAG_SCOTT_CALL_FORTREE_GYM
-	release
-	end
-
-FortreeCity_Gym_EventScript_GiveAerialAce2::
-	giveitem ITEM_TM_AERIAL_ACE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	msgbox FortreeCity_Gym_Text_ExplainAerialAce, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_AERIAL_ACE
-	release
-	end
-
-FortreeCity_Gym_EventScript_GiveAerialAce::
-	giveitem ITEM_TM_AERIAL_ACE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
-	msgbox FortreeCity_Gym_Text_ExplainAerialAce, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_AERIAL_ACE
-	return
-
-FortreeCity_Gym_EventScript_WinonaRematch::
-	trainerbattle_rematch_double TRAINER_WINONA_1, FortreeCity_Gym_Text_WinonaPreRematch, FortreeCity_Gym_Text_WinonaRematchDefeat, FortreeCity_Gym_Text_WinonaRematchNeedTwoMons
-	msgbox FortreeCity_Gym_Text_WinonaPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 FortreeCity_Gym_EventScript_Jared::
@@ -99,19 +175,6 @@ FortreeCity_Gym_EventScript_Darius::
 	msgbox FortreeCity_Gym_Text_DariusPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-FortreeCity_Gym_EventScript_GymGuide::
-	lock
-	faceplayer
-	goto_if_set FLAG_DEFEATED_FORTREE_GYM, FortreeCity_Gym_EventScript_GymGuidePostVictory
-	msgbox FortreeCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
-	release
-	end
-
-FortreeCity_Gym_EventScript_GymGuidePostVictory::
-	msgbox FortreeCity_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT
-	release
-	end
-
 FortreeCity_Gym_EventScript_LeftGymStatue::
 	lockall
 	goto_if_set FLAG_BADGE06_GET, FortreeCity_Gym_EventScript_GymStatueCertified
@@ -134,24 +197,9 @@ FortreeCity_Gym_EventScript_GymStatue::
 	releaseall
 	end
 
-FortreeCity_Gym_Text_GymGuideAdvice:
-	.string "Yo, how's it going, Champion-\n"
-	.string "bound {PLAYER}?\p"
-	.string "Fortree Gym Leader Winona is\n"
-	.string "a master of Flying-type Pokémon.\p"
-	.string "She's waiting at the back of this Gym,\n"
-	.string "behind the rotating doors.\p"
-	.string "She's waiting for new challengers\n"
-	.string "who are trying to take wing!\p"
-	.string "Okay, go for it!$"
-
-FortreeCity_Gym_Text_GymGuidePostVictory:
-	.string "You did it!\n"
-	.string "You've achieved liftoff!$"
-
 FortreeCity_Gym_Text_JaredIntro:
 	.string "Behold the elegant battle style of\n"
-	.string "Bird Pokémon!$"
+	.string "jungle Pokémon!$"
 
 FortreeCity_Gym_Text_JaredDefeat:
 	.string "You…\n"
@@ -164,7 +212,7 @@ FortreeCity_Gym_Text_JaredPostBattle:
 	.string "our Leader?$"
 
 FortreeCity_Gym_Text_EdwardoIntro:
-	.string "The lovers of Bird Pokémon aspire\n"
+	.string "The lovers of Grass Pokémon aspire\n"
 	.string "to join this Gym.\p"
 	.string "As a member of the Fortree Gym,\n"
 	.string "I'm not allowed to lose!$"
@@ -180,32 +228,31 @@ FortreeCity_Gym_Text_EdwardoPostBattle:
 	.string "myself even stronger.$"
 
 FortreeCity_Gym_Text_FlintIntro:
-	.string "There's no need for Winona, our Gym\n"
+	.string "There's no need for Spenser, our Gym\n"
 	.string "Leader, to deal with you!\p"
 	.string "I'm plenty good enough for you!$"
 
 FortreeCity_Gym_Text_FlintDefeat:
-	.string "Winona, I…\n"
+	.string "Spenser, I…\n"
 	.string "I lost!$"
 
 FortreeCity_Gym_Text_FlintPostBattle:
-	.string "Winona is cute and she's strong.\n"
-	.string "She's the ultimate Leader!\p"
-	.string "Blush…$"
+	.string "Spenser is wise and strong.\n"
+	.string "He's the ultimate Leader!$"
 
 FortreeCity_Gym_Text_AshleyIntro:
-	.string "Winona taught me personally!\n"
+	.string "Spenser taught me personally!\n"
 	.string "You can't beat me easily!$"
 
 FortreeCity_Gym_Text_AshleyDefeat:
 	.string "I was beaten…$"
 
 FortreeCity_Gym_Text_AshleyPostBattle:
-	.string "Thanks to Winona, the people of\n"
+	.string "Thanks to Spenser, the people of\n"
 	.string "Fortree can live without fear.$"
 
 FortreeCity_Gym_Text_HumbertoIntro:
-	.string "When Winona takes to battle, her face\n"
+	.string "When Spenser takes to battle, his face\n"
 	.string "shines with beautiful determination…\p"
 	.string "I'm not letting you witness that\n"
 	.string "lovely sight!$"
@@ -216,12 +263,12 @@ FortreeCity_Gym_Text_HumbertoDefeat:
 
 FortreeCity_Gym_Text_HumbertoPostBattle:
 	.string "You'd better watch it!\n"
-	.string "Don't get distracted staring at Winona\l"
+	.string "Don't get distracted staring at Spenser\l"
 	.string "or you'll go crashing down in a heap!$"
 
 FortreeCity_Gym_Text_DariusIntro:
 	.string "You'd better know that there are all\n"
-	.string "sorts of Flying-type Pokémon.\p"
+	.string "sorts of Grass-type Pokémon.\p"
 	.string "You do know that, right?$"
 
 FortreeCity_Gym_Text_DariusDefeat:
@@ -230,7 +277,7 @@ FortreeCity_Gym_Text_DariusDefeat:
 FortreeCity_Gym_Text_DariusPostBattle:
 	.string "Sure, you beat me all right.\n"
 	.string "But you'd better watch it! Our Leader\l"
-	.string "Winona's Pokémon are all business.$"
+	.string "Spenser's Pokémon are all business.$"
 
 FortreeCity_Gym_Text_WinonaIntro:
 	.string "I am Winona. I am the Leader of\n"
@@ -251,7 +298,7 @@ FortreeCity_Gym_Text_WinonaDefeat:
 
 FortreeCity_Gym_Text_ReceivedFeatherBadge:
 	.string "{PLAYER} received the Feather Badge\n"
-	.string "from Winona.$"
+	.string "from Spenser.$"
 
 FortreeCity_Gym_Text_ExplainFeatherBadgeTakeThis:
 	.string "With the Feather Badge, all Pokémon up\n"
@@ -281,7 +328,7 @@ FortreeCity_Gym_Text_GymStatue:
 
 FortreeCity_Gym_Text_GymStatueCertified:
 	.string "Fortree City Pokémon Gym\p"
-	.string "Winona's certified Trainers:\n"
+	.string "Spenser's certified Trainers:\n"
 	.string "{PLAYER}$"
 
 FortreeCity_Gym_Text_WinonaPreRematch:

@@ -1,7 +1,24 @@
-raw `
-MeteorFalls_1F_2R_MapScripts::
-	.byte 0
+mapscripts MeteorFalls_1F_2R_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : MeteorFalls_1F_2R_OnTransition
+}
 
+script MeteorFalls_1F_2R_OnTransition {
+    call(MeteorFalls_1F_2R_EventScript_TryHideStash)
+    end
+}
+
+script MeteorFalls_1F_2R_EventScript_TryHideStash {
+    goto_if_set(FLAG_HIDE_SECRET_STASH_METEOR_FALLS, MeteorFalls_1F_2R_EventScript_HideStash)
+    goto_if_ne(VAR_SECRET_STASH_STATE, 2, MeteorFalls_1F_2R_EventScript_HideStash)
+    end
+}
+
+script MeteorFalls_1F_2R_EventScript_HideStash {
+    setflag(FLAG_TEMP_11)
+    end
+}
+
+raw `
 MeteorFalls_1F_2R_EventScript_Nicolas::
 	trainerbattle_single TRAINER_NICOLAS_1, MeteorFalls_1F_2R_Text_NicolasIntro, MeteorFalls_1F_2R_Text_NicolasDefeat, MeteorFalls_1F_2R_EventScript_RegisterNicolas
 	specialvar VAR_RESULT, ShouldTryRematchBattle

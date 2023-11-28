@@ -1,30 +1,26 @@
+mapscripts Route129_MapScripts {}
+
+script Route129_EventScript_Beauty {
+	lock
+	faceplayer
+	msgbox(format("This island reminds me of a place in Sinnoh I once visited."))
+	checkitem(ITEM_GRACIDEA)
+	if(var(VAR_RESULT)) {
+		//TODO:
+		//check shaymin flag
+		//comment on shaymin if already caught
+		//spawn event shaymin
+	}
+	release
+	end
+}
+
+script Route129_EventScript_Sign {
+	msgbox("Route 129\nFlower Paradise", MSGBOX_SIGN)
+	end
+}
+
 raw `
-Route129_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route129_OnTransition
-	map_script MAP_SCRIPT_ON_LOAD, Route129_OnLoad
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route129_OnFrame
-	.byte 0
-
-Route129_OnLoad:
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_129_WEST, AbnormalWeather_EventScript_PlaceTilesRoute129West
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_129_EAST, AbnormalWeather_EventScript_PlaceTilesRoute129East
-	end
-
-Route129_OnTransition:
-	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
-	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, Route129_EventScript_CheckSetAbnormalWeather
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_129_WEST, AbnormalWeather_StartKyogreWeather
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_129_EAST, AbnormalWeather_StartKyogreWeather
-	end
-
-Route129_EventScript_CheckSetAbnormalWeather::
-	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
-	return
-
-Route129_OnFrame:
-	map_script_2 VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_EndEventAndCleanup_1
-	.2byte 0
-
 Route129_EventScript_Chase::
 	trainerbattle_single TRAINER_CHASE, Route129_Text_ChaseIntro, Route129_Text_ChaseDefeat
 	msgbox Route129_Text_ChasePostBattle, MSGBOX_AUTOCLOSE
@@ -49,5 +45,4 @@ Route129_EventScript_Clarence::
 	trainerbattle_single TRAINER_CLARENCE, Route129_Text_ClarenceIntro, Route129_Text_ClarenceDefeat
 	msgbox Route129_Text_ClarencePostBattle, MSGBOX_AUTOCLOSE
 	end
-
 `

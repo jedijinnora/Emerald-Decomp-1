@@ -1,3 +1,36 @@
+script FortreeCity_DecorationShop_EventScript_BerrySeller {
+	lock
+	faceplayer
+    msgbox(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(FortreeBerryMart)
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+
+mart FortreeBerryMart {
+	ITEM_CHILAN_BERRY
+	ITEM_OCCA_BERRY
+	ITEM_PASSHO_BERRY
+	ITEM_WACAN_BERRY
+	ITEM_RINDO_BERRY
+	ITEM_YACHE_BERRY
+	ITEM_CHOPLE_BERRY
+	ITEM_KEBIA_BERRY
+	ITEM_SHUCA_BERRY
+	ITEM_COBA_BERRY
+	ITEM_PAYAPA_BERRY
+	ITEM_TANGA_BERRY
+	ITEM_CHARTI_BERRY
+	ITEM_KASIB_BERRY
+	ITEM_HABAN_BERRY
+	ITEM_COLBUR_BERRY
+	ITEM_BABIRI_BERRY
+	ITEM_ROSELI_BERRY
+}
+
 raw `
 FortreeCity_DecorationShop_MapScripts::
 	.byte 0

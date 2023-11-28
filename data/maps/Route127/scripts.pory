@@ -1,26 +1,31 @@
+mapscripts Route127_MapScripts {}
+
+script Route127_EventScript_Camper {
+	lock
+	faceplayer
+	msgbox(format("Seafoam Cove and Shoal Cave are some of the only places you can find Ice types in the Hoenn region."))
+	release
+	end
+}
+
+script Route127_EventScript_Picnicker {
+	lock
+	faceplayer
+	msgbox(format("What do you think we'll do when climate change causes the seas to rise?"))
+	msgbox(format("We won't be using these shallow paths any more, that's for sure."))
+	release
+	end
+}
+
+script Route127_EventScript_LittleBoy {
+	lock
+	faceplayer
+	msgbox(format("Hah! I love splashing through the shallows around Mossdeep and exploring the islands."))
+	release
+	end
+}
+
 raw `
-Route127_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route127_OnTransition
-	map_script MAP_SCRIPT_ON_LOAD, Route127_OnLoad
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route127_OnFrame
-	.byte 0
-
-Route127_OnTransition:
-	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
-	call_if_eq VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_HideMapNamePopup
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_127_NORTH, AbnormalWeather_StartKyogreWeather
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_127_SOUTH, AbnormalWeather_StartKyogreWeather
-	end
-
-Route127_OnLoad:
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_127_NORTH, AbnormalWeather_EventScript_PlaceTilesRoute127North
-	call_if_eq VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_ROUTE_127_SOUTH, AbnormalWeather_EventScript_PlaceTilesRoute127South
-	end
-
-Route127_OnFrame:
-	map_script_2 VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_EndEventAndCleanup_1
-	.2byte 0
-
 Route127_EventScript_Camden::
 	trainerbattle_single TRAINER_CAMDEN, Route127_Text_CamdenIntro, Route127_Text_CamdenDefeat
 	msgbox Route127_Text_CamdenPostBattle, MSGBOX_AUTOCLOSE
@@ -76,5 +81,4 @@ Route127_EventScript_RematchKoji::
 	trainerbattle_rematch TRAINER_KOJI_1, Route127_Text_KojiRematchIntro, Route127_Text_KojiRematchDefeat
 	msgbox Route127_Text_KojiPostRematch, MSGBOX_AUTOCLOSE
 	end
-
 `

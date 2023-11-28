@@ -596,11 +596,7 @@ EverGrandeCity_HallOfFame_EventScript_ResetEliteFour::
 	return
 
 Common_EventScript_UpdateBrineyLocation::
-	goto_if_unset FLAG_RECEIVED_POKENAV, Common_EventScript_NopReturn
-	goto_if_set FLAG_DEFEATED_PETALBURG_GYM, Common_EventScript_NopReturn
-	goto_if_unset FLAG_HIDE_ROUTE_104_MR_BRINEY_BOAT, EventScript_SetBrineyLocation_House
-	goto_if_unset FLAG_HIDE_MR_BRINEY_DEWFORD_TOWN, EventScript_SetBrineyLocation_Dewford
-	goto_if_unset FLAG_HIDE_ROUTE_109_MR_BRINEY, EventScript_SetBrineyLocation_Route109
+	goto Common_EventScript_NopReturn
 	return
 
 EventScript_SetBrineyLocation_House::
@@ -728,7 +724,6 @@ Movement_FerryDepart:
 
 EventScript_HideMrBriney::
 	setflag FLAG_HIDE_ROUTE_104_MR_BRINEY
-	setflag FLAG_HIDE_ROUTE_104_MR_BRINEY_BOAT
 	setflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
 	setflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
 	setvar VAR_BRINEY_LOCATION, 0
@@ -1147,3 +1142,7 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/AlteringCave_UpperFloor_1/scripts.inc"
 
 	.include "data/maps/AlteringCave_UpperFloor_2/scripts.inc"
+
+	.include "data/maps/VerdanturfTown_House2/scripts.inc"
+
+	.include "data/maps/DesertUnderpass_1F/scripts.inc"

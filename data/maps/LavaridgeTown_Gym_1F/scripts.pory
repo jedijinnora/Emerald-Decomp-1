@@ -1,12 +1,130 @@
+mapscripts LavaridgeTown_Gym_1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : LavaridgeTown_Gym_1F_OnTransition
+}
+
+
+script LavaridgeTown_Gym_1F_EventScript_GymGuide {
+	lock
+	faceplayer
+	if(flag(FLAG_SYS_GAME_CLEAR)) {
+		msgbox(format("Good to see you again, Champion {PLAYER}! I knew you had it in you!"))
+		release
+		end
+	}
+	if(flag(FLAG_BADGE04_GET)) {
+		msgbox("Yow! That was a scorching-hot battle!")
+		release
+		end
+	}
+	msgbox(format("Hey there Trainer!\pLavaridge Town's Gym Leader Moore was once a member of the Elite Four."))
+	msgbox(format("He may have gone old and gray in the years since, but you would be mistaken to think his Fire-types are weak!"))
+	msgbox(format("You better bring some Pokémon that can take the heat while you navigate this Gym's sand portals!"))
+	release
+	end
+}
+
+script LavaridgeTown_Gym_1F_EventScript_Moore {
+	lock
+	faceplayer
+	goto_if_set(FLAG_SYS_GAME_CLEAR, MooreRematch)
+	goto_if_set(FLAG_DEFEATED_LAVARIDGE_GYM, MooreEnd)
+	//check number of badges and return appropriate battle
+	switch(var(VAR_NUM_BADGES)) {
+		case 0:
+			//badge 1 team
+			trainerbattle_single(TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_MooreIntro, LavaridgeTown_Gym_1F_Text_MooreDefeat, LavaridgeTown_Gym_1F_EventScript_MooreDefeated, NO_MUSIC)
+		case 1:
+			//badge 2 team
+		case 2:
+		case 3:
+			//badge 34 team
+		case 4:
+		case 5:
+		case 6:
+			//badge 567 team
+		case 7:
+			//badge 8 team
+			trainerbattle_single(TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_MooreIntro, LavaridgeTown_Gym_1F_Text_MooreDefeat, LavaridgeTown_Gym_1F_EventScript_MooreDefeated, NO_MUSIC)
+		default:
+			goto_if_unset(FLAG_TEMP_1, MooreRematch)
+	}
+	MooreEnd:
+	msgbox(LavaridgeTown_Gym_1F_Text_MoorePostBattle)
+	release
+	end
+
+	MooreRematch:
+	goto_if_set(FLAG_TEMP_1, MooreEnd)
+	msgbox("Moore: Hmm?\nAre you seeking a rematch?", MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, MooreEnd)
+	setflag(FLAG_TEMP_1)
+	cleartrainerflag(TRAINER_FLANNERY_1)
+	trainerbattle_single(TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_MoorePreRematch, LavaridgeTown_Gym_1F_Text_MooreRematchDefeat)
+	release
+	end
+}
+
+script LavaridgeTown_Gym_1F_EventScript_MooreDefeated {
+	message(LavaridgeTown_Gym_1F_Text_ReceivedHeatBadge)
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	setflag(FLAG_DEFEATED_LAVARIDGE_GYM)
+	setflag(FLAG_BADGE04_GET)
+	setflag(FLAG_CHALLENGE_FERRY_TICKET)
+	addvar(VAR_NUM_BADGES, 1)
+	setvar(VAR_0x8008, 4)
+	call(Common_EventScript_SetGymTrainers)
+	call_if_unset(FLAG_CHALLENGE_HM_NONE, Gym_EventScript_GetHM)
+	return
+}
+
+text LavaridgeTown_Gym_1F_Text_MooreIntro {
+	"Flames turn to ash like the white\n"
+	"in my beard…\p"
+	"Oh? A challenger!\p"
+	"I am Gym Leader Moore.\n"
+	"Once, my team burned with the brightest\l"
+	"flames in the Hoenn region.\p"
+	"We may be old, but we'll burn\n"
+	"you up all the same!"
+}
+
+text LavaridgeTown_Gym_1F_Text_MooreDefeat {
+	"Ashes to ashes, dust to dust…"
+}
+
+text LavaridgeTown_Gym_1F_Text_MoorePostBattle {
+	"I've been training my granddaughter\n"
+	"Flannery to take over the Gym when\l"
+	"I retire.\p"
+	"Perhaps that time draws near.\p"
+	"Burn brightly, young Trainer!\n"
+	"Your years of glory remain ahead!"
+}
+
+text LavaridgeTown_Gym_1F_Text_MoorePreRematch {
+	"Hah! We've got a fresh blaze in\n"
+	"our hearts!\p"
+	"We'll show you the power that once\n"
+	"put the fear of fire in the whole\l"
+	"Hoenn League!"
+}
+
+text LavaridgeTown_Gym_1F_Text_MooreRematchDefeat {
+	"Moore: Hmm…\p"
+	"Perhaps it is time I handed the\n"
+	"Gym over to my granddaughter."
+}
+
+
+
+
+
 raw `
 .set LOCALID_COLE, 2
 .set LOCALID_GERALD, 3
 .set LOCALID_AXLE, 4
 .set LOCALID_DANIELLE, 5
-
-LavaridgeTown_Gym_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, LavaridgeTown_Gym_1F_OnTransition
-	.byte 0
 
 LavaridgeTown_Gym_1F_OnTransition:
 	call LavaridgeTown_Gym_1F_EventScript_SetTrainerTempVars
@@ -48,61 +166,6 @@ LavaridgeTown_Gym_1F_EventScript_CheckBuryDanielle::
 	setobjectmovementtype LOCALID_DANIELLE, MOVEMENT_TYPE_BURIED
 LavaridgeTown_Gym_1F_EventScript_EndCheckBuryTrainers::
 	return
-
-LavaridgeTown_Gym_1F_EventScript_Flannery::
-	trainerbattle_single TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_FlanneryIntro, LavaridgeTown_Gym_1F_Text_FlanneryDefeat, LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated, NO_MUSIC
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, LavaridgeTown_Gym_1F_EventScript_FlanneryRematch
-	goto_if_unset FLAG_RECEIVED_TM_OVERHEAT, LavaridgeTown_Gym_1F_EventScript_GiveOverheat2
-	msgbox LavaridgeTown_Gym_1F_Text_FlanneryPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
-	message LavaridgeTown_Gym_1F_Text_ReceivedHeatBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	msgbox LavaridgeTown_Gym_1F_Text_ExplainHeatBadgeTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_WHITEOUT_TO_LAVARIDGE
-	setflag FLAG_DEFEATED_LAVARIDGE_GYM
-	setflag FLAG_BADGE04_GET
-	addvar VAR_PETALBURG_GYM_STATE, 1
-	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
-	setvar VAR_0x8008, 4
-	call Common_EventScript_SetGymTrainers
-	setflag FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WALLY
-	setvar VAR_LAVARIDGE_TOWN_STATE, 1
-	call LavaridgeTown_Gym_1F_EventScript_GiveOverheat
-	closemessage
-	delay 30
-	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox LavaridgeTown_Gym_1F_Text_RegisteredFlannery, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_FLANNERY_MATCH_CALL
-	release
-	end
-
-LavaridgeTown_Gym_1F_EventScript_GiveOverheat2::
-	giveitem ITEM_TM_OVERHEAT
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	msgbox LavaridgeTown_Gym_1F_Text_ExplainOverheat, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_OVERHEAT
-	release
-	end
-
-LavaridgeTown_Gym_1F_EventScript_GiveOverheat::
-	giveitem ITEM_TM_OVERHEAT
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
-	msgbox LavaridgeTown_Gym_1F_Text_ExplainOverheat, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_OVERHEAT
-	return
-
-LavaridgeTown_Gym_1F_EventScript_FlanneryRematch::
-	trainerbattle_rematch_double TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_FlanneryPreRematch, LavaridgeTown_Gym_1F_Text_FlanneryRematchDefeat, LavaridgeTown_Gym_1F_Text_FlanneryRematchNeedTwoMons
-	msgbox LavaridgeTown_Gym_1F_Text_FlanneryPostRematch, MSGBOX_AUTOCLOSE
-	end
 
 LavaridgeTown_Gym_1F_EventScript_Cole::
 	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_COLE, LOCALID_COLE, LavaridgeTown_Gym_1F_Text_ColeIntro, LavaridgeTown_Gym_1F_Text_ColeDefeat, LavaridgeTown_Gym_EventScript_CheckTrainerScript
@@ -151,7 +214,7 @@ LavaridgeTown_Gym_B1F_EventScript_Eli::
 	msgbox LavaridgeTown_Gym_B1F_Text_EliPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-LavaridgeTown_Gym_1F_EventScript_GymGuide::
+LavaridgeTown_Gym_1F_EventScript_GymGuide2::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_LAVARIDGE_GYM, LavaridgeTown_Gym_1F_EventScript_GymGuidePostVictory
@@ -218,7 +281,7 @@ LavaridgeTown_Gym_1F_Text_AxleIntro:
 	.string "Don't come along and stress me out!$"
 
 LavaridgeTown_Gym_1F_Text_AxleDefeat:
-	.string "I hope FLANNERY flames you good!$"
+	.string "I hope Moore mashes you good!$"
 
 LavaridgeTown_Gym_1F_Text_AxlePostBattle:
 	.string "Haaah… Whew…\p"
@@ -231,19 +294,19 @@ LavaridgeTown_Gym_B1F_Text_KeeganIntro:
 	.string "wouldn't you?\p"
 	.string "But you should know that maintaining\n"
 	.string "your willpower is an important ability\l"
-	.string "for all TRAINERS.$"
+	.string "for all Trainers.$"
 
 LavaridgeTown_Gym_B1F_Text_KeeganDefeat:
 	.string "Play with fire, and be burned…$"
 
 LavaridgeTown_Gym_B1F_Text_KeeganPostBattle:
 	.string "Your skill is real…\n"
-	.string "But our LEADER FLANNERY is strong.\p"
+	.string "But our Leader Moore is strong.\p"
 	.string "If you don't watch yourself, you'll be\n"
 	.string "burned seriously.$"
 
 LavaridgeTown_Gym_1F_Text_GeraldIntro:
-	.string "Can your POKéMON withstand\n"
+	.string "Can your Pokémon withstand\n"
 	.string "392-degree heat?$"
 
 LavaridgeTown_Gym_1F_Text_GeraldDefeat:
@@ -252,7 +315,7 @@ LavaridgeTown_Gym_1F_Text_GeraldDefeat:
 LavaridgeTown_Gym_1F_Text_GeraldPostBattle:
 	.string "The temperature of magma is\n"
 	.string "392 degrees.\p"
-	.string "Your POKéMON beat me, so they should\n"
+	.string "Your Pokémon beat me, so they should\n"
 	.string "easily survive in magma.$"
 
 LavaridgeTown_Gym_1F_Text_DanielleIntro:
@@ -264,7 +327,7 @@ LavaridgeTown_Gym_1F_Text_DanielleDefeat:
 
 LavaridgeTown_Gym_1F_Text_DaniellePostBattle:
 	.string "I'm going to be a pretty and strong\n"
-	.string "TRAINER just like FLANNERY.$"
+	.string "Trainer just like Flannery.$"
 
 LavaridgeTown_Gym_B1F_Text_JaceIntro:
 	.string "Come on, get with it!\n"
@@ -277,7 +340,7 @@ LavaridgeTown_Gym_B1F_Text_JaceDefeat:
 LavaridgeTown_Gym_B1F_Text_JacePostBattle:
 	.string "The way the battling spirit burns\n"
 	.string "within you, you may stand a chance\l"
-	.string "against our LEADER.$"
+	.string "against our Leader.$"
 
 LavaridgeTown_Gym_B1F_Text_JeffIntro:
 	.string "See how the flames blaze wildly?\n"
@@ -301,7 +364,7 @@ LavaridgeTown_Gym_B1F_Text_EliDefeat:
 
 LavaridgeTown_Gym_B1F_Text_EliPostBattle:
 	.string "I stay here because I became a fan\n"
-	.string "of FLANNERY's power.\p"
+	.string "of Moore's power.\p"
 	.string "Hehehehe.$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryIntro:
@@ -332,8 +395,8 @@ LavaridgeTown_Gym_1F_Text_FlanneryDefeat:
 	.string "For that, you deserve this.$"
 
 LavaridgeTown_Gym_1F_Text_ReceivedHeatBadge:
-	.string "{PLAYER} received the HEAT BADGE\n"
-	.string "from FLANNERY.$"
+	.string "{PLAYER} received the Heat Badge\n"
+	.string "from Moore.$"
 
 LavaridgeTown_Gym_1F_Text_ExplainHeatBadgeTakeThis:
 	.string "If you have a HEAT BADGE, all POKéMON\n"
@@ -363,11 +426,11 @@ LavaridgeTown_Gym_1F_Text_FlanneryPostBattle:
 	.string "the GYM LEADER of PETALBURG.$"
 
 LavaridgeTown_Gym_1F_Text_GymStatue:
-	.string "LAVARIDGE TOWN POKéMON GYM$"
+	.string "Lavaridge Town Pokémon Gym$"
 
 LavaridgeTown_Gym_1F_Text_GymStatueCertified:
-	.string "LAVARIDGE TOWN POKéMON GYM\p"
-	.string "FLANNERY'S CERTIFIED TRAINERS:\n"
+	.string "Lavaridge Town Pokémon Gym\p"
+	.string "Moore's Certified Trainers:\n"
 	.string "{PLAYER}$"
 
 LavaridgeTown_Gym_1F_Text_FlanneryPreRematch:

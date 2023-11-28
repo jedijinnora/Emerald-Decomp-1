@@ -32,8 +32,7 @@ gText_Birch_AndYouAre::
 	.string "And you are?$"
 
 gText_Birch_BoyOrGirl::
-	.string "Are you a boy?\n"
-	.string "Or are you a girl?$"
+	.string "Please choose your avatar.$"
 
 gText_Birch_WhatsYourName::
 	.string "All right.\n"
@@ -45,7 +44,7 @@ gText_Birch_SoItsPlayer::
 gText_Birch_YourePlayer::
 	.string "Ah, okay!\p"
 	.string "You're {PLAYER} who's traveling\n"
-	.string "from SINNOH to HOENN. I get it now!\l"
+	.string "from Sinnoh to Hoenn. I get it now!\l"
 	.string "Maybe we'll see each other soon!\p"
 	.string "$"
 

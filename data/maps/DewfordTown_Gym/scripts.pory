@@ -1,12 +1,126 @@
-raw `
-DewfordTown_Gym_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, DewfordTown_Gym_OnTransition
-	.byte 0
+mapscripts DewfordTown_Gym_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : DewfordTown_Gym_OnTransition
+}
 
-DewfordTown_Gym_OnTransition:
-	call DewfordTown_Gym_EventScript_SetFlashLevel
+script DewfordTown_Gym_OnTransition {
+	call(DewfordTown_Gym_EventScript_SetFlashLevel)
 	end
+}
 
+script DewfordTown_Gym_EventScript_GymGuide {
+	lock
+	faceplayer
+	if(flag(FLAG_SYS_GAME_CLEAR)) {
+		msgbox(format("Good to see you again, Champion {PLAYER}! I knew you had it in you!"))
+		release
+		end
+	}
+	if(flag(FLAG_BADGE02_GET)) {
+		msgbox("Whoah! It's turned so bright in here!\p Your future is bright, too!")
+		release
+		end
+	}
+	msgbox(format("Hey there Trainer!\pThe Trainers of Dewford Gym are known for their vicious Dark-type Pokémon."))
+	msgbox(format("Psychic or Ghost types will be totally helpless against the cruel onslaught!"))
+	msgbox(format("You better bring your inner warrior and some Bug, Fighting, or Fairy types."))
+	msgbox(format("Until you beat the Leader the Gym is as dark as the ocean floor. But it will get brighter after defeating each Trainer in your way."))
+	release
+	end
+}
+
+script DewfordTown_Gym_EventScript_Sidney {
+	lock
+	faceplayer
+	goto_if_set(FLAG_SYS_GAME_CLEAR, SidneyRematch)
+	goto_if_set(FLAG_DEFEATED_DEWFORD_GYM, SidneyEnd)
+	//check number of badges and return appropriate battle
+	switch(var(VAR_NUM_BADGES)) {
+		case 0:
+			//badge 1 team
+			trainerbattle_single(TRAINER_BRAWLY_1, DewfordTown_Gym_Text_SidneyIntro, DewfordTown_Gym_Text_SidneyDefeat, DewfordTown_Gym_EventScript_SidneyDefeated, NO_MUSIC)
+		case 1:
+			//badge 2 team
+		case 2:
+		case 3:
+			//badge 34 team
+		case 4:
+		case 5:
+		case 6:
+			//badge 567 team
+		case 7:
+			//badge 8 team
+			trainerbattle_single(TRAINER_BRAWLY_1, DewfordTown_Gym_Text_SidneyIntro, DewfordTown_Gym_Text_SidneyDefeat, DewfordTown_Gym_EventScript_SidneyDefeated, NO_MUSIC)
+		default:
+			goto_if_unset(FLAG_TEMP_1, SidneyRematch)
+	}
+	goto(SidneyEnd)
+
+	SidneyRematch:
+	goto_if_set(FLAG_TEMP_1, SidneyEnd)
+	msgbox("Sidney: Hey champ! How's it hanging?\nYou up for a rematch?", MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, SidneyEnd)
+	setflag(FLAG_TEMP_1)
+	cleartrainerflag(TRAINER_BRAWLY_1)
+	trainerbattle_single(TRAINER_BRAWLY_1, DewfordTown_Gym_Text_SidneyPreRematch, DewfordTown_Gym_Text_SidneyRematchDefeat)
+
+	SidneyEnd:
+	msgbox(DewfordTown_Gym_Text_SidneyPostBattle)
+	release
+	end
+}
+
+script DewfordTown_Gym_EventScript_SidneyDefeated {
+	message(DewfordTown_Gym_Text_ReceivedKnuckleBadge)
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	setflag(FLAG_DEFEATED_DEWFORD_GYM)
+	setflag(FLAG_BADGE02_GET)
+	setflag(FLAG_CHALLENGE_FERRY_TICKET)
+	addvar(VAR_NUM_BADGES, 1)
+	setvar(VAR_0x8008, 2)
+	call(Common_EventScript_SetGymTrainers)
+	call_if_unset(FLAG_CHALLENGE_HM_NONE, Gym_EventScript_GetHM)
+	return
+}
+
+text DewfordTown_Gym_Text_SidneyIntro {
+	"Welcome, challenger! My name is Sidney\n"
+	"and I'm the Dewford Gym Leader.\p"
+	"I like that look you're giving me.\n"
+	"I guess you'll give me a good match.\l"
+	"That's good! Looking real good!\p"
+	"All right! You and me, let's enjoy\n"
+	"a battle that can only be staged\l"
+	"right here and now!"
+}
+
+text DewfordTown_Gym_Text_SidneyDefeat {
+	"Sidney: Well, how do you like that?\n"
+	"I lost spectacularly!\p"
+	"Eh, it was fun, so it doesn't matter."
+}
+
+text DewfordTown_Gym_Text_SidneyPostBattle {
+	"Well, listen to what this punk has\n"
+	"to say.\p"
+	"You've got what it takes to go far.\n"
+	"Now, go on to someplace new\l"
+	"and enjoy your next battle!"
+}
+
+text DewfordTown_Gym_Text_SidneyPreRematch {
+	"Sidney: I see you've toughened up\n"
+	"even more since I last saw you.\p"
+	"I'm eager to throw down!\n"
+	"Let's get this battle started!"
+}
+
+text DewfordTown_Gym_Text_SidneyRematchDefeat {
+	"Sidney: Hah! Chumped again!"
+}
+
+
+raw `
 DewfordTown_Gym_EventScript_SetFlashLevel::
 	goto_if_defeated TRAINER_BRAWLY_1, DewfordTown_Gym_EventScript_SetLightsOn
 	call DewfordTown_Gym_EventScript_CountTrainersDefeated
@@ -133,61 +247,6 @@ DewfordTown_Gym_EventScript_CheckLilith::
 DewfordTown_Gym_EventScript_StopCountingTrainers::
 	return
 
-DewfordTown_Gym_EventScript_Brawly::
-	trainerbattle_single TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch
-	goto_if_unset FLAG_RECEIVED_TM_BULK_UP, DewfordTown_Gym_EventScript_GiveBulkUp2
-	msgbox DewfordTown_Gym_Text_BrawlyPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-DewfordTown_Gym_EventScript_BrawlyDefeated::
-	call DewfordTown_Gym_EventScript_AnimateFlashFullBrightness
-	message DewfordTown_Gym_Text_ReceivedKnuckleBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	msgbox DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis, MSGBOX_DEFAULT
-	setflag FLAG_DEFEATED_DEWFORD_GYM
-	setflag FLAG_BADGE02_GET
-	addvar VAR_PETALBURG_GYM_STATE, 1
-	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
-	setvar VAR_0x8008, 2
-	call Common_EventScript_SetGymTrainers
-	call DewfordTown_Gym_EventScript_GiveBulkUp
-	closemessage
-	delay 30
-	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox DewfordTown_Gym_Text_RegisteredBrawly, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_BRAWLY_MATCH_CALL
-	setvar VAR_ROXANNE_CALL_STEP_COUNTER, 0
-	setflag FLAG_ENABLE_ROXANNE_FIRST_CALL
-	release
-	end
-
-DewfordTown_Gym_EventScript_GiveBulkUp::
-	giveitem ITEM_TM_BULK_UP
-	goto_if_eq VAR_RESULT, 0, Common_EventScript_BagIsFull
-	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_BULK_UP
-	return
-
-DewfordTown_Gym_EventScript_GiveBulkUp2:
-	giveitem ITEM_TM_BULK_UP
-	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
-	msgbox DewfordTown_Gym_Text_ExplainBulkUp, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_BULK_UP
-	release
-	end
-
-DewfordTown_Gym_EventScript_BrawlyRematch::
-	trainerbattle_rematch_double TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyPreRematch, DewfordTown_Gym_Text_BrawlyRematchDefeat, DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons
-	msgbox DewfordTown_Gym_Text_BrawlyPostRematch, MSGBOX_AUTOCLOSE
-	end
-
 DewfordTown_Gym_EventScript_Takao::
 	trainerbattle_single TRAINER_TAKAO, DewfordTown_Gym_Text_TakaoIntro, DewfordTown_Gym_Text_TakaoDefeat, DewfordTown_Gym_EventScript_TakaoBrightenRoom
 	msgbox DewfordTown_Gym_Text_TakaoPostBattle, MSGBOX_AUTOCLOSE
@@ -248,19 +307,6 @@ DewfordTown_Gym_EventScript_LilithBrightenRoom::
 	release
 	end
 
-DewfordTown_Gym_EventScript_GymGuide::
-	lock
-	faceplayer
-	goto_if_set FLAG_DEFEATED_DEWFORD_GYM, DewfordTown_Gym_EventScript_GymGuidePostVictory
-	msgbox DewfordTown_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
-	release
-	end
-
-DewfordTown_Gym_EventScript_GymGuidePostVictory::
-	msgbox DewfordTown_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT
-	release
-	end
-
 DewfordTown_Gym_EventScript_LeftGymStatue::
 	lockall
 	goto_if_set FLAG_BADGE02_GET, DewfordTown_Gym_EventScript_GymStatueCertified
@@ -283,22 +329,6 @@ DewfordTown_Gym_EventScript_GymStatue::
 	releaseall
 	end
 
-DewfordTown_Gym_Text_GymGuideAdvice:
-	.string "Hey, how's it going, CHAMPION-\n"
-	.string "bound {PLAYER}?\p"
-	.string "DEWFORD's GYM LEADER BRAWLY commands\n"
-	.string "FIGHTING-type POKéMON.\p"
-	.string "Going against him with NORMAL-type\n"
-	.string "POKéMON is asking for trouble.\p"
-	.string "FIGHTING POKéMON will lay a serious\n"
-	.string "smack down on NORMAL POKéMON,\l"
-	.string "so be careful!\p"
-	.string "What's worse, the GYM is as dark as\n"
-	.string "the ocean floor.\p"
-	.string "But it will get brighter after defeating\n"
-	.string "the TRAINERS in your way.\p"
-	.string "Hey, okay, go for it!$"
-
 DewfordTown_Gym_Text_GymGuidePostVictory:
 	.string "Whoah! It's turned too bright in here!\p"
 	.string "Your future is bright, too!$"
@@ -315,7 +345,7 @@ DewfordTown_Gym_Text_TakaoPostBattle:
 	.string "Your technique is commendable!$"
 
 DewfordTown_Gym_Text_JocelynIntro:
-	.string "There's no need for BRAWLY to be\n"
+	.string "There's no need for Sidney to be\n"
 	.string "involved!\p"
 	.string "I'll crush you!$"
 
@@ -326,9 +356,9 @@ DewfordTown_Gym_Text_JocelynDefeat:
 DewfordTown_Gym_Text_JocelynPostBattle:
 	.string "I'm not going to waste this loss.\n"
 	.string "I'll use it to motivate me to train!\p"
-	.string "One day I'll become a GYM LEADER…\p"
-	.string "No, I'll become the POKéMON LEAGUE\n"
-	.string "CHAMPION!$"
+	.string "One day I'll become a Gym Leader…\p"
+	.string "No, I'll become the Pokémon League\n"
+	.string "Champion!$"
 
 DewfordTown_Gym_Text_LauraIntro:
 	.string "Don't you dare brush me off!\n"
@@ -342,7 +372,7 @@ DewfordTown_Gym_Text_LauraPostBattle:
 	.string "I battle in the dark to make my heart\n"
 	.string "stronger.\p"
 	.string "But because it's so dark, I can never\n"
-	.string "see BRAWLY's face…$"
+	.string "see Sidney's face…$"
 
 DewfordTown_Gym_Text_LilithIntro:
 	.string "Ufufu…\n"
@@ -366,7 +396,7 @@ DewfordTown_Gym_Text_BrendenDefeat:
 
 DewfordTown_Gym_Text_BrendenPostBattle:
 	.string "Oh, aye! You're worthy of seeing\n"
-	.string "our GYM LEADER.$"
+	.string "our Gym Leader.$"
 
 DewfordTown_Gym_Text_CristianIntro:
 	.string "If you mean to pass, it has to be\n"
@@ -378,58 +408,18 @@ DewfordTown_Gym_Text_CristianDefeat:
 
 DewfordTown_Gym_Text_CristianPostBattle:
 	.string "You win!\n"
-	.string "Go after that BADGE!$"
-
-DewfordTown_Gym_Text_BrawlyIntro:
-	.string "I'm BRAWLY!\n"
-	.string "DEWFORD's GYM LEADER!\p"
-	.string "I've been churned in the rough waves\n"
-	.string "of these parts, and I've grown tough\l"
-	.string "in the pitch-black cave!\p"
-	.string "So you wanted to challenge me?\n"
-	.string "Let me see what you're made of!$"
-
-DewfordTown_Gym_Text_BrawlyDefeat:
-	.string "Whoah, wow! You made a much bigger\n"
-	.string "splash than I expected!\p"
-	.string "You swamped me!\p"
-	.string "Okay, you've got me.\n"
-	.string "Take this GYM BADGE!$"
+	.string "Go after that Badge!$"
 
 DewfordTown_Gym_Text_ReceivedKnuckleBadge:
-	.string "{PLAYER} received the KNUCKLE BADGE\n"
-	.string "from BRAWLY.$"
-
-DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis:
-	.string "The KNUCKLE BADGE makes all POKéMON\n"
-	.string "up to Level 30, even those you get in\l"
-	.string "trades, obey without question.\p"
-	.string "And, you'll be able to use the HM move\n"
-	.string "FLASH outside of battle.\p"
-	.string "If you'd like, use this TECHNICAL\n"
-	.string "MACHINE, too.$"
-
-DewfordTown_Gym_Text_ExplainBulkUp:
-	.string "That TM08 contains BULK UP.\p"
-	.string "It's a move that raises both ATTACK\n"
-	.string "and DEFENSE stats.\p"
-	.string "… … … … … …$"
-
-DewfordTown_Gym_Text_RegisteredBrawly:
-	.string "Registered GYM LEADER BRAWLY\n"
-	.string "in the POKéNAV.$"
-
-DewfordTown_Gym_Text_BrawlyPostBattle:
-	.string "I can see your talent becoming a giant\n"
-	.string "wave to cause a storm of astonishment\l"
-	.string "among TRAINERS one day!$"
+	.string "{PLAYER} received the Knuckle Badge\n"
+	.string "from Sidney.$"
 
 DewfordTown_Gym_Text_GymStatue:
-	.string "DEWFORD TOWN POKéMON GYM$"
+	.string "Dewford Town Pokémon Gym$"
 
 DewfordTown_Gym_Text_GymStatueCertified:
-	.string "DEWFORD TOWN POKéMON GYM\p"
-	.string "BRAWLY'S CERTIFIED TRAINERS:\n"
+	.string "Dewford Town Pokémon Gym\p"
+	.string "Sidney's Certified Trainers:\n"
 	.string "{PLAYER}$"
 
 DewfordTown_Gym_Text_BrawlyPreRematch:

@@ -1,5 +1,4 @@
 ProfBirch_EventScript_UpdateLocation::
-	goto_if_eq VAR_PETALBURG_GYM_STATE, 0, Common_EventScript_NopReturn
 	goto_if_set FLAG_SYS_GAME_CLEAR, ProfBirch_EventScript_MoveToLab
 	call_if_eq VAR_BIRCH_STATE, 0, ProfBirch_EventScript_MoveToLab
 	call_if_eq VAR_BIRCH_STATE, 1, ProfBirch_EventScript_MoveToLab
@@ -12,24 +11,12 @@ ProfBirch_EventScript_UpdateLocation::
 	return
 
 ProfBirch_EventScript_MoveToLab::
-	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
-	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_UNKNOWN_0x380
-	setflag FLAG_HIDE_ROUTE_101_BIRCH
-	setflag FLAG_HIDE_ROUTE_103_BIRCH
 	return
 
 ProfBirch_EventScript_MoveToRoute101::
-	clearflag FLAG_HIDE_ROUTE_101_BIRCH
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_UNKNOWN_0x380
-	setflag FLAG_HIDE_ROUTE_103_BIRCH
 	return
 
 ProfBirch_EventScript_MoveToRoute103::
-	clearflag FLAG_HIDE_ROUTE_103_BIRCH
-	setflag FLAG_HIDE_ROUTE_101_BIRCH
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
-	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_UNKNOWN_0x380
 	return
 
 ProfBirch_EventScript_RatePokedexOrRegister::

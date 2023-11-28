@@ -1,3 +1,11 @@
+script JaggedPass_EventScript_Stash {
+	setvar(VAR_TEMP_D, ITEM_PROTEIN)
+	setvar(VAR_TEMP_D, ITEM_FIRE_STONE)
+	setvar(VAR_TEMP_D, ITEM_DUSK_STONE)
+	call(Common_EventScript_SecretStash)
+	end
+}
+
 raw `
 .set LOCALID_HIDEOUT_GUARD, 5
 

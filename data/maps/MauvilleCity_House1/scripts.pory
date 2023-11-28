@@ -3,6 +3,7 @@ mapscripts MauvilleCity_House1_MapScripts{}
 script MauvilleCity_House1_EventScript_RockSmashDude {
 	lock
 	faceplayer
+	msgbox(format("Woohoo! I'm a smashing dude!"))
 	checkitem(ITEM_TM66_THUNDERBOLT)
 	if(var(VAR_RESULT) == TRUE) {
 		msgbox(format("Woohoo!"))
@@ -14,6 +15,8 @@ script MauvilleCity_House1_EventScript_RockSmashDude {
 	if (var(VAR_RESULT) == FALSE) {
 		msgbox(format("Woohoo!\n"))
 		msgbox(format("Come back when you're a smashing success and I'll have something to give you."))
+		release
+		end
 	}
 	msgbox(format("You're a smashing Trainer indeed!"))
 	giveitem(ITEM_TM66_THUNDERBOLT)

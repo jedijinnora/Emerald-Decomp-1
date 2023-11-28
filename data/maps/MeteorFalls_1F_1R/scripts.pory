@@ -1,1 +1,26 @@
-mapscripts MeteorFalls_1F_1R_MapScripts {}
+mapscripts MeteorFalls_1F_1R_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : MeteorFalls_1F_1R_OnTransition
+}
+
+script MeteorFalls_1F_1R_OnTransition {
+    call(MeteorFalls_1F_1R_EventScript_TryHideStash)
+    end
+}
+
+script MeteorFalls_1F_1R_EventScript_TryHideStash {
+    call_if_set(FLAG_HIDE_SECRET_STASH_METEOR_FALLS, MeteorFalls_1F_1R_EventScript_HideStash_1)
+    call_if_set(FLAG_HIDE_SECRET_STASH_METEOR_FALLS, MeteorFalls_1F_1R_EventScript_HideStash_2)
+    call_if_ne(VAR_SECRET_STASH_STATE, 3, MeteorFalls_1F_1R_EventScript_HideStash_1)
+    call_if_ne(VAR_SECRET_STASH_STATE, 4, MeteorFalls_1F_1R_EventScript_HideStash_2)
+    end
+}
+
+script MeteorFalls_1F_1R_EventScript_HideStash_1 {
+    setflag(FLAG_TEMP_11)
+    return
+}
+
+script MeteorFalls_1F_1R_EventScript_HideStash_2 {
+    setflag(FLAG_TEMP_12)
+    return
+}

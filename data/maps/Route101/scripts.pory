@@ -1,13 +1,6 @@
-raw `
-
-Route101_EventScript_RouteSign::
-	msgbox Route101_Text_RouteSign, MSGBOX_SIGN
-	end
-
-Route101_Text_RouteSign:
-	.string "ROUTE 101\n"
-	.string "{UP_ARROW} OLDALE TOWN$"
-
-`
 mapscripts Route101_MapScripts {}
 
+script Route101_EventScript_RouteSign {
+	msgbox("Route 101\p{UP_ARROW} Oldale Town\n{DOWN_ARROW} Littleroot Town", MSGBOX_SIGN)
+	end
+}

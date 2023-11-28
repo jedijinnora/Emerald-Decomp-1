@@ -1,11 +1,23 @@
+mapscripts Route121_MapScripts {}
+
+script Route121_EventScript_Rydel {
+	lock
+	faceplayer
+	goto_if_set(FLAG_RECEIVED_BIKE, ReceivedBike121)
+	msgbox(format("Hey there! I'm Rydel, Bike Shop owner extraordinaire!"))
+	msgbox(format("Rydel: Hmm, if you had one of my bicycles you could explore a lot more of the Hoenn region."))
+	msgbox(format("Rydel: I know! Take this Acro Bike."))
+	giveitem(ITEM_ACRO_BIKE)
+	setflag(FLAG_RECEIVED_BIKE)
+
+	ReceivedBike121:
+	msgbox(format("Rydel: With that Acro Bike you can navigate the narrow rail bridges around the region. You could travel across Routes 122, 123, and 118 on that Bike to get to Mauville from here."))
+	msgbox(format("Rydel: You should come check out my cycle shop. If you want, I'll even let you switch bikes!"))
+	release
+	end
+}
+
 raw `
-.set LOCALID_GRUNT_1, 12
-.set LOCALID_GRUNT_2, 13
-.set LOCALID_GRUNT_3, 14
-
-Route121_MapScripts::
-	.byte 0
-
 Route121_EventScript_Woman::
 	msgbox Route121_Text_AheadLoomsMtPyre, MSGBOX_NPC
 	end
@@ -17,58 +29,6 @@ Route121_EventScript_MtPyrePierSign::
 Route121_EventScript_SafariZoneSign::
 	msgbox Route121_Text_SafariZoneSign, MSGBOX_SIGN
 	end
-
-Route121_EventScript_AquaGruntsMoveOut::
-	lockall
-	playbgm MUS_ENCOUNTER_AQUA, FALSE
-	applymovement LOCALID_GRUNT_2, Common_Movement_WalkInPlaceRight
-	waitmovement 0
-	msgbox Route121_Text_OkayMoveOutToMtPyre, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_GRUNT_1, Route121_Movement_Grunt1Exit
-	applymovement LOCALID_GRUNT_2, Route121_Movement_Grunt2Exit
-	applymovement LOCALID_GRUNT_3, Route121_Movement_Grunt3Exit
-	waitmovement 0
-	fadedefaultbgm
-	removeobject LOCALID_GRUNT_1
-	removeobject LOCALID_GRUNT_2
-	removeobject LOCALID_GRUNT_3
-	setvar VAR_ROUTE121_STATE, 1
-	releaseall
-	end
-
-Route121_Movement_Grunt1Exit:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
-
-Route121_Movement_Grunt2Exit:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
-
-Route121_Movement_Grunt3Exit:
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	walk_down
-	step_end
 
 Route121_EventScript_Vanessa::
 	trainerbattle_single TRAINER_VANESSA, Route121_Text_VanessaIntro, Route121_Text_VanessaDefeat
@@ -173,10 +133,6 @@ Route121_EventScript_RematchCristin::
 	msgbox Route121_Text_CristinPostRematch, MSGBOX_AUTOCLOSE
 	end
 
-Route121_Text_OkayMoveOutToMtPyre:
-	.string "Okay!\n"
-	.string "We're to move out to Mt. Pyre!$"
-
 Route121_Text_AheadLoomsMtPyre:
 	.string "Ahead looms Mt. Pyre…\p"
 	.string "It is a natural monument to the spirits \n"
@@ -190,5 +146,4 @@ Route121_Text_MtPyrePierSign:
 Route121_Text_SafariZoneSign:
 	.string "“Filled with rare Pokémon!”\n"
 	.string "Safari Zone$"
-
 `

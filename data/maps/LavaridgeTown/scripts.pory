@@ -41,11 +41,10 @@ script LavaridgeTown_EventScript_EggWoman {
 				giveegg(SPECIES_RIOLU)
 			case 3:
 			case 4:
-			case 5:
 				giveegg(SPECIES_MUNCHLAX)
+			case 5:
 			case 6:
 			case 7:
-			case 8:
 				giveegg(SPECIES_BONSLY)
 			default:
 				giveegg(SPECIES_CHINGLING)
@@ -126,7 +125,7 @@ LavaridgeTown_Text_PokemonNippedBackside:
 	.string "Sigh…\p"
 	.string "So warm and heavenly…\p"
 	.string "Eh? Gyaah! Ouch!\p"
-	.string "A POKéMON nipped my backside!$"
+	.string "A Pokémon nipped my backside!$"
 
 LavaridgeTown_Text_OhYouLikeHotSprings:
 	.string "Oh, you like hot springs, do you?\p"
@@ -136,10 +135,10 @@ LavaridgeTown_Text_OhYouLikeHotSprings:
 LavaridgeTown_Text_BatheInHotSpringsEveryDay:
 	.string "I bathe in the hot springs every day.\p"
 	.string "I want to become a beautiful and strong\n"
-	.string "GYM LEADER like FLANNERY.$"
+	.string "Gym Leader!$"
 
 LavaridgeTown_Text_IfPokemonInHotSprings:
-	.string "If people put POKéMON in hot springs,\n"
+	.string "If people put Pokémon in hot springs,\n"
 	.string "it might be seriously strange.\p"
 	.string "Why, it might be an electric bath, or\n"
 	.string "a bubble bath, or even a lava bath…$"
@@ -152,17 +151,16 @@ LavaridgeTown_Text_HotSpringsClaims:
 	.string "money…$"
 
 LavaridgeTown_Text_TownSign:
-	.string "LAVARIDGE TOWN\p"
-	.string "“POKéMON CENTER HOT SPRINGS\n"
+	.string "Lavaridge Town\p"
+	.string "Pokémon Center Hot Springs\n"
 	.string "An excellent place for relaxing!”$"
 
 LavaridgeTown_Text_GymSign:
-	.string "LAVARIDGE TOWN POKéMON GYM\n"
-	.string "LEADER: FLANNERY\l"
+	.string "Lavaridge Town Pokémon Gym\n"
+	.string "Leader: Moore\l"
 	.string "“One with a fiery passion that burns!”$"
 
 LavaridgeTown_Text_HerbShopSign:
-	.string "POKéMON HERB SHOP\n"
+	.string "Pokémon Herb Shop\n"
 	.string "“Bitter taste--better cure!”$"
-
 `

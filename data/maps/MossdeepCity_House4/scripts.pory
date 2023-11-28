@@ -1,7 +1,178 @@
-raw `
-MossdeepCity_House4_MapScripts::
-	.byte 0
+mapscripts MossdeepCity_House4_MapScripts {}
 
+script MossdeepCity_House4_EventScript_Twin {
+	lock
+	faceplayer
+	goto_if_set(FLAG_HIDE_SECRET_STASH_MOSSDEEP_CITY, MossdeepCity_House4_EventScript_CheckStashes)
+	msgbox(format("Hi! My friends and I love to hide secret stashes around the Hoenn region."))
+	msgbox(format("They look just like this one on the table."))
+	msgbox(format("If you find them all I'll give you a special reward!"))
+	release
+	end
+}
+
+script MossdeepCity_House4_EventScript_CheckStashes {
+	msgbox(format("Have you found all the hidden stashes yet?"))
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_GRANITE_CAVE, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_ROUTE_119, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_MT_PYRE, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_FORINA, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_SEAFLOOR_CAVERN, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_FOREST_HEART, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_METEOR_FALLS, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_JAGGED_PASS, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_DEWDROP_GLEN, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_SANDSWEPT_OASIS, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_ROUTE_115, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_CHAMPIONS_CUT, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_DESERT_UNDERPASS, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_REGI, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_ROUTE_111, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_ROUTE_122, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_OLDALE_RUINS, MossdeepCity_House4_EventScript_FindStashes)
+	goto_if_unset(FLAG_HIDE_SECRET_STASH_SAFARI_ZONE, MossdeepCity_House4_EventScript_FindStashes)	
+	goto(MossdeepCity_House4_EventScript_RenewStashes)
+	end
+}
+
+script MossdeepCity_House4_EventScript_FindStashes {
+	msgbox(format("Lame, you still have more to find! Go out there and explore Hoenn!"))
+	release
+	end
+}
+
+script MossdeepCity_House4_EventScript_RenewStashes {
+	msgbox(format("Hey, you found them all! Nice work!"))
+	msgbox(format("I pickpocketed this off of a careless Silph employee. You should have it!"))
+	giveitem(ITEM_MASTER_BALL)
+	clearflag(FLAG_HIDE_SECRET_STASH_GRANITE_CAVE)
+	clearflag(FLAG_HIDE_SECRET_STASH_ROUTE_119)
+	clearflag(FLAG_HIDE_SECRET_STASH_MT_PYRE)
+	clearflag(FLAG_HIDE_SECRET_STASH_FORINA)
+	clearflag(FLAG_HIDE_SECRET_STASH_SEAFLOOR_CAVERN)
+	clearflag(FLAG_HIDE_SECRET_STASH_FOREST_HEART)
+	clearflag(FLAG_HIDE_SECRET_STASH_METEOR_FALLS)
+	clearflag(FLAG_HIDE_SECRET_STASH_JAGGED_PASS)
+	clearflag(FLAG_HIDE_SECRET_STASH_DEWDROP_GLEN)
+	clearflag(FLAG_HIDE_SECRET_STASH_SANDSWEPT_OASIS)
+	clearflag(FLAG_HIDE_SECRET_STASH_ROUTE_115)
+	clearflag(FLAG_HIDE_SECRET_STASH_CHAMPIONS_CUT)
+	clearflag(FLAG_HIDE_SECRET_STASH_DESERT_UNDERPASS)
+	clearflag(FLAG_HIDE_SECRET_STASH_REGI)
+	clearflag(FLAG_HIDE_SECRET_STASH_ROUTE_111)
+	clearflag(FLAG_HIDE_SECRET_STASH_ROUTE_122)
+	clearflag(FLAG_HIDE_SECRET_STASH_OLDALE_RUINS)
+	clearflag(FLAG_HIDE_SECRET_STASH_SAFARI_ZONE)
+	random(5)
+	setvar(VAR_SECRET_STASH_STATE, VAR_RESULT)
+	//randomizes location of certain stashes
+	//Route 119 - 5 locations
+	//Forina - 5 locations
+	//Forest Heart - 5 locations
+	//Meteor Falls - 5 locations 
+		//0 - steven room
+		//1 - B1F-2R
+		//2 - 1F-2R
+		//3 - 1F-1R north
+		//4 - 1F-1R south
+	//Dewdrop Glen - 5 locations
+	//Sandswept Oasis - 5 locations (flag-dependent)
+	//Route 115 - 5 locations (flag-dependent)
+	//Desert Underpass TODO
+	//Regi - 5 locations TODO
+		//0 - sealed chamber
+		//1 - desert ruins
+		//2 - island cave
+		//3 - ancient tomb
+		//4 - titan's grave
+	//Route 111
+	//Route 115
+	//Oldale Ruins - 5 locations TODO
+		//0 - 
+		//1 - 
+		//2 - 
+		//3 - 
+		//4 - 
+	//Safari Zone - 5 locations TODO
+		//0 - 
+		//1 - 
+		//2 - 
+		//3 - 
+		//4 - 
+	msgbox(format("I'll go and hide more stashes for you to find!"))
+	msgbox(format("Have fun exploring all the nooks and crannies of the Hoenn region!"))
+	return
+}
+
+script MossdeepCity_House4_EventScript_SecretStash {
+	lock
+	playfanfare(MUS_OBTAIN_TMHM)
+	msgbox(format("You looted a secret stash!"))
+	waitfanfare
+	finditem(ITEM_BOTTLE_CAP, 7)
+	release
+	end
+}
+
+script MossdeepCity_House4_EventScript_HiddenNote {
+	lock
+	copyvar(VAR_SECRET_STASH_STATE, VAR_TEMP_1)
+	addvar(VAR_TEMP_1, 1)
+	buffernumberstring(STR_VAR_1, VAR_TEMP_1)
+	msgbox(format("Susie's secret notes. No peeking! Calvin this means you!"))
+	msgbox(format("13 of the stashes move between several locations."))
+	msgbox(format("The moving stashes are currently at location set {STR_VAR_1}!"))
+	release
+	end
+}
+
+script Common_EventScript_SecretStash {
+	lock
+	playfanfare(MUS_OBTAIN_TMHM)
+	msgbox(format("You looted a secret stash!"))
+	waitfanfare
+	//give vitamins
+	finditem(VAR_TEMP_D, 10)
+	//give two kinds of evo stone
+	finditem(VAR_TEMP_E)
+	finditem(VAR_TEMP_F)
+	//give random treasure
+	random(50)
+	if (var(VAR_RESULT) < 8) {
+		finditem(ITEM_STARDUST)
+	} elif (var(VAR_RESULT) < 24) {
+		finditem(ITEM_STAR_PIECE)
+	} elif (var(VAR_RESULT) < 48) {
+		finditem(ITEM_NUGGET)
+	} elif (var(VAR_RESULT) == 48) {
+		finditem(ITEM_BIG_NUGGET)
+	} else {
+		finditem(ITEM_COMET_SHARD)
+	}
+	//give ability item
+	random(16)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			finditem(ITEM_ABILITY_PATCH)
+		default:
+			finditem(ITEM_ABILITY_CAPSULE)
+	}
+	//give bottle caps
+	random(16)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			finditem(ITEM_GOLD_BOTTLE_CAP)
+		default:
+			finditem(ITEM_BOTTLE_CAP)
+	}
+	//handles object removal and flag
+	finditem(ITEM_BOTTLE_CAP)
+	release
+	return
+}
+ 
+
+raw `
 MossdeepCity_House4_EventScript_Woman::
 	lock
 	faceplayer

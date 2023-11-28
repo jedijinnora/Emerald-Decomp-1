@@ -1,17 +1,27 @@
+mapscripts PacifidlogTown_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : PacifidlogTown_OnTransition
+	MAP_SCRIPT_ON_RESUME : PacifidlogTown_OnResume
+}
+
+script PacifidlogTown_OnTransition {
+	setflag(FLAG_VISITED_PACIFIDLOG_TOWN)
+	end
+}
+
+script PacifidlogTown_OnResume {
+	setstepcallback(STEP_CB_PACIFIDLOG_BRIDGE)
+	end
+}
+
+script PacifidlogTown_EventScript_Picnicker {
+	lock
+	faceplayer
+	msgbox(format("Pacifidlog Town sits on the reef between two islands. We Pokémon Rangers maintain this part of Hoenn's environment in its natural state."))
+	release
+	end
+}
+
 raw `
-PacifidlogTown_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, PacifidlogTown_OnTransition
-	map_script MAP_SCRIPT_ON_RESUME, PacifidlogTown_OnResume
-	.byte 0
-
-PacifidlogTown_OnTransition:
-	setflag FLAG_VISITED_PACIFIDLOG_TOWN
-	end
-
-PacifidlogTown_OnResume:
-	setstepcallback STEP_CB_PACIFIDLOG_BRIDGE
-	end
-
 PacifidlogTown_EventScript_NinjaBoy::
 	msgbox PacifidlogTown_Text_NeatHousesOnWater, MSGBOX_NPC
 	end
@@ -52,5 +62,4 @@ PacifidlogTown_Text_TownSign:
 	.string "Pacifidlog Town\p"
 	.string "“Where the morning sun smiles upon\n"
 	.string "the waters.”$"
-
 `

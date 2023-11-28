@@ -149,8 +149,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 30,
-      "y": 64,
+      "x": 34,
+      "y": 56,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -162,8 +162,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 31,
-      "y": 64,
+      "x": 35,
+      "y": 56,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -274,8 +274,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Route115_EventScript_Stash",
+      "flag": "FLAG_HIDE_SECRET_STASH_ROUTE_115"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -503,8 +503,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 28,
-      "y": 64,
+      "x": 37,
+      "y": 54,
       "elevation": 0,
       "item": "ITEM_MAX_ETHER",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_115_MAX_ETHER"

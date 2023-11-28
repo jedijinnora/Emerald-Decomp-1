@@ -1,64 +1,59 @@
-raw `
-Route116_TunnelersRestHouse_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route116_TunnelersRestHouse_OnTransition
-	.byte 0
+mapscripts Route116_TunnelersRestHouse_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route116_TunnelersRestHouse_OnTransition
+}
 
-Route116_TunnelersRestHouse_OnTransition:
-	setflag FLAG_LANDMARK_TUNNELERS_REST_HOUSE
+script Route116_TunnelersRestHouse_OnTransition {
+	setflag(FLAG_LANDMARK_TUNNELERS_REST_HOUSE)
 	end
+}
 
-Route116_TunnelersRestHouse_EventScript_Tunneler1::
-	msgbox Route116_TunnelersRestHouse_Text_WeHadToStopBoring, MSGBOX_NPC
-	end
-
-Route116_TunnelersRestHouse_EventScript_Tunneler2::
-	msgbox Route116_TunnelersRestHouse_Text_ManDiggingHisWayToVerdanturf, MSGBOX_NPC
-	end
-
-Route116_TunnelersRestHouse_EventScript_Tunneler3::
+script Route116_TunnelersRestHouse_EventScript_Tunneler1 {
 	lock
 	faceplayer
-	goto_if_set FLAG_RUSTURF_TUNNEL_OPENED, Route116_TunnelersRestHouse_EventScript_TunnelOpened
-	msgbox Route116_TunnelersRestHouse_Text_GetToVerdanturfWithoutTunnel, MSGBOX_DEFAULT
+	msgbox(format("The tunnel is sure to be a great success! In just a few days, I'll stand in the center of Verdanturf and declare “Mission Accomplished!”"))
+	call_if_unset(FLAG_RECEIVED_BLUNDER_POLICY, Route116_TunnelersRestHouse_EventScript_GiveBlunderPolicy)
 	release
 	end
+}
 
-Route116_TunnelersRestHouse_EventScript_TunnelOpened::
-	msgbox Route116_TunnelersRestHouse_Text_TunnelHasGoneThrough, MSGBOX_DEFAULT
+script Route116_TunnelersRestHouse_EventScript_GiveBlunderPolicy {
+	msgbox(format("Oh, this? I found it lying around the other day. You should have it!"))
+	giveitem(ITEM_BLUNDER_POLICY)
+	setflag(FLAG_RECEIVED_BLUNDER_POLICY)
+	return
+}
+
+script Route116_TunnelersRestHouse_EventScript_Tunneler2 {
+	lock
+	faceplayer
+	msgbox(format("Don't forget your breathing mask if you're going in the tunnel. Fine particles released into the air from mining or drilling are hazardous for your lungs!"))
+	checkitem(ITEM_HM04_STRENGTH)
+	if(var(VAR_RESULT) == TRUE) {
+		checkitem(ITEM_HM05_FLASH)
+		if (var(VAR_RESULT) == TRUE) {
+			checkitem(ITEM_HM06_ROCK_SMASH)
+			if(var(VAR_RESULT) == TRUE) {
+				call_if_unset(FLAG_RECEIVED_TUNNELER_GIFT, Route116_TunnelersRestHouse_EventScript_TunnelerGift)
+			}
+		}
+	}
 	release
 	end
+}
 
-Route116_TunnelersRestHouse_Text_WeHadToStopBoring:
-	.string "That Rusturf Tunnel there…\p"
-	.string "At first, we had a huge work crew boring\n"
-	.string "through rock with the latest machinery.\l"
-	.string "But, we had to stop.\p"
-	.string "It turns out that we would have had\n"
-	.string "a negative effect on wild Pokémon in\l"
-	.string "the area.\p"
-	.string "So, we've got nothing to do but loll\n"
-	.string "around here doing nothing.$"
+script Route116_TunnelersRestHouse_EventScript_TunnelerGift {
+	msgbox(format("Your Pokémon look all kitted out for spelunking. I like that! You should take this!"))
+	giveitem(ITEM_EVIOLITE)
+	setflag(FLAG_RECEIVED_TUNNELER_GIFT)
+	msgbox(format("I found that while excavating a cave-in near Dewford."))
+	return
+}
 
-Route116_TunnelersRestHouse_Text_ManDiggingHisWayToVerdanturf:
-	.string "There's a man digging his way to\n"
-	.string "Verdanturf all by his lonesome.\l"
-	.string "He's desperate to get through.\p"
-	.string "He says that if he digs little by little\n"
-	.string "without using machines, he won't\l"
-	.string "disturb Pokémon, and he'll avoid\l"
-	.string "harming the natural environment.\p"
-	.string "I wonder if he made it through yet.$"
-
-Route116_TunnelersRestHouse_Text_GetToVerdanturfWithoutTunnel:
-	.string "To get to Verdanturf without using\n"
-	.string "this Tunnel, you'd have to cross the\l"
-	.string "sea to Dewford, sail on to Slateport,\l"
-	.string "then travel through Mauville.$"
-
-Route116_TunnelersRestHouse_Text_TunnelHasGoneThrough:
-	.string "Did you hear? The Tunnel to Verdanturf\n"
-	.string "has gone through!\p"
-	.string "Sometimes, if you hope strongly enough,\n"
-	.string "dreams do come true.$"
-
-`
+script Route116_TunnelersRestHouse_EventScript_Tunneler3 {
+	lock
+	faceplayer
+	msgbox(format("We've ordered a massive drilling rig. Soon we'll blast right through all that pesky mountain! I wanna see the dust fly!"))
+	msgbox(format("But I do wonder why we're going through the mountains instead of cutting south through the forest."))
+	release
+	end
+}

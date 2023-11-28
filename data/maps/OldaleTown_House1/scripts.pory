@@ -1,17 +1,20 @@
-raw `
-OldaleTown_House1_MapScripts::
-	.byte 0
+mapscripts OldaleTown_House1_MapScripts {}
 
-OldaleTown_House1_EventScript_Woman::
-	msgbox OldaleTown_House1_Text_LeftPokemonGoesOutFirst, MSGBOX_NPC
+
+script OldaleTown_House1_EventScript_Woman {
+	lock
+	faceplayer
+	msgbox(format("My brother gets into the weirdest fixations."))
+	msgbox(format("Most of the time it's harmless so I try to encourage him when I can."))
+	msgbox(format("It's good to be a supportive sibling."))
+	release
 	end
+}
 
-OldaleTown_House1_Text_LeftPokemonGoesOutFirst:
-	.string "When a Pokémon battle starts, the one\n"
-	.string "at the left of the list goes out first.\p"
-	.string "So, when you get more Pokémon in your\n"
-	.string "party, try switching around the order\l"
-	.string "of your Pokémon.\p"
-	.string "It could give you an advantage.$"
-
-`
+script OldaleTown_House1_EventScript_Maniac {
+	lock
+	faceplayer
+	msgbox(format("I love studying footprints!"))
+	release
+	end
+}

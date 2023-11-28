@@ -115,8 +115,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 17,
-      "y": 9,
+      "x": 20,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -128,8 +128,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 16,
-      "y": 10,
+      "x": 18,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -141,8 +141,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 15,
-      "y": 12,
+      "x": 13,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -155,14 +155,14 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_4",
       "x": 10,
-      "y": 12,
+      "y": 13,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Forina_EventScript_Man",
       "flag": "0"
     },
     {
@@ -245,16 +245,16 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BIRCHS_BAG",
-      "x": 22,
-      "y": 7,
-      "elevation": 3,
+      "x": 16,
+      "y": 6,
+      "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Forina_EventScript_Stash",
+      "flag": "FLAG_HIDE_SECRET_STASH_FORINA"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
@@ -292,7 +292,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Forina_EventScript_Twin",
       "flag": "0"
     },
     {
@@ -383,6 +383,22 @@
       "elevation": 0,
       "item": "ITEM_STAR_PIECE",
       "flag": "FLAG_HIDDEN_ITEM_FORINA_STAR_PIECE"
+    },
+    {
+      "type": "sign",
+      "x": 73,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Forina_EventScript_LavaridgeSign"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 28,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Forina_EventScript_116Sign"
     }
   ]
 }

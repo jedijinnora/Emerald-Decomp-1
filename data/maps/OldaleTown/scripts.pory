@@ -1,19 +1,23 @@
-raw `
+mapscripts OldaleTown_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : OldaleTown_OnTransition
+}
 
-OldaleTown_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, OldaleTown_OnTransition
-	.byte 0
-
-OldaleTown_OnTransition:
-	setflag FLAG_VISITED_OLDALE_TOWN
+script OldaleTown_OnTransition {
+	setflag(FLAG_VISITED_OLDALE_TOWN)
 	end
+}
 
-OldaleTown_EventScript_TownSign::
-	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
+script OldaleTown_EventScript_TownSign {
+	msgbox("Oldale Town\n “The vale where history lurks.”", MSGBOX_SIGN)
 	end
+}
 
-OldaleTown_Text_TownSign:
-	.string "OLDALE TOWN\n"
-	.string "“Where things start off scarce.”$"
+script OldaleTown_EventScript_ShopSign {
+	msgbox("Nature Shop \n “Held herbs for your Pokémon.”", MSGBOX_SIGN)
+	end
+}
 
-`
+script OldaleTown_EventScript_TowerSign {
+	msgbox("Archeology Tower \n “Exploring glade and dale.”", MSGBOX_SIGN)
+	end
+}

@@ -1,11 +1,21 @@
+mapscripts DewfordTown_Hall_MapScripts {}
+
+script DewfordTown_Hall_EventScript_SludgeBombMan {
+	lock
+	faceplayer
+	checkitem(ITEM_TM26_SLUDGE_BOMB)
+	goto_if_eq(VAR_RESULT, FALSE, DewfordTown_Hall_EventScript_ReceivedSludgeBomb)
+	msgbox(DewfordTown_Hall_Text_GiveYouSludgeBomb, MSGBOX_DEFAULT)
+	giveitem(ITEM_TM26_SLUDGE_BOMB)
+	release
+	end
+}
+
 raw `
 .set LOCALID_EXPERT_M, 4
 .set LOCALID_TWIN, 5
 .set LOCALID_SCHOOL_KID_M, 7
 .set LOCALID_PSYCHIC_M, 8
-
-DewfordTown_Hall_MapScripts::
-	.byte 0
 
 DewfordTown_Hall_EventScript_Girl::
 	lock
@@ -242,18 +252,6 @@ DewfordTown_Hall_Movement_PsychicWalkInPlaceLeft:
 DewfordTown_Hall_Movement_SchoolKidWalkInPlaceRight:
 	walk_in_place_right
 	step_end
-
-DewfordTown_Hall_EventScript_SludgeBombMan::
-	lock
-	faceplayer
-	call Common_EventScript_BufferTrendyPhrase
-	goto_if_set FLAG_RECEIVED_TM_SLUDGE_BOMB, DewfordTown_Hall_EventScript_ReceivedSludgeBomb
-	msgbox DewfordTown_Hall_Text_GiveYouSludgeBomb, MSGBOX_DEFAULT
-	giveitem ITEM_TM_SLUDGE_BOMB
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_SLUDGE_BOMB
-	release
-	end
 
 DewfordTown_Hall_EventScript_ReceivedSludgeBomb::
 	msgbox DewfordTown_Hall_Text_LoveSludgeBombButTrendInToo, MSGBOX_DEFAULT

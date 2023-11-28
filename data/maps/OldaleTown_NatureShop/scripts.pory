@@ -1,14 +1,13 @@
-mapscripts OldaleTown_NatureShop_MapScripts {
-
-}
+mapscripts OldaleTown_NatureShop_MapScripts {}
 
 
 script OldaleTown_NatureShop_EventScript_Clerk {
 	lock
-	message(format("Welcome to Oldale Town Natural Supply."))
+    msgbox(gText_HowMayIServeYou)
 	waitmessage
 	pokemart(Oldale_NatureShop_Mart)
-	msgbox(format("Get out there and enjoy the world!"))
+	msgbox(gText_PleaseComeAgain)
+	waitmessage
 	release
 }
 

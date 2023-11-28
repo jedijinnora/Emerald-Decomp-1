@@ -7,29 +7,75 @@ script DewfordTown_OnTransition {
 	end
 }
 
-raw `
-DewfordTown_EventScript_Woman::
-	msgbox DewfordTown_Text_TinyIslandCommunity, MSGBOX_NPC
+script DewfordTown_EventScript_TownSign {
+	msgbox("Dewford Town\n “A tiny island in the blue sea.”", MSGBOX_SIGN)
 	end
+}
 
-DewfordTown_EventScript_TownSign::
-	msgbox DewfordTown_Text_TownSign, MSGBOX_SIGN
+script DewfordTown_EventScript_GymSign {
+	msgbox("Dewford Town Pokémon Gym\n Leader: Sidney\l “The fighting punk!”", MSGBOX_SIGN)
 	end
+}
 
-DewfordTown_EventScript_GymSign::
-	msgbox DewfordTown_Text_GymSign, MSGBOX_SIGN
+script DewfordTown_EventScript_HallSign {
+	msgbox("Dewford Hall\n “Everyone's information exchange!”", MSGBOX_SIGN)
 	end
+}
 
-DewfordTown_EventScript_HallSign::
-	msgbox DewfordTown_Text_HallSign, MSGBOX_SIGN
-	end
-
-DewfordTown_EventScript_OldRodFisherman::
+script DewfordTown_EventScript_Woman {
 	lock
 	faceplayer
-	
+	msgbox(format("Dewford is a small island community."))
+	msgbox(format("The tourists who come for the Resort have been causing some friction."))
+	msgbox(format("I suppose conflict between locals and outsiders is inevitable."))
+	release
 	end
+}
 
+script DewfordTown_EventScript_Fisherman {
+	lock
+	faceplayer
+	msgbox(format("There are three brothers who'll give out fishing rods to worthy Trainers."))
+	checkitem(ITEM_OLD_ROD)
+	if (!var(VAR_RESULT)) {
+		msgbox(format("You oughta head back to Ever Grande and look around more!"))
+		release 
+		end
+	}
+	checkitem(ITEM_GOOD_ROD)
+	if (!var(VAR_RESULT)) {
+		msgbox(format("The middle brother hands around the eastern side of Route 118."))
+		release 
+		end
+	}
+	checkitem(ITEM_SUPER_ROD)
+	if (!var(VAR_RESULT)) {
+		msgbox(format("The oldest brother lives in Mossdeep and grants the Super Rod if you've beaten every other Fisherman in Hoenn!"))
+		release 
+		end
+	}
+	msgbox(format("Wowie! \n You're the best fisher in Hoenn!"))
+	release
+	end
+}
+
+script DewfordTown_EventScript_PokefanF {
+	lock
+	faceplayer
+	msgbox(format("Have you seen my son? He ran off when we left for the beach this morning."))
+	release
+	end
+}
+
+script DewfordTown_EventScript_LittleBoy {
+	lock
+	faceplayer
+	msgbox(format("Don't make me go to the beach! The nasty sand will get everywhere!"))
+	release
+	end
+}
+
+raw `
 DewfordTown_EventScript_TrendyPhraseBoy::
 	lock
 	faceplayer
@@ -70,24 +116,6 @@ DewfordTown_EventScript_PhraseNotTrendyEnough::
 	msgbox DewfordTown_Text_XHuhIThinkYIsCool, MSGBOX_DEFAULT
 	release
 	end
-
-DewfordTown_Text_TinyIslandCommunity:
-	.string "Dewford is a tiny island community.\n"
-	.string "If something gets trendy here,\l"
-	.string "everyone picks up on it right away.$"
-
-DewfordTown_Text_TownSign:
-	.string "Dewford Town\n"
-	.string "“A tiny island in the blue sea.”$"
-
-DewfordTown_Text_GymSign:
-	.string "Dewford Town Pokémon Gym\n"
-	.string "Leader: Brawly\l"
-	.string "“A big wave in fighting!”$"
-
-DewfordTown_Text_HallSign:
-	.string "Dewford Hall\n"
-	.string "“Everyone's information exchange!”$"
 
 DewfordTown_Text_XIsTheBiggestHappeningThingRight:
 	.string "I like what's hip, happening, and trendy.\n"

@@ -427,8 +427,11 @@ bool32 ShouldDoScottBattleFrontierCall(void)
     return TRUE;
 }
 
+
+//Jinnora: removed this
 bool32 ShouldDoRoxanneCall(void)
 {
+    /*
     if (FlagGet(FLAG_ENABLE_ROXANNE_FIRST_CALL))
     {
         switch (gMapHeader.mapType)
@@ -450,10 +453,13 @@ bool32 ShouldDoRoxanneCall(void)
     }
 
     return TRUE;
+    */
+   return FALSE;
 }
 
 bool32 ShouldDoRivalRayquazaCall(void)
 {
+    /* Jinnora removed, not even sure where this gets called
     if (FlagGet(FLAG_DEFEATED_MAGMA_SPACE_CENTER))
     {
         switch (gMapHeader.mapType)
@@ -475,6 +481,8 @@ bool32 ShouldDoRivalRayquazaCall(void)
     }
 
     return TRUE;
+    */
+   return FALSE;
 }
 
 u8 GetLinkPartnerNames(void)
@@ -4185,4 +4193,10 @@ void SetPlayerGotFirstFans(void)
 u8 Script_TryGainNewFanFromCounter(void)
 {
     return TryGainNewFanFromCounter(gSpecialVar_0x8004);
+}
+
+//Jinnora: added field special to find map section
+u16 GetCurrentMapSec(void)
+{
+    return gMapHeader.regionMapSectionId;
 }

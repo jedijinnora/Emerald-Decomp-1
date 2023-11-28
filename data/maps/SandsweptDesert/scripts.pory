@@ -1,1 +1,35 @@
-mapscripts SandsweptDesert_MapScripts {}
+const LOCALID_STASH = 1
+
+mapscripts SandsweptDesert_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : SandsweptDesert_OnTransition
+}
+
+script SandsweptDesert_OnTransition {
+    call(SandsweptDesert_EventScript_TryMoveStash)
+    end
+}
+
+script SandsweptDesert_EventScript_TryMoveStash {
+    goto_if_set(FLAG_HIDE_SECRET_STASH_SANDSWEPT_OASIS, Common_EventScript_NopReturn)
+    switch(var(VAR_SECRET_STASH_STATE)) {
+        case 0:
+            setobjectxyperm(LOCALID_STASH, 17, 10)
+        case 1:
+            setobjectxyperm(LOCALID_STASH, 7, 12)
+        case 2:
+            setobjectxyperm(LOCALID_STASH, 14, 9)
+        case 3:
+            setobjectxyperm(LOCALID_STASH, 7, 7)
+        default:
+            setobjectxyperm(LOCALID_STASH, 25, 28)
+    }
+    return
+}
+
+script SandsweptDesert_EventScript_Stash {
+    setvar(VAR_TEMP_D, ITEM_HP_UP)
+    setvar(VAR_TEMP_E, ITEM_FIRE_STONE)
+    setvar(VAR_TEMP_F, ITEM_SUN_STONE)
+    call(Common_EventScript_SecretStash)
+    end
+}

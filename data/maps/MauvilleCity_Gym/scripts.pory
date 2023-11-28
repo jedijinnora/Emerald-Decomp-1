@@ -1,8 +1,84 @@
-raw `
-MauvilleCity_Gym_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, MauvilleCity_Gym_OnLoad
-	.byte 0
+mapscripts MauvilleCity_Gym_MapScripts {
+	MAP_SCRIPT_ON_LOAD : MauvilleCity_Gym_OnLoad
+}
 
+script MauvilleCity_Gym_EventScript_GymGuide {
+	lock
+	faceplayer
+	if(flag(FLAG_SYS_GAME_CLEAR)) {
+		msgbox(format("Good to see you again, Champion {PLAYER}! I knew you had it in you!"))
+		release
+		end
+	}
+	if(flag(FLAG_BADGE03_GET)) {
+		msgbox(MauvilleCity_Gym_Text_GymGuidePostVictory)
+		release
+		end
+	}
+	msgbox(MauvilleCity_Gym_Text_GymGuideAdvice)
+	release
+	end
+}
+
+script MauvilleCity_Gym_EventScript_Wattson {
+	lock
+	faceplayer
+	goto_if_set(FLAG_SYS_GAME_CLEAR, WattsonRematch)
+	goto_if_set(FLAG_DEFEATED_MAUVILLE_GYM, WattsonEnd)
+	//check number of badges and return appropriate battle
+	switch(var(VAR_NUM_BADGES)) {
+		case 0:
+			//badge 1 team
+			trainerbattle_single(TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonIntro, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonDefeated, NO_MUSIC)
+		case 1:
+			//badge 2 team
+		case 2:
+		case 3:
+			//badge 34 team
+		case 4:
+		case 5:
+		case 6:
+			//badge 567 team
+		case 7:
+			//badge 8 team
+			trainerbattle_single(TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonIntro, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonDefeated, NO_MUSIC)
+		default:
+			goto_if_unset(FLAG_TEMP_1, WattsonRematch)
+	}
+	WattsonEnd:
+	msgbox(MauvilleCity_Gym_Text_WattsonPostBattle)
+	release
+	end
+
+	WattsonRematch:
+	goto_if_set(FLAG_TEMP_1, WattsonEnd)
+	msgbox("Wattson: Ah-ha! Here at last!\nI know what you want.\lYou want to battle my Pokémon!\pWahahahaha!\p", MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, WattsonEnd)
+	setflag(FLAG_TEMP_1)
+	cleartrainerflag(TRAINER_WATTSON_1)
+	trainerbattle_single(TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonPreRematch, MauvilleCity_Gym_Text_WattsonRematchDefeat)
+	release
+	end
+}
+
+script MauvilleCity_Gym_EventScript_WattsonDefeated {
+	message(MauvilleCity_Gym_Text_ReceivedDynamoBadge)
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	setflag(FLAG_DEFEATED_MAUVILLE_GYM)
+	setflag(FLAG_BADGE03_GET)
+	setflag(FLAG_CHALLENGE_FERRY_TICKET)
+	addvar(VAR_NUM_BADGES, 1)
+	setvar(VAR_0x8008, 3)
+	call(Common_EventScript_SetGymTrainers)
+	special(MauvilleGymDeactivatePuzzle)
+	special(DrawWholeMapView)
+	playse(SE_UNLOCK)
+	call_if_unset(FLAG_CHALLENGE_HM_NONE, Gym_EventScript_GetHM)
+	return
+}
+
+raw `
 MauvilleCity_Gym_OnLoad:
 	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, MauvilleCity_Gym_EventScript_DeactivatePuzzle
 	switch VAR_MAUVILLE_GYM_STATE
@@ -72,69 +148,6 @@ MauvilleCity_Gym_EventScript_Switch4Pressed::
 
 MauvilleCity_Gym_EventScript_DeactivatePuzzle::
 	special MauvilleGymDeactivatePuzzle
-	end
-
-MauvilleCity_Gym_EventScript_Wattson::
-	trainerbattle_single TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonIntro, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonDefeated, NO_MUSIC
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch
-	goto_if_unset FLAG_RECEIVED_TM_SHOCK_WAVE, MauvilleCity_Gym_EventScript_GiveShockWave2
-	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, MauvilleCity_Gym_EventScript_CompletedNewMauville
-	msgbox MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-MauvilleCity_Gym_EventScript_WattsonDefeated::
-	message MauvilleCity_Gym_Text_ReceivedDynamoBadge
-	waitmessage
-	call Common_EventScript_PlayGymBadgeFanfare
-	msgbox MauvilleCity_Gym_Text_ExplainDynamoBadgeTakeThis, MSGBOX_DEFAULT
-	setvar VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE, 3
-	clearflag FLAG_HIDE_VERDANTURF_TOWN_SCOTT
-	setflag FLAG_DEFEATED_MAUVILLE_GYM
-	setflag FLAG_BADGE03_GET
-	addvar VAR_PETALBURG_GYM_STATE, 1
-	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
-	setvar VAR_0x8008, 3
-	call Common_EventScript_SetGymTrainers
-	special MauvilleGymDeactivatePuzzle
-	special DrawWholeMapView
-	playse SE_UNLOCK
-	call MauvilleCity_Gym_EventScript_GiveShockWave
-	closemessage
-	delay 30
-	playfanfare MUS_REGISTER_MATCH_CALL
-	msgbox MauvilleCity_Gym_Text_RegisteredWattson, MSGBOX_DEFAULT
-	waitfanfare
-	closemessage
-	delay 30
-	setflag FLAG_ENABLE_WATTSON_MATCH_CALL
-	release
-	end
-
-MauvilleCity_Gym_EventScript_GiveShockWave2::
-	giveitem ITEM_TM_SHOCK_WAVE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	msgbox MauvilleCity_Gym_Text_ExplainShockWave, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_SHOCK_WAVE
-	release
-	end
-
-MauvilleCity_Gym_EventScript_GiveShockWave::
-	giveitem ITEM_TM_SHOCK_WAVE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
-	msgbox MauvilleCity_Gym_Text_ExplainShockWave, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_SHOCK_WAVE
-	return
-
-MauvilleCity_Gym_EventScript_CompletedNewMauville::
-	msgbox MauvilleCity_Gym_Text_WattsonGoForthAndEndeavor, MSGBOX_DEFAULT
-	release
-	end
-
-MauvilleCity_Gym_EventScript_WattsonRematch::
-	trainerbattle_rematch_double TRAINER_WATTSON_1, MauvilleCity_Gym_Text_WattsonPreRematch, MauvilleCity_Gym_Text_WattsonRematchDefeat, MauvilleCity_Gym_Text_WattsonRematchNeedTwoMons
-	msgbox MauvilleCity_Gym_Text_WattsonPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 MauvilleCity_Gym_EventScript_Switch1::
@@ -222,7 +235,7 @@ MauvilleCity_Gym_EventScript_Angelo::
 	msgbox MauvilleCity_Gym_Text_AngeloPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-MauvilleCity_Gym_EventScript_GymGuide::
+MauvilleCity_Gym_EventScript_GymGuide2::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, MauvilleCity_Gym_EventScript_GymGuidePostVictory
@@ -270,7 +283,7 @@ MauvilleCity_Gym_Text_GymGuideAdvice:
 
 MauvilleCity_Gym_Text_GymGuidePostVictory:
 	.string "Whoa, you're electrifying!\n"
-	.string "You've powered the door open!$"
+	.string "You've powered the doors open!$"
 
 MauvilleCity_Gym_Text_KirkIntro:
 	.string "My electric soul, it'll shatter your\n"
@@ -391,10 +404,6 @@ MauvilleCity_Gym_Text_GymStatueCertified:
 	.string "{PLAYER}$"
 
 MauvilleCity_Gym_Text_WattsonPreRematch:
-	.string "Wattson: Ah-ha! Here at last!\n"
-	.string "I know what you want.\l"
-	.string "You want to battle my Pokémon!\p"
-	.string "Wahahahaha!\p"
 	.string "I'll make sparks fly from you!\n"
 	.string "Don't say I didn't warn you!$"
 

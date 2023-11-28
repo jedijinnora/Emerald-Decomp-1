@@ -27,11 +27,11 @@ script EverGrandeCity_House2_EventScript_ExpertM {
         case 7:
             msgbox(format("Norman is a solid trainer all around. Bit sketchy the way he hangs around Petalburg waiting for his chance to be Gym Leader, but the man does know his Normal types."))
         case 8:
-            msgbox(format("Hoenn's best expert on fossils lives just outside Fallarbor Town. Be sure to bring your best sense of humor! His jokes aren't for everyone."))
+            msgbox(format("Hoenn's best expert on fossils and Ground types lives just outside Fallarbor Town."))
         case 9:
-            msgbox(format("Ruin maniacs are a little crazed, and Dusty's been digging through the desert almost as long as I've been alive. His Ground-types are matched only by Elite Four Brandon."))
+            msgbox(format("There's a young Trainer from Mossdeep named Steven who has some rare Steel types. He often travels searching for rare stones."))
         case 10:
-            msgbox(format("Hogarth's a good lad, helping around the Rustboro Trainer's School. I once heard a rumor his Aggron could fly! Either he or a girl named Roxanne will be the next Gym Leader, mark my words."))
+            msgbox(format("Rock may play second fiddle to Steel, but young Roxanne of Rustboro has the smarts to go the distance. She'd usually helping around the Trainer's School."))
         case 11:
             msgbox(format("Bug Catchers may not have the best reputations, but if you underestimate the power of a swarm Hebert in Oldale will be more than happy to school you."))
         case 12:

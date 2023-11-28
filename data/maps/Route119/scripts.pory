@@ -1,3 +1,31 @@
+const LOCALID_STASH = 31
+
+script Route119_EventScript_TryMoveStash {
+	goto_if_set(FLAG_HIDE_SECRET_STASH_ROUTE_119, Common_EventScript_NopReturn)
+	switch(var(VAR_SECRET_STASH_STATE)) {
+		case 0:
+			setobjectxyperm(LOCALID_STASH, 3, 16)
+		case 1:
+			setobjectxyperm(LOCALID_STASH, 36, 50)
+		case 2:
+			setobjectxyperm(LOCALID_STASH, 17, 83)
+		case 3:
+			setobjectxyperm(LOCALID_STASH, 5, 96)
+		default:
+			setobjectxyperm(LOCALID_STASH, 6, 129)
+	}
+	return
+}
+
+script Route119_EventScript_Stash {
+	setvar(VAR_TEMP_D, ITEM_CARBOS)
+	setvar(VAR_TEMP_E, ITEM_LEAF_STONE)
+	setvar(VAR_TEMP_F, ITEM_THUNDER_STONE)
+	call(Common_EventScript_SecretStash)
+	end
+}
+
+
 raw `
 Route119_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route119_OnResume
@@ -16,6 +44,7 @@ Route119_EventScript_TryRemoveKecleon::
 
 Route119_OnTransition:
 	special SetRoute119Weather
+	call Route119_EventScript_TryMoveStash
 	end
 
 Route119_EventScript_CyclingTriathleteM::

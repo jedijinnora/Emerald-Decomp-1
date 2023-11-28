@@ -1,1 +1,69 @@
-mapscripts Forina_MapScripts {}
+mapscripts Forina_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : Forina_OnTransition
+}
+
+script Forina_OnTransition {
+    call(Forina_EventScript_TryMoveStash)
+    end
+}
+
+const LOCALID_STASH = 17
+
+script Forina_EventScript_TryMoveStash {
+	goto_if_set(FLAG_HIDE_SECRET_STASH_FORINA, Common_EventScript_NopReturn)
+	switch(var(VAR_SECRET_STASH_STATE)) {
+		case 0:
+			setobjectxyperm(LOCALID_STASH, 16, 6)
+		case 1:
+			setobjectxyperm(LOCALID_STASH, 15, 25)
+		case 2:
+			setobjectxyperm(LOCALID_STASH, 45, 9)
+		case 3:
+			setobjectxyperm(LOCALID_STASH, 83, 29)
+		default:
+			setobjectxyperm(LOCALID_STASH, 46, 28)
+	}
+    return
+}
+
+script Forina_EventScript_Stash {
+	setvar(VAR_TEMP_D, ITEM_IRON)
+	setvar(VAR_TEMP_E, ITEM_SHINY_STONE)
+	setvar(VAR_TEMP_F, ITEM_ICE_STONE)
+	call(Common_EventScript_SecretStash)
+	end
+}
+
+script Forina_EventScript_LavaridgeSign {
+	msgbox(format("Forina\n“The land of pillars and wishes.”\p{RIGHT_ARROW} Lavaridge Town\n{UP_ARROW} Millennium Field"), MSGBOX_SIGN)
+}
+
+script Forina_EventScript_116Sign {
+	msgbox(format("Forina\n“The land of pillars and wishes.”\p{DOWN_ARROW} Route 115"), MSGBOX_SIGN)
+}
+
+script Forina_EventScript_Man {
+	lock
+	faceplayer
+	msgbox(format(""))
+	release
+	end
+}
+
+script Forina_EventScript_Twin {
+	lock
+	faceplayer
+	random(4)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("I love the pillars here. Did you know the rocks are really old?"))
+		case 1:
+			msgbox(format("My mom said the quartzite in the pillars was harder than the surrounding rock, so it stayed when the rest eroded away."))
+		case 2:
+			msgbox(format("Millions of years ago this was all buried underground. What do you think the Earth will look like when we're all gone?"))
+		default: 
+			msgbox(format("Ooh, ooh! Have you been to Millennium Field for the star festival?"))
+	}
+	release
+	end
+}

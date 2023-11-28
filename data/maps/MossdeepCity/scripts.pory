@@ -49,34 +49,6 @@ script MossdeepCity_EventScript_Sailor {
 	end
 }
 
-script MossdeepCity_EventScript_Ferry {
-	lock
-	faceplayer
-	msgbox(format("Ahoy, {PLAYER}! The ferry is ready to take you to your next destination!"))
-	msgbox(format("Where would you like to go?"))
-	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Rustboro", "Dewford", "Littleroot", "Slateport", "Lilycove", "Sootopolis", "Ever Grande")
-	switch(var(VAR_RESULT)) {
-		case 0:
-			warp(MAP_RUSTBORO_CITY, -1, 14, 12)
-		case 1:
-			warp(MAP_DEWFORD_RESORT, -1, 6, 16)
-		case 2:
-			warp(MAP_LITTLEROOT_SHORE, -1, 26, 21)
-		case 3:
-			warp(MAP_SLATEPORT_CITY, -1, 11, 26)
-		case 4:
-			warp(MAP_LILYCOVE_CITY, -1, 11, 35)
-		case 5:
-			warp(MAP_SOOTOPOLIS_CITY, -1, 21, 44)
-		case 6:
-			warp(MAP_EVER_GRANDE_CITY, -1, 24, 30)
-		default:
-			msgbox(format("See you later, then!"))
-	}
-	release
-	end
-}
-
 script MossdeepCity_EventScript_PsychicM {
 	lock
 	faceplayer

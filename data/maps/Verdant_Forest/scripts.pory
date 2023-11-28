@@ -196,8 +196,10 @@ script VerdantForest_EventScript_FairyFlowerbox_Upper {
     waitmoncry
     msgbox(format("An enraged fae leaps forth to challenge you!"))
     waitmessage
+    setflag(FLAG_SMART_WILD_AI)
     setwildbattle(SPECIES_FLOETTE, 35, ITEM_FAIRY_GEM)
     dowildbattle
+    clearflag(FLAG_SMART_WILD_AI)
     setvar(VAR_TEMP_2, 0)
     msgbox(format("The sweet smell of flowers is a little less cloying now."))
     addvar(VAR_TEMP_3, 2)
@@ -252,7 +254,9 @@ script VerdantForest_EventScript_Guardian {
     waitmoncry
     settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 0, 1, 1)
     setwildbattle(VAR_TEMP_4, 50, VAR_TEMP_5)
+    setflag(FLAG_SMART_WILD_AI)
     dowildbattle
+    clearflag(FLAG_SMART_WILD_AI)
     specialvar(VAR_RESULT, GetBattleOutcome)
     if ((var(VAR_RESULT) == B_OUTCOME_RAN) || (var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED)) {
         msgbox(format("You cannot flee from the anger of the fae!"))

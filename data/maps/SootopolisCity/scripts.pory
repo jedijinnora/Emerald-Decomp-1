@@ -102,7 +102,7 @@ script SootopolisCity_EventScript_Ferry {
 	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Rustboro", "Dewford", "Littleroot", "Slateport", "Lilycove", "Mossdeep", "Ever Grande")
 	switch(var(VAR_RESULT)) {
 		case 0:
-			warp(MAP_RUSTBORO_CITY, -1, 14, 12)
+			warp(MAP_RUSTBORO_CITY, -1, 11, 26)
 		case 1:
 			warp(MAP_DEWFORD_RESORT, -1, 6, 16)
 		case 2:

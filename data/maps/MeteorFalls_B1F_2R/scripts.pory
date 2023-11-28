@@ -1,5 +1,20 @@
-raw `
-MeteorFalls_B1F_2R_MapScripts::
-	.byte 0
+mapscripts MeteorFalls_B1F_2R_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : MeteorFalls_B1F_2R_OnTransition
+}
 
-`
+script MeteorFalls_B1F_2R_OnTransition {
+    call(MeteorFalls_B1F_2R_EventScript_TryHideStash)
+    end
+}
+
+script MeteorFalls_B1F_2R_EventScript_TryHideStash {
+    goto_if_set(FLAG_HIDE_SECRET_STASH_METEOR_FALLS, MeteorFalls_B1F_2R_EventScript_HideStash)
+    goto_if_ne(VAR_SECRET_STASH_STATE, 1, MeteorFalls_B1F_2R_EventScript_HideStash)
+	goto_if_unset(FLAG_ITEM_TM88, MeteorFalls_B1F_2R_EventScript_HideStash)
+    end
+}
+
+script MeteorFalls_B1F_2R_EventScript_HideStash {
+    setflag(FLAG_TEMP_11)
+    end
+}

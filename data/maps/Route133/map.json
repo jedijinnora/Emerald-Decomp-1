@@ -209,6 +209,14 @@
       "elevation": 0,
       "item": "ITEM_BLUE_SHARD",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_133_BLUE_SHARD"
+    },
+    {
+      "type": "sign",
+      "x": 18,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route133_EventScript_Sign"
     }
   ]
 }

@@ -1,3 +1,13 @@
+script MtPyre_5F_EventScript_Stash {
+	setvar(VAR_TEMP_D, ITEM_HP_UP)
+	setvar(VAR_TEMP_E, ITEM_DUSK_STONE)
+	setvar(VAR_TEMP_F, ITEM_ICE_STONE)
+	call(Common_EventScript_SecretStash)
+	end
+}
+
+
+
 raw `
 MtPyre_4F_MapScripts::
 	.byte 0

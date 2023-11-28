@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PetalburgCity_Gym_EventScript_Greta",
       "flag": "0"
     },
     {
@@ -418,7 +418,7 @@
       "y": 105,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_AccuracyRoomDoor"
+      "script": "PetalburgCity_Gym_EventScript_TechnicianRoomDoor"
     },
     {
       "type": "sign",
@@ -426,7 +426,7 @@
       "y": 79,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_ConfusionRoomDoor"
+      "script": "PetalburgCity_Gym_EventScript_TrickeryRoomDoor"
     },
     {
       "type": "sign",
@@ -458,7 +458,7 @@
       "y": 40,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_LeftStrengthRoomDoor"
+      "script": "PetalburgCity_Gym_EventScript_LeftGutsRoomDoor"
     },
     {
       "type": "sign",
@@ -466,7 +466,7 @@
       "y": 53,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_RightStrengthRoomDoor"
+      "script": "PetalburgCity_Gym_EventScript_RightGutsRoomDoor"
     },
     {
       "type": "sign",
@@ -474,7 +474,7 @@
       "y": 53,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_LeftOHKORoomDoor"
+      "script": "PetalburgCity_Gym_EventScript_LeftPowerRoomDoor"
     },
     {
       "type": "sign",
@@ -482,7 +482,7 @@
       "y": 66,
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PetalburgCity_Gym_EventScript_RightOHKORoomDoor"
+      "script": "PetalburgCity_Gym_EventScript_RightPowerRoomDoor"
     },
     {
       "type": "sign",
@@ -515,6 +515,14 @@
       "elevation": 3,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "PetalburgCity_Gym_EventScript_RightGymStatue"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 105,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PetalburgCity_Gym_EventScript_DoorGuide"
     }
   ]
 }

@@ -1162,17 +1162,17 @@ static const struct InGameTrade sIngameTrades[] =
     },
     [INGAME_TRADE_DRATINI] =
     {
-        .nickname = _("Washy"),
+        .nickname = _("Quetzal"),
         .species = SPECIES_DRATINI,
         .ivs = {15, 20, 15, 20, 20, 15},
         .abilityNum = 0,
-        .otId = 11421,
+        .otId = 94187,
         .conditions = {0, 0, 0, 0, 0},
         .personality = 0x0D,//should be male, Jolly nature
         .heldItem = ITEM_DRAGON_SCALE,
         .mailNum = -1,
-        .otName = _("Rojin"),
-        .otGender = MALE, 
+        .otName = _("Max & Emmy"),
+        .otGender = FEMALE, 
         .sheen = 0,
         .requestedSpecies = SPECIES_TROPIUS
     },

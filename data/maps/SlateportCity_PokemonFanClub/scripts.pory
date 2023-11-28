@@ -1,5 +1,104 @@
 mapscripts SlateportCity_PokemonFanClub_MapScripts {}
 
+script SlateportCity_PokemonFanClub_EventScript_Twin {
+	lock
+	faceplayer
+	goto_if_set(FLAG_SLATEPORT_STUFFUL_TRADE_COMPLETED, StuffulTradeCompleted)
+	setvar(VAR_0x8008, INGAME_TRADE_STUFFUL)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
+	copyvar(VAR_0x8009, VAR_RESULT)
+	msgbox(format("H-h-hi?"))
+	msgbox(format("I asked my parents for a snuggly companion, so they got me this stuffed bear Pokémon."))
+	msgbox(format("But he isn't safe to hold…\nHe broke three of my ribs the last time I tried to hug him."))
+	msgbox(format("I heard Flareon is the best Pokémon for cuddling."))
+	msgbox(format("Would you trade me one for my Stufful?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DeclineStuffulTrade)
+	msgbox(format("R-really? Th-thank you…"))
+	waitmessage
+	special(ChoosePartyMon)
+	waitstate
+	copyvar(VAR_0x800A, VAR_0x8004)
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, DeclineStuffulTrade)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	specialvar(VAR_RESULT, GetTradeSpecies)
+	copyvar(VAR_0x800B, VAR_RESULT)
+	goto_if_ne(VAR_RESULT, VAR_0x8009, SelectedNotFlareon)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	special(CreateInGameTradePokemon)
+	special(DoInGameTradeScene)
+	waitstate
+	msgbox(format("I hope he doesn't hurt you…"))
+	setflag(FLAG_SLATEPORT_STUFFUL_TRADE_COMPLETED)
+	release
+	end
+
+	DeclineStuffulTrade:
+	msgbox(format("O-oh, okay…"))
+	release
+	end
+
+	SelectedNotFlareon:
+	bufferspeciesname(STR_VAR_1, VAR_0x8009)
+	msgbox(format("That's not a Flareon. I guess I don't really deserve one…"))
+	release
+	end
+
+	StuffulTradeCompleted:
+	msgbox(format("Thank you thank you thank you!"))
+	msgbox(format("Curling up with Flareon warms me up inside and out!"))
+	release
+	end
+}
+
+script SlateportCity_PokemonFanClub_EventScript_Maniac {
+	lock
+	faceplayer
+	goto_if_set(FLAG_SLATEPORT_PORYGON_TRADE_COMPLETED, PorygonTradeCompleted)
+	setvar(VAR_0x8008, INGAME_TRADE_PORYGON)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
+	copyvar(VAR_0x8009, VAR_RESULT)
+	msgbox(format("I need a Vaporeon for, uh, reasons."))
+	msgbox(format("I'll trade you a spare Porygon in exchange?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DeclinePorygonTrade)
+	msgbox(format("Nice!"))
+	waitmessage
+	special(ChoosePartyMon)
+	waitstate
+	copyvar(VAR_0x800A, VAR_0x8004)
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, DeclinePorygonTrade)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	specialvar(VAR_RESULT, GetTradeSpecies)
+	copyvar(VAR_0x800B, VAR_RESULT)
+	goto_if_ne(VAR_RESULT, VAR_0x8009, SelectedNotVaporeon)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	special(CreateInGameTradePokemon)
+	special(DoInGameTradeScene)
+	waitstate
+	msgbox(format("Fufufufufu…\nOh, we'll have such fun together…"))
+	setflag(FLAG_SLATEPORT_PORYGON_TRADE_COMPLETED)
+	release
+	end
+
+	DeclinePorygonTrade:
+	msgbox(format("Whatever."))
+	release
+	end
+
+	SelectedNotVaporeon:
+	bufferspeciesname(STR_VAR_1, VAR_0x8009)
+	msgbox(format("Ugh, {STR_VAR_1}?\nNo thank you!"))
+	release
+	end
+
+	PorygonTradeCompleted:
+	msgbox(format("Vaporeon is such an agreeable creature. The superior choice, for sure."))
+	release
+	end
+}
 
 raw `
 SlateportCity_PokemonFanClub_EventScript_Chairman::
@@ -188,39 +287,11 @@ SlateportCity_PokemonFanClub_EventScript_MeetChairman::
 	return
 
 SlateportCity_PokemonFanClub_EventScript_SootheBellWoman::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_SOOTHE_BELL, SlateportCity_PokemonFanClub_EventScript_ReceivedSootheBell
-	msgbox SlateportCity_PokemonFanClub_Text_ShowMePokemonThatLoveYou, MSGBOX_DEFAULT
-	specialvar VAR_RESULT, GetLeadMonFriendshipScore
-	goto_if_ge VAR_RESULT, FRIENDSHIP_150_TO_199, SlateportCity_PokemonFanClub_EventScript_GiveSootheBell
-	release
-	end
-
-SlateportCity_PokemonFanClub_EventScript_GiveSootheBell::
-	playse SE_PIN
-	applymovement VAR_LAST_TALKED, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement VAR_LAST_TALKED, Common_Movement_Delay48
-	waitmovement 0
-	msgbox SlateportCity_PokemonFanClub_Text_PokemonAdoresYou, MSGBOX_DEFAULT
-	giveitem ITEM_SOOTHE_BELL
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_SOOTHE_BELL
-	release
-	end
-
-SlateportCity_PokemonFanClub_EventScript_ReceivedSootheBell::
-	msgbox SlateportCity_PokemonFanClub_Text_TreatPokemonWithLove, MSGBOX_DEFAULT
-	release
+	msgbox SlateportCity_PokemonFanClub_Text_TreatPokemonWithLove, MSGBOX_NPC
 	end
 
 SlateportCity_PokemonFanClub_EventScript_Man::
 	msgbox SlateportCity_PokemonFanClub_Text_PokemonDontLikeFainting, MSGBOX_NPC
-	end
-
-SlateportCity_PokemonFanClub_EventScript_Twin::
-	msgbox SlateportCity_PokemonFanClub_Text_MonEnjoyedProtein, MSGBOX_NPC
 	end
 
 SlateportCity_PokemonFanClub_EventScript_Skitty::
@@ -254,14 +325,14 @@ SlateportCity_PokemonFanClub_EventScript_Azumarill::
 	end
 
 SlateportCity_PokemonFanClub_Text_MeetChairman:
-	.string "Er-hem! I am the CHAIRMAN of the\n"
-	.string "Pokémon FAN CLUB!\p"
-	.string "Being the CHAIRMAN, I am naturally\n"
+	.string "Er-hem! I am the Chairman of the\n"
+	.string "Pokémon Fan Club!\p"
+	.string "Being the Chairman, I am naturally\n"
 	.string "the most important!\p"
 	.string "No one can best me when it comes\n"
 	.string "to raising Pokémon. No one!\p"
 	.string "Well, let me tell you about\n"
-	.string "Pokémon CONTESTS.\p"
+	.string "Pokémon Contests.\p"
 	.string "They're events where one can show off\n"
 	.string "Pokémon for the world to see!\p"
 	.string "However, they're held in Lilycove,\n"
@@ -271,20 +342,20 @@ SlateportCity_PokemonFanClub_Text_MeetChairman:
 	.string "show us theirs.$"
 
 SlateportCity_PokemonFanClub_Text_LikeToSeeEnteredContestPokemon:
-	.string "The Pokémon of a TRAINER who has\n"
-	.string "entered a Pokémon CONTEST…\l"
+	.string "The Pokémon of a Trainer who has\n"
+	.string "entered a Pokémon Contest…\l"
 	.string "That, I would like to see.$"
 
 SlateportCity_PokemonFanClub_Text_AllowMeToExamineYourPokemon:
 	.string "Er-hem! I see you've participated in\n"
-	.string "a Pokémon CONTEST!\p"
+	.string "a Pokémon Contest!\p"
 	.string "Please! Allow me to examine how you\n"
 	.string "have raised your Pokémon.\p"
 	.string "It delights me no end to see Pokémon\n"
-	.string "raised by other TRAINERS.\p"
+	.string "raised by other Trainers.\p"
 	.string "The happy expressions of Pokémon\n"
 	.string "raised with proper care…\p"
-	.string "The kindly eyes of the TRAINER that\n"
+	.string "The kindly eyes of the Trainer that\n"
 	.string "nurtured and raised the Pokémon\p"
 	.string "The very thought fills my heart to\n"
 	.string "overwhelming with joy.\p"
@@ -304,7 +375,7 @@ SlateportCity_PokemonFanClub_Text_HmHmISee:
 SlateportCity_PokemonFanClub_Text_GiveMonMorePokeblocks:
 	.string "Hmmm… It's not bad, but it's not\n"
 	.string "good, either…\p"
-	.string "You, the TRAINER, must put more\n"
+	.string "You, the Trainer, must put more\n"
 	.string "effort into raising this Pokémon!\p"
 	.string "For instance, may I suggest that\n"
 	.string "you give it more {POKEBLOCK}S?$"
@@ -324,27 +395,27 @@ SlateportCity_PokemonFanClub_Text_MonMostImpressiveGiveItThis:
 	.string "it would grow even better! Indeed!$"
 
 SlateportCity_PokemonFanClub_Text_ExplainRedScarf:
-	.string "Let a Pokémon hold that RED SCARF.\p"
+	.string "Let a Pokémon hold that Red Scarf.\p"
 	.string "Everyone will recognize the coolness\n"
 	.string "of that Pokémon!$"
 
 SlateportCity_PokemonFanClub_Text_ExplainBlueScarf:
-	.string "Let a Pokémon hold that BLUE SCARF.\p"
+	.string "Let a Pokémon hold that Blue Scarf.\p"
 	.string "Its beauty will be accentuated much\n"
 	.string "more than now!$"
 
 SlateportCity_PokemonFanClub_Text_ExplainPinkScarf:
-	.string "Let a Pokémon hold that PINK SCARF.\p"
+	.string "Let a Pokémon hold that Pink Scarf.\p"
 	.string "It will draw out the cuteness of\n"
 	.string "the Pokémon some more!$"
 
 SlateportCity_PokemonFanClub_Text_ExplainGreenScarf:
-	.string "Let a Pokémon hold that GREEN SCARF.\p"
+	.string "Let a Pokémon hold that Green Scarf.\p"
 	.string "That will enhance the\n"
 	.string "smartness of Pokémon!$"
 
 SlateportCity_PokemonFanClub_Text_ExplainYellowScarf:
-	.string "Let a Pokémon hold that YELLOW SCARF.\p"
+	.string "Let a Pokémon hold that Yellow Scarf.\p"
 	.string "It will bolster your Pokémon's\n"
 	.string "toughness so much more!$"
 
@@ -355,24 +426,9 @@ SlateportCity_PokemonFanClub_Text_NothingElseToGiveYou:
 	.string "of raising Pokémon without resorting\l"
 	.string "to any items!$"
 
-SlateportCity_PokemonFanClub_Text_ShowMePokemonThatLoveYou:
-	.string "I love seeing Pokémon that love\n"
-	.string "their TRAINERS.\p"
-	.string "Pokémon are very sensitive to\n"
-	.string "the feelings of their TRAINERS.\p"
-	.string "If you treat your Pokémon with love\n"
-	.string "and care, they'll love you back.\p"
-	.string "When your Pokémon grow to love you,\n"
-	.string "please come show me.$"
-
-SlateportCity_PokemonFanClub_Text_PokemonAdoresYou:
-	.string "Your Pokémon really adores you.\p"
-	.string "For you, a most compassionate\n"
-	.string "TRAINER, a gift from the FAN CLUB!$"
-
 SlateportCity_PokemonFanClub_Text_TreatPokemonWithLove:
 	.string "Pokémon are very sensitive to\n"
-	.string "the feelings of their TRAINERS.\p"
+	.string "the feelings of their Trainers.\p"
 	.string "If you treat your Pokémon with love\n"
 	.string "and care, they'll love you back.$"
 
@@ -380,23 +436,17 @@ SlateportCity_PokemonFanClub_Text_PokemonDontLikeFainting:
 	.string "If you keep letting a Pokémon faint\n"
 	.string "in battle, it'll come to resent it.\p"
 	.string "Soon, it will become less trusting\n"
-	.string "of the TRAINER.\p"
+	.string "of the Trainer.\p"
 	.string "In other words, it certainly won't\n"
 	.string "like you very much.$"
 
-SlateportCity_PokemonFanClub_Text_MonEnjoyedProtein:
-	.string "Do Pokémon enjoy having items used\n"
-	.string "on them?\p"
-	.string "Mine acted really happy when I gave\n"
-	.string "it some PROTEIN.$"
-
 SlateportCity_PokemonFanClub_Text_Skitty:
-	.string "SKITTY: Fffnyaaaah…$"
+	.string "Skitty: Fffnyaaaah…$"
 
 SlateportCity_PokemonFanClub_Text_Zigzagoon:
-	.string "ZIGZAGOON: Kyuuu…$"
+	.string "Zigzagoon: Kyuuu…$"
 
 SlateportCity_PokemonFanClub_Text_Azumarill:
-	.string "AZUMARILL: Marimari?$"
+	.string "Azumarill: Marimari?$"
 
 `

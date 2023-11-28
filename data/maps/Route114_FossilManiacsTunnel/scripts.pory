@@ -37,7 +37,6 @@ Route114_FossilManiacsTunnel_EventScript_ManiacMentionCaveIn::
 Route114_FossilManiacsTunnel_EventScript_FossilManiac::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_REVIVED_FOSSIL_MON, Route114_FossilManiacsTunnel_EventScript_PlayerRevivedFossil
 	checkitem ITEM_ROOT_FOSSIL
 	goto_if_eq VAR_RESULT, TRUE, Route114_FossilManiacsTunnel_EventScript_PlayerHasFossil
 	checkitem ITEM_CLAW_FOSSIL
@@ -48,11 +47,6 @@ Route114_FossilManiacsTunnel_EventScript_FossilManiac::
 
 Route114_FossilManiacsTunnel_EventScript_PlayerHasFossil::
 	msgbox Route114_FossilManiacsTunnel_Text_DevonCorpRevivingFossils, MSGBOX_DEFAULT
-	release
-	end
-
-Route114_FossilManiacsTunnel_EventScript_PlayerRevivedFossil::
-	msgbox Route114_FossilManiacsTunnel_Text_FossilsAreWonderful, MSGBOX_DEFAULT
 	release
 	end
 
@@ -77,10 +71,6 @@ Route114_FossilManiacsTunnel_Text_DevonCorpRevivingFossils:
 	.string "Fossils…\p"
 	.string "I love my Fossils, so I would never\n"
 	.string "do anything like that…$"
-
-Route114_FossilManiacsTunnel_Text_FossilsAreWonderful:
-	.string "Fossils are so… Wonderful…\n"
-	.string "It's so dreamy…$"
 
 Route114_FossilManiacsTunnel_Text_NotSafeThatWay:
 	.string "Oh…\n"

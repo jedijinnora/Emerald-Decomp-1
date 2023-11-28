@@ -161,45 +161,6 @@ RustboroCity_PokemonSchool_Movement_TeacherCheckOnStudentsEast:
 	walk_left
 	step_end
 
-RustboroCity_PokemonSchool_EventScript_Scott::
-	lock
-	faceplayer
-	goto_if_set FLAG_MET_SCOTT_AFTER_OBTAINING_STONE_BADGE, RustboroCity_PokemonSchool_EventScript_ScottWatchStudents
-	goto_if_set FLAG_MET_SCOTT_RUSTBORO, RustboroCity_PokemonSchool_EventScript_ScottSpokeAlready
-	goto_if_set FLAG_BADGE01_GET, RustboroCity_PokemonSchool_EventScript_ScottGreetHasBadge
-	msgbox RustboroCity_PokemonSchool_Text_ScottMetAlreadyCut, MSGBOX_DEFAULT
-	addvar VAR_SCOTT_STATE, 1
-	setflag FLAG_MET_SCOTT_RUSTBORO
-	release
-	end
-
-RustboroCity_PokemonSchool_EventScript_ScottSpokeAlready::
-	goto_if_set FLAG_BADGE01_GET, RustboroCity_PokemonSchool_EventScript_ScottNoticeBadge
-	msgbox RustboroCity_PokemonSchool_Text_StudentTalentLevelUnknown, MSGBOX_DEFAULT
-	release
-	end
-
-RustboroCity_PokemonSchool_EventScript_ScottGreetHasBadge::
-	msgbox RustboroCity_PokemonSchool_Text_ScottMetAlreadyStoneBadge, MSGBOX_DEFAULT
-	goto RustboroCity_PokemonSchool_EventScript_MetScottAfterBadge
-	end
-
-RustboroCity_PokemonSchool_EventScript_ScottNoticeBadge::
-	msgbox RustboroCity_PokemonSchool_Text_ScottStoneBadge, MSGBOX_DEFAULT
-	goto RustboroCity_PokemonSchool_EventScript_MetScottAfterBadge
-	end
-
-RustboroCity_PokemonSchool_EventScript_MetScottAfterBadge::
-	addvar VAR_SCOTT_STATE, 1
-	setflag FLAG_MET_SCOTT_AFTER_OBTAINING_STONE_BADGE
-	release
-	end
-
-RustboroCity_PokemonSchool_EventScript_ScottWatchStudents::
-	msgbox RustboroCity_PokemonSchool_Text_StudentTalentLevelUnknown, MSGBOX_DEFAULT
-	release
-	end
-
 RustboroCity_PokemonSchool_Text_BlackboardListsStatusChanges:
 	.string "The blackboard lists status changes\n"
 	.string "that may affect Pokémon in battle.$"

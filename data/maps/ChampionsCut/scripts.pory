@@ -1,1 +1,9 @@
 mapscripts ChampionsCut_MapScripts {}
+
+script ChampionsCut_EventScript_Stash {
+    setvar(VAR_TEMP_D, ITEM_CARBOS)
+    setvar(VAR_TEMP_E, ITEM_SHINY_STONE)
+    setvar(VAR_TEMP_F, ITEM_SHINY_STONE)
+    call(Common_EventScript_SecretStash)
+    end
+}

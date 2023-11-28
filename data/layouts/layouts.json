@@ -5180,6 +5180,16 @@
       "secondary_tileset": "gTileset_RusturfTunnel",
       "border_filepath": "data/layouts/AlteringCave_UpperFloor_2/border.bin",
       "blockdata_filepath": "data/layouts/AlteringCave_UpperFloor_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_DESERT_UNDERPASS_1F",
+      "name": "DesertUnderpass_1F_Layout",
+      "width": 80,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/DesertUnderpass_1F/border.bin",
+      "blockdata_filepath": "data/layouts/DesertUnderpass_1F/map.bin"
     }
   ]
 }

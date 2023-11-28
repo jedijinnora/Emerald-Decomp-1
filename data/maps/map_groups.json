@@ -175,7 +175,8 @@
     "VerdanturfTown_PokemonCenter_2F",
     "VerdanturfTown_WandasHouse",
     "VerdanturfTown_FriendshipRatersHouse",
-    "VerdanturfTown_House"
+    "VerdanturfTown_House",
+    "VerdanturfTown_House2"
   ],
   "gMapGroup_IndoorPacifidlog": [
     "PacifidlogTown_PokemonCenter_1F",
@@ -510,7 +511,8 @@
     "SeafoamCove_B1F",
     "SeafoamCove_B2F",
     "AlteringCave_UpperFloor_1",
-    "AlteringCave_UpperFloor_2"
+    "AlteringCave_UpperFloor_2",
+    "DesertUnderpass_1F"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

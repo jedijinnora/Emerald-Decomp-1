@@ -1,3 +1,23 @@
+script MtPyre_Exterior_EventScript_DefogMan {
+	lock
+	faceplayer
+	checkitem(ITEM_TM19_DEFOG)
+	if(var(VAR_RESULT) == FALSE) {
+		msgbox(format("Gah! You frightened me!"))
+		msgbox(format("I thought this TM would let me blow away this blasted fog."))
+		msgbox(format("But it's useless! Take it far away from me!"))
+		giveitem(ITEM_TM19_DEFOG)
+		msgbox(format("I suppose I'll have to get used to my misty existence…"))
+		release
+		end
+	}
+	msgbox(format("I think I've come to terms with all this fog. We're friends now!"))
+	msgbox(format("We've had some rather stimulating conversations on the nature of death."))
+	msgbox(format("Why don't you hang around? The voices have been encouraging me to show you the view from the cliffs."))
+	release
+	end
+}
+
 raw `
 MtPyre_Exterior_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MtPyre_Exterior_OnTransition
