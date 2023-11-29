@@ -39,7 +39,29 @@ script EverGrandeCity_NatureShop_EventScript_Ziggy {
     delay(10)
     playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_NORMAL)
     waitmoncry
-    msgbox(format("Zigzagoon looks at you expectantly. Perhaps he would like a treat?"))
+    msgbox(format("Ziggy looks at you expectantly. Perhaps he would like a treat?"))
+    checkitem(ITEM_NAUGHTY_MINT)
+    if (var(VAR_RESULT)) {
+        msgbox(format("Oh? Ziggy seems interested in your Naughty Mint."))
+        msgbox(format("Give Ziggy your Naughty Mint?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == NO) {
+            playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_NORMAL)
+            msgbox(format("Ziggy: Goon goon!"))
+            waitmoncry
+            release
+            end
+        }
+        removeitem(ITEM_NAUGHTY_MINT)
+        if(var(VAR_RESULT)) {
+            playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_NORMAL)
+            msgbox(format("Ziggy: Zig zag!"))
+            waitmoncry
+            giveitem(ITEM_LUCKY_EGG)
+            release
+            end
+        }
+    }
+    msgbox(format("But you don't have anything he wants."))
     release
     end
 }
@@ -83,10 +105,16 @@ script EverGrandeCity_NatureShop_EventScript_MintBoy {
     lock
     faceplayer
     msgbox(format("Mints are fascinating to study!"))
-    msgbox(format("Apparently, in Emerald Beryl if a Pokémon has a Sheen value other than 0, it overrides the default nature."))
-    msgbox(format("There are a couple of significant side effects to this implementation."))
-    msgbox(format("Since Sheen is used for Mint natures, you can feed a Pokémon as many {POKEBLOCK}s as you want."))
-    msgbox(format("The parts of Contests that evaluate your Sheen stat may behave strangely, and the stars on the condition summary screen won't work properly."))
+    msgbox(format("I have some of Jinnora's notes here, want to hear more about how she made Mints work?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        msgbox(format("What? Don't you love learning about the game's coding in exruciating detail?"))
+        release
+        end
+    }
+    msgbox(format("In Emerald Beryl if a Pokémon has a Sheen value other than 0, it overrides the personality value when calculating nature."))
+    msgbox(format("This lets nature modification work without having to change the personality value or the Pokémon struct."))
+    msgbox(format("Since Sheen is used for Mint natures, it can't be used for its original purpose and you can feed a Pokémon as many {POKEBLOCK}s as you want."))
+    msgbox(format("Nature values max out at 25 but Sheen maxes out at 255, so Contests and the Condition summary screen will behave differently."))
     release
     end
 }

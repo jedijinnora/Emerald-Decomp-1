@@ -386,7 +386,7 @@
     },
     {
       "map_section": "MAPSEC_ROUTE_133",
-      "name": "ROUTE 133",
+      "name": "Route 133",
       "x": 13,
       "y": 10,
       "width": 1,
@@ -1066,7 +1066,7 @@
     },
     {
       "map_section": "MAPSEC_POKEMON_LEAGUE",
-      "name": "POKéMON LEAGUE",
+      "name": "Pokémon League",
       "x": 27,
       "y": 8,
       "width": 1,
