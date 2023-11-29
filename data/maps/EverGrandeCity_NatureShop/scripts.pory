@@ -84,8 +84,9 @@ script EverGrandeCity_NatureShop_EventScript_MintBoy {
     faceplayer
     msgbox(format("Mints are fascinating to study!"))
     msgbox(format("Apparently, in Emerald Beryl if a Pokémon has a Sheen value other than 0, it overrides the default nature."))
-    msgbox(format("Since Sheen is now used for mint natures, you can also feed a Pokémon as many {POKEBLOCK}s as you want!"))
-    msgbox(format("This does mean the stars on the condition summary screen won't work properly, though."))
+    msgbox(format("There are a couple of significant side effects to this implementation."))
+    msgbox(format("Since Sheen is used for Mint natures, you can feed a Pokémon as many {POKEBLOCK}s as you want."))
+    msgbox(format("The parts of Contests that evaluate your Sheen stat may behave strangely, and the stars on the condition summary screen won't work properly."))
     release
     end
 }

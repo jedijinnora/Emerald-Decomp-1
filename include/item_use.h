@@ -38,6 +38,7 @@ void Task_UseDigEscapeRopeOnField(u8 taskId);
 u8 CanUseDigOrEscapeRopeOnCurMap(void);
 u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
 void ItemUseOutOfBattle_PokeBall(u8); //adding for Lunos's pokeball swap
+void ItemUseOutOfBattle_Mints(u8 taskId); //adding for mint implementation
 
 enum {
     BALL_THROW_UNABLE_TWO_MONS,

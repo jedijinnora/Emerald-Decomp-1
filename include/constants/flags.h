@@ -121,7 +121,7 @@
 #define FLAG_RECEIVED_CLEANSE_TAG            0x62
 #define FLAG_RECEIVED_FOCUS_BAND             0x63
 #define FLAG_RECEIVED_MIRACLE_SEED           0x64
-#define FLAG_UNUSED_0x065                    0x65
+#define FLAG_RECEIVED_DESTINY_KNOT           0x65
 #define FLAG_UNUSED_0x066                    0x66
 #define FLAG_UNUSED_0x067                    0x67
 #define FLAG_UNUSED_0x068                    0x68

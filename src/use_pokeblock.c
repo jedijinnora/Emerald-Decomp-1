@@ -1019,7 +1019,8 @@ static void AddPokeblockToConditions(struct Pokeblock *pokeblock, struct Pokemon
             stat = MAX_SHEEN;
 
         data = stat;
-        SetMonData(mon, MON_DATA_SHEEN, &data);
+        //Jinnora: don't affect sheen since this is used for mints
+        //SetMonData(mon, MON_DATA_SHEEN, &data);
     }
 }
 
@@ -1069,6 +1070,7 @@ static void CalculatePokeblockEffectiveness(struct Pokeblock *pokeblock, struct 
 
 static bool8 IsSheenMaxed(void)
 {
+    /*
     if (GetBoxOrPartyMonData(sMenu->party[sMenu->info.curSelection].boxId,
                              sMenu->party[sMenu->info.curSelection].monId,
                              MON_DATA_SHEEN,
@@ -1076,6 +1078,8 @@ static bool8 IsSheenMaxed(void)
         return TRUE;
     else
         return FALSE;
+    */
+   return FALSE;
 }
 
 static u8 GetPartyIdFromSelectionId(u8 selectionId)

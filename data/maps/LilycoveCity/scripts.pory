@@ -120,6 +120,11 @@ script LilycoveCity_EventScript_Woman1 {
 	end
 }
 
+script LilycoveCity_EventScript_UtilityHouseSign {
+	msgbox("Utility House\n “Pokémon Services Offered!”", MSGBOX_SIGN)
+	end
+}
+
 raw `
 .set LOCALID_WOMAN_1, 19
 .set LOCALID_MAN_1, 20
@@ -180,10 +185,6 @@ LilycoveCity_EventScript_MuseumSignNoPaintings::
 
 LilycoveCity_EventScript_TrainerFanClubSign::
 	msgbox LilycoveCity_Text_TrainerFanClubSign, MSGBOX_SIGN
-	end
-
-LilycoveCity_EventScript_MoveDeletersHouseSign::
-	msgbox LilycoveCity_Text_MoveDeletersHouseSign, MSGBOX_SIGN
 	end
 
 LilycoveCity_EventScript_SchoolKidM::
@@ -250,10 +251,6 @@ LilycoveCity_Text_TrainerFanClubSign:
 	.string "POKéMON TRAINER FAN CLUB\p"
 	.string "The names of Trainers are scribbled\n"
 	.string "all over the sign…$"
-
-LilycoveCity_Text_MoveDeletersHouseSign:
-	.string "MOVE DELETER'S HOUSE\p"
-	.string "“Unwanted POKéMON moves deleted.”$"
 
 LilycoveCity_Text_DoYouKnowAboutBerryBlender:
 	.string "Do you know about the machine\n"

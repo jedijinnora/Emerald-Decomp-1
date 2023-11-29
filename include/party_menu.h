@@ -99,5 +99,6 @@ void GetNumMovesSelectedMonHas(void);
 void MoveDeleterChooseMoveToForget(void);
 void ItemUseCB_PokeBall(u8 taskId, TaskFunc task);//for Lunos's pokeball swap
 void CB2_ReturnToPartyMenuFromSummaryScreen(void); //for move relearner
+void ItemUseCB_Mints(u8 taskId, TaskFunc task); //for mints
 
 #endif // GUARD_PARTY_MENU_H

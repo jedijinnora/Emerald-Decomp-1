@@ -1,1 +1,5 @@
 mapscripts PacifidlogTown_House2_MapScripts {}
+
+script PacifidlogTown_House2_EventScript_Winona {
+    
+}

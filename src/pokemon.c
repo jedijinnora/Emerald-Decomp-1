@@ -6409,6 +6409,10 @@ u8 *UseStatIncreaseItem(u16 itemId)
 
 u8 GetNature(struct Pokemon *mon)
 {
+    //Jinnora: edited to check sheen instead, this is for Mint implementation
+    if(GetMonData(mon, MON_DATA_SHEEN, 0) != 0) {
+        return GetMonData(mon, MON_DATA_SHEEN, 0) % NUM_NATURES;
+    }
     return GetMonData(mon, MON_DATA_PERSONALITY, 0) % NUM_NATURES;
 }
 

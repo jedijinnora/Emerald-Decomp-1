@@ -4209,3 +4209,67 @@ u16 GetCurrentMapSec(void)
 {
     return gMapHeader.regionMapSectionId;
 }
+
+//Jinnora: GetIV specials return the appropriate IV of the Pokémon in gSpecialVar_0x8004
+u8 GetHPIV(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV, NULL);
+}
+u8 GetAttackIV(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_IV, NULL);
+}
+u8 GetDefenseIV(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_IV, NULL);
+}
+u8 GetSpecialAttackIV(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_IV, NULL);
+}
+u8 GetSpecialDefenseIV(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_IV, NULL);
+}
+u8 GetSpeedIV(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_IV, NULL);
+}
+
+//Jinnora: SetIV specials set the appropriate IV of the Pokémon in gSpecialVar_0x8004 to the value in gSpecialVar_0x8000
+void SetHPIV(void)
+{
+    u8 HpIv = gSpecialVar_0x8000;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV, &HpIv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+void SetAttackIV(void)
+{
+    u8 AtkIv = gSpecialVar_0x8000;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_IV, &AtkIv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+void SetDefenseIV(void)
+{
+    u8 DefIv = gSpecialVar_0x8000;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_IV, &DefIv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+void SetSpecialAttackIV(void)
+{
+    u8 SpAtkIv = gSpecialVar_0x8000;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_IV, &SpAtkIv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+void SetSpecialDefenseIV(void)
+{
+    u8 SpDefIv = gSpecialVar_0x8000;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_IV, &SpDefIv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+void SetSpeedIV(void)
+{
+    u8 SpeedIv = gSpecialVar_0x8000;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_IV, &SpeedIv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}

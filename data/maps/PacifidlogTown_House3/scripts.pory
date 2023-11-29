@@ -1,91 +1,103 @@
-raw `
-PacifidlogTown_House3_MapScripts::
-	.byte 0
+mapscripts PacifidlogTown_House3_MapScripts {}
 
-PacifidlogTown_House3_EventScript_Trader::
+script PacifidlogTown_House3_EventScript_SmeargleTrader {
 	lock
 	faceplayer
-	goto_if_set FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED, PacifidlogTown_House3_EventScript_TradeCompleted
-	setvar VAR_0x8008, INGAME_TRADE_HORSEA
-	copyvar VAR_0x8004, VAR_0x8008
-	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
-	copyvar VAR_0x8009, VAR_RESULT
-	msgbox PacifidlogTown_House3_Text_WillingToTradeIt, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, PacifidlogTown_House3_EventScript_DeclineTrade
-	special ChoosePartyMon
+	goto_if_set(FLAG_PACIFIDLOG_SMEARGLE_TRADE_COMPLETED, SmeargleTradeCompleted)
+	setvar(VAR_0x8008, INGAME_TRADE_SMEARGLE)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
+	copyvar(VAR_0x8009, VAR_RESULT)
+	msgbox(format("I'm interested in exploring the seas around Pacifidlog, but I don't have a good Pokémon to ride on."))
+	msgbox(format("Do you have a Lapras? I'll trade you my Smeargle."), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DeclineSmeargleTrade)
+	msgbox(format("Oh, thank you!"))
+	waitmessage
+	special(ChoosePartyMon)
 	waitstate
-	copyvar VAR_0x800A, VAR_0x8004
-	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, PacifidlogTown_House3_EventScript_DeclineTrade
-	copyvar VAR_0x8005, VAR_0x800A
-	specialvar VAR_RESULT, GetTradeSpecies
-	copyvar VAR_0x800B, VAR_RESULT
-	goto_if_ne VAR_RESULT, VAR_0x8009, PacifidlogTown_House3_EventScript_NotRequestedMon
-	copyvar VAR_0x8004, VAR_0x8008
-	copyvar VAR_0x8005, VAR_0x800A
-	special CreateInGameTradePokemon
-	special DoInGameTradeScene
+	copyvar(VAR_0x800A, VAR_0x8004)
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, DeclineSmeargleTrade)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	specialvar(VAR_RESULT, GetTradeSpecies)
+	copyvar(VAR_0x800B, VAR_RESULT)
+	goto_if_ne(VAR_RESULT, VAR_0x8009, SelectedNotLapras)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	special(CreateInGameTradePokemon)
+	special(DoInGameTradeScene)
 	waitstate
-	bufferspeciesname STR_VAR_1, VAR_0x8009
-	msgbox PacifidlogTown_House3_Text_ItsSubtlyDifferentThankYou, MSGBOX_DEFAULT
-	setflag FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED
+	msgbox(format("Smeargle is a unique Pokémon, able to copy any move using Sketch!"))
+	setflag(FLAG_PACIFIDLOG_SMEARGLE_TRADE_COMPLETED)
 	release
 	end
 
-PacifidlogTown_House3_EventScript_DeclineTrade::
-	msgbox PacifidlogTown_House3_Text_NotDesperateOrAnything, MSGBOX_DEFAULT
+	DeclineSmeargleTrade:
+	msgbox(format("If you won't trade, I suppose I'll have to figure something else out."))
 	release
 	end
 
-PacifidlogTown_House3_EventScript_NotRequestedMon::
-	bufferspeciesname STR_VAR_1, VAR_0x8009
-	msgbox PacifidlogTown_House3_Text_WontAcceptAnyLessThanRealMon, MSGBOX_DEFAULT
+	SelectedNotLapras:
+	bufferspeciesname(STR_VAR_1, VAR_0x8009)
+	msgbox(format("Oh, could you travel on the back of a {STR_VAR_1} as well?"))
+	msgbox(format("Hmm, no, I think only a Lapras will do."))
 	release
 	end
 
-PacifidlogTown_House3_EventScript_TradeCompleted::
-	msgbox PacifidlogTown_House3_Text_ReallyWantedToGetBagon, MSGBOX_DEFAULT
+	SmeargleTradeCompleted:
+	msgbox(format("Traveling around on Lapras has really opened my eyes to just how huge the world really is."))
+	release
+	end
+}
+
+script PacifidlogTown_House3_EventScript_HorseaTrader {
+	lock
+	faceplayer
+	goto_if_set(FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED, HorseaTradeCompleted)
+	setvar(VAR_0x8008, INGAME_TRADE_HORSEA)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
+	copyvar(VAR_0x8009, VAR_RESULT)
+	msgbox("Check out this Horsea!\pIt's the Horsea that I caught\nyesterday to celebrate my birthday!\pOh, I can see that you want it!\nAfter all, it's priceless!\p")
+	msgbox(format("I'll tell you what. I might be willing to trade it for a Bagon."), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DeclineHorseaTrade)
+	msgbox(format("Yes! Gimme your Bagon!"))
+	waitmessage
+	special(ChoosePartyMon)
+	waitstate
+	copyvar(VAR_0x800A, VAR_0x8004)
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, NotDesperate)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	specialvar(VAR_RESULT, GetTradeSpecies)
+	copyvar(VAR_0x800B, VAR_RESULT)
+	goto_if_ne(VAR_RESULT, VAR_0x8009, SelectedNotBagon)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	special(CreateInGameTradePokemon)
+	special(DoInGameTradeScene)
+	waitstate
+	msgbox(format("Oh, so this is a Bagon? It's sort of like a Horsea, and yet it's subtly different. \pThank you!"))
+	setflag(FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED)
 	release
 	end
 
-PacifidlogTown_House3_EventScript_Girl::
-	msgbox PacifidlogTown_House3_Text_IsThatAPokedex, MSGBOX_NPC
+	DeclineHorseaTrade:
+	msgbox(format("I know I could go looking for one on my own, but…\p But I really wanted to get a Bagon that another Trainer caught…"))
+	release
 	end
 
-PacifidlogTown_House3_Text_WillingToTradeIt:
-	.string "Check out this {STR_VAR_2}!\p"
-	.string "It's the {STR_VAR_2} that I caught\n"
-	.string "yesterday to celebrate my birthday!\p"
-	.string "Oh, I can see that you want it!\n"
-	.string "After all, it's priceless!\p"
-	.string "I'll tell you what. I might be willing\n"
-	.string "to trade it for a {STR_VAR_1}.$"
+	NotDesperate:
+	msgbox(format("Oh, so you're not going to go through with this?\pThat's cool. I'm not desperate to make a trade or anything."))
+	release
+	end
 
-PacifidlogTown_House3_Text_ItsSubtlyDifferentThankYou:
-	.string "Oh, so this is a {STR_VAR_1}?\p"
-	.string "It's sort of like a {STR_VAR_2},\n"
-	.string "and yet it's subtly different.\p"
-	.string "Thank you!$"
+	SelectedNotBagon:
+	bufferspeciesname(STR_VAR_1, VAR_0x8009)
+	msgbox(format("No, no, no! I won't accept any less than a real Bagon!"))
+	release
+	end
 
-PacifidlogTown_House3_Text_WontAcceptAnyLessThanRealMon:
-	.string "No, no, no! I won't accept any\n"
-	.string "less than a real {STR_VAR_1}!$"
-
-PacifidlogTown_House3_Text_NotDesperateOrAnything:
-	.string "Oh, so you're not going to go through\n"
-	.string "with this?\p"
-	.string "That's cool. I'm not desperate to make\n"
-	.string "a trade or anything.$"
-
-PacifidlogTown_House3_Text_ReallyWantedToGetBagon:
-	.string "I know I could go looking for one\n"
-	.string "on my own, but…\p"
-	.string "But I really wanted to get a Bagon\n"
-	.string "that another Trainer caught…$"
-
-PacifidlogTown_House3_Text_IsThatAPokedex:
-	.string "Is that a Pokédex?\p"
-	.string "Did you get to meet a lot of different\n"
-	.string "Pokémon?\p"
-	.string "I wish I was like you.$"
-
-`
+	HorseaTradeCompleted:
+	msgbox(format("Don't worry, I'll give Bagon plenty of exercise bully- er, sparring with the local kids."))
+	release
+	end
+}

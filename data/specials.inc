@@ -535,4 +535,18 @@ gSpecials::
 	def_special TrySetBattleTowerLinkType
 	def_special SetTotemBoost
 	def_special TrySpecialOverworldEvo
+
 	def_special GetCurrentMapSec
+
+	def_special GetHPIV
+	def_special GetAttackIV
+	def_special GetDefenseIV
+	def_special GetSpecialAttackIV
+	def_special GetSpecialDefenseIV
+	def_special GetSpeedIV
+	def_special SetHPIV
+	def_special SetAttackIV
+	def_special SetDefenseIV
+	def_special SetSpecialAttackIV
+	def_special SetSpecialDefenseIV
+	def_special SetSpeedIV

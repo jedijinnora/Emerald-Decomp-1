@@ -1,10 +1,327 @@
-raw `
-Route117_PokemonDayCare_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route117_PokemonDayCare_OnTransition
-	.byte 0
+mapscripts Route117_PokemonDayCare_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route117_PokemonDayCare_OnTransition
+}
 
-Route117_PokemonDayCare_OnTransition:
-	setflag FLAG_LANDMARK_POKEMON_DAYCARE
+script Route117_PokemonDayCare_OnTransition {
+	setflag(FLAG_LANDMARK_POKEMON_DAYCARE)
+	end
+}
+
+script Route117_PokemonDayCare_EventScript_EggMoveTutor {
+	lock
+	faceplayer
+	msgbox(format("I will be the Egg Moves Tutor when the developer figures out how to implement that."))
+	release
+	end
+}
+
+script Route117_PokemonDayCare_EventScript_IVTrainer {
+	lock
+	faceplayer
+	msgbox(format("I'm a collector of rare Bottle Caps."))
+	msgbox(format("If you have any for me, I can hype up your Pokémon with my extreme training."), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		msgbox(format("My IV training isn't for the weak of heart, I guess."))
+		release
+		end
+	}
+	checkitem(ITEM_BOTTLE_CAP)
+	if(var(VAR_RESULT) == FALSE) {
+		checkitem(ITEM_GOLD_BOTTLE_CAP)
+		if(var(VAR_RESULT) == FALSE) {
+			msgbox(format("Aw, you don't have anything worthy of my collection."))
+			release
+			end
+		}
+	}
+
+	HyperTrainingMenu:
+	msgbox(format("What Pokémon should have their IVs changed?"))
+	//select pokemon for training
+	special(ChoosePartyMon)
+	waitstate
+	goto_if_ge(VAR_0x8004, PARTY_SIZE, HyperTrainingRefused)
+	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	goto_if_eq(VAR_RESULT, SPECIES_EGG, HyperTrainingEgg)
+
+	//create menu of training options
+	checkitem(ITEM_BOTTLE_CAP)
+	if(var(VAR_RESULT) == TRUE) {
+		dynmultipush("One IV at a time", 0)
+	}
+	checkitem(ITEM_GOLD_BOTTLE_CAP)
+	if(var(VAR_RESULT) == TRUE) {
+		dynmultipush("Every IV at once", 1)
+	}
+	dynmultipush("Select a different Pokémon", 2)
+	dynmultipush("No more training", 3)
+	msgbox(format("What kind of training should we do?"))
+	dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			goto(HyperTrainingSilver)
+		case 1:
+			goto(HyperTrainingGold)
+		case 2:
+			goto(HyperTrainingMenu)
+		default:
+			HyperTrainingRefused:
+			msgbox(format("Be seeing you!"))
+			release
+			end
+	}
+	
+	//Bottle Cap for single stat
+	HyperTrainingSilver:
+	msgbox(format("Which stat should we train?"))
+	dynmultichoice(0,0,TRUE,6,0,DYN_MULTICHOICE_CB_NONE, "HP", "Attack", "Defense", "Special Attack", "Special Defense", "Speed")
+	copyvar(VAR_TEMP_0, VAR_RESULT)
+	//choose IV
+	msgbox(format("What should the new IV be?"))
+	dynmultichoice(0,0,TRUE,6,0,DYN_MULTICHOICE_CB_NONE, "31", "30", "0", "15")
+	switch(var(VAR_RESULT)) {
+		case 0:
+			setvar(VAR_TEMP_1, 31)
+		case 1:
+			setvar(VAR_TEMP_1, 30)
+		case 2:
+			setvar(VAR_TEMP_1, 0)
+		case 3:
+			setvar(VAR_TEMP_1, 15)
+	}
+
+	//prepare confirm set
+	buffernumberstring(STR_VAR_1, VAR_TEMP_1)
+	switch(var(VAR_TEMP_0)) {
+		case 0:
+			msgbox(format("Set the HP IV to {STR_VAR_1}?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, HyperTrainingSilver)
+			copyvar(VAR_0x8000, VAR_TEMP_1)
+			special(SetHPIV)
+			goto(HyperTrainingSilverComplete)
+		case 1:
+			msgbox(format("Set the Attack IV to {STR_VAR_1}?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, HyperTrainingSilver)
+			copyvar(VAR_0x8000, VAR_TEMP_1)
+			special(SetAttackIV)
+			goto(HyperTrainingSilverComplete)
+		case 2:
+			msgbox(format("Set the Defense IV to {STR_VAR_1}?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, HyperTrainingSilver)
+			copyvar(VAR_0x8000, VAR_TEMP_1)
+			special(SetDefenseIV)
+			goto(HyperTrainingSilverComplete)
+		case 3:
+			msgbox(format("Set the Special Attack IV to {STR_VAR_1}?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, HyperTrainingSilver)
+			copyvar(VAR_0x8000, VAR_TEMP_1)
+			special(SetSpecialAttackIV)
+			goto(HyperTrainingSilverComplete)
+		case 4:
+			msgbox(format("Set the Special Defense IV to {STR_VAR_1}?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, HyperTrainingSilver)
+			copyvar(VAR_0x8000, VAR_TEMP_1)
+			special(SetSpecialDefenseIV)
+			goto(HyperTrainingSilverComplete)
+		case 5:
+			msgbox(format("Set the Speed IV to {STR_VAR_1}?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, HyperTrainingSilver)
+			copyvar(VAR_0x8000, VAR_TEMP_1)
+			special(SetSpeedIV)
+			goto(HyperTrainingSilverComplete)
+	}
+	goto(HyperTrainingContinue)
+
+	HyperTrainingSilverComplete:
+	playfanfare(MUS_LEVEL_UP)
+	waitfanfare
+	removeitem(ITEM_BOTTLE_CAP)
+	msgbox(format("{PLAYER} handed over a Bottle Cap in exchange."))
+	goto(HyperTrainingContinue)
+
+	HyperTrainingGoldComplete:
+	playfanfare(MUS_LEVEL_UP)
+	waitfanfare
+	removeitem(ITEM_BOTTLE_CAP)
+	msgbox(format("{PLAYER} handed over a Gold Bottle Cap in exchange."))
+	goto(HyperTrainingContinue)
+
+	//Gold Bottle Cap for all stats
+	HyperTrainingGold:
+	msgbox(format("What would you like to do with this Pokémon?"))
+	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Set all IVs to 31", "Set Attack to 0, rest to 31", "Customize all IVs")
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("Set IV spread as selected?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, HyperTrainingContinue)
+			setvar(VAR_0x8000, 31)
+			special(SetHPIV)
+			special(SetAttackIV)
+			special(SetDefenseIV)
+			special(SetSpecialAttackIV)
+			special(SetSpecialDefenseIV)
+			special(SetSpeedIV)
+			goto(HyperTrainingGoldComplete)
+		case 1:
+			msgbox(format("Set IV spread as selected?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, HyperTrainingContinue)
+			setvar(VAR_0x8000, 0)
+			special(SetAttackIV)
+			setvar(VAR_0x8000, 31)
+			special(SetHPIV)
+			special(SetDefenseIV)
+			special(SetSpecialAttackIV)
+			special(SetSpecialDefenseIV)
+			special(SetSpeedIV)
+			goto(HyperTrainingGoldComplete)
+		case 2:
+			goto(HyperTrainingCustom)
+		default:
+			goto(HyperTrainingRefused)
+	}
+	goto(HyperTrainingContinue)
+
+	HyperTrainingCustom:
+	msgbox(format("Select HP IV."))
+	dynmultichoice(0,0,TRUE,6,0,DYN_MULTICHOICE_CB_NONE, "31", "30", "0", "15")
+	switch(var(VAR_RESULT)) {
+		case 0:
+			setvar(VAR_TEMP_1, 31)
+		case 1:
+			setvar(VAR_TEMP_1, 30)
+		case 2:
+			setvar(VAR_TEMP_1, 0)
+		case 3:
+			setvar(VAR_TEMP_1, 15)
+	}
+
+	msgbox(format("Select Attack IV."))
+	dynmultichoice(0,0,TRUE,6,0,DYN_MULTICHOICE_CB_NONE, "31", "30", "0", "15")
+	switch(var(VAR_RESULT)) {
+		case 0:
+			setvar(VAR_TEMP_2, 31)
+		case 1:
+			setvar(VAR_TEMP_2, 30)
+		case 2:
+			setvar(VAR_TEMP_2, 0)
+		case 3:
+			setvar(VAR_TEMP_2, 15)
+	}
+
+	msgbox(format("Select Defense IV."))
+	dynmultichoice(0,0,TRUE,6,0,DYN_MULTICHOICE_CB_NONE, "31", "30", "0", "15")
+	switch(var(VAR_RESULT)) {
+		case 0:
+			setvar(VAR_TEMP_3, 31)
+		case 1:
+			setvar(VAR_TEMP_3, 30)
+		case 2:
+			setvar(VAR_TEMP_3, 0)
+		case 3:
+			setvar(VAR_TEMP_3, 15)
+	}
+
+	msgbox(format("Select Special Attack IV."))
+	dynmultichoice(0,0,TRUE,6,0,DYN_MULTICHOICE_CB_NONE, "31", "30", "0", "15")
+	switch(var(VAR_RESULT)) {
+		case 0:
+			setvar(VAR_TEMP_4, 31)
+		case 1:
+			setvar(VAR_TEMP_4, 30)
+		case 2:
+			setvar(VAR_TEMP_4, 0)
+		case 3:
+			setvar(VAR_TEMP_4, 15)
+	}
+
+	msgbox(format("Select Special Defense IV."))
+	dynmultichoice(0,0,TRUE,6,0,DYN_MULTICHOICE_CB_NONE, "31", "30", "0", "15")
+	switch(var(VAR_RESULT)) {
+		case 0:
+			setvar(VAR_TEMP_5, 31)
+		case 1:
+			setvar(VAR_TEMP_5, 30)
+		case 2:
+			setvar(VAR_TEMP_5, 0)
+		case 3:
+			setvar(VAR_TEMP_5, 15)
+	}
+
+	msgbox(format("Select Speed IV."))
+	dynmultichoice(0,0,TRUE,6,0,DYN_MULTICHOICE_CB_NONE, "31", "30", "0", "15")
+	switch(var(VAR_RESULT)) {
+		case 0:
+			setvar(VAR_TEMP_6, 31)
+		case 1:
+			setvar(VAR_TEMP_6, 30)
+		case 2:
+			setvar(VAR_TEMP_6, 0)
+		case 3:
+			setvar(VAR_TEMP_6, 15)
+	}
+	msgbox(format("Set IV spread as selected?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		copyvar(VAR_TEMP_1, VAR_0x8000)
+		special(SetHPIV)
+		copyvar(VAR_TEMP_2, VAR_0x8000)
+		special(SetAttackIV)
+		copyvar(VAR_TEMP_3, VAR_0x8000)
+		special(SetDefenseIV)
+		copyvar(VAR_TEMP_4, VAR_0x8000)
+		special(SetSpecialAttackIV)
+		copyvar(VAR_TEMP_5, VAR_0x8000)
+		special(SetSpecialDefenseIV)
+		copyvar(VAR_TEMP_6, VAR_0x8000)
+		special(SetSpeedIV)
+		goto(HyperTrainingGoldComplete)
+	}
+	msgbox(format("Make a different custom spread?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, YES, HyperTrainingCustom)
+
+	HyperTrainingContinue:
+	msgbox(format("Would you like to do more IV training?"), MSGBOX_YESNO)
+	goto_if_ne(VAR_RESULT, NO, HyperTrainingMenu)
+	release
 	end
 
-`
+	HyperTrainingEgg:
+	msgbox(format("I can't train an Egg!"))
+	release
+	end
+}
+
+script Route117_PokemonDayCare_EventScript_DittoBoy {
+	lock
+	faceplayer
+	msgbox(format("The things that happen between Pokémon left here…"))
+	msgbox(format("It's unspeakably horrible. My eyes are scarred forever!"))
+	if(flag(FLAG_RECEIVED_DITTO)) {
+		release
+		end
+	}
+	msgbox(format("I snuck in and rescued this poor Ditto from the breeding pool."))
+	msgbox(format("Will you take Ditto far away from here?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		msgbox(format("Please don't leave Ditto here! I don't know how long I can keep them hidden!"))
+		release
+		end
+	}
+	//give ditto
+	release
+	end
+}
+
+script Route117_PokemonDayCare_EventScript_PokefanF {
+	lock
+	faceplayer
+	if(flag(FLAG_RECEIVED_DESTINY_KNOT)) {
+		msgbox(format("A Destiny Knot can be used in battle, but it's much more useful for passing down IVs during breeding."))
+		release
+		end
+	}
+	msgbox(format("If you're going to be breeding strong Pokémon, you should have one of the parents hold this item."))
+	giveitem(ITEM_DESTINY_KNOT)
+	setflag(FLAG_RECEIVED_DESTINY_KNOT)
+	release
+	end
+}
