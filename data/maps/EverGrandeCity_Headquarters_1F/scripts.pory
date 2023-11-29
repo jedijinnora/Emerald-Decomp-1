@@ -39,7 +39,6 @@ script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
 
     msgbox(format("You also get a Pokénav. This one is a new edition, so it may be a little buggy."))
     setflag(FLAG_SYS_POKENAV_GET)
-    setflag(FLAG_RECEIVED_POKENAV)
     setflag(FLAG_ADDED_MATCH_CALL_TO_POKENAV)
     playfanfare(MUS_OBTAIN_ITEM)
     waitfanfare
@@ -100,8 +99,8 @@ script EverGrandeCity_Headquarters_1F_EventScript_LeftScientist {
     GymInfo:
     msgbox(format("In the original Pokémon Emerald, the sequence of Gyms was largely determined by the need to obtain various HMs to move around the Hoenn region."))
     msgbox(format("In Emerald Beryl, the ferry system has been expanded: Lilycove, Mossdeep, Sootopolis, Ever Grande, Slateport, Littleroot, Dewford, and Rustboro are all available destinations."))
-    msgbox(format("This and other map changes makes it possible to challenge the Gyms in any order. Gym leaders may use different teams depending on which badge you are challenging them for, and enemy trainers' levels will scale based on your number of badges."))
-    msgbox(format("Though levels will be scaled, beware of encountering trainers with fully evolved teams or competitive builds before you are ready!"))
+    msgbox(format("This and other map changes makes it possible to fight the Gyms in any order. Gym leaders may use different teams depending on which badge you are challenging them for, and enemy trainers' levels will scale based on your number of badges."))
+    msgbox(format("Though levels will be scaled, be wary of encountering trainers with fully evolved teams or competitive builds before you are ready!"))
     msgbox(format("Gym leaders give you a choice of HM after winning a new badge, further expanding your ability to move around the region."))
     msgbox(format("HMs may be used whenever you have the corresponding HM item in your Bag and a Pokémon in your party which could learn it."))
     goto(LeftMenu)
@@ -133,7 +132,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_LeftScientist {
                 //removeitem(ITEM_INFINITE_CANDY)
                 clearflag(FLAG_INFINITE_CANDY)
             }
-            msgbox(format("Unlimited candy disabled! Illegal drugs are subject to confiscation!"))
+            msgbox(format("Unlimited candy disabled! Any illegal drugs are subject to confiscation!"))
         case 2:
         default:
     }
@@ -148,8 +147,8 @@ script EverGrandeCity_Headquarters_1F_EventScript_LeftScientist {
         case 1:
             msgbox(format("To get to Dewford, just take the ferry! Dewford is a solid choice for your first badge, as long as you aren't afraid of the dark!"))
         case 2:
-            msgbox(format("To get to Mauville, take the ferry to Slateport and journey north through Route 110!"))
-            msgbox(format("You could also pick up an Acro Bike in Lilycove and take the long way via Routes 121, 122, 123, and 118."))
+            msgbox(format("To get to Mauville, take the ferry to Slateport and journey north through Route 110."))
+            msgbox(format("You could also pick up an Acro Bike by Lilycove and take the long way via Routes 121, 122, 123, and 118."))
         case 3:
             msgbox(format("To get to Lavaridge, take the ferry to Rustboro and journey east through Route 116 and then northeast through Forina!"))
             msgbox(format("For a slightly longer and more dangerous route, start from Slateport and head north on Route 110 to Mauville. Then find the entrance to the Valley of Steel on Route 117 and go north!"))
@@ -157,13 +156,16 @@ script EverGrandeCity_Headquarters_1F_EventScript_LeftScientist {
         case 4:
             msgbox(format("To get to Petalburg, you can take the ferry to Littleroot, head north until you reach Oldale, and then go west through Route 102."))
             msgbox(format("Or take the ferry to Rustboro and head south through Route 104 and Petalburg Woods!"))
+            msgbox(format("Petalburg's Gym Leader isn't the hardest, but the Gym itself is a punishing gauntlet."))
         case 5:
             msgbox(format("To get to Fortree, take the ferry to Lilycove and then journey west through Route 123 and north through Route 121."))
             msgbox(format("If you go to Mauville and get a Bike, you can cross the narrow bridge over Route 118 and take Route 119 north to Fortree."))
+            msgbox(format("Be ready to handle the jungle's Grass types!"))
         case 6:
             msgbox(format("To get to Mossdeep, just take the ferry! I wouldn't recommend it for your first badge though, it's one of the more challenging Gyms."))
         case 7:
             msgbox(format("To get to Sootopolis, just take the ferry! We use flying Pokémon to get you inside the caldera."))
+            msgbox(format("You'll need to be able to handle lots of Water types to challenge Sootopolis Gym."))
         default:
             goto(LeftMenu)
     }
@@ -247,6 +249,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_RightScientist {
             }
         case 4:
             msgbox(format("Additional challenges such as monotype or nuzlocke runs are the responsibility of the player to manage."))
+            msgbox(format("Jinnora: I didn't implement anything here because there are so many variants and covering all the cases would be a nightmare."))
         default:
             goto(ScientistOut)
     }

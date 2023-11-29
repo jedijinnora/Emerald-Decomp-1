@@ -93,7 +93,7 @@ script ArrivalFerry_Corridor_EventScript_Ace {
 
 script ArrivalFerry_Corridor_EventScript_Lemonade {
     giveitem(ITEM_LEMONADE)
-    setflag(FLAG_GIVEN_ARRIVAL_FERRY_CORRIDOR_LEMONADE)
+    setflag(FLAG_GIVEN_ARRIVAL_FERRY_LEMONADE)
     VitaminC:
     msgbox(format("Drink up dearie, have some vitamin C."))
     waitmessage
@@ -105,7 +105,7 @@ script ArrivalFerry_Corridor_EventScript_Lemonade {
 script ArrivalFerry_Corridor_EventScript_Mom {
     lock
     faceplayer
-    if (flag(FLAG_GIVEN_ARRIVAL_FERRY_CORRIDOR_LEMONADE)) {
+    if (flag(FLAG_GIVEN_ARRIVAL_FERRY_LEMONADE)) {
         goto(VitaminC)
     }
     msgbox(format("Dear, you have some bags under your eyes. Why don't you have something to refresh yourself?"), MSGBOX_YESNO)

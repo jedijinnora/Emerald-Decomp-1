@@ -1,1 +1,30 @@
 mapscripts MeteorVillage_House3_MapScripts {}
+
+script MeteorVillage_House3_EventScript_Man {
+    lock
+    faceplayer
+    msgbox(format("Settlers have displaced most of the native peoples of Hoenn."))
+    msgbox(format("All that's left of the original civilizations are ruins and a few places like this."))
+    release
+    end
+}
+
+script MeteorVillage_House3_EventScript_PokefanF {
+    lock
+    faceplayer
+    if (flag(FLAG_TEMP_1)) {
+        msgbox(format("How is the little dragonslayer doing these days?"))
+        release
+        end
+    }
+    msgbox(format("Almost everyone here goes crazy for dragons."))
+    playmoncry(SPECIES_MAWILE, CRY_MODE_NORMAL)
+    msgbox(format("This little one is out of place, being a Steel/Fairy type."))
+    msgbox(format("You look like a strong Trainer. Would you take Mawile with you on your journey?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        //give mawile
+    }
+    msgbox(format("Oh. Are you a dragon supremacist as well?"))
+    release
+    end
+}

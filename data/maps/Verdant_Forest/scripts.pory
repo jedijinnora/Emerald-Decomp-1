@@ -248,7 +248,7 @@ script VerdantForest_EventScript_FaeTree {
 
 script VerdantForest_EventScript_Guardian {
     msgbox(format("The guardian of the forest emerges to punish you!"))
-    call_if_unset(FLAG_ETERNAL_ENCOUNTERED, VerdantForest_EventScript_Eternal)    
+    call_if_unset(FLAG_DEFEATED_ETERNAL_FLOETTE, VerdantForest_EventScript_Eternal)    
     GuardianFight:
     playmoncry(VAR_TEMP_4, CRY_MODE_ENCOUNTER)
     waitmoncry
@@ -271,7 +271,7 @@ script VerdantForest_EventScript_Guardian {
 }
 
 script VerdantForest_EventScript_Eternal {
-    setflag(FLAG_ETERNAL_ENCOUNTERED)
+    setflag(FLAG_DEFEATED_ETERNAL_FLOETTE)
     playmoncry(SPECIES_FLOETTE_ETERNAL_FLOWER, CRY_MODE_ENCOUNTER)
     waitmoncry
     delay(40)
@@ -281,7 +281,9 @@ script VerdantForest_EventScript_Eternal {
     waitmoncry
     setwildbattle(SPECIES_FLOETTE_ETERNAL_FLOWER, 50, ITEM_PIXIE_PLATE)
     settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 1, 1, 1)
+    setflag(FLAG_SMART_WILD_AI)
     dowildbattle
+    clearflag(FLAG_SMART_WILD_AI)
     releaseall
     end
 }

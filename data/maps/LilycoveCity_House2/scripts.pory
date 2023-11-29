@@ -3,14 +3,14 @@ mapscripts LilycoveCity_House2_MapScripts {}
 script LilycoveCity_House2_EventScript_FatMan {
 	lock
 	faceplayer
-	call_if_unset(FLAG_ITEM_TM07, LilycoveCity_House2_EventScript_SleepTalk)
+	call_if_unset(FLAG_ITEM_TM73, LilycoveCity_House2_EventScript_Rest)
 	msgbox(format("Zzzzzz…"))
 	release
 	end
 }
 
-script LilycoveCity_House2_EventScript_SleepTalk {
-	giveitem(ITEM_TM07_SLEEP_TALK)
-	setflag(FLAG_ITEM_TM07)
+script LilycoveCity_House2_EventScript_Rest {
+	giveitem(ITEM_TM73_REST)
+	setflag(FLAG_ITEM_TM73)
 	return
 }

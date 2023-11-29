@@ -1,20 +1,41 @@
 mapscripts MeteorVillage_House1_MapScripts {}
 
-script MeteorVillage_House1_EventScript_Man {
+script MeteorVillage_House1_EventScript_IncenseMan {
     lock
-    faceplayer
-    if (flag(FLAG_TEMP_1)) {
-        msgbox(format("How is the little dragonslayer doing these days?"))
-        release
-        end
+	faceplayer
+    msgbox(gText_HowMayIServeYou)
+	waitmessage
+    if (flag(FLAG_RECEIVED_AMULET_COIN)) {
+        pokemart(MeteorVillageIncenseMart_Lucky)
+    } else {
+        pokemart(MeteorVillageIncenseMart_UnLucky)
     }
-    msgbox(format("Everyone here loves Dragon types."))
-    msgbox(format("This little one is out of place here, being a Steel/Fairy type."))
-    msgbox(format("You look like a strong Trainer. Would you take Mawile with you on your journey?"), MSGBOX_YESNO)
-    //give mawile
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
 
-    release
-    end
+mart MeteorVillageIncenseMart_Lucky {
+    ITEM_SEA_INCENSE
+    ITEM_LAX_INCENSE
+    ITEM_ODD_INCENSE
+    ITEM_ROCK_INCENSE
+    ITEM_FULL_INCENSE
+    ITEM_WAVE_INCENSE
+    ITEM_ROSE_INCENSE
+    ITEM_LUCK_INCENSE
+    ITEM_PURE_INCENSE
+}
+
+mart MeteorVillageIncenseMart_UnLucky {
+    ITEM_SEA_INCENSE
+    ITEM_LAX_INCENSE
+    ITEM_ODD_INCENSE
+    ITEM_ROCK_INCENSE
+    ITEM_FULL_INCENSE
+    ITEM_WAVE_INCENSE
+    ITEM_ROSE_INCENSE
+    ITEM_PURE_INCENSE
 }
 
 script MeteorVillage_House1_EventScript_Girl {

@@ -354,6 +354,7 @@ u8 GetSSTidalLocation(s8 *mapGroup, s8 *mapNum, s16 *x, s16 *y)
 
 bool32 ShouldDoWallyCall(void)
 {
+    /*
     if (FlagGet(FLAG_ENABLE_FIRST_WALLY_POKENAV_CALL))
     {
         switch (gMapHeader.mapType)
@@ -375,10 +376,13 @@ bool32 ShouldDoWallyCall(void)
     }
 
     return TRUE;
+    */
+   return FALSE;
 }
 
 bool32 ShouldDoScottFortreeCall(void)
 {
+    /*
     if (FlagGet(FLAG_SCOTT_CALL_FORTREE_GYM))
     {
         switch (gMapHeader.mapType)
@@ -400,10 +404,13 @@ bool32 ShouldDoScottFortreeCall(void)
     }
 
     return TRUE;
+    */
+   return FALSE;
 }
 
 bool32 ShouldDoScottBattleFrontierCall(void)
 {
+    /*
     if (FlagGet(FLAG_SCOTT_CALL_BATTLE_FRONTIER))
     {
         switch (gMapHeader.mapType)
@@ -425,6 +432,8 @@ bool32 ShouldDoScottBattleFrontierCall(void)
     }
 
     return TRUE;
+    */
+   return FALSE;
 }
 
 
