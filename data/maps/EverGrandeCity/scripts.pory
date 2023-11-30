@@ -98,7 +98,7 @@ script EverGrandeCity_EventScript_Lass {
 		case 3:
 			msgbox(format("Drake intimidates me, honestly. He's a crusty old sailor from the Draconid tribes, and the strongest after the Champion."))
 		default:
-			msgbox(format("Did you know Champion Annabel is a Faller? She slipped through a crack from another universe and lost her memory, but still became one of the strongest trainers in the world!"))
+			msgbox(format("I don't see Champion Anabel much at all. She usually looks bored."))
 	}
 	release
 	end

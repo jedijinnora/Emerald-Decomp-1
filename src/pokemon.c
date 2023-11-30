@@ -11,6 +11,7 @@
 #include "battle_tower.h"
 #include "battle_z_move.h"
 #include "data.h"
+#include "daycare.h"
 #include "event_data.h"
 #include "evolution_scene.h"
 #include "field_specials.h"
@@ -7477,38 +7478,69 @@ u8 CanLearnTeachableMove(u16 species, u16 move)
     }
 }
 
-u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
+//renamed from GetMoveRelearnerMoves
+u8 GetMoveTutorMoves(struct Pokemon *mon, u16 *moves)
 {
     u16 learnedMoves[4];
     u8 numMoves = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
+
+    //for egg tutor case
+    u16 eggSpecies;
+    u16 eggMoves[EGG_MOVES_ARRAY_COUNT] = {0};
+    u8 numEggMoves = 0;
+
     int i, j, k;
+    // i is the number of moves iterated through
+    // j is for checking that the move is not learned
+    // k is for checking that the move is not in the list already
 
     for (i = 0; i < MAX_MON_MOVES; i++)
         learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
 
-    for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
-    {
-        u16 moveLevel;
-
-        if (gLevelUpLearnsets[species][i].move == LEVEL_UP_END)
-            break;
-
-        moveLevel = gLevelUpLearnsets[species][i].level;
-
-        if (moveLevel <= level)
+    if(FlagGet(FLAG_TEACHING_EGG_MOVES)) { 
+        //doing egg moves tutor
+        eggSpecies = GetEggSpecies(species);
+        numEggMoves = GetEggMoves(eggSpecies, eggMoves);
+        for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
         {
-            for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != gLevelUpLearnsets[species][i].move; j++)
-                ;
+           for (j = 0; (j < MAX_MON_MOVES) && (learnedMoves[j] != eggMoves[i]); j++)
+               ;
 
-            if (j == MAX_MON_MOVES)
+           if (j == MAX_MON_MOVES)
+           {
+               for (k = 0; (k < numMoves) && (moves[k] != eggMoves[i]); k++)
+                   ;
+
+               if (k == numMoves)
+                   moves[numMoves++] = eggMoves[i];
+            }
+        }
+    } else {
+        //doing standard levelup learnset tutor
+        for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
+        {
+            u16 moveLevel;
+
+            if (gLevelUpLearnsets[species][i].move == LEVEL_UP_END)
+                break;
+
+            moveLevel = gLevelUpLearnsets[species][i].level;
+
+            if (moveLevel <= level)
             {
-                for (k = 0; k < numMoves && moves[k] != gLevelUpLearnsets[species][i].move; k++)
+                for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != gLevelUpLearnsets[species][i].move; j++)
                     ;
 
-                if (k == numMoves)
-                    moves[numMoves++] = gLevelUpLearnsets[species][i].move;
+                if (j == MAX_MON_MOVES)
+                {
+                    for (k = 0; k < numMoves && moves[k] != gLevelUpLearnsets[species][i].move; k++)
+                        ;
+
+                    if (k == numMoves)
+                        moves[numMoves++] = gLevelUpLearnsets[species][i].move;
+                }
             }
         }
     }
@@ -7534,39 +7566,75 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
     u8 numMoves = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
+
+    //for egg move tutor case:
+    u16 eggSpecies;
+    u16 eggMoves[EGG_MOVES_ARRAY_COUNT] = {0};
+    u8 numEggMoves = 0;
+
     int i, j, k;
+    // i is the number of moves iterated through
+    // j is for checking that the move is not learned
+    // k is for checking that the move is not in the list already
 
     if (species == SPECIES_EGG)
-        return 0;
+            return 0;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
         learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
 
-    for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
-    {
-        u16 moveLevel;
+    if(FlagGet(FLAG_TEACHING_EGG_MOVES)) {
+        //doing egg moves tutor
+        eggSpecies = GetEggSpecies(species);
+        numEggMoves = GetEggMoves(eggSpecies, eggMoves);
 
-        if (gLevelUpLearnsets[species][i].move == LEVEL_UP_END)
-            break;
 
-        moveLevel = gLevelUpLearnsets[species][i].level;
-
-        if (moveLevel <= level)
+        for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
         {
-            for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != gLevelUpLearnsets[species][i].move; j++)
-                ;
+           for (j = 0; (j < MAX_MON_MOVES) && (learnedMoves[j] != eggMoves[i]); j++)
+               ;
 
-            if (j == MAX_MON_MOVES)
+           if (j == MAX_MON_MOVES)
+           {
+               for (k = 0; (k < numMoves) && (moves[k] != eggMoves[i]); k++)
+                   ;
+
+               if (k == numMoves)
+                   moves[numMoves++] = eggMoves[i];
+            }
+        }
+        return numEggMoves - 1;
+        //there's a blank move that gets appended to the end of the list for some reason
+        //should this return numMoves instead?
+
+
+    } else {
+        //doing regular move relearner
+        for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)
+        {
+            u16 moveLevel;
+
+            if (gLevelUpLearnsets[species][i].move == LEVEL_UP_END)
+                break;
+
+            moveLevel = gLevelUpLearnsets[species][i].level;
+
+            if (moveLevel <= level)
             {
-                for (k = 0; k < numMoves && moves[k] != gLevelUpLearnsets[species][i].move; k++)
+                for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != gLevelUpLearnsets[species][i].move; j++)
                     ;
 
-                if (k == numMoves)
-                    moves[numMoves++] = gLevelUpLearnsets[species][i].move;
+                if (j == MAX_MON_MOVES)
+                {
+                    for (k = 0; k < numMoves && moves[k] != gLevelUpLearnsets[species][i].move; k++)
+                        ;
+
+                    if (k == numMoves)
+                        moves[numMoves++] = gLevelUpLearnsets[species][i].move;
+                }
             }
         }
     }
-
     return numMoves;
 }
 

@@ -10,7 +10,59 @@ script Route117_PokemonDayCare_OnTransition {
 script Route117_PokemonDayCare_EventScript_EggMoveTutor {
 	lock
 	faceplayer
-	msgbox(format("I will be the Egg Moves Tutor when the developer figures out how to implement that."))
+	goto_if_set(FLAG_TEMP_1, EggMoveTutorCheckHeartScale)
+	msgbox(format("I'm the Egg Move Tutor. I teach moves Pokémon could have inherited from a parent of another species."))
+	msgbox(format("I accept Heart Scales in exchange."))
+	setflag(FLAG_TEMP_1)
+
+	EggMoveTutorCheckHeartScale:
+	checkitem(ITEM_HEART_SCALE)
+	if(var(VAR_RESULT) == FALSE) {
+		msgbox(format("Oh…\nHow sad…\pYou don't have any Heart Scales…"))
+		msgbox(format("You can find them hidden around the region or held by certain wild Pokémon."))
+		release
+		goto(EggMoveTutorResetFlagReturn)
+	}
+	msgbox(format("Would you like to teach an Egg move?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == FALSE) {
+		EggMoveTutorRefused:
+		msgbox(format("Come back with some Heart Scales if you want me to teach more Egg moves."))
+		release
+		goto(EggMoveTutorResetFlagReturn)
+	}
+
+	//select mon
+	EggMoveTutorChooseMon:
+	msgbox("Which Pokémon needs tutoring?")
+	setflag(FLAG_TEACHING_EGG_MOVES)
+	special(ChooseMonForMoveRelearner)
+	waitstate
+	goto_if_ge(VAR_0x8004, PARTY_SIZE, EggMoveTutorRefused)
+	goto_if_eq(VAR_0x8005, 0, EggMoveTutorNoMoves)
+	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	goto_if_eq(VAR_RESULT, SPECIES_EGG, EggMoveTutorEgg)
+
+	//select egg move
+	msgbox("Which move should I teach?")
+	special(TeachMoveRelearnerMove)
+	waitstate
+	goto_if_eq(VAR_0x8004, 0, EggMoveTutorChooseMon)
+	msgbox(format("{PLAYER} handed over one Heart Scale in exchange."))
+	removeitem(ITEM_HEART_SCALE)
+	goto(EggMoveTutorRefused)
+
+	EggMoveTutorEgg:
+	msgbox(format("I teach Egg moves, but that doesn't mean I can tutor an Egg!"))
+	release
+	goto(EggMoveTutorResetFlagReturn)
+
+	EggMoveTutorNoMoves:
+	msgbox(format("Hmm, there aren't any Egg moves I can teach that Pokémon."))
+	release
+	goto(EggMoveTutorResetFlagReturn)
+
+	EggMoveTutorResetFlagReturn:
+	clearflag(FLAG_TEACHING_EGG_MOVES)
 	release
 	end
 }

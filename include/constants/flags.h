@@ -97,7 +97,7 @@
 #define FLAG_UNUSED_0x04C                           0x4C
 #define FLAG_UNUSED_0x04D                           0x4D
 #define FLAG_UNUSED_0x04E                           0x4E
-#define FLAG_UNUSED_0x04F                           0x4F
+#define FLAG_TEACHING_EGG_MOVES                     0x4F//use for egg move tutor
 
 // Given/Received item Flags
 #define FLAG_GIVEN_POWER_ITEMS               0x50
