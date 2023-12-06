@@ -2,10 +2,10 @@
   "id": "MAP_SANDSWEPT_DESERT",
   "name": "SandsweptDesert",
   "layout": "LAYOUT_SANDSWEPT_DESERT",
-  "music": "MUS_DESERT",
+  "music": "MUS_ROUTE110",
   "region_map_section": "MAPSEC_SANDSWEPT_DESERT",
   "requires_flash": false,
-  "weather": "WEATHER_SANDSTORM",
+  "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -17,6 +17,11 @@
       "map": "MAP_ROUTE111",
       "offset": -60,
       "direction": "left"
+    },
+    {
+      "map": "MAP_CROSSGATE_HILLS",
+      "offset": -40,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -69,20 +74,20 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SandsweptDesert_EventScript_GogglesLady",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
-      "x": 17,
-      "y": 12,
+      "x": 16,
+      "y": 7,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_DOWN_AND_UP",
-      "movement_range_x": 1,
+      "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
+      "movement_range_x": 2,
       "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SandsweptDesert_EventScript_LittleBoy",
       "flag": "0"
     },
     {
@@ -100,7 +105,13 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 24,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_DESERT_UNDERPASS_EXITS",
+      "dest_warp_id": "2"
+    }
   ],
   "coord_events": [
     {
@@ -138,6 +149,33 @@
       "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "Route111_EventScript_SandstormTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 19,
+      "elevation": 3,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "Route111_EventScript_ViciousSandstormTriggerUp"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 18,
+      "elevation": 3,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "Route111_EventScript_SandstormTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 17,
+      "elevation": 3,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "Route111_EventScript_SunTrigger"
     }
   ],
   "bg_events": [

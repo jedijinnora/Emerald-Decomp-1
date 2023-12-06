@@ -1,0 +1,8 @@
+mapscripts DesertUnderpass_Exits_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : DesertUnderpass_Exits_OnTransition
+}
+
+script DesertUnderpass_Exits_OnTransition {
+    setflag(FLAG_DESERT_UNDERPASS_OPEN)
+    end
+}

@@ -7,23 +7,19 @@ script Route114_FossilManiacsHouse_OnTransition {
 	end
 }
 
-raw `
-Route114_FossilManiacsHouse_EventScript_FossilManiacsBrother::
+script Route114_FossilManiacsHouse_EventScript_FossilManiacsBrother {
 	lock
 	faceplayer
-	goto_if_set FLAG_ITEM_TM30, Route114_FossilManiacsHouse_EventScript_ReceivedDig
-	msgbox Route114_FossilManiacsHouse_Text_HaveThisToDigLikeMyBrother, MSGBOX_DEFAULT
-	giveitem ITEM_TM30_DIG
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_ITEM_TM30
+	msgbox(format("My big brother is awesome! He's the Fossil Maniac."))
+	msgbox(format("He dug this tunnel to connect with underground caves so we can go spelunking for rare Fossils together!"))
+	if(!flag(FLAG_DESERT_UNDERPASS_OPEN)) {
+		msgbox(format("If you want access you'll have to beat him in a battle first!"))
+	}
 	release
 	end
+}
 
-Route114_FossilManiacsHouse_EventScript_ReceivedDig::
-	msgbox Route114_FossilManiacsHouse_Text_DigReturnsYouToEntrance, MSGBOX_DEFAULT
-	release
-	end
-
+raw `
 Route114_FossilManiacsHouse_EventScript_RockDisplay::
 	msgbox Route114_FossilManiacsHouse_Text_RocksFillDisplayCase, MSGBOX_SIGN
 	end
@@ -31,18 +27,6 @@ Route114_FossilManiacsHouse_EventScript_RockDisplay::
 Route114_FossilManiacsHouse_EventScript_Bookshelf::
 	msgbox Route114_FossilManiacsHouse_Text_CrammedWithBooks, MSGBOX_SIGN
 	end
-
-Route114_FossilManiacsHouse_Text_HaveThisToDigLikeMyBrother:
-	.string "My big brother's the Fossil Maniac…\n"
-	.string "He's a nice guy who loves Fossils…\p"
-	.string "He loves digging holes, too…\n"
-	.string "He dug this hole by himself…\p"
-	.string "You can have this, so you can Dig\n"
-	.string "holes just like my big brother…$"
-
-Route114_FossilManiacsHouse_Text_DigReturnsYouToEntrance:
-	.string "If you make a Pokémon Dig inside a\n"
-	.string "cave, you're returned to the entrance…$"
 
 Route114_FossilManiacsHouse_Text_RocksFillDisplayCase:
 	.string "Rocks in peculiar shapes fill\n"

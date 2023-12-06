@@ -1,0 +1,35 @@
+const LOCALID_STASH = 14
+
+mapscripts DesertUnderpass_B2F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : DesertUnderpass_B2F_OnTransition
+}
+
+script DesertUnderpass_B2F_OnTransition {
+    call(DesertUnderpass_B2F_EventScript_TryMoveStash)
+    end
+}
+
+script DesertUnderpass_B2F_EventScript_TryMoveStash {
+    goto_if_set(FLAG_HIDE_SECRET_STASH_DESERT_UNDERPASS, Common_EventScript_NopReturn)
+    switch(var(VAR_SECRET_STASH_STATE)) {
+        case 0:
+            setobjectxyperm(LOCALID_STASH, 26, 22)
+        case 1:
+            setobjectxyperm(LOCALID_STASH, 17, 3)
+        case 2:
+            setobjectxyperm(LOCALID_STASH, 18, 28)
+        case 3:
+            setobjectxyperm(LOCALID_STASH, 3, 45)
+        default:
+            setobjectxyperm(LOCALID_STASH, 34, 3)
+    }
+    return
+}
+
+script DesertUnderpass_B2F_EventScript_Stash {
+    setvar(VAR_TEMP_D, ITEM_CARBOS)
+    setvar(VAR_TEMP_E, ITEM_MOON_STONE)
+    setvar(VAR_TEMP_F, ITEM_SUN_STONE)
+    call(Common_EventScript_SecretStash)
+    end
+}

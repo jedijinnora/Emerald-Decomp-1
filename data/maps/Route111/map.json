@@ -745,6 +745,13 @@
       "elevation": 0,
       "dest_map": "MAP_MIRAGE_TOWER_1F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 32,
+      "y": 54,
+      "elevation": 0,
+      "dest_map": "MAP_DESERT_UNDERPASS_EXITS",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
@@ -1008,6 +1015,42 @@
       "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
       "script": "Route111_EventScript_SandstormTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 55,
+      "elevation": 3,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "Route111_EventScript_SandstormTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 55,
+      "elevation": 3,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "Route111_EventScript_ViciousSandstormTriggerLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 55,
+      "elevation": 3,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "Route111_EventScript_ViciousSandstormTriggerRight"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 56,
+      "elevation": 3,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "Route111_EventScript_ViciousSandstormTriggerUp"
     }
   ],
   "bg_events": [
@@ -1130,6 +1173,14 @@
       "elevation": 0,
       "item": "ITEM_BOTTLE_CAP",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_111_BOTTLE_CAP_2"
+    },
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 81,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Route111_EventScript_ShowXY"
     }
   ]
 }

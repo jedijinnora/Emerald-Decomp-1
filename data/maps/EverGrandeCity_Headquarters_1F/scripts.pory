@@ -189,6 +189,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_RightScientist {
 	lock
 	faceplayer
     goto_if_unset(FLAG_SYS_NATIONAL_DEX, GoCheckIn)
+    goto_if_set(FLAG_DEPARTED_EVER_GRANDE, ChallengesUpdate)
 	msgbox(format("I can tell you about Emerald Beryl's optional challenge settings."))
 
     RightMenu:
@@ -254,6 +255,15 @@ script EverGrandeCity_Headquarters_1F_EventScript_RightScientist {
             goto(ScientistOut)
     }
     goto(RightMenu)
+
+    ChallengesUpdate:
+        msgbox(format("Welcome back!"))
+        //TODO
+        //detect if on any challenges
+        //offer to forfeit challenges
+        //offer to teleport to Ever Grande
+        //offer challenge rewards if completed
+        goto(ScientistOut)
 }
 
 script EverGrandeCity_Headquarters_1F_EventScript_SecurityMan {
@@ -317,7 +327,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_GameBoyKid {
     goto(UsefulCode)
 }
 
-script EverGrandeCity_Headquarters_1F_EventScript_ScientistCredits {
+script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
     lock
     faceplayer
     msgbox(format("Greetings! I can tell you about many of the resources and features Jinnora used while creating this game."))
@@ -374,6 +384,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_ScientistCredits {
                     msgbox(format("Dynamic multichoice, by SBird."))
                     msgbox(format("Decapitalization, by AsparagusEduardo."))
                     msgbox(format("Emerald textbox simulator, by Meejle."))
+                    msgbox(format("Jinnora's implementation of an Egg move tutor borrowed a lot of code from Surskitty's tutor_expansion branch."))
                     goto(FeaturesMenu)
                 case 2:
                     msgbox(format("Disable unnecessary Union Room check, from the tutorial master list."))
@@ -386,6 +397,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_ScientistCredits {
                     msgbox(format("Modify Pickup items, by Lunos."))
                     msgbox(format("Change default text speed, by Avara."))
                     msgbox(format("Allow forgetting of HM moves, by Lunos, thespbgamer, and Jaizu."))
+                    msgbox(format("Rainy routes fully water berries, by BuffelSaft."))
                     goto(FeaturesMenu)
                 default:
                     goto(CreditsMenu)
@@ -393,6 +405,85 @@ script EverGrandeCity_Headquarters_1F_EventScript_ScientistCredits {
         default:
     }
     msgbox(format("Be seeing you!"))
+    release
+    end
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_ExploreModeTwin {
+    lock
+    faceplayer
+    if(!flag(FLAG_SYS_NATIONAL_DEX)) {
+        msgbox(format("Go talk to the nice lady at the main desk!"))
+        release
+        end
+    }
+    if(flag(FLAG_EXPLORE_MODE)) {
+        msgbox(format("Hey Explorer! Need more money?"))
+        addmoney(500000)
+        release
+        end
+    }
+    msgbox(format("Fighting tough Pokémon is scary…"))
+    msgbox(format("Sometimes you just want to travel the world and relax."))
+    if(flag(FLAG_DEPARTED_EVER_GRANDE)) {
+        release
+        end
+    }
+    msgbox(format("Ooh! Maybe you'd like to hear about Explore Mode?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        msgbox(format("Okay! You're braver than me!"))
+    } else {
+        msgbox(format("Explore Mode immediately sets the game to a cleared state, as if you had defeated all the Gyms and become Champion."))
+        msgbox(format("Trainer sight will be disabled, though you can approach Trainers yourself for battles."))
+        msgbox(format("You'll get all HMs and Pokémon that can use them right away."))
+        msgbox(format("WARNING!"))
+        msgbox(format("Setting Explore Mode cannot be undone."))
+        msgbox(format("Are you certain you wish to proceed?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == NO) {
+            release
+            end
+        } else {
+            msgbox(format("Explore Mode is activating…"))
+            setflag(FLAG_EXPLORE_MODE)
+            setflag(FLAG_DEPARTED_EVER_GRANDE)
+            clearflag(FLAG_CHALLENGE_FERRY_LIMIT)
+            setflag(FLAG_NO_TRAINER_SEE)
+            setflag(FLAG_ENTERED_ELITE_FOUR)
+            setflag(FLAG_SYS_GAME_CLEAR)
+            setflag(FLAG_BADGE01_GET)
+            setflag(FLAG_BADGE02_GET)
+            setflag(FLAG_BADGE03_GET)
+            setflag(FLAG_BADGE04_GET)
+            setflag(FLAG_BADGE05_GET)
+            setflag(FLAG_BADGE06_GET)
+            setflag(FLAG_BADGE07_GET)
+            setflag(FLAG_BADGE08_GET)
+            setvar(VAR_NUM_BADGES, 8)
+            setflag(FLAG_DEFEATED_RUSTBORO_GYM)
+            setflag(FLAG_DEFEATED_DEWFORD_GYM)
+            setflag(FLAG_DEFEATED_MAUVILLE_GYM)
+            setflag(FLAG_DEFEATED_LAVARIDGE_GYM)
+            setflag(FLAG_DEFEATED_PETALBURG_GYM)
+            setflag(FLAG_DEFEATED_FORTREE_GYM)
+            setflag(FLAG_DEFEATED_MOSSDEEP_GYM)
+            setflag(FLAG_DEFEATED_SOOTOPOLIS_GYM)
+            
+            giveitem(ITEM_HM01_CUT)
+            giveitem(ITEM_HM02_FLY)
+            giveitem(ITEM_HM03_SURF)
+            giveitem(ITEM_HM04_STRENGTH)
+            giveitem(ITEM_HM05_FLASH)
+            giveitem(ITEM_HM06_ROCK_SMASH)
+            giveitem(ITEM_HM07_WATERFALL)
+            giveitem(ITEM_HM08_DIVE)
+            addmoney(500000)
+            //giveitem(ITEM_INFINITE_CANDY)
+            givemon(SPECIES_TROPIUS, 100, ITEM_SMOKE_BALL)
+            givemon(SPECIES_RELICANTH, 100, ITEM_SMOKE_BALL)
+            givemon(SPECIES_WAILORD, 100, ITEM_SMOKE_BALL)
+            msgbox(format("Explore Mode enabled!"))
+        }
+    }
     release
     end
 }

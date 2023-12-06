@@ -4472,26 +4472,6 @@
       "blockdata_filepath": "data/layouts/OldaleTown_Tower_2F/map.bin"
     },
     {
-      "id": "LAYOUT_LITTLEROOT_TOWN_HOUSE1",
-      "name": "LittlerootTown_House1_Layout",
-      "width": 10,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
-      "border_filepath": "data/layouts/LittlerootTown_House1/border.bin",
-      "blockdata_filepath": "data/layouts/LittlerootTown_House1/map.bin"
-    },
-    {
-      "id": "LAYOUT_LITTLEROOT_TOWN_HOUSE2",
-      "name": "LittlerootTown_House2_Layout",
-      "width": 11,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
-      "border_filepath": "data/layouts/LittlerootTown_House2/border.bin",
-      "blockdata_filepath": "data/layouts/LittlerootTown_House2/map.bin"
-    },
-    {
       "id": "LAYOUT_EMERALD_CAPE",
       "name": "EmeraldCape_Layout",
       "width": 42,
@@ -4510,16 +4490,6 @@
       "secondary_tileset": "gTileset_EverGrande",
       "border_filepath": "data/layouts/PokemonLeague/border.bin",
       "blockdata_filepath": "data/layouts/PokemonLeague/map.bin"
-    },
-    {
-      "id": "LAYOUT_LITTLEROOT_TOWN_POKEMON_CENTER_1F",
-      "name": "LittlerootTown_PokemonCenter_1F_Layout",
-      "width": 14,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_PokemonCenter",
-      "border_filepath": "data/layouts/LittlerootTown_PokemonCenter_1F/border.bin",
-      "blockdata_filepath": "data/layouts/LittlerootTown_PokemonCenter_1F/map.bin"
     },
     {
       "id": "LAYOUT_OLDALE_RUINS",
@@ -4574,7 +4544,7 @@
     {
       "id": "LAYOUT_VERDANT_FOREST",
       "name": "Verdant_Forest_Layout",
-      "width": 70,
+      "width": 64,
       "height": 56,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
@@ -4710,16 +4680,6 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/MeteorVillage_House3/border.bin",
       "blockdata_filepath": "data/layouts/MeteorVillage_House3/map.bin"
-    },
-    {
-      "id": "LAYOUT_METEOR_VILLAGE_ANTHROPOLOGY_HOUSE",
-      "name": "MeteorVillage_AnthropologyHouse_Layout",
-      "width": 11,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
-      "border_filepath": "data/layouts/MeteorVillage_AnthropologyHouse/border.bin",
-      "blockdata_filepath": "data/layouts/MeteorVillage_AnthropologyHouse/map.bin"
     },
     {
       "id": "LAYOUT_SANDSWEPT_DESERT",
@@ -4900,46 +4860,6 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ScorchedSlab_B1F/border.bin",
       "blockdata_filepath": "data/layouts/ScorchedSlab_B1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_LAVARIDGE_TOWN_HOUSE2",
-      "name": "LavaridgeTown_House2_Layout",
-      "width": 10,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
-      "border_filepath": "data/layouts/LavaridgeTown_House2/border.bin",
-      "blockdata_filepath": "data/layouts/LavaridgeTown_House2/map.bin"
-    },
-    {
-      "id": "LAYOUT_DEWFORD_RESORT_BEACH_HOUSE_1",
-      "name": "DewfordResort_BeachHouse_1_Layout",
-      "width": 10,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
-      "border_filepath": "data/layouts/DewfordResort_BeachHouse_1/border.bin",
-      "blockdata_filepath": "data/layouts/DewfordResort_BeachHouse_1/map.bin"
-    },
-    {
-      "id": "LAYOUT_DEWFORD_RESORT_BEACH_HOUSE_2",
-      "name": "DewfordResort_BeachHouse_2_Layout",
-      "width": 10,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
-      "border_filepath": "data/layouts/DewfordResort_BeachHouse_2/border.bin",
-      "blockdata_filepath": "data/layouts/DewfordResort_BeachHouse_2/map.bin"
-    },
-    {
-      "id": "LAYOUT_DEWFORD_RESORT_LIFEGUARD_HOUSE",
-      "name": "DewfordResort_LifeguardHouse_Layout",
-      "width": 10,
-      "height": 9,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
-      "border_filepath": "data/layouts/DewfordResort_LifeguardHouse/border.bin",
-      "blockdata_filepath": "data/layouts/DewfordResort_LifeguardHouse/map.bin"
     },
     {
       "id": "LAYOUT_DEWFORD_RESORT_STAFF_HOUSE",
@@ -5184,12 +5104,52 @@
     {
       "id": "LAYOUT_DESERT_UNDERPASS_1F",
       "name": "DesertUnderpass_1F_Layout",
-      "width": 80,
-      "height": 40,
+      "width": 140,
+      "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/DesertUnderpass_1F/border.bin",
       "blockdata_filepath": "data/layouts/DesertUnderpass_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_CROSSGATE_HILLS",
+      "name": "CrossgateHills_Layout",
+      "width": 30,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/CrossgateHills/border.bin",
+      "blockdata_filepath": "data/layouts/CrossgateHills/map.bin"
+    },
+    {
+      "id": "LAYOUT_DESERT_UNDERPASS_B1F",
+      "name": "DesertUnderpass_B1F_Layout",
+      "width": 40,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MirageTower",
+      "border_filepath": "data/layouts/DesertUnderpass_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/DesertUnderpass_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_DESERT_UNDERPASS_B2F",
+      "name": "DesertUnderpass_B2F_Layout",
+      "width": 40,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MirageTower",
+      "border_filepath": "data/layouts/DesertUnderpass_B2F/border.bin",
+      "blockdata_filepath": "data/layouts/DesertUnderpass_B2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_DESERT_UNDERPASS_EXITS",
+      "name": "DesertUnderpass_Exits_Layout",
+      "width": 60,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_MirageTower",
+      "border_filepath": "data/layouts/DesertUnderpass_Exits/border.bin",
+      "blockdata_filepath": "data/layouts/DesertUnderpass_Exits/map.bin"
     }
   ]
 }

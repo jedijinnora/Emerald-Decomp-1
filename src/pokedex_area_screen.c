@@ -245,7 +245,7 @@ static void FindMapsWithMon(u16 species)
     struct Roamer *roamer;
 
     sPokedexAreaScreen->alteringCaveCounter = 0;
-    sPokedexAreaScreen->alteringCaveId = VarGet(VAR_ALTERING_CAVE_WILD_SET);
+    sPokedexAreaScreen->alteringCaveId = VarGet(VAR_WILD_SET_ALTERING_CAVE);
     if (sPokedexAreaScreen->alteringCaveId >= NUM_ALTERING_CAVE_TABLES)
         sPokedexAreaScreen->alteringCaveId = 0;
 

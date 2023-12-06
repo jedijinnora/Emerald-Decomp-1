@@ -21,3 +21,28 @@ script OldaleTown_EventScript_TowerSign {
 	msgbox("Archeology Tower \n “Exploring glade and dale.”", MSGBOX_SIGN)
 	end
 }
+
+script OldaleTown_EventScript_GladeSign {
+	msgbox("Oldale Glade\n Access to Oldale Ruins", MSGBOX_SIGN)
+	end
+}
+
+script OldaleTown_EventScript_PeaceSign {
+	if(var(VAR_TEMP_0) > 4) {
+		setvar(VAR_TEMP_0, 0)
+	}
+	switch(var(VAR_TEMP_0)) {
+		case 0:
+			msgbox("“Peace demands the most heroic labor \nand the most difficult sacrifice. \pIt demands greater heroism than war. \pIt demands greater fidelity to the \ntruth and a much more perfect \lpurity of conscience.”\l - Thomas Merton", MSGBOX_SIGN)
+		case 1:
+			msgbox("“We must be prepared to make the same \nheroic sacrifices for the cause of \lpeace that we make ungrudgingly for \lthe cause of war.” - Albert Einstein", MSGBOX_SIGN)
+		case 2:
+			msgbox("“Wars are poor chisels for carving out \npeaceful tomorrows.”\l - Martin Luther King Jr.", MSGBOX_SIGN)
+		case 3:
+			msgbox("“Every ambitious would-be empire \nclarions it abroad that she is \lconquering the world to bring it peace, \lsecurity and freedom, \pand it is sacrificing her sons only for \nthe most noble and humanitarian purposes. \pThat is a lie; and it is an ancient lie, \nyet generations still rise and believe \lit.” - Henry David Thoreau", MSGBOX_SIGN)
+		default:
+			msgbox(format("“It is not enough to win a war; it is more important to organize the peace.” - Aristotle"), MSGBOX_SIGN)
+	}
+	addvar(VAR_TEMP_0, 1)
+	end
+}

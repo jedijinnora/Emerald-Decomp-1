@@ -1,1 +1,11 @@
 mapscripts SlateportBeach_MapScripts {}
+
+script SlateportBeach_EventScript_SeashoreHouseSign {
+    msgbox("Seashore House\p“May fierce battles rage on the sands!\n The place for hot Trainers!”", MSGBOX_SIGN)
+    end
+}
+
+script SlateportBeach_EventScript_SeashoreHouseGirl {
+    msgbox("Yo, Trainer!\nWhether you're hot to trot,\l or cool cat not,\lchill at my papa's spot!", MSGBOX_NPC)
+    end
+}

@@ -39,6 +39,8 @@ script Route117_PokemonDayCare_EventScript_EggMoveTutor {
 	waitstate
 	goto_if_ge(VAR_0x8004, PARTY_SIZE, EggMoveTutorRefused)
 	goto_if_eq(VAR_0x8005, 0, EggMoveTutorNoMoves)
+	//buffernumberstring(STR_VAR_1, VAR_0x8005)
+	//msgbox(format("{STR_VAR_1} egg moves found."))
 	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 	goto_if_eq(VAR_RESULT, SPECIES_EGG, EggMoveTutorEgg)
 

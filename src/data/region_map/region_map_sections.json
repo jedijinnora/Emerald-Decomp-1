@@ -299,9 +299,9 @@
     {
       "map_section": "MAPSEC_ROUTE_122",
       "name": "Route 122",
-      "x": 16,
+      "x": 15,
       "y": 4,
-      "width": 1,
+      "width": 2,
       "height": 2
     },
     {
@@ -1667,7 +1667,7 @@
     {
       "map_section": "MAPSEC_OLDALE_RUINS",
       "name": "Oldale Ruins",
-      "x": 5,
+      "x": 6,
       "y": 9,
       "width": 1,
       "height": 1
@@ -1772,9 +1772,9 @@
       "map_section": "MAPSEC_SANDSWEPT_DESERT",
       "name": "Sandswept Oasis",
       "x": 9,
-      "y": 3,
+      "y": 2,
       "width": 1,
-      "height": 1
+      "height": 2
     },
     {
       "map_section": "MAPSEC_FOREST_HEART",
@@ -1845,6 +1845,22 @@
       "name": "Titan's Grave",
       "x": 10,
       "y": 13,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_CROSSGATE_HILLS",
+      "name": "Crossgate Hills",
+      "x": 10,
+      "y": 1,
+      "width": 1,
+      "height": 2
+    },
+    {
+      "map_section": "MAPSEC_OLDALE_GLADE",
+      "name": "Oldale Glade",
+      "x": 5,
+      "y": 9,
       "width": 1,
       "height": 1
     }

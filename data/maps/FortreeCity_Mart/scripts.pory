@@ -10,3 +10,13 @@ script FortreeCity_Mart_EventScript_Clerk {
 	release
 	end
 }
+
+script FortreeCity_Mart_EventScript_Man {
+	lock
+	faceplayer
+	msgbox(format("Okay, I've got all the healing items I'll need for the journey to Lavaridge."))
+	msgbox(format("Oh, but I haven't got those Berries that reduce super effective damage."))
+	msgbox(format("I should go to the other shop and buy some for my Pokémon before we leave."))
+	release
+	end
+}

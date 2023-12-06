@@ -167,8 +167,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 25,
-      "y": 3,
+      "x": 24,
+      "y": 18,
       "elevation": 0,
       "dest_map": "MAP_FORTREE_CITY_HOUSE3",
       "dest_warp_id": "0"
@@ -195,10 +195,10 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 24,
-      "y": 18,
+      "x": 25,
+      "y": 3,
       "elevation": 0,
-      "dest_map": "MAP_FORTREE_CITY",
+      "dest_map": "MAP_FORTREE_CITY_HOUSE6",
       "dest_warp_id": "0"
     }
   ],

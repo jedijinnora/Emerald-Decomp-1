@@ -28,7 +28,7 @@ script Route114_HackersHideaway_EventScript_Thompson {
     msgbox(format("I am Thompson, with a P as in psychology!"))
     msgbox(format("I can teach your Pokémon reliable moves that never miss! Therefore, I am the superior sibling!"))
     if (!flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
-        msgbox(format("Now that you've met me, the apporopriate type experts will also teach these moves."))
+        msgbox(format("Now that you've found me, the apporopriate type experts will also teach these moves."))
         setflag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)
     }
     msgbox(format("Which move should I teach?"))
@@ -43,7 +43,7 @@ script Route114_HackersHideaway_EventScript_Thomson {
     msgbox(format("I am Thomson, with a P as in vuvuzela!"))
     msgbox(format("I can teach your Pokémon reliable moves that deal set damage! Therefore, I am the superior sibling!"))
     if (!flag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)) {
-        msgbox(format("Now that you've met me, the apporopriate type experts will also teach these moves."))
+        msgbox(format("Now that you've found me, the apporopriate type experts will also teach these moves."))
         setflag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)
     }
     msgbox(format("Which move should I teach?"))
@@ -73,7 +73,7 @@ script Route114_HackersHideaway_EventScript_Youngster {
     }
     msgbox(format("Stick it to the man by doubling the money you take from people weaker than you!"))
     msgbox(format("…"))
-    msgbox(format("Actually, using an Amulet Coin feels kinda scummy. But tears can be dried using that sweet, sweet cash."))
+    msgbox(format("Actually, using an Amulet Coin feels kinda scummy. But your tears can be dried using that sweet, sweet cash."))
     release
     end
 }
@@ -90,6 +90,8 @@ script Route114_HackersHideaway_EventScript_GameBoyKid {
 
 mart HackersHideaway_CordMart {
     ITEM_LINKING_CORD
+    ITEM_UPGRADE
+    ITEM_DUBIOUS_DISC
 }
 
 script Route114_HackersHideaway_EventScript_Man {

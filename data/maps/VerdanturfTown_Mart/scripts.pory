@@ -10,3 +10,20 @@ script VerdanturfTown_Mart_EventScript_Clerk {
 	release
 	end
 }
+
+script VerdanturfTown_Mart_EventScript_BallSeller {
+    lock
+	faceplayer
+    msgbox(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(MossdeepBallsMart)
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+mart VerdanturfBallsMart {
+	ITEM_NEST_BALL
+	ITEM_DUSK_BALL
+	ITEM_HEAL_BALL
+}

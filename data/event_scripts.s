@@ -1010,9 +1010,6 @@ Common_EventScript_LegendaryFlewAway::
 
 	.include "data/maps/LittlerootTown_BigHouse_1F/scripts.inc"
 	.include "data/maps/LittlerootTown_BigHouse_2F/scripts.inc"
-	.include "data/maps/LittlerootTown_House1/scripts.inc"
-	.include "data/maps/LittlerootTown_House2/scripts.inc"
-	.include "data/maps/LittlerootTown_PokemonCenter_1F/scripts.inc"
 
 	.include "data/maps/DewdropGlen/scripts.inc"
 
@@ -1059,7 +1056,6 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/MeteorVillage_House1/scripts.inc"
 	.include "data/maps/MeteorVillage_House2/scripts.inc"
 	.include "data/maps/MeteorVillage_House3/scripts.inc"
-	.include "data/maps/MeteorVillage_AnthropologyHouse/scripts.inc"
 	.include "data/maps/MeteorVillage_Edge/scripts.inc"
 
 	.include "data/maps/SandsweptDesert/scripts.inc"
@@ -1075,11 +1071,6 @@ Common_EventScript_LegendaryFlewAway::
 
 	.include "data/maps/ScorchedSlab_B1F/scripts.inc"
 
-	.include "data/maps/LavaridgeTown_House2/scripts.inc"
-
-	.include "data/maps/DewfordResort_BeachHouse_1/scripts.inc"
-	.include "data/maps/DewfordResort_BeachHouse_2/scripts.inc"
-	.include "data/maps/DewfordResort_LifeguardHouse/scripts.inc"
 	.include "data/maps/DewfordResort_StaffHouse/scripts.inc"
 
 	.include "data/maps/GraniteCave_ResortExits/scripts.inc"
@@ -1146,3 +1137,33 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/maps/VerdanturfTown_House2/scripts.inc"
 
 	.include "data/maps/DesertUnderpass_1F/scripts.inc"
+
+	.include "data/maps/CrossgateHills/scripts.inc"
+
+	.include "data/maps/LittlerootTown_House1/scripts.inc"
+
+	.include "data/maps/DewfordResort_LifeguardHouse/scripts.inc"
+
+	.include "data/maps/LavaridgeTown_House2/scripts.inc"
+
+	.include "data/maps/LavaridgeTown_House3/scripts.inc"
+
+	.include "data/maps/LittlerootTown_House2/scripts.inc"
+
+	.include "data/maps/MeteorVillage_AnthropologyHouse/scripts.inc"
+
+	.include "data/maps/DewfordResort_House1/scripts.inc"
+
+	.include "data/maps/DewfordResort_House2/scripts.inc"
+
+	.include "data/maps/LittlerootTown_PokemonCenter_1F/scripts.inc"
+
+	.include "data/maps/LittlerootTown_PokemonCenter_2F/scripts.inc"
+
+	.include "data/maps/DesertUnderpass_B1F/scripts.inc"
+
+	.include "data/maps/DesertUnderpass_B2F/scripts.inc"
+
+	.include "data/maps/DesertUnderpass_Exits/scripts.inc"
+
+	.include "data/maps/FortreeCity_House6/scripts.inc"

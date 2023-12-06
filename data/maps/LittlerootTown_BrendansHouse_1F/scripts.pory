@@ -1,5 +1,20 @@
 mapscripts LittlerootTown_BrendansHouse_1F_MapScripts{}
 
+script LittlerootTown_BrendansHouse_1F_EventScript_MrsBirch {
+	lock
+	faceplayer
+	msgbox(format("Oh, are you one of my husband's new assistants?"))
+	msgbox(format("Would you be a dear and ask him to take a break from fieldwork?"))
+	msgbox(format("Just for a little while?"))
+	release
+	end
+}
+
+script LittlerootTown_BrendansHouse_1F_EventScript_Brendan {
+	msgbox(format("Ooh! I wanna be a strong trainer just like you when I grow up!"), MSGBOX_NPC)
+	end
+}
+
 raw `
 PlayersHouse_1F_Text_IsntItNiceInHere:
 	.string "MOM: See, {PLAYER}?\n"

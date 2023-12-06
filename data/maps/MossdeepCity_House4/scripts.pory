@@ -76,17 +76,16 @@ script MossdeepCity_House4_EventScript_RenewStashes {
 		//3 - 1F-1R north
 		//4 - 1F-1R south
 	//Dewdrop Glen - 5 locations
-	//Sandswept Oasis - 5 locations (flag-dependent)
-	//Route 115 - 5 locations (flag-dependent)
-	//Desert Underpass TODO
+	//Sandswept Oasis - 5 locations
+	//Route 115 - 5 locations
+	//Desert Underpass - 5 locations
 	//Regi - 5 locations TODO
 		//0 - sealed chamber
 		//1 - desert ruins
 		//2 - island cave
 		//3 - ancient tomb
 		//4 - titan's grave
-	//Route 111
-	//Route 115
+	//Route 111 - 5 locations
 	//Oldale Ruins - 5 locations TODO
 		//0 - 
 		//1 - 

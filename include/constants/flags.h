@@ -64,7 +64,7 @@
 #define FLAG_RECEIVED_FAIRY_GEM                         0x31
 
 #define FLAG_PENDING_DAYCARE_EGG        0x32
-#define FLAG_INFINITE_CANDY             0x33//Jinnora: for toggling regular XP mode/infinte candy mode
+#define FLAG_TEACHING_EGG_MOVES         0x33//Jinnora: for toggling move relearner to use egg moves
 #define FLAG_MOVE_RELEARN_PARTY         0x34//Jinnora: for returning to party from move relearner
 
 //Jinnora: added flags for various configs
@@ -85,28 +85,28 @@
 #define FLAG_CHALLENGE_HM_NONE      0x41 // receive no HMs until postgame
 #define FLAG_CHALLENGE_FERRY_LIMIT  0x42 // one ferry ride only, replenish after gym victory
 #define FLAG_CHALLENGE_FERRY_TICKET 0x43 // is single ferry use available?
+#define FLAG_DEPARTED_EVER_GRANDE   0x44 // player has left EGC; may forfeit but not add challenges
 
-#define FLAG_UNUSED_0x044                           0x44
-#define FLAG_UNUSED_0x045                           0x45
-#define FLAG_UNUSED_0x046                           0x46
-#define FLAG_UNUSED_0x047                           0x47
+#define FLAG_INFINITE_CANDY                         0x45//Jinnora: if set, player should have the infinite candy item; do not lift level cap during battle
+#define FLAG_USE_NEXT_LEVEL_CAP                     0x46//used to lift level cap during boss battles
+#define FLAG_EXPLORE_MODE                           0x47
 #define FLAG_UNUSED_0x048                           0x48
 #define FLAG_UNUSED_0x049                           0x49
-#define FLAG_BEACH_BATTLE_VICTORY                   0x4A//set after victory
+#define FLAG_BEACH_BATTLE_VICTORY                   0x4A//set after returning from special beach map
 #define FLAG_BEACH_BATTLE_STARTED                   0x4B//set when warping to special beach map
 #define FLAG_UNUSED_0x04C                           0x4C
 #define FLAG_UNUSED_0x04D                           0x4D
 #define FLAG_UNUSED_0x04E                           0x4E
-#define FLAG_TEACHING_EGG_MOVES                     0x4F//use for egg move tutor
+#define FLAG_UNUSED_0x04F                           0x4F
 
 // Given/Received item Flags
 #define FLAG_GIVEN_POWER_ITEMS               0x50
 #define FLAG_GIVEN_ARRIVAL_FERRY_LEMONADE    0x51
 #define FLAG_RECEIVED_BLUNDER_POLICY         0x52
-#define FLAG_RECEIVED_TUNNELER_GIFT          0x53
-#define FLAG_RECEIVED_MENTAL_HERB            0x54
-#define FLAG_RECEIVED_TM_RETURN              0x55
-#define FLAG_RECEIVED_WAILMER_DOLL           0x56
+#define FLAG_RECEIVED_TUNNELER_GIFT          0x53//given Eviolite if have HM 4/5/6
+#define FLAG_RECEIVED_SAFETY_GOGGLES         0x54
+#define FLAG_RECEIVED_TM_RETURN              0x55//todo remove
+#define FLAG_UNUSED_0x056                    0x56
 #define FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY 0x57
 #define FLAG_RECEIVED_SITRUS_BERRY_ROUTE_104 0x58
 #define FLAG_RECEIVED_SPELON_BERRY           0x59
@@ -117,10 +117,10 @@
 #define FLAG_RECEIVED_QUICK_CLAW             0x5E
 #define FLAG_RECEIVED_MACHO_BRACE            0x5F
 #define FLAG_RECEIVED_SECRET_POWER           0x60//keep but refactor into something with an npc tutor
-#define FLAG_RECEIVED_SOFT_SAND              0x61
+#define FLAG_UNUSED_0x061                    0x61
 #define FLAG_RECEIVED_CLEANSE_TAG            0x62
 #define FLAG_RECEIVED_FOCUS_BAND             0x63
-#define FLAG_RECEIVED_MIRACLE_SEED           0x64
+#define FLAG_RECEIVED_MIRACLE_SEED           0x64//todo remove
 #define FLAG_RECEIVED_DESTINY_KNOT           0x65
 #define FLAG_UNUSED_0x066                    0x66
 #define FLAG_UNUSED_0x067                    0x67
@@ -174,25 +174,25 @@
 #define FLAG_UNUSED_0x97                     0x97
 #define FLAG_UNUSED_0x98                     0x98
 
-//Vanilla trades
+//Vanilla trades (additional trade flags start at 0x3C0)
 #define FLAG_RUSTBORO_NPC_TRADE_COMPLETED    0x99
 #define FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED  0x9A
 #define FLAG_FORTREE_NPC_TRADE_COMPLETED     0x9B
 #define FLAG_BATTLE_FRONTIER_TRADE_DONE      0x9C
 
 //Gift Pokemon
-#define FLAG_RECEIVED_CASTFORM               0x9D
-#define FLAG_RECEIVED_LAVARIDGE_EGG          0x9E
-#define FLAG_RECEIVED_SABLEYE                0x9F
-#define FLAG_RECEIVED_MAWILE                 0xA0
-#define FLAG_RECEIVED_DITTO                  0xA1
-#define FLAG_RECEIVED_EEVEE                  0xA2
-#define FLAG_RECEIVED_TOGEPI                 0xA3
-#define FLAG_RECEIVED_MINIOR                 0xA4
-#define FLAG_RECEIVED_WYNAUT                 0xA5
-#define FLAG_UNUSED_0xA6                     0xA6
-#define FLAG_UNUSED_0xA7                     0xA7
-#define FLAG_UNUSED_0xA8                     0xA8
+#define FLAG_RECEIVED_CASTFORM               0x9D//weather institute
+#define FLAG_RECEIVED_LAVARIDGE_EGG          0x9E//lavaridge
+#define FLAG_RECEIVED_SABLEYE                0x9F//r116
+#define FLAG_RECEIVED_MAWILE                 0xA0//meteor village
+#define FLAG_RECEIVED_DITTO                  0xA1//r117
+#define FLAG_RECEIVED_EEVEE                  0xA2//rustboro
+#define FLAG_RECEIVED_TOGEPI                 0xA3//verdanturf
+#define FLAG_RECEIVED_MINIOR                 0xA4//fallarbor
+#define FLAG_RECEIVED_WYNAUT                 0xA5//dewford
+#define FLAG_RECEIVED_COMFEY                 0xA6//dewford resort
+#define FLAG_RECEIVED_INKAY                  0xA7//mossdeep
+#define FLAG_RECEIVED_HELIOPTILE             0xA8//sootopolis
 #define FLAG_UNUSED_0xA9                     0xA9
 #define FLAG_UNUSED_0xAA                     0xAA
 #define FLAG_UNUSED_0xAB                     0xAB
@@ -202,13 +202,13 @@
 #define FLAG_UNUSED_0xAF                     0xAF
 
 //Tutor Flags
-#define FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES   0xB0
-#define FLAG_MET_THOMSON_SET_DAMAGE_MOVES    0xB1
-#define FLAG_TUTOR_BITE_MOVES                0xB2
-#define FLAG_TUTOR_PUNCH_MOVES               0xB3
-#define FLAG_TUTOR_TERRAIN_MOVES             0xB4
-#define FLAG_TUTOR_MULTI_HIT_MOVES           0xB5
-#define FLAG_TUTOR_HIGH_CRIT_MOVES           0xB6
+#define FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES   0xB0//hideaway, r114
+#define FLAG_MET_THOMSON_SET_DAMAGE_MOVES    0xB1//hideaway, r114
+#define FLAG_TUTOR_BITE_MOVES                0xB2//littleroot big house
+#define FLAG_TUTOR_PUNCH_MOVES               0xB3//mossdeep meditation cavern
+#define FLAG_TUTOR_TERRAIN_MOVES             0xB4//lavaridge herb shop
+#define FLAG_TUTOR_MULTI_HIT_MOVES           0xB5//
+#define FLAG_TUTOR_HIGH_CRIT_MOVES           0xB6//cutter's house, rustboro
 #define FLAG_UNUSED_0xB7                     0xB7
 #define FLAG_UNUSED_0xB8                     0xB8
 #define FLAG_UNUSED_0xB9                     0xB9
@@ -238,8 +238,8 @@
 #define FLAG_UNUSED_0xCF                     0xCF
 
 //Legendary and Static Flags
-#define FLAG_ENCOUNTERED_LATIAS_OR_LATIOS    0xD0
-#define FLAG_LATIOS_OR_LATIAS_ROAMING        0xD1
+#define FLAG_ENCOUNTERED_LATIAS_OR_LATIOS    0xD0//not used for anything I can see
+#define FLAG_LATIOS_OR_LATIAS_ROAMING        0xD1//not used for anything I can see
 #define FLAG_DEFEATED_LATIAS_OR_LATIOS       0xD2
 #define FLAG_CAUGHT_LATIAS_OR_LATIOS         0xD3
 #define FLAG_DEFEATED_HO_OH                  0xD4
@@ -373,8 +373,8 @@
 #define FLAG_FORCE_MIRAGE_TOWER_VISIBLE      0x14F
 #define FLAG_CHOSE_CLAW_FOSSIL               0x150
 #define FLAG_UNUSED_RS_LEGENDARY_BATTLE_DONE 0x151
-#define FLAG_WINGULL_SENT_ON_ERRAND          0x152
-#define FLAG_WINGULL_DELIVERED_MAIL          0x153
+#define FLAG_UNUSED_0x152                    0x152
+#define FLAG_UNUSED_0x153                    0x153
 #define FLAG_DEFEATED_SS_TIDAL_TRAINERS      0x154
 #define FLAG_RETURNED_RED_OR_BLUE_ORB        0x155
 #define FLAG_UNUSED_0x156                    0x156
@@ -717,12 +717,12 @@
 #define FLAG_HIDDEN_ITEM_OLDALE_RUINS_B2F_STAR_PIECE_2        0x29A
 #define FLAG_HIDDEN_ITEM_ROUTE_124_HOUSE_LEFTOVERS            0x29B
 #define FLAG_HIDDEN_ITEM_ROUTE_124_HOUSE_GOLD_BOTTLE_CAP      0x29C
-#define FLAG_UNUSED_0x29D  0x29D // Unused Flag
-#define FLAG_UNUSED_0x29E  0x29E // Unused Flag
-#define FLAG_UNUSED_0x29F  0x29F // Unused Flag
-#define FLAG_UNUSED_0x2A0  0x2A0 // Unused Flag
-#define FLAG_UNUSED_0x2A1  0x2A1 // Unused Flag
-#define FLAG_UNUSED_0x2A2  0x2A2 // Unused Flag
+#define FLAG_HIDDEN_ITEM_DESERT_UNDERPASS_1F_QUICK_POWDER     0x29D
+#define FLAG_HIDDEN_ITEM_DESERT_UNDERPASS_1F_METAL_POWDER     0x29E
+#define FLAG_HIDDEN_ITEM_DESERT_UNDERPASS_B1F_BIG_NUGGET      0x29F
+#define FLAG_HIDDEN_ITEM_DESERT_UNDERPASS_B1F_NUGGET_1        0x2A0
+#define FLAG_HIDDEN_ITEM_DESERT_UNDERPASS_B1F_NUGGET_2        0x2A1
+#define FLAG_HIDDEN_ITEM_DESERT_UNDERPASS_EXITS_RARE_CANDY    0x2A2
 #define FLAG_UNUSED_0x2A3  0x2A3 // Unused Flag
 #define FLAG_UNUSED_0x2A4  0x2A4 // Unused Flag
 #define FLAG_UNUSED_0x2A5  0x2A5 // Unused Flag
@@ -807,14 +807,16 @@
 #define FLAG_HIDE_SECRET_STASH_ROUTE_122                            0x2F0
 #define FLAG_HIDE_SECRET_STASH_OLDALE_RUINS                         0x2F1
 #define FLAG_HIDE_SECRET_STASH_SAFARI_ZONE                          0x2F2
-#define FLAG_UNUSED_0x2F3                                           0x2F3
-#define FLAG_UNUSED_0x2F4                                           0x2F4
-#define FLAG_UNUSED_0x2F5                                           0x2F5
-#define FLAG_UNUSED_0x2F6                                           0x2F6
-#define FLAG_UNUSED_0x2F7                                           0x2F7
-#define FLAG_UNUSED_0x2F8                                           0x2F8
-#define FLAG_UNUSED_0x2F9                                           0x2F9
-#define FLAG_UNUSED_0x2FA                                           0x2FA
+
+//Baltoy flags
+#define FLAG_HIDE_BALTOY_OLDALE_RUINS                               0x2F3
+#define FLAG_HIDE_BALTOY_OLDALE_RUINS_CENTER                        0x2F4
+#define FLAG_HIDE_BALTOY_MOSSDEEP_CAVERNS_B2F                       0x2F5
+#define FLAG_HIDE_BALTOY_METEOR_VILLAGE_CENTRAL_HALL                0x2F6
+#define FLAG_HIDE_BALTOY_SCORCHED_SLAB_B1F                          0x2F7
+#define FLAG_HIDE_BALTOY_SEALED_CHAMBER_OUTER_ROOM                  0x2F8
+#define FLAG_HIDE_BALTOY_MIRAGE_TOWER_4F                            0x2F9
+#define FLAG_HIDE_BALTOY_VICTORY_ROAD_B2F                           0x2FA
 
 // Event Flags cont'd
 #define FLAG_HIDE_FANCLUB_OLD_LADY                                  0x2FB
@@ -937,7 +939,7 @@
 #define FLAG_USED_ROOM_2_KEY                                        0x368
 #define FLAG_USED_ROOM_4_KEY                                        0x369
 #define FLAG_USED_ROOM_6_KEY                                        0x36A
-#define FLAG_UNUSED_0x36B                                           0x36B
+#define FLAG_DESERT_UNDERPASS_OPEN                                  0x36B
 #define FLAG_UNUSED_0x36C                                           0x36C
 #define FLAG_UNUSED_0x36D                                           0x36D
 #define FLAG_UNUSED_0x36E                                           0x36E
@@ -988,19 +990,19 @@
 
 //hide flags to be removed if space needed
 #define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_UNKNOWN_0x380          0x399
-#define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_RIVAL                  0x39A
+#define FLAG_UNUSED_0x39A                                           0x39A
 #define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CHIKORITA     0x39B
 #define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CYNDAQUIL     0x39C
 #define FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_TOTODILE      0x39D
-#define FLAG_HIDE_MAUVILLE_CITY_WALLY                               0x39E
-#define FLAG_HIDE_VICTORY_ROAD_ENTRANCE_WALLY                       0x39F
+#define FLAG_HIDE_MAUVILLE_CITY_WALLY                               0x39E//needed for pokenav
+#define FLAG_HIDE_VICTORY_ROAD_ENTRANCE_WALLY                       0x39F//needed for pokenav
 #define FLAG_HIDE_DESERT_UNDERPASS_FOSSIL                           0x3A0
 #define FLAG_HIDE_ROUTE_111_PLAYER_DESCENT                          0x3A1
 #define FLAG_HIDE_ROUTE_111_DESERT_FOSSIL                           0x3A2
 #define FLAG_HIDE_RUSTURF_TUNNEL_ROCK_1                             0x3A3
 #define FLAG_HIDE_RUSTURF_TUNNEL_ROCK_2                             0x3A4
-#define FLAG_HIDE_FORTREE_CITY_HOUSE_4_WINGULL                      0x3A5
-#define FLAG_HIDE_MOSSDEEP_CITY_HOUSE_2_WINGULL                     0x3A6
+#define FLAG_UNUSED_0x3A5                                           0x3A5
+#define FLAG_UNUSED_0x3A6                                           0x3A6
 
 //hide legendary flags
 #define FLAG_HIDE_REGIROCK                                          0x3A7
@@ -1313,21 +1315,21 @@
 #define FLAG_ITEM_OLDALE_RUINS_CHAMBER_5_FIRE_STONE                 0x4D0
 #define FLAG_ITEM_OLDALE_RUINS_CHAMBER_5_RED_SHARD                  0x4D1
 #define FLAG_ITEM_ROUTE_121_ABILITY_PATCH                           0x4D2
-#define FLAG_UNUSED_0x4D3                                           0x4D3
-#define FLAG_UNUSED_0x4D4                                           0x4D4
-#define FLAG_UNUSED_0x4D5                                           0x4D5
-#define FLAG_UNUSED_0x4D6                                           0x4D6
-#define FLAG_UNUSED_0x4D7                                           0x4D7
-#define FLAG_UNUSED_0x4D8                                           0x4D8
-#define FLAG_UNUSED_0x4D9                                           0x4D9
-#define FLAG_UNUSED_0x4DA                                           0x4DA
-#define FLAG_UNUSED_0x4DB                                           0x4DB
-#define FLAG_UNUSED_0x4DC                                           0x4DC
-#define FLAG_UNUSED_0x4DD                                           0x4DD
-#define FLAG_UNUSED_0x4DE                                           0x4DE
-#define FLAG_UNUSED_0x4DF                                           0x4DF
-#define FLAG_UNUSED_0x4E0                                           0x4E0
-#define FLAG_UNUSED_0x4E1                                           0x4E1
+#define FLAG_ITEM_DESERT_UNDERPASS_B1F_PP_MAX                       0x4D3
+#define FLAG_ITEM_DESERT_UNDERPASS_B2F_ABILTY_PATCH                 0x4D4
+#define FLAG_ITEM_DESERT_UNDERPASS_B2F_COMET_SHARD                  0x4D5
+#define FLAG_ITEM_DESERT_UNDERPASS_B2F_HELIX_FOSSIL                 0x4D6
+#define FLAG_ITEM_DESERT_UNDERPASS_B2F_DOME_FOSSIL                  0x4D7
+#define FLAG_ITEM_DESERT_UNDERPASS_B2F_OLD_AMBER                    0x4D8
+#define FLAG_ITEM_DESERT_UNDERPASS_B2F_ROOT_FOSSIL                  0x4D9
+#define FLAG_ITEM_DESERT_UNDERPASS_B2F_CLAW_FOSSIL                  0x4DA
+#define FLAG_ITEM_DESERT_UNDERPASS_B2F_ARMOR_FOSSIL                 0x4DB
+#define FLAG_ITEM_DESERT_UNDERPASS_B2F_SKULL_FOSSIL                 0x4DC
+#define FLAG_ITEM_DESERT_UNDERPASS_B2F_COVER_FOSSIL                 0x4DD
+#define FLAG_ITEM_DESERT_UNDERPASS_B2F_PLUME_FOSSIL                 0x4DE
+#define FLAG_ITEM_DESERT_UNDERPASS_B2F_JAW_FOSSIL                   0x4DF
+#define FLAG_ITEM_DESERT_UNDERPASS_B2F_SAIL_FOSSIL                  0x4E0
+#define FLAG_ITEM_DESERT_UNDERPASS_EXITS_MAX_ELIXIR                 0x4E1
 #define FLAG_UNUSED_0x4E2                                           0x4E2
 #define FLAG_UNUSED_0x4E3                                           0x4E3
 #define FLAG_UNUSED_0x4E4                                           0x4E4

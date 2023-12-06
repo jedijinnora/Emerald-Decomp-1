@@ -1,11 +1,26 @@
 const LOCALID_STASH = 1
 
 mapscripts SandsweptDesert_MapScripts {
+    MAP_SCRIPT_ON_LOAD : SandsweptDesert_OnLoad
     MAP_SCRIPT_ON_TRANSITION : SandsweptDesert_OnTransition
 }
 
+script SandsweptDesert_OnLoad {
+    call_if_unset(FLAG_DESERT_UNDERPASS_OPEN, SandsweptDesert_EventScript_CloseUnderpass)
+    end
+}
+
 script SandsweptDesert_OnTransition {
+    call(SandsweptDesert_EventScript_CheckSetSandstorm)
     call(SandsweptDesert_EventScript_TryMoveStash)
+    end
+}
+
+script SandsweptDesert_EventScript_CheckSetSandstorm {
+    getplayerxy(VAR_TEMP_0, VAR_TEMP_1)
+    if(var(VAR_TEMP_1) > 19) {
+        goto(Route111_EventScript_SandstormTrigger)
+    }
     end
 }
 
@@ -26,10 +41,44 @@ script SandsweptDesert_EventScript_TryMoveStash {
     return
 }
 
+script SandsweptDesert_EventScript_CloseUnderpass {
+    setmetatile(24, 5, METATILE_General_RockWall_RockBase, TRUE)
+	setmetatile(24, 6, METATILE_General_RockWall_SandBase, TRUE)
+    return
+}
+
 script SandsweptDesert_EventScript_Stash {
     setvar(VAR_TEMP_D, ITEM_HP_UP)
     setvar(VAR_TEMP_E, ITEM_FIRE_STONE)
     setvar(VAR_TEMP_F, ITEM_SUN_STONE)
     call(Common_EventScript_SecretStash)
+    end
+}
+
+script SandsweptDesert_EventScript_GogglesLady {
+    lock
+    faceplayer
+    checkitem(ITEM_GO_GOGGLES)
+    if (var(VAR_RESULT) == FALSE) {
+        msgbox(format("How'd you get here without any Go-goggle?"))
+        release
+        end
+    }
+    msgbox(format("Those Go-goggles look rather fetching on you."))
+    if(!flag(FLAG_RECEIVED_SAFETY_GOGGLES)) {
+        msgbox(format("You should have some for your Pokémon as well!"))
+        giveitem(ITEM_SAFETY_GOGGLES)
+        setflag(FLAG_RECEIVED_SAFETY_GOGGLES)
+    }
+    release
+    end
+}
+
+script SandsweptDesert_EventScript_LittleBoy {
+    if(flag(FLAG_DESERT_UNDERPASS_OPEN)) {
+        msgbox(format("I wanna explore the Desert Underpass, but I can't figure out how to get to the entrance from here!"), MSGBOX_NPC)
+        end
+    }
+    msgbox(format("I wanna explore the Desert Underpass, but the entrance is missing!"), MSGBOX_NPC)
     end
 }

@@ -1,10 +1,15 @@
 mapscripts LittlerootTown_MaysHouse_1F_MapScripts {}
 
-raw `
-RivalsHouse_1F_Text_LikeChildLikeFather:
-	.string "Like child, like father.\p"
-	.string "My husband is as wild about POKéMON\n"
-	.string "as our child.\p"
-	.string "If he's not at his LAB, he's likely\n"
-	.string "scrabbling about in grassy places.$"
-`
+script LittlerootTown_MaysHouse_1F_EventScript_OldMan {
+	lock
+	faceplayer
+	msgbox(format("I need to move somewhere where I can get better care instead of continuing to live alone in this big house…"))
+	msgbox(format("I don't suppose you know anyone looking to move their family to Littleroot?"))
+	release
+	end
+}
+
+script LittlerootTown_MaysHouse_1F_EventScript_Cushion {
+	msgbox(format("This cushion at the bottom of the stairs looks like it has been fallen on more than a few times."), MSGBOX_SIGN)
+	end
+}

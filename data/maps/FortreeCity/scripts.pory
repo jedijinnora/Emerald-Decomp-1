@@ -66,7 +66,6 @@ script FortreeCity_EventScript_Man {
 	msgbox(format("Ow, my back…"))
 	msgbox(format("Living in the treetops doesn't suit me."))
 	msgbox(format("Why can't we bulldoze some of the jungle and put in real houses?"))
-	msgbox(format("Because everyone keeps voting down my proposal, I guess."))
 	release
 	end
 }
@@ -76,8 +75,7 @@ script FortreeCity_EventScript_Girl {
 	faceplayer
 	msgbox(format("Trees use sunlight to turn carbon dioxide and water into wood, leaves, and oxygen."))
 	msgbox(format("All they need is enough rainfall and some trace minerals from the soil."))
-	msgbox(format("The power of photosynthesis!"))
-	msgbox(format("It's real life magic."))
+	msgbox(format("The power of photosynthesis!\nIt's real life magic."))
 	release
 	end
 }

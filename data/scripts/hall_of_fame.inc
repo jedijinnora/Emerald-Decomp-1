@@ -7,7 +7,6 @@ EverGrandeCity_HallOfFame_EventScript_SetGameClearFlags::
 	call_if_eq VAR_FOSSIL_MANIAC_STATE, 0, EverGrandeCity_HallOfFame_EventScript_SetDesertUnderpassCommentReady
 	clearflag FLAG_HIDE_LILYCOVE_MOTEL_GAME_DESIGNERS
 	call EverGrandeCity_HallOfFame_EventScript_ResetEliteFour
-	setvar VAR_STEVENS_HOUSE_STATE, 2
 	special UpdateTrainerFanClubGameClear
 	call_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 0, EverGrandeCity_HallOfFame_EventScript_ReadyDexUpgradeEvent
 	return

@@ -7481,7 +7481,7 @@ u8 CanLearnTeachableMove(u16 species, u16 move)
 //renamed from GetMoveRelearnerMoves
 u8 GetMoveTutorMoves(struct Pokemon *mon, u16 *moves)
 {
-    u16 learnedMoves[4];
+    u16 learnedMoves[MAX_MON_MOVES];
     u8 numMoves = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, 0);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
@@ -7503,7 +7503,11 @@ u8 GetMoveTutorMoves(struct Pokemon *mon, u16 *moves)
         //doing egg moves tutor
         eggSpecies = GetEggSpecies(species);
         numEggMoves = GetEggMoves(eggSpecies, eggMoves);
-        for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
+        if(numEggMoves == 0) {
+            return 0;
+        }
+
+        for (i = 0; i < numEggMoves; i++)
         {
            for (j = 0; (j < MAX_MON_MOVES) && (learnedMoves[j] != eggMoves[i]); j++)
                ;
@@ -7530,7 +7534,7 @@ u8 GetMoveTutorMoves(struct Pokemon *mon, u16 *moves)
 
             if (moveLevel <= level)
             {
-                for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != gLevelUpLearnsets[species][i].move; j++)
+                for (j = 0; (j < MAX_MON_MOVES) && (learnedMoves[j] != gLevelUpLearnsets[species][i].move); j++)
                     ;
 
                 if (j == MAX_MON_MOVES)
@@ -7561,15 +7565,15 @@ u8 GetLevelUpMovesBySpecies(u16 species, u16 *moves)
 
 u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
 {
-    u16 learnedMoves[MAX_MON_MOVES];
-    u16 moves[MAX_LEVEL_UP_MOVES];
+    u16 learnedMoves[MAX_MON_MOVES]; //array of mon's current moves
+    u16 moves[MAX_LEVEL_UP_MOVES]; //this is the array of teachable moves
     u8 numMoves = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
     u8 level = GetMonData(mon, MON_DATA_LEVEL, 0);
 
     //for egg move tutor case:
     u16 eggSpecies;
-    u16 eggMoves[EGG_MOVES_ARRAY_COUNT] = {0};
+    u16 eggMoves[EGG_MOVES_ARRAY_COUNT]; //array of species's possible egg moves
     u8 numEggMoves = 0;
 
     int i, j, k;
@@ -7577,9 +7581,11 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
     // j is for checking that the move is not learned
     // k is for checking that the move is not in the list already
 
+    //cannot teach an egg anything
     if (species == SPECIES_EGG)
             return 0;
 
+    //populate list of current moves
     for (i = 0; i < MAX_MON_MOVES; i++)
         learnedMoves[i] = GetMonData(mon, MON_DATA_MOVE1 + i, 0);
 
@@ -7587,9 +7593,11 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
         //doing egg moves tutor
         eggSpecies = GetEggSpecies(species);
         numEggMoves = GetEggMoves(eggSpecies, eggMoves);
+        if(numEggMoves == 0) {
+            return 0;
+        }
 
-
-        for (i = 0; i < EGG_MOVES_ARRAY_COUNT; i++)
+        for (i = 0; i < numEggMoves; i++)
         {
            for (j = 0; (j < MAX_MON_MOVES) && (learnedMoves[j] != eggMoves[i]); j++)
                ;
@@ -7603,11 +7611,12 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
                    moves[numMoves++] = eggMoves[i];
             }
         }
-        return numEggMoves - 1;
+        return numMoves;
         //there's a blank move that gets appended to the end of the list for some reason
-        //should this return numMoves instead?
-
-
+        //should this return numMoves or numEggMoves??
+        //messing with this return value doesn't seem to change the list of moves
+        //is this function actually used for anything besides checking that it's non-zero?
+        
     } else {
         //doing regular move relearner
         for (i = 0; i < MAX_LEVEL_UP_MOVES; i++)

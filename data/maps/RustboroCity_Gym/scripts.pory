@@ -179,6 +179,10 @@ script Gym_EventScript_ChooseHM {
 			if(var(VAR_RESULT)) {
 				goto(Gym_EventScript_ChooseHM)
 			}
+			//no surf before badge 3
+			if(flag(FLAG_CHALLENGE_HM_RANDOM) && var(VAR_NUM_BADGES) < 3) {
+				goto(Gym_EventScript_ChooseHM)
+			}
 			giveitem(ITEM_HM03_SURF)
 		case 3:
 			checkitem(ITEM_HM04_STRENGTH)

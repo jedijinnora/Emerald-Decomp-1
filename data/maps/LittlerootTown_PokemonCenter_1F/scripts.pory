@@ -1,1 +1,10 @@
-mapscripts LittlerootTown_PokemonCenter_1F_MapScripts {}
+const LOCALID_NURSE = 1
+
+mapscripts LittlerootTown_PokemonCenter_1F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : LittlerootTown_PokemonCenter_1F_OnTransition
+}
+
+script LittlerootTown_PokemonCenter_1F_OnTransition {
+    setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE)
+    end
+}

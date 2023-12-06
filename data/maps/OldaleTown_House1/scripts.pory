@@ -5,8 +5,9 @@ script OldaleTown_House1_EventScript_Woman {
 	lock
 	faceplayer
 	msgbox(format("My brother gets into the weirdest fixations."))
-	msgbox(format("Most of the time it's harmless so I try to encourage him when I can."))
-	msgbox(format("It's good to be a supportive sibling."))
+	msgbox(format("Most of the time it's harmless, so I try to encourage him where I can."))
+	msgbox(format("Sometimes he does need help remembering to eat and take care of himself."))
+	msgbox(format("It's nice to be a supportive sibling."))
 	release
 	end
 }
@@ -15,6 +16,9 @@ script OldaleTown_House1_EventScript_Maniac {
 	lock
 	faceplayer
 	msgbox(format("I love studying footprints!"))
+	msgbox(format("Oh, you're from Sinnoh?"))
+	msgbox(format("Can you find a lot of Pokémon with interesting footprints in that region?"))
+	msgbox(format("Maybe I should move there!"))
 	release
 	end
 }

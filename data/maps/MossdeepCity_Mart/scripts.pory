@@ -10,3 +10,20 @@ script MossdeepCity_Mart_EventScript_Clerk {
 	release
 	end
 }
+
+script MossdeepCity_Mart_EventScript_BallSeller {
+    lock
+	faceplayer
+    msgbox(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(MossdeepBallsMart)
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+mart MossdeepBallsMart {
+	ITEM_NET_BALL
+	ITEM_DUSK_BALL
+	ITEM_DIVE_BALL
+}

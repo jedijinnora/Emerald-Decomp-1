@@ -1,5 +1,12 @@
 const LOCALID_STASH = 52
 
+script Route111_EventScript_ShowXY{
+	buffernumberstring(STR_VAR_1, VAR_TEMP_0)
+	buffernumberstring(STR_VAR_2, VAR_TEMP_1)
+	msgbox(Route111_Text_PlayerXY, MSGBOX_SIGN)
+	end
+}
+
 script Route111_EventScript_TryMoveStash {
 	goto_if_set(FLAG_HIDE_SECRET_STASH_ROUTE_111, Common_EventScript_NopReturn)
 	switch(var(VAR_SECRET_STASH_STATE)) {
@@ -42,12 +49,18 @@ Route111_MapScripts::
 
 Route111_OnLoad:
 	call_if_unset FLAG_REGI_DOORS_OPENED, Route111_EventScript_CloseDesertRuins
+	call_if_unset FLAG_DESERT_UNDERPASS_OPEN, Route111_EventScript_CloseUnderpass
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_ShowTemporaryMirageTower
 	end
 
 Route111_EventScript_CloseDesertRuins::
-	setmetatile 29, 86, METATILE_General_RockWall_RockBase, TRUE
-	setmetatile 29, 87, METATILE_General_RockWall_SandBase, TRUE
+	setmetatile 32, 53, METATILE_General_RockWall_RockBase, TRUE
+	setmetatile 32, 54, METATILE_General_RockWall_SandBase, TRUE
+	return
+
+Route111_EventScript_CloseUnderpass::
+	setmetatile 29, 106, METATILE_General_RockWall_RockBase, TRUE
+	setmetatile 29, 107, METATILE_General_RockWall_SandBase, TRUE
 	return
 
 @ Show Mirage Tower just prior to disintegration. Mirage Tower is otherwise handled by the map layout
@@ -99,15 +112,19 @@ Route111_EventScript_SetFallingPlayerGfxFemale::
 	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
 	return
 
+Route111_Text_PlayerXY:
+	.string "X: {STR_VAR_1} Y: {STR_VAR_2}$"
+
 Route111_EventScript_CheckSetSandstorm::
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+	goto_if_gt VAR_TEMP_0, 200, Route111_EventScript_EndCheckSetSandstorm
+	goto_if_lt VAR_TEMP_0, 11, Route111_EventScript_EndCheckSetSandstorm
 	goto_if_lt VAR_TEMP_1, 55, Route111_EventScript_EndCheckSetSandstorm
 	goto_if_gt VAR_TEMP_1, 124, Route111_EventScript_EndCheckSetSandstorm
-	goto_if_gt VAR_TEMP_1, 54, Route111_EventScript_SetSandstorm
-	goto_if_gt VAR_TEMP_0, 2000, Route111_EventScript_EndCheckSetSandstorm
-	goto_if_lt VAR_TEMP_0, 8, Route111_EventScript_EndCheckSetSandstorm
-Route111_EventScript_SetSandstorm::
-	setweather WEATHER_SANDSTORM
+	goto_if_lt VAR_TEMP_1, 82, Route111_EventScript_SandstormTrigger
+	goto_if_lt VAR_TEMP_0, 21, Route111_EventScript_EndCheckSetSandstorm
+	goto_if_gt VAR_TEMP_0, 23, Route111_EventScript_SandstormTrigger
+	goto_if_gt VAR_TEMP_1, 114, Route111_EventScript_EndCheckSetSandstorm
 Route111_EventScript_EndCheckSetSandstorm::
 	return
 
@@ -592,7 +609,7 @@ Route111_EventScript_TrainerHillSign::
 Route111_Text_BattleOurFamily:
 	.string "Hello! I take it you're a traveler.\p"
 	.string "How's this? What do you say to taking\n"
-	.string "on our family of four in a series of\l"
+	.string "on our family of five in a series of\l"
 	.string "Pokémon battles?$"
 
 Route111_Text_IsThatSo:
@@ -660,7 +677,7 @@ Route111_Text_ToughToKeepWinningUpTheRanks:
 
 Route111_Text_WinstrateFamilyDestroyedMe:
 	.string "I challenged the Winstrate family,\n"
-	.string "but four matches in a row is tough\l"
+	.string "but five matches in a row is tough\l"
 	.string "going… They destroyed me.$"
 
 Route111_Text_RouteSignMauville:

@@ -63,7 +63,7 @@ script OldaleTown_House2_EventScript_Hebert {
                     goto(BugMenu)
             }
         case 2:
-            msgbox(format("Defeating me in a single battle will unlock Fury Cutter, Lunch, Silver Wind, and Skitter Smack."))
+            msgbox(format("Defeating me in a single battle will unlock Fury Cutter, Lunge, Silver Wind, and Skitter Smack."))
             msgbox(format("Does that sound copacetic?"), MSGBOX_YESNO)
             //battle
             goto(BugMenu)

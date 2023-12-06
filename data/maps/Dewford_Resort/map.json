@@ -311,14 +311,14 @@
       "x": 43,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_DEWFORD_RESORT_BEACH_HOUSE_1",
+      "dest_map": "MAP_DEWFORD_RESORT_HOUSE1",
       "dest_warp_id": "0"
     },
     {
       "x": 30,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_DEWFORD_RESORT_BEACH_HOUSE_2",
+      "dest_map": "MAP_DEWFORD_RESORT_HOUSE2",
       "dest_warp_id": "0"
     },
     {
