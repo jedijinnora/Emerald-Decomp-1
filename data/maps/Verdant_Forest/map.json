@@ -212,7 +212,96 @@
 
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_VERDANT_FOREST",
+      "var_value": "0",
+      "script": "VerdantForest_EventScript_SetWild_1"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 39,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_VERDANT_FOREST",
+      "var_value": "0",
+      "script": "VerdantForest_EventScript_SetWild_1"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 39,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_VERDANT_FOREST",
+      "var_value": "0",
+      "script": "VerdantForest_EventScript_SetWild_1"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_VERDANT_FOREST",
+      "var_value": "1",
+      "script": "VerdantForest_EventScript_SetWild_0"
+    },
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 34,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_VERDANT_FOREST",
+      "var_value": "1",
+      "script": "VerdantForest_EventScript_SetWild_0"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 35,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_VERDANT_FOREST",
+      "var_value": "1",
+      "script": "VerdantForest_EventScript_SetWild_0"
+    },
+    {
+      "type": "trigger",
+      "x": 42,
+      "y": 40,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_VERDANT_FOREST",
+      "var_value": "1",
+      "script": "VerdantForest_EventScript_SetWild_0"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 40,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_VERDANT_FOREST",
+      "var_value": "1",
+      "script": "VerdantForest_EventScript_SetWild_0"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_VERDANT_FOREST",
+      "var_value": "1",
+      "script": "VerdantForest_EventScript_SetWild_0"
+    },
+    {
+      "type": "trigger",
+      "x": 55,
+      "y": 38,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_VERDANT_FOREST",
+      "var_value": "1",
+      "script": "VerdantForest_EventScript_SetWild_0"
+    }
   ],
   "bg_events": [
     {
@@ -281,14 +370,6 @@
     },
     {
       "type": "sign",
-      "x": 52,
-      "y": 21,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VerdantForest_EventScript_FaeTree"
-    },
-    {
-      "type": "sign",
       "x": 53,
       "y": 21,
       "elevation": 0,
@@ -350,6 +431,54 @@
       "elevation": 0,
       "item": "ITEM_ELIXIR",
       "flag": "FLAG_HIDDEN_ITEM_VERDANT_FOREST_ELIXIR_2"
+    },
+    {
+      "type": "sign",
+      "x": 52,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VerdantForest_EventScript_FaeTree"
+    },
+    {
+      "type": "hidden_item",
+      "x": 53,
+      "y": 22,
+      "elevation": 0,
+      "item": "ITEM_HONEY",
+      "flag": "FLAG_HIDDEN_ITEM_VERDANT_FOREST_HONEY"
+    },
+    {
+      "type": "hidden_item",
+      "x": 54,
+      "y": 24,
+      "elevation": 0,
+      "item": "ITEM_RED_NECTAR",
+      "flag": "FLAG_HIDDEN_ITEM_VERDANT_FOREST_RED_NECTAR"
+    },
+    {
+      "type": "hidden_item",
+      "x": 57,
+      "y": 20,
+      "elevation": 0,
+      "item": "ITEM_YELLOW_NECTAR",
+      "flag": "FLAG_HIDDEN_ITEM_VERDANT_FOREST_YELLOW_NECTAR"
+    },
+    {
+      "type": "hidden_item",
+      "x": 48,
+      "y": 22,
+      "elevation": 0,
+      "item": "ITEM_PINK_NECTAR",
+      "flag": "FLAG_HIDDEN_ITEM_VERDANT_FOREST_PINK_NECTAR"
+    },
+    {
+      "type": "hidden_item",
+      "x": 51,
+      "y": 18,
+      "elevation": 0,
+      "item": "ITEM_PURPLE_NECTAR",
+      "flag": "FLAG_HIDDEN_ITEM_VERDANT_FOREST_PURPLE_NECTAR"
     }
   ]
 }

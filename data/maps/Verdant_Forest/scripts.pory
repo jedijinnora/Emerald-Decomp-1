@@ -10,17 +10,42 @@ const MANIAC_ID = 8
 //TEMPs used:
 //VAR_TEMP_2 = Temptation level
 //VAR_TEMP_3 = Disturbance level
+
 //VAR_TEMP_4 = Guardian species
 //VAR_TEMP_5 = Guardian item
+//VAR_TEMP_6 = Guardian level
+//FLAG_TEMP_1 = Guardian defeated
+
 //FLAG_TEMP_8 = Maniac intro
 //FLAG_TEMP_9 = Maniac defeated
 
 
 script VerdantForest_OnTransition {
+    call(VerdantForest_EventScript_SetWild_0)
     setvar(VAR_TEMP_2, 0) 
     setvar(VAR_TEMP_3, 0) 
     random(10) //To determine which fairy is the Guardian
-    setvar(VAR_TEMP_5, ITEM_SITRUS_BERRY) 
+    setvar(VAR_TEMP_5, ITEM_SITRUS_BERRY)  //default item
+
+    //set level based on badges
+    switch(var(VAR_NUM_BADGES)) {
+        //need at least cut & surf to access, so can assume at least 2 badges
+        //will be funny if someone cheats and fights lvl 80 guardian with 0 or 1 badge
+        case 2:
+            setvar(VAR_TEMP_6, 40)
+        case 3:
+            setvar(VAR_TEMP_6, 50)
+        case 4:
+            setvar(VAR_TEMP_6, 60)
+        case 5:
+            setvar(VAR_TEMP_6, 65)
+        case 6:
+            setvar(VAR_TEMP_6, 70)
+        case 7:
+            setvar(VAR_TEMP_6, 75)
+        default:
+            setvar(VAR_TEMP_6, 80)
+    }
     switch(var(VAR_RESULT)) {
         case 0: //WHIMSICOTT
             setvar(VAR_TEMP_4, SPECIES_WHIMSICOTT)
@@ -49,6 +74,20 @@ script VerdantForest_OnTransition {
         default: //FLORGES
             setvar(VAR_TEMP_4, SPECIES_FLORGES)
     }
+}
+
+script VerdantForest_EventScript_SetWild_0 {
+    setvar(VAR_WILD_SET_VERDANT_FOREST, 0)
+    return
+}
+
+script VerdantForest_EventScript_SetWild_1 {
+    //only activate fairy encounter set if the guardian hasn't been defeated
+    if(flag(FLAG_TEMP_1)) {
+        setvar(VAR_WILD_SET_VERDANT_FOREST, 2)
+    }
+    setvar(VAR_WILD_SET_VERDANT_FOREST, 1)
+    return
 }
 
 script VerdantForest_EventScript_Maniac {
@@ -109,6 +148,7 @@ script VerdantForest_EventScript_Woman {
         msgbox(format("Oh? You seem to have wandered further than you should..."))
         waitmessage
         if (var(VAR_TEMP_2) > 8) {
+            //receiving warning increases disturbance
             addvar(VAR_TEMP_3, 3)
             msgbox(format("I can no longer help you. If you leave now misfortune might pass you by."))
             waitmessage
@@ -117,10 +157,12 @@ script VerdantForest_EventScript_Woman {
         }
         msgbox(format("Why don't you have a drink of water to clear your head?"), MSGBOX_YESNO)
         if(var(VAR_RESULT) == NO) {
+            //slightly increase temptation
             addvar(VAR_TEMP_2, 1)
             msgbox(format("Suit yourself."))
             waitmessage
         } else {
+            //reduce temptation but increase disturbance
             setvar(VAR_TEMP_2, 0)
             addvar(VAR_TEMP_3, 4)
             playfanfare(MUS_OBTAIN_BERRY)
@@ -147,6 +189,7 @@ script VerdantForest_EventScript_Flowerbox {
 
 script VerdantForest_EventScript_FairyFlowerbox_Lower {
     lockall
+    goto_if_set(FLAG_TEMP_1, VerdantForest_EventScript_BoxQuiet)
     msgbox(format("The crate is full of beautifully cut flowers which seem fresh and perfectly preserved."))
     if (var(VAR_TEMP_2) > 7) {
         msgbox(format("You are overcome with the urge to take some for yourself!"))
@@ -166,8 +209,10 @@ script VerdantForest_EventScript_FairyFlowerbox_Lower {
     waitmoncry
     msgbox(format("An angry fae leaps forth to challenge you!"))
     waitmessage
-    setwildbattle(SPECIES_FLOETTE, 25)
+    subvar(VAR_TEMP_6, 5)
+    setwildbattle(SPECIES_FLOETTE, VAR_TEMP_6)
     dowildbattle
+    addvar(VAR_TEMP_6, 5)
     setvar(VAR_TEMP_2, 0)
     msgbox(format("The sweet smell of flowers is a little less cloying now."))
     addvar(VAR_TEMP_3, 1)
@@ -177,6 +222,7 @@ script VerdantForest_EventScript_FairyFlowerbox_Lower {
 
 script VerdantForest_EventScript_FairyFlowerbox_Upper {
     lockall
+    goto_if_set(FLAG_TEMP_1, VerdantForest_EventScript_BoxQuiet)
     msgbox(format("The crate is full of artfully placed flowers which drip sweet pollen. Their intoxicating beauty tempts you."))
     if (var(VAR_TEMP_2) > 7) {
         msgbox(format("You are overcome with need!"))
@@ -197,7 +243,7 @@ script VerdantForest_EventScript_FairyFlowerbox_Upper {
     msgbox(format("An enraged fae leaps forth to challenge you!"))
     waitmessage
     setflag(FLAG_SMART_WILD_AI)
-    setwildbattle(SPECIES_FLOETTE, 35, ITEM_FAIRY_GEM)
+    setwildbattle(SPECIES_FLOETTE, VAR_TEMP_6, ITEM_FAIRY_GEM)
     dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
     setvar(VAR_TEMP_2, 0)
@@ -215,17 +261,26 @@ script Verdant_Forest_EventScript_Danger {
     return
 }
 
-script VerdantForest_EventScript_Quiet {
-    msgbox(format("With its protector vanquished, the Guardian's tree is silent. The forest watches you with quiet hatred."))
+script VerdantForest_EventScript_TreeQuiet {
+    msgbox(format("With its protector vanquished, the Guardian's tree is silent."))
+    msgbox(format("The forest watches you with quiet hatred."))
+    releaseall
+    end
+}
+
+script VerdantForest_EventScript_BoxQuiet {
+    msgbox(format("The box is full of ash and dry twigs."))
+    msgbox(format("The forest watches you with quiet hatred."))
     releaseall
     end
 }
 
 script VerdantForest_EventScript_FaeTree {
     lockall
-    call_if_set(FLAG_TEMP_1, VerdantForest_EventScript_Quiet)
-    msgbox(format("This tree is the center of the forest's energy."))
+    goto_if_set(FLAG_TEMP_1, VerdantForest_EventScript_TreeQuiet)
+    msgbox(format("This tree is the center of the forest's strange energy."))
     waitmessage
+    //play message based on disturbance level
     if (var(VAR_TEMP_3) > 11) {
         msgbox(format("The attention upon you is overwhelming!"))
         call(VerdantForest_EventScript_Guardian)
@@ -250,27 +305,50 @@ script VerdantForest_EventScript_Guardian {
     msgbox(format("The guardian of the forest emerges to punish you!"))
     call_if_unset(FLAG_DEFEATED_ETERNAL_FLOETTE, VerdantForest_EventScript_Eternal)    
     GuardianFight:
+    if(!flag(FLAG_DEFEATED_ETERNAL_FLOETTE)) {
+        setflag(FLAG_NO_CATCHING) //no catching guardian until after floette defeated
+    }
     playmoncry(VAR_TEMP_4, CRY_MODE_ENCOUNTER)
     waitmoncry
     settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 0, 1, 1)
-    setwildbattle(VAR_TEMP_4, 50, VAR_TEMP_5)
+    setwildbattle(VAR_TEMP_4, VAR_TEMP_6, VAR_TEMP_5)
     setflag(FLAG_SMART_WILD_AI)
     dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
     specialvar(VAR_RESULT, GetBattleOutcome)
     if ((var(VAR_RESULT) == B_OUTCOME_RAN) || (var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED)) {
         msgbox(format("You cannot flee from the anger of the fae!"))
-        setvar(VAR_TEMP_5, ITEM_SITRUS_BERRY) //Prevent item farming
+        setvar(VAR_TEMP_5, ITEM_SITRUS_BERRY) //Prevent repeated item theft
         goto(GuardianFight)
     }
+    //set guardian defeated, reset temptation and disturbance
     setflag(FLAG_TEMP_1)
     setvar(VAR_TEMP_2, 0)
     setvar(VAR_TEMP_3, 0)
+    //clear catching flag if set and regenerate hidden items
+    clearflag(FLAG_NO_CATCHING)
+    clearflag(FLAG_HIDDEN_ITEM_VERDANT_FOREST_HONEY)
+    clearflag(FLAG_HIDDEN_ITEM_VERDANT_FOREST_RED_NECTAR)
+    clearflag(FLAG_HIDDEN_ITEM_VERDANT_FOREST_YELLOW_NECTAR)
+    clearflag(FLAG_HIDDEN_ITEM_VERDANT_FOREST_PINK_NECTAR)
+    clearflag(FLAG_HIDDEN_ITEM_VERDANT_FOREST_PURPLE_NECTAR)
+    random(5)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            clearflag(FLAG_HIDDEN_ITEM_VERDANT_FOREST_ELIXIR_1)
+        case 1:
+            clearflag(FLAG_HIDDEN_ITEM_VERDANT_FOREST_ELIXIR_2)
+        case 2:
+            clearflag(FLAG_HIDDEN_ITEM_VERDANT_FOREST_ELIXIR_1)
+            clearflag(FLAG_HIDDEN_ITEM_VERDANT_FOREST_ELIXIR_2)
+        default:
+    }
     releaseall
     end
 }
 
 script VerdantForest_EventScript_Eternal {
+    goto_if_lt(VAR_NUM_BADGES, 7, GuardianFight)
     setflag(FLAG_DEFEATED_ETERNAL_FLOETTE)
     playmoncry(SPECIES_FLOETTE_ETERNAL_FLOWER, CRY_MODE_ENCOUNTER)
     waitmoncry
