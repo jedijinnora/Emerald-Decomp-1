@@ -12,8 +12,6 @@ const MANIAC_ID = 8
 //VAR_TEMP_3 = Disturbance level
 
 //VAR_TEMP_4 = Guardian species
-//VAR_TEMP_5 = Guardian item
-//VAR_TEMP_6 = Guardian level
 //FLAG_TEMP_1 = Guardian defeated
 
 //FLAG_TEMP_8 = Maniac intro
@@ -22,55 +20,26 @@ const MANIAC_ID = 8
 
 script VerdantForest_OnTransition {
     call(VerdantForest_EventScript_SetWild_0)
-    setvar(VAR_TEMP_2, 0) 
-    setvar(VAR_TEMP_3, 0) 
     random(10) //To determine which fairy is the Guardian
-    setvar(VAR_TEMP_5, ITEM_SITRUS_BERRY)  //default item
-
-    //set level based on badges
-    switch(var(VAR_NUM_BADGES)) {
-        //need at least cut & surf to access, so can assume at least 2 badges
-        //will be funny if someone cheats and fights lvl 80 guardian with 0 or 1 badge
-        case 2:
-            setvar(VAR_TEMP_6, 40)
-        case 3:
-            setvar(VAR_TEMP_6, 50)
-        case 4:
-            setvar(VAR_TEMP_6, 60)
-        case 5:
-            setvar(VAR_TEMP_6, 65)
-        case 6:
-            setvar(VAR_TEMP_6, 70)
-        case 7:
-            setvar(VAR_TEMP_6, 75)
-        default:
-            setvar(VAR_TEMP_6, 80)
-    }
     switch(var(VAR_RESULT)) {
         case 0: //WHIMSICOTT
             setvar(VAR_TEMP_4, SPECIES_WHIMSICOTT)
-            setvar(VAR_TEMP_5, ITEM_FOCUS_SASH)
         case 1: //GRIMMSNARL
             setvar(VAR_TEMP_4, SPECIES_GRIMMSNARL)
         case 2: //HATTERENE
             setvar(VAR_TEMP_4, SPECIES_HATTERENE)
-            setvar(VAR_TEMP_5, ITEM_TWISTED_SPOON)
         case 3: //RIBOMBEE
             setvar(VAR_TEMP_4, SPECIES_RIBOMBEE)
-            setvar(VAR_TEMP_5, ITEM_SILVER_POWDER)
         case 4: //SHIINOTIC
             setvar(VAR_TEMP_4, SPECIES_SHIINOTIC)
-            setvar(VAR_TEMP_5, ITEM_KEBIA_BERRY)
         case 5: //RAPIDASH-G
             setvar(VAR_TEMP_4, SPECIES_RAPIDASH_GALARIAN)
-            setvar(VAR_TEMP_5, ITEM_LIECHI_BERRY)
         case 6: //AROMATISSE
             setvar(VAR_TEMP_4, SPECIES_AROMATISSE)
         case 7: //SLURPUFF
             setvar(VAR_TEMP_4, SPECIES_SLURPUFF)
         case 8: //GRANBULL
             setvar(VAR_TEMP_4, SPECIES_GRANBULL)
-            setvar(VAR_TEMP_5, ITEM_WHITE_HERB)
         default: //FLORGES
             setvar(VAR_TEMP_4, SPECIES_FLORGES)
     }
@@ -209,10 +178,24 @@ script VerdantForest_EventScript_FairyFlowerbox_Lower {
     waitmoncry
     msgbox(format("An angry fae leaps forth to challenge you!"))
     waitmessage
-    subvar(VAR_TEMP_6, 5)
-    setwildbattle(SPECIES_FLOETTE, VAR_TEMP_6)
+    switch(var(VAR_NUM_BADGES)) {
+        case 0:
+        case 1:
+        case 2:
+            setwildbattle(SPECIES_FLOETTE, 30, ITEM_SITRUS_BERRY)
+        case 3:
+            setwildbattle(SPECIES_FLOETTE, 40, ITEM_SITRUS_BERRY)
+        case 4:
+            setwildbattle(SPECIES_FLOETTE, 45, ITEM_SITRUS_BERRY)
+        case 5:
+            setwildbattle(SPECIES_FLOETTE, 50, ITEM_SITRUS_BERRY)
+        case 6:
+            setwildbattle(SPECIES_FLOETTE, 60, ITEM_SITRUS_BERRY)
+        default:
+            setwildbattle(SPECIES_FLOETTE, 70, ITEM_SITRUS_BERRY)
+    }
+    settotemboost(B_POSITION_OPPONENT_LEFT, 1, 0, 0, 1, 0)
     dowildbattle
-    addvar(VAR_TEMP_6, 5)
     setvar(VAR_TEMP_2, 0)
     msgbox(format("The sweet smell of flowers is a little less cloying now."))
     addvar(VAR_TEMP_3, 1)
@@ -243,7 +226,23 @@ script VerdantForest_EventScript_FairyFlowerbox_Upper {
     msgbox(format("An enraged fae leaps forth to challenge you!"))
     waitmessage
     setflag(FLAG_SMART_WILD_AI)
-    setwildbattle(SPECIES_FLOETTE, VAR_TEMP_6, ITEM_FAIRY_GEM)
+    switch(var(VAR_NUM_BADGES)) {
+        case 0:
+        case 1:
+        case 2:
+            setwildbattle(SPECIES_FLOETTE, 40, ITEM_FAIRY_GEM)
+        case 3:
+            setwildbattle(SPECIES_FLOETTE, 50, ITEM_FAIRY_GEM)
+        case 4:
+            setwildbattle(SPECIES_FLOETTE, 55, ITEM_FAIRY_GEM)
+        case 5:
+            setwildbattle(SPECIES_FLOETTE, 60, ITEM_FAIRY_GEM)
+        case 6:
+            setwildbattle(SPECIES_FLOETTE, 70, ITEM_FAIRY_GEM)
+        default:
+            setwildbattle(SPECIES_FLOETTE, 80, ITEM_FAIRY_GEM)
+    }
+    settotemboost(B_POSITION_OPPONENT_LEFT, 1, 0, 1, 1, 0)
     dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
     setvar(VAR_TEMP_2, 0)
@@ -283,11 +282,11 @@ script VerdantForest_EventScript_FaeTree {
     //play message based on disturbance level
     if (var(VAR_TEMP_3) > 11) {
         msgbox(format("The attention upon you is overwhelming!"))
-        call(VerdantForest_EventScript_Guardian)
+        goto(VerdantForest_EventScript_Guardian)
     } elif (var(VAR_TEMP_3) > 7) {
         msgbox(format("You feel cold despite the warm sun. The hair on the back of your neck tingles. Petals rustle and leaves fall. There is no breeze."))
         addvar(VAR_TEMP_3, 3)
-        playmoncry(VAR_TEMP_4, CRY_MODE_ENCOUNTER)
+        playmoncry(SPECIES_FLORGES, CRY_MODE_ENCOUNTER)
     } elif (var(VAR_TEMP_3) > 3) {
         msgbox(format("You sense hostility from the flowers around you. Maybe it's best for you to go elsewhere."))
         addvar(VAR_TEMP_3, 2)
@@ -302,23 +301,21 @@ script VerdantForest_EventScript_FaeTree {
 }
 
 script VerdantForest_EventScript_Guardian {
+    playmoncry(SPECIES_FLOETTE_ETERNAL_FLOWER, CRY_MODE_ENCOUNTER)
+    waitmoncry
     msgbox(format("The guardian of the forest emerges to punish you!"))
     call_if_unset(FLAG_DEFEATED_ETERNAL_FLOETTE, VerdantForest_EventScript_Eternal)    
     GuardianFight:
     if(!flag(FLAG_DEFEATED_ETERNAL_FLOETTE)) {
         setflag(FLAG_NO_CATCHING) //no catching guardian until after floette defeated
     }
-    playmoncry(VAR_TEMP_4, CRY_MODE_ENCOUNTER)
-    waitmoncry
-    settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 0, 1, 1)
-    setwildbattle(VAR_TEMP_4, VAR_TEMP_6, VAR_TEMP_5)
+    call(VerdantForest_EventScript_SetupGuardianBattle)
     setflag(FLAG_SMART_WILD_AI)
     dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
     specialvar(VAR_RESULT, GetBattleOutcome)
     if ((var(VAR_RESULT) == B_OUTCOME_RAN) || (var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED)) {
         msgbox(format("You cannot flee from the anger of the fae!"))
-        setvar(VAR_TEMP_5, ITEM_SITRUS_BERRY) //Prevent repeated item theft
         goto(GuardianFight)
     }
     //set guardian defeated, reset temptation and disturbance
@@ -348,20 +345,206 @@ script VerdantForest_EventScript_Guardian {
 }
 
 script VerdantForest_EventScript_Eternal {
-    goto_if_lt(VAR_NUM_BADGES, 7, GuardianFight)
+    if(var(VAR_NUM_BADGES) < 7) {
+        goto(GuardianFight)
+    }
     setflag(FLAG_DEFEATED_ETERNAL_FLOETTE)
-    playmoncry(SPECIES_FLOETTE_ETERNAL_FLOWER, CRY_MODE_ENCOUNTER)
-    waitmoncry
-    delay(40)
+    delay(20)
     msgbox(format("An eldritch wind is blowing!"))
     waitmessage
     playmoncry(SPECIES_FLOETTE_ETERNAL_FLOWER, CRY_MODE_ENCOUNTER)
     waitmoncry
-    setwildbattle(SPECIES_FLOETTE_ETERNAL_FLOWER, 50, ITEM_PIXIE_PLATE)
+    setwildbattle(SPECIES_FLOETTE_ETERNAL_FLOWER, 85, ITEM_PIXIE_PLATE)
     settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 1, 1, 1)
     setflag(FLAG_SMART_WILD_AI)
     dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
     releaseall
     end
+}
+
+script VerdantForest_EventScript_SetupGuardianBattle {
+    switch(var(VAR_TEMP_4)) {
+        case SPECIES_WHIMSICOTT:
+            switch(var(VAR_NUM_BADGES)) {
+                case 0:
+                case 1:
+                case 2:
+                    setwildbattle(SPECIES_WHIMSICOTT, 40, ITEM_FOCUS_SASH)
+                case 3:
+                    setwildbattle(SPECIES_WHIMSICOTT, 50, ITEM_FOCUS_SASH)
+                case 4:
+                    setwildbattle(SPECIES_WHIMSICOTT, 55, ITEM_FOCUS_SASH)
+                case 5:
+                    setwildbattle(SPECIES_WHIMSICOTT, 60, ITEM_FOCUS_SASH)
+                case 6:
+                    setwildbattle(SPECIES_WHIMSICOTT, 70, ITEM_FOCUS_SASH)
+                default:
+                    setwildbattle(SPECIES_WHIMSICOTT, 80, ITEM_FOCUS_SASH)
+            }
+            settotemboost(B_POSITION_OPPONENT_LEFT, 0, 0, 2, 2, 0)
+        case SPECIES_GRIMMSNARL:
+            switch(var(VAR_NUM_BADGES)) {
+                case 0:
+                case 1:
+                case 2:
+                    setwildbattle(SPECIES_GRIMMSNARL, 40, ITEM_MENTAL_HERB)
+                case 3:
+                    setwildbattle(SPECIES_GRIMMSNARL, 50, ITEM_MENTAL_HERB)
+                case 4:
+                    setwildbattle(SPECIES_GRIMMSNARL, 55, ITEM_MENTAL_HERB)
+                case 5:
+                    setwildbattle(SPECIES_GRIMMSNARL, 60, ITEM_MENTAL_HERB)
+                case 6:
+                    setwildbattle(SPECIES_GRIMMSNARL, 70, ITEM_MENTAL_HERB)
+                default:
+                    setwildbattle(SPECIES_GRIMMSNARL, 80, ITEM_MENTAL_HERB)
+            }
+            settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 0, 1, 1)
+        case SPECIES_HATTERENE:
+            switch(var(VAR_NUM_BADGES)) {
+                case 0:
+                case 1:
+                case 2:
+                    setwildbattle(SPECIES_HATTERENE, 40, ITEM_TWISTED_SPOON)
+                case 3:
+                    setwildbattle(SPECIES_HATTERENE, 50, ITEM_TWISTED_SPOON)
+                case 4:
+                    setwildbattle(SPECIES_HATTERENE, 55, ITEM_TWISTED_SPOON)
+                case 5:
+                    setwildbattle(SPECIES_HATTERENE, 60, ITEM_TWISTED_SPOON)
+                case 6:
+                    setwildbattle(SPECIES_HATTERENE, 70, ITEM_TWISTED_SPOON)
+                default:
+                    setwildbattle(SPECIES_HATTERENE, 80, ITEM_TWISTED_SPOON)
+            }
+            settotemboost(B_POSITION_OPPONENT_LEFT, 0, 2, 0, 1, 1)
+        case SPECIES_RIBOMBEE:
+            switch(var(VAR_NUM_BADGES)) {
+                case 0:
+                case 1:
+                case 2:
+                    setwildbattle(SPECIES_RIBOMBEE, 40, ITEM_SILVER_POWDER)
+                case 3:
+                    setwildbattle(SPECIES_RIBOMBEE, 50, ITEM_SILVER_POWDER)
+                case 4:
+                    setwildbattle(SPECIES_RIBOMBEE, 55, ITEM_SILVER_POWDER)
+                case 5:
+                    setwildbattle(SPECIES_RIBOMBEE, 60, ITEM_SILVER_POWDER)
+                case 6:
+                    setwildbattle(SPECIES_RIBOMBEE, 70, ITEM_SILVER_POWDER)
+                default:
+                    setwildbattle(SPECIES_RIBOMBEE, 80, ITEM_SILVER_POWDER)
+            }
+            settotemboost(B_POSITION_OPPONENT_LEFT, 0, 2, 1, 0, 2)
+        case SPECIES_SHIINOTIC:
+            switch(var(VAR_NUM_BADGES)) {
+                case 0:
+                case 1:
+                case 2:
+                    setwildbattle(SPECIES_SHIINOTIC, 40, ITEM_KEBIA_BERRY)
+                case 3:
+                    setwildbattle(SPECIES_SHIINOTIC, 50, ITEM_KEBIA_BERRY)
+                case 4:
+                    setwildbattle(SPECIES_SHIINOTIC, 55, ITEM_KEBIA_BERRY)
+                case 5:
+                    setwildbattle(SPECIES_SHIINOTIC, 60, ITEM_KEBIA_BERRY)
+                case 6:
+                    setwildbattle(SPECIES_SHIINOTIC, 70, ITEM_KEBIA_BERRY)
+                default:
+                    setwildbattle(SPECIES_SHIINOTIC, 80, ITEM_KEBIA_BERRY)
+            }
+            settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 0, 1, 1)
+        case SPECIES_RAPIDASH_GALARIAN:
+            switch(var(VAR_NUM_BADGES)) {
+                case 0:
+                case 1:
+                case 2:
+                    setwildbattle(SPECIES_RAPIDASH_GALARIAN, 40, ITEM_LUM_BERRY)
+                case 3:
+                    setwildbattle(SPECIES_RAPIDASH_GALARIAN, 50, ITEM_LUM_BERRY)
+                case 4:
+                    setwildbattle(SPECIES_RAPIDASH_GALARIAN, 55, ITEM_LUM_BERRY)
+                case 5:
+                    setwildbattle(SPECIES_RAPIDASH_GALARIAN, 60, ITEM_LUM_BERRY)
+                case 6:
+                    setwildbattle(SPECIES_RAPIDASH_GALARIAN, 70, ITEM_LUM_BERRY)
+                default:
+                    setwildbattle(SPECIES_RAPIDASH_GALARIAN, 80, ITEM_LUM_BERRY)
+            }
+            settotemboost(B_POSITION_OPPONENT_LEFT, 2, 0, 2, 0, 0)
+        case SPECIES_AROMATISSE:
+            switch(var(VAR_NUM_BADGES)) {
+                case 0:
+                case 1:
+                case 2:
+                    setwildbattle(SPECIES_AROMATISSE, 40, ITEM_BABIRI_BERRY)
+                case 3:
+                    setwildbattle(SPECIES_AROMATISSE, 50, ITEM_BABIRI_BERRY)
+                case 4:
+                    setwildbattle(SPECIES_AROMATISSE, 55, ITEM_BABIRI_BERRY)
+                case 5:
+                    setwildbattle(SPECIES_AROMATISSE, 60, ITEM_BABIRI_BERRY)
+                case 6:
+                    setwildbattle(SPECIES_AROMATISSE, 70, ITEM_BABIRI_BERRY)
+                default:
+                    setwildbattle(SPECIES_AROMATISSE, 80, ITEM_BABIRI_BERRY)
+            }
+            settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 0, 1, 1)
+        case SPECIES_SLURPUFF:
+            switch(var(VAR_NUM_BADGES)) {
+                case 0:
+                case 1:
+                case 2:
+                    setwildbattle(SPECIES_SLURPUFF, 40, ITEM_SALAC_BERRY)
+                case 3:
+                    setwildbattle(SPECIES_SLURPUFF, 50, ITEM_SALAC_BERRY)
+                case 4:
+                    setwildbattle(SPECIES_SLURPUFF, 55, ITEM_SALAC_BERRY)
+                case 5:
+                    setwildbattle(SPECIES_SLURPUFF, 60, ITEM_SALAC_BERRY)
+                case 6:
+                    setwildbattle(SPECIES_SLURPUFF, 70, ITEM_SALAC_BERRY)
+                default:
+                    setwildbattle(SPECIES_SLURPUFF, 80, ITEM_SALAC_BERRY)
+            }
+            settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 0, 1, 1)
+        case SPECIES_GRANBULL:
+            switch(var(VAR_NUM_BADGES)) {
+                case 0:
+                case 1:
+                case 2:
+                    setwildbattle(SPECIES_GRANBULL, 40, ITEM_LUM_BERRY)
+                case 3:
+                    setwildbattle(SPECIES_GRANBULL, 50, ITEM_LUM_BERRY)
+                case 4:
+                    setwildbattle(SPECIES_GRANBULL, 55, ITEM_LUM_BERRY)
+                case 5:
+                    setwildbattle(SPECIES_GRANBULL, 60, ITEM_LUM_BERRY)
+                case 6:
+                    setwildbattle(SPECIES_GRANBULL, 70, ITEM_LUM_BERRY)
+                default:
+                    setwildbattle(SPECIES_GRANBULL, 80, ITEM_LUM_BERRY)
+            }
+            settotemboost(B_POSITION_OPPONENT_LEFT, 2, 0, 0, 0, 2)
+        default:
+            switch(var(VAR_NUM_BADGES)) {
+                case 0:
+                case 1:
+                case 2:
+                    setwildbattle(SPECIES_FLORGES, 40, ITEM_SITRUS_BERRY)
+                case 3:
+                    setwildbattle(SPECIES_FLORGES, 50, ITEM_SITRUS_BERRY)
+                case 4:
+                    setwildbattle(SPECIES_FLORGES, 55, ITEM_SITRUS_BERRY)
+                case 5:
+                    setwildbattle(SPECIES_FLORGES, 60, ITEM_SITRUS_BERRY)
+                case 6:
+                    setwildbattle(SPECIES_FLORGES, 70, ITEM_SITRUS_BERRY)
+                default:
+                    setwildbattle(SPECIES_FLORGES, 80, ITEM_SITRUS_BERRY)
+            }
+            settotemboost(B_POSITION_OPPONENT_LEFT, 0, 2, 0, 2, 0)
+    }
+    return
 }
