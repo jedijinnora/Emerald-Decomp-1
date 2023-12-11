@@ -401,6 +401,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Poison Heal protects from overworld poison, by Lunos."))
                     msgbox(format("Rainy routes fully water berries, by BuffelSaft."))
                     msgbox(format("Proper item pluralization, bu ghoulslash and Jaizu."))
+                    msgbox(format("Cleanse Tag avoids all encounters, by devolov."))
                     goto(FeaturesMenu)
                 default:
                     goto(CreditsMenu)
