@@ -32,6 +32,16 @@ script Route111_EventScript_Stash {
 	end
 }
 
+script Route111_EventScript_SetWild_0 {
+	setvar(VAR_WILD_SET_ROUTE_111, 0)
+	end
+}
+
+script Route111_EventScript_SetWild_1 {
+	setvar(VAR_WILD_SET_ROUTE_111, 1)
+	end
+}
+
 raw `
 .set LOCALID_VICTOR, 1
 .set LOCALID_VICTORIA, 2
@@ -87,6 +97,7 @@ Route111_EventScript_ShowTemporaryMirageTower::
 
 Route111_OnTransition:
 	call Route111_EventScript_TryMoveStash
+	setvar VAR_WILD_SET_ROUTE_111, 0
 	setvar VAR_TRAINER_HILL_IS_ACTIVE, 0
 	special SetMirageTowerVisibility
 	@ Jinnora: commented out to prevent using the alternate layout
