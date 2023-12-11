@@ -1,10 +1,152 @@
-raw `
-AlteringCave_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, AlteringCave_OnTransition
-	.byte 0
+mapscripts AlteringCave_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : AlteringCave_OnTransition
+}
 
-AlteringCave_OnTransition:
-	setflag FLAG_LANDMARK_ALTERING_CAVE
+script AlteringCave_OnTransition {
+	setflag(FLAG_LANDMARK_ALTERING_CAVE)
 	end
+}
 
-`
+script AlteringCave_EventScript_Statue_0 {
+	lock
+	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		msgbox(format("Who wouldn't?"))
+		call(AlteringCave_EventScript_SetWild_0)
+	}
+	release
+	end
+}
+
+script AlteringCave_EventScript_Statue_1 {
+	lock
+	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		msgbox(format("Who wouldn't?"))
+		call(AlteringCave_EventScript_SetWild_1)
+	}
+	release
+	end
+}
+
+script AlteringCave_EventScript_Statue_2 {
+	lock
+	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		msgbox(format("Who wouldn't?"))
+		call(AlteringCave_EventScript_SetWild_2)
+	}
+	release
+	end
+}
+
+script AlteringCave_EventScript_Statue_3 {
+	lock
+	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		msgbox(format("Who wouldn't?"))
+		call(AlteringCave_EventScript_SetWild_3)
+	}
+	release
+	end
+}
+
+script AlteringCave_EventScript_Statue_4 {
+	lock
+	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		msgbox(format("Who wouldn't?"))
+		call(AlteringCave_EventScript_SetWild_4)
+	}
+	release
+	end
+}
+
+script AlteringCave_EventScript_Statue_5 {
+	lock
+	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		msgbox(format("Who wouldn't?"))
+		call(AlteringCave_EventScript_SetWild_5)
+	}
+	release
+	end
+}
+
+script AlteringCave_EventScript_Statue_6 {
+	lock
+	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		msgbox(format("Who wouldn't?"))
+		call(AlteringCave_EventScript_SetWild_6)
+	}
+	release
+	end
+}
+
+script AlteringCave_EventScript_Statue_7 {
+	lock
+	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		msgbox(format("Who wouldn't?"))
+		call(AlteringCave_EventScript_SetWild_7)
+	}
+	release
+	end
+}
+
+script AlteringCave_EventScript_Statue_8 {
+	lock
+	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		msgbox(format("Who wouldn't?"))
+		call(AlteringCave_EventScript_SetWild_8)
+	}
+	release
+	end
+}
+
+script AlteringCave_EventScript_SetWild_0 {
+	setvar(VAR_WILD_SET_ALTERING_CAVE, 0)
+	end
+}
+
+script AlteringCave_EventScript_SetWild_1 {
+	setvar(VAR_WILD_SET_ALTERING_CAVE, 1)
+	end
+}
+
+script AlteringCave_EventScript_SetWild_2 {
+	setvar(VAR_WILD_SET_ALTERING_CAVE, 2)
+	end
+}
+
+script AlteringCave_EventScript_SetWild_3 {
+	setvar(VAR_WILD_SET_ALTERING_CAVE, 3)
+	end
+}
+
+script AlteringCave_EventScript_SetWild_4 {
+	setvar(VAR_WILD_SET_ALTERING_CAVE, 4)
+	end
+}
+
+script AlteringCave_EventScript_SetWild_5 {
+	setvar(VAR_WILD_SET_ALTERING_CAVE, 5)
+	end
+}
+
+script AlteringCave_EventScript_SetWild_6 {
+	setvar(VAR_WILD_SET_ALTERING_CAVE, 6)
+	end
+}
+
+script AlteringCave_EventScript_SetWild_7 {
+	setvar(VAR_WILD_SET_ALTERING_CAVE, 7)
+	end
+}
+
+script AlteringCave_EventScript_SetWild_8 {
+	setvar(VAR_WILD_SET_ALTERING_CAVE, 8)
+	end
+}
