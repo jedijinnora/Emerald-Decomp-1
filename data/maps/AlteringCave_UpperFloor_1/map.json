@@ -68,8 +68,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TRICK_HOUSE_STATUE",
-      "x": 14,
-      "y": 21,
+      "x": 23,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -81,8 +81,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TRICK_HOUSE_STATUE",
-      "x": 23,
-      "y": 11,
+      "x": 14,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,

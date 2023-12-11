@@ -7,11 +7,28 @@ script AlteringCave_OnTransition {
 	end
 }
 
+script AlteringCave_EventScript_Sign {
+	msgbox(format("9 sets of wild Pokémon can be found on this floor of Altering Cave!"), MSGBOX_SIGN)
+	end
+}
+
+script AlteringCave_EventScript_WildHack {
+	lock
+	addvar(VAR_WILD_SET_ALTERING_CAVE, 1)
+	if (var(VAR_WILD_SET_ALTERING_CAVE) > 7) {
+		setvar(VAR_WILD_SET_ALTERING_CAVE, 0)
+	}
+	msgbox(format("Pressed the super-secret switch!"))
+	release
+	end
+}
+
 script AlteringCave_EventScript_Statue_0 {
 	lock
-	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		release
 		call(AlteringCave_EventScript_SetWild_0)
 	}
 	release
@@ -20,9 +37,10 @@ script AlteringCave_EventScript_Statue_0 {
 
 script AlteringCave_EventScript_Statue_1 {
 	lock
-	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		release
 		call(AlteringCave_EventScript_SetWild_1)
 	}
 	release
@@ -31,9 +49,10 @@ script AlteringCave_EventScript_Statue_1 {
 
 script AlteringCave_EventScript_Statue_2 {
 	lock
-	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		release
 		call(AlteringCave_EventScript_SetWild_2)
 	}
 	release
@@ -42,9 +61,10 @@ script AlteringCave_EventScript_Statue_2 {
 
 script AlteringCave_EventScript_Statue_3 {
 	lock
-	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		release
 		call(AlteringCave_EventScript_SetWild_3)
 	}
 	release
@@ -53,9 +73,10 @@ script AlteringCave_EventScript_Statue_3 {
 
 script AlteringCave_EventScript_Statue_4 {
 	lock
-	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		release
 		call(AlteringCave_EventScript_SetWild_4)
 	}
 	release
@@ -64,9 +85,10 @@ script AlteringCave_EventScript_Statue_4 {
 
 script AlteringCave_EventScript_Statue_5 {
 	lock
-	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		release
 		call(AlteringCave_EventScript_SetWild_5)
 	}
 	release
@@ -75,9 +97,10 @@ script AlteringCave_EventScript_Statue_5 {
 
 script AlteringCave_EventScript_Statue_6 {
 	lock
-	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		release
 		call(AlteringCave_EventScript_SetWild_6)
 	}
 	release
@@ -86,9 +109,10 @@ script AlteringCave_EventScript_Statue_6 {
 
 script AlteringCave_EventScript_Statue_7 {
 	lock
-	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		release
 		call(AlteringCave_EventScript_SetWild_7)
 	}
 	release
@@ -97,9 +121,10 @@ script AlteringCave_EventScript_Statue_7 {
 
 script AlteringCave_EventScript_Statue_8 {
 	lock
-	msgbox(format("A secret switch! Press it?"), MSGBOX_YESNO)
+	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		release
 		call(AlteringCave_EventScript_SetWild_8)
 	}
 	release
