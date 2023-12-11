@@ -23,28 +23,28 @@ script Route124_DivingTreasureHuntersHouse_EventScript_TreasureHunter {
 	checkitem(ITEM_RED_SHARD)
 	if(var(VAR_RESULT)) {
 		setflag(FLAG_TEMP_1)
-		dynmultipush("Fire Stone", 0)
-		dynmultipush("Sun Stone", 5)
+		dynmultipush("Fire Stone", ITEM_FIRE_STONE)
+		dynmultipush("Sun Stone", ITEM_SUN_STONE)
 	}
 	checkitem(ITEM_GREEN_SHARD)
 	if(var(VAR_RESULT)) {
 		setflag(FLAG_TEMP_1)
-		dynmultipush("Leaf Stone", 3)
-		dynmultipush("Dawn Stone", 9)
-		dynmultipush("Dusk Stone", 8)
+		dynmultipush("Leaf Stone", ITEM_LEAF_STONE)
+		dynmultipush("Dawn Stone", ITEM_DAWN_STONE)
+		dynmultipush("Dusk Stone", ITEM_DUSK_STONE)
 	}
 	checkitem(ITEM_BLUE_SHARD)
 	if(var(VAR_RESULT)) {
 		setflag(FLAG_TEMP_1)
-		dynmultipush("Water Stone", 1)
-		dynmultipush("Moon Stone", 6)
-		dynmultipush("Ice Stone", 4)
+		dynmultipush("Water Stone", ITEM_WATER_STONE)
+		dynmultipush("Moon Stone", ITEM_MOON_STONE)
+		dynmultipush("Ice Stone", ITEM_ICE_STONE)
 	}
 	checkitem(ITEM_YELLOW_SHARD)
 	if(var(VAR_RESULT)) {
 		setflag(FLAG_TEMP_1)
-		dynmultipush("Thunder Stone", 2)
-		dynmultipush("Shiny Stone", 7)
+		dynmultipush("Thunder Stone", ITEM_THUNDER_STONE)
+		dynmultipush("Shiny Stone", ITEM_SHINY_STONE)
 	}
 	goto_if_unset(FLAG_TEMP_1, NoShards)
 	goto_if_unset(FLAG_TEMP_2, TradeIntro)
@@ -60,54 +60,54 @@ script Route124_DivingTreasureHuntersHouse_EventScript_TreasureHunter {
 	StoneTrade:
 	msgbox(Route124_DivingTreasureHuntersHouse_Text_WhatDoYouWantToTrade)
 	waitmessage
-	dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+	dynmultistack(0,0,FALSE,6,TRUE,VAR_0x800A,DYN_MULTICHOICE_CB_SHOW_ITEM)
 	switch(var(VAR_RESULT)) {
-		case 0:
+		case ITEM_FIRE_STONE:
 			bufferitemname(STR_VAR_1, ITEM_RED_SHARD)
 			bufferitemname(STR_VAR_2, ITEM_FIRE_STONE)
 			setvar(VAR_TEMP_1, ITEM_RED_SHARD)
 			setvar(VAR_TEMP_2, ITEM_FIRE_STONE)
-		case 1:
+		case ITEM_WATER_STONE:
 			bufferitemname(STR_VAR_1, ITEM_BLUE_SHARD)
 			bufferitemname(STR_VAR_2, ITEM_WATER_STONE)
 			setvar(VAR_TEMP_1, ITEM_BLUE_SHARD)
 			setvar(VAR_TEMP_2, ITEM_WATER_STONE)
-		case 2:
+		case ITEM_THUNDER_STONE:
 			bufferitemname(STR_VAR_1, ITEM_YELLOW_SHARD)
 			bufferitemname(STR_VAR_2, ITEM_THUNDER_STONE)
 			setvar(VAR_TEMP_1, ITEM_YELLOW_SHARD)
 			setvar(VAR_TEMP_2, ITEM_THUNDER_STONE)
-		case 3:
+		case ITEM_LEAF_STONE:
 			bufferitemname(STR_VAR_1, ITEM_GREEN_SHARD)
 			bufferitemname(STR_VAR_2, ITEM_LEAF_STONE)
 			setvar(VAR_TEMP_1, ITEM_GREEN_SHARD)
 			setvar(VAR_TEMP_2, ITEM_LEAF_STONE)
-		case 4:
+		case ITEM_ICE_STONE:
 			bufferitemname(STR_VAR_1, ITEM_BLUE_SHARD)
 			bufferitemname(STR_VAR_2, ITEM_ICE_STONE)
 			setvar(VAR_TEMP_1, ITEM_BLUE_SHARD)
 			setvar(VAR_TEMP_2, ITEM_ICE_STONE)
-		case 5:
+		case ITEM_SUN_STONE:
 			bufferitemname(STR_VAR_1, ITEM_RED_SHARD)
 			bufferitemname(STR_VAR_2, ITEM_SUN_STONE)
 			setvar(VAR_TEMP_1, ITEM_RED_SHARD)
 			setvar(VAR_TEMP_2, ITEM_SUN_STONE)
-		case 6:
+		case ITEM_MOON_STONE:
 			bufferitemname(STR_VAR_1, ITEM_BLUE_SHARD)
 			bufferitemname(STR_VAR_2, ITEM_MOON_STONE)
 			setvar(VAR_TEMP_1, ITEM_BLUE_SHARD)
 			setvar(VAR_TEMP_2, ITEM_MOON_STONE)
-		case 7:
+		case ITEM_SHINY_STONE:
 			bufferitemname(STR_VAR_1, ITEM_YELLOW_SHARD)
 			bufferitemname(STR_VAR_2, ITEM_SHINY_STONE)
 			setvar(VAR_TEMP_1, ITEM_YELLOW_SHARD)
 			setvar(VAR_TEMP_2, ITEM_SHINY_STONE)
-		case 8:
+		case ITEM_DUSK_STONE:
 			bufferitemname(STR_VAR_1, ITEM_GREEN_SHARD)
 			bufferitemname(STR_VAR_2, ITEM_DUSK_STONE)
 			setvar(VAR_TEMP_1, ITEM_GREEN_SHARD)
 			setvar(VAR_TEMP_2, ITEM_DUSK_STONE)
-		case 9:
+		case ITEM_DAWN_STONE:
 			bufferitemname(STR_VAR_1, ITEM_GREEN_SHARD)
 			bufferitemname(STR_VAR_2, ITEM_DAWN_STONE)
 			setvar(VAR_TEMP_1, ITEM_GREEN_SHARD)

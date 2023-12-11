@@ -1330,7 +1330,7 @@
 #define FLAG_ITEM_DESERT_UNDERPASS_B2F_JAW_FOSSIL                   0x4DF
 #define FLAG_ITEM_DESERT_UNDERPASS_B2F_SAIL_FOSSIL                  0x4E0
 #define FLAG_ITEM_DESERT_UNDERPASS_EXITS_MAX_ELIXIR                 0x4E1
-#define FLAG_UNUSED_0x4E2                                           0x4E2
+#define FLAG_ITEM_SHOAL_CAVE_LOW_TIDE_INNER_ROOM_RAZOR_CLAW         0x4E2
 #define FLAG_UNUSED_0x4E3                                           0x4E3
 #define FLAG_UNUSED_0x4E4                                           0x4E4
 #define FLAG_UNUSED_0x4E5                                           0x4E5
