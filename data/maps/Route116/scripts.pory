@@ -1,4 +1,21 @@
-mapscripts Route116_MapScripts {}
+mapscripts Route116_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route116_OnTransition
+}
+
+script Route116_OnTransition {
+	setvar(VAR_WILD_SET_ROUTE_116, 0)
+	end
+}
+
+script Route116_EventScript_SetWild_0 {
+	setvar(VAR_WILD_SET_ROUTE_116, 0)
+	end
+}
+
+script Route116_EventScript_SetWild_1 {
+	setvar(VAR_WILD_SET_ROUTE_116, 1)
+	end
+}
 
 script Route116_EventScript_SableyeWoman {
 	lock
