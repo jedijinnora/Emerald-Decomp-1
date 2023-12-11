@@ -380,6 +380,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Relearn moves from party menu, by Diego Mertens."))
                     msgbox(format("Instead of ask to stop learning moves, ask to continue learning, by devolov."))
                     msgbox(format("Repeated field medicine use, by ghoulslash, AsparagusEduardo, and Alex N"))
+                    msgbox(format("Swap party Pokémon with select button, by Lunos."))
                     goto(FeaturesMenu)
                 case 1:
                     msgbox(format("Generic item ball script, by Deokishisu."))
