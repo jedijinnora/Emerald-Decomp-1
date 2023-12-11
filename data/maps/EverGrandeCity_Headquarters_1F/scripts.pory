@@ -342,13 +342,13 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
             dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Team Aqua's Hideout", "Porymap", "Poryscript", "RHH Discord", "Pokeemerald Tutorials Master")
             switch(var(VAR_RESULT)) {
                 case 0:
-                    msgbox(format("Team Aqua's Hideout is a Youtube channel with many helpful guides on using the decompilation projects. These were an amazing resource throughout the project."))
+                    msgbox(format("Team Aqua's Hideout is a Youtube channel and Discord with many helpful guides on using the decompilation projects. These were an amazing resource throughout the project."))
                     goto(ResourcesMenu)
                 case 1:
                     msgbox(format("Porymap is a software developed by huderlem for the decomp projects that allows easy editing of all the maps in the game. A lot of time was spent using this application!"))
                     goto(ResourcesMenu)
                 case 2:
-                    msgbox(format("Poryscript is a scripting language developed by huderlem, much easier to use than the game's default .inc syntax. Nearly all NPC scripts created for this game were written in Poryscript!"))
+                    msgbox(format("Poryscript is a scripting language developed by huderlem, easier to use than the game's default .inc syntax. Nearly all NPC scripts created for this game were written in Poryscript!"))
                     goto(ResourcesMenu)
                 case 3:
                     msgbox(format("Rom Hacking Hideout is the community which created the pokeemerald-expansion repository this project is based on. You may have noticed their credits scene in the game intro. A big thanks to everyone who continues to work on the expansion project!"))
@@ -363,7 +363,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
             FeaturesMenu:
             msgbox(format("Features will be listed by order of inclusion into this project."))
             msgbox(format("Which kind of features would you like to hear about?"))
-            dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Player quality of life", "Creator quality of life", "Bug fixes", "Game file knowledge/minor tweaks")
+            dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Player quality of life", "Creator quality of life", "Minor tweaks and bug fixes")
             switch(var(VAR_RESULT)) {
                 case 0:
                     msgbox(format("Nature stat colors, by DizzyEgg."))
@@ -391,14 +391,12 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                 case 2:
                     msgbox(format("Disable unnecessary Union Room check, from the tutorial master list."))
                     msgbox(format("Surf dismount ground effects, from the tutorial master list."))
-                    msgbox(format("Poison Heal protects from overworld poison, by Lunos."))
-                    goto(FeaturesMenu)
-                case 3:
                     msgbox(format("Lanette's PC from game start, by devolov."))
                     msgbox(format("Change Birch's intro Pokémon, by Avara."))
                     msgbox(format("Modify Pickup items, by Lunos."))
                     msgbox(format("Change default text speed, by Avara."))
                     msgbox(format("Allow forgetting of HM moves, by Lunos, thespbgamer, and Jaizu."))
+                    msgbox(format("Poison Heal protects from overworld poison, by Lunos."))
                     msgbox(format("Rainy routes fully water berries, by BuffelSaft."))
                     goto(FeaturesMenu)
                 default:
@@ -420,8 +418,21 @@ script EverGrandeCity_Headquarters_1F_EventScript_ExploreModeTwin {
         end
     }
     if(flag(FLAG_EXPLORE_MODE)) {
-        msgbox(format("Hey Explorer! Need more money?"))
-        addmoney(500000)
+        msgbox(format("Hey Explorer! What can I give you?"))
+        dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Money", "Bottle Caps", "Heart Scales", "Rare Candy")
+        switch(var(VAR_RESULT)) {
+            case 0:
+                addmoney(500000)
+            case 1:
+                giveitem(ITEM_BOTTLE_CAP, 36)
+                giveitem(ITEM_GOLD_BOTTLE_CAP, 6)
+            case 2:
+                giveitem(ITEM_HEART_SCALE, 20)
+            case 3:
+                giveitem(ITEM_RARE_CANDY, 99)
+            default:
+                msgbox(format("Have fun!"))
+        }
         release
         end
     }
@@ -438,10 +449,17 @@ script EverGrandeCity_Headquarters_1F_EventScript_ExploreModeTwin {
         msgbox(format("Explore Mode immediately sets the game to a cleared state, as if you had defeated all the Gyms and become Champion."))
         msgbox(format("Trainer sight will be disabled, though you can approach Trainers yourself for battles."))
         msgbox(format("You'll get all HMs and Pokémon that can use them right away."))
+        msgbox(format("Want to activate Explore Mode?"), MSGBOX_YESNO)
+        if(var(VAR_RESULT) == NO) {
+            msgbox(format("Okay! You're braver than me!"))
+            release
+            end
+        }
         msgbox(format("WARNING!"))
         msgbox(format("Setting Explore Mode cannot be undone."))
         msgbox(format("Are you certain you wish to proceed?"), MSGBOX_YESNO)
         if(var(VAR_RESULT) == NO) {
+            msgbox(format("{PLAYER} decided against activating Explore Mode."))
             release
             end
         } else {
