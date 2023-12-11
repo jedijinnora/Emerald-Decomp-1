@@ -350,13 +350,13 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
         }
         fixedLVL = fixedLVL / gPlayerPartyCount;
 
-        // Make sure minimum level is less than maximum level
-        {
-            min = fixedLVL-5;
-            max = fixedLVL+1;
-        }
-	    if (min <= 0)
-	    	min = 1;
+        if (fixedLVL < 5)
+            fixedLVL = 5;
+        if (fixedLVL > 82)
+            fixedLVL = 82;
+        min = fixedLVL - 3;
+        max = fixedLVL + 3;
+
         range = max - min + 1;
         rand = Random() % range;
 
