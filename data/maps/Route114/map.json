@@ -465,7 +465,42 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 47,
+      "y": 43,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_ROUTE_114",
+      "var_value": "1",
+      "script": "Route114_EventScript_SetWild_0"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 58,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_ROUTE_114",
+      "var_value": "1",
+      "script": "Route114_EventScript_SetWild_0"
+    },
+    {
+      "type": "trigger",
+      "x": 51,
+      "y": 57,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_ROUTE_114",
+      "var_value": "0",
+      "script": "Route114_EventScript_SetWild_1"
+    },
+    {
+      "type": "trigger",
+      "x": 47,
+      "y": 44,
+      "elevation": 0,
+      "var": "VAR_WILD_SET_ROUTE_114",
+      "var_value": "0",
+      "script": "Route114_EventScript_SetWild_1"
+    }
   ],
   "bg_events": [
     {
