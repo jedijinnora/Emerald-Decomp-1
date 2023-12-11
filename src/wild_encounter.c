@@ -350,16 +350,18 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
         }
         fixedLVL = fixedLVL / gPlayerPartyCount;
 
-        if (fixedLVL < 5)
-            fixedLVL = 5;
-        if (fixedLVL > 82)
-            fixedLVL = 82;
-        min = fixedLVL - 3;
-        max = fixedLVL + 3;
+        //place bounds on allowed levels
+        if (fixedLVL < 7)
+            fixedLVL = 7;
+        if (fixedLVL > 80)
+            fixedLVL = 80;
+        
+        //should not increase max so repels can mostly work
+        min = fixedLVL - 5;
+        max = fixedLVL;
 
         range = max - min + 1;
         rand = Random() % range;
-
 
         // check ability for max level mon
         if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG))
