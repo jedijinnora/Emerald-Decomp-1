@@ -60,7 +60,7 @@ script MossdeepCity_EventScript_PsychicM {
 
 script MossdeepCity_EventScript_CitySign {
 	lock
-	msgbox(format("MOSSDEEP CITY \n “The island of science and psionics.”"))
+	msgbox(format("Mossdeep City \n“The island of science and psionics.”"))
 	waitmessage
 	release
 	end
@@ -75,15 +75,15 @@ script MossdeepCity_EventScript_GymSign {
 }
 
 text Text_GymSign {
-	"MOSSDEEP CITY POKéMON GYM\n"
-	"LEADER: Sabitha\p"
+	"Mossdeep City Pokémon Gym\n"
+	"Leader: Sabitha\p"
 	"Hoenn's premier psychic."
 	"$"
 }
 
 script MossdeepCity_EventScript_SpaceCenterSign {
 	lock
-	msgbox(format("MOSSDEEP SPACE CENTER \n “The closest place to space.”"))
+	msgbox(format("Mossdeep Space Center \n“The closest place to space.”"))
 	waitmessage
 	release
 	end
@@ -91,7 +91,7 @@ script MossdeepCity_EventScript_SpaceCenterSign {
 
 script MossdeepCity_EventScript_MeditationSign {
 	lock
-	msgbox(format("MEDITATION CAVE \n Come hone your focus amidst quiet waves."))
+	msgbox(format("Meditation Cave \n “Come focus amidst quiet waves.”"))
 	waitmessage
 	release
 	end
@@ -99,7 +99,7 @@ script MossdeepCity_EventScript_MeditationSign {
 
 script MossdeepCity_EventScript_CavernsSign {
 	lock
-	msgbox(format("MOSSDEEP CAVERNS \n Visit the island's untamed depths."))
+	msgbox(format("Mossdeep Caverns \n“Visit the island's untamed depths.”"))
 	release
 	end
 }

@@ -369,7 +369,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Nature stat colors, by DizzyEgg."))
                     msgbox(format("Bag sorting, by ghoulslash."))
                     msgbox(format("IV/EV summary screen, by BuffelSaft."))
-                    msgbox(format("Increased bag size, by MapleFall."))
+                    msgbox(format("Increased bag stack size, by MapleFall."))
                     msgbox(format("Fast Berry interactions, by dunsparce9."))
                     msgbox(format("Berry trees remain until picked, by BuffelSaft."))
                     msgbox(format("Mart items by badge count, by ghoulslash."))
@@ -399,6 +399,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Allow forgetting of HM moves, by Lunos, thespbgamer, and Jaizu."))
                     msgbox(format("Poison Heal protects from overworld poison, by Lunos."))
                     msgbox(format("Rainy routes fully water berries, by BuffelSaft."))
+                    msgbox(format("Proper item pluralization, bu ghoulslash and Jaizu."))
                     goto(FeaturesMenu)
                 default:
                     goto(CreditsMenu)

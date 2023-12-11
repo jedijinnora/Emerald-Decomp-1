@@ -36,7 +36,7 @@ script MossdeepCity_House4_EventScript_CheckStashes {
 }
 
 script MossdeepCity_House4_EventScript_FindStashes {
-	msgbox(format("Lame, you still have more to find! Go out there and explore Hoenn!"))
+	msgbox(format("Lame, you still have more to find!\nGo out there and explore Hoenn!"))
 	release
 	end
 }
