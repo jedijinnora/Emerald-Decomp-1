@@ -385,6 +385,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Decapitalization, by AsparagusEduardo."))
                     msgbox(format("Emerald textbox simulator, by Meejle."))
                     msgbox(format("Jinnora's implementation of an Egg move tutor borrowed a lot of code from Surskitty's tutor_expansion branch."))
+                    msgbox(format("Set wild levels dynamically, by Hestia."))
                     goto(FeaturesMenu)
                 case 2:
                     msgbox(format("Disable unnecessary Union Room check, from the tutorial master list."))

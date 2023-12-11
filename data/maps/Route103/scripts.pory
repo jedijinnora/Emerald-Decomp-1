@@ -3,8 +3,18 @@ mapscripts Route103_MapScripts {
 }
 
 script Route103_OnTransition {
-	//set var for controlling wild grass encounters based on player x coord
+	call(Route103_EventScript_SetWild_0)
 	end
+}
+
+script Route103_EventScript_SetWild_0 {
+	setvar(VAR_WILD_SET_ROUTE_103, 0)
+	return
+}
+
+script Route103_EventScript_SetWild_1 {
+	setvar(VAR_WILD_SET_ROUTE_103, 1)
+	return
 }
 
 script Route103_EventScript_RouteSign {

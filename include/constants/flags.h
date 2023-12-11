@@ -106,7 +106,7 @@
 #define FLAG_RECEIVED_TUNNELER_GIFT          0x53//given Eviolite if have HM 4/5/6
 #define FLAG_RECEIVED_SAFETY_GOGGLES         0x54
 #define FLAG_RECEIVED_TM_RETURN              0x55//todo remove
-#define FLAG_UNUSED_0x056                    0x56
+#define FLAG_RECEIVED_UTILITY_UMBRELLA       0x56
 #define FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY 0x57
 #define FLAG_RECEIVED_SITRUS_BERRY_ROUTE_104 0x58
 #define FLAG_RECEIVED_SPELON_BERRY           0x59

@@ -2,7 +2,7 @@
   "id": "MAP_FORINA",
   "name": "Forina",
   "layout": "LAYOUT_FORINA",
-  "music": "MUS_CAVE_OF_ORIGIN",
+  "music": "MUS_RG_SEVII_ROUTE",
   "region_map_section": "MAPSEC_FORINA",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

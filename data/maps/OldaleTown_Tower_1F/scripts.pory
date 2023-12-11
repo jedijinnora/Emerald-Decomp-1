@@ -1,1 +1,50 @@
 mapscripts OldaleTown_Tower_1F_MapScripts {}
+
+script OldaleTown_Tower_1F_EventScript_RuinsNotes {
+    lock
+    msgbox(format("This book is filled with handwritten notes that detail the author's theories about the nearby ruins."))
+    msgbox(format("Read through them?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        release
+        end
+    }
+    RuinNotesMenu:
+    msgbox(format("Which note would you like to read?"))
+    waitmessage
+    dynmultichoice(0, 0, FALSE, 6, 0, DYN_MULTICHOICE_CB_NONE, "Day 1", "Day 2", "Day 5", "Week 2", "Week 3", "Day 37", "Day 39", "Week 5", "Days 41-42", "Month 2", "Week 10", "Day 82", "Puzzle Notes", "Month 3")
+    switch(var(VAR_RESULT)) {
+        case 0:
+            msgbox(format("“This old tower should prove an adequate base of operations for my investigations. Purchased plenty of supplies in town.”"))
+        case 1:
+            msgbox(format("“Fieldwork is delightful! The trek through Oldale Glade is pleasant and quiet.”"))
+        case 2:
+            msgbox(format("“The ruins demonstrate five-fold symmetry. Some division of society or worship unknown to me?”"))
+        case 3:
+            msgbox(format("“There should be some way to access the five lesser chambers, but my Pokémon lack the ability to move the boulders in the lower hall.”"))
+        case 4:
+            msgbox(format("“I have investigated many of the rock formations around Oldale, but I have found nothing of note.”"))
+        case 5:
+            msgbox(format("“Took a break last night to stargaze and relax. The southern constellations always seem so bright and shiny when viewed from the ruins…”"))
+        case 6:
+            msgbox(format("“There are clay statues of ancient Pokémon in this area, but they do not react to my presence.”"))
+        case 7:
+            msgbox(format("“Many cultures associate the sun with east, where dawn breaks. Perhaps the moon should be placed to the west, with dusk?”"))
+        case 8:
+            msgbox(format("“Some corporate fellow came by to see if the ruins were worth mining. Gave him the runaround but he could represent a source of funding. Should I buy mining gear to break through?”"))
+        case 9:
+            msgbox(format("“Trying to find a Trainer willing to help me access the lower levels. Have not succeeded, but a woman who grew up in the Sevii Islands was willing to discuss the Tanoby Ruins.”"))
+        case 10:
+            msgbox(format("“Interviewed a traveler from Indigo, who described similarities with the Ruins of Alph.”"))
+        case 11:
+            msgbox(format("“Puzzles? Unlocking mechanism? Where? Why/How?”"))
+        case 12:
+            msgbox(format("“Tanoby = numerology/plants? Alph = fossils/Johto myths? Oldale = astronomy/????”"))
+        case 13:
+            msgbox(format("“I'll never get a decent paper finished at this rate. Annoying little girl keeps following me into the forest.”"))
+        default:
+            msgbox(format("Decided not to read any more."))
+            release
+            end
+    }
+    goto(RuinNotesMenu)
+}

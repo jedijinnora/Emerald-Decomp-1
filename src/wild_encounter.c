@@ -311,9 +311,14 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
     u8 range;
     u8 rand;
 
+    u8 count = gPlayerPartyCount;
+    u8 fixedLVL = 0;
+
     if (LURE_STEP_COUNT == 0)
     {
         // Make sure minimum level is less than maximum level
+        /*
+        //ORIGINAL
         if (wildPokemon[wildMonIndex].maxLevel >= wildPokemon[wildMonIndex].minLevel)
         {
             min = wildPokemon[wildMonIndex].minLevel;
@@ -326,6 +331,35 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
         }
         range = max - min + 1;
         rand = Random() % range;
+        */
+
+        //Make all encounters in the Route 117 EV area level 2
+        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE117) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE117) &&
+                VarGet(VAR_WILD_SET_ROUTE_117) > 0)
+        {
+            return 2;
+        }   
+
+        //Dynamically assign wild encounter level
+        while (count-- > 0)
+        {
+            if (GetMonData(&gPlayerParty[count], MON_DATA_SPECIES) != SPECIES_NONE) {
+                fixedLVL += (GetMonData(&gPlayerParty[count], MON_DATA_LEVEL));
+            }
+        }
+        fixedLVL = fixedLVL / gPlayerPartyCount;
+
+        // Make sure minimum level is less than maximum level
+        {
+            min = fixedLVL-5;
+            max = fixedLVL+1;
+        }
+	    if (min <= 0)
+	    	min = 1;
+        range = max - min + 1;
+        rand = Random() % range;
+
 
         // check ability for max level mon
         if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG))
@@ -366,6 +400,7 @@ static u16 GetCurrentMapWildMonHeaderId(void)
         if (gWildMonHeaders[i].mapGroup == gSaveBlock1Ptr->location.mapGroup &&
             gWildMonHeaders[i].mapNum == gSaveBlock1Ptr->location.mapNum)
         {
+            //Altering Cave has 9 encounter sets
             if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ALTERING_CAVE) &&
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(ALTERING_CAVE))
             {
@@ -374,6 +409,67 @@ static u16 GetCurrentMapWildMonHeaderId(void)
                     alteringCaveId = 0;
 
                 i += alteringCaveId;
+            }
+
+            //Verdant Forest has 2 encounter sets
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(VERDANT_FOREST) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(VERDANT_FOREST))
+            {
+                u16 verdantForestId = VarGet(VAR_WILD_SET_VERDANT_FOREST);
+                if (verdantForestId >= NUM_VERDANT_FOREST_TABLES)
+                    verdantForestId = 0;
+
+                i += verdantForestId;
+            }
+            //Route 103 has 2 encounter sets
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE103) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE103))
+            {
+                u16 route103Id = VarGet(VAR_WILD_SET_ROUTE_103);
+                if (route103Id >= NUM_ROUTE_103_TABLES)
+                    route103Id = 0;
+
+                i += route103Id;
+            }
+            //Route 111 has 2 encounter sets
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE111) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE111))
+            {
+                u16 route111Id = VarGet(VAR_WILD_SET_ROUTE_111);
+                if (route111Id >= NUM_ROUTE_111_TABLES)
+                    route111Id = 0;
+
+                i += route111Id;
+            }
+            //Route 114 has 2 encounter sets
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE114) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE114))
+            {
+                u16 route114Id = VarGet(VAR_WILD_SET_ROUTE_114);
+                if (route114Id >= NUM_ROUTE_114_TABLES)
+                    route114Id = 0;
+
+                i += route114Id;
+            }
+            //Route 115 has 2 encounter sets
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE115) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE115))
+            {
+                u16 route115Id = VarGet(VAR_WILD_SET_ROUTE_115);
+                if (route115Id >= NUM_ROUTE_115_TABLES)
+                    route115Id = 0;
+
+                i += route115Id;
+            }
+            //Route 117 has 7 encounter sets
+            if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE117) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE117))
+            {
+                u16 route117Id = VarGet(VAR_WILD_SET_ROUTE_117);
+                if (route117Id >= NUM_ROUTE_117_TABLES)
+                    route117Id = 0;
+
+                i += route117Id;
             }
 
             return i;

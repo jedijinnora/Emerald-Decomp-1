@@ -61,7 +61,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "CrossgateHills_EventScript_UmbrellaLady",
       "flag": "0"
     }
   ],
@@ -94,6 +94,34 @@
       "type": "weather",
       "x": 8,
       "y": 43,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
+    },
+    {
+      "type": "weather",
+      "x": 29,
+      "y": 35,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
+    },
+    {
+      "type": "weather",
+      "x": 29,
+      "y": 36,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
+    },
+    {
+      "type": "weather",
+      "x": 29,
+      "y": 37,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
+    },
+    {
+      "type": "weather",
+      "x": 29,
+      "y": 38,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
     }

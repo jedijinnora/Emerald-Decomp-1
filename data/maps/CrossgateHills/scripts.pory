@@ -4,3 +4,30 @@ script CrossgateHills_EventScript_Sign {
     msgbox(format("Crossgate Hills\p“Between desert winds and rain-swept jungle.”"), MSGBOX_SIGN)
     end
 }
+
+script CrossgateHills_EventScript_UmbrellaLady {
+    lock
+    faceplayer
+    msgbox(format("I'm the leader of the Parasol Lady Society."))
+    goto_if_unset(FLAG_RECEIVED_UTILITY_UMBRELLA, CrossgateHills_EventScript_CheckParasolLadies)
+    msgbox(format("A parasol is simply the most divine personal accessory. That's what I think."))
+    release
+    end
+}
+
+script CrossgateHills_EventScript_CheckParasolLadies {
+    goto_if_not_defeated(TRAINER_MADELINE_1, CrossgateHills_NoUmbrellaForYou)
+    goto_if_not_defeated(TRAINER_CLARISSA, CrossgateHills_NoUmbrellaForYou)
+    goto_if_not_defeated(TRAINER_ANGELICA, CrossgateHills_NoUmbrellaForYou)
+    goto_if_not_defeated(TRAINER_KAYLEY, CrossgateHills_NoUmbrellaForYou)
+    goto_if_not_defeated(TRAINER_RACHEL, CrossgateHills_NoUmbrellaForYou)
+
+    msgbox(format("Nice work! Use this to shield your darlings from the weather."))
+    giveitem(ITEM_UTILITY_UMBRELLA)
+    setflag(FLAG_RECEIVED_UTILITY_UMBRELLA)
+    return
+
+    CrossgateHills_NoUmbrellaForYou:
+    msgbox(format("If you defeat all the other Parasol Ladies in Hoenn, I'll grant you honorary membership!"))
+    return
+}

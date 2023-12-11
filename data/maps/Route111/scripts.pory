@@ -53,12 +53,12 @@ Route111_OnLoad:
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_ShowTemporaryMirageTower
 	end
 
-Route111_EventScript_CloseDesertRuins::
+Route111_EventScript_CloseUnderpass::
 	setmetatile 32, 53, METATILE_General_RockWall_RockBase, TRUE
 	setmetatile 32, 54, METATILE_General_RockWall_SandBase, TRUE
 	return
 
-Route111_EventScript_CloseUnderpass::
+Route111_EventScript_CloseDesertRuins::
 	setmetatile 29, 106, METATILE_General_RockWall_RockBase, TRUE
 	setmetatile 29, 107, METATILE_General_RockWall_SandBase, TRUE
 	return

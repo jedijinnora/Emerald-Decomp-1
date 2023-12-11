@@ -181,7 +181,7 @@
 #define VAR_WILD_SET_ROUTE_116                           0x40A1//east/west grass (east is thru Rusturf only)
 #define VAR_WILD_SET_ROUTE_117                           0x40A2//changes for EV training patches
 #define VAR_WILD_SET_VERDANT_FOREST                      0x40A3//changes based on guardian tree state?
-#define VAR_UNUSED_0x40A4                                0x40A4
+#define VAR_WILD_SET_ROUTE_114                           0x40A4//hacker's hideaway patch has diff encounters
 #define VAR_TRICK_HOUSE_BEING_WATCHED_STATE              0x40A5
 #define VAR_TRICK_HOUSE_FOUND_TRICK_MASTER               0x40A6
 #define VAR_TRICK_HOUSE_ENTRANCE_STATE                   0x40A7

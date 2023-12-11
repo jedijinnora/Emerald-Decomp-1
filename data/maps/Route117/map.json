@@ -371,8 +371,8 @@
       "x": 34,
       "y": 19,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_WILD_SET_ROUTE_117",
+      "var_value": "4",
       "script": "Route117_EventScript_SetWild_0"
     },
     {
@@ -380,8 +380,8 @@
       "x": 18,
       "y": 20,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_WILD_SET_ROUTE_117",
+      "var_value": "2",
       "script": "Route117_EventScript_SetWild_1"
     },
     {
@@ -389,8 +389,8 @@
       "x": 21,
       "y": 20,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_WILD_SET_ROUTE_117",
+      "var_value": "1",
       "script": "Route117_EventScript_SetWild_2"
     },
     {
@@ -398,8 +398,8 @@
       "x": 24,
       "y": 20,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_WILD_SET_ROUTE_117",
+      "var_value": "3",
       "script": "Route117_EventScript_SetWild_2"
     },
     {
@@ -407,8 +407,8 @@
       "x": 25,
       "y": 19,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_WILD_SET_ROUTE_117",
+      "var_value": "2",
       "script": "Route117_EventScript_SetWild_3"
     },
     {
@@ -416,8 +416,8 @@
       "x": 29,
       "y": 19,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_WILD_SET_ROUTE_117",
+      "var_value": "4",
       "script": "Route117_EventScript_SetWild_3"
     },
     {
@@ -425,8 +425,8 @@
       "x": 29,
       "y": 20,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_WILD_SET_ROUTE_117",
+      "var_value": "3",
       "script": "Route117_EventScript_SetWild_4"
     },
     {
@@ -434,7 +434,7 @@
       "x": 34,
       "y": 20,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_WILD_SET_ROUTE_117",
       "var_value": "0",
       "script": "Route117_EventScript_SetWild_4"
     },
@@ -443,8 +443,8 @@
       "x": 35,
       "y": 21,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_WILD_SET_ROUTE_117",
+      "var_value": "5",
       "script": "Route117_EventScript_SetWild_4"
     },
     {
@@ -452,8 +452,8 @@
       "x": 36,
       "y": 21,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_WILD_SET_ROUTE_117",
+      "var_value": "4",
       "script": "Route117_EventScript_SetWild_5"
     },
     {
@@ -461,8 +461,8 @@
       "x": 43,
       "y": 20,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_WILD_SET_ROUTE_117",
+      "var_value": "6",
       "script": "Route117_EventScript_SetWild_5"
     },
     {
@@ -470,8 +470,8 @@
       "x": 43,
       "y": 21,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_WILD_SET_ROUTE_117",
+      "var_value": "5",
       "script": "Route117_EventScript_SetWild_6"
     }
   ],
