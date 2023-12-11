@@ -1,3 +1,27 @@
+mapscripts SkyPillar_Entrance_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : SkyPillar_Entrance_OnTransition
+}
+
+script SkyPillar_Entrance_OnTransition {
+	setflag(FLAG_LANDMARK_SKY_PILLAR)
+	end
+}
+
+script SkyPillar_Entrance_EventScript_Statue {
+	lockall
+	if(flag(FLAG_LANDMARK_SKY_PILLAR)) {
+		msgbox(format("Warp to Route 131?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES) {
+			warpteleport(MAP_ROUTE131, -1, 35, 19)
+			releaseall
+			end
+		}
+	}
+	msgbox(format("The ancient statue is silent."))
+	releaseall
+	end
+}
+
 raw `
 SkyPillar_Entrance_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, SkyPillar_Entrance_OnTransition
