@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_UNDERWATER_ROUTE127",
-      "offset": 0,
+      "offset": -10,
       "direction": "up"
     },
     {
@@ -29,7 +29,7 @@
   ],
   "warp_events": [
     {
-      "x": 38,
+      "x": 28,
       "y": 26,
       "elevation": 3,
       "dest_map": "MAP_UNDERWATER_SEAFLOOR_CAVERN",
@@ -42,7 +42,7 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 69,
+      "x": 59,
       "y": 18,
       "elevation": 0,
       "item": "ITEM_GREEN_SHARD",
@@ -50,7 +50,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 38,
+      "x": 28,
       "y": 19,
       "elevation": 0,
       "item": "ITEM_COMET_SHARD",

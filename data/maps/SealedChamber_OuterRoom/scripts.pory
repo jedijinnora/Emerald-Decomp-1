@@ -1,10 +1,37 @@
-raw `
-SealedChamber_OuterRoom_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, SealedChamber_OuterRoom_OnResume
-	map_script MAP_SCRIPT_ON_TRANSITION, SealedChamber_OuterRoom_OnTransition
-	map_script MAP_SCRIPT_ON_LOAD, SealedChamber_OuterRoom_OnLoad
-	.byte 0
+mapscripts SealedChamber_OuterRoom_MapScripts {
+	MAP_SCRIPT_ON_RESUME : SealedChamber_OuterRoom_OnResume
+	MAP_SCRIPT_ON_TRANSITION : SealedChamber_OuterRoom_OnTransition
+	MAP_SCRIPT_ON_LOAD : SealedChamber_OuterRoom_OnLoad
+}
 
+script SealedChamber_OuterRoom_EventScript_Baltoy {
+	lock
+
+	release
+	end
+}
+
+script SealedChamber_OuterRoom_EventScript_Statue {
+	lock
+	msgbox(format("Where do you want to warp?"))
+	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Route 134 West", "Route 134 East", "Cancel")
+	switch(var(VAR_RESULT)) {
+		case 0:
+			warpteleport(MAP_ROUTE134, -1, 14, 23)
+			release
+			end
+		case 1:
+			warpteleport(MAP_ROUTE134, 0)
+			release
+			end
+		default:
+	}
+	msgbox(format("The ancient statue is silent."))
+	release
+	end
+}
+
+raw `
 SealedChamber_OuterRoom_OnResume:
 	setdivewarp MAP_UNDERWATER_SEALED_CHAMBER, 12, 44
 	setescapewarp MAP_UNDERWATER_SEALED_CHAMBER, 12, 44

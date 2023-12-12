@@ -24,8 +24,8 @@
   ],
   "warp_events": [
     {
-      "x": 8,
-      "y": 8,
+      "x": 29,
+      "y": 30,
       "elevation": 0,
       "dest_map": "MAP_UNDERWATER_SEALED_CHAMBER",
       "dest_warp_id": "0"

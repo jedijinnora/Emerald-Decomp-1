@@ -1,9 +1,15 @@
 mapscripts SootopolisCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : SootopolisCity_OnTransition
+	MAP_SCRIPT_ON_RESUME : SootopolisCity_OnResume
 }
 
 script SootopolisCity_OnTransition {
 	setflag(FLAG_VISITED_SOOTOPOLIS_CITY)
+	end
+}
+
+script SootopolisCity_OnResume {
+	setdivewarp(MAP_UNDERWATER_SOOTOPOLIS_CITY, 9, 6)
 	end
 }
 

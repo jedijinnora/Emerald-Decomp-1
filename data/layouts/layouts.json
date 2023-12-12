@@ -524,7 +524,7 @@
     {
       "id": "LAYOUT_UNDERWATER_ROUTE128",
       "name": "Underwater_Route128_Layout",
-      "width": 120,
+      "width": 141,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Underwater",

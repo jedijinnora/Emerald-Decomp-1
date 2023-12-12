@@ -1,7 +1,51 @@
-raw `
-Route134_MapScripts::
-	.byte 0
+mapscripts Route134_MapScripts {}
 
+script Route134_EventScript_WestStatue {
+	lockall
+	if(flag(FLAG_LANDMARK_SEALED_CHAMBER)) {
+		msgbox(format("Where do you want to warp?"))
+		dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Sealed Chamber", "Route 134 East", "Cancel")
+		switch(var(VAR_RESULT)) {
+		case 0:
+			warpteleport(MAP_SEALED_CHAMBER_OUTER_ROOM, 6, 18)
+			release
+			end
+		case 1:
+			warpteleport(MAP_ROUTE134, 0)
+			release
+			end
+		default:
+		}
+	}
+	msgbox(format("The ancient statue is silent."))
+	releaseall
+	end
+}
+
+script Route134_EventScript_EastStatue {
+	lockall
+	if(flag(FLAG_LANDMARK_SEALED_CHAMBER)) {
+		msgbox(format("Where do you want to warp?"))
+		dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Sealed Chamber", "Route 134 West", "Cancel")
+		switch(var(VAR_RESULT)) {
+		case 0:
+			warpteleport(MAP_SEALED_CHAMBER_OUTER_ROOM, -1, 6, 18)
+			release
+			end
+		case 1:
+			warpteleport(MAP_ROUTE134, -1, 14, 23)
+			release
+			end
+		default:
+		}
+	}
+	msgbox(format("The ancient statue is silent."))
+	releaseall
+	end
+}
+
+
+raw `
 Route134_EventScript_Jack::
 	trainerbattle_single TRAINER_JACK, Route134_Text_JackIntro, Route134_Text_JackDefeat
 	msgbox Route134_Text_JackPostBattle, MSGBOX_AUTOCLOSE

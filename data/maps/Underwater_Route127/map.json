@@ -25,7 +25,7 @@
     },
     {
       "map": "MAP_UNDERWATER_ROUTE128",
-      "offset": 0,
+      "offset": 10,
       "direction": "down"
     }
   ],
