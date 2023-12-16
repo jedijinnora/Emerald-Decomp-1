@@ -11,8 +11,8 @@ script Route121_EventScript_Rydel {
 	setflag(FLAG_RECEIVED_BIKE)
 
 	ReceivedBike121:
-	msgbox(format("Rydel: With that Acro Bike you can navigate the narrow rail bridges around the region. You could travel across Routes 122, 123, and 118 on that Bike to get to Mauville from here."))
-	msgbox(format("Rydel: You should come check out my cycle shop. If you want, I'll even let you switch bikes!"))
+	msgbox(format("Rydel: With that Acro Bike you can jump between the narrow rail bridges around the region. You could travel across Routes 122, 123, and 118 on that Bike to get to Mauville from here."))
+	msgbox(format("Rydel: You should come check out my cycle shop. If you want, I'll even let you switch to the super-fast Mach Bike!"))
 	release
 	end
 }

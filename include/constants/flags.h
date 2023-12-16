@@ -117,7 +117,7 @@
 #define FLAG_RECEIVED_QUICK_CLAW             0x5E
 #define FLAG_RECEIVED_MACHO_BRACE            0x5F
 #define FLAG_RECEIVED_SECRET_POWER           0x60//keep but refactor into something with an npc tutor
-#define FLAG_UNUSED_0x061                    0x61
+#define FLAG_GIVEN_DEVON_SCOPE               0x61
 #define FLAG_RECEIVED_CLEANSE_TAG            0x62
 #define FLAG_RECEIVED_FOCUS_BAND             0x63
 #define FLAG_RECEIVED_MIRACLE_SEED           0x64//todo remove
@@ -1238,7 +1238,7 @@
 #define FLAG_ITEM_ROUTE_121_LIGHT_BALL                              0x483
 #define FLAG_ITEM_ROUTE_121_PP_UP                                   0x484
 #define FLAG_ITEM_ROUTE_122_COVERT_CLOAK                            0x485
-#define FLAG_ITEM_ROUTE_122_DUSK_STONE                              0x486
+#define FLAG_ITEM_ROUTE_122_WATER_STONE                             0x486
 #define FLAG_ITEM_ROUTE_122_PP_MAX                                  0x487
 #define FLAG_ITEM_ROUTE_123_WEAKNESS_POLICY                         0x488
 #define FLAG_ITEM_ROUTE_124_FLOAT_STONE                             0x489

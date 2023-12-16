@@ -33,3 +33,18 @@ script Route122_EventScript_Stash {
 	call(Common_EventScript_SecretStash)
 	end
 }
+
+script Route122_EventScript_DevonScopeMan {
+	lock
+	faceplayer
+	if(!flag(FLAG_GIVEN_DEVON_SCOPE)) {
+		msgbox(format("I came here to test out a prototype Devon Scope on all the Ghost Pokémon in Mt. Pyre."))
+		msgbox(format("But I'm scared out of my wits!"))
+		msgbox(format("Here, you take it! I hope you find a better use for it!"))
+		giveitem(ITEM_DEVON_SCOPE)
+		setflag(FLAG_GIVEN_DEVON_SCOPE)
+	}
+	msgbox(format("I'm heading back to Rustboro as soon as I calm down a bit more."))
+	release
+	end
+}
