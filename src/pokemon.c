@@ -4885,27 +4885,27 @@ u8 GetMoveTutorMoves(struct Pokemon *mon, u16 *moves)
         {
             u16 moveLevel;
 
-        if (learnset[i].move == LEVEL_UP_MOVE_END)
-            break;
+            if (learnset[i].move == LEVEL_UP_MOVE_END)
+                break;
 
-        moveLevel = learnset[i].level;
+            moveLevel = learnset[i].level;
 
-        if (moveLevel <= level)
-        {
-            for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != learnset[i].move; j++)
-                ;
-
-            if (j == MAX_MON_MOVES)
+            if (moveLevel <= level)
             {
-                for (k = 0; k < numMoves && moves[k] != learnset[i].move; k++)
+                for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != learnset[i].move; j++)
                     ;
 
-                if (k == numMoves)
-                    moves[numMoves++] = learnset[i].move;
+                if (j == MAX_MON_MOVES)
+                {
+                    for (k = 0; k < numMoves && moves[k] != learnset[i].move; k++)
+                        ;
+
+                    if (k == numMoves)
+                        moves[numMoves++] = learnset[i].move;
+                }
             }
         }
     }
-
     return numMoves;
 }
 
@@ -4971,10 +4971,6 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
             }
         }
         return numMoves;
-        //there's a blank move that gets appended to the end of the list for some reason
-        //should this return numMoves or numEggMoves??
-        //messing with this return value doesn't seem to change the list of moves
-        //is this function actually used for anything besides checking that it's non-zero?
         
     } else {
         //doing regular move relearner
@@ -4982,27 +4978,27 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
         {
             u16 moveLevel;
 
-        if (learnset[i].move == LEVEL_UP_MOVE_END)
-            break;
+            if (learnset[i].move == LEVEL_UP_MOVE_END)
+                break;
 
-        moveLevel = learnset[i].level;
+            moveLevel = learnset[i].level;
 
-        if (moveLevel <= level)
-        {
-            for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != learnset[i].move; j++)
-                ;
-
-            if (j == MAX_MON_MOVES)
+            if (moveLevel <= level)
             {
-                for (k = 0; k < numMoves && moves[k] != learnset[i].move; k++)
+                for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != learnset[i].move; j++)
                     ;
 
-                if (k == numMoves)
-                    moves[numMoves++] = learnset[i].move;
+                if (j == MAX_MON_MOVES)
+                {
+                    for (k = 0; k < numMoves && moves[k] != learnset[i].move; k++)
+                        ;
+
+                    if (k == numMoves)
+                        moves[numMoves++] = learnset[i].move;
+                }
             }
         }
     }
-
     return numMoves;
 }
 

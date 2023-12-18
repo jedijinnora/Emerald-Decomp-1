@@ -1753,9 +1753,9 @@ static void SetFlyMapCallback(void callback(void))
 
 static void DrawFlyDestTextWindow(void)
 {
-    u16 i;
+    //u16 i;
     bool32 namePrinted;
-    const u8 *name;
+    //const u8 *name;
 
     if (sFlyMap->regionMap.mapSecType > MAPSECTYPE_NONE && sFlyMap->regionMap.mapSecType < NUM_MAPSEC_TYPES)
     {

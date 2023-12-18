@@ -19,9 +19,9 @@ script Route119_WeatherInstitute_2F_EventScript_CastformScientist {
 	msgbox(format("Excellent! Here you are!"))
 	waitmessage
 	setflag(FLAG_RECEIVED_CASTFORM)
-	givemon(SPECIES_CASTFORM, 10)
+	givemon(SPECIES_CASTFORM_NORMAL, 10)
 	playfanfare(MUS_OBTAIN_ITEM)
-	bufferspeciesname(STR_VAR_1, SPECIES_CASTFORM)
+	bufferspeciesname(STR_VAR_1, SPECIES_CASTFORM_NORMAL)
 	msgbox("{PLAYER} received Castform!")
 	waitmessage
 	waitfanfare

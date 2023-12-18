@@ -4252,91 +4252,72 @@ void PreparePartyForSkyBattle(void)
     CompactPartySlots();
 }
 
-vo id TrySkyBattle(void)
+//Jinnora: added field special to find map section
+u16 GetCurrentMapSec(void)
 {
-    int i;
-
-    if (B_VAR_SKY_BATTLE == 0 || B_FLAG_SKY_BATTLE == 0)
-    {
-        LockPlayerFieldControls();
-        ScriptContext_SetupScript(Debug_FlagsAndVarNotSetBattleConfigMessage);
-        return;
-    }
-    for (i = 0; i < CalculatePlayerPartyCount(); i++)
-    {
-        struct Pokemon* pokemon = &gPlayerParty[i];
-        if (CanMonParticipateInSkyBattle(pokemon) && GetMonData(pokemon, MON_DATA_HP, NULL) > 0)
-        {
-            PreparePartyForSkyBattle();
-            gSpecialVar_Result = TRUE;
-            return;
-        }
-    }
-    gSpecialVar_Result = FALSE;
+    return gMapHeader.regionMapSectionId;
 }
 
-void PreparePartyForSkyBattle(void)
+//Jinnora: GetIV specials return the appropriate IV of the Pokémon in gSpecialVar_0x8004
+u8 GetHPIV(void)
 {
-    int i, participatingPokemonSlot = 0;
-    u8 partyCount = CalculatePlayerPartyCount();
-
-    FlagSet(B_FLAG_SKY_BATTLE);
-    SavePlayerParty();
-
-    for (i = 0; i < partyCount; i++)
-    {
-        struct Pokemon* pokemon = &gPlayerParty[i];
-
-        if (CanMonParticipateInSkyBattle(pokemon))
-            participatingPokemonSlot += 1 << i;
-        else
-            ZeroMonData(pokemon);
-    }
-    VarSet(B_VAR_SKY_BATTLE,participatingPokemonSlot);
-    CompactPartySlots();
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV, NULL);
+}
+u8 GetAttackIV(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_IV, NULL);
+}
+u8 GetDefenseIV(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_IV, NULL);
+}
+u8 GetSpecialAttackIV(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_IV, NULL);
+}
+u8 GetSpecialDefenseIV(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_IV, NULL);
+}
+u8 GetSpeedIV(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_IV, NULL);
 }
 
- void TrySkyBattle(void)
+//Jinnora: SetIV specials set the appropriate IV of the Pokémon in gSpecialVar_0x8004 to the value in gSpecialVar_0x8000
+void SetHPIV(void)
 {
-    int i;
-
-    if (B_VAR_SKY_BATTLE == 0 || B_FLAG_SKY_BATTLE == 0)
-    {
-        LockPlayerFieldControls();
-        ScriptContext_SetupScript(Debug_FlagsAndVarNotSetBattleConfigMessage);
-        return;
-    }
-    for (i = 0; i < CalculatePlayerPartyCount(); i++)
-    {
-        struct Pokemon* pokemon = &gPlayerParty[i];
-        if (CanMonParticipateInSkyBattle(pokemon) && GetMonData(pokemon, MON_DATA_HP, NULL) > 0)
-        {
-            PreparePartyForSkyBattle();
-            gSpecialVar_Result = TRUE;
-            return;
-        }
-    }
-    gSpecialVar_Result = FALSE;
+    u8 HpIv = gSpecialVar_0x8000;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV, &HpIv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
-
-void PreparePartyForSkyBattle(void)
+void SetAttackIV(void)
 {
-    int i, participatingPokemonSlot = 0;
-    u8 partyCount = CalculatePlayerPartyCount();
-
-    FlagSet(B_FLAG_SKY_BATTLE);
-    SavePlayerParty();
-
-    for (i = 0; i < partyCount; i++)
-    {
-        struct Pokemon* pokemon = &gPlayerParty[i];
-
-        if (CanMonParticipateInSkyBattle(pokemon))
-            participatingPokemonSlot += 1 << i;
-        else
-            ZeroMonData(pokemon);
-    }
-    VarSet(B_VAR_SKY_BATTLE,participatingPokemonSlot);
-    CompactPartySlots();
+    u8 AtkIv = gSpecialVar_0x8000;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_IV, &AtkIv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
-
+void SetDefenseIV(void)
+{
+    u8 DefIv = gSpecialVar_0x8000;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_IV, &DefIv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+void SetSpecialAttackIV(void)
+{
+    u8 SpAtkIv = gSpecialVar_0x8000;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_IV, &SpAtkIv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+void SetSpecialDefenseIV(void)
+{
+    u8 SpDefIv = gSpecialVar_0x8000;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_IV, &SpDefIv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+void SetSpeedIV(void)
+{
+    u8 SpeedIv = gSpecialVar_0x8000;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_IV, &SpeedIv);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
