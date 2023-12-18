@@ -85,7 +85,7 @@ script MillenniumField_EventScript_ResetKecleon {
 //96-97: Comet shard
 //99: Golden bottle cap
 script MillenniumField_EventScript_Pikachu {
-    lock
+    lockall
     faceplayer
     goto_if_set(FLAG_DAILY_PIKACHU_FAVOR, SeeYouTomorrow)
     playmoncry(SPECIES_PIKACHU, CRY_MODE_NORMAL)
@@ -95,44 +95,44 @@ script MillenniumField_EventScript_Pikachu {
     giveitem(VAR_TEMP_1)
     msgbox(format("Nice, free gift!"))
     waitmessage
-    release
+    releaseall
     end
     SeeYouTomorrow:
     playmoncry(SPECIES_PIKACHU, CRY_MODE_WEAK)
     waitmoncry
     msgbox(format("Pikachu has already given you a festival gift today. No double dipping!"))
     waitmessage
-    release
+    releaseall
     end
 }
 
 script MillenniumField_EventScript_TriathleteM {
-    lock
+    lockall
     faceplayer
     msgbox(format("I bought a Galarica Wreath for my Slowpoke, but he won't evolve!"))
     msgbox(format("What a lousy excuse for a Water-type! I hope a Shellder eats him!"))
-    release
+    releaseall
     end
 }
 
 script MillenniumField_EventScript_ExpertF {
-    lock
+    lockall
     faceplayer
     msgbox(format("My family has been caretakers for this festival ground for generations."))
     msgbox(format("No matter how old I get, there are always more young people excited to come here for the first time."))
     msgbox(format("I think being around their happiness keeps me young at heart."))
-    release
+    releaseall
     end
 }
 
 script MillenniumField_EventScript_Cook {
-    lock
+    lockall
 	faceplayer
     msgbox(gText_HowMayIServeYou)
 	waitmessage
 	pokemart(MillenniumFieldCookMart)
 	msgbox(gText_PleaseComeAgain)
-	release
+	releaseall
 	end
 }
 
@@ -155,13 +155,13 @@ mart MillenniumFieldCookMart {
 }
 
 script MillenniumField_EventScript_Picnicker {
-    lock
+    lockall
 	faceplayer
     msgbox(gText_HowMayIServeYou)
 	waitmessage
 	pokemart(MillenniumFieldPicnickerMart)
 	msgbox(gText_PleaseComeAgain)
-	release
+	releaseall
 	end
 }
 
@@ -176,7 +176,7 @@ mart MillenniumFieldPicnickerMart {
 }
 
 script MillenniumField_EventScript_LittleGirl {
-    lock
+    lockall
 	faceplayer
 	goto_if_set(FLAG_MILLENNIUM_FIELD_SNOM_TRADE_COMPLETED, SnomTradeCompleted)
 	setvar(VAR_0x8008, INGAME_TRADE_SNOM)
@@ -204,28 +204,28 @@ script MillenniumField_EventScript_LittleGirl {
 	msgbox(format("Yay! Here, have some ice cream."))
     giveitem(ITEM_CASTELIACONE, 3)
 	setflag(FLAG_MILLENNIUM_FIELD_SNOM_TRADE_COMPLETED)
-	release
+	releaseall
 	end
 
 	DeclineSnomTrade:
 	msgbox(format("I understand. That much ice cream could put too much power in my hands."))
-	release
+	releaseall
 	end
 
 	SelectedNotVanilluxe:
-	bufferspeciesname(STR_VAR_1, VAR_0x8009)
+	bufferspeciesname(STR_VAR_1, VAR_0x800B)
 	msgbox(format("{STR_VAR_1} doesn't have enough ice cream for me to trade you."))
-	release
+	releaseall
 	end
 
 	SnomTradeCompleted:
 	msgbox(format("I scream for ice cream!"))
-	release
+	releaseall
 	end
 }
 
 script MillenniumField_EventScript_Woman1 {
-    lock
+    lockall
     faceplayer
     goto_if_set(FLAG_MILLENNIUM_FIELD_TYROGUE_TRADE_COMPLETED, TyrogueTradeCompleted)
 	setvar(VAR_0x8008, INGAME_TRADE_TYROGUE)
@@ -253,34 +253,34 @@ script MillenniumField_EventScript_Woman1 {
 	waitstate
 	msgbox(format("Thank you! I'll make a scarf for Furret right away."))
 	setflag(FLAG_MILLENNIUM_FIELD_TYROGUE_TRADE_COMPLETED)
-	release
+	releaseall
 	end
 
 	DeclineTyrogueTrade:
 	msgbox(format("I understand. Want to learn to crochet? Knit? No? Come back if you change your mind."))
-	release
+	releaseall
 	end
 
 	SelectedNotFurret:
-	bufferspeciesname(STR_VAR_1, VAR_0x8009)
+	bufferspeciesname(STR_VAR_1, VAR_0x800B)
 	msgbox(format("{STR_VAR_1}? It's not really suitable."))
-	release
+	releaseall
 	end
 
 	TyrogueTradeCompleted:
 	msgbox(format("In case you don't know, you can evolve a Tyrogue with a Dawn, Dusk, or Shiny Stone."))
-	release
+	releaseall
 	end
 }
 
 script MillenniumField_EventScript_ExpertM {
-    lock
+    lockall
 	faceplayer
     msgbox(gText_HowMayIServeYou)
 	waitmessage
 	pokemart(MillenniumFieldExpertMMart)
 	msgbox(gText_PleaseComeAgain)
-	release
+	releaseall
 	end
 }
 
@@ -292,11 +292,10 @@ mart MillenniumFieldExpertMMart {
     ITEM_LOVE_BALL
     ITEM_FAST_BALL
     ITEM_HEAVY_BALL
-    ITEM_SPORT_BALL
 }
 
 script MillenniumField_EventScript_Kecleon {
-    lock
+    lockall
     faceplayer
     if (flag(FLAG_DAILY_KECLEON_WON)) {
         playmoncry(SPECIES_KECLEON, CRY_MODE_NORMAL)
@@ -318,7 +317,7 @@ script MillenniumField_EventScript_Kecleon {
         waitmessage
         call(MillenniumField_EventScript_KecleonVanish)
     }
-    release
+    releaseall
     end
 }
 
@@ -339,7 +338,7 @@ script MillenniumField_EventScript_KecleonPrize {
     waitmovement(LOCALID_KECLEON)
     msgbox(format("Come back tomorrow to play again!"))
     waitmessage
-    release
+    releaseall
     end
 }
 
@@ -448,7 +447,7 @@ movement KecleonVanish {
 }
 
 script MillenniumField_EventScript_NinjaBoy {
-    lock
+    lockall
     faceplayer
     playse(SE_PIN)
     applymovement(LOCALID_NINJABOY, Common_Movement_ExclamationMark)
@@ -456,40 +455,40 @@ script MillenniumField_EventScript_NinjaBoy {
     msgbox(format("You can see me?! I guess my ninja abilities need work…"))
     msgbox(format("I figured the Expert Belt I got for beating Kecleon at hide and seek would improve my skills."))
     msgbox(format("Okay! I'll find myself a Covert Cloak. Know anybody with one?"))
-    release
+    releaseall
     end
 }
 
 script MillenniumField_EventScript_PokefanF {
-    lock
+    lockall
     faceplayer
     msgbox(format("Legend says that Millennium Field is built over the resting place of the Mythical Pokémon Jirachi."))
     msgbox(format("Jirachi hibernates until a particular comet appears in the sky. Then it wakes for seven days and grants wishes to whomever finds it."))
     msgbox(format("What do you think would happen if someone wished for world peace or happiness for everyone?"))
     msgbox(format("Would that be a safe request to make of such a powerful creature?"))
-    release
+    releaseall
     end
 }
 
 script MillenniumField_EventScript_Mom {
-    lock
+    lockall
     faceplayer
     msgbox(format("Wishmaker's Well is not open to visitors."))
-    release
+    releaseall
     end
 }
 
 script MillenniumField_EventScript_Skitty {
-    lock
+    lockall
     faceplayer
     playmoncry(SPECIES_SKITTY, CRY_MODE_NORMAL)
     msgbox(format("Kitty!"))
-    release
+    releaseall
     end
 }
 
 script MillenniumField_EventScript_LittleBoy {
-    lock
+    lockall
     faceplayer
 	goto_if_set(FLAG_MILLENNIUM_FIELD_MORPEKO_TRADE_COMPLETED, MorpekoTradeCompleted)
 	setvar(VAR_0x8008, INGAME_TRADE_MORPEKO)
@@ -516,61 +515,61 @@ script MillenniumField_EventScript_LittleBoy {
 	waitstate
 	msgbox(format("Yes! We'll spoon up tons of ice cream together!"))
 	setflag(FLAG_MILLENNIUM_FIELD_MORPEKO_TRADE_COMPLETED)
-	release
+	releaseall
 	end
 
 	DeclineMorpekoTrade:
 	msgbox(format("Awww."))
-	release
+	releaseall
 	end
 
 	SelectedNotAlakazam:
-	bufferspeciesname(STR_VAR_1, VAR_0x8009)
+	bufferspeciesname(STR_VAR_1, VAR_0x800B)
 	msgbox(format("That's a {STR_VAR_1}. Moar spoons please!"))
-	release
+	releaseall
 	end
 
 	MorpekoTradeCompleted:
 	msgbox(format("Ooogh, brain freeze!"))
-	release
+	releaseall
 	end
 }
 
 script MillenniumField_EventScript_Man4 {
-    lock
+    lockall
     faceplayer
     msgbox(format("Groan…\p Driving all the way out here with supplies for the festival really takes it out of me."))
-    release
+    releaseall
     end
 }
 
 script MillenniumField_EventScript_TriathleteF {
-    lock
+    lockall
     faceplayer
     msgbox(format("I love how the festival runs year-round."))
     msgbox(format("You can buy items from other regions here!"))
-    release
+    releaseall
     end
 }
 
 script MillenniumField_EventScript_FieldSign {
-    lock
+    lockall
     msgbox(format("Millennium Field \n “The eternal festival ground.”"))
-    release
+    releaseall
     end
 }
 
 script MillenniumField_EventScript_WellSign {
-    lock
+    lockall
     msgbox(format("Wishmaker's Well \n “Where lost wishes sleep forever.”"))
-    release
+    releaseall
     end
 }
 
 script MillenniumField_EventScript_KecleonSign {
-    lock
+    lockall
     msgbox(format("Hide and seek rules:\n Speak to Kecleon to begin."))
     msgbox(format("Find Kecleon 4 times without leaving Millennium Field to win!"))
-    release
+    releaseall
     end
 }

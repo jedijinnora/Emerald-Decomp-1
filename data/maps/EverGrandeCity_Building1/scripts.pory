@@ -37,7 +37,6 @@ script EverGrandeCity_Building1_EventScript_ExpertF {
 	end
 
 	SelectedNotFloatzel:
-	bufferspeciesname(STR_VAR_1, VAR_0x8009)
 	msgbox(format("I may be old but even I can see that Pokémon isn't a Floatzel."))
 	release
 	end

@@ -37,7 +37,7 @@ script PacifidlogTown_House3_EventScript_SmeargleTrader {
 	end
 
 	SelectedNotLapras:
-	bufferspeciesname(STR_VAR_1, VAR_0x8009)
+	bufferspeciesname(STR_VAR_1, VAR_0x800B)
 	msgbox(format("Oh, could you travel on the back of a {STR_VAR_1} as well?"))
 	msgbox(format("Hmm, no, I think only a Lapras will do."))
 	release
@@ -60,7 +60,6 @@ script PacifidlogTown_House3_EventScript_HorseaTrader {
 	msgbox("Check out this Horsea!\pIt's the Horsea that I caught\nyesterday to celebrate my birthday!\pOh, I can see that you want it!\nAfter all, it's priceless!\p")
 	msgbox(format("I'll tell you what. I might be willing to trade it for a Bagon."), MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, NO, DeclineHorseaTrade)
-	msgbox(format("Yes! Gimme your Bagon!"))
 	waitmessage
 	special(ChoosePartyMon)
 	waitstate
@@ -91,13 +90,12 @@ script PacifidlogTown_House3_EventScript_HorseaTrader {
 	end
 
 	SelectedNotBagon:
-	bufferspeciesname(STR_VAR_1, VAR_0x8009)
 	msgbox(format("No, no, no! I won't accept any less than a real Bagon!"))
 	release
 	end
 
 	HorseaTradeCompleted:
-	msgbox(format("Don't worry, I'll give Bagon plenty of exercise bully- er, sparring with the local kids."))
+	msgbox(format("I'll raise Bagon with a lot of care, you don't have to worry."))
 	release
 	end
 }

@@ -90,7 +90,6 @@ script RustboroCity_House1_EventScript_HonedgeTrader {
 	end
 
 	SelectedNotSalamence:
-	bufferspeciesname(STR_VAR_1, VAR_0x8009)
 	msgbox(format("I said I wanted an awesome dragon! Get that crap outta here!"))
 	release
 	end

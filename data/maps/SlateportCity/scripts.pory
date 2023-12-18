@@ -180,7 +180,7 @@ script SlateportCity_EventScript_Woman2 {
 	end
 
 	SelectedNotCinccino:
-	bufferspeciesname(STR_VAR_1, VAR_0x8009)
+	bufferspeciesname(STR_VAR_1, VAR_0x800B)
 	msgbox(format("That's a {STR_VAR_1}. I'm not trading my darling for that!"))
 	release
 	end

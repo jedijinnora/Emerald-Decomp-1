@@ -31,6 +31,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
     msgbox(format("You'll need a fully upgraded Pokédex to be able to view data on all the Pokémon in this region."))
     msgbox(format("One moment please…"))
     setflag(FLAG_SYS_NATIONAL_DEX)
+    setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
     special(EnableNationalPokedex)
     playfanfare(MUS_OBTAIN_ITEM)
     waitfanfare

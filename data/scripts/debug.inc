@@ -11,9 +11,8 @@ Debug_ShowFieldMessageStringVar4::
 
 Debug_CheatStart::
 	setflag FLAG_SYS_POKEMON_GET
-	givemon SPECIES_TREECKO, 20, ITEM_NONE
-	givemon SPECIES_TORCHIC, 20, ITEM_NONE
-	givemon SPECIES_MUDKIP, 20, ITEM_NONE
+	givemon SPECIES_TROPIUS, 20, ITEM_NONE
+	givemon SPECIES_WAILORD, 20, ITEM_NONE
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
@@ -23,6 +22,9 @@ Debug_CheatStart::
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_RECEIVED_BIKE
 	additem ITEM_ACRO_BIKE
+	additem ITEM_EXP_SHARE
+	setflag(FLAG_SYS_POKENAV_GET)
+	setflag(FLAG_ADDED_MATCH_CALL_TO_POKENAV)
 	setflag FLAG_BADGE01_GET
 	setflag FLAG_BADGE02_GET
 	setflag FLAG_BADGE03_GET

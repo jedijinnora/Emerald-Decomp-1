@@ -40,7 +40,6 @@ script SlateportCity_PokemonFanClub_EventScript_Twin {
 	end
 
 	SelectedNotFlareon:
-	bufferspeciesname(STR_VAR_1, VAR_0x8009)
 	msgbox(format("That's not a Flareon. I guess I don't really deserve one…"))
 	release
 	end
@@ -89,7 +88,7 @@ script SlateportCity_PokemonFanClub_EventScript_Maniac {
 	end
 
 	SelectedNotVaporeon:
-	bufferspeciesname(STR_VAR_1, VAR_0x8009)
+	bufferspeciesname(STR_VAR_1, VAR_0x800B)
 	msgbox(format("Ugh, {STR_VAR_1}?\nNo thank you!"))
 	release
 	end
