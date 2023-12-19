@@ -4321,3 +4321,24 @@ void SetSpeedIV(void)
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_IV, &SpeedIv);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
+
+//Jinnora: zero all EVs of party Pokémon in slot gSpecialVar_0x8004
+void ResetAllEV(void)
+{
+    u8 ZeroEV = 0;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_EV, &ZeroEV);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_ATK_EV, &ZeroEV);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_EV, &ZeroEV);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPATK_EV, &ZeroEV);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_EV, &ZeroEV);
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPEED_EV, &ZeroEV);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}
+
+//Jinnora: zero the Sheen of party Pokémon in slot gSpecialVar_0x8004
+void SetSheenZero(void)
+{
+    u8 ZeroSheen = 0;
+    SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SHEEN, &ZeroSheen);
+    CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
+}

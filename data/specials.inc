@@ -556,3 +556,5 @@ gSpecials::
 	def_special SetSpecialAttackIV
 	def_special SetSpecialDefenseIV
 	def_special SetSpeedIV
+	def_special ResetAllEV
+	def_special SetSheenZero

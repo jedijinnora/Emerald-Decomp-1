@@ -6,6 +6,7 @@ const LOCALID_FOSSIL_SCIENTIST = 5
 
 script RustboroCity_DevonCorp_2F_OnTransition {
 	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
+	call_if_unset(FLAG_GIVEN_DEVON_SCOPE, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
 	end
 }
 
@@ -14,7 +15,12 @@ script RustboroCity_DevonCorp_2F_EventScript_SetFossilReady {
 	return
 }
 
-script RustboroCity_DevonCorp_2F_EventScript_Woman1 {
+script RustboroCity_DevonCorp_2F_EventScript_SetFossilReady {
+	setflag(FLAG_TEMP_11)
+	return
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_BlueSkyResearcher {
 	lock
 	faceplayer
 	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
@@ -24,7 +30,7 @@ script RustboroCity_DevonCorp_2F_EventScript_Woman1 {
 	end
 }
 
-script RustboroCity_DevonCorp_2F_EventScript_Woman2 {
+script RustboroCity_DevonCorp_2F_EventScript_ProgrammerDucky {
 	lock
 	faceplayer
 	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
@@ -34,7 +40,7 @@ script RustboroCity_DevonCorp_2F_EventScript_Woman2 {
 	end
 }
 
-script RustboroCity_DevonCorp_2F_EventScript_Scientist1 {
+script RustboroCity_DevonCorp_2F_EventScript_AGIResearcher {
 	lock
 	faceplayer
 	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
@@ -47,7 +53,7 @@ script RustboroCity_DevonCorp_2F_EventScript_Scientist1 {
 	end
 }
 
-script RustboroCity_DevonCorp_2F_EventScript_Scientist2 {
+script RustboroCity_DevonCorp_2F_EventScript_PokeBallDeveloper {
 	lock
 	faceplayer
 	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
@@ -68,7 +74,7 @@ script RustboroCity_DevonCorp_2F_EventScript_OfficeGuard {
 	end
 }
 
-script RustboroCity_DevonCorp_2F_EventScript_Scientist3 {
+script RustboroCity_DevonCorp_2F_EventScript_PorygonForker {
 	lock
 	faceplayer
 	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
@@ -76,6 +82,37 @@ script RustboroCity_DevonCorp_2F_EventScript_Scientist3 {
 	msgbox(format("It feels a little unethical, though, the way I can just fork a fresh Porygon whenever something goes wrong."))
 	msgbox(format("How many Porygon have been created and discarded in a lab, do you think?"))
 	release
+	end
+}
+
+script RustboroCity_DevonCorp_2F_EventScript_ItemFinderGiver {
+	lockall
+	faceplayer
+	goto_if_set(FLAG_RECEIVED_DOWSING_MACHINE, DowsingMachineEval)
+	msgbox(format("Since I gave up on working on the Devon Scope, I've been developing our Dowsing Machine."))
+	msgbox(format("You're someone who'll be exploring the region, aren't you?"))
+	msgbox(format("Want to beta test the Dowsing Machine?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		msgbox(format("I guess I'll have to badger one of the interns into doing the testing for me."))
+		releaseall
+		end
+	}
+	msgbox(format("Grand! Here you are then!"))
+	giveitem(ITEM_DOWSING_MACHINE)
+	setflag(FLAG_RECEIVED_DOWSING_MACHINE)
+	releaseall
+	end
+
+	DowsingMachineEval:
+	msgbox(format("Oh, it's you again! Has the Dowsing Machine been helpful in finding items?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO) {
+		msgbox(format("Back to the drawing board for me, I suppose!"))
+		releaseall
+		end
+	} else {
+		msgbox(format("Excellent! Oh, the profits we'll make selling those to every Trainer…"))
+	}
+	releaseall
 	end
 }
 

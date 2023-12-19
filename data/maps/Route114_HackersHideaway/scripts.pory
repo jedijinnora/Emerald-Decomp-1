@@ -114,7 +114,45 @@ script Route114_HackersHideaway_EventScript_Man {
 script Route114_HackersHideaway_EventScript_Woman {
     lock
     faceplayer
-    msgbox(format("Oh, when the developer implements mints I'll be able to reset a Pokémon to its original nature."))
+    msgbox(format("What would you like to do?"))
+    dynmultichoice(0,0,TRUE,6,0,DYN_MULTICHOICE_CB_NONE, "Remove Mint nature", "Reset all EVs")
+    switch(var(VAR_RESULT)) {
+        case 0:
+            setvar(VAR_TEMP_3, 0)
+            msgbox(format("If you regret using Mints I can reset a Pokémon to its original nature."))
+            msgbox(format("This is done by setting the Sheen stat back to zero."))
+        case 1:
+            setvar(VAR_TEMP_3, 1)
+            msgbox(format("I can to fully reset a Pokémon's Effort Values."))
+        default:
+            goto(ResetRefused)
+    }
+    msgbox(format("Interested?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+        ResetRefused:
+        msgbox(format("Okay then."))
+        release
+        end
+
+        ResetEgg:
+        msgbox(format("That's an Egg, dummy!"))
+        release
+        end
+    }
+    special(ChoosePartyMon)
+	waitstate
+	goto_if_ge(VAR_0x8004, PARTY_SIZE, ResetRefused)
+	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	goto_if_eq(VAR_RESULT, SPECIES_EGG, ResetEgg)
+    switch(var(VAR_TEMP_3)) {
+        case 0:
+            special(SetSheenZero)
+        default:
+            special(ResetAllEV)
+    }
+    playfanfare(MUS_LEVEL_UP)
+	waitfanfare
+    msgbox(format("It's done!"))
     release
     end
 }
@@ -124,7 +162,7 @@ script Route114_HackersHideaway_EventScript_Bard {
     faceplayer
     msgbox(format("Hello again, {PLAYER}!"))
     msgbox(format("The humor of some of these people, it is too much!"))
-    msgbox(format("Such crude insults and bourgeousie references! Tintin? Bah!"))
+    msgbox(format("Such crude insults and bourgeousie references! Tintin? Bah! Colonialist garbage."))
     msgbox(format("If I wanted to read Herge, I would always pick the superior Quick & Flupke!"))
     release
     end

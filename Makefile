@@ -486,10 +486,6 @@ $(ELF): $(OBJ_DIR)/ld_script.ld $(OBJS) libagbsyscall
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary $< $@
-	@echo "Current ROM size:"
-	@echo $$(stat -f "%z" $(ROM) | numfmt --to=iec --format="%.3f") / 32M
-	@echo $$(stat -f "%z" $(ROM) | numfmt --to-unit=1024 --format="%.2f")"K" / 32768K
-	@echo $$(stat -f "%z" $(ROM))" bytes" / 33554432 bytes
 	$(FIX) $@ -p --silent
 
 agbcc: all

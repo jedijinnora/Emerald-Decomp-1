@@ -122,7 +122,7 @@
 #define FLAG_RECEIVED_FOCUS_BAND             0x63
 #define FLAG_RECEIVED_MIRACLE_SEED           0x64//todo remove
 #define FLAG_RECEIVED_DESTINY_KNOT           0x65
-#define FLAG_UNUSED_0x066                    0x66
+#define FLAG_RECEIVED_DOWSING_MACHINE        0x66
 #define FLAG_UNUSED_0x067                    0x67
 #define FLAG_UNUSED_0x068                    0x68
 #define FLAG_UNUSED_0x069                    0x69
