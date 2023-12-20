@@ -5150,6 +5150,16 @@
       "secondary_tileset": "gTileset_MirageTower",
       "border_filepath": "data/layouts/DesertUnderpass_Exits/border.bin",
       "blockdata_filepath": "data/layouts/DesertUnderpass_Exits/map.bin"
+    },
+    {
+      "id": "LAYOUT_MONSU_ISLAND_EXTERIOR",
+      "name": "MonsuIsland_Exterior_Layout",
+      "width": 50,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Lilycove",
+      "border_filepath": "data/layouts/MonsuIsland_Exterior/border.bin",
+      "blockdata_filepath": "data/layouts/MonsuIsland_Exterior/map.bin"
     }
   ]
 }

@@ -81,6 +81,7 @@
 #define MAP_POWER_PLANT                 (72 | (0 << 8))
 #define MAP_SUMMER_SEA                  (73 | (0 << 8))
 #define MAP_CROSSGATE_HILLS             (74 | (0 << 8))
+#define MAP_MONSU_ISLAND_EXTERIOR       (75 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))

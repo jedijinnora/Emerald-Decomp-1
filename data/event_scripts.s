@@ -1174,3 +1174,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/DesertUnderpass_Exits/scripts.inc"
 
 	.include "data/maps/FortreeCity_House6/scripts.inc"
+
+	.include "data/maps/MonsuIsland_Exterior/scripts.inc"

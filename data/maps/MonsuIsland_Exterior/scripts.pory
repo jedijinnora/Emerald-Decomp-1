@@ -1,0 +1,19 @@
+mapscripts MonsuIsland_Exterior_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : MonsuIsland_Exterior_OnTransition
+}
+
+script MonsuIsland_Exterior_OnTransition {
+    //check archie state and set shelly flag
+
+    //setflag(FLAG_TEMP_1)
+    return
+}
+
+script MonsuIsland_Exterior_EventScript_Shelly {
+    lock
+    faceplayer
+    msgbox(format("Shelly: We broke into a cave that leads into the island, but there are boulders we couldn't move."))
+    msgbox(format("Archie went to get help. Can you head to Slateport and find him?"))
+    release
+    end
+}

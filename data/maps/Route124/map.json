@@ -37,6 +37,11 @@
       "map": "MAP_UNDERWATER_ROUTE124",
       "offset": 0,
       "direction": "dive"
+    },
+    {
+      "map": "MAP_MONSU_ISLAND_EXTERIOR",
+      "offset": -10,
+      "direction": "left"
     }
   ],
   "object_events": [

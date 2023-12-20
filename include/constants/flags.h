@@ -1331,7 +1331,7 @@
 #define FLAG_ITEM_DESERT_UNDERPASS_B2F_SAIL_FOSSIL                  0x4E0
 #define FLAG_ITEM_DESERT_UNDERPASS_EXITS_MAX_ELIXIR                 0x4E1
 #define FLAG_ITEM_SHOAL_CAVE_LOW_TIDE_INNER_ROOM_RAZOR_CLAW         0x4E2
-#define FLAG_UNUSED_0x4E3                                           0x4E3
+#define FLAG_ITEM_MONSU_ISLAND_EXTERIOR_BIG_NUGGET                  0x4E3
 #define FLAG_UNUSED_0x4E4                                           0x4E4
 #define FLAG_UNUSED_0x4E5                                           0x4E5
 #define FLAG_UNUSED_0x4E6                                           0x4E6
@@ -1597,16 +1597,16 @@
 // These flags are cleared once per day
 // The start and end are byte-aligned because the flags are cleared in byte increments
 #define DAILY_FLAGS_START                           (FLAG_UNUSED_0x91F + (8 - FLAG_UNUSED_0x91F % 8))
-#define FLAG_DAILY_PIKACHU_FAVOR                    (DAILY_FLAGS_START + 0x0)  //Jinnora added
+#define FLAG_DAILY_PIKACHU_FAVOR                    (DAILY_FLAGS_START + 0x0)
 #define FLAG_DAILY_CONTEST_LOBBY_RECEIVED_BERRY     (DAILY_FLAGS_START + 0x1)
 #define FLAG_DAILY_SECRET_BASE                      (DAILY_FLAGS_START + 0x2)
-#define FLAG_DAILY_KECLEON_HUNT                     (DAILY_FLAGS_START + 0x3)  //Jinnora added
-#define FLAG_DAILY_KECLEON_WON                      (DAILY_FLAGS_START + 0x4)  //Jinnora added
-#define FLAG_DAILY_PETALBURG_WOODS_BALM_MUSHROOM    (DAILY_FLAGS_START + 0x5)  //Jinnora added
-#define FLAG_DAILY_FOREST_HEART_BALM_MUSHROOM       (DAILY_FLAGS_START + 0x6)  //Jinnora added
-#define FLAG_DAILY_SLATEPORT_BEACH_BOTTLE_CAP       (DAILY_FLAGS_START + 0x7)  //Jinnora added
-#define FLAG_DAILY_ROUTE_104_BERRY                  (DAILY_FLAGS_START + 0x8)  //Jinnora added
-#define FLAG_UNUSED_0x929                           (DAILY_FLAGS_START + 0x9)  // Unused Flag
+#define FLAG_DAILY_KECLEON_HUNT                     (DAILY_FLAGS_START + 0x3)
+#define FLAG_DAILY_KECLEON_WON                      (DAILY_FLAGS_START + 0x4)
+#define FLAG_DAILY_PETALBURG_WOODS_BALM_MUSHROOM    (DAILY_FLAGS_START + 0x5)
+#define FLAG_DAILY_FOREST_HEART_BALM_MUSHROOM       (DAILY_FLAGS_START + 0x6)
+#define FLAG_DAILY_SLATEPORT_BEACH_BOTTLE_CAP       (DAILY_FLAGS_START + 0x7)
+#define FLAG_DAILY_ROUTE_104_BERRY                  (DAILY_FLAGS_START + 0x8)
+#define FLAG_DAILY_MONSU_ISLAND_HEART_SCALE         (DAILY_FLAGS_START + 0x9)
 #define FLAG_DAILY_PICKED_LOTO_TICKET               (DAILY_FLAGS_START + 0xA)
 #define FLAG_DAILY_ROUTE_114_RECEIVED_BERRY         (DAILY_FLAGS_START + 0xB)
 #define FLAG_DAILY_ROUTE_111_RECEIVED_BERRY         (DAILY_FLAGS_START + 0xC)
