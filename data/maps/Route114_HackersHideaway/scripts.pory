@@ -115,7 +115,7 @@ script Route114_HackersHideaway_EventScript_Woman {
     lock
     faceplayer
     msgbox(format("What would you like to do?"))
-    dynmultichoice(0,0,TRUE,6,0,DYN_MULTICHOICE_CB_NONE, "Remove Mint nature", "Reset all EVs")
+    dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Remove Mint nature", "Reset all EVs")
     switch(var(VAR_RESULT)) {
         case 0:
             setvar(VAR_TEMP_3, 0)

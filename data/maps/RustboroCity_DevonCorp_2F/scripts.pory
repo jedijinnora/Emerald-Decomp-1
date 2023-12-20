@@ -6,7 +6,7 @@ const LOCALID_FOSSIL_SCIENTIST = 5
 
 script RustboroCity_DevonCorp_2F_OnTransition {
 	call_if_eq(VAR_FOSSIL_RESURRECTION_STATE, 1, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
-	call_if_unset(FLAG_GIVEN_DEVON_SCOPE, RustboroCity_DevonCorp_2F_EventScript_SetFossilReady)
+	call_if_unset(FLAG_GIVEN_DEVON_SCOPE, RustboroCity_DevonCorp_2F_EventScript_HideItemfinderGiver)
 	end
 }
 
@@ -15,7 +15,7 @@ script RustboroCity_DevonCorp_2F_EventScript_SetFossilReady {
 	return
 }
 
-script RustboroCity_DevonCorp_2F_EventScript_SetFossilReady {
+script RustboroCity_DevonCorp_2F_EventScript_HideItemfinderGiver {
 	setflag(FLAG_TEMP_11)
 	return
 }
