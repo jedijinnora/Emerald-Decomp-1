@@ -4342,3 +4342,26 @@ void SetSheenZero(void)
     SetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SHEEN, &ZeroSheen);
     CalculateMonStats(&gPlayerParty[gSpecialVar_0x8004]);
 }
+
+
+//Lunos's get/set pokedex flag specials
+bool8 GetSeenMon(void)
+{
+    return GetSetPokedexFlag(SpeciesToNationalPokedexNum(gSpecialVar_0x8004), FLAG_GET_SEEN);
+}
+
+bool8 GetCaughtMon(void)
+{
+    return GetSetPokedexFlag(SpeciesToNationalPokedexNum(gSpecialVar_0x8004), FLAG_GET_CAUGHT);
+}
+
+bool8 SetSeenMon(void)
+{
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(gSpecialVar_0x8004), FLAG_SET_SEEN);
+}
+
+bool8 SetCaughtMon(void)
+{
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(gSpecialVar_0x8004), FLAG_SET_SEEN);
+    GetSetPokedexFlag(SpeciesToNationalPokedexNum(gSpecialVar_0x8004), FLAG_SET_CAUGHT);
+}

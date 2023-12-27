@@ -558,3 +558,8 @@ gSpecials::
 	def_special SetSpeedIV
 	def_special ResetAllEV
 	def_special SetSheenZero
+
+	def_special GetSeenMon
+	def_special GetCaughtMon
+	def_special SetSeenMon
+	def_special SetCaughtMon
