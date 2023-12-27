@@ -3971,7 +3971,7 @@ static const struct TrainerMon sParty_Alexia[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .lvl = 14,
-    .species = SPECIES_FURFROU,
+    .species = SPECIES_FURFROU_NATURAL,
     .heldItem = ITEM_LEFTOVERS,
     .ability = ABILITY_FUR_COAT,
     .moves = {MOVE_COTTON_GUARD, MOVE_CHARM, MOVE_SUBSTITUTE, MOVE_FACADE}

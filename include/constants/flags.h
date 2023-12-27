@@ -90,11 +90,11 @@
 #define FLAG_INFINITE_CANDY                         0x45//Jinnora: if set, player should have the infinite candy item; do not lift level cap during battle
 #define FLAG_USE_NEXT_LEVEL_CAP                     0x46//used to lift level cap during boss battles
 #define FLAG_EXPLORE_MODE                           0x47
-#define FLAG_UNUSED_0x048                           0x48
+#define FLAG_NO_EV_GRINDING                         0x48//Jinnora: should remove EVs from wild battles, stat calculations, and npc trainers
 #define FLAG_UNUSED_0x049                           0x49
 #define FLAG_BEACH_BATTLE_VICTORY                   0x4A//set after returning from special beach map
 #define FLAG_BEACH_BATTLE_STARTED                   0x4B//set when warping to special beach map
-#define FLAG_UNUSED_0x04C                           0x4C
+#define FLAG_BEACH_BATTLE_REPEAT                    0x4C//set when doing additional beach battles
 #define FLAG_UNUSED_0x04D                           0x4D
 #define FLAG_UNUSED_0x04E                           0x4E
 #define FLAG_UNUSED_0x04F                           0x4F
@@ -181,21 +181,21 @@
 #define FLAG_BATTLE_FRONTIER_TRADE_DONE      0x9C
 
 //Gift Pokemon
-#define FLAG_RECEIVED_CASTFORM               0x9D//weather institute
-#define FLAG_RECEIVED_LAVARIDGE_EGG          0x9E//lavaridge
-#define FLAG_RECEIVED_SABLEYE                0x9F//r116
-#define FLAG_RECEIVED_MAWILE                 0xA0//meteor village
-#define FLAG_RECEIVED_DITTO                  0xA1//r117
-#define FLAG_RECEIVED_EEVEE                  0xA2//rustboro
-#define FLAG_RECEIVED_TOGEPI                 0xA3//verdanturf
-#define FLAG_RECEIVED_MINIOR                 0xA4//fallarbor
-#define FLAG_RECEIVED_WYNAUT                 0xA5//dewford
-#define FLAG_RECEIVED_COMFEY                 0xA6//dewford resort
-#define FLAG_RECEIVED_INKAY                  0xA7//mossdeep
-#define FLAG_RECEIVED_HELIOPTILE             0xA8//sootopolis
-#define FLAG_UNUSED_0xA9                     0xA9
-#define FLAG_UNUSED_0xAA                     0xAA
-#define FLAG_UNUSED_0xAB                     0xAB
+#define FLAG_RECEIVED_CASTFORM               0x9D // weather institute
+#define FLAG_RECEIVED_LAVARIDGE_EGG          0x9E // lavaridge
+#define FLAG_RECEIVED_SABLEYE                0x9F // r116
+#define FLAG_RECEIVED_MAWILE                 0xA0 // meteor village
+#define FLAG_RECEIVED_DITTO                  0xA1 // r117
+#define FLAG_RECEIVED_EEVEE                  0xA2 // rustboro
+#define FLAG_RECEIVED_TOGEPI                 0xA3 // verdanturf
+#define FLAG_RECEIVED_MINIOR                 0xA4 // fallarbor
+#define FLAG_RECEIVED_WYNAUT                 0xA5 // dewford
+#define FLAG_RECEIVED_COMFEY                 0xA6 // dewford resort
+#define FLAG_RECEIVED_INKAY                  0xA7 // mossdeep
+#define FLAG_RECEIVED_HELIOPTILE             0xA8 // sootopolis
+#define FLAG_RECEIVED_GRASS_STARTER          0xA9 // oldale
+#define FLAG_RECEIVED_FIRE_STARTER           0xAA // lavaridge
+#define FLAG_RECEIVED_WATER_STARTER          0xAB // pacifidlog
 #define FLAG_UNUSED_0xAC                     0xAC
 #define FLAG_UNUSED_0xAD                     0xAD
 #define FLAG_UNUSED_0xAE                     0xAE
@@ -917,7 +917,7 @@
 #define FLAG_SHOWN_OLD_SEA_MAP                                      0x354
 #define FLAG_SCOTT_GIVES_BATTLE_POINTS                              0x355
 #define FLAG_OCEANIC_MUSEUM_MET_REPORTER                            0x356
-#define FLAG_UNUSED_0x357                                           0x357
+#define FLAG_CREDITS_LADY_INTRODUCTION                              0x357
 #define FLAG_UNUSED_0x358                                           0x358
 #define FLAG_UNUSED_0x359                                           0x359
 

@@ -1147,7 +1147,7 @@ static const struct InGameTrade sIngameTrades[] =
     [INGAME_TRADE_FURFROU] =
     {
         .nickname = _("Bruiser"),
-        .species = SPECIES_FURFROU,
+        .species = SPECIES_FURFROU_DEBUTANTE_TRIM,
         .ivs = {15, 15, 15, 15, 15, 15},
         .abilityNum = 0,
         .otId = 71301,

@@ -331,11 +331,16 @@ script EverGrandeCity_Headquarters_1F_EventScript_GameBoyKid {
 script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
     lock
     faceplayer
+    goto_if_set(FLAG_CREDITS_LADY_INTRODUCTION, CreditsMenu)
+    CreditsIntro:
     msgbox(format("Greetings! I can tell you about many of the resources and features Jinnora used while creating this game."))
     msgbox(format("You should also find this info in the README.txt or in the master forum posts about the game, along with links."))
+    msgbox(format("Jinnora: I realize this is a bit awkward and there's a lot of button pressing to get through, but it is important to me to include as full a credits list as possible within the game itself, since this project stands on the shoulders of so many other people's work."))
+    msgbox(format("Jinnora: if you feel something is missing, or would like a credit modified or removed, please contact me on Discord."))
+    setflag(FLAG_CREDITS_LADY_INTRODUCTION)
     CreditsMenu:
     msgbox(format("Which would you like to hear about?"))
-    dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "General resources used", "Features included")
+    dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "General resources used", "Features included", "Sources of inspiration", "Repeat credits intro")
     switch(var(VAR_RESULT)) {
         case 0:
             ResourcesMenu:
@@ -343,7 +348,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
             dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Team Aqua's Hideout", "Porymap", "Poryscript", "RHH Discord", "Pokeemerald Tutorials Master")
             switch(var(VAR_RESULT)) {
                 case 0:
-                    msgbox(format("Team Aqua's Hideout is a Youtube channel and Discord with many helpful guides on using the decompilation projects. These were an amazing resource throughout the project."))
+                    msgbox(format("Team Aqua's Hideout is a Youtube channel and Discord with many helpful guides on using the decompilation projects. Watching these videos is how Jinnora got started."))
                     goto(ResourcesMenu)
                 case 1:
                     msgbox(format("Porymap is a software developed by huderlem for the decomp projects that allows easy editing of all the maps in the game. A lot of time was spent using this application!"))
@@ -355,7 +360,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Rom Hacking Hideout is the community which created the pokeemerald-expansion repository this project is based on. You may have noticed their credits scene in the game intro. A big thanks to everyone who continues to work on the expansion project!"))
                     goto(ResourcesMenu)
                 case 4:
-                    msgbox(format("The tutorials master page located on GitHub at pret/pokeemerald/wiki/Tutorials was an invaluable resource for locating guides to many of the QOL changes that are incorporated into this game."))
+                    msgbox(format("The tutorials master page located on GitHub at pret/pokeemerald/wiki/Tutorials was an invaluable resource for locating guides to many of the changes incorporated into this game."))
                     goto(ResourcesMenu)
                 default:
                     goto(CreditsMenu)
@@ -407,6 +412,38 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                 default:
                     goto(CreditsMenu)
             }
+        case 2:
+            InspirationMenu:
+            msgbox(format("Which sources of inspiration would you like to know about?"))
+            dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Other Pokémon hacks/fangames", "Official Pokémon media", "Other media")
+            switch(var(VAR_RESULT)) {
+                case 0:
+                    msgbox(format("Jinnora has played a lot of Pokémon hacks since 2009 or so, and the idea for this game came while playing Inclement Emerald by BuffelSaft."))
+                    msgbox(format("Radical Red by soupercell is the hack she's played most in recent years. Another favorite is Emerald Rogue by Pokabbie."))
+                    msgbox(format("The idea for the bike bridges on Routes 103 and 118 came from watching streams of the Emerald difficulty hack Run & Bun, by dekzeh."))
+                    msgbox(format("Dewford Resort and Verdant Forest were partially inspired by similar areas in Inclement Emerald by BuffelSaft."))
+                    goto(InspirationMenu)
+                case 1:
+                    msgbox(format("Meteor Village was inspired by the Draconid settlement which appears in the Pokémon Adventures manga."))
+                    msgbox(format("Millennium Field and Forina draw inspiration from M06 “Jirachi: Wish Maker.”"))
+                    msgbox(format("The Oldale Ruins appear in AG002 “A Ruin with a View.”"))
+                    msgbox(format("The Valley of Steel appears in AG058 “All Torkoal, No Play.”"))
+                    msgbox(format("Crossgate Hills was inspired by Crossgate Town from AG080 “That's Just Swellow.”"))
+                    msgbox(format("Monsu Island appears in AG097 “Gaining Groudon” and AG098 “The Scuffle of Legends.”"))
+                    goto(InspirationMenu)
+                case 2:
+                    msgbox(format("The Beach Battle was inspired by the “Brawl on the Beach” section of the fanfic “Borne of Caution” by Fuggmann (Act 1, Ch. 14-15)."))
+                    msgbox(format("There is a trainer in Victory Road who is a direct reference to the main character of the fanfic “I Will Touch the Skies” by Soussouni."))
+                    msgbox(format("Three trainers appearing on Route 132 are references to Twitch Plays Pokémon."))
+                    msgbox(format("A trainer battle in Seafloor Cavern is a reference the Emerald Kaizo nuzlocke by Pokémon Challenges."))
+                    msgbox(format("Most of the added in-game trades are direct references to popular culture or Pokémon content creators."))
+                    msgbox(format("Pokémon content creators referenced include Pokémon Challenges, FlygonHG, and Smallant."))
+                    goto(InspirationMenu)
+                default:
+                    goto(CreditsMenu)
+            }
+        case 3:
+            goto(CreditsIntro)
         default:
     }
     msgbox(format("Be seeing you!"))
