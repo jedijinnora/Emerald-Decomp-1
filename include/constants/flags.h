@@ -209,7 +209,7 @@
 #define FLAG_TUTOR_TERRAIN_MOVES             0xB4//lavaridge herb shop
 #define FLAG_TUTOR_MULTI_HIT_MOVES           0xB5//
 #define FLAG_TUTOR_HIGH_CRIT_MOVES           0xB6//cutter's house, rustboro
-#define FLAG_UNUSED_0xB7                     0xB7
+#define FLAG_TUTOR_SHROOMISH_SPORE           0xB7//rustboro city
 #define FLAG_UNUSED_0xB8                     0xB8
 #define FLAG_UNUSED_0xB9                     0xB9
 #define FLAG_UNUSED_0xBA                     0xBA

@@ -25,12 +25,46 @@ script RustboroCity_EventScript_FatMan {
 }
 
 script RustboroCity_EventScript_NinjaBoy {
-	lock
+	lockall
 	faceplayer
-	msgbox(format("Hi! I love Shroomish!"))
-	//TODO: check and reward player if shroomish in party
-	//allow teaching of Spore
-	release
+	goto_if_set(FLAG_TUTOR_SHROOMISH_SPORE, RustboroCity_EventScript_ShroomishSporeTutor)
+	msgbox(format("Hi! I love the Pokémon Shroomish!"))
+	goto_if_unset(FLAG_TUTOR_SHROOMISH_SPORE, RustboroCity_EventScript_CheckShroomishTutor)
+	releaseall
+	end
+}
+
+script RustboroCity_EventScript_CheckShroomishTutor {
+	msgbox(format("Have you seen Shroomish around the Hoenn region?"))
+	goto_if_mon_caught(SPECIES_SHROOMISH, RustboroCity_EventScript_EnableShroomishTutor)
+	msgbox(format("Aww, you really should go get a Shroomish in Petalburg Woods. Shroomish is such a fun guy!"))
+	releaseall
+	end
+}
+
+script RustboroCity_EventScript_EnableShroomishTutor {
+	setflag(FLAG_TUTOR_SHROOMISH_SPORE)
+	msgbox(format("Yes! Your Pokédex has the data for Shroomish all right!"))
+	msgbox(format("I like you! I'll share the awesome power of fungi with your Pokémon!"))
+	goto(RustboroCity_EventScript_ShroomishSporeTutor)
+	end
+}
+
+script RustboroCity_EventScript_ShroomishSporeTutor {
+	msgbox(format("The ultimate mushroom move!"))
+	msgbox(format("I'll teach your Pokémon Spore?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		RustboroCity_EventScript_SporeDeclined:
+		msgbox(format("I guess you aren't a fun guy."))
+		releaseall
+		end
+	}
+	msgbox(format("All right, show me a real fun Pokémon!"))
+	setvar(VAR_0x8005, MOVE_SPORE)
+	call(MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq(VAR_RESULT, 0, RustboroCity_EventScript_SporeDeclined)
+	msgbox(format("Have fun befuddling your foes with Spore!"))
+	releaseall
 	end
 }
 
