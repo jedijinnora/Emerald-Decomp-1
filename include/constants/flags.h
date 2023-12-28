@@ -184,7 +184,7 @@
 #define FLAG_RECEIVED_CASTFORM               0x9D // weather institute
 #define FLAG_RECEIVED_LAVARIDGE_EGG          0x9E // lavaridge
 #define FLAG_RECEIVED_SABLEYE                0x9F // r116
-#define FLAG_RECEIVED_MAWILE                 0xA0 // meteor village
+#define FLAG_RECEIVED_TINKATINK                 0xA0 // meteor village
 #define FLAG_RECEIVED_DITTO                  0xA1 // r117
 #define FLAG_RECEIVED_EEVEE                  0xA2 // rustboro
 #define FLAG_RECEIVED_TOGEPI                 0xA3 // verdanturf

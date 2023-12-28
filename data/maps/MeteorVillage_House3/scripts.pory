@@ -9,44 +9,44 @@ script MeteorVillage_House3_EventScript_Man {
     end
 }
 
-script MeteorVillage_House3_EventScript_MawileGiver {
+script MeteorVillage_House3_EventScript_TinkatinkGiver {
     lock
     faceplayer
-    if (flag(FLAG_RECEIVED_MAWILE)) {
+    if (flag(FLAG_RECEIVED_TINKATINK)) {
         msgbox(format("How is the little dragonslayer doing these days?"))
         release
         end
     }
     msgbox(format("Almost everyone here goes crazy for dragons."))
-    playmoncry(SPECIES_MAWILE, CRY_MODE_NORMAL)
+    playmoncry(SPECIES_TINKATINK, CRY_MODE_NORMAL)
     msgbox(format("This little one is out of place, being a Steel and Fairy type."))
-    msgbox(format("You look like a strong Trainer. Would you take Mawile with you on your journey?"), MSGBOX_YESNO)
+    msgbox(format("You look like a strong Trainer. Would you take Tinkatink with you on your journey?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES) {
-	    setflag(FLAG_RECEIVED_MAWILE)
-	    givemon(SPECIES_MAWILE, 10)
+	    setflag(FLAG_RECEIVED_TINKATINK)
+	    givemon(SPECIES_TINKATINK, 10)
 	    playfanfare(MUS_OBTAIN_ITEM)
-	    bufferspeciesname(STR_VAR_1, SPECIES_MAWILE)
+	    bufferspeciesname(STR_VAR_1, SPECIES_TINKATINK)
         msgbox("{PLAYER} received {STR_VAR_1}!")
 	    waitmessage
 	    waitfanfare
-	    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, MawileToParty)
-	    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, MawileToPC)
+	    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, TinkatinkToParty)
+	    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, TinkatinkToPC)
 
-        MawileToParty:
+        TinkatinkToParty:
         msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES) {
             call(Common_EventScript_GetGiftMonPartySlot)
             call(Common_EventScript_NameReceivedPartyMon)
         }
-        goto(MawileEnd)
+        goto(TinkatinkEnd)
 
-        MawileToPC:
+        TinkatinkToPC:
         msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
         if(var(VAR_RESULT) == YES) {
             call(Common_EventScript_NameReceivedBoxMon)
         }
         call(Common_EventScript_TransferredToPC)
-        MawileEnd:
+        TinkatinkEnd:
         msgbox(format("I hope you two get along."))
         release
         end
