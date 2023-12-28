@@ -1,1 +1,119 @@
 mapscripts LavaridgeTown_House3_MapScripts {}
+
+script LavaridgeTown_House3_EventScript_FireStarterWoman {
+    lockall
+	faceplayer
+	goto_if_unset(FLAG_RECEIVED_FIRE_STARTER, LavaridgeTown_House3_EventScript_FireStarterCheck)
+	FireStarterInfo:
+	msgbox(format("Grass and Bug Pokémon are common throughout the world, so Fire types make excellent starters."))
+	releaseall
+	end
+}
+
+script LavaridgeTown_House3_EventScript_FireStarterCheck {
+	goto_if_set(FLAG_TEMP_1, FireStarterMultichoice)
+	FireStarterCheckCharmander:
+	goto_if_mon_caught(SPECIES_CHARMANDER, FireStarterCheckCyndaquil)
+	dynmultipush("Charmander", SPECIES_CHARMANDER)
+	setflag(FLAG_TEMP_1)
+
+	FireStarterCheckCyndaquil:
+	goto_if_mon_caught(SPECIES_CYNDAQUIL, FireStarterCheckTorchic)
+	dynmultipush("Cyndaquil", SPECIES_CYNDAQUIL)
+	setflag(FLAG_TEMP_1)
+
+	FireStarterCheckTorchic:
+	goto_if_mon_caught(SPECIES_TORCHIC, FireStarterCheckChimchar)
+	dynmultipush("Torchic", SPECIES_TORCHIC)
+	setflag(FLAG_TEMP_1)
+
+	FireStarterCheckChimchar:
+	goto_if_mon_caught(SPECIES_CHIMCHAR, FireStarterCheckTepig)
+	dynmultipush("Chimchar", SPECIES_CHIMCHAR)
+	setflag(FLAG_TEMP_1)
+
+	FireStarterCheckTepig:
+	goto_if_mon_caught(SPECIES_TEPIG, FireStarterCheckFennekin)
+	dynmultipush("Tepig", SPECIES_TEPIG)
+	setflag(FLAG_TEMP_1)
+
+	FireStarterCheckFennekin:
+	goto_if_mon_caught(SPECIES_FENNEKIN, FireStarterCheckLitten)
+	dynmultipush("Fennekin", SPECIES_FENNEKIN)
+	setflag(FLAG_TEMP_1)
+
+	FireStarterCheckLitten:
+	goto_if_mon_caught(SPECIES_LITTEN, FireStarterCheckScorbunny)
+	dynmultipush("Litten", SPECIES_LITTEN)
+	setflag(FLAG_TEMP_1)
+
+	FireStarterCheckScorbunny:
+	goto_if_mon_caught(SPECIES_SCORBUNNY, FireStarterCheckFuecoco)
+	dynmultipush("Scorbunny", SPECIES_SCORBUNNY)
+	setflag(FLAG_TEMP_1)
+
+	FireStarterCheckFuecoco:
+	goto_if_mon_caught(SPECIES_FUECOCO, FireStarterMultichoice)
+	dynmultipush("Fuecoco", SPECIES_FUECOCO)
+	setflag(FLAG_TEMP_1)
+
+	FireStarterMultichoice:
+	goto_if_unset(FLAG_TEMP_1, FireStarterInfo)
+	msgbox(format("I have some rare Fire Pokémon in need of a awesome Trainer."))
+	msgbox(format("Are you interested in taking one with you?"), MSGBOX_YESNO)
+	goto_if_ne(VAR_RESULT, YES, FireStarterComeBack)
+	msgbox(format("Which one will you take?"))
+	clearflag(FLAG_TEMP_1)
+	dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case SPECIES_CHARMANDER:
+		case SPECIES_CYNDAQUIL:
+		case SPECIES_TORCHIC:
+		case SPECIES_CHIMCHAR:
+		case SPECIES_TEPIG:
+		case SPECIES_FENNEKIN:
+		case SPECIES_LITTEN:
+		case SPECIES_SCORBUNNY:
+		case SPECIES_FUECOCO:
+			copyvar(VAR_TEMP_1, VAR_RESULT)
+			goto(LavaridgeTown_House3_EventScript_FireStarterGift)
+		default:
+			FireStarterComeBack:
+			msgbox(format("Come back if you change your mind."))
+			releaseall
+			end
+	}
+}
+
+script LavaridgeTown_House3_EventScript_FireStarterGift {
+	msgbox(format("Excellent! Here you are!"))
+	waitmessage
+	setflag(FLAG_RECEIVED_FIRE_STARTER)
+	givemon(VAR_TEMP_1, 5, ITEM_ORAN_BERRY)
+	playfanfare(MUS_OBTAIN_ITEM)
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_1)
+	msgbox("{PLAYER} received {STR_VAR_1}!")
+	waitmessage
+	waitfanfare
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, FireStarterToParty)
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, FireStarterToPC)
+
+	FireStarterToParty:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	}
+	goto(FireStarterEnd)
+
+	FireStarterToPC:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	call(Common_EventScript_TransferredToPC)
+	FireStarterEnd:
+	msgbox(format("I hope you have grand adventures together!"))
+	releaseall
+	end
+}

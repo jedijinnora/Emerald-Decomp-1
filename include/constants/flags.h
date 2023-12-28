@@ -1053,10 +1053,10 @@
 #define FLAG_LILYCOVE_TAILLOW_TRADE_COMPLETED                       0x3D0
 #define FLAG_LILYCOVE_CORSOLA_TRADE_COMPLETED                       0x3D1
 #define FLAG_LILYCOVE_MUNNA_TRADE_COMPLETED                         0x3D2
+#define FLAG_VICTORY_ROAD_MELTAN_TRADE_COMPLETED                    0x3D3
 
 //hide static encounter flags
-#define FLAG_HIDE_BATTLE_FRONTIER_SUDOWOODO                         0x3D3
-#define FLAG_UNUSED_0x3D4                                           0x3D4
+#define FLAG_HIDE_BATTLE_FRONTIER_SUDOWOODO                         0x3D4
 #define FLAG_UNUSED_0x3D5                                           0x3D5
 #define FLAG_UNUSED_0x3D6                                           0x3D6
 #define FLAG_UNUSED_0x3D7                                           0x3D7
@@ -1188,7 +1188,7 @@
 #define FLAG_ITEM_RUSTBORO_CITY_ELIXIR                              0x451
 #define FLAG_ITEM_LILYCOVE_CITY_PP_UP                               0x452
 #define FLAG_ITEM_MOSSDEEP_CITY_RARE_CANDY                          0x453
-#define FLAG_ITEM_SOOTOPOLIS_CITY_SHINY_STONE                       0x454
+#define FLAG_ITEM_SOOTOPOLIS_CITY_ABILITY_CAPSULE                   0x454
 #define FLAG_ITEM_EVER_GRANDE_CITY_COMET_SHARD                      0x455
 #define FLAG_ITEM_LITTLEROOT_TOWN_DAWN_STONE                        0x456
 #define FLAG_ITEM_VERDANTURF_TOWN_LEAF_STONE                        0x457

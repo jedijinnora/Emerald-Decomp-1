@@ -4,25 +4,52 @@ script MeteorVillage_House3_EventScript_Man {
     lock
     faceplayer
     msgbox(format("Settlers have displaced most of the native peoples of Hoenn."))
-    msgbox(format("All that's left of the original civilizations are ruins and a few places like this."))
+    msgbox(format("All that's left of the original civilizations are ruins and a few remnants like us."))
     release
     end
 }
 
-script MeteorVillage_House3_EventScript_PokefanF {
+script MeteorVillage_House3_EventScript_MawileGiver {
     lock
     faceplayer
-    if (flag(FLAG_TEMP_1)) {
+    if (flag(FLAG_RECEIVED_MAWILE)) {
         msgbox(format("How is the little dragonslayer doing these days?"))
         release
         end
     }
     msgbox(format("Almost everyone here goes crazy for dragons."))
     playmoncry(SPECIES_MAWILE, CRY_MODE_NORMAL)
-    msgbox(format("This little one is out of place, being a Steel/Fairy type."))
+    msgbox(format("This little one is out of place, being a Steel and Fairy type."))
     msgbox(format("You look like a strong Trainer. Would you take Mawile with you on your journey?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == YES) {
-        //give mawile
+	    setflag(FLAG_RECEIVED_MAWILE)
+	    givemon(SPECIES_MAWILE, 10)
+	    playfanfare(MUS_OBTAIN_ITEM)
+	    bufferspeciesname(STR_VAR_1, SPECIES_MAWILE)
+        msgbox("{PLAYER} received {STR_VAR_1}!")
+	    waitmessage
+	    waitfanfare
+	    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, MawileToParty)
+	    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, MawileToPC)
+
+        MawileToParty:
+        msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            call(Common_EventScript_GetGiftMonPartySlot)
+            call(Common_EventScript_NameReceivedPartyMon)
+        }
+        goto(MawileEnd)
+
+        MawileToPC:
+        msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            call(Common_EventScript_NameReceivedBoxMon)
+        }
+        call(Common_EventScript_TransferredToPC)
+        MawileEnd:
+        msgbox(format("I hope you two get along."))
+        release
+        end
     }
     msgbox(format("Oh. Are you a dragon supremacist as well?"))
     release

@@ -44,7 +44,7 @@ gText_Birch_SoItsPlayer::
 gText_Birch_YourePlayer::
 	.string "Ah, okay!\p"
 	.string "You're {PLAYER} who's traveling\n"
-	.string "from Sinnoh to Hoenn. I get it now!\l"
+	.string "to the Hoenn region. I get it now!\l"
 	.string "Maybe we'll see each other soon!\p"
 	.string "$"
 

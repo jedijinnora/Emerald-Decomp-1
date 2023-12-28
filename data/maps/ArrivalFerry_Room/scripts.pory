@@ -224,30 +224,24 @@ script ArrivalFerry_Room_EventScript_TrashCan {
 script ArrivalFerry_Room_EventScript_Bag {
     lock
     msgbox(format("It's the satchel with your starter Pokémon!"))
-    waitmessage
 
-    //choose from selection
     StarterChoice:
-    message(format("Er… Which one did you pick again?"))
-    waitmessage
-    multichoice(25, 5, MULTI_STARTER_CHOICE, 1)
-    closemessage
+    msgbox(format("What kind of starter did you have?"))
+    dynmultichoice(0,0,TRUE,6,0,DYN_MULTICHOICE_CB_NONE, "Traditional Grass/Fire/Water", "Monotype Starter", "Other Starters")
     switch(var(VAR_RESULT)) {
-        case 0: 
-            setvar(VAR_STARTER_CHOICE, SPECIES_TURTWIG)
-            bufferspeciesname(STR_VAR_1, SPECIES_TURTWIG)
+        case 0:
+            call(ArrivalFerry_Room_EventScript_GrassFireWater)
         case 1:
-            setvar(VAR_STARTER_CHOICE, SPECIES_CHIMCHAR)
-            bufferspeciesname(STR_VAR_1, SPECIES_CHIMCHAR)  
+            call(ArrivalFerry_Room_EventScript_Monotype)
         case 2:
-            setvar(VAR_STARTER_CHOICE, SPECIES_PIPLUP)
-            bufferspeciesname(STR_VAR_1, SPECIES_PIPLUP)
+            call(ArrivalFerry_Room_EventScript_OtherStarter)
         default:
-            msgbox(format("Something went wrong! 1"))
+            goto(StarterChoice)
     }
-    closemessage
+
+    ShowStarterChoice:
     showmonpic(VAR_STARTER_CHOICE, 10, 3)
-    msgbox(format("Did you pick {STR_VAR_1}?"), MSGBOX_YESNO)
+    msgbox(format("Did you pick this Pokémon?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == NO) {
         hidemonpic
         goto(StarterChoice)
@@ -274,4 +268,168 @@ script ArrivalFerry_Room_EventScript_Bag {
     msgbox(format("Assuming you've cleaned up enough that the madman will let you out the door…"))
     release
     end
+}
+
+script ArrivalFerry_Room_EventScript_GrassFireWater {
+    msgbox(format("Er… Which region?"))
+    dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Kanto", "Johto", "Hoenn", "Sinnoh", "Unova", "Kalos", "Alola", "Galar", "Paldea")
+    addvar(VAR_RESULT, 1)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            dynmultipush("Bulbasaur", SPECIES_BULBASAUR)
+            dynmultipush("Charmander", SPECIES_CHARMANDER)
+            dynmultipush("Squirtle", SPECIES_SQUIRTLE)
+        case 2:
+            dynmultipush("Chikorita", SPECIES_CHIKORITA)
+            dynmultipush("Cyndaquil", SPECIES_CYNDAQUIL)
+            dynmultipush("Totodile", SPECIES_TOTODILE)
+        case 3:
+            dynmultipush("Treecko", SPECIES_TREECKO)
+            dynmultipush("Torchic", SPECIES_TORCHIC)
+            dynmultipush("Mudkip", SPECIES_MUDKIP)
+        case 4:
+            dynmultipush("Turtwig", SPECIES_TURTWIG)
+            dynmultipush("Chimchar", SPECIES_CHIMCHAR)
+            dynmultipush("Piplup", SPECIES_PIPLUP)
+        case 5:
+            dynmultipush("Snivy", SPECIES_SNIVY)
+            dynmultipush("Tepig", SPECIES_TEPIG)
+            dynmultipush("Oshawott", SPECIES_OSHAWOTT)
+        case 6:
+            dynmultipush("Chespin", SPECIES_CHESPIN)
+            dynmultipush("Fennekin", SPECIES_FENNEKIN)
+            dynmultipush("Froakie", SPECIES_FROAKIE)
+        case 7:
+            dynmultipush("Rowlet", SPECIES_ROWLET)
+            dynmultipush("Litten", SPECIES_LITTEN)
+            dynmultipush("Popplio", SPECIES_POPPLIO)
+        case 8:
+            dynmultipush("Grookey", SPECIES_GROOKEY)
+            dynmultipush("Scorbunny", SPECIES_SCORBUNNY)
+            dynmultipush("Sobble", SPECIES_SOBBLE)
+        case 9:
+            dynmultipush("Sprigatito", SPECIES_SPRIGATITO)
+            dynmultipush("Fuecoco", SPECIES_FUECOCO)
+            dynmultipush("Quaxly", SPECIES_QUAXLY)
+        default:
+            goto(StarterChoice)
+    }
+    dynmultipush("Choose a different region", 0)
+    msgbox(format("Which starter was it?"))
+    dynmultistack(0,0,TRUE,6,TRUE,1,DYN_MULTICHOICE_CB_NONE)
+    goto_if_eq(VAR_RESULT, 0, ArrivalFerry_Room_EventScript_GrassFireWater)
+    copyvar(VAR_STARTER_CHOICE, VAR_RESULT)
+    return
+}
+
+script ArrivalFerry_Room_EventScript_Monotype {
+    msgbox(format("Um… Which type was it?"))
+    dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Normal","Fighting","Flying","Poison","Ground","Rock","Bug","Ghost","Steel","Fire","Water","Grass","Electric","Psychic","Ice","Dragon","Dark","Fairy")
+    switch(var(VAR_RESULT)) {
+        default:
+            case 0:
+                dynmultipush("Rattata", SPECIES_RATTATA)
+                dynmultipush("Meowth", SPECIES_MEOWTH)
+                dynmultipush("Teddiursa", SPECIES_TEDDIURSA)
+                dynmultipush("Whismur", SPECIES_WHISMUR)
+                dynmultipush("Lillipup", SPECIES_LILLIPUP)
+            case 1:
+                dynmultipush("Mankey", SPECIES_MANKEY)
+                dynmultipush("Machop", SPECIES_MACHOP)
+                dynmultipush("Tyrogue", SPECIES_TYROGUE)
+                dynmultipush("Timburr", SPECIES_TIMBURR)
+            case 2:
+                dynmultipush("Pidgey", SPECIES_PIDGEY)
+                dynmultipush("Starly", SPECIES_STARLY)
+                dynmultipush("Pikipek", SPECIES_PIKIPEK)
+                dynmultipush("Rookidee", SPECIES_ROOKIDEE)
+            case 3:
+                dynmultipush("Ekans", SPECIES_EKANS)
+                dynmultipush("Grimer", SPECIES_GRIMER)
+                dynmultipush("Koffing", SPECIES_KOFFING)
+            case 4:
+                dynmultipush("Sandshrew", SPECIES_SANDSHREW)
+                dynmultipush("Trapinch", SPECIES_TRAPINCH)
+                dynmultipush("Sandile", SPECIES_SANDILE)
+            case 5:
+                dynmultipush("Geodude", SPECIES_GEODUDE)
+                dynmultipush("Geodude-A", SPECIES_GEODUDE_ALOLAN)
+                dynmultipush("Roggenrola", SPECIES_ROGGENROLA)
+                dynmultipush("Rockruff", SPECIES_ROCKRUFF)
+            case 6:
+                dynmultipush("Yanma", SPECIES_YANMA)
+                dynmultipush("Sewaddle", SPECIES_SEWADDLE)
+                dynmultipush("Venipede", SPECIES_VENIPEDE)
+            case 7:
+                dynmultipush("Gastly", SPECIES_GASTLY)
+                dynmultipush("Shuppet", SPECIES_SHUPPET)
+                dynmultipush("Duskull", SPECIES_DUSKULL)
+            case 8:
+                dynmultipush("Meowth-G", SPECIES_MEOWTH_GALARIAN)
+                dynmultipush("Magnemite", SPECIES_MAGNEMITE)
+                dynmultipush("Aron", SPECIES_ARON)
+                dynmultipush("Klink", SPECIES_KLINK)
+            case 9:
+                dynmultipush("Vulpix", SPECIES_VULPIX)
+                dynmultipush("Growlithe", SPECIES_GROWLITHE)
+                dynmultipush("Magby", SPECIES_MAGBY)
+            case 10:
+                dynmultipush("Poliwag", SPECIES_POLIWAG)
+                dynmultipush("Horsea", SPECIES_HORSEA)
+                dynmultipush("Tympole", SPECIES_TYMPOLE)
+            case 11:
+                dynmultipush("Bellsprout", SPECIES_BELLSPROUT)
+                dynmultipush("Petilil", SPECIES_PETILIL)
+                dynmultipush("Bounsweet", SPECIES_BOUNSWEET)
+                dynmultipush("Smoliv", SPECIES_SMOLIV)
+            case 12:
+                dynmultipush("Mareep", SPECIES_MAREEP)
+                dynmultipush("Elekid", SPECIES_ELEKID)
+                dynmultipush("Shinx", SPECIES_SHINX)
+                dynmultipush("Tynamo", SPECIES_TYNAMO)
+            case 13:
+                dynmultipush("Abra", SPECIES_ABRA)
+                dynmultipush("Slowpoke", SPECIES_SLOWPOKE)
+                dynmultipush("Ralts", SPECIES_RALTS)
+            case 14:
+                dynmultipush("Swinub", SPECIES_SWINUB)
+                dynmultipush("Snorunt", SPECIES_SNORUNT)
+                dynmultipush("Vanillite", SPECIES_VANILLITE)
+            case 15:
+                dynmultipush("Axew", SPECIES_AXEW)
+                dynmultipush("Noibat", SPECIES_NOIBAT)
+                dynmultipush("Applin", SPECIES_APPLIN)
+            case 16:
+                dynmultipush("Houndour", SPECIES_HOUNDOUR)
+                dynmultipush("Zigzagoon-G", SPECIES_ZIGZAGOON_GALARIAN)
+                dynmultipush("Purrloin", SPECIES_PURRLOIN)
+            case 17:
+                dynmultipush("Flabébé", SPECIES_FLABEBE)
+                dynmultipush("Spritzee", SPECIES_SPRITZEE)
+                dynmultipush("Swirlix", SPECIES_SWIRLIX)
+            goto(StarterChoice)
+    }
+    dynmultipush("Choose a different type", 0)
+    msgbox(format("Which starter was it?"))
+    dynmultistack(0,0,TRUE,6,TRUE,2,DYN_MULTICHOICE_CB_NONE)
+    goto_if_eq(VAR_RESULT, 0, ArrivalFerry_Room_EventScript_Monotype)
+    copyvar(VAR_STARTER_CHOICE, VAR_RESULT)
+    return
+}
+
+script ArrivalFerry_Room_EventScript_OtherStarter {
+    msgbox(format("Huh… Which one did you pick again?"))
+    dynmultipush("Choose different starter type", 0)
+    dynmultipush("Pichu", SPECIES_PICHU)
+    dynmultipush("Pikachu", SPECIES_PIKACHU)
+    dynmultipush("Eevee", SPECIES_EEVEE)
+    dynmultipush("Cleffa", SPECIES_CLEFFA)
+    dynmultipush("Igglybuff", SPECIES_IGGLYBUFF)
+    dynmultipush("Skitty", SPECIES_SKITTY)
+    dynmultipush("Wynaut", SPECIES_WYNAUT)
+    dynmultipush("Munchlax", SPECIES_MUNCHLAX)
+    dynmultipush("Riolu", SPECIES_RIOLU)
+    dynmultistack(0,0,TRUE,6,TRUE,2,DYN_MULTICHOICE_CB_NONE)
+    goto_if_eq(VAR_RESULT, 0, StarterChoice)
+    copyvar(VAR_STARTER_CHOICE, VAR_RESULT)
 }

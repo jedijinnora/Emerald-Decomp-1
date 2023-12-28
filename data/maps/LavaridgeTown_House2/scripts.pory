@@ -1,1 +1,9 @@
 mapscripts LavaridgeTown_House2_MapScripts {}
+
+script LavaridgeTown_House2_EventScript_Flannery {
+
+}
+
+script LavaridgeTown_House2_EventScript_Cushion {
+    
+}

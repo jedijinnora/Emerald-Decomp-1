@@ -23,3 +23,122 @@ mart Oldale_NatureShop_Mart {
     ITEM_LUMINOUS_MOSS
     ITEM_SHED_SHELL
 }
+
+script OldaleTown_NatureShop_EventScript_GrassStarterLass {
+    lockall
+	faceplayer
+	goto_if_unset(FLAG_RECEIVED_GRASS_STARTER, OldaleTown_NatureShop_EventScript_GrassStarterCheck)
+	GrassStarterInfo:
+	msgbox(format("Every type of Pokémon has its strengths, but plants are what make the Earth liveable for people."))
+	msgbox(format("That's why I like Grass types the best."))
+	releaseall
+	end
+}
+
+script OldaleTown_NatureShop_EventScript_GrassStarterCheck {
+	goto_if_set(FLAG_TEMP_1, GrassStarterMultichoice)
+	GrassStarterCheckBulbasaur:
+	goto_if_mon_caught(SPECIES_BULBASAUR, GrassStarterCheckChikorita)
+	dynmultipush("Bulbasaur", SPECIES_BULBASAUR)
+	setflag(FLAG_TEMP_1)
+
+	GrassStarterCheckChikorita:
+	goto_if_mon_caught(SPECIES_CHIKORITA, GrassStarterCheckTreecko)
+	dynmultipush("Chikorita", SPECIES_CHIKORITA)
+	setflag(FLAG_TEMP_1)
+
+	GrassStarterCheckTreecko:
+	goto_if_mon_caught(SPECIES_TREECKO, GrassStarterCheckTurtwig)
+	dynmultipush("Treecko", SPECIES_TREECKO)
+	setflag(FLAG_TEMP_1)
+
+	GrassStarterCheckTurtwig:
+	goto_if_mon_caught(SPECIES_TURTWIG, GrassStarterCheckSnivy)
+	dynmultipush("Turtwig", SPECIES_TURTWIG)
+	setflag(FLAG_TEMP_1)
+
+	GrassStarterCheckSnivy:
+	goto_if_mon_caught(SPECIES_SNIVY, GrassStarterCheckChespin)
+	dynmultipush("Snivy", SPECIES_SNIVY)
+	setflag(FLAG_TEMP_1)
+
+	GrassStarterCheckChespin:
+	goto_if_mon_caught(SPECIES_CHESPIN, GrassStarterCheckRowlet)
+	dynmultipush("Chespin", SPECIES_CHESPIN)
+	setflag(FLAG_TEMP_1)
+
+	GrassStarterCheckRowlet:
+	goto_if_mon_caught(SPECIES_ROWLET, GrassStarterCheckGrookey)
+	dynmultipush("Rowlet", SPECIES_ROWLET)
+	setflag(FLAG_TEMP_1)
+
+	GrassStarterCheckGrookey:
+	goto_if_mon_caught(SPECIES_GROOKEY, GrassStarterCheckSprigatito)
+	dynmultipush("Grookey", SPECIES_GROOKEY)
+	setflag(FLAG_TEMP_1)
+
+	GrassStarterCheckSprigatito:
+	goto_if_mon_caught(SPECIES_SPRIGATITO, GrassStarterMultichoice)
+	dynmultipush("Sprigatito", SPECIES_SPRIGATITO)
+	setflag(FLAG_TEMP_1)
+
+	GrassStarterMultichoice:
+	goto_if_unset(FLAG_TEMP_1, GrassStarterInfo)
+	msgbox(format("I have some rare Grass Pokémon in need of a caring Trainer."))
+	msgbox(format("Are you interested in taking one with you?"), MSGBOX_YESNO)
+	goto_if_ne(VAR_RESULT, YES, GrassStarterComeBack)
+	msgbox(format("Which one will you take?"))
+	clearflag(FLAG_TEMP_1)
+	dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case SPECIES_BULBASAUR:
+		case SPECIES_CHIKORITA:
+		case SPECIES_TREECKO:
+		case SPECIES_TURTWIG:
+		case SPECIES_SNIVY:
+		case SPECIES_CHESPIN:
+		case SPECIES_ROWLET:
+		case SPECIES_GROOKEY:
+		case SPECIES_SPRIGATITO:
+			copyvar(VAR_TEMP_1, VAR_RESULT)
+			goto(OldaleTown_NatureShop_EventScript_GrassStarterGift)
+		default:
+			GrassStarterComeBack:
+			msgbox(format("Come back if you change your mind."))
+			releaseall
+			end
+	}
+}
+
+script OldaleTown_NatureShop_EventScript_GrassStarterGift {
+	msgbox(format("Excellent! Here you are!"))
+	waitmessage
+	setflag(FLAG_RECEIVED_GRASS_STARTER)
+	givemon(VAR_TEMP_1, 5, ITEM_ORAN_BERRY)
+	playfanfare(MUS_OBTAIN_ITEM)
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_1)
+	msgbox("{PLAYER} received {STR_VAR_1}!")
+	waitmessage
+	waitfanfare
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, GrassStarterToParty)
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, GrassStarterToPC)
+
+	GrassStarterToParty:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	}
+	goto(GrassStarterEnd)
+
+	GrassStarterToPC:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	call(Common_EventScript_TransferredToPC)
+	GrassStarterEnd:
+	msgbox(format("I hope you have grand adventures together!"))
+	releaseall
+	end
+}

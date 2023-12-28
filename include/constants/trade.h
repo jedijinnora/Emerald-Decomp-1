@@ -28,6 +28,7 @@
 #define INGAME_TRADE_TAILLOW 20
 #define INGAME_TRADE_CORSOLA 21
 #define INGAME_TRADE_MUNNA 22
+#define INGAME_TRADE_MELTAN 23
 
 // Return values for CanTradeSelectedMon and CanSpinTradeMon
 #define CAN_TRADE_MON              0

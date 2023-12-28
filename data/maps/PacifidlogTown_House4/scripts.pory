@@ -1,7 +1,124 @@
-raw `
-PacifidlogTown_House4_MapScripts::
-	.byte 0
+mapscripts PacifidlogTown_House4_MapScripts {}
 
+script PacifidlogTown_House4_EventScript_WaterStarterWoman {
+	lockall
+	faceplayer
+	goto_if_unset(FLAG_RECEIVED_WATER_STARTER, PacifidlogTown_House4_EventScript_WaterStarterCheck)
+	WaterStarterInfo:
+	msgbox(format("When I was a little girl, I started my journey through Kanto with a single Squirtle. It seems so long ago…"))
+	releaseall
+	end
+}
+
+script PacifidlogTown_House4_EventScript_WaterStarterCheck {
+	goto_if_set(FLAG_TEMP_1, WaterStarterMultichoice)
+	WaterStarterCheckSquirtle:
+	goto_if_mon_caught(SPECIES_SQUIRTLE, WaterStarterCheckTotodile)
+	dynmultipush("Squirtle", SPECIES_SQUIRTLE)
+	setflag(FLAG_TEMP_1)
+
+	WaterStarterCheckTotodile:
+	goto_if_mon_caught(SPECIES_TOTODILE, WaterStarterCheckMudkip)
+	dynmultipush("Totodile", SPECIES_TOTODILE)
+	setflag(FLAG_TEMP_1)
+
+	WaterStarterCheckMudkip:
+	goto_if_mon_caught(SPECIES_MUDKIP, WaterStarterCheckPiplup)
+	dynmultipush("Mudkip", SPECIES_MUDKIP)
+	setflag(FLAG_TEMP_1)
+
+	WaterStarterCheckPiplup:
+	goto_if_mon_caught(SPECIES_PIPLUP, WaterStarterCheckOshawott)
+	dynmultipush("Piplup", SPECIES_PIPLUP)
+	setflag(FLAG_TEMP_1)
+
+	WaterStarterCheckOshawott:
+	goto_if_mon_caught(SPECIES_OSHAWOTT, WaterStarterCheckFroakie)
+	dynmultipush("Oshawott", SPECIES_OSHAWOTT)
+	setflag(FLAG_TEMP_1)
+
+	WaterStarterCheckFroakie:
+	goto_if_mon_caught(SPECIES_FROAKIE, WaterStarterCheckPopplio)
+	dynmultipush("Froakie", SPECIES_FROAKIE)
+	setflag(FLAG_TEMP_1)
+
+	WaterStarterCheckPopplio:
+	goto_if_mon_caught(SPECIES_POPPLIO, WaterStarterCheckSobble)
+	dynmultipush("Popplio", SPECIES_POPPLIO)
+	setflag(FLAG_TEMP_1)
+
+	WaterStarterCheckSobble:
+	goto_if_mon_caught(SPECIES_SOBBLE, WaterStarterCheckQuaxly)
+	dynmultipush("Sobble", SPECIES_SOBBLE)
+	setflag(FLAG_TEMP_1)
+
+	WaterStarterCheckQuaxly:
+	goto_if_mon_caught(SPECIES_QUAXLY, WaterStarterMultichoice)
+	dynmultipush("Quaxly", SPECIES_QUAXLY)
+	setflag(FLAG_TEMP_1)
+
+	WaterStarterMultichoice:
+	goto_if_unset(FLAG_TEMP_1, WaterStarterInfo)
+	msgbox(format("I have some rare Water Pokémon in need of a capable Trainer."))
+	msgbox(format("Are you interested in taking one with you?"), MSGBOX_YESNO)
+	goto_if_ne(VAR_RESULT, YES, WaterStarterComeBack)
+	msgbox(format("Which one will you take?"))
+	clearflag(FLAG_TEMP_1)
+	dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case SPECIES_SQUIRTLE:
+		case SPECIES_TOTODILE:
+		case SPECIES_MUDKIP:
+		case SPECIES_PIPLUP:
+		case SPECIES_OSHAWOTT:
+		case SPECIES_FROAKIE:
+		case SPECIES_POPPLIO:
+		case SPECIES_SOBBLE:
+		case SPECIES_QUAXLY:
+			copyvar(VAR_TEMP_1, VAR_RESULT)
+			goto(PacifidlogTown_House4_EventScript_WaterStarterGift)
+		default:
+			WaterStarterComeBack:
+			msgbox(format("Come back if you change your mind."))
+			releaseall
+			end
+	}
+}
+
+script PacifidlogTown_House4_EventScript_WaterStarterGift {
+	msgbox(format("Excellent! Here you are!"))
+	waitmessage
+	setflag(FLAG_RECEIVED_WATER_STARTER)
+	givemon(VAR_TEMP_1, 5, ITEM_ORAN_BERRY)
+	playfanfare(MUS_OBTAIN_ITEM)
+	bufferspeciesname(STR_VAR_1, VAR_TEMP_1)
+	msgbox("{PLAYER} received {STR_VAR_1}!")
+	waitmessage
+	waitfanfare
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, WaterStarterToParty)
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, WaterStarterToPC)
+
+	WaterStarterToParty:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	}
+	goto(WaterStarterEnd)
+
+	WaterStarterToPC:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	call(Common_EventScript_TransferredToPC)
+	WaterStarterEnd:
+	msgbox(format("I hope you have grand adventures together!"))
+	releaseall
+	end
+}
+
+raw `
 PacifidlogTown_House4_EventScript_LittleGirl::
 	msgbox PacifidlogTown_House4_Text_SkyPokemon, MSGBOX_NPC
 	end

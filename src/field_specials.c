@@ -32,6 +32,7 @@
 #include "pokeblock.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
+#include "pokedex.h"
 #include "random.h"
 #include "rayquaza_scene.h"
 #include "region_map.h"
@@ -4355,12 +4356,12 @@ bool8 GetCaughtMon(void)
     return GetSetPokedexFlag(SpeciesToNationalPokedexNum(gSpecialVar_0x8004), FLAG_GET_CAUGHT);
 }
 
-bool8 SetSeenMon(void)
+void SetSeenMon(void)
 {
     GetSetPokedexFlag(SpeciesToNationalPokedexNum(gSpecialVar_0x8004), FLAG_SET_SEEN);
 }
 
-bool8 SetCaughtMon(void)
+void SetCaughtMon(void)
 {
     GetSetPokedexFlag(SpeciesToNationalPokedexNum(gSpecialVar_0x8004), FLAG_SET_SEEN);
     GetSetPokedexFlag(SpeciesToNationalPokedexNum(gSpecialVar_0x8004), FLAG_SET_CAUGHT);

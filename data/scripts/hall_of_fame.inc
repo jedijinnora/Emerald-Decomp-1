@@ -4,7 +4,7 @@ EverGrandeCity_HallOfFame_EventScript_SetGameClearFlags::
 	special SetChampionSaveWarp
 	setflag FLAG_IS_CHAMPION
 	call EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries
-	call_if_eq VAR_FOSSIL_MANIAC_STATE, 0, EverGrandeCity_HallOfFame_EventScript_SetDesertUnderpassCommentReady
+	call EverGrandeCity_HallOfFame_EventScript_ResetStarterGifts
 	clearflag FLAG_HIDE_LILYCOVE_MOTEL_GAME_DESIGNERS
 	call EverGrandeCity_HallOfFame_EventScript_ResetEliteFour
 	special UpdateTrainerFanClubGameClear
@@ -19,8 +19,10 @@ EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries::
 	clearflag FLAG_DEFEATED_HO_OH
 	return
 
-EverGrandeCity_HallOfFame_EventScript_SetDesertUnderpassCommentReady::
-	setvar VAR_FOSSIL_MANIAC_STATE, 1
+EverGrandeCity_HallOfFame_EventScript_ResetStarterGifts::
+	clearflag FLAG_RECEIVED_GRASS_STARTER
+	clearflag FLAG_RECEIVED_FIRE_STARTER
+	clearflag FLAG_RECEIVED_WATER_STARTER
 	return
 
 EverGrandeCity_HallOfFame_EventScript_ReadyDexUpgradeEvent::

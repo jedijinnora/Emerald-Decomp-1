@@ -69,28 +69,28 @@ script Route119_WeatherInstitute_2F_EventScript_TMScientist {
 	checkitem(ITEM_TM32_SANDSTORM)
 	if(!var(VAR_RESULT)) {
 		setflag(FLAG_TEMP_1)
-		dynmultipush("TM32 Sandstorm", 0)
+		dynmultipush("TM32 Sandstorm", ITEM_TM32_SANDSTORM)
 	}
 	checkitem(ITEM_TM47_SUNNY_DAY)
 	if(!var(VAR_RESULT)) {
 		setflag(FLAG_TEMP_1)
-		dynmultipush("TM47 Sunny Day", 1)
+		dynmultipush("TM47 Sunny Day", ITEM_TM47_SUNNY_DAY)
 	}
 	checkitem(ITEM_TM53_RAIN_DANCE)
 	if(!var(VAR_RESULT)) {
 		setflag(FLAG_TEMP_1)
-		dynmultipush("TM53 Rain Dance", 2)
+		dynmultipush("TM53 Rain Dance", ITEM_TM53_RAIN_DANCE)
 	}
 	checkitem(ITEM_TM83_HAIL)
 	if(!var(VAR_RESULT)) {
 		setflag(FLAG_TEMP_1)
-		dynmultipush("TM83 Hail", 3)
+		dynmultipush("TM83 Hail", ITEM_TM83_HAIL)
 	}
 	goto_if_unset(FLAG_TEMP_1, TMsGone)
 	msgbox(format("I exchange colored Shards for weather TMs."))
-	dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+	dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_SHOW_ITEM)
 	switch(var(VAR_RESULT)) {
-		case 0:
+		case ITEM_TM32_SANDSTORM:
 			checkitem(ITEM_YELLOW_SHARD, 5)
 			if(var(VAR_RESULT)) {
 				msgbox(format("Trade 5 Yellow Shards for TM32 Sandstorm?"), MSGBOX_YESNO)
@@ -104,7 +104,7 @@ script Route119_WeatherInstitute_2F_EventScript_TMScientist {
 			msgbox(format("You don't have enough Yellow Shards."))
 			release
 			end
-		case 1:
+		case ITEM_TM47_SUNNY_DAY:
 			checkitem(ITEM_RED_SHARD, 5)
 			if(var(VAR_RESULT)) {
 				msgbox(format("Trade 5 Red Shards for TM47 Sunny Day?"), MSGBOX_YESNO)
@@ -118,7 +118,7 @@ script Route119_WeatherInstitute_2F_EventScript_TMScientist {
 			msgbox(format("You don't have enough Red Shards."))
 			release
 			end
-		case 2:
+		case ITEM_TM53_RAIN_DANCE:
 			checkitem(ITEM_BLUE_SHARD, 5)
 			if(var(VAR_RESULT)) {
 				msgbox(format("Trade 5 Blue Shards for TM53 Rain Dance?"), MSGBOX_YESNO)
@@ -132,7 +132,7 @@ script Route119_WeatherInstitute_2F_EventScript_TMScientist {
 			msgbox(format("You don't have enough Blue Shards."))
 			release
 			end
-		case 3:
+		case ITEM_TM83_HAIL:
 			checkitem(ITEM_GREEN_SHARD, 5)
 			if(var(VAR_RESULT)) {
 				msgbox(format("Trade 5 Green Shards for TM83 Hail?"), MSGBOX_YESNO)

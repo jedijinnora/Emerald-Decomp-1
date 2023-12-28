@@ -3,10 +3,59 @@ mapscripts MossdeepCity_House2_MapScripts {}
 script MossdeepCity_House2_EventScript_Man {
 	lock
 	faceplayer
+	goto_if_set(FLAG_RECEIVED_INKAY, GivenInkay)
 	msgbox(format("I really wanted a strong Dark-type to take on the Gym."))
 	msgbox(format("But all I found was this lame little squid. It's useless!"))
-	msgbox(format("Will you take this Inkay? I'm not hungry for sushi."), MSGBOX_YESNO)
+	msgbox(format("Will you take Inkay? I'm not hungry for sushi."), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DeclinedInkay)
+	specialvar(VAR_RESULT, CalculatePlayerPartyCount)
+	goto_if_eq(VAR_RESULT, PARTY_SIZE, NoRoomForInkay)
+
 	//todo give inkay
+	setflag(FLAG_RECEIVED_INKAY)
+	givemon(SPECIES_INKAY, 10)
+	playfanfare(MUS_OBTAIN_ITEM)
+	bufferspeciesname(STR_VAR_1, SPECIES_INKAY)
+    msgbox("{PLAYER} received {STR_VAR_1}!")
+	waitmessage
+	waitfanfare
+	call(Common_EventScript_GetGiftMonPartySlot)
+	switch(var(VAR_0x8004)) {
+		case 1:
+			setmonmove(1, 1, MOVE_DISABLE)
+			setmonmove(1, 2, MOVE_SNATCH)
+		case 2:
+			setmonmove(2, 1, MOVE_DISABLE)
+			setmonmove(2, 2, MOVE_SNATCH)
+		case 3:
+			setmonmove(3, 1, MOVE_DISABLE)
+			setmonmove(3, 2, MOVE_SNATCH)
+		case 4:
+			setmonmove(4, 1, MOVE_DISABLE)
+			setmonmove(4, 2, MOVE_SNATCH)
+		default:
+			setmonmove(5, 1, MOVE_DISABLE)
+			setmonmove(5, 2, MOVE_SNATCH)
+	}
+
+    msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+
+	DeclinedInkay:
+	msgbox(format("Yeah, it's pretty pathetic."))
+	release
+	end
+
+	NoRoomForInkay:
+	msgbox(format("You don't have room."))
+	release
+	end
+
+	GivenInkay:
+	msgbox(format("I wish I had more Dark-type Pokémon."))
 	release
 	end
 }
