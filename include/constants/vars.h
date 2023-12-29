@@ -79,7 +79,7 @@
 #define VAR_REGICE_STEPS_1                               0x403B
 #define VAR_REGICE_STEPS_2                               0x403C
 #define VAR_REGICE_STEPS_3                               0x403D
-#define VAR_START_TERRAIN                                0x403E//determines starting in battle terrain
+#define VAR_START_TERRAIN                                0x403E // determines starting in battle terrain
 #define VAR_DISTRIBUTE_EON_TICKET                        0x403F // This var is read and written, but is always zero. The only way to obtain the Eon Ticket in Emerald is via Record Mixing
 #define VAR_DAYS                                         0x4040
 #define VAR_FANCLUB_FAN_COUNTER                          0x4041
@@ -147,17 +147,17 @@
 #define VAR_ROUTE132_STATE                               0x407F
 #define VAR_ROUTE133_STATE                               0x4080
 #define VAR_ROUTE134_STATE                               0x4081
-#define VAR_NUM_BADGES                                   0x4082 //Jinnora: Badge count, was may house state
-#define VAR_CLEANUP_STATE                                0x4083 //Jinnora: Used for Ferry Cabin starting sequence
+#define VAR_NUM_BADGES                                   0x4082 // Jinnora: Badge count, was may house state
+#define VAR_CLEANUP_STATE                                0x4083 // Jinnora: Used for Ferry Cabin starting sequence
 #define VAR_BIRCH_LAB_STATE                              0x4084
-#define VAR_SECRET_STASH_STATE                           0x4085//should be 0-4 to set stash locations
+#define VAR_SECRET_STASH_STATE                           0x4085 // should be 0-4 to set stash locations
 #define VAR_CONTEST_HALL_STATE                           0x4086
 #define VAR_CABLE_CLUB_STATE                             0x4087
 #define VAR_CONTEST_TYPE                                 0x4088
 #define VAR_SECRET_BASE_INITIALIZED                      0x4089
 #define VAR_CONTEST_PRIZE_PICKUP                         0x408A
 #define VAR_RECENT_SPRAY                                 0x408B // see include/config/item.h
-#define VAR_UNUSED_0x408C                                0x408C//was brendan house state
+#define VAR_UNUSED_0x408C                                0x408C // was brendan house state
 #define VAR_UNUSED_0x408D                                0x408D
 #define VAR_UNUSED_0x408E                                0x408E
 #define VAR_DEVON_CORP_3F_STATE                          0x408F

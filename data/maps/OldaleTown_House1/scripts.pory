@@ -16,9 +16,8 @@ script OldaleTown_House1_EventScript_Maniac {
 	lock
 	faceplayer
 	msgbox(format("I love studying footprints!"))
-	msgbox(format("Oh, you're from Sinnoh?"))
-	msgbox(format("Can you find a lot of Pokémon with interesting footprints in that region?"))
-	msgbox(format("Maybe I should move there!"))
+	msgbox(format("I'm recording the footprints of every Pokémon in Hoenn!"))
+	msgbox(format("When I finish here I'll move on to Sinnoh!"))
 	release
 	end
 }

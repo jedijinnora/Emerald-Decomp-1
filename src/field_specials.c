@@ -1441,10 +1441,13 @@ void LoadWallyZigzagoon(void)
     SetMonData(&gPlayerParty[0], MON_DATA_MOVE4, &monData);
 }
 
+//Jinnora: this is used in the petalburg pokecenter, I've updated it but that script is 
+// probably getting deleted anyway
 bool8 IsStarterInParty(void)
 {
     u8 i;
-    u16 starter = GetStarterPokemon(VarGet(VAR_STARTER_MON));
+    //u16 starter = GetStarterPokemon(VarGet(VAR_STARTER_MON));
+    u16 starter = VarGet(VAR_STARTER_CHOICE);
     u8 partyCount = CalculatePlayerPartyCount();
     for (i = 0; i < partyCount; i++)
     {

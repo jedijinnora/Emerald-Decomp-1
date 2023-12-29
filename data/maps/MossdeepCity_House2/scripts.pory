@@ -1,6 +1,6 @@
 mapscripts MossdeepCity_House2_MapScripts {}
 
-script MossdeepCity_House2_EventScript_Man {
+script MossdeepCity_House2_EventScript_InkayMan {
 	lock
 	faceplayer
 	goto_if_set(FLAG_RECEIVED_INKAY, GivenInkay)
@@ -10,8 +10,6 @@ script MossdeepCity_House2_EventScript_Man {
 	goto_if_eq(VAR_RESULT, NO, DeclinedInkay)
 	specialvar(VAR_RESULT, CalculatePlayerPartyCount)
 	goto_if_eq(VAR_RESULT, PARTY_SIZE, NoRoomForInkay)
-
-	//todo give inkay
 	setflag(FLAG_RECEIVED_INKAY)
 	givemon(SPECIES_INKAY, 10)
 	playfanfare(MUS_OBTAIN_ITEM)

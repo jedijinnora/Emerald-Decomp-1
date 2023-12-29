@@ -432,6 +432,16 @@ static u16 GetCurrentMapWildMonHeaderId(void)
 
                 i += route103Id;
             }
+            //Route 105 has 2 encounter sets
+            else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE105) &&
+                gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE105))
+            {
+                u16 route105Id = VarGet(VAR_OVERWORLD_WILD_SET);
+                if (route105Id >= NUM_ROUTE_105_TABLES)
+                    route105Id = 0;
+
+                i += route105Id;
+            }
             //Route 111 has 2 encounter sets
             else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE111) &&
                 gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE111))

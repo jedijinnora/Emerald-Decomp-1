@@ -1207,3 +1207,5 @@ Common_EventScript_SetWild_6::
 	.include "data/maps/FortreeCity_House6/scripts.inc"
 
 	.include "data/maps/MonsuIsland_Exterior/scripts.inc"
+
+	.include "data/maps/FallarborTown_House1/scripts.inc"

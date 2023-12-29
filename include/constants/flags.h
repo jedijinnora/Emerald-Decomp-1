@@ -87,14 +87,14 @@
 #define FLAG_CHALLENGE_FERRY_TICKET 0x43 // is single ferry use available?
 #define FLAG_DEPARTED_EVER_GRANDE   0x44 // player has left EGC; may forfeit but not add challenges
 
-#define FLAG_INFINITE_CANDY                         0x45//Jinnora: if set, player should have the infinite candy item; do not lift level cap during battle
-#define FLAG_USE_NEXT_LEVEL_CAP                     0x46//used to lift level cap during boss battles
+#define FLAG_INFINITE_CANDY                         0x45 // Jinnora: if set, player should have the infinite candy item; do not lift level cap during battle
+#define FLAG_USE_NEXT_LEVEL_CAP                     0x46 // used to lift level cap during boss battles?
 #define FLAG_EXPLORE_MODE                           0x47
-#define FLAG_NO_EV_GRINDING                         0x48//Jinnora: should remove EVs from wild battles, stat calculations, and npc trainers
+#define FLAG_NO_EV_GRINDING                         0x48 // Jinnora: should remove EVs from wild battles, stat calculations, and npc trainers
 #define FLAG_VS_SEEKER                              0x49 // see include/config/item.h
-#define FLAG_BEACH_BATTLE_VICTORY                   0x4A//set after returning from special beach map
-#define FLAG_BEACH_BATTLE_STARTED                   0x4B//set when warping to special beach map
-#define FLAG_BEACH_BATTLE_REPEAT                    0x4C//set when doing additional beach battles
+#define FLAG_BEACH_BATTLE_VICTORY                   0x4A // set after returning from special beach map
+#define FLAG_BEACH_BATTLE_STARTED                   0x4B // set when warping to special beach map
+#define FLAG_BEACH_BATTLE_REPEAT                    0x4C // set when doing additional beach battles
 #define FLAG_UNUSED_0x04D                           0x4D
 #define FLAG_UNUSED_0x04E                           0x4E
 #define FLAG_UNUSED_0x04F                           0x4F

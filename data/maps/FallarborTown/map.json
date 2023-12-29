@@ -111,7 +111,7 @@
       "x": 8,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_FALLARBOR_TOWN",
+      "dest_map": "MAP_FALLARBOR_TOWN_HOUSE1",
       "dest_warp_id": "0"
     }
   ],
