@@ -91,7 +91,7 @@
 #define FLAG_USE_NEXT_LEVEL_CAP                     0x46//used to lift level cap during boss battles
 #define FLAG_EXPLORE_MODE                           0x47
 #define FLAG_NO_EV_GRINDING                         0x48//Jinnora: should remove EVs from wild battles, stat calculations, and npc trainers
-#define FLAG_UNUSED_0x049                           0x49
+#define FLAG_VS_SEEKER                              0x49 // see include/config/item.h
 #define FLAG_BEACH_BATTLE_VICTORY                   0x4A//set after returning from special beach map
 #define FLAG_BEACH_BATTLE_STARTED                   0x4B//set when warping to special beach map
 #define FLAG_BEACH_BATTLE_REPEAT                    0x4C//set when doing additional beach battles
