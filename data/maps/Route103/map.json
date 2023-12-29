@@ -285,72 +285,99 @@
       "x": 93,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_WILD_SET_ROUTE_103",
+      "var": "VAR_OVERWORLD_WILD_SET",
       "var_value": "0",
-      "script": "Route103_EventScript_SetWild_1"
+      "script": "Common_EventScript_SetWild_1"
     },
     {
       "type": "trigger",
       "x": 93,
       "y": 9,
       "elevation": 0,
-      "var": "VAR_WILD_SET_ROUTE_103",
+      "var": "VAR_OVERWORLD_WILD_SET",
       "var_value": "0",
-      "script": "Route103_EventScript_SetWild_1"
+      "script": "Common_EventScript_SetWild_1"
     },
     {
       "type": "trigger",
       "x": 93,
       "y": 10,
       "elevation": 0,
-      "var": "VAR_WILD_SET_ROUTE_103",
+      "var": "VAR_OVERWORLD_WILD_SET",
       "var_value": "0",
-      "script": "Route103_EventScript_SetWild_1"
+      "script": "Common_EventScript_SetWild_1"
+    },
+    {
+      "type": "trigger",
+      "x": 93,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_OVERWORLD_WILD_SET",
+      "var_value": "0",
+      "script": "Common_EventScript_SetWild_1"
     },
     {
       "type": "trigger",
       "x": 94,
-      "y": 11,
-      "elevation": 0,
-      "var": "VAR_WILD_SET_ROUTE_103",
-      "var_value": "0",
-      "script": "Route103_EventScript_SetWild_1"
-    },
-    {
-      "type": "trigger",
-      "x": 95,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_WILD_SET_ROUTE_103",
+      "var": "VAR_OVERWORLD_WILD_SET",
       "var_value": "0",
-      "script": "Route103_EventScript_SetWild_1"
+      "script": "Common_EventScript_SetWild_1"
     },
     {
       "type": "trigger",
-      "x": 55,
+      "x": 54,
       "y": 11,
       "elevation": 0,
-      "var": "VAR_WILD_SET_ROUTE_103",
+      "var": "VAR_OVERWORLD_WILD_SET",
       "var_value": "1",
-      "script": "Route103_EventScript_SetWild_0"
+      "script": "Common_EventScript_SetWild_0"
     },
     {
       "type": "trigger",
-      "x": 55,
+      "x": 54,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_WILD_SET_ROUTE_103",
+      "var": "VAR_OVERWORLD_WILD_SET",
       "var_value": "1",
-      "script": "Route103_EventScript_SetWild_0"
+      "script": "Common_EventScript_SetWild_0"
     },
     {
       "type": "trigger",
-      "x": 56,
+      "x": 54,
       "y": 13,
       "elevation": 0,
-      "var": "VAR_WILD_SET_ROUTE_103",
+      "var": "VAR_OVERWORLD_WILD_SET",
       "var_value": "1",
-      "script": "Route103_EventScript_SetWild_0"
+      "script": "Common_EventScript_SetWild_0"
+    },
+    {
+      "type": "trigger",
+      "x": 68,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_OVERWORLD_WILD_SET",
+      "var_value": "0",
+      "script": "Common_EventScript_SetWild_1"
+    },
+    {
+      "type": "trigger",
+      "x": 68,
+      "y": 13,
+      "elevation": 0,
+      "var": "VAR_OVERWORLD_WILD_SET",
+      "var_value": "0",
+      "script": "Common_EventScript_SetWild_1"
+    },
+    {
+      "type": "trigger",
+      "x": 68,
+      "y": 14,
+      "elevation": 0,
+      "var": "VAR_OVERWORLD_WILD_SET",
+      "var_value": "0",
+      "script": "Common_EventScript_SetWild_1"
     }
   ],
   "bg_events": [

@@ -95,7 +95,7 @@
 #define VAR_POKELOT_RND1                                 0x404B
 #define VAR_POKELOT_RND2                                 0x404C
 #define VAR_POKELOT_PRIZE_PLACE                          0x404D
-#define VAR_STARTER_CHOICE                               0x404E//used for setting starter species in ferry room
+#define VAR_STARTER_CHOICE                               0x404E // used for setting starter species in ferry room
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
 #define VAR_LITTLEROOT_TOWN_STATE                        0x4050
 #define VAR_OLDALE_TOWN_STATE                            0x4051
@@ -174,14 +174,19 @@
 #define VAR_RUSTURF_TUNNEL_STATE                         0x409A
 #define VAR_METEOR_VILLAGE_STATE                         0x409B // JINNORA: Map variable for Meteor Village
 #define VAR_ELITE_4_STATE                                0x409C
-#define VAR_WILD_SET_ALTERING_CAVE                       0x409D//renamed from VAR_ALTERING_CAVE_WILD_SET
-#define VAR_WILD_SET_ROUTE_103                           0x409E//east/west grass
-#define VAR_WILD_SET_ROUTE_111                           0x409F//for desert vs grass?
-#define VAR_WILD_SET_ROUTE_115                           0x40A0//north/south grass
-#define VAR_WILD_SET_ROUTE_116                           0x40A1//east/west grass (east is thru Rusturf only)
-#define VAR_WILD_SET_ROUTE_117                           0x40A2//changes for EV training patches
-#define VAR_WILD_SET_VERDANT_FOREST                      0x40A3//changes based on guardian tree state?
-#define VAR_WILD_SET_ROUTE_114                           0x40A4//hacker's hideaway patch has diff encounters
+
+// Jinnora: 
+// do I really need to use a var per each map? seems like there could be a generic var that gets reused
+// most of the time the vars get set to 0 on transition by default, this wouldn't be hard
+#define VAR_WILD_SET_ALTERING_CAVE                       0x409D // renamed from VAR_ALTERING_CAVE_WILD_SET
+#define VAR_OVERWORLD_WILD_SET                           0x409E // used for all other areas, keeping altering cave separate b/c mystery gift messes with it
+#define VAR_UNUSED_0x409F                                0x409F
+#define VAR_UNUSED_0x40A0                                0x40A0
+#define VAR_UNUSED_0x40A1                                0x40A1
+#define VAR_UNUSED_0x40A2                                0x40A2
+#define VAR_UNUSED_0x40A3                                0x40A3
+#define VAR_UNUSED_0x40A4                                0x40A4
+
 #define VAR_TRICK_HOUSE_BEING_WATCHED_STATE              0x40A5
 #define VAR_TRICK_HOUSE_FOUND_TRICK_MASTER               0x40A6
 #define VAR_TRICK_HOUSE_ENTRANCE_STATE                   0x40A7

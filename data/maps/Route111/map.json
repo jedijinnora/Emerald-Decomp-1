@@ -1070,27 +1070,27 @@
       "x": 10,
       "y": 27,
       "elevation": 0,
-      "var": "VAR_WILD_SET_ROUTE_111",
+      "var": "VAR_OVERWORLD_WILD_SET",
       "var_value": "1",
-      "script": "Route111_EventScript_SetWild_0"
+      "script": "Common_EventScript_SetWild_0"
     },
     {
       "type": "trigger",
       "x": 7,
       "y": 37,
       "elevation": 0,
-      "var": "VAR_WILD_SET_ROUTE_111",
+      "var": "VAR_OVERWORLD_WILD_SET",
       "var_value": "0",
-      "script": "Route111_EventScript_SetWild_1"
+      "script": "Common_EventScript_SetWild_1"
     },
     {
       "type": "trigger",
       "x": 7,
       "y": 39,
       "elevation": 0,
-      "var": "VAR_WILD_SET_ROUTE_111",
+      "var": "VAR_OVERWORLD_WILD_SET",
       "var_value": "1",
-      "script": "Route111_EventScript_SetWild_0"
+      "script": "Common_EventScript_SetWild_0"
     }
   ],
   "bg_events": [

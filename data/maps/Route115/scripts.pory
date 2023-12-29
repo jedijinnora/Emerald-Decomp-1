@@ -6,7 +6,7 @@ mapscripts Route115_MapScripts {
 
 script Route115_OnTransition {
     call(Route115_EventScript_TryMoveStash)
-	setvar(VAR_WILD_SET_ROUTE_115, 0)
+	call(Common_EventScript_SetWild_0)
     end
 }
 
@@ -34,15 +34,6 @@ script Route115_EventScript_Stash {
     end
 }
 
-script Route115_EventScript_SetWild_0 {
-	setvar(VAR_WILD_SET_ROUTE_115, 0)
-	end
-}
-
-script Route115_EventScript_SetWild_1 {
-	setvar(VAR_WILD_SET_ROUTE_115, 1)
-	end
-}
 
 raw `
 Route115_EventScript_Woman::

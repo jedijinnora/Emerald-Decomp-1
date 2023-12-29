@@ -424,9 +424,9 @@
       "x": 87,
       "y": 23,
       "elevation": 0,
-      "var": "VAR_WILD_SET_ROUTE_116",
+      "var": "VAR_OVERWORLD_WILD_SET",
       "var_value": "0",
-      "script": "Route116_EventScript_SetWild_1"
+      "script": "Common_EventScript_SetWild_1"
     }
   ],
   "bg_events": [

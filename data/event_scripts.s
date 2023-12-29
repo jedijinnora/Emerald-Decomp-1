@@ -959,6 +959,37 @@ EventScript_VsSeekerChargingDone::
 	releaseall
 	end
 
+Common_EventScript_SetWild_0::
+	setvar VAR_OVERWORLD_WILD_SET, 0
+	return
+
+Common_EventScript_SetWild_1::
+	setvar VAR_OVERWORLD_WILD_SET, 1
+	return
+
+Common_EventScript_SetWild_2::
+	setvar VAR_OVERWORLD_WILD_SET, 2
+	return
+
+Common_EventScript_SetWild_3::
+	setvar VAR_OVERWORLD_WILD_SET, 3
+	return
+
+Common_EventScript_SetWild_4::
+	setvar VAR_OVERWORLD_WILD_SET, 4
+	return
+
+Common_EventScript_SetWild_5::
+	setvar VAR_OVERWORLD_WILD_SET, 5
+	return
+
+Common_EventScript_SetWild_6::
+	setvar VAR_OVERWORLD_WILD_SET, 6
+	return
+
+
+
+
 	.include "data/scripts/pc_transfer.inc"
 	.include "data/scripts/questionnaire.inc"
 	.include "data/scripts/abnormal_weather.inc"

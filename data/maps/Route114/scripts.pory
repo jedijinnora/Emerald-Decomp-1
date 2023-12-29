@@ -3,17 +3,7 @@ mapscripts Route114_MapScripts {
 }
 
 script Route114_OnTransition {
-	setvar(VAR_WILD_SET_ROUTE_114, 0)
-	end
-}
-
-script Route114_EventScript_SetWild_0 {
-	setvar(VAR_WILD_SET_ROUTE_114, 0)
-	end
-}
-
-script Route114_EventScript_SetWild_1 {
-	setvar(VAR_WILD_SET_ROUTE_114, 1)
+	call(Common_EventScript_SetWild_0)
 	end
 }
 

@@ -1955,6 +1955,14 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             u32 otIdType = OT_ID_RANDOM_NO_SHINY;
             u32 fixedOtId = 0;
 
+            //Jinnora: I believe that switching the partyData pointer to trainer->easyParty would be the way
+            // to swap to an easy party, something like:
+            
+            if((trainer->badgeThreshold > 0) && (VarGet(VAR_NUM_BADGES) < trainer->badgeThreshold)) {
+                partyData = trainer->easyParty;
+            }
+            
+
             if (trainer->doubleBattle == TRUE)
                 personalityValue = 0x80;
             else if (trainer->encounterMusic_gender & F_TRAINER_FEMALE)
