@@ -987,6 +987,21 @@ Common_EventScript_SetWild_6::
 	setvar VAR_OVERWORLD_WILD_SET, 6
 	return
 
+Common_EventScript_AddBadgeCount::
+	addvar VAR_NUM_BADGES, 1
+	return
+
+Common_EventScript_CountBadges::
+	setvar VAR_NUM_BADGES, 0
+	call_if_set FLAG_BADGE01_GET, Common_EventScript_AddBadgeCount
+	call_if_set FLAG_BADGE02_GET, Common_EventScript_AddBadgeCount
+	call_if_set FLAG_BADGE03_GET, Common_EventScript_AddBadgeCount
+	call_if_set FLAG_BADGE04_GET, Common_EventScript_AddBadgeCount
+	call_if_set FLAG_BADGE05_GET, Common_EventScript_AddBadgeCount
+	call_if_set FLAG_BADGE06_GET, Common_EventScript_AddBadgeCount
+	call_if_set FLAG_BADGE07_GET, Common_EventScript_AddBadgeCount
+	call_if_set FLAG_BADGE08_GET, Common_EventScript_AddBadgeCount
+	return
 
 
 

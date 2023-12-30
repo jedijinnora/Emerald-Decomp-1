@@ -1,7 +1,17 @@
-raw `
-Route132_MapScripts::
-	.byte 0
+mapscripts Route132_MapScripts {}
 
+script Route132_EventScript_HelixSign {
+	msgbox("Anarchy Island\n“Oak: This isn't the time to use that!”", MSGBOX_SIGN)
+	end
+}
+
+script Route132_EventScript_DomeSign {
+	msgbox("Domecracy Island\n“Slaying gods with a Lazor Gator!”", MSGBOX_SIGN)
+	end
+}
+
+
+raw `
 Route132_EventScript_Gilbert::
 	trainerbattle_single TRAINER_GILBERT, Route132_Text_GilbertIntro, Route132_Text_GilbertDefeat
 	msgbox Route132_Text_GilbertPostBattle, MSGBOX_AUTOCLOSE

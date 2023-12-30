@@ -595,15 +595,15 @@
     {
       "map_section": "MAPSEC_SEALED_CHAMBER",
       "name": "Sealed Chamber",
-      "x": 11,
+      "x": 10,
       "y": 10,
       "width": 1,
       "height": 1
     },
     {
       "map_section": "MAPSEC_UNDERWATER_SEALED_CHAMBER",
-      "name": "Underwater",
-      "x": 11,
+      "name": "Underwater Chamber",
+      "x": 10,
       "y": 10,
       "width": 1,
       "height": 1

@@ -8,16 +8,16 @@ script SkyPillar_Entrance_OnTransition {
 }
 
 script SkyPillar_Entrance_EventScript_Statue {
-	lockall
+	lock
 	if(flag(FLAG_LANDMARK_SKY_PILLAR)) {
 		msgbox(format("Warp to Route 131?"), MSGBOX_YESNO)
 		if(var(VAR_RESULT) == YES) {
-			warpteleport(MAP_ROUTE131, -1, 35, 19)
-			releaseall
+			warpteleport(MAP_ROUTE131, 0)
+			release
 			end
 		}
 	}
 	msgbox(format("The ancient statue is silent."))
-	releaseall
+	release
 	end
 }

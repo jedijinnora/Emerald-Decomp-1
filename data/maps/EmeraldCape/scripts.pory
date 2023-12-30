@@ -1,1 +1,17 @@
 mapscripts EmeraldCape_MapScripts {}
+
+script EmeraldCape_EventScript_WarpStatue {
+    lock
+    call(Common_EventScript_CountBadges)
+	if(flag(FLAG_CHALLENGE_HM_NONE) && var(VAR_NUM_BADGES) == 8) {
+		msgbox(format("Warp to Ever Grande City?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES) {
+			warpteleport(MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F, 3)
+			release
+			end
+		}
+	}
+	msgbox(format("The mysterious statue is silent."))
+	release
+	end
+}

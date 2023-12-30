@@ -44,3 +44,27 @@ script EverGrandeCity_PokemonCenter_1F_EventScript_Woman2 {
 	release
 	end
 }
+
+script EverGrandeCity_PokemonCenter_1F_EventScript_WarpStatue {
+    lock
+    call(Common_EventScript_CountBadges)
+	if(flag(FLAG_CHALLENGE_HM_NONE)) {
+        goto_if_lt(VAR_NUM_BADGES, 8, EverGrandeCity_PokemonCenter_1F_EventScript_StatueBadges)
+		msgbox(format("Warp to Emerald Cape?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == YES) {
+			warpteleport(MAP_EMERALD_CAPE, 2)
+			release
+			end
+		}
+	}
+	msgbox(format("The mysterious statue is silent."))
+	release
+	end
+}
+
+script EverGrandeCity_PokemonCenter_1F_EventScript_StatueBadges {
+    buffernumberstring(STR_VAR_1, VAR_NUM_BADGES)
+    msgbox(format("You only have {STR_VAR_1} Badges. You need all 8 to warp to Emerald Cape!"))
+    release
+    end
+}

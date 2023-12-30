@@ -14,19 +14,19 @@ script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
 	faceplayer
     goto_if_set(FLAG_SYS_NATIONAL_DEX, CheerBye)
 
-	msgbox(format("You must be our foreign exchange student from Sinnoh. Welcome to Hoenn!"))
+	msgbox(format("You must be one of our foreign exchange students. Welcome to Hoenn!"))
     msgbox(format("Let me grab a box for you."))
     waitmessage
 
-    delay(10)
+    delay(4)
     applymovement(LOCALID_DESKLADY, Common_Movement_FaceLeft)
     waitmovement(LOCALID_DESKLADY)
-    delay(10)
+    delay(4)
     removeobject(LOCALID_BOX)
-    delay(10)
+    delay(4)
     applymovement(LOCALID_DESKLADY, Common_Movement_FaceDown)
     waitmovement(LOCALID_DESKLADY)
-    delay(10)
+    delay(4)
 
     msgbox(format("You'll need a fully upgraded Pokédex to be able to view data on all the Pokémon in this region."))
     msgbox(format("One moment please…"))
@@ -81,7 +81,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_LeftScientist {
     msgbox(format("I can provide you with a variety of helpful information."))
     LeftMenu:
     msgbox(format("What would you like to know?"))
-	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Gym challenge info", "View level caps", "Unlimited candy mode", "Routes to each Gym", "Challenges info")
+	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Gym and HM info", "View level caps", "Unlimited candy mode", "Routes to each Gym", "Challenges info")
     switch(var(VAR_RESULT)) {
         case 0:
             goto(GymInfo)
@@ -206,8 +206,8 @@ script EverGrandeCity_Headquarters_1F_EventScript_RightScientist {
             msgbox(format("The Random HMs challenge gives you a random HM after each gym instead of allowing you to choose."))
             msgbox(format("This challenge is mostly to make the game more interesting, and the reward is a sense of pride and accomplishment."))
             msgbox(format("In the No HMs challenge no HMs will be rewarded by Gym Leaders. This severely restricts the areas you can fully explore and limits you from many useful items and encounters."))
-            msgbox(format("You will have to acquire all 8 badges without the use of HMs, and then return here."))
-            msgbox(format("Once you have 8 badges, I will teleport you to the beginning of Victory Road, which will have obstacles removed or circumvented so you can proceed without needing HMs."))
+            msgbox(format("You will have to acquire all 8 badges without the use of HMs, and then return to Ever Grande."))
+            msgbox(format("Once you have 8 badges, the statue in the Pokémon Center will offer to warp you to the beginning of Victory Road, which will have obstacles removed or circumvented so you can proceed without needing HMs."))
             msgbox(format("Speak to me after becoming Champion, and I will give you all 8 HMs and shiny 6IV versions of Turtwig, Chimchar, and Piplup."))
         case 2:
             msgbox(format("In the standard game, you may ride the ferry around the Hoenn region as much or as little as you like."))
@@ -434,9 +434,10 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     goto(InspirationMenu)
                 case 2:
                     msgbox(format("The Beach Battle was inspired by the “Brawl on the Beach” section of the fanfic “Borne of Caution” by Fuggmann (Act 1, Ch. 14-15)."))
-                    msgbox(format("There is a trainer in Victory Road who is a direct reference to the main character of the fanfic “I Will Touch the Skies” by Soussouni."))
+                    msgbox(format("Most trainers in Victory Road are references to VGC World Champions."))
+                    msgbox(format("A trainer in Victory Road is a direct reference to the main character of the fanfic “I Will Touch the Skies” by Soussouni."))
                     msgbox(format("Three trainers appearing on Route 132 are references to Twitch Plays Pokémon."))
-                    msgbox(format("A trainer battle in Seafloor Cavern is a reference the Emerald Kaizo nuzlocke by Pokémon Challenges."))
+                    msgbox(format("A trainer in Seafloor Cavern references the Emerald Kaizo nuzlocke by Pokémon Challenges."))
                     msgbox(format("Most of the added in-game trades are direct references to popular culture or Pokémon content creators."))
                     msgbox(format("Pokémon content creators referenced include Pokémon Challenges, FlygonHG, and Smallant."))
                     goto(InspirationMenu)

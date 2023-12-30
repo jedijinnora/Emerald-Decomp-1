@@ -1,13 +1,13 @@
 mapscripts Route134_MapScripts {}
 
 script Route134_EventScript_WestStatue {
-	lockall
+	lock
 	if(flag(FLAG_LANDMARK_SEALED_CHAMBER)) {
 		msgbox(format("Where do you want to warp?"))
 		dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Sealed Chamber", "Route 134 East", "Cancel")
 		switch(var(VAR_RESULT)) {
 		case 0:
-			warpteleport(MAP_SEALED_CHAMBER_OUTER_ROOM, 6, 18)
+			warpteleport(MAP_SEALED_CHAMBER_OUTER_ROOM, 1)
 			release
 			end
 		case 1:
@@ -18,29 +18,73 @@ script Route134_EventScript_WestStatue {
 		}
 	}
 	msgbox(format("The ancient statue is silent."))
-	releaseall
+	release
 	end
 }
 
 script Route134_EventScript_EastStatue {
-	lockall
+	lock
 	if(flag(FLAG_LANDMARK_SEALED_CHAMBER)) {
 		msgbox(format("Where do you want to warp?"))
 		dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Sealed Chamber", "Route 134 West", "Cancel")
 		switch(var(VAR_RESULT)) {
 		case 0:
-			warpteleport(MAP_SEALED_CHAMBER_OUTER_ROOM, -1, 6, 18)
+			warpteleport(MAP_SEALED_CHAMBER_OUTER_ROOM, 1)
 			release
 			end
 		case 1:
-			warpteleport(MAP_ROUTE134, -1, 14, 23)
+			warpteleport(MAP_ROUTE134, 1)
 			release
 			end
 		default:
 		}
 	}
 	msgbox(format("The ancient statue is silent."))
-	releaseall
+	release
+	end
+}
+
+script Route134_EventScript_Brandon {
+	lock
+	faceplayer
+	if(!flag(FLAG_TEMP_1) && !flag(FLAG_GIVEN_BRANDON_COMET_SHARD)) {
+		msgbox(format("Hey there, I'm Brandon. I'm an explorer and a bit of a hands-on archeologist."))
+		msgbox(format("I'm also a member of the Hoenn Elite Four!"))
+	}
+	setflag(FLAG_TEMP_1)
+	goto_if_set(FLAG_LANDMARK_SEALED_CHAMBER, Route134_EventScript_BrandonGift)
+	msgbox(format("The ocean between Slateport and Pacifidlog is full of mysteries."))
+	msgbox(format("I'm taking a break from my explorations. These water currents make me dizzy!"))
+	release
+	end
+}
+
+script Route134_EventScript_BrandonGift {
+	goto_if_set(FLAG_GIVEN_BRANDON_COMET_SHARD, Route134_EventScript_BrandonMonolith)
+	msgbox(format("Oh, you've been inside the Sealed Chamber?"))
+	msgbox(format("Impressive going! I like you. Here!"))
+	giveitem(ITEM_COMET_SHARD)
+	setflag(FLAG_GIVEN_BRANDON_COMET_SHARD)
+	msgbox(format("You've got the proper adventuring spirit!"))
+	msgbox(format("I look forward to seeing you challenge the Pokémon League!"))
+	release
+	end
+}
+
+script Route134_EventScript_BrandonMonolith {
+	faceplayer
+	msgbox(format("Those ancient warp statues are useful, aren't they?"))
+	msgbox(format("I'm glad I don't have to puzzle through the currents more than once!"))
+	release
+	end
+}
+
+script Route134_EventScript_StatueWoman {
+	lock
+	faceplayer
+	msgbox(format("There are some ancient statues on the east and west sides of this Route."))
+	msgbox(format("I can't get them to do anything, but I wonder if they are connected somehow?"))
+	release
 	end
 }
 

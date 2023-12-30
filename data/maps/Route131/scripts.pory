@@ -10,17 +10,17 @@ script Route131_EventScript_LittleGirl {
 }
 
 script Route131_EventScript_Statue {
-	lockall
+	lock
 	if(flag(FLAG_LANDMARK_SKY_PILLAR)) {
 		msgbox(format("Warp to Sky Pillar?"), MSGBOX_YESNO)
 		if(var(VAR_RESULT) == YES) {
-			warpteleport(MAP_SKY_PILLAR_ENTRANCE, -1, 6, 9)
-			releaseall
+			warpteleport(MAP_SKY_PILLAR_ENTRANCE, 2)
+			release
 			end
 		}
 	}
 	msgbox(format("The ancient statue is silent."))
-	releaseall
+	release
 	end
 }
 

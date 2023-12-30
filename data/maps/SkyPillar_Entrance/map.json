@@ -42,6 +42,13 @@
       "elevation": 3,
       "dest_map": "MAP_SKY_PILLAR_OUTSIDE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_SKY_PILLAR_ENTRANCE",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

@@ -1,7 +1,36 @@
-raw `
-VictoryRoad_B2F_MapScripts::
-	.byte 0
+const LOCALID_GLICK = 1
 
+mapscripts VictoryRoad_B2F_MapScripts {
+	MAP_SCRIPT_ON_LOAD : VictoryRoad_B2F_OnLoad
+	MAP_SCRIPT_ON_TRANSITION : VictoryRoad_B2F_OnTransition
+}
+
+script VictoryRoad_B2F_OnLoad {
+	call_if_set(FLAG_CHALLENGE_HM_NONE, VictoryRoad_B2F_EventScript_CreateSurfBypass)
+}
+
+script VictoryRoad_B2F_OnTransition {
+	call_if_set(FLAG_CHALLENGE_HM_NONE, VictoryRoad_B2F_EventScript_MoveTrainers)
+	end
+}
+
+script VictoryRoad_B2F_EventScript_CreateSurfBypass {
+	setmetatile(8, 21, 0x204, FALSE)
+	setmetatile(8, 22, 0x204, FALSE)
+	setmetatile(8, 23, 0x204, FALSE)
+	setmetatile(40, 20, 0x211, FALSE)
+	setmetatile(41, 20, 0x211, FALSE)
+	setmetatile(42, 20, 0x211, FALSE)
+	setmetatile(43, 20, 0x211, FALSE)
+	return
+}
+
+script VictoryRoad_B2F_EventScript_MoveTrainers {
+	setobjectxyperm(LOCALID_GLICK, 7, 24)
+	return
+}
+
+raw `
 VictoryRoad_B2F_EventScript_Vito::
 	trainerbattle_single TRAINER_VITO, VictoryRoad_B2F_Text_VitoIntro, VictoryRoad_B2F_Text_VitoDefeat
 	msgbox VictoryRoad_B2F_Text_VitoPostBattle, MSGBOX_AUTOCLOSE

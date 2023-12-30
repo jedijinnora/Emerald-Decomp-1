@@ -90,7 +90,7 @@
 #define FLAG_INFINITE_CANDY                         0x45 // Jinnora: if set, player should have the infinite candy item; do not lift level cap during battle
 #define FLAG_USE_NEXT_LEVEL_CAP                     0x46 // used to lift level cap during boss battles?
 #define FLAG_EXPLORE_MODE                           0x47
-#define FLAG_NO_EV_GRINDING                         0x48 // Jinnora: should remove EVs from wild battles, stat calculations, and npc trainers
+#define FLAG_NO_EV_GRINDING                         0x48 // Jinnora: should remove EVs from wild battles, stat calculations, and npc trainers?
 #define FLAG_VS_SEEKER                              0x49 // see include/config/item.h
 #define FLAG_BEACH_BATTLE_VICTORY                   0x4A // set after returning from special beach map
 #define FLAG_BEACH_BATTLE_STARTED                   0x4B // set when warping to special beach map
@@ -123,8 +123,8 @@
 #define FLAG_RECEIVED_MIRACLE_SEED           0x64//todo remove
 #define FLAG_RECEIVED_DESTINY_KNOT           0x65
 #define FLAG_RECEIVED_DOWSING_MACHINE        0x66
-#define FLAG_UNUSED_0x067                    0x67
-#define FLAG_UNUSED_0x068                    0x68
+#define FLAG_GIVEN_BRANDON_COMET_SHARD       0x67
+#define FLAG_CHOSE_VICTORY_ROAD_BONUS_ITEM   0x68
 #define FLAG_UNUSED_0x069                    0x69
 #define FLAG_UNUSED_0x06A                    0x6A
 #define FLAG_UNUSED_0x06B                    0x6B

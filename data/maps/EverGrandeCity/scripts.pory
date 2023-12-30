@@ -260,7 +260,7 @@ script Common_EventScript_Ferry {
 	call(Common_EventScript_CountBadges)
 
 	//check if in Ever Grande and need to go teleport to Victory Road
-	if(flag(FLAG_CHALLENGE_FERRY_LIMIT) && var(VAR_NUM_BADGES) > 7 && !flag(FLAG_SYS_GAME_CLEAR) && var(VAR_RESULT) == 0x0F) {
+	if(flag(FLAG_CHALLENGE_HM_NONE) && var(VAR_NUM_BADGES) > 7 && !flag(FLAG_SYS_GAME_CLEAR) && var(VAR_RESULT) == 0x0F) {
 		msgbox(format("You need to talk to the scientist who handles the game's challenges to get a teleport to Victory Road!"))
 		release
 		end
@@ -356,41 +356,12 @@ script Common_EventScript_Ferry {
 
 script Common_EventScript_CheckFerryTicket {
 	goto_if_set(FLAG_CHALLENGE_FERRY_TICKET, Common_EventScript_NopReturn)
-	msgbox(format("Ahoy, {PLAYER}! Go refresh your ferry ticket by beating a Gym Leader!"))
+	msgbox(format("Sorry, {PLAYER}! You need to refresh your ferry ticket by beating a Gym Leader!"))
 	release
 	end
 }
 
 script Common_EventScript_UseFerryTicket {
 	clearflag(FLAG_CHALLENGE_FERRY_TICKET)
-	return
-}
-
-script Common_EventScript_CountBadges {
-	setvar(VAR_NUM_BADGES, 0)
-	if(flag(FLAG_BADGE01_GET)) {
-		addvar(VAR_NUM_BADGES, 1)
-	}
-	if(flag(FLAG_BADGE02_GET)) {
-		addvar(VAR_NUM_BADGES, 1)
-	}
-	if(flag(FLAG_BADGE03_GET)) {
-		addvar(VAR_NUM_BADGES, 1)
-	}
-	if(flag(FLAG_BADGE04_GET)) {
-		addvar(VAR_NUM_BADGES, 1)
-	}
-	if(flag(FLAG_BADGE05_GET)) {
-		addvar(VAR_NUM_BADGES, 1)
-	}
-	if(flag(FLAG_BADGE06_GET)) {
-		addvar(VAR_NUM_BADGES, 1)
-	}
-	if(flag(FLAG_BADGE07_GET)) {
-		addvar(VAR_NUM_BADGES, 1)
-	}
-	if(flag(FLAG_BADGE08_GET)) {
-		addvar(VAR_NUM_BADGES, 1)
-	}
 	return
 }

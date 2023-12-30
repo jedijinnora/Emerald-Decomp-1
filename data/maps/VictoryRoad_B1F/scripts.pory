@@ -1,7 +1,53 @@
-raw `
-VictoryRoad_B1F_MapScripts::
-	.byte 0
+mapscripts VictoryRoad_B1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : VictoryRoad_B1F_OnTransition
+}
 
+script VictoryRoad_B1F_OnTransition {
+	call_if_set(FLAG_CHALLENGE_HM_NONE, VictoryRoad_B1F_EventScript_ClearHMObstacles)
+	end
+}
+
+script VictoryRoad_B1F_EventScript_ClearHMObstacles {
+	setflag(FLAG_TEMP_11)
+	setflag(FLAG_TEMP_12)
+	setflag(FLAG_TEMP_13)
+	setflag(FLAG_TEMP_14)
+	setflag(FLAG_TEMP_15)
+	setflag(FLAG_TEMP_16)
+	setflag(FLAG_TEMP_17)
+	setflag(FLAG_TEMP_18)
+	setflag(FLAG_TEMP_19)
+	setflag(FLAG_TEMP_1A)
+	setflag(FLAG_TEMP_1B)
+	setflag(FLAG_TEMP_1C)
+	setflag(FLAG_TEMP_1D)
+	setflag(FLAG_TEMP_1E)
+	setflag(FLAG_TEMP_1F)
+	setmetatile(6, 17, 0x211, FALSE)
+	setmetatile(6, 18, 0x211, FALSE)
+	setmetatile(10, 17, 0x211, FALSE)
+	setmetatile(10, 18, 0x211, FALSE)
+	return
+}
+
+script VictoryRoad_B1F_EventScript_BonusItem {
+	lock
+	msgbox(format("Ooh! You found a valuable item left by some previous Trainer."))
+	dynmultipush("Assault Vest", ITEM_ASSAULT_VEST)
+	dynmultipush("Choice Scarf", ITEM_CHOICE_SCARF)
+	dynmultipush("Focus Sash", ITEM_FOCUS_SASH)
+	dynmultipush("Heavy-Duty Boots", ITEM_HEAVY_DUTY_BOOTS)
+	dynmultipush("Leftovers", ITEM_LEFTOVERS)
+	dynmultipush("Life Orb", ITEM_LIFE_ORB)
+	dynmultipush("Rocky Helmet", ITEM_ROCKY_HELMET)
+	msgbox(format("Which is it?"))
+	dynmultistack(0,0,TRUE,6,FALSE,0,DYN_MULTICHOICE_CB_SHOW_ITEM)
+	finditem(VAR_RESULT)
+	release
+	end
+}
+
+raw `
 VictoryRoad_B1F_EventScript_Samuel::
 	trainerbattle_single TRAINER_SAMUEL, VictoryRoad_B1F_Text_SamuelIntro, VictoryRoad_B1F_Text_SamuelDefeat
 	msgbox VictoryRoad_B1F_Text_SamuelPostBattle, MSGBOX_AUTOCLOSE
