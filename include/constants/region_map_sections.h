@@ -239,8 +239,10 @@
 #define MAPSEC_WISHMAKERS_WELL              0xE8
 #define MAPSEC_CROSSGATE_HILLS              0xE9
 #define MAPSEC_OLDALE_GLADE                 0xEA
+#define MAPSEC_SUNRISE_SHORE                0xEB
+#define MAPSEC_SAKURAI_OVERLOOK             0xEC
 
-#define MAPSEC_NONE                         0xEB
+#define MAPSEC_NONE                         0xED
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

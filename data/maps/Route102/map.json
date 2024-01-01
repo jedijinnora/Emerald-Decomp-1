@@ -22,6 +22,11 @@
       "map": "MAP_OLDALE_TOWN",
       "offset": 14,
       "direction": "right"
+    },
+    {
+      "map": "MAP_SAKURAI_OVERLOOK",
+      "offset": 26,
+      "direction": "left"
     }
   ],
   "object_events": [

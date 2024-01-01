@@ -22,13 +22,23 @@
       "map": "MAP_ROUTE102",
       "offset": 16,
       "direction": "right"
+    },
+    {
+      "map": "MAP_SAKURAI_OVERLOOK",
+      "offset": -2,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_PETALBURG_CITY_EDGE",
+      "offset": 36,
+      "direction": "left"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
-      "x": 8,
-      "y": 28,
+      "x": 6,
+      "y": 25,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -53,10 +63,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
-      "x": 11,
-      "y": 20,
+      "x": 10,
+      "y": 16,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -66,7 +76,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 4,
+      "x": 14,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -79,8 +89,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 21,
-      "y": 36,
+      "x": 20,
+      "y": 34,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -93,7 +103,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
       "x": 17,
-      "y": 4,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
@@ -105,8 +115,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 3,
-      "y": 35,
+      "x": 0,
+      "y": 26,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -115,12 +125,25 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_PETALBURG_CITY_MAX_ELIXIR"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "x": 16,
+      "y": 4,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_13"
     }
   ],
   "warp_events": [
     {
       "x": 10,
-      "y": 25,
+      "y": 24,
       "elevation": 0,
       "dest_map": "MAP_PETALBURG_CITY_HOUSE1",
       "dest_warp_id": "0"
@@ -148,7 +171,7 @@
     },
     {
       "x": 19,
-      "y": 30,
+      "y": 29,
       "elevation": 0,
       "dest_map": "MAP_PETALBURG_CITY_HOUSE2",
       "dest_warp_id": "0"
@@ -158,6 +181,20 @@
       "y": 18,
       "elevation": 0,
       "dest_map": "MAP_PETALBURG_CITY_MART",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 21,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_PETALBURG_CITY_HOUSE3",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_PETALBURG_CITY_HOUSE4",
       "dest_warp_id": "0"
     }
   ],
@@ -215,8 +252,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 16,
-      "y": 39,
+      "x": 22,
+      "y": 38,
       "elevation": 0,
       "item": "ITEM_PP_MAX",
       "flag": "FLAG_HIDDEN_ITEM_PETALBURG_CITY_PP_MAX"
@@ -224,15 +261,15 @@
     {
       "type": "hidden_item",
       "x": 22,
-      "y": 29,
+      "y": 28,
       "elevation": 0,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_PETALBURG_CITY_RARE_CANDY"
     },
     {
       "type": "hidden_item",
-      "x": 20,
-      "y": 6,
+      "x": 23,
+      "y": 5,
       "elevation": 0,
       "item": "ITEM_MAX_REVIVE",
       "flag": "FLAG_HIDDEN_ITEM_PETALBURG_CITY_MAX_REVIVE"

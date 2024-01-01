@@ -31,7 +31,7 @@ script EverGrandeCity_EventScript_CaveBlocked {
 script EverGrandeCity_EventScript_Ferry {
 	lock
 	faceplayer
-	goto_if_set(FLAG_SYS_NATIONAL_DEX, Common_EventScript_Ferry)
+	goto_if_gt(VAR_EVER_GRANDE_CITY_STATE, 11, Common_EventScript_Ferry)
 	goto_if_set(FLAG_TEMP_1, BuildingDirections)
 	msgbox(format("Ahoy, {PLAYER}! The ferry won't leave for a while. Explore the city and make sure you are all squared away for your journey!"))
 	setflag(FLAG_TEMP_1)

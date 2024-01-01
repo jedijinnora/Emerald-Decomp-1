@@ -1,35 +1,15 @@
 gText_Birch_Welcome::
-	.string "Hi! Sorry to keep you waiting!\p"
-	.string "Welcome to the world of “Pokémon!\p"
-	.string "My name is Birch.\p"
-	.string "Many simply call me the “Pokémon\n"
-	.string "Professor.\p"
-	.string "$"
-
-gText_Birch_Pokemon::
-	.string "This is what we call a “Pokémon.”\p"
-	.string "\n"
+	.string "Welcome to Pokémon Emerald Beryl!\p"
 	.string "$"
 
 gText_Birch_MainSpeech::
-	.string "This world is widely inhabited by\n"
-	.string "creatures known as Pokémon.\p"
-	.string "We humans live alongside Pokémon,\n"
-	.string "at times as friendly playmates, and\l"
-	.string "at times as cooperative workmates.\p"
-	.string "And sometimes, we band together\n"
-	.string "and battle others like us.\p"
-	.string "But despite our closeness, we don't\n"
-	.string "know everything about Pokémon.\p"
-	.string "In fact, there are many, many\n"
-	.string "secrets surrounding Pokémon.\p"
-	.string "To unravel Pokémon mysteries,\n"
-	.string "I've been undertaking research.\l"
-	.string "That's what I do.\p"
+	.string "Please check the game's documentation\n"
+	.string "to view Pokémon changes and other\l"
+	.string "useful info.\p"
 	.string "$"
 
 gText_Birch_AndYouAre::
-	.string "And you are?$"
+	.string "You are?$"
 
 gText_Birch_BoyOrGirl::
 	.string "Please choose your avatar.$"
@@ -44,15 +24,13 @@ gText_Birch_SoItsPlayer::
 gText_Birch_YourePlayer::
 	.string "Ah, okay!\p"
 	.string "You're {PLAYER} who's traveling\n"
-	.string "to the Hoenn region. I get it now!\l"
-	.string "Maybe we'll see each other soon!\p"
+	.string "to the Hoenn region.\p"
 	.string "$"
 
 gText_Birch_AreYouReady::
 	.string "All right, are you ready?\p"
 	.string "Your very own adventure is about\n"
 	.string "to unfold.\p"
-	.string "Take courage, and leap into the\n"
-	.string "world of Pokémon where dreams,\l"
-	.string "adventure, and friendships await!\p"
+	.string "Hoenn is an open world waiting for you\n"
+	.string "to choose your path to greatness!\p"
 	.string "$"

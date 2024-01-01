@@ -125,6 +125,15 @@ script LilycoveCity_EventScript_UtilityHouseSign {
 	end
 }
 
+script LilycoveCity_EventScript_FerryBridgeMan {
+	lock
+	faceplayer
+	msgbox(format("Wondering how the ferry gets past the rail bridges?"))
+	msgbox(format("The middle part is a drawbridge! Isn't engineering wonderful?"))
+	release
+	end
+}
+
 raw `
 .set LOCALID_WOMAN_1, 19
 .set LOCALID_MAN_1, 20

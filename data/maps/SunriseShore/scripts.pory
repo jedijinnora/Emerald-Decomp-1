@@ -1,0 +1,26 @@
+mapscripts SunriseShore_MapScripts {}
+
+script SunriseShore_EventScript_LookoutSign {
+    msgbox(format("Lilycove Overlook"), MSGBOX_SIGN)
+    end
+}
+
+script SunriseShore_EventScript_EastSign {
+    msgbox(format("Sunrise Shore\n{UP_ARROW} Lilycove City\l{RIGHT_ARROW} Route 124"), MSGBOX_SIGN)
+    end
+}
+
+script SunriseShore_EventScript_WestSign {
+    msgbox(format("Sunrise Shore\n{LEFT_ARROW} Route 123 and Mt. Pyre"), MSGBOX_SIGN)
+    end
+}
+
+script SunriseShore_EventScript_Cyclist {
+    msgbox(format("No, I don't want to battle. I'm busy! Out of the way please."), MSGBOX_NPC)
+    end
+}
+
+script SunriseShore_EventScript_SunshineLady {
+    msgbox(format("I love how sunny it is here! I found a Sun Stone just the other day."), MSGBOX_NPC)
+    end
+}

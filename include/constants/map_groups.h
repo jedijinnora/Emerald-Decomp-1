@@ -82,6 +82,8 @@
 #define MAP_SUMMER_SEA                  (73 | (0 << 8))
 #define MAP_CROSSGATE_HILLS             (74 | (0 << 8))
 #define MAP_MONSU_ISLAND_EXTERIOR       (75 | (0 << 8))
+#define MAP_SAKURAI_OVERLOOK            (76 | (0 << 8))
+#define MAP_SUNRISE_SHORE               (77 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -173,6 +175,9 @@
 #define MAP_PETALBURG_CITY_POKEMON_CENTER_1F (4 | (9 << 8))
 #define MAP_PETALBURG_CITY_POKEMON_CENTER_2F (5 | (9 << 8))
 #define MAP_PETALBURG_CITY_MART              (6 | (9 << 8))
+#define MAP_PETALBURG_CITY_EDGE              (7 | (9 << 8))
+#define MAP_PETALBURG_CITY_HOUSE3            (8 | (9 << 8))
+#define MAP_PETALBURG_CITY_HOUSE4            (9 | (9 << 8))
 
 // gMapGroup_IndoorSlateport
 #define MAP_SLATEPORT_CITY_STERNS_SHIPYARD_1F      (0 | (10 << 8))

@@ -80,28 +80,21 @@ script PetalburgCity_EventScript_Gentleman {
 	end
 }
 
+script PetalburgCity_EventScript_GymSign {
+	msgbox("Petalburg City Pokémon Gym\nLeader: Greta\l“The spirited karate queen!”", MSGBOX_SIGN)
+	end
+}
+
+script PetalburgCity_EventScript_CitySign {
+	msgbox("Petalburg City\n“Where people mingle with nature.”", MSGBOX_SIGN)
+	end
+}
+
 raw `
-PetalburgCity_EventScript_GymSign::
-	msgbox PetalburgCity_Text_GymSign, MSGBOX_SIGN
-	end
-
-PetalburgCity_EventScript_CitySign::
-	msgbox PetalburgCity_Text_CitySign, MSGBOX_SIGN
-	end
-
 PetalburgCity_Text_WaterReflection:
 	.string "My face is reflected in the water.\p"
 	.string "It's a shining grin full of hope…\p"
 	.string "Or it could be a look of somber silence\n"
 	.string "struggling with fear…\p"
 	.string "What do you see reflected in your face?$"
-
-PetalburgCity_Text_GymSign:
-	.string "Petalburg City Pokémon Gym\n"
-	.string "Leader: Greta\l"
-	.string "“The spirited karate queen!”$"
-
-PetalburgCity_Text_CitySign:
-	.string "Petalburg City\n"
-	.string "“Where people mingle with nature.”$"
 `

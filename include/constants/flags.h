@@ -87,7 +87,7 @@
 #define FLAG_CHALLENGE_FERRY_TICKET 0x43 // is single ferry use available?
 #define FLAG_DEPARTED_EVER_GRANDE   0x44 // player has left EGC; may forfeit but not add challenges
 
-#define FLAG_INFINITE_CANDY                         0x45 // Jinnora: if set, player should have the infinite candy item; do not lift level cap during battle
+#define FLAG_INFINITE_CANDY                         0x45 // Jinnora: if set, player should have the infinite candy item
 #define FLAG_USE_NEXT_LEVEL_CAP                     0x46 // used to lift level cap during boss battles?
 #define FLAG_EXPLORE_MODE                           0x47
 #define FLAG_NO_EV_GRINDING                         0x48 // Jinnora: should remove EVs from wild battles, stat calculations, and npc trainers?
@@ -103,9 +103,9 @@
 #define FLAG_GIVEN_POWER_ITEMS               0x50
 #define FLAG_GIVEN_ARRIVAL_FERRY_LEMONADE    0x51
 #define FLAG_RECEIVED_BLUNDER_POLICY         0x52
-#define FLAG_RECEIVED_TUNNELER_GIFT          0x53//given Eviolite if have HM 4/5/6
+#define FLAG_RECEIVED_TUNNELER_GIFT          0x53 // given Eviolite if have HM 4/5/6
 #define FLAG_RECEIVED_SAFETY_GOGGLES         0x54
-#define FLAG_RECEIVED_TM_RETURN              0x55//todo remove
+#define FLAG_RECEIVED_TM_RETURN              0x55 // todo remove
 #define FLAG_RECEIVED_UTILITY_UMBRELLA       0x56
 #define FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY 0x57
 #define FLAG_RECEIVED_SITRUS_BERRY_ROUTE_104 0x58
@@ -116,11 +116,11 @@
 #define FLAG_RECEIVED_BELUE_BERRY            0x5D
 #define FLAG_RECEIVED_QUICK_CLAW             0x5E
 #define FLAG_RECEIVED_MACHO_BRACE            0x5F
-#define FLAG_RECEIVED_SECRET_POWER           0x60//keep but refactor into something with an npc tutor
+#define FLAG_RECEIVED_SECRET_POWER           0x60 // keep but refactor into something with an npc tutor
 #define FLAG_GIVEN_DEVON_SCOPE               0x61
 #define FLAG_RECEIVED_CLEANSE_TAG            0x62
 #define FLAG_RECEIVED_FOCUS_BAND             0x63
-#define FLAG_RECEIVED_MIRACLE_SEED           0x64//todo remove
+#define FLAG_GIVEN_SHINY_DUCKLETT_REWARD     0x64 // todo man in Petalburg offers reward if player has shiny ducklett in party
 #define FLAG_RECEIVED_DESTINY_KNOT           0x65
 #define FLAG_RECEIVED_DOWSING_MACHINE        0x66
 #define FLAG_GIVEN_BRANDON_COMET_SHARD       0x67
@@ -728,8 +728,8 @@
 #define FLAG_HIDDEN_ITEM_VERDANT_FOREST_YELLOW_NECTAR         0x2A5
 #define FLAG_HIDDEN_ITEM_VERDANT_FOREST_PINK_NECTAR           0x2A6
 #define FLAG_HIDDEN_ITEM_VERDANT_FOREST_PURPLE_NECTAR         0x2A7
-#define FLAG_UNUSED_0x2A8  0x2A8 // Unused Flag
-#define FLAG_UNUSED_0x2A9  0x2A9 // Unused Flag
+#define FLAG_HIDDEN_ITEM_SUNSHINE_SHORE_RED_SHARD             0x2A8
+#define FLAG_HIDDEN_ITEM_SUNSHINE_SHORE_HEART_SCALE           0x2A9
 #define FLAG_UNUSED_0x2AA  0x2AA // Unused Flag
 #define FLAG_UNUSED_0x2AB  0x2AB // Unused Flag
 #define FLAG_UNUSED_0x2AC  0x2AC // Unused Flag
@@ -809,7 +809,7 @@
 #define FLAG_HIDE_SECRET_STASH_SAFARI_ZONE                          0x2F2
 
 //Baltoy flags
-#define FLAG_HIDE_BALTOY_OLDALE_RUINS                               0x2F3
+#define FLAG_HIDE_BALTOY_OLDALE_RUINS_OUTSIDE                       0x2F3
 #define FLAG_HIDE_BALTOY_OLDALE_RUINS_CENTER                        0x2F4
 #define FLAG_HIDE_BALTOY_MOSSDEEP_CAVERNS_B2F                       0x2F5
 #define FLAG_HIDE_BALTOY_METEOR_VILLAGE_CENTRAL_HALL                0x2F6
@@ -1332,7 +1332,7 @@
 #define FLAG_ITEM_DESERT_UNDERPASS_EXITS_MAX_ELIXIR                 0x4E1
 #define FLAG_ITEM_SHOAL_CAVE_LOW_TIDE_INNER_ROOM_RAZOR_CLAW         0x4E2
 #define FLAG_ITEM_MONSU_ISLAND_EXTERIOR_BIG_NUGGET                  0x4E3
-#define FLAG_UNUSED_0x4E4                                           0x4E4
+#define FLAG_ITEM_SUNRISE_SHORE_SUN_STONE                           0x4E4
 #define FLAG_UNUSED_0x4E5                                           0x4E5
 #define FLAG_UNUSED_0x4E6                                           0x4E6
 #define FLAG_UNUSED_0x4E7                                           0x4E7

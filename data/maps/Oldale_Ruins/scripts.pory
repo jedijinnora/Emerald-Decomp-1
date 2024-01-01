@@ -40,3 +40,48 @@ script OldaleRuins_EventScript_CloseRoom5 {
 	setmetatile(34, 27, METATILE_General_RockWall_SandBase, TRUE)
     return
 }
+
+script OldaleRuins_EventScript_AstronomyRock_Shiny {
+    lock
+    msgbox(format("The stone is covered in carvings that seem to record celestial observations."))
+    msgbox(format("Looks like these have something to do with constellations."))
+    release
+    end
+}
+
+script OldaleRuins_EventScript_AstronomyRock_Moon {
+    lock
+    msgbox(format("The stone is covered in carvings that seem to record celestial observations."))
+    msgbox(format("Looks like these have something to do with the Moon."))
+    release
+    end
+}
+
+script OldaleRuins_EventScript_AstronomyRock_Dusk {
+    lock
+    msgbox(format("The stone is covered in carvings that seem to record celestial observations."))
+    msgbox(format("Looks like these have something to do with timing dusk throughout the year."))
+    release
+    end
+}
+
+script OldaleRuins_EventScript_AstronomyRock_Dawn {
+    lock
+    msgbox(format("The stone is covered in carvings that seem to record celestial observations."))
+    msgbox(format("Looks like these have something to do with timing dawn throughout the year."))
+    release
+    end
+}
+
+script OldaleRuins_EventScript_AstronomyRock_Sun {
+    lock
+    msgbox(format("The stone is covered in carvings that seem to record celestial observations."))
+    msgbox(format("Looks like these have something to do with the Sun."))
+    release
+    end
+}
+
+script OldaleRuins_EventScript_RuinsSign {
+    msgbox(format("Oldale Ruins"), MSGBOX_SIGN)
+    end
+}

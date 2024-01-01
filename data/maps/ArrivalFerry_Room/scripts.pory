@@ -22,14 +22,15 @@ script ArrivalFerry_Room_OnTransition {
 
 script ArrivalFerry_Room_EventScript_Init {
     lock
-    delay(60)
+    delay(20)
     setrespawn(HEAL_LOCATION_EVER_GRANDE_CITY)
+    setvar(VAR_EVER_GRANDE_CITY_STATE, 1)
     playse(SE_PIN)
     applymovement(LOCALID_ROOMMATE, Common_Movement_ExclamationMark)
     waitmovement(LOCALID_ROOMMATE)
     delay(15)
     msgbox(format("Ah, the sleeper awakens! It feels like an eternity since you burst in here like a hurricane and fell straight asleep!"))
-    msgbox(format("Consider yourself lucky that I am not such a boor to deny someone their beauty sleep..."))
+    msgbox(format("Consider yourself lucky that I am not such a boor to deny someone their beauty rest..."))
     applymovement(LOCALID_ROOMMATE, ApproachPlayer)
     waitmovement(LOCALID_ROOMMATE)
     applymovement(LOCALID_ROOMMATE, SeetheU)
@@ -217,6 +218,9 @@ script ArrivalFerry_Room_EventScript_TrashCan {
     setflag(FLAG_SYS_POKEDEX_GET)
     setvar(VAR_CABLE_CLUB_TUTORIAL_STATE, 1)
     special(SetUnlockedPokedexFlags)
+    setflag(FLAG_SYS_NATIONAL_DEX)
+    setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
+    special(EnableNationalPokedex)
     release
     end
 }
@@ -326,88 +330,88 @@ script ArrivalFerry_Room_EventScript_Monotype {
     msgbox(format("Um… Which type was it?"))
     dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Normal","Fighting","Flying","Poison","Ground","Rock","Bug","Ghost","Steel","Fire","Water","Grass","Electric","Psychic","Ice","Dragon","Dark","Fairy")
     switch(var(VAR_RESULT)) {
+        case 0:
+            dynmultipush("Rattata", SPECIES_RATTATA)
+            dynmultipush("Meowth", SPECIES_MEOWTH)
+            dynmultipush("Teddiursa", SPECIES_TEDDIURSA)
+            dynmultipush("Whismur", SPECIES_WHISMUR)
+            dynmultipush("Lillipup", SPECIES_LILLIPUP)
+        case 1:
+            dynmultipush("Mankey", SPECIES_MANKEY)
+            dynmultipush("Machop", SPECIES_MACHOP)
+            dynmultipush("Tyrogue", SPECIES_TYROGUE)
+            dynmultipush("Timburr", SPECIES_TIMBURR)
+        case 2:
+            dynmultipush("Pidgey", SPECIES_PIDGEY)
+            dynmultipush("Starly", SPECIES_STARLY)
+            dynmultipush("Pikipek", SPECIES_PIKIPEK)
+            dynmultipush("Rookidee", SPECIES_ROOKIDEE)
+        case 3:
+            dynmultipush("Ekans", SPECIES_EKANS)
+            dynmultipush("Grimer", SPECIES_GRIMER)
+            dynmultipush("Koffing", SPECIES_KOFFING)
+        case 4:
+            dynmultipush("Sandshrew", SPECIES_SANDSHREW)
+            dynmultipush("Trapinch", SPECIES_TRAPINCH)
+            dynmultipush("Sandile", SPECIES_SANDILE)
+        case 5:
+            dynmultipush("Geodude", SPECIES_GEODUDE)
+            dynmultipush("Geodude-A", SPECIES_GEODUDE_ALOLAN)
+            dynmultipush("Roggenrola", SPECIES_ROGGENROLA)
+            dynmultipush("Rockruff", SPECIES_ROCKRUFF)
+        case 6:
+            dynmultipush("Yanma", SPECIES_YANMA)
+            dynmultipush("Sewaddle", SPECIES_SEWADDLE)
+            dynmultipush("Venipede", SPECIES_VENIPEDE)
+        case 7:
+            dynmultipush("Gastly", SPECIES_GASTLY)
+            dynmultipush("Shuppet", SPECIES_SHUPPET)
+            dynmultipush("Duskull", SPECIES_DUSKULL)
+        case 8:
+            dynmultipush("Meowth-G", SPECIES_MEOWTH_GALARIAN)
+            dynmultipush("Magnemite", SPECIES_MAGNEMITE)
+            dynmultipush("Aron", SPECIES_ARON)
+            dynmultipush("Klink", SPECIES_KLINK)
+        case 9:
+            dynmultipush("Vulpix", SPECIES_VULPIX)
+            dynmultipush("Growlithe", SPECIES_GROWLITHE)
+            dynmultipush("Magby", SPECIES_MAGBY)
+        case 10:
+            dynmultipush("Poliwag", SPECIES_POLIWAG)
+            dynmultipush("Horsea", SPECIES_HORSEA)
+            dynmultipush("Tympole", SPECIES_TYMPOLE)
+        case 11:
+            dynmultipush("Bellsprout", SPECIES_BELLSPROUT)
+            dynmultipush("Petilil", SPECIES_PETILIL)
+            dynmultipush("Bounsweet", SPECIES_BOUNSWEET)
+            dynmultipush("Smoliv", SPECIES_SMOLIV)
+        case 12:
+            dynmultipush("Mareep", SPECIES_MAREEP)
+            dynmultipush("Elekid", SPECIES_ELEKID)
+            dynmultipush("Shinx", SPECIES_SHINX)
+            dynmultipush("Tynamo", SPECIES_TYNAMO)
+        case 13:
+            dynmultipush("Abra", SPECIES_ABRA)
+            dynmultipush("Slowpoke", SPECIES_SLOWPOKE)
+            dynmultipush("Ralts", SPECIES_RALTS)
+        case 14:
+            dynmultipush("Swinub", SPECIES_SWINUB)
+            dynmultipush("Snorunt", SPECIES_SNORUNT)
+            dynmultipush("Vanillite", SPECIES_VANILLITE)
+        case 15:
+            dynmultipush("Axew", SPECIES_AXEW)
+            dynmultipush("Noibat", SPECIES_NOIBAT)
+            dynmultipush("Applin", SPECIES_APPLIN)
+        case 16:
+            dynmultipush("Houndour", SPECIES_HOUNDOUR)
+            dynmultipush("Zigzagoon-G", SPECIES_ZIGZAGOON_GALARIAN)
+            dynmultipush("Purrloin", SPECIES_PURRLOIN)
+        case 17:
+            dynmultipush("Flabébé", SPECIES_FLABEBE)
+            dynmultipush("Spritzee", SPECIES_SPRITZEE)
+            dynmultipush("Swirlix", SPECIES_SWIRLIX)
         default:
-            case 0:
-                dynmultipush("Rattata", SPECIES_RATTATA)
-                dynmultipush("Meowth", SPECIES_MEOWTH)
-                dynmultipush("Teddiursa", SPECIES_TEDDIURSA)
-                dynmultipush("Whismur", SPECIES_WHISMUR)
-                dynmultipush("Lillipup", SPECIES_LILLIPUP)
-            case 1:
-                dynmultipush("Mankey", SPECIES_MANKEY)
-                dynmultipush("Machop", SPECIES_MACHOP)
-                dynmultipush("Tyrogue", SPECIES_TYROGUE)
-                dynmultipush("Timburr", SPECIES_TIMBURR)
-            case 2:
-                dynmultipush("Pidgey", SPECIES_PIDGEY)
-                dynmultipush("Starly", SPECIES_STARLY)
-                dynmultipush("Pikipek", SPECIES_PIKIPEK)
-                dynmultipush("Rookidee", SPECIES_ROOKIDEE)
-            case 3:
-                dynmultipush("Ekans", SPECIES_EKANS)
-                dynmultipush("Grimer", SPECIES_GRIMER)
-                dynmultipush("Koffing", SPECIES_KOFFING)
-            case 4:
-                dynmultipush("Sandshrew", SPECIES_SANDSHREW)
-                dynmultipush("Trapinch", SPECIES_TRAPINCH)
-                dynmultipush("Sandile", SPECIES_SANDILE)
-            case 5:
-                dynmultipush("Geodude", SPECIES_GEODUDE)
-                dynmultipush("Geodude-A", SPECIES_GEODUDE_ALOLAN)
-                dynmultipush("Roggenrola", SPECIES_ROGGENROLA)
-                dynmultipush("Rockruff", SPECIES_ROCKRUFF)
-            case 6:
-                dynmultipush("Yanma", SPECIES_YANMA)
-                dynmultipush("Sewaddle", SPECIES_SEWADDLE)
-                dynmultipush("Venipede", SPECIES_VENIPEDE)
-            case 7:
-                dynmultipush("Gastly", SPECIES_GASTLY)
-                dynmultipush("Shuppet", SPECIES_SHUPPET)
-                dynmultipush("Duskull", SPECIES_DUSKULL)
-            case 8:
-                dynmultipush("Meowth-G", SPECIES_MEOWTH_GALARIAN)
-                dynmultipush("Magnemite", SPECIES_MAGNEMITE)
-                dynmultipush("Aron", SPECIES_ARON)
-                dynmultipush("Klink", SPECIES_KLINK)
-            case 9:
-                dynmultipush("Vulpix", SPECIES_VULPIX)
-                dynmultipush("Growlithe", SPECIES_GROWLITHE)
-                dynmultipush("Magby", SPECIES_MAGBY)
-            case 10:
-                dynmultipush("Poliwag", SPECIES_POLIWAG)
-                dynmultipush("Horsea", SPECIES_HORSEA)
-                dynmultipush("Tympole", SPECIES_TYMPOLE)
-            case 11:
-                dynmultipush("Bellsprout", SPECIES_BELLSPROUT)
-                dynmultipush("Petilil", SPECIES_PETILIL)
-                dynmultipush("Bounsweet", SPECIES_BOUNSWEET)
-                dynmultipush("Smoliv", SPECIES_SMOLIV)
-            case 12:
-                dynmultipush("Mareep", SPECIES_MAREEP)
-                dynmultipush("Elekid", SPECIES_ELEKID)
-                dynmultipush("Shinx", SPECIES_SHINX)
-                dynmultipush("Tynamo", SPECIES_TYNAMO)
-            case 13:
-                dynmultipush("Abra", SPECIES_ABRA)
-                dynmultipush("Slowpoke", SPECIES_SLOWPOKE)
-                dynmultipush("Ralts", SPECIES_RALTS)
-            case 14:
-                dynmultipush("Swinub", SPECIES_SWINUB)
-                dynmultipush("Snorunt", SPECIES_SNORUNT)
-                dynmultipush("Vanillite", SPECIES_VANILLITE)
-            case 15:
-                dynmultipush("Axew", SPECIES_AXEW)
-                dynmultipush("Noibat", SPECIES_NOIBAT)
-                dynmultipush("Applin", SPECIES_APPLIN)
-            case 16:
-                dynmultipush("Houndour", SPECIES_HOUNDOUR)
-                dynmultipush("Zigzagoon-G", SPECIES_ZIGZAGOON_GALARIAN)
-                dynmultipush("Purrloin", SPECIES_PURRLOIN)
-            case 17:
-                dynmultipush("Flabébé", SPECIES_FLABEBE)
-                dynmultipush("Spritzee", SPECIES_SPRITZEE)
-                dynmultipush("Swirlix", SPECIES_SWIRLIX)
-            goto(StarterChoice)
+        goto(StarterChoice)
     }
     dynmultipush("Choose a different type", 0)
     msgbox(format("Which starter was it?"))
@@ -423,6 +427,7 @@ script ArrivalFerry_Room_EventScript_OtherStarter {
     dynmultipush("Pichu", SPECIES_PICHU)
     dynmultipush("Pikachu", SPECIES_PIKACHU)
     dynmultipush("Eevee", SPECIES_EEVEE)
+    dynmultipush("Ditto", SPECIES_DITTO)
     dynmultipush("Cleffa", SPECIES_CLEFFA)
     dynmultipush("Igglybuff", SPECIES_IGGLYBUFF)
     dynmultipush("Skitty", SPECIES_SKITTY)

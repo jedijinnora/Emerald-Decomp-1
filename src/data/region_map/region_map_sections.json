@@ -173,7 +173,7 @@
       "name": "Route 106",
       "x": 0,
       "y": 13,
-      "width": 2,
+      "width": 3,
       "height": 1
     },
     {
@@ -523,7 +523,7 @@
     {
       "map_section": "MAPSEC_SHOAL_CAVE",
       "name": "Shoal Cave",
-      "x": 23,
+      "x": 24,
       "y": 3,
       "width": 1,
       "height": 1
@@ -1755,7 +1755,7 @@
     {
       "map_section": "MAPSEC_MOSSDEEP_CAVERNS",
       "name": "Mossdeep Caverns",
-      "x": 24,
+      "x": 25,
       "y": 5,
       "width": 1,
       "height": 1
@@ -1795,8 +1795,8 @@
     {
       "map_section": "MAPSEC_SEAFOAM_COVE",
       "name": "Seafoam Cove",
-      "x": 21,
-      "y": 4,
+      "x": 24,
+      "y": 6,
       "width": 1,
       "height": 1
     },
@@ -1844,7 +1844,7 @@
       "map_section": "MAPSEC_TITANS_GRAVE",
       "name": "Titan's Grave",
       "x": 10,
-      "y": 13,
+      "y": 12,
       "width": 1,
       "height": 1
     },
@@ -1863,6 +1863,22 @@
       "y": 9,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SAKURAI_OVERLOOK",
+      "name": "Sakurai Overlook",
+      "x": 1,
+      "y": 10,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SUNRISE_SHORE",
+      "name": "Sunrise Shore",
+      "x": 17,
+      "y": 4,
+      "width": 3,
+      "height": 2
     }
   ]
 }

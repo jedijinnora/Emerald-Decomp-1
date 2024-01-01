@@ -55,7 +55,7 @@
       "id": "LAYOUT_LILYCOVE_CITY",
       "name": "LilycoveCity_Layout",
       "width": 80,
-      "height": 40,
+      "height": 44,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/LilycoveCity/border.bin",
@@ -204,7 +204,7 @@
     {
       "id": "LAYOUT_ROUTE105",
       "name": "Route105_Layout",
-      "width": 40,
+      "width": 38,
       "height": 112,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
@@ -384,7 +384,7 @@
     {
       "id": "LAYOUT_ROUTE123",
       "name": "Route123_Layout",
-      "width": 150,
+      "width": 160,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lilycove",
@@ -5160,6 +5160,36 @@
       "secondary_tileset": "gTileset_Lilycove",
       "border_filepath": "data/layouts/MonsuIsland_Exterior/border.bin",
       "blockdata_filepath": "data/layouts/MonsuIsland_Exterior/map.bin"
+    },
+    {
+      "id": "LAYOUT_SAKURAI_OVERLOOK",
+      "name": "SakuraiOverlook_Layout",
+      "width": 32,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_EverGrande",
+      "border_filepath": "data/layouts/SakuraiOverlook/border.bin",
+      "blockdata_filepath": "data/layouts/SakuraiOverlook/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_CITY_EDGE",
+      "name": "PetalburgCity_Edge_Layout",
+      "width": 6,
+      "height": 6,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/PetalburgCity_Edge/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgCity_Edge/map.bin"
+    },
+    {
+      "id": "LAYOUT_SUNRISE_SHORE",
+      "name": "SunriseShore_Layout",
+      "width": 80,
+      "height": 36,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/SunriseShore/border.bin",
+      "blockdata_filepath": "data/layouts/SunriseShore/map.bin"
     }
   ]
 }

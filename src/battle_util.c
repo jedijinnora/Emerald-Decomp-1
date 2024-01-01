@@ -8152,9 +8152,10 @@ u8 IsMonDisobedient(void)
             return 0;
         if (B_OBEDIENCE_MECHANICS < GEN_8 && !IsOtherTrainer(gBattleMons[gBattlerAttacker].otId, gBattleMons[gBattlerAttacker].otName))
             return 0;
-        if (FlagGet(FLAG_BADGE08_GET)) // Rain Badge, ignore obedience altogether
+        if (FlagGet(FLAG_SYS_GAME_CLEAR)) // ignore obedience altogether
             return 0;
 
+        // Jinnora: TODO fix this once level caps are implemented
         obedienceLevel = 10;
 
         if (FlagGet(FLAG_BADGE01_GET)) // Stone Badge

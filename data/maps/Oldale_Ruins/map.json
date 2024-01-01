@@ -36,7 +36,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_HIDE_BALTOY_OLDALE_RUINS_OUTSIDE"
     }
   ],
   "warp_events": [
@@ -101,6 +101,53 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 22,
+      "y": 12,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "OldaleRuins_EventScript_AstronomyRock_Shiny"
+    },
+    {
+      "type": "sign",
+      "x": 36,
+      "y": 22,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "OldaleRuins_EventScript_AstronomyRock_Moon"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 34,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "OldaleRuins_EventScript_AstronomyRock_Dusk"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 34,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "OldaleRuins_EventScript_AstronomyRock_Dawn"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 22,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "OldaleRuins_EventScript_AstronomyRock_Sun"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 13,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "OldaleRuins_EventScript_RuinsSign"
+    }
   ]
 }

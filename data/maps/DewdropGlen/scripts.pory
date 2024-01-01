@@ -7,6 +7,7 @@ mapscripts DewdropGlen_MapScripts {
 
 script DewdropGlen_OnTransition {
     call(DewdropGlen_EventScript_TryMoveStash)
+    call(DewdropGlen_EventScript_TrySetRain)
     end
 }
 
@@ -32,4 +33,15 @@ script DewdropGlen_EventScript_Stash {
     setvar(VAR_TEMP_F, ITEM_LEAF_STONE)
     call(Common_EventScript_SecretStash)
     end
+}
+
+script DewdropGlen_EventScript_TrySetRain {
+    random(12)
+    call_if_le(VAR_RESULT, 3, DewdropGlen_EventScript_SetRain)
+}
+
+script DewdropGlen_EventScript_SetRain {
+    setweather(WEATHER_RAIN)
+    doweather
+    return
 }

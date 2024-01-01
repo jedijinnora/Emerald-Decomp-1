@@ -116,7 +116,9 @@
     "PowerPlant",
     "SummerSea",
     "CrossgateHills",
-    "MonsuIsland_Exterior"
+    "MonsuIsland_Exterior",
+    "SakuraiOverlook",
+    "SunriseShore"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -207,7 +209,10 @@
     "PetalburgCity_House2",
     "PetalburgCity_PokemonCenter_1F",
     "PetalburgCity_PokemonCenter_2F",
-    "PetalburgCity_Mart"
+    "PetalburgCity_Mart",
+    "PetalburgCity_Edge",
+    "PetalburgCity_House3",
+    "PetalburgCity_House4"
   ],
   "gMapGroup_IndoorSlateport": [
     "SlateportCity_SternsShipyard_1F",

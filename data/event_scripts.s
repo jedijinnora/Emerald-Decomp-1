@@ -1224,3 +1224,13 @@ Common_EventScript_CountBadges::
 	.include "data/maps/MonsuIsland_Exterior/scripts.inc"
 
 	.include "data/maps/FallarborTown_House1/scripts.inc"
+
+	.include "data/maps/SakuraiOverlook/scripts.inc"
+
+	.include "data/maps/PetalburgCity_Edge/scripts.inc"
+
+	.include "data/maps/SunriseShore/scripts.inc"
+
+	.include "data/maps/PetalburgCity_House3/scripts.inc"
+
+	.include "data/maps/PetalburgCity_House4/scripts.inc"

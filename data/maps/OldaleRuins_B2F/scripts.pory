@@ -1,1 +1,246 @@
-mapscripts OldaleRuins_B2F_MapScripts {}
+mapscripts OldaleRuins_B2F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : OldaleRuins_B2F_OnTransition
+}
+
+script OldaleRuins_B2F_OnTransition {
+    call(OldaleRuins_B2F_EventScript_ClearBoulders)
+    end
+}
+
+script OldaleRuins_B2F_EventScript_ClearBoulders {
+    if(flag(FLAG_OLDALE_RUINS_OPEN_DOOR_1)) {
+        setflag(FLAG_TEMP_11)
+    }
+    if(flag(FLAG_OLDALE_RUINS_OPEN_DOOR_2)) {
+        setflag(FLAG_TEMP_12)
+    }
+    if(flag(FLAG_OLDALE_RUINS_OPEN_DOOR_3)) {
+        setflag(FLAG_TEMP_13)
+    }
+    if(flag(FLAG_OLDALE_RUINS_OPEN_DOOR_4)) {
+        setflag(FLAG_TEMP_14)
+    }
+    if(flag(FLAG_OLDALE_RUINS_OPEN_DOOR_5)) {
+        setflag(FLAG_TEMP_15)
+    }
+    end
+}
+
+script OldaleRuins_B2F_EventScript_CheckStones {
+    clearflag(FLAG_TEMP_1)
+    checkitem(ITEM_FIRE_STONE)
+    if(var(VAR_RESULT)) {
+        dynmultipush("Fire Stone", ITEM_FIRE_STONE)
+        setflag(FLAG_TEMP_1)
+    }
+    checkitem(ITEM_WATER_STONE)
+    if(var(VAR_RESULT)) {
+        dynmultipush("Water Stone", ITEM_WATER_STONE)
+        setflag(FLAG_TEMP_1)
+    }
+    checkitem(ITEM_THUNDER_STONE)
+    if(var(VAR_RESULT)) {
+        dynmultipush("Thunder Stone", ITEM_THUNDER_STONE)
+        setflag(FLAG_TEMP_1)
+    }
+    checkitem(ITEM_LEAF_STONE)
+    if(var(VAR_RESULT)) {
+        dynmultipush("Leaf Stone", ITEM_LEAF_STONE)
+        setflag(FLAG_TEMP_1)
+    }
+    checkitem(ITEM_ICE_STONE)
+    if(var(VAR_RESULT)) {
+        dynmultipush("Ice Stone", ITEM_ICE_STONE)
+        setflag(FLAG_TEMP_1)
+    }
+    checkitem(ITEM_SUN_STONE)
+    if(var(VAR_RESULT)) {
+        dynmultipush("Sun Stone", ITEM_SUN_STONE)
+        setflag(FLAG_TEMP_1)
+    }
+    checkitem(ITEM_MOON_STONE)
+    if(var(VAR_RESULT)) {
+        dynmultipush("Moon Stone", ITEM_MOON_STONE)
+        setflag(FLAG_TEMP_1)
+    }
+    checkitem(ITEM_SHINY_STONE)
+    if(var(VAR_RESULT)) {
+        dynmultipush("Shiny Stone", ITEM_SHINY_STONE)
+        setflag(FLAG_TEMP_1)
+    }
+    checkitem(ITEM_DUSK_STONE)
+    if(var(VAR_RESULT)) {
+        dynmultipush("Dusk Stone", ITEM_DUSK_STONE)
+        setflag(FLAG_TEMP_1)
+    }
+    checkitem(ITEM_DAWN_STONE)
+    if(var(VAR_RESULT)) {
+        dynmultipush("Dawn Stone", ITEM_DAWN_STONE)
+        setflag(FLAG_TEMP_1)
+    }
+
+}
+
+script OldaleRuins_B2F_EventScript_NoStones {
+    msgbox(format("But you don't have anything that would fit."))
+    release
+    end
+}
+
+script OldaleRuins_B2F_EventScript_StonePrompt {
+    call_if_unset(FLAG_TEMP_1, OldaleRuins_B2F_EventScript_CheckStones)
+    goto_if_unset(FLAG_TEMP_1, OldaleRuins_B2F_EventScript_NoStones)
+    msgbox(format("Would you like to try to fit a stone inside?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == NO) {
+        release
+        end
+    }
+    call(OldaleRuins_B2F_EventScript_ChooseStone)
+    return
+}
+
+script OldaleRuins_B2F_EventScript_StoneWarning {
+    msgbox(format("The stone may fall away and be lost. Proceed?"), MSGBOX_YESNO)
+    setflag(FLAG_TEMP_2)
+    if(var(VAR_RESULT)) {
+        return
+    } else {
+        release
+        end
+    }
+}
+
+script OldaleRuins_B2F_EventScript_ChooseStone {
+    call_if_unset(FLAG_TEMP_2, OldaleRuins_B2F_EventScript_StoneWarning)
+    msgbox(format("Which stone will you try?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_SHOW_ITEM)
+    copyvar(VAR_TEMP_1, VAR_RESULT)
+    return
+}
+
+script OldaleRuins_B2F_EventScript_SuccessfulUnlock {
+    fadeoutbgm(0)
+    playse(SE_TRUCK_MOVE)
+    msgbox(format("A strange mechanism latches on to the {STR_VAR_1} and activates!"))
+    special(DoSealedChamberShakingEffect_Short)
+    waitstate
+    playse(SE_DOOR)
+    delay(40)
+    fadeinbgm(0)
+    return
+}
+
+script OldaleRuins_B2F_EventScript_Unlock_1Shiny {
+    lock
+    if(flag(FLAG_OLDALE_RUINS_OPEN_DOOR_1)) {
+        msgbox(format("The Shiny Stone glitters brightly at the center of the pillar."))
+        release
+        end
+    }
+    msgbox(format("The strange pillar has intricate carvings and a deep slot that could fit an item."))
+    call(OldaleRuins_B2F_EventScript_StonePrompt)
+    bufferitemname(STR_VAR_1, VAR_TEMP_1)
+    removeitem(VAR_TEMP_1)
+    msgbox(format("{PLAYER} dropped the {STR_VAR_1} into the pillar…"))
+    clearflag(FLAG_TEMP_1)
+    if(var(VAR_TEMP_1) == ITEM_SHINY_STONE) {
+        call(OldaleRuins_B2F_EventScript_SuccessfulUnlock)
+        setflag(FLAG_OLDALE_RUINS_OPEN_DOOR_1)
+    } else {
+        msgbox(format("The {STR_VAR_1} falls away and is lost…"))
+    }
+    release
+    end
+}
+
+script OldaleRuins_B2F_EventScript_Unlock_2Moon {
+    lock
+    if(flag(FLAG_OLDALE_RUINS_OPEN_DOOR_2)) {
+        msgbox(format("The Moon Stone glimmers with a pale light in the center of the pillar."))
+        release
+        end
+    }
+    msgbox(format("The strange pillar has fascinating carvings and a deep slot that could fit an item."))
+    call(OldaleRuins_B2F_EventScript_StonePrompt)
+    bufferitemname(STR_VAR_1, VAR_TEMP_1)
+    removeitem(VAR_TEMP_1)
+    msgbox(format("{PLAYER} dropped the {STR_VAR_1} into the pillar…"))
+    clearflag(FLAG_TEMP_1)
+    if(var(VAR_TEMP_1) == ITEM_MOON_STONE) {
+        call(OldaleRuins_B2F_EventScript_SuccessfulUnlock)
+        setflag(FLAG_OLDALE_RUINS_OPEN_DOOR_2)
+    } else {
+        msgbox(format("The {STR_VAR_1} falls away and is lost…"))
+    }
+    release
+    end
+}
+
+script OldaleRuins_B2F_EventScript_Unlock_3Dusk {
+    lock
+    if(flag(FLAG_OLDALE_RUINS_OPEN_DOOR_3)) {
+        msgbox(format("The Dusk Stone draws in the surrounding light from the center of the pillar."))
+        release
+        end
+    }
+    msgbox(format("The strange pillar has mysterious carvings and a deep slot that could fit an item."))
+    call(OldaleRuins_B2F_EventScript_StonePrompt)
+    bufferitemname(STR_VAR_1, VAR_TEMP_1)
+    removeitem(VAR_TEMP_1)
+    msgbox(format("{PLAYER} dropped the {STR_VAR_1} into the pillar…"))
+    clearflag(FLAG_TEMP_1)
+    if(var(VAR_TEMP_1) == ITEM_DUSK_STONE) {
+        call(OldaleRuins_B2F_EventScript_SuccessfulUnlock)
+        setflag(FLAG_OLDALE_RUINS_OPEN_DOOR_3)
+    } else {
+        msgbox(format("The {STR_VAR_1} falls away and is lost…"))
+    }
+    release
+    end
+}
+
+script OldaleRuins_B2F_EventScript_Unlock_4Dawn {
+    lock
+    if(flag(FLAG_OLDALE_RUINS_OPEN_DOOR_4)) {
+        msgbox(format("The Dawn Stone gleams boldly from the center of the pillar."))
+        release
+        end
+    }
+    msgbox(format("The strange pillar has detailed carvings and a deep slot that could fit an item."))
+    call(OldaleRuins_B2F_EventScript_StonePrompt)
+    bufferitemname(STR_VAR_1, VAR_TEMP_1)
+    removeitem(VAR_TEMP_1)
+    msgbox(format("{PLAYER} dropped the {STR_VAR_1} into the pillar…"))
+    clearflag(FLAG_TEMP_1)
+    if(var(VAR_TEMP_1) == ITEM_DAWN_STONE) {
+        call(OldaleRuins_B2F_EventScript_SuccessfulUnlock)
+        setflag(FLAG_OLDALE_RUINS_OPEN_DOOR_4)
+    } else {
+        msgbox(format("The {STR_VAR_1} falls away and is lost…"))
+    }
+    release
+    end
+}
+
+script OldaleRuins_B2F_EventScript_Unlock_5Sun {
+    lock
+    if(flag(FLAG_OLDALE_RUINS_OPEN_DOOR_5)) {
+        msgbox(format("The Sun Stone glows brilliantly in the center of the pillar."))
+        release
+        end
+    }
+    msgbox(format("The strange pillar has numerous carvings and a deep slot that could fit an item."))
+    call(OldaleRuins_B2F_EventScript_StonePrompt)
+    bufferitemname(STR_VAR_1, VAR_TEMP_1)
+    removeitem(VAR_TEMP_1)
+    msgbox(format("{PLAYER} dropped the {STR_VAR_1} into the pillar…"))
+    clearflag(FLAG_TEMP_1)
+    if(var(VAR_TEMP_1) == ITEM_SUN_STONE) {
+        call(OldaleRuins_B2F_EventScript_SuccessfulUnlock)
+        setflag(FLAG_OLDALE_RUINS_OPEN_DOOR_5)
+    } else {
+        msgbox(format("The {STR_VAR_1} falls away and is lost…"))
+    }
+    release
+    end
+}

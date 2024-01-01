@@ -85,7 +85,7 @@ script ArrivalFerry_Corridor_EventScript_Ace {
     lock
     faceplayer
     msgbox(format("I came to Hoenn to run the gym circuit here after getting six badges in Sinnoh. It's a great opportunity to catch some rare Pokémon before I prep my team for an Elite Four challenge."))
-    msgbox(format("I kind of regret taking the ferry with my uncle though. He keeps shouting into his phone all day about 'market share' and 'alpha'. That's what I get for traveling with family."))
+    msgbox(format("I kind of regret taking the ferry with my uncle though. He keeps shouting into his phone all day about “market share” and “alpha”. That's what I get for traveling with family."))
     release
     end
 }

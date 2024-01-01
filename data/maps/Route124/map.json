@@ -42,6 +42,11 @@
       "map": "MAP_MONSU_ISLAND_EXTERIOR",
       "offset": -10,
       "direction": "left"
+    },
+    {
+      "map": "MAP_SUNRISE_SHORE",
+      "offset": 54,
+      "direction": "left"
     }
   ],
   "object_events": [
@@ -60,14 +65,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
-      "x": 62,
-      "y": 69,
+      "x": 61,
+      "y": 70,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_RIGHT",
       "movement_range_x": 5,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "7",
+      "trainer_sight_or_berry_tree_id": "6",
       "script": "Route124_EventScript_Roland",
       "flag": "0"
     },
@@ -89,7 +94,7 @@
       "x": 7,
       "y": 23,
       "elevation": 1,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 6,
       "movement_range_y": 8,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -151,14 +156,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
-      "x": 71,
-      "y": 69,
+      "x": 68,
+      "y": 70,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "7",
+      "trainer_sight_or_berry_tree_id": "6",
       "script": "Route124_EventScript_Isabella",
       "flag": "0"
     },
@@ -229,7 +234,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
-      "x": 4,
+      "x": 2,
       "y": 75,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",

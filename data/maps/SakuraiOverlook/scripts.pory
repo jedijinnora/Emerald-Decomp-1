@@ -1,0 +1,46 @@
+mapscripts SakuraiOverlook_MapScripts {}
+
+script SakuraiOverlook_EventScript_Sign {
+    msgbox(format("Sakurai Overlook\n“Where cherry blossoms drift into the sea.”"), MSGBOX_SIGN)
+    end
+}
+
+script SakuraiOverlook_EventScript_ExpertF {
+    lock
+    faceplayer
+    msgbox(format("What do you want to happen to your body after death?"))
+    msgbox(format("I've never been one for graves myself. I don't want to cling to memory in some sterile graveyard."))
+    msgbox(format("What good does it do to try to keep your body entombed away from the ever-churning cycle of life?"))
+    msgbox(format("Better to scatter one's ashes on the breeze, to become part of every breath, every flower, and every tree…"))
+    msgbox(format("Never forget that we too are part of this world."))
+    release
+    end
+}
+
+script SakuraiOverlook_EventScript_ExpertM {
+    lock
+    faceplayer
+    msgbox(format("I've been tending these plants since I was a young man."))
+    msgbox(format("Someday soon I will pass on and another caretaker will take up my work…"))
+    msgbox(format("I've lived my life with patience and care. I have few regrets."))
+    release
+    end
+}
+
+script SakuraiOverlook_EventScript_Man {
+    lock
+    faceplayer
+    msgbox(format("I'm terrified of making a fool of myself. What should I do? I can't mess this up…"))
+    release
+    end
+}
+
+script SakuraiOverlook_EventScript_Woman {
+    lock
+    faceplayer
+    msgbox(format("This is a date, right? He wouldn't just ask me here and then wimp out."))
+    msgbox(format("If he doesn't try to at least hold my hand soon, I'm leaving."))
+    msgbox(format("That, or I'll just grab the dummy and kiss him. What do you think?"))
+    release
+    end
+}

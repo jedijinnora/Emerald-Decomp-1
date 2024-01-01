@@ -1,0 +1,9 @@
+mapscripts PetalburgCity_House3_MapScripts {}
+
+script PetalburgCity_House3_EventScript_A {
+    lock
+    faceplayer
+    msgbox(format("…"))
+    release
+    end
+}
