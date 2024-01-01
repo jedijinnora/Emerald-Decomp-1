@@ -2832,9 +2832,18 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
         {
             if (GetMonData(&mons[slotId], i + MON_DATA_MOVE1) == sFieldMoves[j])
             {
-                // If Mon already knows FLY and the HM is in the bag, prevent it from being added to action list
-                // If Mon knows SURF and the HM is not in the bag, prevent it from being added to action list
-                if ((sFieldMoves[j] != MOVE_FLY || !CheckBagHasItem(ITEM_HM02_FLY, 1)) && (sFieldMoves[j] != MOVE_SURF || CheckBagHasItem(ITEM_HM03_SURF, 1))){
+                // If Mon already knows FLY and the HM is in the bag, prevent it from being added to action list, since it will be added by the if statement below
+                // If Mon knows HM and the HM is not in the bag, prevent it from being added to action list
+                if (
+                    (sFieldMoves[j] != MOVE_FLY || !CheckBagHasItem(ITEM_HM02_FLY, 1)) 
+                    && (sFieldMoves[j] != MOVE_CUT || CheckBagHasItem(ITEM_HM01_CUT, 1))
+                    && (sFieldMoves[j] != MOVE_SURF || CheckBagHasItem(ITEM_HM03_SURF, 1))
+                    && (sFieldMoves[j] != MOVE_STRENGTH || CheckBagHasItem(ITEM_HM04_STRENGTH, 1))
+                    && (sFieldMoves[j] != MOVE_FLASH || CheckBagHasItem(ITEM_HM05_FLASH, 1))
+                    && (sFieldMoves[j] != MOVE_ROCK_SMASH || CheckBagHasItem(ITEM_HM06_ROCK_SMASH, 1))
+                    && (sFieldMoves[j] != MOVE_WATERFALL || CheckBagHasItem(ITEM_HM07_WATERFALL, 1))
+                    && (sFieldMoves[j] != MOVE_DIVE || CheckBagHasItem(ITEM_HM08_DIVE, 1))
+                    ){
                     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, j + MENU_FIELD_MOVES);
                 }
                 break;
