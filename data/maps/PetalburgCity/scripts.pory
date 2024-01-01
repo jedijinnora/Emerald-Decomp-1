@@ -73,7 +73,7 @@ script PetalburgCity_EventScript_Gentleman {
 	faceplayer
 	//check if player has a shiny ducklett and reward somehow?
 	msgbox(format("Petalburg is somewhat of an odd Ducklett when it comes to Hoenn's western cities."))
-	msgbox(format("We have neither the industry of Rustboro or Mauville, and no marketplace like Slateport."))
+	msgbox(format("We don't have industry like Rustboro or Mauville, and no marketplace like Slateport."))
 	msgbox(format("That's not necessarily a bad thing."))
 	msgbox(format("Vanilla is a perfectly wonderful flavor, after all."))
 	release

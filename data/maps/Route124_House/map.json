@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route124_House_EventScript_Maya",
       "flag": "0"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route124_House_EventScript_Jinnora",
       "flag": "0"
     },
     {
@@ -50,7 +50,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route124_House_EventScript_Lex",
       "flag": "0"
     }
   ],
@@ -60,14 +60,14 @@
       "y": 8,
       "elevation": 3,
       "dest_map": "MAP_ROUTE124",
-      "dest_warp_id": "2"
+      "dest_warp_id": "1"
     },
     {
       "x": 5,
       "y": 8,
       "elevation": 3,
       "dest_map": "MAP_ROUTE124",
-      "dest_warp_id": "2"
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [

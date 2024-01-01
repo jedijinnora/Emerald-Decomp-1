@@ -363,10 +363,11 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
             msgbox(format("Which kind of features would you like to hear about?"))
             dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Player quality of life", "Creator quality of life", "Minor tweaks and bug fixes")
             switch(var(VAR_RESULT)) {
-                case 0:
+                case 0: // Player QOL
                     msgbox(format("Nature stat colors, by DizzyEgg."))
                     msgbox(format("Bag sorting, by ghoulslash."))
                     msgbox(format("IV/EV summary screen, by BuffelSaft."))
+                    msgbox(format("IV/EV button promts, by RavePossum."))
                     msgbox(format("Increased bag stack size, by MapleFall."))
                     msgbox(format("Fast Berry interactions, by dunsparce9."))
                     msgbox(format("Berry trees remain until picked, by BuffelSaft."))
@@ -379,8 +380,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Instead of ask to stop learning moves, ask to continue learning, by devolov."))
                     msgbox(format("Repeated field medicine use, by ghoulslash, AsparagusEduardo, and Alex N"))
                     msgbox(format("Swap party Pokémon with select button, by Lunos."))
+
                     goto(FeaturesMenu)
-                case 1:
+                case 1: // Creator QOL
                     msgbox(format("Generic item ball script, by Deokishisu."))
                     msgbox(format("Dynamic multichoice, by SBird."))
                     msgbox(format("Decapitalization, by AsparagusEduardo."))
@@ -388,8 +390,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Jinnora's implementation of an Egg move tutor borrowed a lot of code from Surskitty's tutor_expansion branch."))
                     msgbox(format("Set wild levels dynamically, by Hestia."))
                     msgbox(format("Get or Set a Pokémon's Seen/Caught flag specials, by Lunos."))
+                    msgbox(format("Removing EVs from stat calculations for no grinding mode was based on a Discord comment by Lunos."))
                     goto(FeaturesMenu)
-                case 2:
+                case 2: // Tweaks/Bugfixes
                     msgbox(format("Disable unnecessary Union Room check, from the tutorial master list."))
                     msgbox(format("Surf dismount ground effects, from the tutorial master list."))
                     msgbox(format("Lanette's PC from game start, by devolov."))

@@ -1,1 +1,5 @@
 mapscripts PetalburgCity_House4_MapScripts {}
+
+script PetalburgCity_House4_EventScript_Norman {
+    
+}

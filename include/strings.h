@@ -3057,7 +3057,12 @@ extern const u8 gText_ExpShareOff[];
 
 extern const u8 gText_BasePointsResetToZero[];
 
-// Added Strings
+// Jinnora's Added Strings
+
+// view IVs and EVs on summary screen
+extern const u8 gText_ViewIVs[];
+extern const u8 gText_ViewEVs[];
+extern const u8 gText_ViewStats[];
 
 //Starter choice
 extern const u8 gText_Turtwig[];

@@ -1389,6 +1389,17 @@ static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
     SetMonData(mon, field, &n);                                 \
 }
 
+#define CALC_STAT_NO_EV(base, iv, ev, statIndex, field)         \
+{                                                               \
+    u8 baseStat = gSpeciesInfo[species].base;                   \
+    s32 n = (((2 * baseStat + iv) * level) / 100) + 5; \
+    u8 nature = GetNature(mon);                                 \
+    n = ModifyStatByNature(nature, n, statIndex);               \
+    if (B_FRIENDSHIP_BOOST == TRUE)                             \
+        n = n + ((n * 10 * friendship) / (MAX_FRIENDSHIP * 100));\
+    SetMonData(mon, field, &n);                                 \
+}
+
 void CalculateMonStats(struct Pokemon *mon)
 {
     s32 oldMaxHP = GetMonData(mon, MON_DATA_MAX_HP, NULL);
@@ -1416,10 +1427,14 @@ void CalculateMonStats(struct Pokemon *mon)
     {
         newMaxHP = 1;
     }
-    else
+    else if(!FlagGet(FLAG_NO_EV_GRINDING))
     {
         s32 n = 2 * gSpeciesInfo[species].baseHP + hpIV;
         newMaxHP = (((n + hpEV / 4) * level) / 100) + level + 10;
+    } else
+    {
+        s32 n = 2 * gSpeciesInfo[species].baseHP + hpIV;
+        newMaxHP = ((n * level) / 100) + level + 10;
     }
 
     gBattleScripting.levelUpHP = newMaxHP - oldMaxHP;
@@ -1428,11 +1443,22 @@ void CalculateMonStats(struct Pokemon *mon)
 
     SetMonData(mon, MON_DATA_MAX_HP, &newMaxHP);
 
-    CALC_STAT(baseAttack, attackIV, attackEV, STAT_ATK, MON_DATA_ATK)
-    CALC_STAT(baseDefense, defenseIV, defenseEV, STAT_DEF, MON_DATA_DEF)
-    CALC_STAT(baseSpeed, speedIV, speedEV, STAT_SPEED, MON_DATA_SPEED)
-    CALC_STAT(baseSpAttack, spAttackIV, spAttackEV, STAT_SPATK, MON_DATA_SPATK)
-    CALC_STAT(baseSpDefense, spDefenseIV, spDefenseEV, STAT_SPDEF, MON_DATA_SPDEF)
+    if(FlagGet(FLAG_NO_EV_GRINDING))
+    {
+        CALC_STAT_NO_EV(baseAttack, attackIV, attackEV, STAT_ATK, MON_DATA_ATK)
+        CALC_STAT_NO_EV(baseDefense, defenseIV, defenseEV, STAT_DEF, MON_DATA_DEF)
+        CALC_STAT_NO_EV(baseSpeed, speedIV, speedEV, STAT_SPEED, MON_DATA_SPEED)
+        CALC_STAT_NO_EV(baseSpAttack, spAttackIV, spAttackEV, STAT_SPATK, MON_DATA_SPATK)
+        CALC_STAT_NO_EV(baseSpDefense, spDefenseIV, spDefenseEV, STAT_SPDEF, MON_DATA_SPDEF)
+    }
+    else
+    {
+        CALC_STAT(baseAttack, attackIV, attackEV, STAT_ATK, MON_DATA_ATK)
+        CALC_STAT(baseDefense, defenseIV, defenseEV, STAT_DEF, MON_DATA_DEF)
+        CALC_STAT(baseSpeed, speedIV, speedEV, STAT_SPEED, MON_DATA_SPEED)
+        CALC_STAT(baseSpAttack, spAttackIV, spAttackEV, STAT_SPATK, MON_DATA_SPATK)
+        CALC_STAT(baseSpDefense, spDefenseIV, spDefenseEV, STAT_SPDEF, MON_DATA_SPDEF)
+    }
 
     if (species == SPECIES_SHEDINJA)
     {

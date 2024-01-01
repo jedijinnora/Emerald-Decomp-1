@@ -1,1 +1,13 @@
 mapscripts Route124_House_MapScripts {}
+
+script Route124_House_EventScript_Maya {
+
+}
+
+script Route124_House_EventScript_Jinnora {
+    
+}
+
+script Route124_House_EventScript_Lex {
+    
+}
