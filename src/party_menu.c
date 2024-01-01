@@ -2833,7 +2833,8 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
             if (GetMonData(&mons[slotId], i + MON_DATA_MOVE1) == sFieldMoves[j])
             {
                 // If Mon already knows FLY and the HM is in the bag, prevent it from being added to action list
-                if (sFieldMoves[j] != MOVE_FLY || !CheckBagHasItem(ITEM_HM02_FLY, 1)){
+                // If Mon knows SURF and the HM is not in the bag, prevent it from being added to action list
+                if ((sFieldMoves[j] != MOVE_FLY || !CheckBagHasItem(ITEM_HM02_FLY, 1)) && (sFieldMoves[j] != MOVE_SURF || CheckBagHasItem(ITEM_HM03_SURF, 1))){
                     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, j + MENU_FIELD_MOVES);
                 }
                 break;

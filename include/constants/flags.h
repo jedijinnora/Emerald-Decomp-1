@@ -85,12 +85,12 @@
 #define FLAG_CHALLENGE_HM_NONE      0x41 // receive no HMs until postgame
 #define FLAG_CHALLENGE_FERRY_LIMIT  0x42 // one ferry ride only, replenish after gym victory
 #define FLAG_CHALLENGE_FERRY_TICKET 0x43 // is single ferry use available?
-#define FLAG_DEPARTED_EVER_GRANDE   0x44 // player has left EGC; may forfeit but not add challenges
+#define FLAG_DEPARTED_EVER_GRANDE   0x44 // player has left EGC; may forfeit but not modify challenges
 
 #define FLAG_INFINITE_CANDY                         0x45 // Jinnora: if set, player should have the infinite candy item
 #define FLAG_USE_NEXT_LEVEL_CAP                     0x46 // used to lift level cap during boss battles?
 #define FLAG_EXPLORE_MODE                           0x47
-#define FLAG_NO_EV_GRINDING                         0x48 // Jinnora: should remove EVs from wild battles, stat calculations, and npc trainers?
+#define FLAG_NO_EV_GRINDING                         0x48 // removes EVs stat calculations, should be global effect
 #define FLAG_VS_SEEKER                              0x49 // see include/config/item.h
 #define FLAG_BEACH_BATTLE_VICTORY                   0x4A // set after returning from special beach map
 #define FLAG_BEACH_BATTLE_STARTED                   0x4B // set when warping to special beach map
