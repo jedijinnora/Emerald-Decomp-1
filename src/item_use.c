@@ -1447,8 +1447,6 @@ void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId)
     Task_CloseCantUseKeyItemMessage(taskId);
 }
 
-#undef tUsingRegisteredKeyItem
-
 //Lunos's pokeball swap
 void ItemUseOutOfBattle_PokeBall(u8 taskId)
 {
@@ -1464,3 +1462,28 @@ void ItemUseOutOfBattle_Mints(u8 taskId)
     gBagMenu->newScreenCallback = CB2_ShowPartyMenuForItemUse;
     Task_FadeAndCloseBagMenu(taskId);
 }
+
+//Soot Sack
+void ItemUseOutOfBattle_SootSack(u8 taskId)
+{
+	ConvertIntToDecimalStringN(gStringVar1, GetAshCount(), STR_CONV_MODE_LEFT_ALIGN, 4);
+	StringExpandPlaceholders(gStringVar4, gText_AshQty);
+	if (!gTasks[taskId].tUsingRegisteredKeyItem)
+    {
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+    }
+    else
+    {
+        DisplayItemMessageOnField(taskId, gStringVar4, Task_CloseCantUseKeyItemMessage);
+    }
+}		
+
+u16 GetAshCount(void)
+{
+	u16 *ashGatherCount;
+	ashGatherCount = GetVarPointer(VAR_ASH_GATHER_COUNT);
+	return *ashGatherCount;
+}
+
+//this needs to be at the end
+#undef tUsingRegisteredKeyItem

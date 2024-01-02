@@ -33,7 +33,7 @@ Route111_Text_DontHaveAnyRoom:
 	.string "I'll hold on to it, so come back for it\n"
 	.string "another time, okay?$"
 
-Route111_EventScript_SecretPowerMan::
+Route111_EventScript_SecretPowerMan_Vanilla::
 	lock
 	faceplayer
 	msgbox Route111_Text_MakingRoomUseTMToMakeYourOwn, MSGBOX_YESNO

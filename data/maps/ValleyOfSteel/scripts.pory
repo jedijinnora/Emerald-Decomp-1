@@ -1,1 +1,21 @@
 mapscripts ValleyOfSteel_MapScripts {}
+
+script ValleyOfSteel_EventScript_NorthSign {
+    msgbox("Valley of Steel\n{UP_ARROW} Route 112", MSGBOX_SIGN)
+    end
+}
+
+script ValleyOfSteel_EventScript_SouthSign {
+    msgbox("Valley of Steel\n{DOWN_ARROW} Route 117", MSGBOX_SIGN)
+    end
+}
+
+script ValleyOfSteel_EventScript_ContaminatedWaterSign {
+    msgbox("Danger! Contaminated Water!\nLimit exposure to heavy metals!", MSGBOX_SIGN)
+    end
+}
+
+script ValleyOfSteel_EventScript_ContaminatedDustSign {
+    msgbox("Danger! Heavy metal exposure!\nLimit time spent in the valley!", MSGBOX_SIGN)
+    end
+}

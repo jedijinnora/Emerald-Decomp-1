@@ -1,10 +1,69 @@
 const LOCALID_STASH = 52
 
-script Route111_EventScript_ShowXY{
-	buffernumberstring(STR_VAR_1, VAR_TEMP_0)
-	buffernumberstring(STR_VAR_2, VAR_TEMP_1)
-	msgbox(Route111_Text_PlayerXY, MSGBOX_SIGN)
+mapscripts Route111_MapScripts {
+	MAP_SCRIPT_ON_LOAD : Route111_OnLoad
+	MAP_SCRIPT_ON_TRANSITION : Route111_OnTransition
+}
+
+script Route111_OnLoad {
+	call_if_unset(FLAG_REGI_DOORS_OPENED, Route111_EventScript_CloseDesertRuins)
+	call_if_unset(FLAG_DESERT_UNDERPASS_OPEN, Route111_EventScript_CloseUnderpass)
+	special(SetMirageTowerVisibility)
+	call_if_unset(FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_HideMirageTower)
 	end
+}
+
+script Route111_EventScript_CloseUnderpass {
+	setmetatile(32, 53, METATILE_General_RockWall_RockBase, TRUE)
+	setmetatile(32, 54, METATILE_General_RockWall_SandBase, TRUE)
+	return
+}
+
+script Route111_EventScript_CloseDesertRuins {
+	setmetatile(29, 106, METATILE_General_RockWall_RockBase, TRUE)
+	setmetatile(29, 107, METATILE_General_RockWall_SandBase, TRUE)
+	return
+}
+
+script Route111_EventScript_HideMirageTower {
+	setmetatile(18, 73, METATILE_Mauville_DeepSand_Center, FALSE)
+    setmetatile(19, 73, METATILE_Mauville_DeepSand_Center, FALSE)
+    setmetatile(20, 73, METATILE_Mauville_DeepSand_Center, FALSE)
+    setmetatile(18, 74, METATILE_Mauville_DeepSand_Center, FALSE)
+    setmetatile(19, 74, METATILE_Mauville_DeepSand_Center, FALSE)
+    setmetatile(20, 74, METATILE_Mauville_DeepSand_Center, FALSE)
+    setmetatile(18, 75, METATILE_Mauville_DeepSand_Center, FALSE)
+    setmetatile(19, 75, METATILE_Mauville_DeepSand_Center, FALSE)
+    setmetatile(20, 75, METATILE_Mauville_DeepSand_Center, FALSE)
+    setmetatile(18, 76, METATILE_Mauville_DeepSand_Center, FALSE)
+    setmetatile(19, 76, METATILE_Mauville_DeepSand_Center, FALSE)
+    setmetatile(20, 76, METATILE_Mauville_DeepSand_Center, FALSE)
+    setmetatile(18, 77, METATILE_Mauville_DeepSand_BottomMid, FALSE)
+    setmetatile(19, 77, METATILE_Mauville_DeepSand_BottomMid, FALSE)
+    setmetatile(20, 77, METATILE_Mauville_DeepSand_BottomMid, FALSE)
+    setmetatile(18, 78, METATILE_General_SandPit_Center, FALSE)
+    setmetatile(19, 78, METATILE_General_SandPit_Center, FALSE)
+    setmetatile(20, 78, METATILE_General_SandPit_Center, FALSE)
+	return
+}
+
+script Route111_OnTransition {
+	call(Route111_EventScript_TryMoveStash)
+	call(Common_EventScript_SetWild_0)
+	setvar(VAR_TRAINER_HILL_IS_ACTIVE, 0)
+	call(Route111_EventScript_CheckSetSandstorm)
+	call(GabbyAndTy_EventScript_UpdateLocation)
+	call_if_not_defeated(TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated)
+	end
+}
+
+script Route111_EventScript_SetWinstratesNotDefeated {
+	clearflag(FLAG_HIDE_ROUTE_111_VICTOR_WINSTRATE)
+	setflag(FLAG_HIDE_ROUTE_111_WINSTRATE_FAMILY)
+	cleartrainerflag(TRAINER_VICTOR)
+	cleartrainerflag(TRAINER_VICTORIA)
+	cleartrainerflag(TRAINER_VIVI)
+	return
 }
 
 script Route111_EventScript_TryMoveStash {
@@ -32,86 +91,89 @@ script Route111_EventScript_Stash {
 	end
 }
 
+script Route111_EventScript_RouteSignMauville {
+	msgbox(Route111_Text_RouteSignMauville, MSGBOX_SIGN)
+	end
+}
+
+script Route111_EventScript_WinstrateHouseSign {
+	msgbox(Route111_Text_WinstrateHouseSign, MSGBOX_SIGN)
+	end
+}
+
+script Route111_EventScript_RouteSign112 {
+	msgbox(Route111_Text_RouteSign112, MSGBOX_SIGN)
+	end
+}
+
+script Route111_EventScript_RouteSign113 {
+	msgbox(Route111_Text_RouteSign113, MSGBOX_SIGN)
+	end
+}
+
+script Route111_EventScript_OldLadysRestStopSign{
+	msgbox(Route111_Text_OldLadysRestStopSign, MSGBOX_SIGN)
+	end
+}
+
+script Route111_EventScript_Man1 {
+	msgbox(Route111_Text_ToughToKeepWinningUpTheRanks, MSGBOX_NPC)
+	end
+}
+
+script Route111_EventScript_Man2 {
+	msgbox(Route111_Text_WinstrateFamilyDestroyedMe, MSGBOX_NPC)
+	end
+}
+
+script Route111_EventScript_Hiker {
+	lock
+	faceplayer
+	goto_if_set(FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_HikerMirageTowerVisible)
+	msgbox(Route111_Text_ShouldBeMirageTowerAroundHere, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Route111_EventScript_HikerMirageTowerVisible {
+	msgbox(Route111_Text_MirageTowerClearlyVisible, MSGBOX_DEFAULT)
+	release
+	end
+}
+
+script Route111_EventScript_SecretPowerMan {
+	lock
+	faceplayer
+	call_if_unset(FLAG_RECEIVED_SECRET_POWER, Route111_EventScript_SecretPowerTutorial)
+	msgbox(format("Want to learn Secret Power?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Route111_EventScript_SecretPowerDeclined)
+	setvar(VAR_0x8005, MOVE_SECRET_POWER)
+	call(MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq(VAR_RESULT, 0, Route111_EventScript_SecretPowerDeclined)
+	msgbox(format("I hope you have fun picking a great location for a Secret Base!"))
+	release
+	end
+}
+
+script Route111_EventScript_SecretPowerTutorial {
+	setflag(FLAG_RECEIVED_SECRET_POWER)
+	msgbox(format("You can use Secret Power to make a Secret Base."))
+	msgbox(format("Just find the right spot for a treehouse, hidden cave, or bush fort!"))
+	msgbox(format("I can teach your Pokémon if you want."))
+	return
+}
+
+script Route111_EventScript_SecretPowerDeclined {
+	msgbox(format("Don't you want a Secret Base of your own?"))
+	release
+	end
+}
+
 raw `
 .set LOCALID_VICTOR, 1
 .set LOCALID_VICTORIA, 2
 .set LOCALID_VIVI, 3
 .set LOCALID_VICKY, 4
-
-@ Note: LOCALID_ROUTE111_PLAYER_FALLING is a local id for this map used elsewhere. It's defined in event_objects.h
-
-Route111_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, Route111_OnLoad
-	map_script MAP_SCRIPT_ON_TRANSITION, Route111_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Route111_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route111_OnFrame
-	.byte 0
-
-Route111_OnLoad:
-	call_if_unset FLAG_REGI_DOORS_OPENED, Route111_EventScript_CloseDesertRuins
-	call_if_unset FLAG_DESERT_UNDERPASS_OPEN, Route111_EventScript_CloseUnderpass
-	call_if_eq VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_ShowTemporaryMirageTower
-	end
-
-Route111_EventScript_CloseUnderpass::
-	setmetatile 32, 53, METATILE_General_RockWall_RockBase, TRUE
-	setmetatile 32, 54, METATILE_General_RockWall_SandBase, TRUE
-	return
-
-Route111_EventScript_CloseDesertRuins::
-	setmetatile 29, 106, METATILE_General_RockWall_RockBase, TRUE
-	setmetatile 29, 107, METATILE_General_RockWall_SandBase, TRUE
-	return
-
-@ Show Mirage Tower just prior to disintegration. Mirage Tower is otherwise handled by the map layout
-Route111_EventScript_ShowTemporaryMirageTower::
-	setmetatile 18, 53, METATILE_Mauville_MirageTower_Tile0, FALSE
-	setmetatile 19, 53, METATILE_Mauville_MirageTower_Tile1, FALSE
-	setmetatile 20, 53, METATILE_Mauville_MirageTower_Tile2, FALSE
-	setmetatile 18, 54, METATILE_Mauville_MirageTower_Tile3, FALSE
-	setmetatile 19, 54, METATILE_Mauville_MirageTower_Tile4, FALSE
-	setmetatile 20, 54, METATILE_Mauville_MirageTower_Tile5, FALSE
-	setmetatile 18, 55, METATILE_Mauville_MirageTower_Tile6, FALSE
-	setmetatile 19, 55, METATILE_Mauville_MirageTower_Tile7, FALSE
-	setmetatile 20, 55, METATILE_Mauville_MirageTower_Tile8, FALSE
-	setmetatile 18, 56, METATILE_Mauville_MirageTower_Tile9, FALSE
-	setmetatile 19, 56, METATILE_Mauville_MirageTower_TileA, FALSE
-	setmetatile 20, 56, METATILE_Mauville_MirageTower_TileB, FALSE
-	setmetatile 18, 57, METATILE_Mauville_MirageTower_TileC, FALSE
-	setmetatile 19, 57, METATILE_Mauville_MirageTower_TileD, FALSE
-	setmetatile 20, 57, METATILE_Mauville_MirageTower_TileE, FALSE
-	setmetatile 18, 58, METATILE_Mauville_MirageTower_TileF, FALSE
-	setmetatile 19, 58, METATILE_Mauville_MirageTower_Tile10, FALSE
-	setmetatile 20, 58, METATILE_Mauville_MirageTower_Tile11, FALSE
-	return
-
-Route111_OnTransition:
-	call Route111_EventScript_TryMoveStash
-	call Common_EventScript_SetWild_0
-	setvar VAR_TRAINER_HILL_IS_ACTIVE, 0
-	special SetMirageTowerVisibility
-	@ Jinnora: commented out to prevent using the alternate layout
-	@ call_if_unset FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_SetLayoutNoMirageTower
-	call_if_eq VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_SetFallingPlayerGfx
-	call_if_eq VAR_MIRAGE_TOWER_STATE, 2, Route111_EventScript_SetMirageTowerGone
-	call Route111_EventScript_CheckSetSandstorm
-	call GabbyAndTy_EventScript_UpdateLocation
-	goto_if_not_defeated TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated
-	end
-
-Route111_EventScript_SetFallingPlayerGfx::
-	checkplayergender
-	goto_if_eq VAR_RESULT, MALE, Route111_EventScript_SetFallingPlayerGfxMale
-	goto_if_eq VAR_RESULT, FEMALE, Route111_EventScript_SetFallingPlayerGfxFemale
-	return
-
-Route111_EventScript_SetFallingPlayerGfxMale::
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL
-	return
-
-Route111_EventScript_SetFallingPlayerGfxFemale::
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL
-	return
 
 Route111_Text_PlayerXY:
 	.string "X: {STR_VAR_1} Y: {STR_VAR_2}$"
@@ -128,75 +190,6 @@ Route111_EventScript_CheckSetSandstorm::
 	goto_if_gt VAR_TEMP_1, 114, Route111_EventScript_EndCheckSetSandstorm
 Route111_EventScript_EndCheckSetSandstorm::
 	return
-
-Route111_EventScript_SetWinstratesNotDefeated::
-	clearflag FLAG_HIDE_ROUTE_111_VICTOR_WINSTRATE
-	setflag FLAG_HIDE_ROUTE_111_WINSTRATE_FAMILY
-	cleartrainerflag TRAINER_VICTOR
-	cleartrainerflag TRAINER_VICTORIA
-	cleartrainerflag TRAINER_VIVI
-	end
-
-Route111_EventScript_SetLayoutNoMirageTower::
-	setmaplayoutindex LAYOUT_ROUTE111_NO_MIRAGE_TOWER
-	return
-
-Route111_EventScript_SetMirageTowerGone::
-	setvar VAR_MIRAGE_TOWER_STATE, 3
-	return
-
-Route111_OnWarp:
-	map_script_2 VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_HidePlayerForMirageTower
-	.2byte 0
-
-Route111_EventScript_HidePlayerForMirageTower::
-	hideobjectat OBJ_EVENT_ID_PLAYER, MAP_LITTLEROOT_TOWN
-	end
-
-Route111_OnFrame:
-	map_script_2 VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_MirageTowerDisappear
-	.2byte 0
-
-Route111_EventScript_MirageTowerDisappear::
-	lockall
-	special StartMirageTowerShake
-	waitstate
-	delay 24
-	playse SE_FALL
-	addobject LOCALID_ROUTE111_PLAYER_FALLING
-	special StartPlayerDescendMirageTower
-	waitstate
-	showobjectat OBJ_EVENT_ID_PLAYER, MAP_LITTLEROOT_TOWN
-	removeobject LOCALID_ROUTE111_PLAYER_FALLING
-	delay 16
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	delay 16
-	special StartMirageTowerDisintegration
-	waitstate
-	special StartMirageTowerFossilFallAndSink
-	waitstate
-	setvar VAR_MIRAGE_TOWER_STATE, 2
-	clearflag FLAG_HIDE_DESERT_UNDERPASS_FOSSIL
-	goto_if_set FLAG_CHOSE_CLAW_FOSSIL, Route111_EventScript_RootFossilDisappeared
-	msgbox Route111_Text_ClawFossilDisappeared, MSGBOX_DEFAULT
-	releaseall
-	end
-
-Route111_EventScript_RootFossilDisappeared::
-	msgbox Route111_Text_RootFossilDisappeared, MSGBOX_DEFAULT
-	releaseall
-	end
-
-@ Unused
-Route111_Movement_PlayerFall::
-	lock_anim
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	step_end
 
 Route111_EventScript_Girl::
 	lock
@@ -217,7 +210,6 @@ Route111_EventScript_ReceivedBerry::
 	release
 	end
 
-@ Unused
 Route111_EventScript_ViciousSandstormTriggerUp::
 	lockall
 	setvar VAR_0x8004, 0
@@ -236,7 +228,6 @@ Route111_EventScript_ViciousSandstormTriggerLeft::
 	goto Route111_EventScript_ViciousSandstormTrigger
 	end
 
-@ Unused
 Route111_EventScript_ViciousSandstormTriggerRight::
 	lockall
 	setvar VAR_0x8004, 3
@@ -413,63 +404,6 @@ Route111_Movement_WaitForNextWinstrate:
 	delay_16
 	step_end
 
-Route111_EventScript_RouteSignMauville::
-	msgbox Route111_Text_RouteSignMauville, MSGBOX_SIGN
-	end
-
-Route111_EventScript_WinstrateHouseSign::
-	msgbox Route111_Text_WinstrateHouseSign, MSGBOX_SIGN
-	end
-
-Route111_EventScript_RouteSign112::
-	msgbox Route111_Text_RouteSign112, MSGBOX_SIGN
-	end
-
-Route111_EventScript_RouteSign113::
-	msgbox Route111_Text_RouteSign113, MSGBOX_SIGN
-	end
-
-Route111_EventScript_OldLadysRestStopSign::
-	msgbox Route111_Text_OldLadysRestStopSign, MSGBOX_SIGN
-	end
-
-Route111_EventScript_TrainerTipsSpAtkSpDef::
-	msgbox Route111_Text_TrainerTipsSpAtkSpDef, MSGBOX_SIGN
-	end
-
-Route111_EventScript_Man1::
-	msgbox Route111_Text_ToughToKeepWinningUpTheRanks, MSGBOX_NPC
-	end
-
-Route111_EventScript_Man2::
-	msgbox Route111_Text_WinstrateFamilyDestroyedMe, MSGBOX_NPC
-	end
-
-Route111_EventScript_Hiker::
-	lock
-	faceplayer
-	goto_if_eq VAR_MIRAGE_TOWER_STATE, 3, Route111_EventScript_HikerMirageTowerGone
-	goto_if_eq VAR_MIRAGE_TOWER_STATE, 2, Route111_EventScript_HikerMirageTowerDisintegrated
-	goto_if_set FLAG_MIRAGE_TOWER_VISIBLE, Route111_EventScript_HikerMirageTowerVisible
-	msgbox Route111_Text_ShouldBeMirageTowerAroundHere, MSGBOX_DEFAULT
-	release
-	end
-
-Route111_EventScript_HikerMirageTowerGone::
-	msgbox Route111_Text_MirageTowerHasntBeenSeenSince, MSGBOX_DEFAULT
-	release
-	end
-
-Route111_EventScript_HikerMirageTowerDisintegrated::
-	msgbox Route111_Text_ThatWasShockingSandRainedDown, MSGBOX_DEFAULT
-	release
-	end
-
-Route111_EventScript_HikerMirageTowerVisible::
-	msgbox Route111_Text_MirageTowerClearlyVisible, MSGBOX_DEFAULT
-	release
-	end
-
 Route111_EventScript_Drew::
 	trainerbattle_single TRAINER_DREW, Route111_Text_DrewIntro, Route111_Text_DrewDefeat
 	msgbox Route111_Text_DrewPostBattle, MSGBOX_AUTOCLOSE
@@ -603,10 +537,6 @@ Route111_EventScript_Branden::
 	msgbox Route111_Text_BrandenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route111_EventScript_TrainerHillSign::
-	msgbox Route111_Text_TrainerHillSign, MSGBOX_SIGN
-	end
-
 Route111_Text_BattleOurFamily:
 	.string "Hello! I take it you're a traveler.\p"
 	.string "How's this? What do you say to taking\n"
@@ -725,40 +655,5 @@ Route111_Text_MirageTowerClearlyVisible:
 	.string "It could crumble away anytime…\p"
 	.string "I want to go inside it, but I can't\n"
 	.string "get my courage up for it…$"
-
-Route111_Text_ThatWasShockingSandRainedDown:
-	.string "Whoa…\n"
-	.string "That was shocking.\p"
-	.string "Sand rained down in chunks all of\n"
-	.string "a sudden.\p"
-	.string "What was it like inside?\n"
-	.string "Were there sandy ghosts and such?$"
-
-Route111_Text_MirageTowerHasntBeenSeenSince:
-	.string "Since I spoke to you, the tower of sand\n"
-	.string "hasn't been seen.\p"
-	.string "Perhaps it really was\n"
-	.string "the Mirage Tower…$"
-
-Route111_Text_ClawFossilDisappeared:
-	.string "The Claw Fossil disappeared into\n"
-	.string "the sand…$"
-
-Route111_Text_RootFossilDisappeared:
-	.string "The Root Fossil disappeared into\n"
-	.string "the sand…$"
-
-Route111_Text_MauvilleUncleToldMeToTakeRockSmash:
-	.string "Oh, no!\p"
-	.string "My uncle in Mauville told me to take\n"
-	.string "Rock Smash with me if I was going to\l"
-	.string "Route 111!\p"
-	.string "My uncle? He lives across from\n"
-	.string "the bike shop in Mauville.$"
-
-Route111_Text_TrainerHillSign:
-	.string "{RIGHT_ARROW} Trainer Hill Entrance\p"
-	.string "“Scale the heights, you hot-blooded\n"
-	.string "Trainers!”$"
 
 `

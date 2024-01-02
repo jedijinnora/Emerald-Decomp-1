@@ -67,7 +67,7 @@
 #define FLAG_TEACHING_EGG_MOVES         0x33//Jinnora: for toggling move relearner to use egg moves
 #define FLAG_MOVE_RELEARN_PARTY         0x34//Jinnora: for returning to party from move relearner
 
-//Jinnora: added flags for various configs
+//Jinnora: added flags required for various configs
 #define FLAG_EXP_SHARE          0x35 
 #define FLAG_INVERSE_BATTLE     0x36 
 #define FLAG_FORCE_DOUBLE_WILD  0x37 
@@ -87,7 +87,7 @@
 #define FLAG_CHALLENGE_FERRY_TICKET 0x43 // is single ferry use available?
 #define FLAG_DEPARTED_EVER_GRANDE   0x44 // player has left EGC; may forfeit but not modify challenges
 
-#define FLAG_INFINITE_CANDY                         0x45 // Jinnora: if set, player should have the infinite candy item
+#define FLAG_UNUSED_0x045                           0x45
 #define FLAG_USE_NEXT_LEVEL_CAP                     0x46 // used to lift level cap during boss battles?
 #define FLAG_EXPLORE_MODE                           0x47
 #define FLAG_NO_EV_GRINDING                         0x48 // removes EVs stat calculations, should be global effect
@@ -105,18 +105,18 @@
 #define FLAG_RECEIVED_BLUNDER_POLICY         0x52
 #define FLAG_RECEIVED_TUNNELER_GIFT          0x53 // given Eviolite if have HM 4/5/6
 #define FLAG_RECEIVED_SAFETY_GOGGLES         0x54
-#define FLAG_RECEIVED_TM_RETURN              0x55 // todo remove
+#define FLAG_UNUSED_0x55                     0x55
 #define FLAG_RECEIVED_UTILITY_UMBRELLA       0x56
 #define FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY 0x57
 #define FLAG_RECEIVED_SITRUS_BERRY_ROUTE_104 0x58
-#define FLAG_RECEIVED_SPELON_BERRY           0x59
-#define FLAG_RECEIVED_PAMTRE_BERRY           0x5A
-#define FLAG_RECEIVED_WATMEL_BERRY           0x5B
-#define FLAG_RECEIVED_DURIN_BERRY            0x5C
-#define FLAG_RECEIVED_BELUE_BERRY            0x5D
+#define FLAG_RECEIVED_SPELON_BERRY           0x59 // Berry Master's wife
+#define FLAG_RECEIVED_PAMTRE_BERRY           0x5A // Berry Master's wife
+#define FLAG_RECEIVED_WATMEL_BERRY           0x5B // Berry Master's wife
+#define FLAG_RECEIVED_DURIN_BERRY            0x5C // Berry Master's wife
+#define FLAG_RECEIVED_BELUE_BERRY            0x5D // Berry Master's wife
 #define FLAG_RECEIVED_QUICK_CLAW             0x5E
 #define FLAG_RECEIVED_MACHO_BRACE            0x5F
-#define FLAG_RECEIVED_SECRET_POWER           0x60 // keep but refactor into something with an npc tutor
+#define FLAG_UNUSED_0x60                     0x60
 #define FLAG_GIVEN_DEVON_SCOPE               0x61
 #define FLAG_RECEIVED_CLEANSE_TAG            0x62
 #define FLAG_RECEIVED_FOCUS_BAND             0x63
@@ -210,7 +210,7 @@
 #define FLAG_TUTOR_MULTI_HIT_MOVES           0xB5//
 #define FLAG_TUTOR_HIGH_CRIT_MOVES           0xB6//cutter's house, rustboro
 #define FLAG_TUTOR_SHROOMISH_SPORE           0xB7//rustboro city
-#define FLAG_UNUSED_0xB8                     0xB8
+#define FLAG_RECEIVED_SECRET_POWER           0xB8
 #define FLAG_UNUSED_0xB9                     0xB9
 #define FLAG_UNUSED_0xBA                     0xBA
 #define FLAG_UNUSED_0xBB                     0xBB

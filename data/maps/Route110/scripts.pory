@@ -1,8 +1,12 @@
+script Route110_EventScript_NewMauvilleSouthSign {
+	msgbox(format("New Mauville Power Plant\nSouth Entrance"), MSGBOX_SIGN)
+	end
+}
+
+
+
 raw `
-.set LOCALID_CHALLENGE_BIKER, 21
-.set LOCALID_RIVAL, 28
-.set LOCALID_RIVAL_ON_BIKE, 29
-.set LOCALID_BIRCH, 36
+.set LOCALID_CHALLENGE_BIKER, 19
 
 Route110_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route110_OnResume
@@ -15,8 +19,6 @@ Route110_OnResume:
 	end
 
 Route110_OnTransition:
-	call Common_EventScript_SetupRivalGfxId
-	call Common_EventScript_SetupRivalOnBikeGfxId
 	call_if_eq VAR_CYCLING_CHALLENGE_STATE, 1, Route110_EventScript_SaveCyclingMusic
 	end
 
@@ -69,10 +71,6 @@ Route110_EventScript_CyclingRoadSign::
 	msgbox Route110_Text_CyclingRoadSign, MSGBOX_SIGN
 	end
 
-Route110_EventScript_VandalizedSign::
-	msgbox Route110_Text_AquaWasHere, MSGBOX_SIGN
-	end
-
 Route110_EventScript_Route103Sign::
 	msgbox Route110_Text_Route103Sign, MSGBOX_SIGN
 	end
@@ -83,14 +81,6 @@ Route110_EventScript_SeasideParkingSign::
 
 Route110_EventScript_MauvilleCitySign::
 	msgbox Route110_Text_MauvilleCitySign, MSGBOX_SIGN
-	end
-
-Route110_EventScript_TrainerTipsPrlzSleep::
-	msgbox Route110_Text_TrainerTipsPrlzSleep, MSGBOX_SIGN
-	end
-
-Route110_EventScript_TrainerTipsRegisterItems::
-	msgbox Route110_Text_TrainerTipsRegisterItems, MSGBOX_SIGN
 	end
 
 Route110_EventScript_TrickHouseSign::
@@ -432,13 +422,6 @@ Route110_Text_SlateportCitySign:
 Route110_Text_CyclingRoadSign:
 	.string "Seaside Cycling Road$"
 
-Route110_Text_AquaWasHere:
-	.string "“Team Aqua was here!”\p"
-	.string "Someone painted that onto this sign,\n"
-	.string "but then someone else painted over it.\p"
-	.string "“Team Magma rules!” is what it\n"
-	.string "says now.$"
-
 Route110_Text_Route103Sign:
 	.string "Route 110\n"
 	.string "{LEFT_ARROW} Route 103$"
@@ -449,18 +432,6 @@ Route110_Text_SeasideParkingSign:
 Route110_Text_MauvilleCitySign:
 	.string "Route 110\n"
 	.string "{UP_ARROW} Mauville City$"
-
-Route110_Text_TrainerTipsPrlzSleep:
-	.string "Trainer Tips\p"
-	.string "The foe can be made helpless by\n"
-	.string "paralyzing it or causing it to sleep.\p"
-	.string "It is an important technique for\n"
-	.string "Pokémon battles.$"
-
-Route110_Text_TrainerTipsRegisterItems:
-	.string "Trainer Tips\p"
-	.string "The items in the Bag can be reorganized\n"
-	.string "by pressing Select.$"
 
 Route110_Text_TrickHouseSign:
 	.string "“Three steps {RIGHT_ARROW} and two steps {UP_ARROW}\n"

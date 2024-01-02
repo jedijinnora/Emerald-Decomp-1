@@ -419,10 +419,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
-      "x": 5,
-      "y": 35,
+      "x": 4,
+      "y": 37,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
       "movement_range_x": 2,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -1076,8 +1076,17 @@
     },
     {
       "type": "trigger",
-      "x": 7,
-      "y": 37,
+      "x": 3,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_OVERWORLD_WILD_SET",
+      "var_value": "0",
+      "script": "Common_EventScript_SetWild_1"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 34,
       "elevation": 0,
       "var": "VAR_OVERWORLD_WILD_SET",
       "var_value": "0",
@@ -1175,14 +1184,6 @@
       "y": 47,
       "elevation": 3,
       "secret_base_id": "SECRET_BASE_RED_CAVE4_3"
-    },
-    {
-      "type": "sign",
-      "x": 7,
-      "y": 104,
-      "elevation": 3,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route111_EventScript_TrainerTipsSpAtkSpDef"
     },
     {
       "type": "secret_base",

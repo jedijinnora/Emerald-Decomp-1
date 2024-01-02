@@ -1857,6 +1857,9 @@ const u8 gText_ViewIVs[] =            _("IVs");
 const u8 gText_ViewEVs[] =            _("EVs");
 const u8 gText_ViewStats[] =          _("Stats");
 
+//Soot Sack
+const u8 gText_AshQty[] = _("Ash collected:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}");
+
 //Starter Multichoice (TODO:remove now that I have dynamic multichoice)
 const u8 gText_Turtwig[] = _("Turtwig");
 const u8 gText_Chimchar[] = _("Chimchar");

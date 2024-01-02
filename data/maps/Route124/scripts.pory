@@ -10,6 +10,11 @@ script Route124_EventScript_ObservatorySign {
 	end
 }
 
+script Route124_EventScript_HouseSign {
+	msgbox("Jinnora's House", MSGBOX_SIGN)
+	end
+}
+
 raw `
 Route124_EventScript_Spencer::
 	trainerbattle_single TRAINER_SPENCER, Route124_Text_SpencerIntro, Route124_Text_SpencerDefeat

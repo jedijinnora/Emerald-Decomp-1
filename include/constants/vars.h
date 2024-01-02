@@ -157,7 +157,7 @@
 #define VAR_SECRET_BASE_INITIALIZED                      0x4089
 #define VAR_CONTEST_PRIZE_PICKUP                         0x408A
 #define VAR_RECENT_SPRAY                                 0x408B // see include/config/item.h
-#define VAR_UNUSED_0x408C                                0x408C // was brendan house state
+#define VAR_DIFFICULTY_SETTING                           0x408C // was brendan house state
 #define VAR_UNUSED_0x408D                                0x408D
 #define VAR_UNUSED_0x408E                                0x408E
 #define VAR_DEVON_CORP_3F_STATE                          0x408F

@@ -45,6 +45,8 @@ void FieldUseFunc_VsSeeker(u8 taskId);
 void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId);
 void ItemUseOutOfBattle_PokeBall(u8); //adding for Lunos's pokeball swap
 void ItemUseOutOfBattle_Mints(u8 taskId); //adding for mint implementation
+void ItemUseOutOfBattle_SootSack(u8); //soot sack
+u16 GetAshCount(void); //soot sack
 
 enum {
     BALL_THROW_UNABLE_TWO_MONS,

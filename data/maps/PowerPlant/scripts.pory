@@ -1,1 +1,37 @@
-mapscripts PowerPlant_MapScripts {}
+mapscripts PowerPlant_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : PowerPlant_OnTransition
+}
+
+script PowerPlant_OnTransition {
+    call_if_ne(VAR_NEW_MAUVILLE_STATE, 0, PowerPlant_EventScript_HideWorker)
+    end
+}
+
+script PowerPlant_EventScript_HideWorker {
+    setflag(FLAG_TEMP_12)
+    return
+}
+
+script PowerPlant_EventScript_Man {
+    msgbox(format("Generators can attract strong Electric Pokémon. I heard there's a Zapdos in Kanto that keeps attacking the Power Plant near Cerulean City. "), MSGBOX_NPC)
+    end
+}
+
+script PowerPlant_EventScript_Worker {
+    lock
+    faceplayer
+    msgbox(format("We're doing some maintainence on this entrance."))
+    checkitem(ITEM_BASEMENT_KEY)
+    if(var(VAR_RESULT)) {
+        msgbox(format("You can get in through the south side, via Route 110."))
+    }
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(VAR_LAST_TALKED)
+    release
+    end
+}
+
+script PowerPlant_EventScript_NewMauvilleNorthSign {
+	msgbox(format("New Mauville Power Plant\nNorth Entrance"), MSGBOX_SIGN)
+	end
+}

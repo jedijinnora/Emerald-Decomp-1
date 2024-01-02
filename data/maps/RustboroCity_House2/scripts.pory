@@ -1,23 +1,14 @@
-raw `
-RustboroCity_House2_MapScripts::
-	.byte 0
+mapscripts RustboroCity_House2_MapScripts {}
 
-RustboroCity_House2_EventScript_PokefanF::
-	msgbox RustboroCity_House2_Text_TrainerSchoolExcellent, MSGBOX_NPC
+script RustboroCity_House2_EventScript_PokefanF {
+	msgbox(format("The Trainer's School is excellent. Those who study there often become some of the best Trainers of the generation."), MSGBOX_NPC)
 	end
+}
 
-RustboroCity_House2_EventScript_LittleGirl::
-	msgbox RustboroCity_House2_Text_RoxanneKnowsALot, MSGBOX_NPC
+script RustboroCity_House2_EventScript_Roxanne {
+	lock
+	faceplayer
+	msgbox(format("Roxanne: I learned all about Pokémon at the Trainer's School."))
+	release
 	end
-
-RustboroCity_House2_Text_TrainerSchoolExcellent:
-	.string "The Trainer's School is excellent.\p"
-	.string "If you study there, you could even\n"
-	.string "become a Gym Leader.$"
-
-RustboroCity_House2_Text_RoxanneKnowsALot:
-	.string "Roxanne, the Gym Leader, really knows\n"
-	.string "a lot about Pokémon.\p"
-	.string "She's really strong, too!$"
-
-`
+}
