@@ -118,7 +118,7 @@ text RustboroCity_Gym_Text_NolandRematchDefeat {
 
 
 script Gym_EventScript_GetHM {
-	msgbox(format("For earning a new badge, you receive an HM!"))
+	msgbox(format("For earning a badge, you receive an HM!"))
 	call(Gym_EventScript_ChooseHM)
 	return
 }

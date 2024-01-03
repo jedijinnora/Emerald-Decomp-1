@@ -1,4 +1,38 @@
-mapscripts EmeraldCape_MapScripts {}
+mapscripts EmeraldCape_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : EmeraldCape_OnTransition
+}
+
+script EmeraldCape_OnTransition {
+	setflag(FLAG_VISITED_EMERALD_CAPE)
+	end
+}
+
+script EmeraldCape_EventScript_CapeSign {
+	msgbox(format("Emerald Cape\n“The paradise before the final test.”"), MSGBOX_SIGN)
+	end
+}
+
+script EmeraldCape_EventScript_VictoryRoadSign {
+	msgbox(format("Victory Road\n“Only the best will reach the end.”"), MSGBOX_SIGN)
+	end
+}
+
+script EmeraldCape_EventScript_Woman {
+	msgbox(format("Isn't it blissful to enjoy the ocean breeze while surrounded by flowers?"), MSGBOX_NPC)
+	end
+}
+
+script EmeraldCape_EventScript_Man {
+	lock
+	faceplayer
+	if(flag(FLAG_SYS_GAME_CLEAR)) {
+		msgbox(format("Oh gosh, you're Champion {PLAYER}! I'm a big fan!"))
+	} else {
+		msgbox(format("Hey, you're {PLAYER}, right? I've heard of you, good luck with the League!"))
+	}
+	release
+	end
+}
 
 script EmeraldCape_EventScript_WarpStatue {
     lock

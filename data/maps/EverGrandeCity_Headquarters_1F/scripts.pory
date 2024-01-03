@@ -8,8 +8,12 @@ const LOCALID_BOX = 7
 //FLAG_TEMP_1 SecurityMan intro
 //FLAG_TEMP_2 Konami intro
 //VAR_TEMP_1 and VAR_TEMP_2 Game Over randomization
+//VAR_TEMP_3 challenges state variable
+//VAR_TEMP_4 for giving missed HMs
 
 
+
+// Desk Lady scripts
 script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
 	lock
 	faceplayer
@@ -64,15 +68,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
 	end
 }
 
-script EverGrandeCity_Headquarters_1F_EventScript_Beauty {
-	lock
-	faceplayer
-	msgbox(format("Government buildings are surprisingly mundane. You think it's all high-security and labyrinthine bureaucracy, but it's just full of regular office workers."))
-    msgbox(format("Action movies lied to me! Why can't reality be more like fiction?"))
-	release
-	end
-}
 
+
+// General prompt scripts
 script EverGrandeCity_Headquarters_1F_EventScript_GoCheckIn {
     msgbox(format("You have to check in at the main desk before I can help you with anything."))
     applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
@@ -89,6 +87,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_ScientistOut {
     end
 }
 
+
+
+// Information scripts
 script EverGrandeCity_Headquarters_1F_EventScript_InformationScientist {
 	lock
 	faceplayer
@@ -185,29 +186,37 @@ script EverGrandeCity_Headquarters_1F_EventScript_StoryInfo {
     return
 }
 
+
+
+// Difficulty and Challenge scripts
 script EverGrandeCity_Headquarters_1F_EventScript_DifficultyScientist {
 	lock
 	faceplayer
     goto_if_le(VAR_EVER_GRANDE_CITY_STATE, 11, EverGrandeCity_Headquarters_1F_EventScript_GoCheckIn)
-    goto_if_set(FLAG_DEPARTED_EVER_GRANDE, EverGrandeCity_Headquarters_1F_EventScript_ChallengesUpdate)
+    goto_if_set(FLAG_DEPARTED_EVER_GRANDE, EverGrandeCity_Headquarters_1F_EventScript_UpdateChallengesDifficulty)
 	msgbox(format("I am the Challenge Guy!\nHow can I help you?"))
 
-    dynmultipush("Select Difficulty Settings", 1)
-    dynmultipush("Optional Challenge Rules", 2)
-    dynmultipush("Select Optional Challenges", 3)
+    dynmultipush("View current settings", 0)
+    dynmultipush("Select difficulty settings", 1)
+    if(var(VAR_DIFFICULTY_SETTING) != 1) {
+        dynmultipush("Select optional challenges", 2)
+    }
+    dynmultipush("Optional challenge rules", 3)
     dynmultipush("OpChal: Random HMs", 11)
     dynmultipush("OpChal: No HMs", 12)
     dynmultipush("OpChal: Ferry Limit", 13)
     dynmultipush("Nuzlocke/Monotype", 21)
 
-    dynmultistack(0,0,FALSE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
     switch(var(VAR_RESULT)) {
+        case 0:
+            call(EverGrandeCity_Headquarters_1F_EventScript_ViewChallengesDifficulty)
         case 1:
             call(EverGrandeCity_Headquarters_1F_EventScript_ModifyDifficulty)
         case 2:
-            call(EverGrandeCity_Headquarters_1F_EventScript_ChallengeRules)
-        case 3:
             call(EverGrandeCity_Headquarters_1F_EventScript_ModifyChallenges)
+        case 3:
+            call(EverGrandeCity_Headquarters_1F_EventScript_ChallengeRules)
         case 11:
             call(EverGrandeCity_Headquarters_1F_EventScript_RandomHMInfo)
         case 12:
@@ -222,17 +231,266 @@ script EverGrandeCity_Headquarters_1F_EventScript_DifficultyScientist {
     goto(EverGrandeCity_Headquarters_1F_EventScript_DifficultyScientist)
 }
 
-script EverGrandeCity_Headquarters_1F_EventScript_ModifyDifficulty {
+script EverGrandeCity_Headquarters_1F_EventScript_ViewChallengesDifficulty {
     switch(var(VAR_DIFFICULTY_SETTING)) {
         case 0:
-            msgbox(format("You are currently playing on Standard difficulty."))
+            msgbox(format("You are playing on Standard difficulty."))
         case 1:
-            msgbox(format("You are currently playing on Easy difficulty."))
+            msgbox(format("You are playing on Easy difficulty."))
         case 2:
-            msgbox(format("You are currently playing on Hardcore difficulty."))
+            msgbox(format("You are playing on Hardcore difficulty."))
         default:
-            msgbox(format("I'm sorry, you are somehow playing with an impossible difficulty setting. Please report this bug."))
+            buffernumberstring(STR_VAR_1, VAR_DIFFICULTY_SETTING)
+            msgbox(format("Difficulty setting {STR_VAR_1} should not be reachable. Please report this bug."))
     }
+    if(flag(FLAG_EXPLORE_MODE)) {
+        msgbox(format("You have Explore Mode active."))
+    }
+    if(flag(FLAG_NO_EV_GRINDING)) {
+        msgbox(format("EVs are not included in Pokémon stat calculations."))
+    }
+    call(EverGrandeCity_Headquarters_1F_EventScript_ViewCurrentChallenges)
+    return
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_ViewCurrentChallenges {
+    call(EverGrandeCity_Headquarters_1F_EventScript_SetChallengesToTempVar3)
+    switch(var(VAR_TEMP_3)) {
+        case 0:
+            msgbox(format("You have no optional challenges active."))
+        case 2:
+            msgbox(format("You have the Random HMs challenge active."))
+        case 3:
+            msgbox(format("You have the Ferry Limit challenge with Random HMs active."))
+        case 6:
+            msgbox(format("You have the No HMs challenge active."))
+        case 7:
+            msgbox(format("You have the Ferry Limit challenge with No HMs active."))
+        default:
+            buffernumberstring(STR_VAR_1, VAR_TEMP_3)
+            msgbox(format("Challenge state {STR_VAR_1} should not be reachable. Please report this bug."))
+    }
+    return
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_SetChallengesToTempVar3 {
+    setvar(VAR_TEMP_3, 0)
+    if(flag(FLAG_CHALLENGE_FERRY_LIMIT)) {
+        addvar(VAR_TEMP_3, 1)
+    }
+    if(flag(FLAG_CHALLENGE_HM_RANDOM)) {
+        addvar(VAR_TEMP_3, 2)
+    }
+    if(flag(FLAG_CHALLENGE_HM_NONE)) {
+        addvar(VAR_TEMP_3, 4)
+    }
+    return
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_UpdateChallengesDifficulty {
+    call(EverGrandeCity_Headquarters_1F_EventScript_ViewChallengesDifficulty)
+    msgbox(format("What would you like to do?"))
+    if(var(VAR_TEMP_3) == 0 && var(VAR_DIFFICULTY_SETTING) != 1) {
+        dynmultipush("Forfeit difficulty to Easy", 1)
+    }
+    if(var(VAR_DIFFICULTY_SETTING) == 2) {
+        dynmultipush("Forfeit difficulty to Standard", 2)
+    }
+    if(var(VAR_TEMP_3) != 0) {
+        dynmultipush("Forfeit an active challenge", 3)
+    }
+    if(var(VAR_DIFFICULTY_SETTING) != 2 && flag(FLAG_NO_EV_GRINDING)) {
+        dynmultipush("Turn on Effort Values", 11)
+    } elif(!flag(FLAG_NO_EV_GRINDING)) {
+        dynmultipush("Turn off Effort Values", 12)
+    }
+    dynmultipush("View Difficulty information", 20)
+
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitEasy)
+        case 2:
+            call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitStandard)
+        case 3:
+            call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitChallenge)
+        case 11:
+            call(EverGrandeCity_Headquarters_1F_EventScript_EVOn)
+        case 12:
+            call(EverGrandeCity_Headquarters_1F_EventScript_EVOff)
+        case 20:
+            call(EverGrandeCity_Headquarters_1F_EventScript_DifficultyRules)
+        default:
+            releaseall
+            end
+    }
+    goto(EverGrandeCity_Headquarters_1F_EventScript_UpdateChallengesDifficulty)
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_ForfeitWarning {
+    msgbox(format("This action cannot be undone. Are you certain you wish to proceed?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, Common_EventScript_NopReturn)
+    releaseall
+    end
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_ForfeitEasy {
+    call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitWarning)
+    call(EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyEasy)
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_ForfeitStandard {
+    call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitWarning)
+    call(EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyStandard)
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_ForfeitChallenge {
+    call(EverGrandeCity_Headquarters_1F_EventScript_ViewCurrentChallenges)
+    if(var(VAR_TEMP_3) == 0) {
+        return
+    }
+    if(flag(FLAG_CHALLENGE_FERRY_LIMIT)) {
+        dynmultipush("Remove the Ferry Limit challenge", 1)
+    }
+    if(flag(FLAG_CHALLENGE_HM_RANDOM) && !flag(FLAG_CHALLENGE_HM_NONE)) {
+        dynmultipush("Remove the Random HMs challenge", 2)
+    }
+    if(flag(FLAG_CHALLENGE_HM_NONE)) {
+        dynmultipush("Remove the No HMs challenge", 3)
+    }
+    dynmultipush("Go Back", 10)
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitFerry)
+        case 2:
+            call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitNoHM)
+        case 3:
+            call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitNoHM)
+        default:
+            return
+    }
+    goto(EverGrandeCity_Headquarters_1F_EventScript_ForfeitChallenge)
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_ForfeitFerry {
+    call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitWarning)
+    clearflag(FLAG_CHALLENGE_FERRY_LIMIT)
+    msgbox(format("Ferry challenge removed."))
+    return
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_ForfeitRandomHM {
+    call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitWarning)
+    clearflag(FLAG_CHALLENGE_HM_RANDOM)
+    msgbox(format("Random HMs challenge removed."))
+    return
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_ForfeitNoHM {
+    call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitWarning)
+    clearflag(FLAG_CHALLENGE_HM_NONE)
+    msgbox(format("No HMs challenge removed. You will now be given HMs according to your number of badges."))
+    call(Common_EventScript_CountBadges)
+    setvar(VAR_TEMP_4, 0)
+    msgbox(format("Would you like to continue with the Random HMs challenge active?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, EverGrandeCity_Headquarters_1F_EventScript_GiveMissingHMs)
+    clearflag(FLAG_CHALLENGE_HM_RANDOM)
+    goto(EverGrandeCity_Headquarters_1F_EventScript_GiveMissingHMs)
+    end
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_GiveMissingHMs {
+    compare_var_to_var(VAR_TEMP_4, VAR_NUM_BADGES)
+    goto_if_eq(Common_EventScript_NopReturn)
+    addvar(VAR_TEMP_4, 1)
+    call(Gym_EventScript_GetHM)
+    goto(EverGrandeCity_Headquarters_1F_EventScript_GiveMissingHMs)
+    end
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_ModifyDifficulty {
+    call(EverGrandeCity_Headquarters_1F_EventScript_ViewChallengesDifficulty)
+    if(var(VAR_TEMP_3) == 0 && var(VAR_DIFFICULTY_SETTING) != 1) {
+        dynmultipush("Play on Easy difficulty", 1)
+    }
+    if(var(VAR_DIFFICULTY_SETTING) != 0) {
+        dynmultipush("Play on Standard difficulty", 0)
+    }
+    if(var(VAR_DIFFICULTY_SETTING) != 2) {
+        dynmultipush("Play on Hardcore difficulty", 2)
+    }
+    if(var(VAR_DIFFICULTY_SETTING) != 2 && flag(FLAG_NO_EV_GRINDING)) {
+        dynmultipush("Turn on Effort Values", 11)
+    } elif(!flag(FLAG_NO_EV_GRINDING)) {
+        dynmultipush("Turn off Effort Values", 12)
+    }
+    dynmultipush("View Difficulty information", 20)
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyStandard)
+        case 1:
+            call(EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyEasy)
+        case 2:
+            call(EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyHardcore)
+        case 11:
+            call(EverGrandeCity_Headquarters_1F_EventScript_EVOn)
+        case 12:
+            call(EverGrandeCity_Headquarters_1F_EventScript_EVOff)
+        case 20:
+            call(EverGrandeCity_Headquarters_1F_EventScript_DifficultyRules)
+        default:
+            return
+    }
+    goto(EverGrandeCity_Headquarters_1F_EventScript_ModifyDifficulty)
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyEasy {
+    setvar(VAR_DIFFICULTY_SETTING, 1)
+    clearflag(FLAG_CHALLENGE_FERRY_LIMIT)
+    clearflag(FLAG_CHALLENGE_HM_NONE)
+    clearflag(FLAG_CHALLENGE_HM_RANDOM)
+    clearflag(FLAG_NO_BAG_USE)
+    //TODO clear forced set mode
+    msgbox(format("Difficulty set to Easy."))
+    return
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyStandard {
+    setvar(VAR_DIFFICULTY_SETTING, 0)
+    clearflag(FLAG_NO_BAG_USE)
+    msgbox(format("Difficulty set to Standard."))
+    return
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyHardcore {
+    setvar(VAR_DIFFICULTY_SETTING, 2)
+    setflag(FLAG_NO_BAG_USE)
+    setflag(FLAG_NO_EV_GRINDING)
+    //TODO set forced set mode
+    msgbox(format("Difficulty set to Hardcore."))
+    return
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_EVOff {
+    setflag(FLAG_NO_EV_GRINDING)
+    msgbox(format("Effort Values will no longer affect Pokémon stats, though they still appear in the summary screen."))
+    return
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_EVOn {
+    clearflag(FLAG_NO_EV_GRINDING)
+    msgbox(format("Effort Values will be included in Pokémon stats."))
+    return
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_DifficultyRules {
+    msgbox(format("The three difficulty options are Standard, Easy, and Hardcore."))
+    msgbox(format("In Easy difficulty level caps are disabled, item use in battle is allowed, and battle style is shift mode. Enemy Trainers will always use the easier party available to them."))
+    msgbox(format("In Standard difficulty level caps are enabled but may be exceeded using Rare Candies. Item use in battle is allowed, but battle style is set mode."))
+    msgbox(format("In Hardcore difficulty Rare Candies cannot be used to exceed the level cap. No item use in battle, battle style is set mode. EVs are turned off."))
+    msgbox(format("In Standard or Easy difficulty you may choose to toggle EVs on or off freely."))
     return
 }
 
@@ -304,39 +562,15 @@ script EverGrandeCity_Headquarters_1F_EventScript_FerryChallengeInfo {
 
 script EverGrandeCity_Headquarters_1F_EventScript_NuzlockeMonotypeInfo {
     msgbox(format("Monotype or Nuzlocke runs are the responsibility of the player to manage."))
-    msgbox(format("Jinnora: there were too many rule variants to cover and it didn't seem worth the dev time."))
+    msgbox(format("Jinnora: it didn't seem worth the dev time I'd have to spend on all the rule variants."))
     msgbox(format("Look at the starter option for monotype runs if you missed it."))
-    msgbox(format("For Nuzlockes, Hardcore difficulty disables EVs and there's an infinite candy to avoid grinding."))
+    msgbox(format("For Nuzlockes, check the option to disable EVs and there's an infinite candy to avoid grinding."))
     return
 }
 
-script EverGrandeCity_Headquarters_1F_EventScript_ChallengesUpdate {
-    msgbox(format("Welcome back!"))
-    //TODO
-    //detect if on any challenges
-    //offer to forfeit challenges
-    //offer to teleport to Ever Grande
-    //offer challenge rewards if completed
-}
 
 
-
-
-script EverGrandeCity_Headquarters_1F_EventScript_SecurityMan {
-	lock
-	faceplayer
-    goto_if_set(FLAG_TEMP_1, OhNoAirPods)
-    setflag(FLAG_TEMP_1)
-	msgbox(format("I'm a security officer. Check out my badge! You should respect my authority, or else!"))
-    release
-    end
-
-    OhNoAirPods:
-    msgbox(format("Seriously, though, I just stand here and watch for people getting too rowdy. I'm extremely bored! They confiscated my airpods last week."))
-	release
-	end
-}
-
+// Hint Kid scripts
 script EverGrandeCity_Headquarters_1F_EventScript_GameBoyKid {
 	lock
     call_if_unset(FLAG_TEMP_2, EverGrandeCity_Headquarters_1F_EventScript_KonamiIntro)
@@ -404,6 +638,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_GivePuzzleHint {
     goto(EverGrandeCity_Headquarters_1F_EventScript_GameBoyKid)
 }
 
+
+
+// Credits scripts
 script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
     lock
     faceplayer
@@ -535,6 +772,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
     end
 }
 
+
+
+// Explore Mode scripts
 script EverGrandeCity_Headquarters_1F_EventScript_ExploreModeTwin {
     lock
     faceplayer
@@ -666,6 +906,29 @@ script EverGrandeCity_Headquarters_1F_EventScript_ExploreModeTrainerSeeToggle {
     return
 }
 
-script EverGrandeCity_Headquarters_1F_EventScript_Jinnora {
 
+
+// Other NPC scripts
+script EverGrandeCity_Headquarters_1F_EventScript_Beauty {
+	lock
+	faceplayer
+	msgbox(format("Government buildings are surprisingly mundane. You think it's all high-security and labyrinthine bureaucracy, but it's just full of regular office workers."))
+    msgbox(format("Action movies lied to me! Why can't reality be more like fiction?"))
+	release
+	end
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_SecurityMan {
+	lock
+	faceplayer
+    goto_if_set(FLAG_TEMP_1, OhNoAirPods)
+    setflag(FLAG_TEMP_1)
+	msgbox(format("I'm a security officer. Check out my badge! You should respect my authority, or else!"))
+    release
+    end
+
+    OhNoAirPods:
+    msgbox(format("Seriously, though, I just stand here and watch for people getting too rowdy. I'm extremely bored! They confiscated my airpods last week."))
+	release
+	end
 }

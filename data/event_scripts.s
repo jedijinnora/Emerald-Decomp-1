@@ -1234,3 +1234,6 @@ Common_EventScript_CountBadges::
 	.include "data/maps/PetalburgCity_House3/scripts.inc"
 
 	.include "data/maps/PetalburgCity_House4/scripts.inc"
+	.include "data/maps/EmeraldCape_PokemonCenter_1F/scripts.inc"
+
+	.include "data/maps/EmeraldCape_PokemonCenter_2F/scripts.inc"
