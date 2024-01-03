@@ -1,1 +1,23 @@
 mapscripts MossdeepCity_SpaceCenter_1F_MapScripts {}
+
+script MossdeepCity_SpaceCenter_1F_EventScript_EjectGuy {
+    lock
+    faceplayer
+    msgbox(format("I help design escape systems on the launch vehicle."))
+    call_if_unset(FLAG_RECEIVED_SPACE_CENTER_EJECT_PACK, MossdeepCity_SpaceCenter_1F_EventScript_GiveEjectPack)
+    msgbox(format("Hopefully, all my hard work will never be used!"))
+    release
+    end
+}
+
+script MossdeepCity_SpaceCenter_1F_EventScript_GiveEjectPack {
+    msgbox(format("Everyone should have one of these!"))
+    giveitem(ITEM_EJECT_PACK)
+    setflag(FLAG_RECEIVED_SPACE_CENTER_EJECT_PACK)
+    return
+}
+
+script MossdeepCity_SpaceCenter_1F_EventScript_LaunchPadGuy {
+    msgbox(format("Sure, a steel launch pad is more expensive to build and maintain than concrete. But can you imagine what would happen if we just let the rockets tear up the pad on launch? We'd look like idiots!"), MSGBOX_NPC)
+    end
+}

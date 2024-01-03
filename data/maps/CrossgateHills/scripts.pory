@@ -22,7 +22,7 @@ script CrossgateHills_EventScript_CheckParasolLadies {
     goto_if_not_defeated(TRAINER_KAYLEY, CrossgateHills_NoUmbrellaForYou)
     goto_if_not_defeated(TRAINER_RACHEL, CrossgateHills_NoUmbrellaForYou)
 
-    msgbox(format("Nice work! Use this to shield your darlings from the weather."))
+    msgbox(format("Nice work defeating the other Parasol Ladies! Use this to shield your darlings from the weather."))
     giveitem(ITEM_UTILITY_UMBRELLA)
     setflag(FLAG_RECEIVED_UTILITY_UMBRELLA)
     return

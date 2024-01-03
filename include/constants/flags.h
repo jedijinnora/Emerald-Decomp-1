@@ -105,7 +105,7 @@
 #define FLAG_RECEIVED_BLUNDER_POLICY         0x52
 #define FLAG_RECEIVED_TUNNELER_GIFT          0x53 // given Eviolite if have HM 4/5/6
 #define FLAG_RECEIVED_SAFETY_GOGGLES         0x54
-#define FLAG_UNUSED_0x55                     0x55
+#define FLAG_RECEIVED_SPACE_CENTER_EJECT_PACK 0x55
 #define FLAG_RECEIVED_UTILITY_UMBRELLA       0x56
 #define FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY 0x57
 #define FLAG_RECEIVED_SITRUS_BERRY_ROUTE_104 0x58
@@ -116,7 +116,7 @@
 #define FLAG_RECEIVED_BELUE_BERRY            0x5D // Berry Master's wife
 #define FLAG_RECEIVED_QUICK_CLAW             0x5E
 #define FLAG_RECEIVED_MACHO_BRACE            0x5F
-#define FLAG_UNUSED_0x60                     0x60
+#define FLAG_RECEIVED_MT_CHIMNEY_PADS        0x60
 #define FLAG_GIVEN_DEVON_SCOPE               0x61
 #define FLAG_RECEIVED_CLEANSE_TAG            0x62
 #define FLAG_RECEIVED_FOCUS_BAND             0x63

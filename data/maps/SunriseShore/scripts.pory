@@ -24,3 +24,30 @@ script SunriseShore_EventScript_SunshineLady {
     msgbox(format("I love how sunny it is here! I found a Sun Stone just the other day."), MSGBOX_NPC)
     end
 }
+
+script SunriseShore_EventScript_Poochyena {
+    lock
+    faceplayer
+    playmoncry(SPECIES_POOCHYENA, CRY_MODE_ENCOUNTER)
+    msgbox(format("Poochyena snarls at you. She seems frustrated with humans."))
+    release
+    end
+}
+
+script SunriseShore_EventScript_MagmaGuy {
+    lock
+    faceplayer
+    msgbox(format("Look, if we dam the mouth of the bay we can reclaim tons of land for development. There's still loads of sea we haven't touched."))
+    msgbox(format("Who cares about a bit of pollution or some fish? We have a future to build!"))
+    release
+    end
+}
+
+script SunriseShore_EventScript_AquaGuy {
+    lock
+    faceplayer
+    msgbox(format("We've done enough damage to the ocean around Lilycove already! We need to be protecting the ecosystem, not trashing it further."))
+    msgbox(format("Environmentalism may not turn a profit in the short term, but in the long run we're all better off for it!"))
+    release
+    end
+}
