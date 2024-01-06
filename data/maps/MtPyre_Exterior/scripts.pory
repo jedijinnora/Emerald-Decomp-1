@@ -2,7 +2,7 @@ script MtPyre_Exterior_EventScript_DefogMan {
 	lock
 	faceplayer
 	checkitem(ITEM_TM19_DEFOG)
-	if(var(VAR_RESULT) == FALSE) {
+	if(var(VAR_RESULT) == FALSE && (var(VAR_DIFFICULTY_SETTING) != 2) || flag(FLAG_SYS_GAME_CLEAR)) {
 		msgbox(format("Gah! You frightened me!"))
 		msgbox(format("I thought this TM would let me blow away this blasted fog."))
 		msgbox(format("But it's useless! Take it far away from me!"))

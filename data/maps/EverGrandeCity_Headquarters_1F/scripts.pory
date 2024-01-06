@@ -249,6 +249,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_ViewChallengesDifficulty {
     if(flag(FLAG_NO_EV_GRINDING)) {
         msgbox(format("EVs are not included in Pokémon stat calculations."))
     }
+    if(flag(FLAG_NO_BAG_USE)) {
+        msgbox(format("Items cannot be used during Trainer battles."))
+    }
     call(EverGrandeCity_Headquarters_1F_EventScript_ViewCurrentChallenges)
     return
 }
@@ -290,7 +293,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_SetChallengesToTempVar3 {
 script EverGrandeCity_Headquarters_1F_EventScript_UpdateChallengesDifficulty {
     call(EverGrandeCity_Headquarters_1F_EventScript_ViewChallengesDifficulty)
     msgbox(format("What would you like to do?"))
-    if(var(VAR_TEMP_3) == 0 && var(VAR_DIFFICULTY_SETTING) != 1) {
+    if(var(VAR_DIFFICULTY_SETTING) != 1) {
         dynmultipush("Forfeit difficulty to Easy", 1)
     }
     if(var(VAR_DIFFICULTY_SETTING) == 2) {
@@ -453,7 +456,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyEasy {
     clearflag(FLAG_CHALLENGE_HM_RANDOM)
     clearflag(FLAG_NO_BAG_USE)
     //TODO clear forced set mode
-    msgbox(format("Difficulty set to Easy."))
+    msgbox(format("Difficulty set to Easy. Any active challenges removed."))
     return
 }
 
@@ -466,9 +469,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyStandard {
 
 script EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyHardcore {
     setvar(VAR_DIFFICULTY_SETTING, 2)
-    setflag(FLAG_NO_BAG_USE)
     setflag(FLAG_NO_EV_GRINDING)
     //TODO set forced set mode
+    setflag(FLAG_NO_BAG_USE)
     msgbox(format("Difficulty set to Hardcore."))
     return
 }

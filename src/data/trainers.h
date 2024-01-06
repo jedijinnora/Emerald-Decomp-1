@@ -1,3 +1,17 @@
+//Jinnora: use these defines for easier flag assignment
+//doesn't include everything, note:
+// AI_FLAG_ACE_POKEMON
+// AI_FLAG_OMNISCIENT 
+// AI_FLAG_PREFER_STRONGEST_MOVE
+// AI_FLAG_SETUP_FIRST_TURN
+
+#define BASIC_TRAINER_FLAGS (AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY)
+#define SMART_SWITCHING_FLAGS (BASIC_TRAINER_FLAGS | AI_FLAG_SMART_SWITCHING | AI_FLAG_SMART_MON_CHOICES)
+#define SMART_DOUBLE_FLAGS (SMART_TRAINER_FLAGS | AI_FLAG_HELP_PARTNER)
+#define TROLL_TRAINER_FLAGS (SMART_TRAINER_FLAGS | AI_FLAG_RISKY | AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_WILL_SUICIDE)
+
+
+//make sure opponents.h has the same ordering
 const struct Trainer gTrainers[] = {
     [TRAINER_NONE] =
     {
@@ -3213,7 +3227,9 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_SUPER_POTION, ITEM_SUPER_POTION, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Wattson1),
+        .party = TRAINER_PARTY(sParty_Wattson_badge2),
+        .badgeThreshold = 1,
+        .easyParty = sParty_Wattson_badge1,
     },
 
     [TRAINER_FLANNERY_1] =
@@ -3273,7 +3289,9 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_HYPER_POTION, ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Juan1),
+        .party = TRAINER_PARTY(sParty_Juan_badge2),
+        .badgeThreshold = 1,
+        .easyParty = sParty_Juan_badge1,
     },
 
     [TRAINER_JERRY_1] =
@@ -9345,7 +9363,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Wattson2),
+        .party = TRAINER_PARTY(sParty_Wattson_badge567),
     },
 
     [TRAINER_WATTSON_3] =
@@ -9357,7 +9375,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Wattson3),
+        .party = TRAINER_PARTY(sParty_Wattson_badge567),
     },
 
     [TRAINER_WATTSON_4] =
@@ -9369,7 +9387,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Wattson4),
+        .party = TRAINER_PARTY(sParty_Wattson_badge567),
     },
 
     [TRAINER_WATTSON_5] =
@@ -9381,7 +9399,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Wattson5),
+        .party = TRAINER_PARTY(sParty_Wattson_badge567),
     },
 
     [TRAINER_FLANNERY_2] =
@@ -9585,7 +9603,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Juan2),
+        .party = TRAINER_PARTY(sParty_Juan_badge567),
     },
 
     [TRAINER_JUAN_3] =
@@ -9597,7 +9615,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Juan3),
+        .party = TRAINER_PARTY(sParty_Juan_badge567),
     },
 
     [TRAINER_JUAN_4] =
@@ -9609,7 +9627,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Juan4),
+        .party = TRAINER_PARTY(sParty_Juan_badge567),
     },
 
     [TRAINER_JUAN_5] =
@@ -9621,7 +9639,7 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE},
         .doubleBattle = TRUE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
-        .party = TRAINER_PARTY(sParty_Juan5),
+        .party = TRAINER_PARTY(sParty_Juan_badge567),
     },
 
     [TRAINER_ANGELO] =

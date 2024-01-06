@@ -19,6 +19,7 @@
 #include "field_weather.h"
 #include "graphics.h"
 #include "international_string_util.h"
+#include "item.h"
 #include "item_icon.h"
 #include "link.h"
 #include "load_save.h"
@@ -4368,4 +4369,19 @@ void SetCaughtMon(void)
 {
     GetSetPokedexFlag(SpeciesToNationalPokedexNum(gSpecialVar_0x8004), FLAG_SET_SEEN);
     GetSetPokedexFlag(SpeciesToNationalPokedexNum(gSpecialVar_0x8004), FLAG_SET_CAUGHT);
+}
+
+// Jinnora: count HMs, needed to check before offering the player more, since multichoice hangs if all 8 in bag
+u8 GetCurrentHMCount(void)
+{
+    u8 numHM = 0;
+    for (u16 i = 0; i < 8; i++) 
+    {
+        if(CheckBagHasItem(ITEM_HM01 + i, 1))
+        {
+            numHM++;
+        }
+    }
+
+    return numHM;
 }

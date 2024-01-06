@@ -38,7 +38,7 @@ script MtChimney_EventScript_OldWoman {
 
 script MtChimney_EventScript_GiveProtectivePads {
 	msgbox(format("Here you are dear, everyone should have a set."))
-	givitem(ITEM_PROTECTIVE_PADS)
+	giveitem(ITEM_PROTECTIVE_PADS)
 	setflag(FLAG_RECEIVED_MT_CHIMNEY_PADS)
 	return
 }

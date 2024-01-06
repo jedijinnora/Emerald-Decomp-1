@@ -72,8 +72,7 @@ script RustboroCity_Gym_EventScript_NolandDefeated {
 	setvar(VAR_0x8008, 1)
 	call(Common_EventScript_SetGymTrainers)
 	call_if_unset(FLAG_CHALLENGE_HM_NONE, Gym_EventScript_GetHM)
-	release
-	return
+	goto(NolandEnd)
 }
 
 text RustboroCity_Gym_Text_NolandIntro {
@@ -118,6 +117,9 @@ text RustboroCity_Gym_Text_NolandRematchDefeat {
 
 
 script Gym_EventScript_GetHM {
+	specialvar(VAR_0x8000, GetCurrentHMCount)
+	compare_var_to_var(VAR_0x8000, VAR_NUM_BADGES)
+	goto_if_ge(Common_EventScript_NopReturn)
 	msgbox(format("For earning a badge, you receive an HM!"))
 	call(Gym_EventScript_ChooseHM)
 	return

@@ -86,11 +86,11 @@
 #define FLAG_CHALLENGE_FERRY_LIMIT  0x42 // one ferry ride only, replenish after gym victory
 #define FLAG_CHALLENGE_FERRY_TICKET 0x43 // is single ferry use available?
 #define FLAG_DEPARTED_EVER_GRANDE   0x44 // player has left EGC; may forfeit but not modify challenges
+#define FLAG_NO_EV_GRINDING         0x45 // removes EVs stat calculations, should be global effect
+#define FLAG_TODO_FORCED_SET_MODE   0x46
+#define FLAG_EXPLORE_MODE           0x47
 
-#define FLAG_UNUSED_0x045                           0x45
-#define FLAG_USE_NEXT_LEVEL_CAP                     0x46 // used to lift level cap during boss battles?
-#define FLAG_EXPLORE_MODE                           0x47
-#define FLAG_NO_EV_GRINDING                         0x48 // removes EVs stat calculations, should be global effect
+#define FLAG_TODO_USE_NEXT_LEVEL_CAP                0x48 //TODO for going to next level cap during boss battle
 #define FLAG_VS_SEEKER                              0x49 // see include/config/item.h
 #define FLAG_BEACH_BATTLE_VICTORY                   0x4A // set after returning from special beach map
 #define FLAG_BEACH_BATTLE_STARTED                   0x4B // set when warping to special beach map
@@ -730,9 +730,9 @@
 #define FLAG_HIDDEN_ITEM_VERDANT_FOREST_PURPLE_NECTAR         0x2A7
 #define FLAG_HIDDEN_ITEM_SUNSHINE_SHORE_RED_SHARD             0x2A8
 #define FLAG_HIDDEN_ITEM_SUNSHINE_SHORE_HEART_SCALE           0x2A9
-#define FLAG_UNUSED_0x2AA  0x2AA // Unused Flag
-#define FLAG_UNUSED_0x2AB  0x2AB // Unused Flag
-#define FLAG_UNUSED_0x2AC  0x2AC // Unused Flag
+#define FLAG_HIDDEN_ITEM_ROUTE_132_ABILITY_PATCH              0x2AA
+#define FLAG_HIDDEN_ITEM_ROUTE_132_HEART_SCALE_1              0x2AB
+#define FLAG_HIDDEN_ITEM_ROUTE_132_HEART_SCALE_2              0x2AC
 #define FLAG_UNUSED_0x2AD  0x2AD // Unused Flag
 #define FLAG_UNUSED_0x2AE  0x2AE // Unused Flag
 #define FLAG_UNUSED_0x2AF  0x2AF // Unused Flag
