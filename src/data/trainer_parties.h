@@ -5020,6 +5020,7 @@ static const struct TrainerMon sParty_Flint_easy[] = {
 };
 
 //Edwardo: threshold 3
+//need to rename to Edwina
 //may double with Flint
 static const struct TrainerMon sParty_Edwardo[] = {
     {

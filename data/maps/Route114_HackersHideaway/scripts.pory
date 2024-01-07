@@ -22,6 +22,22 @@ script Route114_HackersHideaway_EventScript_Lanette {
     end
 }
 
+script Route114_HackersHideaway_EventScript_BrotherReturn {
+    msgbox(format("Just don't choose my brother over me!"))
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
+    release
+    end
+}
+
+script Route114_HackersHideaway_EventScript_BrotherBest {
+    msgbox(format("Fantastic! You see, I am the best! That's my opinion, and I agree!"))
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
+    release
+    end
+}
+
 script Route114_HackersHideaway_EventScript_Thompson {
     lock
     faceplayer
@@ -31,10 +47,35 @@ script Route114_HackersHideaway_EventScript_Thompson {
         msgbox(format("Now that you've found me, the apporopriate type experts will also teach these moves."))
         setflag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)
     }
+    ThompsonAccMovesMenu:
     msgbox(format("Which move should I teach?"))
-    //multichoice
-    release
-    end
+    dynmultipush("Dragon Rage", 1)
+    dynmultipush("Night Shade", 2)
+    dynmultipush("Psywave", 3)
+    dynmultipush("Seismic Toss", 4)
+    dynmultipush("Sonicboom", 5)
+    dynmultipush("Super Fang", 6)
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            setvar(VAR_0x8005, MOVE_DRAGON_RAGE)
+        case 2:
+            setvar(VAR_0x8005, MOVE_NIGHT_SHADE)
+        case 3:
+            setvar(VAR_0x8005, MOVE_PSYWAVE)
+        case 4:
+            setvar(VAR_0x8005, MOVE_SEISMIC_TOSS)
+        case 5:
+            setvar(VAR_0x8005, MOVE_SONICBOOM)
+        case 6:
+            setvar(VAR_0x8005, MOVE_SUPER_FANG)
+        default:
+            goto(Route114_HackersHideaway_EventScript_BrotherReturn)
+    }
+    msgbox(format("On which Pokémon shall I bestow my genius?"))
+    call(MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq(VAR_RESULT, 0, ThompsonAccMovesMenu)
+    goto(Route114_HackersHideaway_EventScript_BrotherBest)
 }
 
 script Route114_HackersHideaway_EventScript_Thomson {
@@ -46,10 +87,38 @@ script Route114_HackersHideaway_EventScript_Thomson {
         msgbox(format("Now that you've found me, the apporopriate type experts will also teach these moves."))
         setflag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)
     }
+    ThomsonSetMovesMenu:
     msgbox(format("Which move should I teach?"))
-    //multichoice
-    release
-    end
+    dynmultipush("Aerial Ace", MOVE_AERIAL_ACE)
+    dynmultipush("Disarming Voice", 2)
+    dynmultipush("Feint Attack", 3)
+    dynmultipush("Magical Leaf", 4)
+    dynmultipush("Shock Wave", 5)
+    dynmultipush("Smart Strike", 6)
+    dynmultipush("Swift", 7)
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case MOVE_AERIAL_ACE:
+            setvar(VAR_0x8005, MOVE_AERIAL_ACE)
+        case 2:
+            setvar(VAR_0x8005, MOVE_DISARMING_VOICE)
+        case 3:
+            setvar(VAR_0x8005, MOVE_FEINT_ATTACK)
+        case 4:
+            setvar(VAR_0x8005, MOVE_MAGICAL_LEAF)
+        case 5:
+            setvar(VAR_0x8005, MOVE_SHOCK_WAVE)
+        case 6:
+            setvar(VAR_0x8005, MOVE_SMART_STRIKE)
+        case 7:
+            setvar(VAR_0x8005, MOVE_SWIFT)
+        default:
+            goto(Route114_HackersHideaway_EventScript_BrotherReturn)
+    }
+    msgbox(format("On which Pokémon shall I bestow my genius?"))
+    call(MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq(VAR_RESULT, 0, ThomsonSetMovesMenu)
+    goto(Route114_HackersHideaway_EventScript_BrotherBest)
 }
 
 script Route114_HackersHideaway_EventScript_Maniac {
@@ -162,8 +231,8 @@ script Route114_HackersHideaway_EventScript_Bard {
     faceplayer
     msgbox(format("Hello again, {PLAYER}!"))
     msgbox(format("The humor of some of these people, it is too much!"))
-    msgbox(format("Such crude insults and bourgeousie references! Tintin? Bah! Colonialist garbage."))
-    msgbox(format("If I wanted to read Herge, I would always pick the superior Quick & Flupke!"))
+    msgbox(format("Such crude insults and bourgeois references! Tintin? Bah! Colonialist garbage."))
+    msgbox(format("If I had to read Herge, I would always pick the superior Quick & Flupke!"))
     release
     end
 }
