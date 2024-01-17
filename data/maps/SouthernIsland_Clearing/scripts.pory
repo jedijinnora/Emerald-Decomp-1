@@ -1,1 +1,16 @@
-mapscripts SouthernIsland_Clearing_MapScripts {}
+mapscripts SouthernIsland_Clearing_MapScripts {
+    MAP_SCRIPT_ON_LOAD : SouthernIsland_Clearing_OnLoad
+}
+
+script SouthernIsland_Clearing_OnLoad {
+    call_if_set(FLAG_SYS_GAME_CLEAR, SouthernIsland_Clearing_EventScript_OpenFork)
+    end
+}
+
+script SouthernIsland_Clearing_EventScript_OpenFork {
+    setmetatile(14, 7, METATILE_General_Grass, FALSE)
+    setmetatile(14, 8, METATILE_General_Grass, FALSE)
+    setmetatile(15, 7, METATILE_General_Grass, FALSE)
+    setmetatile(15, 8, METATILE_General_Grass, FALSE)
+    return
+}

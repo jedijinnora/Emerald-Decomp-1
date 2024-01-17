@@ -251,9 +251,9 @@
     },
     {
       "type": "hidden_item",
-      "x": 13,
-      "y": 26,
-      "elevation": 0,
+      "x": 23,
+      "y": 16,
+      "elevation": 3,
       "item": "ITEM_BLUE_SHARD",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_109_BLUE_SHARD"
     }

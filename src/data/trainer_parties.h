@@ -12,6 +12,12 @@
 // usually no EVs or specified nature but exceptions do exist
 
 //IVs and EVs appear in HP/Atk/Def/Speed/SpA/SpD order
+//Gym Trainers do not use class-based IVs/EVs, they are their own thing
+
+//Breeder .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+//Ruin Maniac .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+//Triathlete .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+//Youngster, Bug Catcher .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
 
 //TABLE OF NATURES:
 //          -Atk        -Def        -Speed      -Sp. Atk    -Sp. Def
@@ -38,22 +44,23 @@
 //postgame:     100         84
 
 
-//DUMMY PARTY FOR REFERENCE
+//DUMMY PARTY FOR REFERENCE, COPY/PASTE
 static const struct TrainerMon sParty_None[] = {
     {
-    .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
-    .nature = 0,
     .lvl = 2,
     .species = SPECIES_NONE,
     .heldItem = ITEM_NONE,
     .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = 0,
     .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
 
 //ELITE FOUR -- 8 trainers, 8 total
-//Currently, E4 members switch randomly between available teams. No easy versions, but may be added later.
+//Random party selection is handled by scripting
+//in Easy Difficulty, always chooses party 1
 
 static const struct TrainerMon sParty_Brandon1[] = {
     {
@@ -561,7 +568,8 @@ static const struct TrainerMon sParty_Drake2[] = {
 
 
 //CHAMPION -- 4 trainers, 12 total
-//Annabel selects randomly between teams. Will not get easy versions unless the salt is really epic.
+//Annabel's team selection is handled by scripting
+//in Easy Difficulty, always chooses party 4
 
 static const struct TrainerMon sParty_Anabel1[] = {
     {
@@ -3328,7 +3336,7 @@ static const struct TrainerMon sParty_Juan_badge8R[] = {
 
 //RUSTBORO GYM TRAINERS -- 3 trainers, 39 total
 
-//Tommy: threshold 2
+//School Kid-M Tommy: threshold 2
 //may double with Marc
 static const struct TrainerMon sParty_Tommy[] = {
     {
@@ -3380,7 +3388,7 @@ static const struct TrainerMon sParty_Tommy_easy[] = {
     }
 };
 
-//Marc: threshold 4
+//Hiker Marc: threshold 4
 //may double with Tommy
 static const struct TrainerMon sParty_Marc[] = {
     {
@@ -3438,7 +3446,7 @@ static const struct TrainerMon sParty_Marc_easy[] = {
     }
 };
 
-//Josh: threshold 3
+//Youngster Josh: threshold 3
 static const struct TrainerMon sParty_Josh[] = {
     {
         .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -3494,7 +3502,7 @@ static const struct TrainerMon sParty_Josh_easy[] = {
 
 //DEWFORD GYM TRAINERS -- 6 trainers, 45 total
 
-//Laura: threshold 3
+//Battle Girl Laura: threshold 3
 static const struct TrainerMon sParty_Laura[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -3551,7 +3559,7 @@ static const struct TrainerMon sParty_Laura_easy[] = {
     }
 };
 
-//Lilith: threshold 2
+//Lass Lilith: threshold 2
 static const struct TrainerMon sParty_Lilith[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -3591,7 +3599,7 @@ static const struct TrainerMon sParty_Lilith_easy[] = {
     }
 };
 
-//Brenden: threshold 3
+//Sailor Brenden: threshold 3
 static const struct TrainerMon sParty_Brenden[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -3631,7 +3639,7 @@ static const struct TrainerMon sParty_Brenden_easy[] = {
     }
 };
 
-//Cristian: threshold 2
+//Psychic-M Cristian: threshold 2
 static const struct TrainerMon sParty_Cristian[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -3669,7 +3677,7 @@ static const struct TrainerMon sParty_Cristian_easy[] = {
     }
 };
 
-//Takao: threshold 4
+//Black Belt Takao: threshold 4
 static const struct TrainerMon sParty_Takao[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -3709,7 +3717,7 @@ static const struct TrainerMon sParty_Takao_easy[] = {
     }
 };
 
-//Jocelyn: threshold 3
+//Lady Jocelyn: threshold 3
 static const struct TrainerMon sParty_Jocelyn[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -3765,7 +3773,7 @@ static const struct TrainerMon sParty_Jocelyn_easy[] = {
 
 //MAUVILLE GYM TRAINERS -- 5 trainers, 50 total
 
-//Shawn: threshold 4
+//Guitarist Shawn: threshold 4
 static const struct TrainerMon sParty_Shawn[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -3801,7 +3809,7 @@ static const struct TrainerMon sParty_Shawn_easy[] = {
     }
 };
 
-//Vivian: threshold 4
+//Battle Girl Vivian: threshold 4
 //may double with Kirk
 static const struct TrainerMon sParty_Vivian[] = {
     {
@@ -3853,7 +3861,7 @@ static const struct TrainerMon sParty_Vivian_easy[] = {
     }
 };
 
-//Kirk: threshold 4
+//Guitarist Kirk: threshold 4
 //may double with Vivian
 static const struct TrainerMon sParty_Kirk[] = {
     {
@@ -3905,7 +3913,7 @@ static const struct TrainerMon sParty_Kirk_easy[] = {
     }
 };
 
-//Ben: threshold 4
+//Youngster Ben: threshold 4
 static const struct TrainerMon sParty_Ben[] = {
     {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
@@ -3956,7 +3964,7 @@ static const struct TrainerMon sParty_Ben_easy[] = {
     }
 };
 
-//Angelo: threshold 3
+//Bug Maniac Angelo: threshold 3
 static const struct TrainerMon sParty_Angelo[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -4012,7 +4020,7 @@ static const struct TrainerMon sParty_Angelo_easy[] = {
 
 //LAVARIDGE GYM TRAINERS -- 8 trainers, 58 total
 
-//Jeff: threshold 3
+//Kindler Jeff (B1F): threshold 3
 static const struct TrainerMon sParty_Jeff[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -4069,7 +4077,7 @@ static const struct TrainerMon sParty_Jeff_easy[] = {
     }
 };
 
-//Cole: threshold 5
+//Kindler Cole (1F): threshold 5
 //may double with Gerald
 static const struct TrainerMon sParty_Cole[] = {
     {
@@ -4127,7 +4135,7 @@ static const struct TrainerMon sParty_Cole_easy[] = {
     }
 };
 
-//Gerald: threshold 3
+//Cooltrainer Gerald (1F): threshold 3
 //may double with Cole
 static const struct TrainerMon sParty_Gerald[] = {
     {
@@ -4181,7 +4189,7 @@ static const struct TrainerMon sParty_Gerald_easy[] = {
     }
 };
 
-//Axle: threshold 3
+//Kindler Axle (1F): threshold 3
 static const struct TrainerMon sParty_Axle[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -4238,7 +4246,7 @@ static const struct TrainerMon sParty_Axle_easy[] = {
     }
 };
 
-//Danielle: threshold 3
+//Battle Girl Danielle (1F): threshold 3
 static const struct TrainerMon sParty_Danielle[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -4292,7 +4300,7 @@ static const struct TrainerMon sParty_Danielle_easy[] = {
     }
 };
 
-//Keegan: threshold 3
+//Kindler Keegan (B1F): threshold 3
 static const struct TrainerMon sParty_Keegan[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -4349,7 +4357,7 @@ static const struct TrainerMon sParty_Keegan_easy[] = {
     }
 };
 
-//Jace: threshold 3
+//Kindler Jace (B1F): threshold 3
 //may double with Eli
 static const struct TrainerMon sParty_Jace[] = {
     {
@@ -4390,7 +4398,7 @@ static const struct TrainerMon sParty_Jace_easy[] = {
     }
 };
 
-//Eli: threshold 2
+//Hiker Eli (B1F): threshold 2
 //may double with Jace
 static const struct TrainerMon sParty_Eli[] = {
     {
@@ -4434,7 +4442,7 @@ static const struct TrainerMon sParty_Eli_easy[] = {
 
 //PETALBURG GYM TRAINERS -- 7 trainers, 65 total
 
-//Mary (Technician Room): threshold 4
+//Cooltrainer-F Mary (Technician Room): threshold 4
 static const struct TrainerMon sParty_Mary[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -4494,7 +4502,7 @@ static const struct TrainerMon sParty_Mary_easy[] = {
     }
 };
 
-//Randall (Speed Room): threshold 3
+//Cooltrainer-M Randall (Speed Room): threshold 3
 static const struct TrainerMon sParty_Randall[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -4552,7 +4560,7 @@ static const struct TrainerMon sParty_Randall_easy[] = {
     }
 };
 
-//Parker (Trickery Room): threshold 3
+//Cooltrainer-M Parker (Trickery Room): threshold 3
 static const struct TrainerMon sParty_Parker[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -4594,7 +4602,7 @@ static const struct TrainerMon sParty_Parker_easy[] = {
     }
 };
 
-//Alexia (Defense Room): threshold 2
+//Cooltrainer-F Alexia (Defense Room): threshold 2
 static const struct TrainerMon sParty_Alexia[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -4654,7 +4662,7 @@ static const struct TrainerMon sParty_Alexia_easy[] = {
     }
 };
 
-//George (Recovery Room) : threshold 2
+//Cooltrainer-M George (Recovery Room) : threshold 2
 static const struct TrainerMon sParty_George[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -4696,7 +4704,7 @@ static const struct TrainerMon sParty_George_easy[] = {
     }
 };
 
-//Jody (Guts Room): threshold 4
+//Cooltrainer-F Jody (Guts Room): threshold 4
 static const struct TrainerMon sParty_Jody[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -4756,7 +4764,7 @@ static const struct TrainerMon sParty_Jody_easy[] = {
     }
 };
 
-//Berke (Power Room): threshold 3
+//Cooltrainer-M Berke (Power Room): threshold 3
 static const struct TrainerMon sParty_Berke[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -4822,7 +4830,7 @@ static const struct TrainerMon sParty_Berke_easy[] = {
 
 //FORTREE GYM TRAINERS -- 6 trainers, 71 total
 
-//Humberto: threshold 3
+//Ninja Boy Humberto: threshold 3
 static const struct TrainerMon sParty_Humberto[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -4879,7 +4887,7 @@ static const struct TrainerMon sParty_Humberto_easy[] = {
     }
 };
 
-//Jared: threshold 2
+//Camper Jared: threshold 2
 //may double with Ashley
 static const struct TrainerMon sParty_Jared[] = {
     {
@@ -4937,7 +4945,7 @@ static const struct TrainerMon sParty_Jared_easy[] = {
     }
 };
 
-//Ashley: threshold 2
+//Picnicker Ashley: threshold 2
 //may double with Jared
 static const struct TrainerMon sParty_Ashley[] = {
     {
@@ -4978,7 +4986,7 @@ static const struct TrainerMon sParty_Ashley_easy[] = {
     }
 };
 
-//Flint: threshold 3
+//Camper Flint: threshold 3
 //may double with Edwina
 static const struct TrainerMon sParty_Flint[] = {
     {
@@ -5019,8 +5027,8 @@ static const struct TrainerMon sParty_Flint_easy[] = {
     }
 };
 
-//Edwardo: threshold 3
-//need to rename to Edwina
+//Aroma Lady Edwina: threshold 3
+//TODO rename to Edwina
 //may double with Flint
 static const struct TrainerMon sParty_Edwardo[] = {
     {
@@ -5061,7 +5069,8 @@ static const struct TrainerMon sParty_Edwardo_easy[] = {
     }
 };
 
-//Darius: threshold 2
+//Aroma Lady Ceclilia: threshold 2
+//TODO rename to Cecilia
 static const struct TrainerMon sParty_Darius[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -5121,7 +5130,7 @@ static const struct TrainerMon sParty_Darius_easy[] = {
 
 //MOSSDEEP GYM TRAINERS -- 12 trainers, 83 total
 
-//Preston: threshold 4
+//Psychic-M Preston (entrance): threshold 4
 //may double with Maura
 static const struct TrainerMon sParty_Preston[] = {
     {
@@ -5179,7 +5188,7 @@ static const struct TrainerMon sParty_Preston_easy[] = {
     }
 };
 
-//Maura: threshold 3
+//Psychic-F Maura (entrance): threshold 3
 //may double with Preston
 static const struct TrainerMon sParty_Maura[] = {
     {
@@ -5218,7 +5227,7 @@ static const struct TrainerMon sParty_Maura_easy[] = {
     }
 };
 
-//Blake: threshold 3
+//Psychic-M Blake (yellow room): threshold 3
 //may double with Samantha
 static const struct TrainerMon sParty_Blake[] = {
     {
@@ -5259,7 +5268,7 @@ static const struct TrainerMon sParty_Blake_easy[] = {
     }
 };
 
-//Samantha: threshold 3
+//Psychic-F Samantha (yellow room): threshold 3
 //may double with Blake
 static const struct TrainerMon sParty_Samantha[] = {
     {
@@ -5301,7 +5310,7 @@ static const struct TrainerMon sParty_Samantha_easy[] = {
     }
 };
 
-//Nate: threshold 3
+//Gentleman Nate (blue/red room): threshold 3
 //may double with Virgil
 static const struct TrainerMon sParty_Nate[] = {
     {
@@ -5342,7 +5351,7 @@ static const struct TrainerMon sParty_Nate_easy[] = {
     }
 };
 
-//Virgil: threshold 3
+//Psychic-M Virgil (blue/red room): threshold 3
 //may double with Nate or Sylvia
 static const struct TrainerMon sParty_Virgil[] = {
     {
@@ -5383,7 +5392,7 @@ static const struct TrainerMon sParty_Virgil_easy[] = {
     }
 };
 
-//Sylvia: threshold 3
+//Hex Maniac Sylvia (blue/red room): threshold 3
 //may double with Virgil or Hannah
 static const struct TrainerMon sParty_Sylvia[] = {
     {
@@ -5424,7 +5433,7 @@ static const struct TrainerMon sParty_Sylvia_easy[] = {
     }
 };
 
-//Hannah: threshold 3
+//Psychic-F Hannah (blue/red room): threshold 3
 //may double with Sylvia
 static const struct TrainerMon sParty_Hannah[] = {
     {
@@ -5464,7 +5473,7 @@ static const struct TrainerMon sParty_Hannah_easy[] = {
     }
 };
 
-//Clifford: threshold
+//Gentleman Clifford (purple room): threshold
 //may double with Kathleen or Macey
 static const struct TrainerMon sParty_Clifford[] = {
     {
@@ -5521,7 +5530,7 @@ static const struct TrainerMon sParty_Clifford_easy[] = {
     }
 };
 
-//Kathleen: threshold 4
+//Hex Maniac Kathleen (purple room): threshold 4
 //may double with Clifford or Nicholas
 static const struct TrainerMon sParty_Kathleen[] = {
     {
@@ -5575,7 +5584,7 @@ static const struct TrainerMon sParty_Kathleen_easy[] = {
     }
 };
 
-//Nicholas: threshold 4
+//Psychic-M Nicholas (purple room): threshold 4
 //may double with Kathleen
 static const struct TrainerMon sParty_Nicholas[] = {
     {
@@ -5616,8 +5625,8 @@ static const struct TrainerMon sParty_Nicholas_easy[] = {
     }
 };
 
-//Macey: threshold 4
-//may double with Clifford, in which case will truncate to first 3 mons
+//Psychic-F Macey (purple room): threshold 4
+//may double with Clifford, in which case should truncate to first 3 mons
 static const struct TrainerMon sParty_Macey[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -5726,7 +5735,7 @@ static const struct TrainerMon sParty_Macey_easy[] = {
 
 //SOOTOPOLIS GYM TRAINERS -- 10 trainers, 93 total
 
-//Andrea: threshold 3
+//Lass Andrea (puzzle 1): threshold 3
 static const struct TrainerMon sParty_Andrea[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -5766,7 +5775,7 @@ static const struct TrainerMon sParty_Andrea_easy[] = {
     }
 };
 
-//Connie: threshold 3
+//Beauty Connie (puzzle 1): threshold 3
 static const struct TrainerMon sParty_Connie[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -5804,7 +5813,7 @@ static const struct TrainerMon sParty_Connie_easy[] = {
     }
 };
 
-//Daphne: threshold 3
+//Lady Daphne (puzzle 2): threshold 3
 static const struct TrainerMon sParty_Daphne[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -5843,7 +5852,7 @@ static const struct TrainerMon sParty_Daphne_easy[] = {
     }
 };
 
-//Annika: threshold 3
+//Pokéfan-F Annika (puzzle 2): threshold 3
 static const struct TrainerMon sParty_Annika[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -5883,7 +5892,7 @@ static const struct TrainerMon sParty_Annika_easy[] = {
     }
 };
 
-//Crissy: threshold 
+//Lass Crissy (puzzle 3): threshold 3
 static const struct TrainerMon sParty_Crissy[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -5923,7 +5932,7 @@ static const struct TrainerMon sParty_Crissy_easy[] = {
     }
 };
 
-//Tiffany: threshold 4
+//Beauty Tiffany (puzzle 3): threshold 4
 static const struct TrainerMon sParty_Tiffany[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -5963,7 +5972,7 @@ static const struct TrainerMon sParty_Tiffany_easy[] = {
     }
 };
 
-//Bethany: threshold 3
+//Pokéfan-F Bethany (puzzle 3): threshold 3
 static const struct TrainerMon sParty_Bethany[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -6023,7 +6032,7 @@ static const struct TrainerMon sParty_Bethany_easy[] = {
     }
 };
 
-//Olivia: threshold 4
+//Beauty Olivia (puzzle 3): threshold 4
 static const struct TrainerMon sParty_Olivia[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -6065,7 +6074,7 @@ static const struct TrainerMon sParty_Olivia_easy[] = {
     }
 };
 
-//Bridget: threshold 2
+//Beauty Bridget (puzzle 3): threshold 2
 static const struct TrainerMon sParty_Bridget[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -6105,7 +6114,7 @@ static const struct TrainerMon sParty_Bridget_easy[] = {
     }
 };
 
-//Brianna: threshold 3
+//Lady Brianna (puzzle 3): threshold 3
 static const struct TrainerMon sParty_Brianna[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -6170,55 +6179,190 @@ static const struct TrainerMon sParty_Brianna_easy[] = {
 
 //ROUTE 101 TRAINERS
 
-static const struct TrainerMon sParty_R101Youngster[] = {
+//Youngster Breyden: threshold 3
+static const struct TrainerMon sParty_Breyden[] = {
     {
-    .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
-    .nature = 0,
-    .lvl = 2,
-    .species = SPECIES_NONE,
-    .heldItem = ITEM_NONE,
-    .ability = ABILITY_NONE,
-    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .lvl = 12,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .species = SPECIES_MIGHTYENA,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_INTIMIDATE,
+    .moves = {MOVE_CRUNCH, MOVE_PLAY_ROUGH, MOVE_HOWL, MOVE_SUCKER_PUNCH}
+    },
+    {
+    .lvl = 12,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .species = SPECIES_LINOONE,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_PICKUP,
+    .moves = {MOVE_THUNDER_WAVE, MOVE_COVET, MOVE_HEADBUTT, MOVE_SEED_BOMB}
+    },
+    {
+    .lvl = 12,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .species = SPECIES_LEDIAN,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_DRAIN_PUNCH, MOVE_THUNDER_PUNCH, MOVE_MACH_PUNCH, MOVE_AERIAL_ACE}
+    }
+};
+static const struct TrainerMon sParty_Breyden_easy[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_POOCHYENA,
+    .heldItem = ITEM_ORAN_BERRY,
+    .ability = ABILITY_QUICK_FEET,
+    .moves = {MOVE_TACKLE, MOVE_BITE, MOVE_HOWL, MOVE_SAND_ATTACK}
+    },
+    {
+    .lvl = 6,
+    .species = SPECIES_ZIGZAGOON,
+    .heldItem = ITEM_ORAN_BERRY,
+    .ability = ABILITY_PICKUP,
+    .moves = {MOVE_GROWL, MOVE_COVET, MOVE_HEADBUTT, MOVE_PIN_MISSILE}
+    },
+    {
+    .lvl = 7,
+    .species = SPECIES_LEDYBA,
+    .heldItem = ITEM_BERRY_JUICE,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_SWIFT, MOVE_STRUGGLE_BUG, MOVE_MACH_PUNCH, MOVE_ENCORE}
     }
 };
 
-static const struct TrainerMon sParty_R101BugCatcher[] = {
+//Bug Catcher Vance: threshold 2
+static const struct TrainerMon sParty_Vance[] = {
     {
-    .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
-    .nature = 0,
-    .lvl = 2,
-    .species = SPECIES_NONE,
-    .heldItem = ITEM_NONE,
-    .ability = ABILITY_NONE,
-    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .lvl = 12,
+    .species = SPECIES_NINJASK,
+    .heldItem = ITEM_SILVER_POWDER,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .moves = {MOVE_LEECH_LIFE, MOVE_AERIAL_ACE, MOVE_U_TURN, MOVE_NIGHT_SLASH}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_BEEDRILL,
+    .heldItem = ITEM_POISON_BARB,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .moves = {MOVE_POISON_JAB, MOVE_U_TURN, MOVE_DRILL_RUN, MOVE_KNOCK_OFF}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_BUTTERFREE,
+    .heldItem = ITEM_CHARTI_BERRY,
+    .ability = ABILITY_COMPOUND_EYES,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .moves = {MOVE_BUG_BUZZ, MOVE_ELECTROWEB, MOVE_PSYCHIC, MOVE_HURRICANE}
+    }
+};
+static const struct TrainerMon sParty_Vance_easy[] = {
+    {
+    .lvl = 7,
+    .species = SPECIES_NINCADA,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_DIG, MOVE_FURY_CUTTER, MOVE_HARDEN, MOVE_ABSORB}
+    },
+    {
+    .lvl = 6,
+    .species = SPECIES_WEEDLE,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_POISON_STING, MOVE_STRING_SHOT, MOVE_BUG_BITE, MOVE_NONE}
+    },
+    {
+    .lvl = 8,
+    .species = SPECIES_METAPOD,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_BUG_BITE, MOVE_ELECTROWEB, MOVE_IRON_DEFENSE, MOVE_STRING_SHOT}
     }
 };
 
-static const struct TrainerMon sParty_R101Triathlete[] = {
+//Triathlete-F Stephanie: threshold 4
+static const struct TrainerMon sParty_Stephanie[] = {
     {
-    .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
-    .nature = 0,
-    .lvl = 2,
-    .species = SPECIES_NONE,
-    .heldItem = ITEM_NONE,
-    .ability = ABILITY_NONE,
-    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .lvl = 9,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .species = SPECIES_SWELLOW,
+    .heldItem = ITEM_SALAC_BERRY,
+    .moves = {MOVE_AERIAL_ACE, MOVE_STEEL_WING, MOVE_QUICK_ATTACK, MOVE_HEAT_WAVE}
+    },
+    {
+    .lvl = 9,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .species = SPECIES_ELECTRODE,
+    .heldItem = ITEM_SALAC_BERRY,
+    .moves = {MOVE_THUNDER, MOVE_VOLT_SWITCH, MOVE_EXPLOSION, MOVE_MIRROR_COAT}
+    },
+    {
+    .lvl = 9,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .species = SPECIES_STARMIE,
+    .heldItem = ITEM_SALAC_BERRY,
+    .moves = {MOVE_SURF, MOVE_PSYCHIC, MOVE_RECOVER, MOVE_ICE_BEAM}
+    }
+};
+static const struct TrainerMon sParty_Stephanie_easy[] = {
+    {
+    .lvl = 9,
+    .species = SPECIES_TAILLOW,
+    .heldItem = ITEM_SALAC_BERRY,
+    .moves = {MOVE_WING_ATTACK, MOVE_STEEL_WING, MOVE_QUICK_ATTACK, MOVE_FOCUS_ENERGY}
+    },
+    {
+    .lvl = 9,
+    .species = SPECIES_VOLTORB,
+    .heldItem = ITEM_SALAC_BERRY,
+    .moves = {MOVE_SPARK, MOVE_ROLLOUT, MOVE_SCREECH, MOVE_SWIFT}
+    },
+    {
+    .lvl = 9,
+    .species = SPECIES_STARYU,
+    .heldItem = ITEM_SALAC_BERRY,
+    .moves = {MOVE_WATER_PULSE, MOVE_PSYBEAM, MOVE_THUNDER_WAVE, MOVE_RAPID_SPIN}
     }
 };
 
-static const struct TrainerMon sParty_R101RuinManiac[] = {
+//Ruin Maniac Abraham: threshold 4
+static const struct TrainerMon sParty_Abraham[] = {
     {
-    .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
-    .nature = 0,
-    .lvl = 2,
-    .species = SPECIES_NONE,
-    .heldItem = ITEM_NONE,
-    .ability = ABILITY_NONE,
-    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .lvl = 10,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .species = SPECIES_CLAYDOL,
+    .heldItem = ITEM_HARD_STONE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_ROCK_TOMB, MOVE_PSYCHIC, MOVE_RAPID_SPIN}
+    },
+    {
+    .lvl = 11,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .species = SPECIES_VIBRAVA,
+    .heldItem = ITEM_EVIOLITE,
+    .moves = {MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_BUG_BITE, MOVE_U_TURN}
+    },
+    {
+    .lvl = 12,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .species = SPECIES_DONPHAN,
+    .heldItem = ITEM_SOFT_SAND,
+    .moves = {MOVE_EARTHQUAKE, MOVE_SEED_BOMB, MOVE_GUNK_SHOT, MOVE_ICE_SHARD}
+    }
+};
+static const struct TrainerMon sParty_Abraham_easy[] = {
+    {
+    .lvl = 10,
+    .species = SPECIES_BALTOY,
+    .heldItem = ITEM_HARD_STONE,
+    .moves = {MOVE_MUD_SLAP, MOVE_ROCK_TOMB, MOVE_PSYBEAM, MOVE_RAPID_SPIN}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_TRAPINCH,
+    .heldItem = ITEM_SOFT_SAND,
+    .moves = {MOVE_CRUNCH, MOVE_SAND_TOMB, MOVE_BUG_BITE, MOVE_BULLDOZE}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_PHANPY,
+    .heldItem = ITEM_BERRY_JUICE,
+    .moves = {MOVE_DEFENSE_CURL, MOVE_ROLLOUT, MOVE_FLAIL, MOVE_ICE_SHARD}
     }
 };
 
@@ -6226,7 +6370,54 @@ static const struct TrainerMon sParty_R101RuinManiac[] = {
 
 //ROUTE 102 TRAINERS
 
-//Calvin
+//Youngster Calvin: threshold 4
+static const struct TrainerMon sParty_Calvin[] = {
+    {
+    .lvl = 2,
+    .species = SPECIES_OBSTAGOON,
+    .heldItem = ITEM_ORAN_BERRY,
+    .ability = ABILITY_DEFIANT,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .moves = {MOVE_BODY_SLAM, MOVE_CROSS_CHOP, MOVE_NIGHT_SLASH, MOVE_HONE_CLAWS}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_ESPATHRA,
+    .heldItem = ITEM_TWISTED_SPOON,
+    .ability = ABILITY_SPEED_BOOST,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .moves = {MOVE_LUMINA_CRASH, MOVE_DAZZLING_GLEAM, MOVE_SHADOW_BALL, MOVE_PSYCHIC_TERRAIN}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_KRICKETUNE,
+    .heldItem = ITEM_LOADED_DICE,
+    .ability = ABILITY_TECHNICIAN,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .moves = {MOVE_PIN_MISSILE, MOVE_FELL_STINGER, MOVE_AERIAL_ACE, MOVE_BULLET_SEED}
+    }
+};
+static const struct TrainerMon sParty_Calvin_easy[] = {
+    {
+    .lvl = 2,
+    .species = SPECIES_ZIGZAGOON_GALARIAN,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_SNARL, MOVE_HEADBUTT, MOVE_LICK, MOVE_PIN_MISSILE}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_FLITTLE,
+    .heldItem = ITEM_SHARP_BEAK,
+    .ability = ABILITY_SPEED_BOOST,
+    .moves = {MOVE_CONFUSION, MOVE_DISARMING_VOICE, MOVE_QUICK_ATTACK, MOVE_PECK}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_KRICKETOT,
+    .heldItem = ITEM_SILVERPOWDER,
+    .moves = {MOVE_STRUGGLE_BUG, MOVE_UPROAR, MOVE_BIDE, MOVE_NONE}
+    }
+};
 static const struct TrainerMon sParty_Calvin1[] = {
     {
     .lvl = 5,
@@ -6287,17 +6478,40 @@ static const struct TrainerMon sParty_Calvin5[] = {
     }
 };
 
+//Bug Catcher Rick: threshold 2
 static const struct TrainerMon sParty_Rick[] = {
     {
-    .lvl = 4,
-    .species = SPECIES_WURMPLE,
+    .lvl = 2,
+    .species = SPECIES_BEAUTIFLY,
+    .heldItem = ITEM_EXPERT_BELT,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .moves = {MOVE_AIR_SLASH, MOVE_GIGA_DRAIN, MOVE_LEECH_LIFE, MOVE_QUIVER_DANCE}
     },
     {
-    .lvl = 4,
-    .species = SPECIES_WURMPLE,
+    .lvl = 2,
+    .species = SPECIES_DUSTOX,
+    .heldItem = ITEM_LEFTOVERS,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .moves = {MOVE_TOXIC, MOVE_VENOSHOCK, MOVE_BUG_BUZZ, MOVE_MOONLIGHT}
+    }
+};
+static const struct TrainerMon sParty_Rick_easy[] = {
+    {
+    .lvl = 2,
+    .species = SPECIES_BEAUTIFLY,
+    .heldItem = ITEM_LUM_BERRY,
+    .moves = {MOVE_GUST, MOVE_MEGA_DRAIN, MOVE_LEECH_LIFE, MOVE_POISON_STING}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_DUSTOX,
+    .heldItem = ITEM_ORAN_BERRY,
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .moves = {MOVE_CONFUSION, MOVE_VENOSHOCK, MOVE_SILVER_WIND, MOVE_MOONLIGHT}
     }
 };
 
+//Youngster Allen:
 static const struct TrainerMon sParty_Allen[] = {
     {
     .lvl = 4,
@@ -6309,6 +6523,7 @@ static const struct TrainerMon sParty_Allen[] = {
     }
 };
 
+//Lass Tiana: 
 static const struct TrainerMon sParty_Tiana[] = {
     {
     .lvl = 4,
@@ -6320,19 +6535,73 @@ static const struct TrainerMon sParty_Tiana[] = {
     }
 };
 
+//Picnicker Eva:
 static const struct TrainerMon sParty_Eva[] = {
     {
-    .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
-    .nature = 0,
     .lvl = 2,
-    .species = SPECIES_NONE,
-    .heldItem = ITEM_NONE,
-    .ability = ABILITY_NONE,
-    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .species = SPECIES_TSAREENA,
+    .heldItem = ITEM_MIRACLE_SEED,
+    .moves = {MOVE_POWER_WHIP, MOVE_TRIPLE_AXEL, MOVE_RAPID_SPIN, MOVE_LOW_SWEEP}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_WIGGLYTUFF,
+    .heldItem = ITEM_THROAT_SPRAY,
+    .moves = {MOVE_SWEET_KISS, MOVE_HYPER_VOICE, MOVE_DRAINING_KISS, MOVE_FLAMETHROWER}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_STEELIX,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .moves = {MOVE_ROCK_TOMB, MOVE_BULLDOZE, MOVE_SCREECH, MOVE_HEAVY_SLAM}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_LUMINEON,
+    .heldItem = ITEM_DAMP_ROCK,
+    .moves = {MOVE_WATER_PULSE, MOVE_GUST, MOVE_CONFUSE_RAY, MOVE_RAIN_DANCE}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_GLALIE,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .moves = {MOVE_ICY_WIND, MOVE_HEADBUTT, MOVE_ICE_SHARD, MOVE_ASTONISH}
+    }
+};
+static const struct TrainerMon sParty_Eva_easy[] = {
+    {
+    .lvl = 2,
+    .species = SPECIES_STEENEE,
+    .heldItem = ITEM_MIRACLE_SEED,
+    .moves = {MOVE_RAZOR_LEAF, MOVE_CHARM, MOVE_RAPID_SPIN, MOVE_LOW_SWEEP}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_JIGGLYPUFF,
+    .heldItem = ITEM_THROAT_SPRAY,
+    .moves = {MOVE_SWEET_KISS, MOVE_ECHOED_VOICE, MOVE_DISARMING_VOICE, MOVE_DISABLE}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_ONIX,
+    .heldItem = ITEM_BERRY_JUICE,
+    .moves = {MOVE_ROCK_TOMB, MOVE_BULLDOZE, MOVE_SCREECH, MOVE_SLAM}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_FINNEON,
+    .heldItem = ITEM_DAMP_ROCK,
+    .moves = {MOVE_WATER_PULSE, MOVE_GUST, MOVE_CONFUSE_RAY, MOVE_RAIN_DANCE}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_SNORUNT,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .moves = {MOVE_ICY_WIND, MOVE_HEADBUTT, MOVE_ICE_SHARD, MOVE_ASTONISH}
     }
 };
 
+//Beauty Gloria:
 static const struct TrainerMon sParty_Gloria[] = {
     {
     .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
