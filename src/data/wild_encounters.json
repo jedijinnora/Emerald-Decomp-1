@@ -6072,12 +6072,12 @@
               {
                 "min_level": 25,
                 "max_level": 30,
-                "species": "SPECIES_OSHAWOTT"
+                "species": "SPECIES_LAPRAS"
               },
               {
                 "min_level": 25,
                 "max_level": 30,
-                "species": "SPECIES_LAPRAS"
+                "species": "SPECIES_DEWGONG"
               }
             ]
           },
@@ -17198,12 +17198,12 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SUNKERN"
+                "species": "SPECIES_HELIOPTILE"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_HELIOPTILE"
+                "species": "SPECIES_SUNKERN"
               },
               {
                 "min_level": 5,

@@ -325,6 +325,8 @@
 #define MAP_EVER_GRANDE_CITY_HOUSE2             (25 | (17 << 8))
 #define MAP_EVER_GRANDE_CITY_NATURE_SHOP        (26 | (17 << 8))
 #define MAP_EVER_GRANDE_CITY_HOUSE3             (27 | (17 << 8))
+#define MAP_POKEMON_LEAGUE_ELITE_FOUR_HALLWAY   (28 | (17 << 8))
+#define MAP_POKEMON_LEAGUE_RETURN_HALLWAY       (29 | (17 << 8))
 
 // gMapGroup_IndoorRoute104
 #define MAP_ROUTE104_MR_BRINEYS_HOUSE         (0 | (18 << 8))

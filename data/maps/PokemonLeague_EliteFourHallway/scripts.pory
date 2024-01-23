@@ -1,0 +1,59 @@
+mapscripts PokemonLeague_EliteFourHallway_MapScripts {
+    MAP_SCRIPT_ON_LOAD : PokemonLeague_EliteFourHallway_OnLoad
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_TEMP_1, 0 : PokemonLeague_EliteFourHallway_OnWarp
+    ]
+    MAP_SCRIPT_ON_TRANSITION : PokemonLeague_EliteFourHallway_OnTransition
+}
+
+script PokemonLeague_EliteFourHallway_OnLoad {
+    call_if_unset(FLAG_DEFEATED_ELITE_4_BRANDON, PokemonLeague_EliteFourHallway_OpenDoor1)
+    call_if_unset(FLAG_DEFEATED_ELITE_4_LUCY, PokemonLeague_EliteFourHallway_OpenDoor2)
+    call_if_unset(FLAG_DEFEATED_ELITE_4_GLACIA, PokemonLeague_EliteFourHallway_OpenDoor3)
+    call_if_unset(FLAG_DEFEATED_ELITE_4_DRAKE, PokemonLeague_EliteFourHallway_OpenDoor4)
+    call(PokemonLeague_EliteFourHallway_TryOpenChampionDoor)
+    end
+}
+
+script PokemonLeague_EliteFourHallway_OnWarp {
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    end
+}
+
+script PokemonLeague_EliteFourHallway_OnTransition {
+    setflag(FLAG_ENTERED_ELITE_FOUR)
+    end
+}
+
+script PokemonLeague_EliteFourHallway_TryOpenChampionDoor {
+    goto_if_unset(FLAG_DEFEATED_ELITE_4_BRANDON, Common_EventScript_NopReturn)
+    goto_if_unset(FLAG_DEFEATED_ELITE_4_LUCY, Common_EventScript_NopReturn)
+    goto_if_unset(FLAG_DEFEATED_ELITE_4_GLACIA, Common_EventScript_NopReturn)
+    goto_if_unset(FLAG_DEFEATED_ELITE_4_DRAKE, Common_EventScript_NopReturn)
+    setmetatile(20, 1, METATILE_EliteFour_OpenDoor_Frame, TRUE)
+    setmetatile(20, 2, METATILE_EliteFour_OpenDoor_Opening, FALSE)
+}
+
+script PokemonLeague_EliteFourHallway_OpenDoor1 {
+    setmetatile(3, 15, METATILE_EliteFour_OpenDoor_Frame, TRUE)
+    setmetatile(3, 15, METATILE_EliteFour_OpenDoor_Opening, FALSE)
+    return
+}
+
+script PokemonLeague_EliteFourHallway_OpenDoor2 {
+    setmetatile(12, 15, METATILE_EliteFour_OpenDoor_Frame, TRUE)
+    setmetatile(12, 15, METATILE_EliteFour_OpenDoor_Opening, FALSE)
+    return
+}
+
+script PokemonLeague_EliteFourHallway_OpenDoor3 {
+    setmetatile(28, 15, METATILE_EliteFour_OpenDoor_Frame, TRUE)
+    setmetatile(28, 15, METATILE_EliteFour_OpenDoor_Opening, FALSE)
+    return
+}
+
+script PokemonLeague_EliteFourHallway_OpenDoor4 {
+    setmetatile(37, 15, METATILE_EliteFour_OpenDoor_Frame, TRUE)
+    setmetatile(37, 15, METATILE_EliteFour_OpenDoor_Opening, FALSE)
+    return
+}

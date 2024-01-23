@@ -5,7 +5,7 @@ script Route119_House_EventScript_Woman {
 	faceplayer
 	msgbox(format("My uncle loves his Wingull even more than I do!"))
 	msgbox(format("I think he's the greatest sailor that ever lived."))
-	msgbox(format("If you ever need someone to take you to myesterious places across the sea…"))
+	msgbox(format("If you ever need someone to take you to mysterious places across the sea…"))
 	msgbox(format("You should find him at his cottage on Route 104."))
 	release
 	end
@@ -16,7 +16,7 @@ script Route119_House_EventScript_Wingull {
 	faceplayer
 	waitse
 	playmoncry(SPECIES_WINGULL, CRY_MODE_NORMAL)
-	msgbox("WINGULL: Pihyoh!")
+	msgbox("Wingull: Pihyoh!")
 	waitmoncry
 	release
 	end

@@ -1,0 +1,15 @@
+mapscripts PokemonLeague_ReturnHallway_MapScripts {
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_TEMP_1, 0 : PokemonLeague_ReturnHallway_OnWarp
+    ]
+}
+
+script PokemonLeague_ReturnHallway_OnWarp {
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    end
+}
+
+script PokemonLeague_ReturnHallway_WayBlockedSign {
+    msgbox(format("You can't go back that way."), MSGBOX_SIGN)
+    end
+}

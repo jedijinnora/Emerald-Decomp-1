@@ -588,8 +588,8 @@ EventScript_ResetMrBriney::
 	end
 
 EverGrandeCity_HallOfFame_EventScript_ResetEliteFour::
-	clearflag FLAG_DEFEATED_ELITE_4_SIDNEY
-	clearflag FLAG_DEFEATED_ELITE_4_PHOEBE
+	clearflag FLAG_DEFEATED_ELITE_4_BRANDON
+	clearflag FLAG_DEFEATED_ELITE_4_LUCY
 	clearflag FLAG_DEFEATED_ELITE_4_GLACIA
 	clearflag FLAG_DEFEATED_ELITE_4_DRAKE
 	setvar VAR_ELITE_4_STATE, 0
@@ -1237,3 +1237,7 @@ Common_EventScript_CountBadges::
 	.include "data/maps/EmeraldCape_PokemonCenter_1F/scripts.inc"
 
 	.include "data/maps/EmeraldCape_PokemonCenter_2F/scripts.inc"
+
+	.include "data/maps/PokemonLeague_EliteFourHallway/scripts.inc"
+
+	.include "data/maps/PokemonLeague_ReturnHallway/scripts.inc"

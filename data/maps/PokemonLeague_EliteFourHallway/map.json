@@ -1,0 +1,69 @@
+{
+  "id": "MAP_POKEMON_LEAGUE_ELITE_FOUR_HALLWAY",
+  "name": "PokemonLeague_EliteFourHallway",
+  "layout": "LAYOUT_POKEMON_LEAGUE_ELITE_FOUR_HALLWAY",
+  "music": "MUS_VICTORY_ROAD",
+  "region_map_section": "MAPSEC_POKEMON_LEAGUE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 20,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_LEAGUE_ELITE_FOUR_HALLWAY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 3,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_EVER_GRANDE_CITY_SIDNEYS_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_EVER_GRANDE_CITY_PHOEBES_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_EVER_GRANDE_CITY_HALL4",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 28,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_EVER_GRANDE_CITY_GLACIAS_ROOM",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 37,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_EVER_GRANDE_CITY_DRAKES_ROOM",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

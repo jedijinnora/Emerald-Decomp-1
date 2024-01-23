@@ -94,7 +94,7 @@ EverGrandeCity_ChampionsRoom_Movement_WallaceExit:
 	step_end
 
 EverGrandeCity_ChampionsRoom_Text_IntroSpeech:
-	.string "Annabel: Welcome, {PLAYER}.\p"
+	.string "Anabel: Welcome, {PLAYER}.\p"
 	.string "We Trainers raise Pokémon by giving\n"
 	.string "them items and by teaching them new\l"
 	.string "techniques for battle.\p"
@@ -118,7 +118,7 @@ EverGrandeCity_ChampionsRoom_Text_Defeat:
 	.string "Trainer!$"
 
 EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech:
-	.string "Annabel: The Pokémon you sent into\n"
+	.string "Anabel: The Pokémon you sent into\n"
 	.string "battle…\p"
 	.string "At times they danced like a spring\n"
 	.string "breeze, and at times they struck\l"
@@ -133,7 +133,7 @@ EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech:
 	.string "Hoenn region Champion!$"
 
 EverGrandeCity_ChampionsRoom_Text_WallaceComeWithMe:
-	.string "Annabel: {PLAYER}…\p"
+	.string "Anabel: {PLAYER}…\p"
 	.string "No, let me rephrase that properly.\p"
 	.string "The new Champion!\p"
 	.string "Come with me.$"

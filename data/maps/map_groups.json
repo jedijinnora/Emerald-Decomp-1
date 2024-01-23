@@ -360,7 +360,9 @@
     "EverGrandeCity_House1",
     "EverGrandeCity_House2",
     "EverGrandeCity_NatureShop",
-    "EverGrandeCity_House3"
+    "EverGrandeCity_House3",
+    "PokemonLeague_EliteFourHallway",
+    "PokemonLeague_ReturnHallway"
   ],
   "gMapGroup_IndoorRoute104": [
     "Route104_MrBrineysHouse",

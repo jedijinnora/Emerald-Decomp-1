@@ -1957,7 +1957,6 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
 
             //Jinnora: I believe that switching the partyData pointer to trainer->easyParty would be the way
             // to swap to an easy party, something like:
-            
             if((trainer->badgeThreshold > 0) && (VarGet(VAR_NUM_BADGES) < trainer->badgeThreshold)) {
                 partyData = trainer->easyParty;
             }
@@ -1982,11 +1981,19 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 otIdType = OT_ID_PRESET;
                 fixedOtId = HIHALF(personalityValue) ^ LOHALF(personalityValue);
             }
-            CreateMon(&party[i], partyData[i].species, partyData[i].lvl, 0, TRUE, personalityValue, otIdType, fixedOtId);
+            //Jinnora: changed fixedIV from 0 to USE_RANDOM_IVS
+            CreateMon(&party[i], partyData[i].species, partyData[i].lvl, USE_RANDOM_IVS, TRUE, personalityValue, otIdType, fixedOtId);
             SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
             CustomTrainerPartyAssignMoves(&party[i], &partyData[i]);
-            SetMonData(&party[i], MON_DATA_IVS, &(partyData[i].iv));
+
+            //Jinnora: i'm concerned that the original call resulted in all 0 ivs 
+            //if the party iv data was uninitialized so I added the if clause
+            //and switched the call to CreateMon to have fixedIV:USE_RANDOM_IVS instead of 0 
+            if(partyData[i].iv != 0)
+            {
+                SetMonData(&party[i], MON_DATA_IVS, &(partyData[i].iv));
+            }
             if (partyData[i].ev != NULL)
             {
                 SetMonData(&party[i], MON_DATA_HP_EV, &(partyData[i].ev[0]));

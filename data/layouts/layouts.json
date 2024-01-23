@@ -275,7 +275,7 @@
       "id": "LAYOUT_ROUTE112",
       "name": "Route112_Layout",
       "width": 40,
-      "height": 73,
+      "height": 83,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Lavaridge",
       "border_filepath": "data/layouts/Route112/border.bin",
@@ -285,7 +285,7 @@
       "id": "LAYOUT_ROUTE113",
       "name": "Route113_Layout",
       "width": 116,
-      "height": 40,
+      "height": 30,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/Route113/border.bin",
@@ -5180,6 +5180,26 @@
       "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/SunriseShore/border.bin",
       "blockdata_filepath": "data/layouts/SunriseShore/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_LEAGUE_ELITE_FOUR_HALLWAY",
+      "name": "PokemonLeague_EliteFourHallway_Layout",
+      "width": 41,
+      "height": 27,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/PokemonLeague_EliteFourHallway/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonLeague_EliteFourHallway/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_LEAGUE_RETURN_HALLWAY",
+      "name": "PokemonLeague_ReturnHallway_Layout",
+      "width": 22,
+      "height": 30,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/PokemonLeague_ReturnHallway/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonLeague_ReturnHallway/map.bin"
     }
   ]
 }
