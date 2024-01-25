@@ -60,7 +60,7 @@ script SandsweptDesert_EventScript_GogglesLady {
     faceplayer
     checkitem(ITEM_GO_GOGGLES)
     if (var(VAR_RESULT) == FALSE) {
-        msgbox(format("How'd you get here without any Go-goggle?"))
+        msgbox(format("How'd you get here without any Go-goggles?"))
         release
         end
     }
