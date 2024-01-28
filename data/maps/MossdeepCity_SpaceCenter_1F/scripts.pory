@@ -18,6 +18,6 @@ script MossdeepCity_SpaceCenter_1F_EventScript_GiveEjectPack {
 }
 
 script MossdeepCity_SpaceCenter_1F_EventScript_LaunchPadGuy {
-    msgbox(format("Sure, a steel launch pad is more expensive to build and maintain than concrete. But can you imagine what would happen if we just let the rockets tear up the pad on launch? We'd look like idiots!"), MSGBOX_NPC)
+    msgbox(format("Sure, a steel launch pad is more expensive to build and maintain than concrete. But can you imagine what would happen if we just let the rockets tear up the ground on launch? We'd look like idiots!"), MSGBOX_NPC)
     end
 }

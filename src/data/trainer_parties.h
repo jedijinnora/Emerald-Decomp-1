@@ -5600,7 +5600,7 @@ static const struct TrainerMon sParty_Clifford_easy[] = {
 };
 
 //Hex Maniac Kathleen (purple room): threshold 4
-//may double with Clifford or Nicholas
+//may double with Clifford or Nikolai
 static const struct TrainerMon sParty_Kathleen[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -5653,9 +5653,10 @@ static const struct TrainerMon sParty_Kathleen_easy[] = {
     }
 };
 
-//Psychic-M Nicholas (purple room): threshold 4
+//Psychic-M Nikolai (purple room): threshold 4
 //may double with Kathleen
-static const struct TrainerMon sParty_Nicholas[] = {
+//renamed from Nicholas to avoid collision with Dragon Tamer
+static const struct TrainerMon sParty_Nikolai[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .ev = TRAINER_PARTY_EVS(225, 0, 0, 225, 0, 0),
@@ -5675,7 +5676,7 @@ static const struct TrainerMon sParty_Nicholas[] = {
     .moves = {MOVE_DARK_PULSE, MOVE_MIRROR_COAT, MOVE_TICKLE, MOVE_PSYSHOCK}
     }
 };
-static const struct TrainerMon sParty_Nicholas_easy[] = {
+static const struct TrainerMon sParty_Nikolai_easy[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .lvl = 14,
@@ -9328,7 +9329,7 @@ static const struct TrainerMon sParty_Pete[] = {
 
 //ROUTE 104 TRAINERS
 
-//Haley
+//Lass Haley
 static const struct TrainerMon sParty_Haley1[] = {
     {
     .lvl = 6,
@@ -9393,6 +9394,7 @@ static const struct TrainerMon sParty_Haley5[] = {
     }
 };
 
+//Fisherman Ivan
 static const struct TrainerMon sParty_Ivan[] = {
     {
     .lvl = 5,
@@ -9408,7 +9410,7 @@ static const struct TrainerMon sParty_Ivan[] = {
     }
 };
 
-//Gina and Mia
+//Twins Gina and Mia
 //twins double
 static const struct TrainerMon sParty_GinaAndMia1[] = {
     {
@@ -9434,7 +9436,7 @@ static const struct TrainerMon sParty_GinaAndMia2[] = {
     }
 };
 
-//Winston
+//Rich Boy Winston
 static const struct TrainerMon sParty_Winston1[] = {
     {
     .lvl = 7,
@@ -9472,7 +9474,7 @@ static const struct TrainerMon sParty_Winston5[] = {
     }
 };
 
-//Cindy
+//Lady Cindy
 static const struct TrainerMon sParty_Cindy1[] = {
     {
     .lvl = 7,
@@ -9522,6 +9524,7 @@ static const struct TrainerMon sParty_Cindy6[] = {
     }
 };
 
+//Youngster Billy
 static const struct TrainerMon sParty_Billy[] = {
     {
     .lvl = 5,
@@ -9533,6 +9536,7 @@ static const struct TrainerMon sParty_Billy[] = {
     }
 };
 
+//Fisherman Darian
 static const struct TrainerMon sParty_Darian[] = {
     {
     .lvl = 9,
@@ -18778,7 +18782,7 @@ static const struct TrainerMon sParty_Dudley[] = {
     .lvl = 12,
     .species = SPECIES_SEAKING,
     .heldItem = ITEM_RINDO_BERRY,
-    .ability = ABILITY_LIGHTNING_ROD
+    .ability = ABILITY_LIGHTNING_ROD,
     .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
     .moves = {MOVE_AGILITY, MOVE_MEGAHORN, MOVE_FISHIOUS_REND, MOVE_DRILL_RUN}
     }
@@ -18800,7 +18804,7 @@ static const struct TrainerMon sParty_Dudley_easy[] = {
     .lvl = 12,
     .species = SPECIES_GOLDEEN,
     .heldItem = ITEM_RINDO_BERRY,
-    .ability = ABILITY_LIGHTNING_ROD
+    .ability = ABILITY_LIGHTNING_ROD,
     .moves = {MOVE_AGILITY, MOVE_MEGAHORN, MOVE_WATERFALL, MOVE_DRILL_RUN}
     }
 };
