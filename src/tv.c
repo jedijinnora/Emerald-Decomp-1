@@ -986,7 +986,7 @@ static void TakeGabbyAndTyOffTheAir(void)
 u8 GabbyAndTyGetBattleNum(void)
 {
     if (gSaveBlock1Ptr->gabbyAndTyData.battleNum > 5)
-        return (gSaveBlock1Ptr->gabbyAndTyData.battleNum % 3) + 6;
+        return (gSaveBlock1Ptr->gabbyAndTyData.battleNum % 3) + 1;
 
     return gSaveBlock1Ptr->gabbyAndTyData.battleNum;
 }
@@ -1037,28 +1037,12 @@ void GetGabbyAndTyLocalIds(void)
         gSpecialVar_0x8005 = 6;
         break;
     case 3:
-        gSpecialVar_0x8004 = 18;
-        gSpecialVar_0x8005 = 17;
+        gSpecialVar_0x8004 = 17;
+        gSpecialVar_0x8005 = 16;
         break;
     case 4:
-        gSpecialVar_0x8004 = 21;
-        gSpecialVar_0x8005 = 22;
-        break;
-    case 5:
-        gSpecialVar_0x8004 = 8;
-        gSpecialVar_0x8005 = 9;
-        break;
-    case 6:
-        gSpecialVar_0x8004 = 19;
-        gSpecialVar_0x8005 = 20;
-        break;
-    case 7:
-        gSpecialVar_0x8004 = 23;
-        gSpecialVar_0x8005 = 24;
-        break;
-    case 8:
-        gSpecialVar_0x8004 = 10;
-        gSpecialVar_0x8005 = 11;
+        gSpecialVar_0x8004 = 20;
+        gSpecialVar_0x8005 = 21;
         break;
     }
 }

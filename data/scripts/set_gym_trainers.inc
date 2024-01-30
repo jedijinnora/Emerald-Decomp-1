@@ -58,9 +58,9 @@ FortreeCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_JARED
 	settrainerflag TRAINER_FLINT
 	settrainerflag TRAINER_ASHLEY
-	settrainerflag TRAINER_EDWARDO
+	settrainerflag TRAINER_EDWINA
 	settrainerflag TRAINER_HUMBERTO
-	settrainerflag TRAINER_DARIUS
+	settrainerflag TRAINER_CECILIA
 	return
 
 MossdeepCity_Gym_SetGymTrainers::
@@ -75,7 +75,7 @@ MossdeepCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_KATHLEEN
 	settrainerflag TRAINER_CLIFFORD
 	settrainerflag TRAINER_MACEY
-	settrainerflag TRAINER_NICHOLAS
+	settrainerflag TRAINER_NIKOLAI
 	return
 
 SootopolisCity_Gym_SetGymTrainers::

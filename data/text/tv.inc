@@ -2696,6 +2696,16 @@ gTVPokemonBattleUpdateText07::
 	.string "This concludes this episode of\n"
 	.string "“Pokémon Battle Update!”$"
 
+GabbyAndTy_Text_GabbyNotEnoughBadges:
+	.string "Gabby: Oh! You look like a new Trainer!\p"
+	.string "Once you have another badge or two\n"
+	.string "we'll be happy to interview you!$"
+
+GabbyAndTy_Text_TyNotEnoughBadges:
+	.string "Ty: Hey, lookie here! A newbie!\p"
+	.string "Come back with another badge or two\n"
+	.string "and I'll get the camera rolling!$"
+
 GabbyAndTy_Text_GabbyPreFirstBattle:
 	.string "Gabby: Oh! We've just spotted a tough-\n"
 	.string "looking Trainer here of all places!\p"
@@ -2995,3 +3005,4 @@ ContestLadyShow_Text_LostBadly::
 	.string "MC: Uh… Uh-oh…\p"
 	.string "Uh… That's all the time we have today!\n"
 	.string "Thanks for tuning in!$"
+

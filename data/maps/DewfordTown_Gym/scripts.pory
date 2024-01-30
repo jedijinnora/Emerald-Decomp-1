@@ -36,32 +36,30 @@ script DewfordTown_Gym_EventScript_Sidney {
 	//check number of badges and return appropriate battle
 	switch(var(VAR_NUM_BADGES)) {
 		case 0:
-			//badge 1 team
-			trainerbattle_single(TRAINER_BRAWLY_1, DewfordTown_Gym_Text_SidneyIntro, DewfordTown_Gym_Text_SidneyDefeat, DewfordTown_Gym_EventScript_SidneyDefeated, NO_MUSIC)
 		case 1:
-			//badge 2 team
+			//badge 1 or 2 team
+			trainerbattle_single(TRAINER_SIDNEY_1, DewfordTown_Gym_Text_SidneyIntro, DewfordTown_Gym_Text_SidneyDefeat, DewfordTown_Gym_EventScript_SidneyDefeated, NO_MUSIC)
 		case 2:
 		case 3:
-			//badge 34 team
 		case 4:
 		case 5:
 		case 6:
-			//badge 567 team
+			//badge 34 or 567 team
+			trainerbattle_single(TRAINER_SIDNEY_2, DewfordTown_Gym_Text_SidneyIntro, DewfordTown_Gym_Text_SidneyDefeat, DewfordTown_Gym_EventScript_SidneyDefeated, NO_MUSIC)
 		case 7:
-			//badge 8 team
-			trainerbattle_single(TRAINER_BRAWLY_1, DewfordTown_Gym_Text_SidneyIntro, DewfordTown_Gym_Text_SidneyDefeat, DewfordTown_Gym_EventScript_SidneyDefeated, NO_MUSIC)
+			//badge 8R team
+			trainerbattle_single(TRAINER_SIDNEY_3, DewfordTown_Gym_Text_SidneyIntro, DewfordTown_Gym_Text_SidneyDefeat, DewfordTown_Gym_EventScript_SidneyDefeated, NO_MUSIC)
 		default:
-			goto_if_unset(FLAG_TEMP_1, SidneyRematch)
 	}
 	goto(SidneyEnd)
 
 	SidneyRematch:
-	goto_if_set(FLAG_TEMP_1, SidneyEnd)
+	goto_if_set(FLAG_DAILY_DEWFORD_GYM_REMATCH, SidneyEnd)
 	msgbox("Sidney: Hey champ! How's it hanging?\nYou up for a rematch?", MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, NO, SidneyEnd)
-	setflag(FLAG_TEMP_1)
-	cleartrainerflag(TRAINER_BRAWLY_1)
-	trainerbattle_single(TRAINER_BRAWLY_1, DewfordTown_Gym_Text_SidneyPreRematch, DewfordTown_Gym_Text_SidneyRematchDefeat)
+	setflag(FLAG_DAILY_DEWFORD_GYM_REMATCH)
+	cleartrainerflag(TRAINER_SIDNEY_3)
+	trainerbattle_single(TRAINER_SIDNEY_3, DewfordTown_Gym_Text_SidneyPreRematch, DewfordTown_Gym_Text_SidneyRematchDefeat)
 
 	SidneyEnd:
 	msgbox(DewfordTown_Gym_Text_SidneyPostBattle)
@@ -76,7 +74,7 @@ script DewfordTown_Gym_EventScript_SidneyDefeated {
 	setflag(FLAG_DEFEATED_DEWFORD_GYM)
 	setflag(FLAG_BADGE02_GET)
 	setflag(FLAG_CHALLENGE_FERRY_TICKET)
-	addvar(VAR_NUM_BADGES, 1)
+	call(Common_EventScript_CountBadges)
 	setvar(VAR_0x8008, 2)
 	call(Common_EventScript_SetGymTrainers)
 	call_if_unset(FLAG_CHALLENGE_HM_NONE, Gym_EventScript_GetHM)
@@ -122,7 +120,7 @@ text DewfordTown_Gym_Text_SidneyRematchDefeat {
 
 raw `
 DewfordTown_Gym_EventScript_SetFlashLevel::
-	goto_if_defeated TRAINER_BRAWLY_1, DewfordTown_Gym_EventScript_SetLightsOn
+	goto_if_set FLAG_DEFEATED_DEWFORD_GYM, DewfordTown_Gym_EventScript_SetLightsOn
 	call DewfordTown_Gym_EventScript_CountTrainersDefeated
 	copyvar VAR_0x8001, VAR_0x8000
 	goto_if_eq VAR_0x8000, 0, DewfordTown_Gym_EventScript_SetFlashLevel7
@@ -421,31 +419,4 @@ DewfordTown_Gym_Text_GymStatueCertified:
 	.string "Dewford Town Pokémon Gym\p"
 	.string "Sidney's Certified Trainers:\n"
 	.string "{PLAYER}$"
-
-DewfordTown_Gym_Text_BrawlyPreRematch:
-	.string "BRAWLY: A wave may draw back, but it\n"
-	.string "always returns to the shore.\p"
-	.string "A giant wave of a talent like you…\n"
-	.string "I knew you would return!\p"
-	.string "Show me how much higher\n"
-	.string "you've gone!$"
-
-DewfordTown_Gym_Text_BrawlyRematchDefeat:
-	.string "Wow!\n"
-	.string "Swamped again!$"
-
-DewfordTown_Gym_Text_BrawlyPostRematch:
-	.string "BRAWLY: Battling is vast and it's deep.\n"
-	.string "You can't see the bottom.\l"
-	.string "It's just like the sea of HOENN!$"
-
-DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons:
-	.string "BRAWLY: A wave may draw back, but it\n"
-	.string "always returns to the shore.\p"
-	.string "A giant wave of a talent like you…\n"
-	.string "I knew you would return!\p"
-	.string "Oh? You only have one POKéMON\n"
-	.string "that can battle.\p"
-	.string "I'm sorry, but I'd like you to come back\n"
-	.string "with at least two POKéMON.$"
 `

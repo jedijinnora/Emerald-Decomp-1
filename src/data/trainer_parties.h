@@ -5099,7 +5099,7 @@ static const struct TrainerMon sParty_Flint_easy[] = {
 //Aroma Lady Edwina: threshold 3
 //TODO rename to Edwina
 //may double with Flint
-static const struct TrainerMon sParty_Edwardo[] = {
+static const struct TrainerMon sParty_Edwina[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .ev = TRAINER_PARTY_EVS(0, 0, 0, 225, 225, 0),
@@ -5119,7 +5119,7 @@ static const struct TrainerMon sParty_Edwardo[] = {
     .moves = {MOVE_KNOCK_OFF, MOVE_LEAF_STORM, MOVE_SUPERPOWER, MOVE_SYNTHESIS}
     }
 };
-static const struct TrainerMon sParty_Edwardo_easy[] = {
+static const struct TrainerMon sParty_Edwina_easy[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .lvl = 14,
@@ -5140,7 +5140,7 @@ static const struct TrainerMon sParty_Edwardo_easy[] = {
 
 //Aroma Lady Cecilia: threshold 2
 //TODO rename to Cecilia
-static const struct TrainerMon sParty_Darius[] = {
+static const struct TrainerMon sParty_Cecilia[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .ev = TRAINER_PARTY_EVS(225, 0, 0, 0, 225, 0),
@@ -5169,7 +5169,7 @@ static const struct TrainerMon sParty_Darius[] = {
     .moves = {MOVE_POWER_WHIP, MOVE_TRIPLE_AXEL, MOVE_KNOCK_OFF, MOVE_RAPID_SPIN}
     }
 };
-static const struct TrainerMon sParty_Darius_easy[] = {
+static const struct TrainerMon sParty_Cecilia_easy[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .lvl = 14,
@@ -5542,7 +5542,7 @@ static const struct TrainerMon sParty_Hannah_easy[] = {
     }
 };
 
-//Gentleman Clifford (purple room): threshold
+//Gentleman Clifford (purple room): threshold 4
 //may double with Kathleen or Macey
 static const struct TrainerMon sParty_Clifford[] = {
     {
@@ -7299,7 +7299,7 @@ static const struct TrainerMon sParty_MultiHitTutor[] = {
 //WINSTRATES (done)
 //initial gauntlet on Route 111: Victor->Victoria->Vivi->Vito->Vicky
 //rewards Macho Brace and access to purchase EV Power Items
-//Vivi and Vito have challenge battles after badge 5, reward $$ and bottle caps
+//Vivi and Vito have challenge battles after badge 5, reward 2 bottle caps
 static const struct TrainerMon sParty_Victor[] = {
     {
     .lvl = 14,
@@ -7712,10 +7712,11 @@ static const struct TrainerMon sParty_Vito_Challenge[] = {
 };
 
 //GABBY AND TY (done)
-//Always a double battle, threshold 3
+//Always a double battle, threshold 4
+//Will not battle unless you have at least 2 badges
 static const struct TrainerMon sParty_GabbyAndTy111[] = {
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_MASQUERAIN,
     .heldItem = ITEM_MYSTIC_WATER,
     .ability = ABILITY_WATER_BUBBLE,
@@ -7725,7 +7726,7 @@ static const struct TrainerMon sParty_GabbyAndTy111[] = {
     .moves = {MOVE_SURF, MOVE_BUG_BUZZ, MOVE_HURRICANE, MOVE_STICKY_WEB}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_CACTURNE,
     .heldItem = ITEM_LEFTOVERS,
     .ability = ABILITY_WATER_ABSORB,
@@ -7735,7 +7736,7 @@ static const struct TrainerMon sParty_GabbyAndTy111[] = {
     .moves = {MOVE_NEEDLE_ARM, MOVE_SUCKER_PUNCH, MOVE_SPIKY_SHIELD, MOVE_DESTINY_BOND}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_EXPLOUD,
     .heldItem = ITEM_THROAT_SPRAY,
     .ability = ABILITY_SCRAPPY,
@@ -7745,7 +7746,7 @@ static const struct TrainerMon sParty_GabbyAndTy111[] = {
     .moves = {MOVE_HYPER_VOICE, MOVE_ICE_BEAM, MOVE_FLAMETHROWER, MOVE_SHADOW_BALL}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_MAGNEZONE,
     .heldItem = ITEM_WISE_GLASSES,
     .ability = ABILITY_ANALYTIC,
@@ -7757,7 +7758,7 @@ static const struct TrainerMon sParty_GabbyAndTy111[] = {
 };
 static const struct TrainerMon sParty_GabbyAndTy111_easy[] = {
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_SURSKIT,
     .heldItem = ITEM_MYSTIC_WATER,
     .ability = ABILITY_WATER_BUBBLE,
@@ -7766,7 +7767,7 @@ static const struct TrainerMon sParty_GabbyAndTy111_easy[] = {
     .moves = {MOVE_SURF, MOVE_BUG_BUZZ, MOVE_GIGA_DRAIN, MOVE_STICKY_WEB}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_CACNEA,
     .heldItem = ITEM_LEFTOVERS,
     .ability = ABILITY_WATER_ABSORB,
@@ -7775,7 +7776,7 @@ static const struct TrainerMon sParty_GabbyAndTy111_easy[] = {
     .moves = {MOVE_NEEDLE_ARM, MOVE_SUCKER_PUNCH, MOVE_SPIKY_SHIELD, MOVE_DESTINY_BOND}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_LOUDRED,
     .heldItem = ITEM_THROAT_SPRAY,
     .ability = ABILITY_SCRAPPY,
@@ -7784,7 +7785,7 @@ static const struct TrainerMon sParty_GabbyAndTy111_easy[] = {
     .moves = {MOVE_HYPER_VOICE, MOVE_ICE_BEAM, MOVE_FLAMETHROWER, MOVE_SHADOW_BALL}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_MAGNETON,
     .heldItem = ITEM_WISE_GLASSES,
     .ability = ABILITY_ANALYTIC,
@@ -7795,7 +7796,7 @@ static const struct TrainerMon sParty_GabbyAndTy111_easy[] = {
 };
 static const struct TrainerMon sParty_GabbyAndTy118[] = {
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_WIGGLYTUFF,
     .heldItem = ITEM_ASSAULT_VEST,
     .ability = ABILITY_COMPETITIVE,
@@ -7805,7 +7806,7 @@ static const struct TrainerMon sParty_GabbyAndTy118[] = {
     .moves = {MOVE_HYPER_VOICE, MOVE_DRAINING_KISS, MOVE_DAZZLING_GLEAM, MOVE_ICY_WIND}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_AMBIPOM,
     .heldItem = ITEM_LOADED_DICE,
     .ability = ABILITY_TECHNICIAN,
@@ -7815,7 +7816,7 @@ static const struct TrainerMon sParty_GabbyAndTy118[] = {
     .moves = {MOVE_TAIL_SLAP, MOVE_BEAT_UP, MOVE_ARM_THRUST, MOVE_FAKE_OUT}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_EXPLOUD,
     .heldItem = ITEM_THROAT_SPRAY,
     .ability = ABILITY_SCRAPPY,
@@ -7825,7 +7826,7 @@ static const struct TrainerMon sParty_GabbyAndTy118[] = {
     .moves = {MOVE_HYPER_VOICE, MOVE_ICE_BEAM, MOVE_FLAMETHROWER, MOVE_SHADOW_BALL}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_MAGNEZONE,
     .heldItem = ITEM_WISE_GLASSES,
     .ability = ABILITY_ANALYTIC,
@@ -7837,7 +7838,7 @@ static const struct TrainerMon sParty_GabbyAndTy118[] = {
 };
 static const struct TrainerMon sParty_GabbyAndTy118_easy[] = {
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_JIGGLYPUFF,
     .heldItem = ITEM_ASSAULT_VEST,
     .ability = ABILITY_COMPETITIVE,
@@ -7846,7 +7847,7 @@ static const struct TrainerMon sParty_GabbyAndTy118_easy[] = {
     .moves = {MOVE_HYPER_VOICE, MOVE_DRAINING_KISS, MOVE_DAZZLING_GLEAM, MOVE_ICY_WIND}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_AIPOM,
     .heldItem = ITEM_LOADED_DICE,
     .ability = ABILITY_TECHNICIAN,
@@ -7855,7 +7856,7 @@ static const struct TrainerMon sParty_GabbyAndTy118_easy[] = {
     .moves = {MOVE_TAIL_SLAP, MOVE_BEAT_UP, MOVE_ARM_THRUST, MOVE_FAKE_OUT}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_LOUDRED,
     .heldItem = ITEM_THROAT_SPRAY,
     .ability = ABILITY_SCRAPPY,
@@ -7864,7 +7865,7 @@ static const struct TrainerMon sParty_GabbyAndTy118_easy[] = {
     .moves = {MOVE_HYPER_VOICE, MOVE_ICE_BEAM, MOVE_FLAMETHROWER, MOVE_SHADOW_BALL}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_MAGNETON,
     .heldItem = ITEM_WISE_GLASSES,
     .ability = ABILITY_ANALYTIC,
@@ -7875,7 +7876,7 @@ static const struct TrainerMon sParty_GabbyAndTy118_easy[] = {
 };
 static const struct TrainerMon sParty_GabbyAndTy120[] = {
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_GOTHITELLE,
     .heldItem = ITEM_LEFTOVERS,
     .ability = ABILITY_SHADOW_TAG,
@@ -7885,7 +7886,7 @@ static const struct TrainerMon sParty_GabbyAndTy120[] = {
     .moves = {MOVE_PSYSHOCK, MOVE_DARK_PULSE, MOVE_TICKLE, MOVE_FOCUS_BLAST}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_KECLEON,
     .heldItem = ITEM_LEFTOVERS,
     .ability = ABILITY_ADAPTABILITY,
@@ -7895,7 +7896,7 @@ static const struct TrainerMon sParty_GabbyAndTy120[] = {
     .moves = {MOVE_SHADOW_CLAW, MOVE_SHADOW_SNEAK, MOVE_DRAIN_PUNCH, MOVE_FACADE}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_EXPLOUD,
     .heldItem = ITEM_THROAT_SPRAY,
     .ability = ABILITY_SCRAPPY,
@@ -7905,7 +7906,7 @@ static const struct TrainerMon sParty_GabbyAndTy120[] = {
     .moves = {MOVE_HYPER_VOICE, MOVE_ICE_BEAM, MOVE_FLAMETHROWER, MOVE_SHADOW_BALL}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_MAGNEZONE,
     .heldItem = ITEM_WISE_GLASSES,
     .ability = ABILITY_ANALYTIC,
@@ -7917,7 +7918,7 @@ static const struct TrainerMon sParty_GabbyAndTy120[] = {
 };
 static const struct TrainerMon sParty_GabbyAndTy120_easy[] = {
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_GOTHORITA,
     .heldItem = ITEM_LEFTOVERS,
     .ability = ABILITY_SHADOW_TAG,
@@ -7926,7 +7927,7 @@ static const struct TrainerMon sParty_GabbyAndTy120_easy[] = {
     .moves = {MOVE_PSYSHOCK, MOVE_DARK_PULSE, MOVE_TICKLE, MOVE_FOCUS_BLAST}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_KECLEON,
     .heldItem = ITEM_LEFTOVERS,
     .ability = ABILITY_ADAPTABILITY,
@@ -7935,7 +7936,7 @@ static const struct TrainerMon sParty_GabbyAndTy120_easy[] = {
     .moves = {MOVE_SHADOW_CLAW, MOVE_SHADOW_SNEAK, MOVE_DRAIN_PUNCH, MOVE_FACADE}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_LOUDRED,
     .heldItem = ITEM_THROAT_SPRAY,
     .ability = ABILITY_SCRAPPY,
@@ -7944,7 +7945,7 @@ static const struct TrainerMon sParty_GabbyAndTy120_easy[] = {
     .moves = {MOVE_HYPER_VOICE, MOVE_ICE_BEAM, MOVE_FLAMETHROWER, MOVE_SHADOW_BALL}
     },
     {
-    .lvl = 16,
+    .lvl = 14,
     .species = SPECIES_MAGNETON,
     .heldItem = ITEM_WISE_GLASSES,
     .ability = ABILITY_ANALYTIC,
@@ -8237,7 +8238,7 @@ static const struct TrainerMon sParty_BB_Camilo[] = {
     }
 };
 
-//Round 4 Cooltrainer-F Pedro
+//Round 4 Cooltrainer-M Pedro
 static const struct TrainerMon sParty_BB_Pedro[] = {
     {
     .lvl = 2,
@@ -8270,7 +8271,7 @@ static const struct TrainerMon sParty_BB_Pedro[] = {
     .moves = {MOVE_KNOCK_OFF, MOVE_POWER_WHIP, MOVE_ACID_SPRAY, MOVE_GIGA_DRAIN}
     }
 };
-//Round 4 Cooltrainer-M Alma
+//Round 4 Cooltrainer-F Alma
 static const struct TrainerMon sParty_BB_Alma[] = {
     {
     .lvl = 2,
@@ -16550,7 +16551,7 @@ static const struct TrainerMon sParty_Bill_easy[] = {
 //minimum 2 HMs (Surf & Waterfall OR Strength & Rock Smash) to reach
 
 //Dragon Tamer Nicolas: threshold 5
-static const struct TrainerMon sParty_Nicholas[] = {
+static const struct TrainerMon sParty_Nicolas[] = {
     {
     .lvl = 16,
     .species = SPECIES_ALTARIA,
@@ -16579,7 +16580,7 @@ static const struct TrainerMon sParty_Nicholas[] = {
     .moves = {MOVE_FIRE_BLAST, MOVE_DRAGON_CLAW, MOVE_DUAL_WINGBEAT, MOVE_EARTHQUAKE}
     }
 };
-static const struct TrainerMon sParty_Nicholas_easy[] = {
+static const struct TrainerMon sParty_Nicolas_easy[] = {
     {
     .lvl = 16,
     .species = SPECIES_ALTARIA,
@@ -16680,7 +16681,8 @@ static const struct TrainerMon sParty_Nicolas5[] = {
     }
 };
 
-//Old Couple John and Jay
+//Old Couple John and Jay: threshold 3
+//old couple double battle
 static const struct TrainerMon sParty_JohnAndJay[] = {
     {
     .lvl = 16,
@@ -17430,7 +17432,7 @@ static const struct TrainerMon sParty_Ryota[] = {
     .species = SPECIES_WHIMSICOTT,
     .heldItem = ITEM_FOCUS_SASH,
     .ability = ABILITY_PRANKSTER,
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
     .ev = TRAINER_PARTY_EVS(252, 0, 4, 0, 252, 0),
     .nature = TRAINER_PARTY_NATURE(NATURE_MODEST),
     .moves = {MOVE_TAILWIND, MOVE_LEECH_SEED, MOVE_ENERGY_BALL, MOVE_MOONBLAST}
@@ -17719,6 +17721,70 @@ static const struct TrainerMon sParty_Shoma[] = {
     }
 };
 
+//Cooltrainer Katelynn
+static const struct TrainerMon sParty_Katelynn[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_MAGNEZONE,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_ANALYTIC,
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 0, 31, 31),
+    .ev = TRAINER_PARTY_EVS(252, 0, 4, 0, 252, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_QUIET),
+    .moves = {MOVE_THUNDERBOLT, MOVE_FLASH_CANNON, MOVE_TOXIC, MOVE_EXPLOSION}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SLAKING,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_TRUANT,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(4, 252, 0, 0, 0, 252),
+    .nature = TRAINER_PARTY_NATURE(NATURE_ADAMANT),
+    .moves = {MOVE_GIGA_IMPACT, MOVE_COUNTER, MOVE_FACADE, MOVE_EARTHQUAKE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_ABSOL,
+    .heldItem = ITEM_SCOPE_LENS,
+    .ability = ABILITY_SUPER_LUCK,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(4, 252, 0, 252, 0, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_JOLLY),
+    .moves = {MOVE_NIGHT_SLASH, MOVE_PSYCHO_CUT, MOVE_SWORDS_DANCE, MOVE_SUCKER_PUNCH}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_NINETALES,
+    .heldItem = ITEM_HEAT_ROCK,
+    .ability = ABILITY_DROUGHT,
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 252, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_TIMID),
+    .moves = {MOVE_FLAMETHROWER, MOVE_MOONBLAST, MOVE_MORNING_SUN, MOVE_SOLAR_BEAM}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_VENUSAUR,
+    .heldItem = ITEM_WIDE_LENS,
+    .ability = ABILITY_CHLOROPHYLL,
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_CALM),
+    .moves = {MOVE_SLEEP_POWDER, MOVE_GIGA_DRAIN, MOVE_SLUDGE_BOMB, MOVE_VENOSHOCK}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_DARMANITAN,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_SHEER_FORCE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(4, 252, 0, 252, 0, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_JOLLY),
+    .moves = {MOVE_FLARE_BLITZ, MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE, MOVE_FOCUS_PUNCH}
+    },
+};
+
 
 //VICTORY ROAD B2F TRAINERS (done)
 
@@ -17777,6 +17843,7 @@ static const struct TrainerMon sParty_Arash[] = {
 };
 
 //Cooltrainer Glick
+//double battle
 static const struct TrainerMon sParty_Glick[] = {
     {
     .lvl = 16,
@@ -17891,70 +17958,6 @@ static const struct TrainerMon sParty_Shirona[] = {
     .ev = TRAINER_PARTY_EVS(4, 252, 0, 252, 0, 0),
     .nature = TRAINER_PARTY_NATURE(NATURE_JOLLY),
     .moves = {MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_SCALE_SHOT, MOVE_DRAGON_RUSH}
-    },
-};
-
-//Cooltrainer Katelynn
-static const struct TrainerMon sParty_Katelynn[] = {
-    {
-    .lvl = 16,
-    .species = SPECIES_MAGNEZONE,
-    .heldItem = ITEM_WEAKNESS_POLICY,
-    .ability = ABILITY_ANALYTIC,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 0, 31, 31),
-    .ev = TRAINER_PARTY_EVS(252, 0, 4, 0, 252, 0),
-    .nature = TRAINER_PARTY_NATURE(NATURE_QUIET),
-    .moves = {MOVE_THUNDERBOLT, MOVE_FLASH_CANNON, MOVE_TOXIC, MOVE_EXPLOSION}
-    },
-    {
-    .lvl = 16,
-    .species = SPECIES_SLAKING,
-    .heldItem = ITEM_LEFTOVERS,
-    .ability = ABILITY_TRUANT,
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ev = TRAINER_PARTY_EVS(4, 252, 0, 0, 0, 252),
-    .nature = TRAINER_PARTY_NATURE(NATURE_ADAMANT),
-    .moves = {MOVE_GIGA_IMPACT, MOVE_COUNTER, MOVE_FACADE, MOVE_EARTHQUAKE}
-    },
-    {
-    .lvl = 16,
-    .species = SPECIES_ABSOL,
-    .heldItem = ITEM_SCOPE_LENS,
-    .ability = ABILITY_SUPER_LUCK,
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ev = TRAINER_PARTY_EVS(4, 252, 0, 252, 0, 0),
-    .nature = TRAINER_PARTY_NATURE(NATURE_JOLLY),
-    .moves = {MOVE_NIGHT_SLASH, MOVE_PSYCHO_CUT, MOVE_SWORDS_DANCE, MOVE_SUCKER_PUNCH}
-    },
-    {
-    .lvl = 16,
-    .species = SPECIES_NINETALES,
-    .heldItem = ITEM_HEAT_ROCK,
-    .ability = ABILITY_DROUGHT,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
-    .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 252, 0),
-    .nature = TRAINER_PARTY_NATURE(NATURE_TIMID),
-    .moves = {MOVE_FLAMETHROWER, MOVE_MOONBLAST, MOVE_MORNING_SUN, MOVE_SOLAR_BEAM}
-    },
-    {
-    .lvl = 16,
-    .species = SPECIES_VENUSAUR,
-    .heldItem = ITEM_WIDE_LENS,
-    .ability = ABILITY_CHLOROPHYLL,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
-    .nature = TRAINER_PARTY_NATURE(NATURE_CALM),
-    .moves = {MOVE_SLEEP_POWDER, MOVE_GIGA_DRAIN, MOVE_SLUDGE_BOMB, MOVE_VENOSHOCK}
-    },
-    {
-    .lvl = 16,
-    .species = SPECIES_DARMANITAN,
-    .heldItem = ITEM_LIFE_ORB,
-    .ability = ABILITY_SHEER_FORCE,
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ev = TRAINER_PARTY_EVS(4, 252, 0, 252, 0, 0),
-    .nature = TRAINER_PARTY_NATURE(NATURE_JOLLY),
-    .moves = {MOVE_FLARE_BLITZ, MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE, MOVE_FOCUS_PUNCH}
     },
 };
 
@@ -19431,7 +19434,7 @@ static const struct TrainerMon sParty_Regan[] = {
 };
 
 //Senior and Junior Tya and Madison
-static const struct TrainerMon sParty_TyaAndMadison[] = {
+static const struct TrainerMon sParty_TyaAndMadi[] = {
     {
     .lvl = 2,
     .species = SPECIES_NONE,
@@ -19523,7 +19526,7 @@ static const struct TrainerMon sParty_Eddie[] = {
     .species = SPECIES_ZIGZAGOON,
     }
 };
-//RObin
+//Robin
 static const struct TrainerMon sParty_Robin[] = {
     {
     .lvl = 14,

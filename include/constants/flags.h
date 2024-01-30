@@ -125,7 +125,7 @@
 #define FLAG_RECEIVED_DOWSING_MACHINE        0x66
 #define FLAG_GIVEN_BRANDON_COMET_SHARD       0x67
 #define FLAG_CHOSE_VICTORY_ROAD_BONUS_ITEM   0x68
-#define FLAG_UNUSED_0x069                    0x69
+#define FLAG_GIVEN_VICTORY_ROAD_SKIP_REWARD  0x69
 #define FLAG_UNUSED_0x06A                    0x6A
 #define FLAG_UNUSED_0x06B                    0x6B
 #define FLAG_UNUSED_0x06C                    0x6C
@@ -843,14 +843,14 @@
 #define FLAG_HIDE_LILYCOVE_CONTEST_HALL_CONTEST_ATTENDANT_2         0x310
 #define FLAG_HIDE_TRICK_HOUSE_ENTRANCE_MAN                          0x311
 #define FLAG_HIDE_TRICK_HOUSE_END_MAN                               0x312
-#define FLAG_HIDE_ROUTE_111_GABBY_AND_TY_1                          0x313
-#define FLAG_HIDE_ROUTE_111_GABBY_AND_TY_2                          0x314
-#define FLAG_HIDE_ROUTE_111_GABBY_AND_TY_3                          0x315
-#define FLAG_HIDE_ROUTE_118_GABBY_AND_TY_1                          0x316
-#define FLAG_HIDE_ROUTE_118_GABBY_AND_TY_2                          0x317
-#define FLAG_HIDE_ROUTE_118_GABBY_AND_TY_3                          0x318
-#define FLAG_HIDE_ROUTE_120_GABBY_AND_TY_1                          0x319
-#define FLAG_HIDE_ROUTE_120_GABBY_AND_TY_2                          0x31A
+#define FLAG_UNUSED_0x313                                           0x313
+#define FLAG_UNUSED_0x314                                           0x314
+#define FLAG_UNUSED_0x315                                           0x315
+#define FLAG_UNUSED_0x316                                           0x316
+#define FLAG_HIDE_ROUTE_111_GABBY_AND_TY_INITIAL                    0x317
+#define FLAG_HIDE_ROUTE_111_GABBY_AND_TY_REPEATING                  0x318
+#define FLAG_HIDE_ROUTE_118_GABBY_AND_TY_REPEATING                  0x319
+#define FLAG_HIDE_ROUTE_120_GABBY_AND_TY_REPEATING                  0x31A
 
 //secret base flags
 #define FLAG_HIDE_SECRET_BASE_TRAINER                               0x31B
@@ -918,7 +918,7 @@
 #define FLAG_SCOTT_GIVES_BATTLE_POINTS                              0x355
 #define FLAG_OCEANIC_MUSEUM_MET_REPORTER                            0x356
 #define FLAG_CREDITS_LADY_INTRODUCTION                              0x357
-#define FLAG_UNUSED_0x358                                           0x358
+#define FLAG_MET_SHIRONA                                            0x358
 #define FLAG_UNUSED_0x359                                           0x359
 
 //Script state, Door Flags
@@ -1629,7 +1629,7 @@
 #define FLAG_DAILY_SOOTOPOLIS_GYM_REMATCH           (DAILY_FLAGS_START + 0x1C)
 #define FLAG_DAILY_WINSTRATE_VIVI_BATTLE            (DAILY_FLAGS_START + 0x1D)
 #define FLAG_DAILY_WINSTRATE_VITO_BATTLE            (DAILY_FLAGS_START + 0x1E)
-#define FLAG_UNUSED_0x93F                           (DAILY_FLAGS_START + 0x1F) // Unused Flag
+#define FLAG_DAILY_SHIRONA_REMATCH                  (DAILY_FLAGS_START + 0x1F)
 #define FLAG_UNUSED_0x940                           (DAILY_FLAGS_START + 0x20) // Unused Flag
 #define FLAG_UNUSED_0x941                           (DAILY_FLAGS_START + 0x21) // Unused Flag
 #define FLAG_UNUSED_0x942                           (DAILY_FLAGS_START + 0x22) // Unused Flag

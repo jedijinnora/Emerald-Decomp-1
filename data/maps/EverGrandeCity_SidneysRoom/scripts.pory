@@ -37,16 +37,6 @@ EverGrandeCity_SidneysRoom_EventScript_WalkInCloseDoor::
 	releaseall
 	end
 
-EverGrandeCity_SidneysRoom_EventScript_Sidney::
-	lock
-	faceplayer
-	goto_if_set FLAG_DEFEATED_ELITE_4_BRANDON, EverGrandeCity_SidneysRoom_EventScript_PostBattleSpeech
-	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
-	msgbox EverGrandeCity_SidneysRoom_Text_IntroSpeech, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_SIDNEY, EverGrandeCity_SidneysRoom_Text_Defeat
-	goto EverGrandeCity_SidneysRoom_EventScript_Defeated
-	end
-
 EverGrandeCity_SidneysRoom_EventScript_PostBattleSpeech::
 	msgbox EverGrandeCity_SidneysRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
 	release
@@ -81,3 +71,21 @@ EverGrandeCity_SidneysRoom_Text_PostBattleSpeech:
 	.string "your next battle!$"
 
 `
+
+script EverGrandeCity_SidneysRoom_EventScript_Brandon {
+	lock
+	faceplayer
+	goto_if_set(FLAG_DEFEATED_ELITE_4_BRANDON, EverGrandeCity_SidneysRoom_EventScript_PostBattleSpeech)
+	playbgm(MUS_ENCOUNTER_ELITE_FOUR, FALSE)
+	msgbox(EverGrandeCity_SidneysRoom_Text_IntroSpeech, MSGBOX_DEFAULT)
+	random(2)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			trainerbattle_no_intro(TRAINER_BRANDON_1, EverGrandeCity_SidneysRoom_Text_Defeat)
+		default:
+			trainerbattle_no_intro(TRAINER_BRANDON_2, EverGrandeCity_SidneysRoom_Text_Defeat)
+	}
+	goto(EverGrandeCity_SidneysRoom_EventScript_Defeated)
+	end
+}
+

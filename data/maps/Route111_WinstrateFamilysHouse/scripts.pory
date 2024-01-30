@@ -1,109 +1,117 @@
-raw `
-.set LOCALID_VIVI, 1
-.set LOCALID_VICTOR, 2
-.set LOCALID_VICTORIA, 3
-.set LOCALID_VICKY, 4
+mapscripts Route111_WinstrateFamilysHouse_MapScripts {}
 
-Route111_WinstrateFamilysHouse_MapScripts::
-	.byte 0
-
-Route111_WinstrateFamilysHouse_EventScript_Victor::
+script Route111_WinstrateFamilysHouse_EventScript_Victor {
 	lock
 	faceplayer
-	setvar VAR_0x8008, LOCALID_VICTOR
-	msgbox Route111_WinstrateFamilysHouse_Text_MySonIsStrongerThanYou, MSGBOX_DEFAULT
-	goto Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection
-	end
+	msgbox(format("You're the first Trainer I've seen who deploys Pokémon so masterfully."))
+	msgbox(format("But, I should tell you--my children are getting stronger all the time!"))
+	msgbox(format("In a year or two they'll take the Pokémon League by storm."))
+	goto(Route111_WinstrateFamilysHouse_EventScript_End)
+}
 
-Route111_WinstrateFamilysHouse_EventScript_Victoria::
-	lock
-	faceplayer
-	setvar VAR_0x8008, LOCALID_VICTORIA
-	goto_if_set FLAG_RECEIVED_MACHO_BRACE, Route111_WinstrateFamilysHouse_EventScript_ReceivedMachoBrace
-	msgbox Route111_WinstrateFamilysHouse_Text_LikeYouToHaveMachoBrace, MSGBOX_DEFAULT
-	giveitem ITEM_MACHO_BRACE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_MACHO_BRACE
-	goto Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection
-	end
-
-Route111_WinstrateFamilysHouse_EventScript_ReceivedMachoBrace::
-	msgbox Route111_WinstrateFamilysHouse_Text_PassionateAboutBattles, MSGBOX_DEFAULT
-	goto Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection
-	end
-
-Route111_WinstrateFamilysHouse_EventScript_Vivi::
-	lock
-	faceplayer
-	setvar VAR_0x8008, LOCALID_VIVI
-	msgbox Route111_WinstrateFamilysHouse_Text_StrongerFamilyMembers, MSGBOX_DEFAULT
-	goto Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection
-	end
-
-Route111_WinstrateFamilysHouse_EventScript_Vicky::
-	lock
-	faceplayer
-	setvar VAR_0x8008, LOCALID_VICKY
-	goto_if_set FLAG_TEMP_4, Route111_WinstrateFamilysHouse_EventScript_AlreadySpokenTo
-	msgbox Route111_WinstrateFamilysHouse_Text_GrandsonStrong, MSGBOX_DEFAULT
-	setflag FLAG_TEMP_4
-	goto Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection
-	end
-
-Route111_WinstrateFamilysHouse_EventScript_AlreadySpokenTo::
-	msgbox Route111_WinstrateFamilysHouse_Text_GrandsonStrongShort, MSGBOX_DEFAULT
-	goto Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection
-	end
-
-Route111_WinstrateFamilysHouse_EventScript_FaceOriginalDirection::
-	closemessage
-	applymovement VAR_0x8008, Common_Movement_FaceOriginalDirection
-	waitmovement 0
+script Route111_WinstrateFamilysHouse_EventScript_End {
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
 	release
 	end
+}
 
-Route111_WinstrateFamilysHouse_Text_MySonIsStrongerThanYou:
-	.string "You're the first Trainer I've seen who\n"
-	.string "deploys Pokémon so masterfully.\p"
-	.string "But, I should tell you--my son is\n"
-	.string "stronger than you.\p"
-	.string "He even took the Pokémon League\n"
-	.string "challenge, I'll have you know.$"
+script Route111_WinstrateFamilysHouse_EventScript_Vicky {
+	lock
+	faceplayer
+	goto_if_unset(FLAG_RECEIVED_MACHO_BRACE, Route111_WinstrateFamilysHouse_EventScript_ReceivedMachoBrace)
+	msgbox(format("Oh? Worried my darling grandchildren will surpass you?"))
+	pokemart(WinstrateMart)
+	msgbox(format("Train hard!"))
+	goto(Route111_WinstrateFamilysHouse_EventScript_End)
+}
 
+mart WinstrateMart {
+	ITEM_POWER_WEIGHT
+	ITEM_POWER_BRACER
+	ITEM_POWER_BELT
+	ITEM_POWER_LENS
+	ITEM_POWER_BAND
+	ITEM_POWER_ANKLET
+	ITEM_MACHO_BRACE
+	ITEM_LUCKY_EGG
+}
+
+script Route111_WinstrateFamilysHouse_EventScript_Victoria {
+	lock
+	faceplayer
+	goto_if_set(FLAG_RECEIVED_MACHO_BRACE, Route111_WinstrateFamilysHouse_EventScript_ReceivedMachoBrace)
+	msgbox(Route111_WinstrateFamilysHouse_Text_LikeYouToHaveMachoBrace, MSGBOX_DEFAULT)
+	giveitem(ITEM_MACHO_BRACE)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_RECEIVED_MACHO_BRACE)
+	goto(Route111_WinstrateFamilysHouse_EventScript_End)
+}
+
+script Route111_WinstrateFamilysHouse_EventScript_ReceivedMachoBrace {
+	msgbox(Route111_WinstrateFamilysHouse_Text_PassionateAboutBattles, MSGBOX_DEFAULT)
+	goto(Route111_WinstrateFamilysHouse_EventScript_End)
+}
+
+
+script Route111_WinstrateFamilysHouse_EventScript_Vivi {
+	lock
+	faceplayer
+	call(Common_EventScript_CountBadges)
+	msgbox(format("I'm training hard to keep up with my big brother!"))
+	msgbox(format("I hope Mommy and Daddy will let me travel with him when he takes on the Pokémon League next year!"))
+	if(var(VAR_NUM_BADGES) > 4 && !flag(FLAG_DAILY_WINSTRATE_VIVI_BATTLE)) {
+		msgbox(format("Are you ready to help me train?"), MSGBOX_YESNO)
+		goto_if_eq(VAR_RESULT, NO, Route111_WinstrateFamilysHouse_EventScript_End)
+		cleartrainerflag(TRAINER_VIVI_CHALLENGE)
+		trainerbattle_no_intro(TRAINER_VIVI_CHALLENGE, Route111_WinstrateFamilysHouse_Text_ViviDefeat)
+		msgbox(format("Darn! You're still out of my league!"))
+		msgbox(format("Whatever, take these."))
+		setflag(FLAG_DAILY_WINSTRATE_VIVI_BATTLE)
+		giveitem(ITEM_BOTTLE_CAP, 2)
+		goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	}
+	goto(Route111_WinstrateFamilysHouse_EventScript_End)
+}
+
+text Route111_WinstrateFamilysHouse_Text_ViviDefeat {
+	"Big bro, I failed again…"
+}
+
+script Route111_WinstrateFamilysHouse_EventScript_Vito {
+	lock
+	faceplayer
+	call(Common_EventScript_CountBadges)
+	msgbox(format("I've got the strongest Pokémon in our family!"))
+	if(var(VAR_NUM_BADGES) > 4 && !flag(FLAG_DAILY_WINSTRATE_VITO_BATTLE)) {
+		msgbox(format("I'll school you and get even stronger! What do you say?"), MSGBOX_YESNO)
+		goto_if_eq(VAR_RESULT, NO, Route111_WinstrateFamilysHouse_EventScript_End)
+		cleartrainerflag(TRAINER_VITO_CHALLENGE)
+		trainerbattle_no_intro(TRAINER_VITO_CHALLENGE, Route111_WinstrateFamilysHouse_Text_VitoDefeat)
+		msgbox(format("Darn! You're still out of my league!"))
+		msgbox(format("Whatever, take these."))
+		setflag(FLAG_DAILY_WINSTRATE_VITO_BATTLE)
+		giveitem(ITEM_BOTTLE_CAP, 2)
+		goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	}
+	goto(Route111_WinstrateFamilysHouse_EventScript_End)
+}
+
+text Route111_WinstrateFamilysHouse_Text_VitoDefeat {
+	"Better than my family?!\nIs that possible?!"
+}
+
+raw `
 Route111_WinstrateFamilysHouse_Text_LikeYouToHaveMachoBrace:
-	.string "We use this Macho Brace to more\n"
+	.string "We use Macho Braces to more\n"
 	.string "effectively strengthen our Pokémon\l"
 	.string "in training.\p"
 	.string "Since you've beaten all of us here,\n"
 	.string "I don't know if you need it, but we\l"
-	.string "would like you to have our Macho Brace.$"
+	.string "would like you to have a Macho Brace.$"
 
 Route111_WinstrateFamilysHouse_Text_PassionateAboutBattles:
 	.string "When it comes to Pokémon battles,\n"
 	.string "we tend to be pretty passionate.$"
-
-Route111_WinstrateFamilysHouse_Text_StrongerFamilyMembers:
-	.string "Mommy is stronger than Daddy.\p"
-	.string "I'm stronger than Mommy.\p"
-	.string "And Grandma's stronger than me!\p"
-	.string "But my big brother is even stronger\n"
-	.string "than Grandma.$"
-
-Route111_WinstrateFamilysHouse_Text_GrandsonStrong:
-	.string "There's no question that you're strong.\p"
-	.string "But if you were to battle my grandson,\n"
-	.string "you'd end up crying in frustration.\p"
-	.string "He's much stronger than any Trainer\n"
-	.string "our family knows.\p"
-	.string "He must be challenging the Pokémon\n"
-	.string "League Champion by now.\p"
-	.string "Knowing my grandson, he could be the\n"
-	.string "Champion already!$"
-
-Route111_WinstrateFamilysHouse_Text_GrandsonStrongShort:
-	.string "My grandson must be challenging the\n"
-	.string "Pokémon League Champion by now.\p"
-	.string "Knowing my grandson, he could be the\n"
-	.string "Champion already!$"
 
 `

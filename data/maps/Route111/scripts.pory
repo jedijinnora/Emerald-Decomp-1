@@ -1,4 +1,4 @@
-const LOCALID_STASH = 52
+const LOCALID_STASH = 50
 
 mapscripts Route111_MapScripts {
 	MAP_SCRIPT_ON_LOAD : Route111_OnLoad
@@ -174,6 +174,7 @@ raw `
 .set LOCALID_VICTORIA, 2
 .set LOCALID_VIVI, 3
 .set LOCALID_VICKY, 4
+.set LOCALID_VITO, 56
 
 Route111_Text_PlayerXY:
 	.string "X: {STR_VAR_1} Y: {STR_VAR_2}$"
@@ -322,6 +323,7 @@ Route111_EventScript_BattleWinstrates::
 	waitmovement 0
 	removeobject LOCALID_VICTOR
 	call Route111_EventScript_CloseWinstrateDoor
+
 	applymovement OBJ_EVENT_ID_PLAYER, Route111_Movement_WaitForNextWinstrate
 	waitmovement 0
 	call Route111_EventScript_OpenWinstrateDoor
@@ -340,6 +342,7 @@ Route111_EventScript_BattleWinstrates::
 	waitmovement 0
 	removeobject LOCALID_VICTORIA
 	call Route111_EventScript_CloseWinstrateDoor
+
 	applymovement OBJ_EVENT_ID_PLAYER, Route111_Movement_WaitForNextWinstrate
 	waitmovement 0
 	call Route111_EventScript_OpenWinstrateDoor
@@ -358,6 +361,26 @@ Route111_EventScript_BattleWinstrates::
 	waitmovement 0
 	removeobject LOCALID_VIVI
 	call Route111_EventScript_CloseWinstrateDoor
+
+	applymovement OBJ_EVENT_ID_PLAYER, Route111_Movement_WaitForNextWinstrate
+	waitmovement 0
+	call Route111_EventScript_OpenWinstrateDoor
+	addobject LOCALID_VITO
+	applymovement LOCALID_VITO, Route111_Movement_WinstrateExitHouse
+	waitmovement 0
+	call Route111_EventScript_CloseWinstrateDoor
+	msgbox Route111_Text_VitoIntro, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_VITO, Route111_Text_VitoDefeat
+	applymovement LOCALID_VITO, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	call Route111_EventScript_OpenWinstrateDoor
+	msgbox Route111_Text_VitoPostBattle, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_VITO, Route111_Movement_WinstrateEnterHouse
+	waitmovement 0
+	removeobject LOCALID_VITO
+	call Route111_EventScript_CloseWinstrateDoor
+
 	applymovement OBJ_EVENT_ID_PLAYER, Route111_Movement_WaitForNextWinstrate
 	waitmovement 0
 	call Route111_EventScript_OpenWinstrateDoor
@@ -376,16 +399,17 @@ Route111_EventScript_BattleWinstrates::
 	waitmovement 0
 	removeobject LOCALID_VICKY
 	call Route111_EventScript_CloseWinstrateDoor
+
 	release
 	end
 
 Route111_EventScript_OpenWinstrateDoor::
-	opendoor 13, 113
+	opendoor 13, 133
 	waitdooranim
 	return
 
 Route111_EventScript_CloseWinstrateDoor::
-	closedoor 13, 113
+	closedoor 13, 133
 	waitdooranim
 	return
 
@@ -425,7 +449,7 @@ Route111_EventScript_Becky::
 	end
 
 Route111_EventScript_Dusty::
-	trainerbattle_single TRAINER_DUSTY_1, Route111_Text_DustyIntro, Route111_Text_DustyDefeat, Route111_EventScript_RegisterDusty
+	trainerbattle_single TRAINER_DUSTY, Route111_Text_DustyIntro, Route111_Text_DustyDefeat, Route111_EventScript_RegisterDusty
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route111_EventScript_RematchDusty
 	msgbox Route111_Text_DustyPostBattle, MSGBOX_DEFAULT
@@ -436,12 +460,12 @@ Route111_EventScript_RegisterDusty::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route111_Text_DustyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_DUSTY_1
+	register_matchcall TRAINER_DUSTY
 	release
 	end
 
 Route111_EventScript_RematchDusty::
-	trainerbattle_rematch TRAINER_DUSTY_1, Route111_Text_DustyRematchIntro, Route111_Text_DustyRematchDefeat
+	trainerbattle_rematch TRAINER_DUSTY, Route111_Text_DustyRematchIntro, Route111_Text_DustyRematchDefeat
 	msgbox Route111_Text_DustyPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -461,7 +485,7 @@ Route111_EventScript_Daisuke::
 	end
 
 Route111_EventScript_Wilton::
-	trainerbattle_single TRAINER_WILTON_1, Route111_Text_WiltonIntro, Route111_Text_WiltonDefeat, Route111_EventScript_RegisterWilton
+	trainerbattle_single TRAINER_WILTON, Route111_Text_WiltonIntro, Route111_Text_WiltonDefeat, Route111_EventScript_RegisterWilton
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route111_EventScript_RematchWilton
 	msgbox Route111_Text_WiltonPostBattle, MSGBOX_DEFAULT
@@ -472,17 +496,17 @@ Route111_EventScript_RegisterWilton::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route111_Text_WiltonRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_WILTON_1
+	register_matchcall TRAINER_WILTON
 	release
 	end
 
 Route111_EventScript_RematchWilton::
-	trainerbattle_rematch TRAINER_WILTON_1, Route111_Text_WiltonRematchIntro, Route111_Text_WiltonRematchDefeat
+	trainerbattle_rematch TRAINER_WILTON, Route111_Text_WiltonRematchIntro, Route111_Text_WiltonRematchDefeat
 	msgbox Route111_Text_WiltonPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route111_EventScript_Brooke::
-	trainerbattle_single TRAINER_BROOKE_1, Route111_Text_BrookeIntro, Route111_Text_BrookeDefeat, Route111_EventScript_RegisterBrooke
+	trainerbattle_single TRAINER_BROOKE, Route111_Text_BrookeIntro, Route111_Text_BrookeDefeat, Route111_EventScript_RegisterBrooke
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route111_EventScript_RematchBrooke
 	msgbox Route111_Text_BrookePostBattle, MSGBOX_DEFAULT
@@ -493,12 +517,12 @@ Route111_EventScript_RegisterBrooke::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route111_Text_BrookeRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_BROOKE_1
+	register_matchcall TRAINER_BROOKE
 	release
 	end
 
 Route111_EventScript_RematchBrooke::
-	trainerbattle_rematch TRAINER_BROOKE_1, Route111_Text_BrookeRematchIntro, Route111_Text_BrookeRematchDefeat
+	trainerbattle_rematch TRAINER_BROOKE, Route111_Text_BrookeRematchIntro, Route111_Text_BrookeRematchDefeat
 	msgbox Route111_Text_BrookePostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -582,17 +606,28 @@ Route111_Text_ViviDefeat:
 
 Route111_Text_ViviPostBattle:
 	.string "This stinks…\p"
-	.string "…Snivel… Grandma!$"
+	.string "…Snivel… Big Bro!$"
+
+Route111_Text_VitoIntro:
+	.string "You beat my little sister?!\p"
+	.string "Only I get to do that!$"
+
+Route111_Text_VitoDefeat:
+	.string "What? You're that strong?$"
+
+Route111_Text_VitoPostBattle:
+	.string "Lame!\p"
+	.string "…I'm not upset… Grandma!$"
 
 Route111_Text_VickyIntro:
-	.string "How dare you make my granddaughter\n"
+	.string "How dare you make my grandchildren\n"
 	.string "cry!\p"
 	.string "For that, I'm going to smack you!\n"
 	.string "Prepare to lose!$"
 
 Route111_Text_VickyDefeat:
 	.string "Kwah! You are strong…\n"
-	.string "My granddaughter was right…$"
+	.string "My grandchildren were right…$"
 
 Route111_Text_VickyPostBattle:
 	.string "If you're not in any hurry,\n"

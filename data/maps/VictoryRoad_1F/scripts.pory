@@ -1,70 +1,69 @@
-mapscripts VictoryRoad_1F_MapScripts {
-	
+mapscripts VictoryRoad_1F_MapScripts {}
+
+script VictoryRoad_1F_EventScript_TrainerCheck {
+	goto_if_not_defeated(TRAINER_RIZZO, VictoryRoad_1F_EventScript_PushDown)
+	goto_if_not_defeated(TRAINER_PARK, VictoryRoad_1F_EventScript_PushDown)
+	goto_if_not_defeated(TRAINER_GLICK, VictoryRoad_1F_EventScript_PushDown)
+	goto_if_not_defeated(TRAINER_WOLFE, VictoryRoad_1F_EventScript_PushDown)
+	goto_if_not_defeated(TRAINER_RUIZ, VictoryRoad_1F_EventScript_PushDown)
+	setvar(VAR_TEMP_0, 1)
+	end
+}
+
+script VictoryRoad_1F_EventScript_PushDown {
+	msgbox(format("You managed to skip some mandatory double battles!"))
+	if(!flag(FLAG_GIVEN_VICTORY_ROAD_SKIP_REWARD)) {
+		giveitem(ITEM_CHOICE_SCARF)
+		setflag(FLAG_GIVEN_VICTORY_ROAD_SKIP_REWARD)
+	}
+	msgbox(format("Clever work, now go do it properly!"))
+	waitmessage
+	applymovement(OBJ_EVENT_ID_PLAYER, VictoryRoad_1F_Movement_PushDownFromExit)
+	waitmovement(0)
+	release
+	return
+}
+
+movement VictoryRoad_1F_Movement_PushDownFromExit {
+	walk_down
+	step_end
+}
+
+script VictoryRoad_1F_EventScript_Yoshi {
+	trainerbattle_single(TRAINER_YOSHI, VictoryRoad_1F_Text_HopeIntro, VictoryRoad_1F_Text_HopeDefeat)
+	msgbox(VictoryRoad_1F_Text_HopePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script VictoryRoad_1F_EventScript_Tsuji {
+	trainerbattle_single(TRAINER_TSUJI, VictoryRoad_1F_Text_QuincyIntro, VictoryRoad_1F_Text_QuincyDefeat)
+	msgbox(VictoryRoad_1F_Text_QuincyPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script VictoryRoad_1F_EventScript_Wolfe {
+	trainerbattle_double(TRAINER_WOLFE, VictoryRoad_1F_Text_EdgarIntro, VictoryRoad_1F_Text_EdgarDefeat, VictoryRoad_Text_NotEnoughMons)
+	msgbox(VictoryRoad_1F_Text_EdgarPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script VictoryRoad_1F_EventScript_Ryota {
+	trainerbattle_single(TRAINER_RYOTA, VictoryRoad_1F_Text_AlbertIntro, VictoryRoad_1F_Text_AlbertDefeat)
+	msgbox(VictoryRoad_1F_Text_AlbertPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script VictoryRoad_1F_EventScript_Ruiz {
+	trainerbattle_double(TRAINER_RUIZ, VictoryRoad_1F_Text_KatelynnIntro, VictoryRoad_1F_Text_KatelynnDefeat, VictoryRoad_Text_NotEnoughMons)
+	msgbox(VictoryRoad_1F_Text_KatelynnPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+text VictoryRoad_Text_NotEnoughMons {
+	format("Wow, you didn't bring two Pokémon? I don't think this will work out for you.")
 }
 
 raw `
-VictoryRoad_1F_EventScript_Edgar::
-	trainerbattle_single TRAINER_EDGAR, VictoryRoad_1F_Text_EdgarIntro, VictoryRoad_1F_Text_EdgarDefeat
-	msgbox VictoryRoad_1F_Text_EdgarPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-VictoryRoad_1F_EventScript_Albert::
-	trainerbattle_single TRAINER_ALBERT, VictoryRoad_1F_Text_AlbertIntro, VictoryRoad_1F_Text_AlbertDefeat
-	msgbox VictoryRoad_1F_Text_AlbertPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-VictoryRoad_1F_EventScript_Hope::
-	trainerbattle_single TRAINER_HOPE, VictoryRoad_1F_Text_HopeIntro, VictoryRoad_1F_Text_HopeDefeat
-	msgbox VictoryRoad_1F_Text_HopePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-VictoryRoad_1F_EventScript_Quincy::
-	trainerbattle_single TRAINER_QUINCY, VictoryRoad_1F_Text_QuincyIntro, VictoryRoad_1F_Text_QuincyDefeat
-	msgbox VictoryRoad_1F_Text_QuincyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-VictoryRoad_1F_EventScript_Katelynn::
-	trainerbattle_single TRAINER_KATELYNN, VictoryRoad_1F_Text_KatelynnIntro, VictoryRoad_1F_Text_KatelynnDefeat
-	msgbox VictoryRoad_1F_Text_KatelynnPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-VictoryRoad_1F_Text_WallyNotGoingToLoseAnymore:
-	.string "Wally: Hi! {PLAYER}!\p"
-	.string "I bet you're surprised to see me here!\p"
-	.string "I made it all the way here, and it's\n"
-	.string "all thanks to you!\p"
-	.string "{PLAYER}, losing to you that time\n"
-	.string "made me stronger!\p"
-	.string "But I'm not going to lose anymore!\p"
-	.string "I'm going to win! For the Pokémon who\n"
-	.string "gave me courage and strength!\p"
-	.string "Okay… Here I come!$"
-
-VictoryRoad_1F_Text_WallyEntranceDefeat:
-	.string "Wow!\n"
-	.string "{PLAYER}, you are strong, after all!$"
-
-VictoryRoad_1F_Text_WallyPostEntranceBattle:
-	.string "Wally: I couldn't beat you today,\n"
-	.string "{PLAYER}, but one of these days, I'll\l"
-	.string "catch up to you!$"
-
-VictoryRoad_1F_Text_WallyIntro:
-	.string "Wally: Hi! {PLAYER}!\p"
-	.string "I've gotten stronger since that last\n"
-	.string "time! I wanted to show you, {PLAYER}!\p"
-	.string "Okay… Here I come!$"
-
-VictoryRoad_1F_Text_WallyDefeat:
-	.string "Wow!\n"
-	.string "{PLAYER}, you are strong, after all!$"
-
-VictoryRoad_1F_Text_WallyPostBattle:
-	.string "Wally: I couldn't beat you this time,\n"
-	.string "too… But one of these days, {PLAYER},\l"
-	.string "I'm going to catch up to you…\p"
-	.string "And challenge the Pokémon League!$"
-
 VictoryRoad_1F_Text_EdgarIntro:
 	.string "I've made it this far a couple times,\n"
 	.string "but the last stretch is so long…$"

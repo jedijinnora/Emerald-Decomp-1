@@ -37,16 +37,6 @@ EverGrandeCity_GlaciasRoom_EventScript_CloseDoor::
 	call PokemonLeague_EliteFour_EventScript_CloseDoor
 	return
 
-EverGrandeCity_GlaciasRoom_EventScript_Glacia::
-	lock
-	faceplayer
-	goto_if_set FLAG_DEFEATED_ELITE_4_GLACIA, EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech
-	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
-	msgbox EverGrandeCity_GlaciasRoom_Text_IntroSpeech, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_GLACIA, EverGrandeCity_GlaciasRoom_Text_Defeat
-	goto EverGrandeCity_GlaciasRoom_EventScript_Defeated
-	end
-
 EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech::
 	msgbox EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
 	release
@@ -83,3 +73,21 @@ EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech:
 	.string "side of the Pokémon League.$"
 
 `
+
+
+script EverGrandeCity_GlaciasRoom_EventScript_Glacia {
+	lock
+	faceplayer
+	goto_if_set(FLAG_DEFEATED_ELITE_4_GLACIA, EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech)
+	playbgm(MUS_ENCOUNTER_ELITE_FOUR, FALSE)
+	msgbox(EverGrandeCity_GlaciasRoom_Text_IntroSpeech, MSGBOX_DEFAULT)
+	random(2)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			trainerbattle_no_intro(TRAINER_GLACIA_1, EverGrandeCity_GlaciasRoom_Text_Defeat)
+		default:
+			trainerbattle_no_intro(TRAINER_GLACIA_2, EverGrandeCity_GlaciasRoom_Text_Defeat)
+	}
+	goto(EverGrandeCity_GlaciasRoom_EventScript_Defeated)
+	end
+}
