@@ -4,7 +4,13 @@ mapscripts EmeraldCape_MapScripts {
 
 script EmeraldCape_OnTransition {
 	setflag(FLAG_VISITED_EMERALD_CAPE)
+	call_if_eq(VAR_NUM_BADGES, 8, EmeraldCape_EventScript_HideAttendant)
 	end
+}
+
+script EmeraldCape_EventScript_HideAttendant {
+	setflag(FLAG_TEMP_11)
+	return
 }
 
 script EmeraldCape_EventScript_CapeSign {
@@ -47,5 +53,10 @@ script EmeraldCape_EventScript_WarpStatue {
 	}
 	msgbox(format("The mysterious statue is silent."))
 	release
+	end
+}
+
+script EmeraldCape_EventScript_Attendant {
+	msgbox(format("You need all 8 badges to access Victory Road."), MSGBOX_NPC)
 	end
 }

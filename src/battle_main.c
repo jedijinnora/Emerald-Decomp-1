@@ -1923,11 +1923,39 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
     }
 }
 
+//Jinnora: array with trainer boosts for level scaling
+const static u8 TrainerBoostArray[13] = {0, 9, 18, 27, 36, 45, 54, 63, 69, 71, 71, 74, 84};
+
+//Jinnora: returns the current index for referencing TrainerBoostArray
+//if VAR_NUM_BADGES exceeds 12 this can return an out-of-bounds index, 
+//which only occurs if a player hacks the value, so don't do that
+static int GetTrainerScalingState(void)
+{   
+    if (FlagGet(FLAG_SYS_GAME_CLEAR))
+    {
+        return 12;
+    }
+    if (FlagGet(FLAG_ENTERED_CHAMPION_ROOM))
+    {
+        return 11;
+    }
+    if (FlagGet(FLAG_ENTERED_ELITE_FOUR))
+    {
+        return 10;
+    }
+    if (FlagGet(FLAG_ENTERED_VICTORY_ROAD))
+    {
+        return 9;
+    }
+    return VarGet(VAR_NUM_BADGES);
+}
+
 u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, bool32 firstTrainer, u32 battleTypeFlags)
 {
     u32 personalityValue;
     s32 i, j;
     u8 monsCount;
+    u8 adjustedLevel;
     if (battleTypeFlags & BATTLE_TYPE_TRAINER && !(battleTypeFlags & (BATTLE_TYPE_FRONTIER
                                                                         | BATTLE_TYPE_EREADER_TRAINER
                                                                         | BATTLE_TYPE_TRAINER_HILL)))
@@ -1981,8 +2009,15 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 otIdType = OT_ID_PRESET;
                 fixedOtId = HIHALF(personalityValue) ^ LOHALF(personalityValue);
             }
+            //Jinnora: adjustedLevel will handle level boost for level cap implementation
+            adjustedLevel = partyData[i].lvl;
+            if (adjustedLevel > 16)
+            {
+                adjustedLevel = 16; //max Trainer Boost is 84
+            }
+            adjustedLevel += TrainerBoostArray[GetTrainerScalingState()];
             //Jinnora: changed fixedIV from 0 to USE_RANDOM_IVS
-            CreateMon(&party[i], partyData[i].species, partyData[i].lvl, USE_RANDOM_IVS, TRUE, personalityValue, otIdType, fixedOtId);
+            CreateMon(&party[i], partyData[i].species, adjustedLevel, USE_RANDOM_IVS, TRUE, personalityValue, otIdType, fixedOtId);
             SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
             CustomTrainerPartyAssignMoves(&party[i], &partyData[i]);

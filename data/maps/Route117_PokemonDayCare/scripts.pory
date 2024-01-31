@@ -196,7 +196,7 @@ script Route117_PokemonDayCare_EventScript_IVTrainer {
 	HyperTrainingGoldComplete:
 	playfanfare(MUS_LEVEL_UP)
 	waitfanfare
-	removeitem(ITEM_BOTTLE_CAP)
+	removeitem(ITEM_GOLD_BOTTLE_CAP)
 	msgbox(format("{PLAYER} handed over a Gold Bottle Cap in exchange."))
 	goto(HyperTrainingContinue)
 

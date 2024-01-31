@@ -918,13 +918,13 @@
 #define FLAG_SCOTT_GIVES_BATTLE_POINTS                              0x355
 #define FLAG_OCEANIC_MUSEUM_MET_REPORTER                            0x356
 #define FLAG_CREDITS_LADY_INTRODUCTION                              0x357
-#define FLAG_MET_SHIRONA                                            0x358
+#define FLAG_MET_SHIRONA                                            0x358 //moves Shirona (in case you white out from a rematch, which leaves the trainer undefeated)
 #define FLAG_UNUSED_0x359                                           0x359
 
 //Script state, Door Flags
 #define FLAG_MAUVILLE_GYM_BARRIERS_STATE                            0x35A
 #define FLAG_CANCEL_BATTLE_ROOM_CHALLENGE                           0x35B
-#define FLAG_ENTERED_ELITE_FOUR                                     0x35C
+#define FLAG_UNUSED_0x35C                                           0x35C
 #define FLAG_SKY_PILLAR_OPENED                                      0x35D
 #define FLAG_CHOSEN_MULTI_BATTLE_NPC_PARTNER                        0x35E
 #define FLAG_ENTERED_CONTEST                                        0x35F
@@ -939,10 +939,10 @@
 #define FLAG_USED_ROOM_2_KEY                                        0x368
 #define FLAG_USED_ROOM_4_KEY                                        0x369
 #define FLAG_USED_ROOM_6_KEY                                        0x36A
-#define FLAG_DESERT_UNDERPASS_OPEN                                  0x36B
-#define FLAG_UNUSED_0x36C                                           0x36C
-#define FLAG_UNUSED_0x36D                                           0x36D
-#define FLAG_UNUSED_0x36E                                           0x36E
+#define FLAG_DESERT_UNDERPASS_OPEN                                  0x36B //show entrances in the overworld
+#define FLAG_ENTERED_VICTORY_ROAD                                   0x36C //used in trainer scaling
+#define FLAG_ENTERED_ELITE_FOUR                                     0x36D //used in trainer scaling
+#define FLAG_ENTERED_CHAMPION_ROOM                                  0x36E //used in trainer scaling
 #define FLAG_UNUSED_0x36F                                           0x36F
 #define FLAG_UNUSED_0x370                                           0x370
 #define FLAG_UNUSED_0x371                                           0x371
