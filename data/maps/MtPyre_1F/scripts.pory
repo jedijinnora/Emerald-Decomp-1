@@ -1,7 +1,42 @@
-raw `
-MtPyre_1F_MapScripts::
-	.byte 0
+mapscripts MtPyre_1F_MapScripts {
+	MAP_SCRIPT_ON_LOAD : MtPyre_1F_OnLoad
+	MAP_SCRIPT_ON_TRANSITION : MtPyre_1F_OnTransition
+}
 
+script MtPyre_1F_OnLoad {
+	call(MtPyre_1F_EventScript_CheckTrainers)
+	call_if_set(FLAG_TEMP_11, MtPyre_1F_EventScript_OpenExterior)
+	end
+}
+
+script MtPyre_1F_EventScript_CheckTrainers {
+	goto_if_not_defeated(TRAINER_MARK, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_DEZ_AND_LUKE, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_ZANDER, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_LEAH, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_WILLIAM, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_KAYLA, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_GABRIELLE, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_TASHA, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_ATSUSHI, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_VALERIE, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_CEDRIC, Common_EventScript_NopReturn)
+	setflag(FLAG_TEMP_11)
+	return
+}
+
+script MtPyre_1F_EventScript_OpenExterior {
+	setmetatile(6, 5, 0x2E7, FALSE)
+	setmetatile(6, 6, 0x2E6, FALSE)
+	return
+}
+
+script MtPyre_1F_EventScript_HexManiac {
+	msgbox(format("The spirits prevent the unworthy from accessing the exterior. You must reach the top to prove yourself…"), MSGBOX_NPC)
+	end
+}
+
+raw `
 MtPyre_1F_EventScript_CleanseTagWoman::
 	lock
 	faceplayer
@@ -27,8 +62,8 @@ MtPyre_1F_EventScript_Man::
 	end
 
 MtPyre_1F_Text_TakeThisForYourOwnGood:
-	.string "All sorts of beings wander the slopes\n"
-	.string "of Mt. Pyre…\p"
+	.string "All sorts of beings wander the\n"
+	.string "upper levels of Mt. Pyre…\p"
 	.string "There is no telling what may happen.\n"
 	.string "Take this. It's for your own good.$"
 

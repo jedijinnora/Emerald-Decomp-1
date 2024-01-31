@@ -328,25 +328,27 @@
 #define FLAG_UNUSED_0x127                    0x127
 #define FLAG_UNUSED_0x128                    0x128
 #define FLAG_UNUSED_0x129                    0x129
-#define FLAG_UNUSED_0x12A                    0x12A
-#define FLAG_UNUSED_0x12B                    0x12B
-#define FLAG_UNUSED_0x12C                    0x12C
-#define FLAG_UNUSED_0x12D                    0x12D
-#define FLAG_UNUSED_0x12E                    0x12E
-#define FLAG_UNUSED_0x12F                    0x12F
-#define FLAG_UNUSED_0x130                    0x130
-#define FLAG_UNUSED_0x131                    0x131
-#define FLAG_UNUSED_0x132                    0x132
-#define FLAG_UNUSED_0x133                    0x133
-#define FLAG_UNUSED_0x134                    0x134
-#define FLAG_UNUSED_0x135                    0x135
-#define FLAG_UNUSED_0x136                    0x136
-#define FLAG_UNUSED_0x137                    0x137
-#define FLAG_UNUSED_0x138                    0x138
-#define FLAG_UNUSED_0x139                    0x139
-#define FLAG_UNUSED_0x13A                    0x13A
-#define FLAG_UNUSED_0x13B                    0x13B
-#define FLAG_UNUSED_0x13C                    0x13C
+
+//Plate Flags
+#define FLAG_ITEM_FLAME_PLATE                0x12A
+#define FLAG_ITEM_SPLASH_PLATE               0x12B
+#define FLAG_ITEM_ZAP_PLATE                  0x12C
+#define FLAG_ITEM_MEADOW_PLATE               0x12D
+#define FLAG_ITEM_ICICLE_PLATE               0x12E
+#define FLAG_ITEM_FIST_PLATE                 0x12F
+#define FLAG_ITEM_TOXIC_PLATE                0x130
+#define FLAG_ITEM_EARTH_PLATE                0x131
+#define FLAG_ITEM_SKY_PLATE                  0x132
+#define FLAG_ITEM_MIND_PLATE                 0x133
+#define FLAG_ITEM_INSECT_PLATE               0x134
+#define FLAG_ITEM_STONE_PLATE                0x135
+#define FLAG_ITEM_SPOOKY_PLATE               0x136
+#define FLAG_ITEM_DRACO_PLATE                0x137
+#define FLAG_ITEM_DREAD_PLATE                0x138
+#define FLAG_ITEM_IRON_PLATE                 0x139
+#define FLAG_ITEM_PIXIE_PLATE                0x13A
+#define FLAG_ITEM_BLANK_PLATE                0x13B
+#define FLAG_ITEM_LEGEND_PLATE               0x13C
 
 // Wonder Card Flags; referenced but never set
 #define FLAG_WONDER_CARD_UNUSED_1            0x13D
