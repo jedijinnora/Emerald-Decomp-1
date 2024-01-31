@@ -49,7 +49,7 @@
 //Youngster, Lass, Bug Catcher, Fisherman, Tubers
 //
 //.ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
-//Camper, Picnicker, Guitarist, Bird Keeper, Swimmer
+//Camper, Picnicker, Guitarist, Bird Keeper, Swimmer, Sailor
 //
 //.ev = TRAINER_PARTY_EVS(0, 150, 0, 150, 150, 0),
 //Beauty
@@ -6258,7 +6258,7 @@ static const struct TrainerMon sParty_Brianna_easy[] = {
 //No easy versions
 
 //Normal Tutor
-//Cooltrainer Norman
+//Norman
 static const struct TrainerMon sParty_Norman1[] = {
     {
     .lvl = 2,
@@ -6297,7 +6297,7 @@ static const struct TrainerMon sParty_Norman3[] = {
 };
 
 //Fighting Tutor
-//Battle Girl Buffy
+//Buffy, uses Battle Girl pic and sprite
 static const struct TrainerMon sParty_Buffy1[] = {
     {
     .lvl = 2,
@@ -6336,6 +6336,7 @@ static const struct TrainerMon sParty_Buffy3[] = {
 };
 
 //Flying Tutor
+//Winona
 static const struct TrainerMon sParty_Winona1[] = {
     {
     .lvl = 2,
@@ -6374,6 +6375,7 @@ static const struct TrainerMon sParty_Winona3[] = {
 };
 
 //Poison Tutor
+//Claudius, uses Collector pic and Man 4 sprite
 static const struct TrainerMon sParty_Claudius1[] = {
     {
     .lvl = 2,
@@ -6412,6 +6414,7 @@ static const struct TrainerMon sParty_Claudius3[] = {
 };
 
 //Ground Tutor
+//Anton, uses Ruin Maniac pic and sprite
 static const struct TrainerMon sParty_Anton1[] = {
     {
     .lvl = 2,
@@ -6450,6 +6453,7 @@ static const struct TrainerMon sParty_Anton3[] = {
 };
 
 //Rock Tutor
+//Roxanne
 static const struct TrainerMon sParty_Roxanne1[] = {
     {
     .lvl = 2,
@@ -6488,6 +6492,7 @@ static const struct TrainerMon sParty_Roxanne3[] = {
 };
 
 //Bug Tutor
+//Hebert, uses Bug Catcher pic and sprite
 static const struct TrainerMon sParty_Hebert1[] = {
     {
     .lvl = 2,
@@ -6526,6 +6531,7 @@ static const struct TrainerMon sParty_Hebert3[] = {
 };
 
 //Ghost Tutor
+//Persephone, uses Hex Maniac pic and sprite
 static const struct TrainerMon sParty_Persephone1[] = {
     {
     .lvl = 2,
@@ -6564,6 +6570,7 @@ static const struct TrainerMon sParty_Persephone3[] = {
 };
 
 //Steel Tutor
+//Hogarth, uses School Kid-M pic and sprite
 static const struct TrainerMon sParty_Hogarth1[] = {
     {
     .lvl = 2,
@@ -6602,6 +6609,7 @@ static const struct TrainerMon sParty_Hogarth3[] = {
 };
 
 //Fire Tutor
+//Flannery
 static const struct TrainerMon sParty_Flannery1[] = {
     {
     .lvl = 2,
@@ -6640,6 +6648,7 @@ static const struct TrainerMon sParty_Flannery3[] = {
 };
 
 //Water Tutor
+//Wallace
 static const struct TrainerMon sParty_Wallace1[] = {
     {
     .lvl = 2,
@@ -6678,6 +6687,7 @@ static const struct TrainerMon sParty_Wallace3[] = {
 };
 
 //Grass Tutor
+//Quinn, uses Aroma Lady pic and sprite
 static const struct TrainerMon sParty_Quinn1[] = {
     {
     .lvl = 2,
@@ -6716,6 +6726,7 @@ static const struct TrainerMon sParty_Quinn3[] = {
 };
 
 //Electric Tutor
+//Scotty, uses Expert-M pic and Old Man sprite
 static const struct TrainerMon sParty_Scotty1[] = {
     {
     .lvl = 2,
@@ -6754,6 +6765,7 @@ static const struct TrainerMon sParty_Scotty3[] = {
 };
 
 //Psychic Tutor
+//Tate and Liza
 static const struct TrainerMon sParty_TateAndLiza1[] = {
     {
     .lvl = 2,
@@ -6792,6 +6804,7 @@ static const struct TrainerMon sParty_TateAndLiza3[] = {
 };
 
 //Ice Tutor
+//Ellie, uses Beauty pic and sprite
 static const struct TrainerMon sParty_Ellie1[] = {
     {
     .lvl = 2,
@@ -6830,6 +6843,7 @@ static const struct TrainerMon sParty_Ellie3[] = {
 };
 
 //Dragon Tutor
+//Aster, uses Lass pic and Girl 2 sprite
 static const struct TrainerMon sParty_Aster1[] = {
     {
     .lvl = 2,
@@ -6868,6 +6882,7 @@ static const struct TrainerMon sParty_Aster3[] = {
 };
 
 //Dark Tutor
+//Megaera, uses Hex Maniac pic and sprite
 static const struct TrainerMon sParty_Megaera1[] = {
     {
     .lvl = 2,
@@ -6906,7 +6921,8 @@ static const struct TrainerMon sParty_Megaera3[] = {
 };
 
 //Fairy Tutor
-static const struct TrainerMon sParty_Leia1[] = {
+//Bellatrix, uses Lady pic and sprite
+static const struct TrainerMon sParty_Bellatrix1[] = {
     {
     .lvl = 2,
     .species = SPECIES_NONE,
@@ -6918,7 +6934,7 @@ static const struct TrainerMon sParty_Leia1[] = {
     .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
-static const struct TrainerMon sParty_Leia2[] = {
+static const struct TrainerMon sParty_Bellatrix2[] = {
     {
     .lvl = 2,
     .species = SPECIES_NONE,
@@ -6930,7 +6946,7 @@ static const struct TrainerMon sParty_Leia2[] = {
     .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
-static const struct TrainerMon sParty_Leia3[] = {
+static const struct TrainerMon sParty_Bellatrix3[] = {
     {
     .lvl = 2,
     .species = SPECIES_NONE,
@@ -16235,7 +16251,7 @@ static const struct TrainerMon sParty_Mike2[] = {
 };
 
 
-//ABANDONED SHIP TRAINERS
+//ABANDONED SHIP TRAINERS (done)
 //minimum 1 HM (Surf) to reach
 
 //Tuber-M Charlie: threshold 3
@@ -16269,11 +16285,12 @@ static const struct TrainerMon sParty_Charlie_easy[] = {
 };
 
 //Beauty Thalia: threshold 4
+//may double with Demetrius
 static const struct TrainerMon sParty_Thalia[] = {
     {
     .lvl = 16,
     .species = SPECIES_LUVDISC,
-    .heldItem = ITEM_LIFE_ORB,
+    .heldItem = ITEM_SHELL_BELL,
     .ability = ABILITY_SOUL_HEART,
     .ev = TRAINER_PARTY_EVS(0, 150, 0, 150, 150, 0),
     .nature = TRAINER_PARTY_NATURE(NATURE_MODEST),
@@ -16394,31 +16411,134 @@ static const struct TrainerMon sParty_Thalia5[] = {
     }
 };
 
-//Youngster Demetrius
+//Youngster Demetrius: threshold 3
+//may double with Thalia
 static const struct TrainerMon sParty_Demetrius[] = {
     {
-    .lvl = 25,
-    .species = SPECIES_ZIGZAGOON,
+    .lvl = 16,
+    .species = SPECIES_PELIPPER,
+    .heldItem = ITEM_DAMP_ROCK,
+    .ability = ABILITY_DRIZZLE,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .moves = {MOVE_U_TURN, MOVE_ROOST, MOVE_HURRICANE, MOVE_MUDDY_WATER}
     },
     {
-    .lvl = 25,
-    .species = SPECIES_ELECTRIKE,
+    .lvl = 16,
+    .species = SPECIES_BEARTIC,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_SWIFT_SWIM,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .moves = {MOVE_ICICLE_CRASH, MOVE_ROCK_SLIDE, MOVE_FACADE, MOVE_LIQUIDATION}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_HELIOLISK,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_DRY_SKIN,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .moves = {MOVE_PARABOLIC_CHARGE, MOVE_HYPER_VOICE, MOVE_THUNDER, MOVE_GRASS_KNOT}
+    }
+};
+static const struct TrainerMon sParty_Demetrius_easy[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_WINGULL,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_RAIN_DISH,
+    .moves = {MOVE_U_TURN, MOVE_ROOST, MOVE_AIR_SLASH, MOVE_MUDDY_WATER}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_CUBCHOO,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_RATTLED,
+    .moves = {MOVE_AVALANCHE, MOVE_ROCK_SLIDE, MOVE_FACADE, MOVE_LIQUIDATION}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_HELIOLISK,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_DRY_SKIN,
+    .moves = {MOVE_PARABOLIC_CHARGE, MOVE_HYPER_VOICE, MOVE_THUNDERBOLT, MOVE_GRASS_KNOT}
     }
 };
 
-//Sailor Duncan
+//Sailor Duncan: threshold 4
 static const struct TrainerMon sParty_Duncan[] = {
     {
-    .lvl = 25,
-    .species = SPECIES_SPHEAL,
+    .lvl = 16,
+    .species = SPECIES_SEALEO,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_OBLIVIOUS,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .moves = {MOVE_SURF, MOVE_BLIZZARD, MOVE_BODY_SLAM, MOVE_BULLDOZE}
     },
     {
-    .lvl = 25,
-    .species = SPECIES_MACHOKE,
+    .lvl = 16,
+    .species = SPECIES_CONKELDURR,
+    .heldItem = ITEM_FLAME_ORB,
+    .ability = ABILITY_GUTS,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_ADAMANT),
+    .moves = {MOVE_FACADE, MOVE_DRAIN_PUNCH, MOVE_ROCK_SLIDE, MOVE_KNOCK_OFF}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_LIEPARD,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_PRANKSTER,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_NAIVE),
+    .moves = {MOVE_SUBSTITUTE, MOVE_ASSIST, MOVE_NIGHT_SLASH, MOVE_PLAY_ROUGH}
+    }
+};
+static const struct TrainerMon sParty_Duncan_easy[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_SPHEAL,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_OBLIVIOUS,
+    .moves = {MOVE_SURF, MOVE_BLIZZARD, MOVE_BODY_SLAM, MOVE_BULLDOZE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_GURDURR,
+    .heldItem = ITEM_FLAME_ORB,
+    .ability = ABILITY_GUTS,
+    .nature = TRAINER_PARTY_NATURE(NATURE_ADAMANT),
+    .moves = {MOVE_FACADE, MOVE_DRAIN_PUNCH, MOVE_ROCK_SLIDE, MOVE_KNOCK_OFF}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_LIEPARD,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_PRANKSTER,
+    .nature = TRAINER_PARTY_NATURE(NATURE_NAIVE),
+    .moves = {MOVE_SUBSTITUTE, MOVE_ASSIST, MOVE_NIGHT_SLASH, MOVE_PLAY_ROUGH}
     }
 };
 
 //Young Couple Kira and Dan
+//double battle, no easy version
+static const struct TrainerMon sParty_KiraAndDan[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_VOLBEAT,
+    .heldItem = ITEM_ROCKY_HELMET,
+    .ability = ABILITY_PRANKSTER,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 252, 0),
+    .moves = {MOVE_TAIL_GLOW, MOVE_BUG_BUZZ, MOVE_THUNDERBOLT, MOVE_GIGA_DRAIN}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_ILLUMISE,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_TINTED_LENS,
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 0),
+    .moves = {MOVE_PLAY_ROUGH, MOVE_BUG_BITE, MOVE_ICE_PUNCH, MOVE_ZEN_HEADBUTT}
+    }
+};
+//vanilla
 static const struct TrainerMon sParty_KiraAndDan1[] = {
     {
     .lvl = 25,
@@ -16478,19 +16598,82 @@ static const struct TrainerMon sParty_KiraAndDan5[] = {
     }
 };
 
-//Ruin Maniac Garrison
+//Ruin Maniac Garrison: threshold 3
+//may double with Jani
 static const struct TrainerMon sParty_Garrison[] = {
     {
-    .lvl = 26,
+    .lvl = 16,
     .species = SPECIES_SANDSLASH,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_TOUGH_CLAWS,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .nature = TRAINER_PARTY_NATURE(NATURE_IMPISH),
+    .moves = {MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_RAPID_SPIN, MOVE_LEECH_LIFE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_MAROWAK_ALOLAN,
+    .heldItem = ITEM_THICK_CLUB,
+    .ability = ABILITY_LIGHTNING_ROD,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .nature = TRAINER_PARTY_NATURE(NATURE_IMPISH),
+    .moves = {MOVE_SHADOW_BONE, MOVE_FLARE_BLITZ, MOVE_STOMPING_TANTRUM, MOVE_ROCK_SLIDE}
+    }
+};
+static const struct TrainerMon sParty_Garrison_easy[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_SANDSLASH,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .moves = {MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_RAPID_SPIN, MOVE_LEECH_LIFE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_CUBONE,
+    .heldItem = ITEM_THICK_CLUB,
+    .ability = ABILITY_ROCK_HEAD,
+    .moves = {MOVE_RETALIATE, MOVE_DOUBLE_EDGE, MOVE_STOMPING_TANTRUM, MOVE_ROCK_SLIDE}
     }
 };
 
-//Tuber-F Jani
+//Tuber-F Jani: threshold 2
+//may double with Garrison
 static const struct TrainerMon sParty_Jani[] = {
     {
-    .lvl = 26,
-    .species = SPECIES_MARILL,
+    .lvl = 16,
+    .species = SPECIES_MASQUERAIN,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_WATER_BUBBLE,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_TIMID),
+    .moves = {MOVE_TAILWIND, MOVE_BUG_BUZZ, MOVE_AIR_CUTTER, MOVE_HYDRO_PUMP}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_AZUMARILL,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_SAP_SIPPER,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_ADAMANT),
+    .moves = {MOVE_WATERFALL, MOVE_PLAY_ROUGH, MOVE_AQUA_JET, MOVE_BELLY_DRUM}
+    }
+};
+static const struct TrainerMon sParty_Jani_easy[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_MASQUERAIN,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_WATER_BUBBLE,
+    .nature = TRAINER_PARTY_NATURE(NATURE_TIMID),
+    .moves = {MOVE_TAILWIND, MOVE_BUG_BUZZ, MOVE_AIR_CUTTER, MOVE_HYDRO_PUMP}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_AZUMARILL,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_HUGE_POWER,
+    .nature = TRAINER_PARTY_NATURE(NATURE_ADAMANT),
+    .moves = {MOVE_WATERFALL, MOVE_PLAY_ROUGH, MOVE_AQUA_JET, MOVE_BOUNCE}
     }
 };
 
