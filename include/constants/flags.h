@@ -90,7 +90,7 @@
 #define FLAG_TODO_FORCED_SET_MODE   0x46
 #define FLAG_EXPLORE_MODE           0x47
 
-#define FLAG_TODO_USE_NEXT_LEVEL_CAP                0x48 //TODO for going to next level cap during boss battle
+#define FLAG_USE_NEXT_LEVEL_CAP                     0x48 // for going to next level cap during boss battle
 #define FLAG_VS_SEEKER                              0x49 // see include/config/item.h
 #define FLAG_BEACH_BATTLE_VICTORY                   0x4A // set after returning from special beach map
 #define FLAG_BEACH_BATTLE_STARTED                   0x4B // set when warping to special beach map

@@ -1,6 +1,5 @@
 mapscripts MtPyre_1F_MapScripts {
 	MAP_SCRIPT_ON_LOAD : MtPyre_1F_OnLoad
-	MAP_SCRIPT_ON_TRANSITION : MtPyre_1F_OnTransition
 }
 
 script MtPyre_1F_OnLoad {

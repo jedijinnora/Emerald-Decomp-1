@@ -22,6 +22,9 @@ u32 GetCurrentLevelCap(void)
 
     u32 i;
 
+    //Jinnora: my custom level cap table
+    static const u32 sLevelCapCustomArray[13] = {16, 25, 34, 43, 52, 61, 70, 79, 85, 87, 90, 90, MAX_LEVEL};
+
     if (B_LEVEL_CAP_TYPE == LEVEL_CAP_FLAG_LIST)
     {
         for (i = 0; i < ARRAY_COUNT(sLevelCapFlagMap); i++)
@@ -33,6 +36,17 @@ u32 GetCurrentLevelCap(void)
     else if (B_LEVEL_CAP_TYPE == LEVEL_CAP_VARIABLE)
     {
         return VarGet(B_LEVEL_CAP_VARIABLE);
+    }
+    else if (B_LEVEL_CAP_TYPE == LEVEL_CAP_CUSTOM)
+    {
+        if (FlagGet(FLAG_SYS_GAME_CLEAR)) return MAX_LEVEL;
+        i = VarGet(VAR_NUM_BADGES);
+        if (FlagGet(FLAG_ENTERED_VICTORY_ROAD)) i++;
+        if (FlagGet(FLAG_ENTERED_ELITE_FOUR)) i++;
+        if (FlagGet(FLAG_ENTERED_CHAMPION_ROOM)) i++;
+        if (FlagGet(FLAG_USE_NEXT_LEVEL_CAP)) i++;
+        if (i > 12) return MAX_LEVEL;
+        return sLevelCapCustomArray[i];
     }
 
     return MAX_LEVEL;
@@ -46,7 +60,8 @@ u32 GetSoftLevelCapExpValue(u32 level, u32 expValue)
     u32 levelDifference;
     u32 currentLevelCap = GetCurrentLevelCap();
 
-    if (B_EXP_CAP_TYPE == EXP_CAP_NONE)
+    //Jinnora: before I added the comparison between level and current level cap, always returned 0
+    if (B_EXP_CAP_TYPE == EXP_CAP_NONE || level < currentLevelCap)
         return expValue;
 
     if (B_LEVEL_CAP_EXP_UP && level < currentLevelCap)
