@@ -518,8 +518,7 @@
     "OldaleRuins_B2F",
     "ScorchedSlab_B1F",
     "GraniteCave_ResortExits",
-    "ChampionsCut",
-    "ForestHeart"
+    "ChampionsCut"
   ],
   "gMapGroup_Dungeons2": [
     "SeafoamCove_B1F",
@@ -529,7 +528,8 @@
     "DesertUnderpass_1F",
     "DesertUnderpass_B1F",
     "DesertUnderpass_B2F",
-    "DesertUnderpass_Exits"
+    "DesertUnderpass_Exits",
+    "ForestHeart"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

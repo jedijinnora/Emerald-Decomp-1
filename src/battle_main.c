@@ -1983,9 +1983,11 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             u32 otIdType = OT_ID_RANDOM_NO_SHINY;
             u32 fixedOtId = 0;
 
-            //Jinnora: I believe that switching the partyData pointer to trainer->easyParty would be the way
-            // to swap to an easy party, something like:
-            if((trainer->badgeThreshold > 0) && (VarGet(VAR_NUM_BADGES) < trainer->badgeThreshold)) {
+            //Jinnora: use the easy party if the player has fewer than the threshold badges, or is playing on easy difficulty
+            if((trainer->badgeThreshold > 0) 
+                && ((VarGet(VAR_NUM_BADGES) < trainer->badgeThreshold) 
+                    || (VarGet(VAR_DIFFICULTY_SETTING) == 1))) 
+            {
                 partyData = trainer->easyParty;
             }
             
@@ -2011,6 +2013,10 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             }
             //Jinnora: adjustedLevel will handle level boost for level cap implementation
             adjustedLevel = partyData[i].lvl;
+            if(VarGet(VAR_DIFFICULTY_SETTING) == 1)
+            {
+                adjustedLevel--;
+            }
             if (adjustedLevel > 16)
             {
                 adjustedLevel = 16; //max Trainer Boost is 84

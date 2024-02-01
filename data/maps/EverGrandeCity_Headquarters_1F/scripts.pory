@@ -455,7 +455,6 @@ script EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyEasy {
     clearflag(FLAG_CHALLENGE_HM_NONE)
     clearflag(FLAG_CHALLENGE_HM_RANDOM)
     clearflag(FLAG_NO_BAG_USE)
-    //TODO clear forced set mode
     msgbox(format("Difficulty set to Easy. Any active challenges removed."))
     return
 }
@@ -470,9 +469,10 @@ script EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyStandard {
 script EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyHardcore {
     setvar(VAR_DIFFICULTY_SETTING, 2)
     setflag(FLAG_NO_EV_GRINDING)
-    //TODO set forced set mode
     setflag(FLAG_NO_BAG_USE)
     msgbox(format("Difficulty set to Hardcore."))
+    special(HardcoreSetBattleStyle)
+    msgbox(format("Battle Style overridden to Set Mode."))
     return
 }
 
@@ -490,10 +490,10 @@ script EverGrandeCity_Headquarters_1F_EventScript_EVOn {
 
 script EverGrandeCity_Headquarters_1F_EventScript_DifficultyRules {
     msgbox(format("The three difficulty options are Standard, Easy, and Hardcore."))
-    msgbox(format("In Easy difficulty level caps are disabled, item use in battle is allowed, and battle style is shift mode. Enemy Trainers will always use the easier party available to them."))
-    msgbox(format("In Standard difficulty level caps are enabled but may be exceeded using Rare Candies. Item use in battle is allowed, but battle style is set mode."))
-    msgbox(format("In Hardcore difficulty Rare Candies cannot be used to exceed the level cap. No item use in battle, battle style is set mode. EVs are turned off."))
-    msgbox(format("In Standard or Easy difficulty you may choose to toggle EVs on or off freely."))
+    msgbox(format("Standard: level caps enabled. Item use in battle is allowed. Battle style may be set in the Options menu."))
+    msgbox(format("Easy: no level caps. Enemy Trainers use the easier party available to them, and all NPC levels are reduced by 1."))
+    msgbox(format("Hardcore: level caps enabled. No item use in battle. Battle style is overridden to Set Mode. EVs are turned off."))
+    msgbox(format("In Standard or Easy difficulty you may choose to toggle EVs on or off."))
     return
 }
 
@@ -704,7 +704,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Instead of ask to stop learning moves, ask to continue learning, by devolov."))
                     msgbox(format("Repeated field medicine use, by ghoulslash, AsparagusEduardo, and Alex N"))
                     msgbox(format("Swap party Pokémon with select button, by Lunos."))
-
+                    msgbox(format("Display Hidden Power type in battle, by Lunos."))
                     goto(FeaturesMenu)
                 case 1: // Creator QOL
                     msgbox(format("Generic item ball script, by Deokishisu."))
@@ -742,7 +742,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                 case 0:
                     msgbox(format("Jinnora has played a lot of Pokémon hacks since 2009 or so, and the idea for this game came while playing Inclement Emerald by BuffelSaft."))
                     msgbox(format("Radical Red by soupercell is the hack she's played most in recent years. Another favorite is Emerald Rogue by Pokabbie."))
-                    msgbox(format("The idea for the bike bridges on Routes 103 and 118 came from watching streams of the Emerald difficulty hack Run & Bun, by dekzeh."))
+                    msgbox(format("The idea for the bike bridges on Routes 103 and 118 came from the Emerald difficulty hack Run & Bun, by dekzeh."))
                     msgbox(format("Dewford Resort and Verdant Forest were partially inspired by similar areas in Inclement Emerald by BuffelSaft."))
                     goto(InspirationMenu)
                 case 1:
@@ -783,6 +783,14 @@ script EverGrandeCity_Headquarters_1F_EventScript_ExploreModeTwin {
     faceplayer
     goto_if_le(VAR_EVER_GRANDE_CITY_STATE, 11, EverGrandeCity_Headquarters_1F_EventScript_GoCheckIn)
     msgbox(format("Hi! I'm the Explore Mode Girl."))
+    if(flag(FLAG_DEPARTED_EVER_GRANDE)) {
+        if(flag(FLAG_EXPLORE_MODE)) {
+            goto(EverGrandeCity_Headquarters_1F_EventScript_ExploreModeGifts)
+        }
+        msgbox(format("If you want to play on Explore Mode, you could always start a new save and talk to me before leaving Ever Grande."))
+        release
+        end
+    }
     ExploreModeMenu:
     dynmultipush("Explore Mode Information", 1)
     if(flag(FLAG_EXPLORE_MODE)) {
@@ -879,7 +887,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_ExploreModeActivate {
     clearflag(FLAG_CHALLENGE_FERRY_LIMIT)
     clearflag(FLAG_CHALLENGE_HM_RANDOM)
     clearflag(FLAG_CHALLENGE_HM_NONE)
-    //also set difficulty to easy or whatever
+
+    //set difficulty to easy
+    setvar(VAR_DIFFICULTY_SETTING, 1)
 
     //trainer vision
     setflag(FLAG_NO_TRAINER_SEE)

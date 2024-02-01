@@ -250,10 +250,19 @@ script SlateportCity_EventScript_Man3 {
 script SlateportCity_EventScript_StoneClerk {
 	lock
 	faceplayer
+	goto_if_unset(FLAG_BEACH_BATTLE_VICTORY, SlateportCity_EventScript_OutOfStones)
     msgbox(gText_HowMayIServeYou)
 	waitmessage
 	pokemart(SlateportStoneMart)
 	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+script SlateportCity_EventScript_OutOfStones {
+	msgbox(format("Sorry! All the local kids cleared out my stock of evolution stones."))
+	msgbox(format("They want an advantage for the upcoming tournament. Business is business, eh?"))
+	msgbox(format("Another shipment will come by eventually. You should speak to Scott!"))
 	release
 	end
 }
@@ -594,7 +603,7 @@ SlateportCity_Text_BuyBricksSoDecorWontGetDirty:
 	.string "when I leave them out.$"
 
 SlateportCity_Text_PokemonFanClubSign:
-	.string "Pokémon FAN CLUB\n"
+	.string "Pokémon Fan Club\n"
 	.string "“Calling all fans of Pokémon!”$"
 
 SlateportCity_Text_OceanicMuseumSign:
@@ -608,7 +617,7 @@ SlateportCity_Text_CitySign:
 	.string "cross paths.”$"
 
 SlateportCity_Text_MarketSign:
-	.string "SLATEPORT MARKET\n"
+	.string "Slateport Market\n"
 	.string "“Unique items found nowhere else!”$"
 
 SlateportCity_Text_ExplainBerries:

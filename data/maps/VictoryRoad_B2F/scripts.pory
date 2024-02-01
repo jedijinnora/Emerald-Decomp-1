@@ -77,8 +77,8 @@ script VictoryRoad_B2F_EventScript_Hope {
 script VictoryRoad_B2F_EventScript_Shirona {
 	lock
 	goto_if_set(FLAG_MET_SHIRONA, VictoryRoad_B2F_EventScript_TryShironaRematch)
-	msgbox(format("The pictograms and carvings found in the Hoenn region are distinct from those present in Celestica ruins in Sinnoh…"))
-	msgbox(format("I wonder how much communication there was between regions long ago?"))
+	msgbox(format("The ancient carvings found in the Hoenn region seem distantly related to those present in Celestica ruins in Sinnoh…"))
+	msgbox(format("I wonder how much communication there was between our regions long ago?"))
 	faceplayer
 	msgbox(format("Oh, hello. Sorry for not noticing you sooner."))
 	if(flag(FLAG_SYS_GAME_CLEAR)) {
@@ -116,7 +116,7 @@ script VictoryRoad_B2F_EventScript_TryShironaRematch {
 	faceplayer
 	msgbox(format("I enjoy Pokémon battles and exploring ancient history."))
 	call_if_unset(FLAG_DAILY_SHIRONA_REMATCH, VictoryRoad_B2F_EventScript_ShironaRematch)
-	msgbox(format("I'm thinking of traveling to the Unova region next - I hear there are some amazing underwater ruins near Undella Town."))
+	msgbox(format("I'm thinking of traveling to Unova next. I've heard of some amazing underwater ruins near Undella Town."))
 	release
 	end
 }
@@ -126,9 +126,11 @@ script VictoryRoad_B2F_EventScript_ShironaRematch {
 	goto_if_eq(VAR_RESULT, NO, Common_EventScript_NopReturn)
 	cleartrainerflag(TRAINER_SHIRONA)
 	trainerbattle_no_intro(TRAINER_SHIRONA, VictoryRoad_B2F_Text_ShironaDefeat)
-	giveitem(ITEM_COMET_SHARD)
-	setflag(FLAG_DAILY_SHIRONA_REMATCH)
+	msgbox(format("Once again, you prove the skill and teamwork of your Pokémon. Here, I'd like you to have these."))
+	giveitem(ITEM_HEART_SCALE, 3)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_DAILY_SHIRONA_REMATCH)
+	msgbox(format("I'll stick around a bit longer if I can keep finding tough Trainers like you!"))
 	return
 }
 

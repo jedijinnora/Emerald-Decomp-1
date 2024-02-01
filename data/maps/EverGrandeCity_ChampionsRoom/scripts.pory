@@ -1,5 +1,6 @@
 script EverGrandeCity_ChampionsRoom_OnTransition {
 	setflag(FLAG_ENTERED_CHAMPION_ROOM)
+	setflag(FLAG_USE_NEXT_LEVEL_CAP)
 	end
 }
 
@@ -44,6 +45,7 @@ EverGrandeCity_ChampionsRoom_Movement_PlayerApproachWallace:
 
 EverGrandeCity_ChampionsRoom_EventScript_Defeated::
 	playse SE_DOOR
+	clearflag FLAG_USE_NEXT_LEVEL_CAP
 	setmetatile 6, 1, METATILE_EliteFour_OpenDoorChampion_Frame, FALSE
 	setmetatile 6, 2, METATILE_EliteFour_OpenDoorChampion_Opening, FALSE
 	special DrawWholeMapView
@@ -144,6 +146,9 @@ script EverGrandeCity_ChampionsRoom_EventScript_Anabel {
 	playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
 	msgbox(EverGrandeCity_ChampionsRoom_Text_IntroSpeech, MSGBOX_DEFAULT)
 	random(4)
+	if(var(VAR_DIFFICULTY_SETTING) == 1) {
+		setvar(VAR_RESULT, 3)
+	}
 	switch(var(VAR_RESULT)) {
 		case 0:
 			trainerbattle_no_intro(TRAINER_ANABEL_1, EverGrandeCity_ChampionsRoom_Text_Defeat)

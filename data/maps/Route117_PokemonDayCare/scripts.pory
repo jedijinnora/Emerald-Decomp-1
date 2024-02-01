@@ -360,7 +360,36 @@ script Route117_PokemonDayCare_EventScript_DittoBoy {
 		release
 		end
 	}
-	//give ditto
+
+	DittoGift:
+	msgbox(format("Thank the Creator! Little buddy, you're saved!"))
+	waitmessage
+	setflag(FLAG_RECEIVED_DITTO)
+	givemon(SPECIES_DITTO, 10)
+	playfanfare(MUS_OBTAIN_ITEM)
+	bufferspeciesname(STR_VAR_1, SPECIES_DITTO)
+	msgbox("{PLAYER} received Ditto!")
+	waitmessage
+	waitfanfare
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, DittoToParty)
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, DittoToPC)
+
+	DittoToParty:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	}
+	goto(DittoEnd)
+
+	DittoToPC:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	call(Common_EventScript_TransferredToPC)
+	DittoEnd:
+	msgbox(format("Please take good care of Ditto! Take them far away and never bring them back!"))
 	release
 	end
 }

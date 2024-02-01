@@ -257,6 +257,7 @@ script ArrivalFerry_Room_EventScript_Bag {
     hidemonpic
     playfanfare(MUS_OBTAIN_ITEM)
     givemon(VAR_STARTER_CHOICE, 5, ITEM_ORAN_BERRY)
+    setmonmetlocation(0, 0xFF)
     waitfanfare 
     setflag(FLAG_TEMP_12)
     removeobject(LOCALID_BAG)

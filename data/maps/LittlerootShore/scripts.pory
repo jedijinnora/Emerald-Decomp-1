@@ -17,15 +17,15 @@ script LittlerootShore_EventScript_FerrySign {
 
 script LittlerootShore_EventScript_RestStopSign {
 	lock
-	msgbox(format("REST STOP \n Weary travelers welcome!"))
+	msgbox(format("Seaside Rest Stop\n Weary travelers welcome!"))
 	release
 	end
 }
 
 script LittlerootShore_EventScript_DirectionsSign {
 	lock
-	msgbox(format("{UP_ARROW} Dewdrop Glen and Littleroot Town."))
-	msgbox(format("{DOWN_ARROW} Route 107, \n {LEFT_ARROW} access to Dewford Town."))
+	msgbox(format("Littleroot Shore\n{UP_ARROW} Dewdrop Glen and Littleroot Town."))
+	msgbox(format("{DOWN_ARROW} Route 107,\n {LEFT_ARROW} access to Dewford Town."))
 	release
 	end
 }

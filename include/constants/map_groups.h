@@ -483,7 +483,6 @@
 #define MAP_SCORCHED_SLAB_B1F                        (124 | (25 << 8))
 #define MAP_GRANITE_CAVE_RESORT_EXITS                (125 | (25 << 8))
 #define MAP_CHAMPIONS_CUT                            (126 | (25 << 8))
-#define MAP_FOREST_HEART                             (127 | (25 << 8))
 
 // gMapGroup_Dungeons2
 #define MAP_SEAFOAM_COVE_B1F            (0 | (26 << 8))
@@ -494,6 +493,7 @@
 #define MAP_DESERT_UNDERPASS_B1F        (5 | (26 << 8))
 #define MAP_DESERT_UNDERPASS_B2F        (6 | (26 << 8))
 #define MAP_DESERT_UNDERPASS_EXITS      (7 | (26 << 8))
+#define MAP_FOREST_HEART                (8 | (26 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (27 << 8))

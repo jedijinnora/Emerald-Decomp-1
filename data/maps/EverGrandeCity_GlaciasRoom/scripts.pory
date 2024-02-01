@@ -82,6 +82,9 @@ script EverGrandeCity_GlaciasRoom_EventScript_Glacia {
 	playbgm(MUS_ENCOUNTER_ELITE_FOUR, FALSE)
 	msgbox(EverGrandeCity_GlaciasRoom_Text_IntroSpeech, MSGBOX_DEFAULT)
 	random(2)
+	if(var(VAR_DIFFICULTY_SETTING) == 1) {
+		setvar(VAR_RESULT, 0)
+	}
 	switch(var(VAR_RESULT)) {
 		case 0:
 			trainerbattle_no_intro(TRAINER_GLACIA_1, EverGrandeCity_GlaciasRoom_Text_Defeat)

@@ -12,9 +12,17 @@ script Route119_WeatherInstitute_1F_EventScript_InstituteWorker1 {
 	lock
 	faceplayer
 	msgbox(format("I'm an expert on using weather conditions in battle."))
-	msgbox(format("I can teach your Pokémon the move Weather Ball if you'd like?"))
-	//TODO
-	msgbox(format("Sorry, not implemented yet."))
+	msgbox(format("I can teach your Pokémon the move Weather Ball if you'd like?"), MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		Route119_WeatherInstitute_1F_EventScript_WeatherBallDeclined:
+		msgbox(format("Fair enough."))
+		release
+		end
+	}
+	setvar(VAR_0x8005, MOVE_WEATHER_BALL)
+	call(MoveTutor_EventScript_OpenPartyMenu)
+	goto_if_eq(VAR_RESULT, 0, Route119_WeatherInstitute_1F_EventScript_WeatherBallDeclined)
+	msgbox(format("Weather Ball doubles in power and changes type depending on the weather."))
 	release
 	end
 }

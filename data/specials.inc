@@ -565,3 +565,5 @@ gSpecials::
 	def_special SetCaughtMon
 
 	def_special GetCurrentHMCount
+
+	def_special HardcoreSetBattleStyle

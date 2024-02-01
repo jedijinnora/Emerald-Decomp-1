@@ -7,6 +7,7 @@
 
 u32 GetCurrentLevelCap(void)
 {
+    //vanilla caps
     static const u32 sLevelCapFlagMap[][2] =
     {
         {FLAG_BADGE01_GET, 15},
@@ -39,13 +40,17 @@ u32 GetCurrentLevelCap(void)
     }
     else if (B_LEVEL_CAP_TYPE == LEVEL_CAP_CUSTOM)
     {
+        //if player is champion or locked on easy difficulty, no cap
         if (FlagGet(FLAG_SYS_GAME_CLEAR)) return MAX_LEVEL;
+        if ((VarGet(VAR_DIFFICULTY_SETTING) == 1) && FlagGet(FLAG_DEPARTED_EVER_GRANDE)) return MAX_LEVEL;
+
+        //cap is determined by game progress
         i = VarGet(VAR_NUM_BADGES);
         if (FlagGet(FLAG_ENTERED_VICTORY_ROAD)) i++;
         if (FlagGet(FLAG_ENTERED_ELITE_FOUR)) i++;
         if (FlagGet(FLAG_ENTERED_CHAMPION_ROOM)) i++;
         if (FlagGet(FLAG_USE_NEXT_LEVEL_CAP)) i++;
-        if (i > 12) return MAX_LEVEL;
+        if (i > 12) return MAX_LEVEL; //safety
         return sLevelCapCustomArray[i];
     }
 

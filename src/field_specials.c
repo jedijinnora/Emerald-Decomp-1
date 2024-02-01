@@ -4385,3 +4385,10 @@ u8 GetCurrentHMCount(void)
 
     return numHM;
 }
+
+//Jinnora: modifies battle style to be Set Mode
+void HardcoreSetBattleStyle(void)
+{
+    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
+    return;
+}
