@@ -1,9 +1,9 @@
 script Route111_OldLadysRestStop_EventScript_Twin {
 	lock
 	faceplayer
-	msgbox(format("You need goggles to be able to see in the sandstorm!"))
 	checkitem(ITEM_GO_GOGGLES)
 	if(var(VAR_RESULT) == FALSE) {
+		msgbox(format("You need goggles to be able to see in the sandstorm!"))
 		msgbox(format("Here! You should borrow my extra pair!"))
 		giveitem(ITEM_GO_GOGGLES)
 		msgbox(format("If you find some Safety Goggles you can protect your Pokémon from the sandstorm too."))
