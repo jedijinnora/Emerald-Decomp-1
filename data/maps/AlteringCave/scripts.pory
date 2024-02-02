@@ -28,6 +28,7 @@ script AlteringCave_EventScript_Statue_0 {
 	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		playse(SE_DOOR)
 		release
 		call(AlteringCave_EventScript_SetWild_0)
 	}
@@ -40,6 +41,7 @@ script AlteringCave_EventScript_Statue_1 {
 	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		playse(SE_DOOR)
 		release
 		call(AlteringCave_EventScript_SetWild_1)
 	}
@@ -52,6 +54,7 @@ script AlteringCave_EventScript_Statue_2 {
 	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		playse(SE_DOOR)
 		release
 		call(AlteringCave_EventScript_SetWild_2)
 	}
@@ -64,6 +67,7 @@ script AlteringCave_EventScript_Statue_3 {
 	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		playse(SE_DOOR)
 		release
 		call(AlteringCave_EventScript_SetWild_3)
 	}
@@ -76,6 +80,7 @@ script AlteringCave_EventScript_Statue_4 {
 	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		playse(SE_DOOR)
 		release
 		call(AlteringCave_EventScript_SetWild_4)
 	}
@@ -88,6 +93,7 @@ script AlteringCave_EventScript_Statue_5 {
 	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		playse(SE_DOOR)
 		release
 		call(AlteringCave_EventScript_SetWild_5)
 	}
@@ -100,6 +106,7 @@ script AlteringCave_EventScript_Statue_6 {
 	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		playse(SE_DOOR)
 		release
 		call(AlteringCave_EventScript_SetWild_6)
 	}
@@ -112,6 +119,7 @@ script AlteringCave_EventScript_Statue_7 {
 	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		playse(SE_DOOR)
 		release
 		call(AlteringCave_EventScript_SetWild_7)
 	}
@@ -124,6 +132,7 @@ script AlteringCave_EventScript_Statue_8 {
 	msgbox(format("A secret switch! \nPress it?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Who wouldn't?"))
+		playse(SE_DOOR)
 		release
 		call(AlteringCave_EventScript_SetWild_8)
 	}

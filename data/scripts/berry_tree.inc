@@ -166,15 +166,15 @@ BerryTree_Text_ItsSoftLoamySoil:
 
 BerryTree_Text_BerryGrowthStage1:
 	.string "One {STR_VAR_1} was planted here.\n"
-	.string "Want to water it with the WAILMER PAIL?$"
+	.string "Want to water it with the Wailmer Pail?$"
 
 BerryTree_Text_BerryGrowthStage2:
 	.string "{STR_VAR_1} has sprouted.\n"
-	.string "Want to water it with the WAILMER PAIL?$"
+	.string "Want to water it with the Wailmer Pail?$"
 
 BerryTree_Text_BerryGrowthStage3:
 	.string "This {STR_VAR_1} plant is growing taller.\n"
-	.string "Want to water it with the WAILMER PAIL?$"
+	.string "Want to water it with the Wailmer Pail?$"
 
 BerryTree_Text_BerryGrowthStage4:
 	.string "These {STR_VAR_1} flowers are blooming\n"

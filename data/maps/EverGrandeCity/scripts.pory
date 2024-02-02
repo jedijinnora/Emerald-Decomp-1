@@ -261,7 +261,7 @@ script Common_EventScript_Ferry {
 
 	//check if in Ever Grande and need to go teleport to Victory Road
 	if(flag(FLAG_CHALLENGE_HM_NONE) && var(VAR_NUM_BADGES) > 7 && !flag(FLAG_SYS_GAME_CLEAR) && var(VAR_RESULT) == 0x0F) {
-		msgbox(format("You need to talk to the scientist who handles the game's challenges to get a teleport to Victory Road!"))
+		msgbox(format("The warp statue in the Pokémon Center has been unlocked!"))
 		release
 		end
 	}
@@ -325,7 +325,7 @@ script Common_EventScript_Ferry {
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE)
 		case 3:
-			warp(MAP_SLATEPORT_CITY, -1, 11, 26)
+			warp(MAP_SLATEPORT_CITY, -1, 39, 16)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_SLATEPORT_CITY)
 		case 4:

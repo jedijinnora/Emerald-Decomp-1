@@ -1,1 +1,11 @@
-mapscripts DesertUnderpass_B1F_MapScripts {}
+mapscripts DesertUnderpass_B1F_MapScripts {
+	MAP_SCRIPT_ON_FRAME_TABLE : CaveHole_CheckFallDownHole
+	MAP_SCRIPT_ON_TRANSITION : CaveHole_FixCrackedGround
+	MAP_SCRIPT_ON_RESUME : DesertUnderpass_B1F_SetHoleWarp
+}
+
+script DesertUnderpass_B1F_SetHoleWarp {
+    setstepcallback(STEP_CB_CRACKED_FLOOR)
+	setholewarp(MAP_DESERT_UNDERPASS_B2F)
+	end
+}

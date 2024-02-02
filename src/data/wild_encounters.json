@@ -17234,7 +17234,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_CHERUBI"
+                "species": "SPECIES_DEERLING_SPRING"
               },
               {
                 "min_level": 5,
@@ -17244,17 +17244,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_CHERRIM_OVERCAST"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_APPLIN"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_APPLIN"
+                "species": "SPECIES_CHERUBI"
               },
               {
                 "min_level": 5,
@@ -17269,7 +17259,17 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SCYTHER"
+                "species": "SPECIES_APPLIN"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_APPLIN"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CHERUBI"
               },
               {
                 "min_level": 5,

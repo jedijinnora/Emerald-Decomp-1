@@ -12,6 +12,7 @@
 #include "battle_setup.h"
 #include "roamer.h"
 #include "tv.h"
+#include "level_caps.h"
 #include "link.h"
 #include "script.h"
 #include "battle_debug.h"
@@ -354,7 +355,10 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
             fixedLVL = 7;
         if (fixedLVL > 80)
             fixedLVL = 80;
-        
+        max = GetCurrentLevelCap();
+        if (fixedLVL > max)
+            fixedLVL = max;
+
         //should not increase max so repels can mostly work
         min = fixedLVL - 5;
         max = fixedLVL;
