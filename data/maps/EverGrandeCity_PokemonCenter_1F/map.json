@@ -106,8 +106,8 @@
       "x": 7,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_EVER_GRANDE_CITY_POKEMON_CENTER_1F",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_EMERALD_CAPE",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [

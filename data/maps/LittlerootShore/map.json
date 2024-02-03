@@ -137,6 +137,13 @@
       "elevation": 0,
       "dest_map": "MAP_LITTLEROOT_SHORE_HOUSE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 26,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_LITTLEROOT_SHORE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -177,8 +184,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 15,
-      "y": 15,
+      "x": 13,
+      "y": 16,
       "elevation": 0,
       "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_LITTLEROOT_SHORE_HEART_SCALE"

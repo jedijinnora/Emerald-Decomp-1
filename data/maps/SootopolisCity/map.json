@@ -230,6 +230,13 @@
       "elevation": 0,
       "dest_map": "MAP_SOOTOPOLIS_CONNECTOR",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 21,
+      "y": 44,
+      "elevation": 0,
+      "dest_map": "MAP_SOOTOPOLIS_CITY",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

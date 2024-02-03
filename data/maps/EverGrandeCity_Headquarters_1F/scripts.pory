@@ -1,4 +1,9 @@
-mapscripts EverGrandeCity_Headquarters_1F_MapScripts {}
+mapscripts EverGrandeCity_Headquarters_1F_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_EVER_GRANDE_CITY_STATE, 1: EverGrandeCity_Headquarters_1F_EventScript_Enter
+        VAR_EVER_GRANDE_CITY_STATE, 2: EverGrandeCity_Headquarters_1F_EventScript_Enter
+    ]
+}
 
 //Object IDs
 const LOCALID_DESKLADY = 1
@@ -12,6 +17,22 @@ const LOCALID_BOX = 7
 //VAR_TEMP_4 for giving missed HMs
 
 
+script EverGrandeCity_Headquarters_1F_EventScript_Enter {
+    lock
+    setvar(VAR_EVER_GRANDE_CITY_STATE, 5)
+    applymovement(OBJ_EVENT_ID_PLAYER, EverGrandeCity_Headquarters_1F_Movement_PlayerApproachDesk)
+    waitmovement(0)
+    goto(IntroEnd)
+}
+
+movement EverGrandeCity_Headquarters_1F_Movement_PlayerApproachDesk {
+    walk_up
+    walk_up
+    walk_up
+    walk_up
+    step_end
+}
+
 
 // Desk Lady scripts
 script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
@@ -19,6 +40,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
 	faceplayer
     goto_if_gt(VAR_EVER_GRANDE_CITY_STATE, 11, CheerBye)
 
+    IntroEnd:
 	msgbox(format("You must be one of our foreign exchange students. Welcome to Hoenn!"))
     msgbox(format("Let me grab a box for you."))
     waitmessage
@@ -32,6 +54,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
     applymovement(LOCALID_DESKLADY, Common_Movement_FaceDown)
     waitmovement(LOCALID_DESKLADY)
     delay(4)
+    giveitem(ITEM_POKE_BALL, 30)
 
     giveitem(ITEM_EXP_SHARE)
     msgbox(format("The Exp. Share toggles whether all party Pokémon gain experience during battle."))

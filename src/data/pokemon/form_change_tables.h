@@ -612,8 +612,9 @@ static const struct FormChange sKeldeoFormChangeTable[] = {
 
 #if P_FAMILY_MELOETTA
 static const struct FormChange sMeloettaFormChangeTable[] = {
-    {FORM_CHANGE_FAINT,         SPECIES_MELOETTA_ARIA},
-    {FORM_CHANGE_END_BATTLE,    SPECIES_MELOETTA_ARIA},
+    //Jinnora: I want Pirouette forme to persist after battle, to make it more viable
+    //{FORM_CHANGE_FAINT,         SPECIES_MELOETTA_ARIA},
+    //{FORM_CHANGE_END_BATTLE,    SPECIES_MELOETTA_ARIA},
     {FORM_CHANGE_TERMINATOR},
 };
 #endif //P_FAMILY_MELOETTA

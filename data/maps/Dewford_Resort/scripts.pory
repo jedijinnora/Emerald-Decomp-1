@@ -1,1 +1,92 @@
 mapscripts Dewford_Resort_MapScripts {}
+
+script Dewford_Resort_EventScript_ResortSign {
+    msgbox(format("Dewford Resort\n“A tourist's paradise!”"), MSGBOX_SIGN)
+    end
+}
+
+script Dewford_Resort_EventScript_CaveSign {
+    msgbox(format("Granite Cave\n“No resort services beyond this point!”"), MSGBOX_SIGN)
+    end
+}
+
+script Dewford_Resort_EventScript_RentalSign {
+    msgbox(format("Sailboats and Surfboards for Rent\n“The best prices in Dewford!”"), MSGBOX_SIGN)
+    end
+}
+
+script Dewford_Resort_EventScript_StaffSign {
+    msgbox(format("Staff House\n“Our cheery Helpers are here to serve!”"), MSGBOX_SIGN)
+    end
+}
+
+script Dewford_Resort_EventScript_LifeguardSign {
+    msgbox(format("Lifeguard Quarters\n“With us, it's always safe to swim!”"), MSGBOX_SIGN)
+    end
+}
+
+script Dewford_Resort_EventScript_LittleBoy {
+    msgbox(format("I stay up here, 'cause everyone on the beach wants a Pokémon battle."), MSGBOX_NPC)
+    end
+}
+
+script Dewford_Resort_EventScript_HidingCamper {
+    lock
+    faceplayer
+    msgbox(format("Please, don't tell the boss I'm here! I just can't take it any more!"))
+    msgbox(format("The unceasing demands, the stupid requests, all while keeping a constant smile on my face…"))
+    msgbox(format("I just need a minute or two. Okay, maybe three…"))
+    release
+    end
+}
+
+script Dewford_Resort_EventScript_BoatGuy {
+    lock
+    faceplayer
+    msgbox(format("Welcome! Ah, you aren't one of our paying cust- I mean, wonderful guests!"))
+    msgbox(format("I'm afraid rentals are for members only!"))
+    release
+    end
+}
+
+script Dewford_Resort_EventScript_StaffCamper {
+    lock
+    faceplayer
+    goto_if_set(FLAG_TEMP_1E, Dewford_Resort_EventScript_NotAGuest)
+    goto_if_set(FLAG_TEMP_1F, Dewford_Resort_EventScript_LameJoke)
+    msgbox(format("Welcome to Dewford Resort, home of Hoenn's best luxury rentals!"))
+    msgbox(format("Are you here to check in?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, Dewford_Resort_EventScript_NotAGuest)
+    msgbox(format("Your name is {PLAYER}? I don't see you on the reservations list…"))
+    msgbox(format("Oh, you were just playing a joke on me?"))
+    msgbox(format("Pretty lame joke, don't you think?"))
+    goto(Dewford_Resort_EventScript_LameJoke)
+}
+
+script Dewford_Resort_EventScript_NotAGuest {
+    msgbox(format("Oh, just a traveler? Please don't cause any trouble, the boss will get mad at me again!"))
+    setflag(FLAG_TEMP_1E)
+    release
+    end
+}
+
+script Dewford_Resort_EventScript_LameJoke {
+    msgbox(format("You wouldn't even get any laughs from the studio audience."))
+    setflag(FLAG_TEMP_1F)
+    release
+    end
+}
+
+script Dewford_Resort_EventScript_BlackBelt {
+    msgbox(format("YOSH! I have finished my ten kilometer beach run! Now I will do two hundred- no, THREE HUNDRED push-ups!"), MSGBOX_NPC)
+    end
+}
+
+script Dewford_Resort_EventScript_Azumarill {
+    lock
+    faceplayer
+    playmoncry(SPECIES_AZUMARILL, CRY_MODE_ENCOUNTER)
+    msgbox(format("Azurill examines you critically. Are you sure you're safe to swim? Don't you need a floatie, or maybe a life jacket? Perhaps a fashionable inner tube?"))
+    release
+    end
+}

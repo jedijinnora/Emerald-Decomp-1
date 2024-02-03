@@ -4,11 +4,17 @@ mapscripts EverGrandeCity_MapScripts {
 
 script EverGrandeCity_OnTransition {
 	setflag(FLAG_VISITED_EVER_GRANDE_CITY)
+	call_if_gt(VAR_EVER_GRANDE_CITY_STATE, 1, EverGrandeCity_EventScript_HideJinnora)
 	end
 }
 
-//Object IDs
+script EverGrandeCity_EventScript_HideJinnora {
+	setflag(FLAG_TEMP_14)
+	return
+}
 
+//Object IDs
+const LOCALID_JINNORA = 25
 
 //TEMPs used
 //FLAG_TEMP_1 Sailor intro
@@ -16,9 +22,82 @@ script EverGrandeCity_OnTransition {
 //FLAG_TEMP_3 and FLAG_TEMP_4 Gentleman conversation
 //FLAG_TEMP_5 Maniac intro
 
+//FLAG_TEMP_14 Jinnora hide flag
+
 //FLAG_TEMP_1E mainland gyms check
 //FLAG_TEMP_1F Surf check
 
+
+script EverGrandeCity_EventScript_Jinnora {
+	lock
+	faceplayer
+	msgbox(format("Jinnora: Hey there! I'm Jinnora, the creator of Pokémon Emerald Beryl!"))
+	msgbox(format("I'm here as a plot device to let you skip the rest of the intro if you want?"))
+	dynmultipush("No skip wanted", 10)
+	dynmultipush("Skip to ferry departure", 1)
+	dynmultipush("Skip to difficulty/challenge selection", 2)
+	dynmultistack(0,0,TRUE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			call(EverGrandeCity_EventScript_OfferAllStartingItems)
+		case 2:
+			call(EverGrandeCity_EventScript_OfferAllStartingItems)
+			warp(MAP_EVER_GRANDE_CITY_HEADQUARTERS_1F, 4)
+			setvar(VAR_EVER_GRANDE_CITY_STATE, 20)
+			release
+			end
+		default: 
+	}
+	goto(EverGrandeCity_EventScript_JinnoraLeave)
+}
+
+script EverGrandeCity_EventScript_OfferAllStartingItems {
+	playfanfare(MUS_OBTAIN_ITEM)
+	additem(ITEM_POKE_BALL, 30)
+    additem(ITEM_EXP_SHARE)
+	setflag(FLAG_SYS_POKENAV_GET)
+	//todo infinite candy
+	msgbox(format("Would you like the other items available at this point?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Common_EventScript_NopReturn)
+	playfanfare(MUS_OBTAIN_ITEM)
+	if(!flag(FLAG_HIDDEN_ITEM_ARRIVAL_FERRY_ROOM_FRESH_WATER)) {
+		additem(ITEM_FRESH_WATER)
+		setflag(FLAG_HIDDEN_ITEM_ARRIVAL_FERRY_ROOM_FRESH_WATER)
+	}
+	if(!flag(FLAG_GIVEN_ARRIVAL_FERRY_LEMONADE)) {
+		additem(ITEM_LEMONADE)
+		setflag(FLAG_GIVEN_ARRIVAL_FERRY_LEMONADE)
+	}
+	if(!flag(FLAG_ITEM_EVER_GRANDE_CITY_HEADQUARTERS_3F_LINKING_CORD)) {
+		additem(ITEM_LINKING_CORD)
+		setflag(FLAG_ITEM_EVER_GRANDE_CITY_HEADQUARTERS_3F_LINKING_CORD)
+	}
+	if(!flag(FLAG_HIDDEN_ITEM_EVER_GRANDE_CITY_STARDUST)) {
+		additem(ITEM_STARDUST)
+		setflag(FLAG_HIDDEN_ITEM_EVER_GRANDE_CITY_STARDUST)
+	}
+	if(!flag(FLAG_RECEIVED_WAILMER_PAIL)) {
+		additem(ITEM_WAILMER_PAIL)
+		setflag(FLAG_RECEIVED_WAILMER_PAIL)
+	}
+	checkitem(ITEM_OLD_ROD)
+	if(var(VAR_RESULT) == FALSE) {
+		additem(ITEM_OLD_ROD)
+	}
+	return
+}
+
+script EverGrandeCity_EventScript_JinnoraLeave {
+	msgbox(format("Thanks for playing! Be seeing you!"))
+	waitmessage
+	fadescreen(FADE_TO_BLACK)
+	removeobject(LOCALID_JINNORA)
+	setvar(VAR_EVER_GRANDE_CITY_STATE, 20)
+	setflag(FLAG_TEMP_14)
+	release
+	fadescreen(FADE_FROM_BLACK)
+	end
+}
 
 script EverGrandeCity_EventScript_CaveBlocked {
 	lock
@@ -313,35 +392,35 @@ script Common_EventScript_Ferry {
 	//warp to new map, use ticket if doing challenge, set heal spawn to prevent locking
 	switch(var(VAR_RESULT)) {
 		case 0:
-			warp(MAP_RUSTBORO_CITY, -1, 11, 26)
+			warp(MAP_RUSTBORO_CITY, 13)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_RUSTBORO_CITY)
 		case 1:
-			warp(MAP_DEWFORD_RESORT, -1, 6, 16)
+			warp(MAP_DEWFORD_RESORT, 6)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_DEWFORD_TOWN)
 		case 2:
-			warp(MAP_LITTLEROOT_SHORE, -1, 26, 21)
+			warp(MAP_LITTLEROOT_SHORE, 1)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE)
 		case 3:
-			warp(MAP_SLATEPORT_CITY, -1, 39, 16)
+			warp(MAP_SLATEPORT_CITY, 9)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_SLATEPORT_CITY)
 		case 4:
-			warp(MAP_LILYCOVE_CITY, -1, 11, 35)
+			warp(MAP_LILYCOVE_CITY, 13)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_LILYCOVE_CITY)
 		case 5:
-			warp(MAP_MOSSDEEP_CITY, -1, 87, 36)
+			warp(MAP_MOSSDEEP_CITY, 13)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_MOSSDEEP_CITY)
 		case 6:
-			warp(MAP_SOOTOPOLIS_CITY, -1, 21, 44)
+			warp(MAP_SOOTOPOLIS_CITY, 14)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_SOOTOPOLIS_CITY)
 		case 7:
-			warp(MAP_EVER_GRANDE_CITY, -1, 24, 30)
+			warp(MAP_EVER_GRANDE_CITY, 10)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_EVER_GRANDE_CITY)
 		default:

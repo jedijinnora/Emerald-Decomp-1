@@ -3,14 +3,21 @@ mapscripts LittlerootShore_MapScripts {}
 script LittlerootShore_EventScript_Twin {
 	lock
 	faceplayer
+	goto_if_set(FLAG_ITEM_LITTLEROOT_SHORE_CHOICE_SPECS, LittlerootShore_EventScript_BeatBrother)
 	msgbox(format("My brother is so mean! He left out a Choice Specs to lure in Trainers, and attacks them by surprise!"))
+	release
+	end
+}
+
+script LittlerootShore_EventScript_BeatBrother {
+	msgbox(format("Wow! You sure showed my brother and his team! Keep up the good work."))
 	release
 	end
 }
 
 script LittlerootShore_EventScript_FerrySign {
 	lock
-	msgbox(format("Hoenn Fast Ferry \n Littleport Terminal"))
+	msgbox(format("Hoenn Fast Ferry \n Littleroot Terminal"))
 	release
 	end
 }

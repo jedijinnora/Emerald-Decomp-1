@@ -82,14 +82,14 @@
   ],
   "warp_events": [
     {
-      "x": 5,
+      "x": 4,
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ARRIVAL_FERRY_CORRIDOR",
       "dest_warp_id": "0"
     },
     {
-      "x": 4,
+      "x": 5,
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ARRIVAL_FERRY_CORRIDOR",

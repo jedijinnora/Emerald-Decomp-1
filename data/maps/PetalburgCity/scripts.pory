@@ -27,6 +27,7 @@ script PetalburgCity_EventScript_GymBoy {
 	msgbox(format("I'm not a good enough Trainer to take on the Gym Leader…"))
 	msgbox(format("But I studied hard and I know everything about her team!"))
 	msgbox(format("She likes to use strong Normal-type Pokémon."))
+	call(Common_EventScript_CountBadges)
 	switch(var(VAR_NUM_BADGES)) {
 		case 0:
 			//badge 1
@@ -39,7 +40,7 @@ script PetalburgCity_EventScript_GymBoy {
 		case 2:
 		case 3:
 			//badge 3,4
-			bufferspeciesname(STR_VAR_1, SPECIES_CINCCINO)
+			bufferspeciesname(STR_VAR_1, SPECIES_LINOONE)
 			bufferspeciesname(STR_VAR_2, SPECIES_HELIOLISK)
 		case 4:
 		case 5:
@@ -49,10 +50,10 @@ script PetalburgCity_EventScript_GymBoy {
 			bufferspeciesname(STR_VAR_2, SPECIES_AMBIPOM)
 		default:
 			//badge 8 or rematch
-			bufferspeciesname(STR_VAR_1, SPECIES_DUNSPARCE)
+			bufferspeciesname(STR_VAR_1, SPECIES_MELOETTA_PIROUETTE)
 			bufferspeciesname(STR_VAR_2, SPECIES_HELIOLISK)
 	}
-	msgbox("Against you she'd lead {STR_VAR_1}\nand have {STR_VAR_2} as her ace.")
+	msgbox("Against you she'd lead {STR_VAR_1}\nand have {STR_VAR_2} as her final Pokémon.")
 	release
 	end
 }

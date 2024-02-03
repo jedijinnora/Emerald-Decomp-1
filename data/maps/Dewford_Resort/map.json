@@ -54,14 +54,14 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_2",
       "x": 18,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Dewford_Resort_EventScript_BoatGuy",
       "flag": "0"
     },
     {
@@ -82,12 +82,12 @@
       "x": 40,
       "y": 28,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Dewford_Resort_EventScript_Azumarill",
       "flag": "0"
     },
     {
@@ -108,12 +108,12 @@
       "x": 12,
       "y": 31,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Dewford_Resort_EventScript_BlackBelt",
       "flag": "0"
     },
     {
@@ -126,15 +126,15 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Dewford_Resort_EventScript_LittleBoy",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TUBER_F",
-      "x": 31,
-      "y": 25,
+      "x": 35,
+      "y": 26,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_RIGHT_UP_LEFT",
+      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT",
       "movement_range_x": 3,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -170,7 +170,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
-      "x": 16,
+      "x": 17,
       "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -178,7 +178,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Dewford_Resort_EventScript_HidingCamper",
       "flag": "0"
     },
     {
@@ -230,13 +230,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Dewford_Resort_EventScript_StaffCamper",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 7,
-      "y": 16,
+      "x": 5,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -261,8 +261,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SS_TIDAL",
-      "x": 7,
-      "y": 18,
+      "x": 5,
+      "y": 19,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -287,8 +287,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 15,
-      "y": 33,
+      "x": 31,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -341,6 +341,13 @@
       "elevation": 0,
       "dest_map": "MAP_GRANITE_CAVE_RESORT_EXITS",
       "dest_warp_id": "3"
+    },
+    {
+      "x": 4,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_DEWFORD_RESORT",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -349,11 +356,11 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 55,
+      "x": 48,
       "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Dewford_Resort_EventScript_ResortSign"
     },
     {
       "type": "sign",
@@ -361,7 +368,7 @@
       "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Dewford_Resort_EventScript_CaveSign"
     },
     {
       "type": "sign",
@@ -369,15 +376,15 @@
       "y": 21,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Dewford_Resort_EventScript_LifeguardSign"
     },
     {
       "type": "sign",
       "x": 17,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Dewford_Resort_EventScript_RentalSign"
     },
     {
       "type": "sign",
@@ -385,11 +392,11 @@
       "y": 23,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "Dewford_Resort_EventScript_StaffSign"
     },
     {
       "type": "hidden_item",
-      "x": 58,
+      "x": 46,
       "y": 26,
       "elevation": 0,
       "item": "ITEM_BOTTLE_CAP",
@@ -405,7 +412,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 46,
+      "x": 58,
       "y": 26,
       "elevation": 0,
       "item": "ITEM_HEART_SCALE",
