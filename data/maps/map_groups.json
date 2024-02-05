@@ -119,7 +119,8 @@
     "CrossgateHills",
     "MonsuIsland_Exterior",
     "SakuraiOverlook",
-    "SunriseShore"
+    "SunriseShore",
+    "Underwater_Route109"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -529,7 +530,9 @@
     "DesertUnderpass_B1F",
     "DesertUnderpass_B2F",
     "DesertUnderpass_Exits",
-    "ForestHeart"
+    "ForestHeart",
+    "Underwater_TitansGrave_Entry",
+    "TitansGrave"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

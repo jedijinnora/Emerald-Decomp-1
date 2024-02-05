@@ -4371,6 +4371,18 @@ void SetCaughtMon(void)
     GetSetPokedexFlag(SpeciesToNationalPokedexNum(gSpecialVar_0x8004), FLAG_SET_CAUGHT);
 }
 
+//Check if player has mon listed in special var 0x8004 in party
+bool8 CheckPartyForMon(void)
+{
+    int i;
+    for (i = 0; i < CalculatePlayerPartyCount(); i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == gSpecialVar_0x8004)
+            return TRUE;
+    }
+    return FALSE;
+}
+
 // Jinnora: count HMs, needed to check before offering the player more, since multichoice hangs if all 8 in bag
 u8 GetCurrentHMCount(void)
 {

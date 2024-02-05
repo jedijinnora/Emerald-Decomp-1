@@ -4925,7 +4925,8 @@ void Task_AbilityPatch(u8 taskId)
     case 0:
         // Can't use.
         if (gSpeciesInfo[tSpecies].abilities[tAbilityNum] == 0
-            || !tSpecies
+            || !tSpecies 
+            || tSpecies == SPECIES_REGIGIGAS
             )
         {
             gPartyMenuUseExitCallback = FALSE;

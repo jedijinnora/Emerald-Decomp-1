@@ -1,0 +1,57 @@
+{
+  "id": "MAP_UNDERWATER_TITANS_GRAVE_ENTRY",
+  "name": "Underwater_TitansGrave_Entry",
+  "layout": "LAYOUT_UNDERWATER_TITANS_GRAVE_ENTRY",
+  "music": "MUS_UNDERWATER",
+  "region_map_section": "MAPSEC_UNDERWATER_TITANS_GRAVE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERWATER",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 10,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_UNDERWATER_ROUTE109",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 1,
+      "y": 32,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Underwater_TitansGrave_Entry_EventScript_LeftSign"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Underwater_TitansGrave_Entry_EventScript_RightSign"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Underwater_TitansGrave_Entry_EventScript_CenterSign"
+    }
+  ]
+}

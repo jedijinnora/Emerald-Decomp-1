@@ -55,6 +55,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
     waitmovement(LOCALID_DESKLADY)
     delay(4)
     giveitem(ITEM_POKE_BALL, 30)
+    giveitem(ITEM_DREAM_BALL, 2)
 
     giveitem(ITEM_EXP_SHARE)
     msgbox(format("The Exp. Share toggles whether all party Pokémon gain experience during battle."))

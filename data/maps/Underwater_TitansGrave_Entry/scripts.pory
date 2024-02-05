@@ -1,0 +1,51 @@
+mapscripts Underwater_TitansGrave_Entry_MapScripts {
+    MAP_SCRIPT_ON_DIVE_WARP : Underwater_TitansGrave_Entry_OnDive
+}
+
+script Underwater_TitansGrave_Entry_OnDive {
+    goto_if_unset(FLAG_TEMP_1, Underwater_TitansGrave_Entry_EventScript_SurfaceOutside)
+    goto_if_unset(FLAG_TEMP_2, Underwater_TitansGrave_Entry_EventScript_SurfaceOutside)
+    goto_if_unset(FLAG_TEMP_3, Underwater_TitansGrave_Entry_EventScript_SurfaceOutside)
+    goto(Underwater_TitansGrave_Entry_EventScript_SurfaceInside)
+}
+
+script Underwater_TitansGrave_Entry_EventScript_SurfaceInside {
+    setdivewarp(MAP_TITANS_GRAVE, 54, 21)
+    end
+}
+
+script Underwater_TitansGrave_Entry_EventScript_SurfaceOutside {
+    setdivewarp(MAP_ROUTE109, 105, 11)
+    end
+}
+
+script Underwater_TitansGrave_Entry_EventScript_LeftSign {
+    lock
+    braillemsgbox(Underwater_TitansGrave_Braille_Left)
+    setflag(FLAG_TEMP_1)
+    msgbox("Click!")
+    release
+    end
+}
+
+script Underwater_TitansGrave_Entry_EventScript_RightSign {
+    lock
+    braillemsgbox(Underwater_TitansGrave_Braille_Right)
+    setflag(FLAG_TEMP_2)
+    msgbox("Click!")
+    release
+    end
+}
+
+script Underwater_TitansGrave_Entry_EventScript_CenterSign {
+    lock
+    if(flag(FLAG_TEMP_1) && flag(FLAG_TEMP_2)) {
+        braillemsgbox(Underwater_TitansGrave_Braille_Worthy)
+        setflag(FLAG_TEMP_3)
+    } else {
+        braillemsgbox(Underwater_TitansGrave_Braille_Unworthy)
+        clearflag(FLAG_TEMP_1)
+        clearflag(FLAG_TEMP_2)
+    }
+    end
+}

@@ -64,7 +64,8 @@ script Dewford_Resort_EventScript_StaffCamper {
 }
 
 script Dewford_Resort_EventScript_NotAGuest {
-    msgbox(format("Oh, just a traveler? Please don't cause any trouble, the boss will get mad at me again!"))
+    msgbox(format("Oh, you're just a traveler?"))
+    msgbox(format("Please don't cause any trouble, the boss will get mad at me again!"))
     setflag(FLAG_TEMP_1E)
     release
     end
@@ -86,7 +87,16 @@ script Dewford_Resort_EventScript_Azumarill {
     lock
     faceplayer
     playmoncry(SPECIES_AZUMARILL, CRY_MODE_ENCOUNTER)
-    msgbox(format("Azurill examines you critically. Are you sure you're safe to swim? Don't you need a floatie, or maybe a life jacket? Perhaps a fashionable inner tube?"))
+    msgbox(format("Azumarill examines you critically. Are you sure you're safe to swim? Don't you need a floatie, or maybe a life jacket? Perhaps a fashionable inner tube?"))
+    release
+    end
+}
+
+script Dewford_Resort_EventScript_Azurill {
+    lock
+    faceplayer
+    playmoncry(SPECIES_AZURILL, CRY_MODE_ENCOUNTER)
+    msgbox(format("Azurill: Priiii!"))
     release
     end
 }

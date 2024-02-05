@@ -64,8 +64,8 @@
 #define FLAG_RECEIVED_FAIRY_GEM                         0x31
 
 #define FLAG_PENDING_DAYCARE_EGG        0x32
-#define FLAG_TEACHING_EGG_MOVES         0x33//Jinnora: for toggling move relearner to use egg moves
-#define FLAG_MOVE_RELEARN_PARTY         0x34//Jinnora: for returning to party from move relearner
+#define FLAG_TEACHING_EGG_MOVES         0x33 // Jinnora: for toggling move relearner to use egg moves
+#define FLAG_MOVE_RELEARN_PARTY         0x34 // Jinnora: for returning to party from move relearner
 
 //Jinnora: added flags required for various configs
 #define FLAG_EXP_SHARE          0x35 
@@ -86,25 +86,28 @@
 #define FLAG_CHALLENGE_FERRY_LIMIT  0x42 // one ferry ride only, replenish after gym victory
 #define FLAG_CHALLENGE_FERRY_TICKET 0x43 // is single ferry use available?
 #define FLAG_DEPARTED_EVER_GRANDE   0x44 // player has left EGC; may forfeit but not modify challenges
-#define FLAG_NO_EV_GRINDING         0x45 // removes EVs stat calculations, should be global effect
-#define FLAG_TODO_FORCED_SET_MODE   0x46
-#define FLAG_EXPLORE_MODE           0x47
+#define FLAG_NO_EV_GRINDING         0x45 // removes EVs from stat calculations and prevents EV gain from wild battle
+#define FLAG_EXPLORE_MODE           0x46
+#define FLAG_USE_NEXT_LEVEL_CAP     0x47 // for going to next level cap during boss battle
 
-#define FLAG_USE_NEXT_LEVEL_CAP                     0x48 // for going to next level cap during boss battle
-#define FLAG_VS_SEEKER                              0x49 // see include/config/item.h
-#define FLAG_BEACH_BATTLE_VICTORY                   0x4A // set after returning from special beach map
-#define FLAG_BEACH_BATTLE_STARTED                   0x4B // set when warping to special beach map
-#define FLAG_BEACH_BATTLE_REPEAT                    0x4C // set when doing additional beach battles
-#define FLAG_UNUSED_0x04D                           0x4D
-#define FLAG_UNUSED_0x04E                           0x4E
-#define FLAG_UNUSED_0x04F                           0x4F
+//Jinnora: more config flags
+#define FLAG_VS_SEEKER              0x48 // see include/config/item.h
+#define FLAG_WILD_PERFECT_IVS       0x49 // todo should create perfect wild mon if set
+#define FLAG_WILD_HIDDEN_ABILITY    0x4A // todo should generate wild mon with hidden ability
+#define FLAG_UNUSED_0x4B            0x4B
+#define FLAG_UNUSED_0x4C            0x4C
+
+//Jinnora: Beach Battle Flags
+#define FLAG_BEACH_BATTLE_VICTORY            0x4D // set after returning from special beach map
+#define FLAG_BEACH_BATTLE_STARTED            0x4E // set when warping to special beach map
+#define FLAG_BEACH_BATTLE_REPEAT             0x4F // set when doing additional beach battles
 
 // Given/Received item Flags
 #define FLAG_GIVEN_POWER_ITEMS               0x50
 #define FLAG_GIVEN_ARRIVAL_FERRY_LEMONADE    0x51
-#define FLAG_RECEIVED_BLUNDER_POLICY         0x52
+#define FLAG_RECEIVED_BLUNDER_POLICY         0x52 // tunneler's rest stop
 #define FLAG_RECEIVED_TUNNELER_GIFT          0x53 // given Eviolite if have HM 4/5/6
-#define FLAG_RECEIVED_SAFETY_GOGGLES         0x54
+#define FLAG_RECEIVED_SAFETY_GOGGLES         0x54 // desert oasis
 #define FLAG_RECEIVED_SPACE_CENTER_EJECT_PACK 0x55
 #define FLAG_RECEIVED_UTILITY_UMBRELLA       0x56
 #define FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY 0x57
@@ -114,10 +117,10 @@
 #define FLAG_RECEIVED_WATMEL_BERRY           0x5B // Berry Master's wife
 #define FLAG_RECEIVED_DURIN_BERRY            0x5C // Berry Master's wife
 #define FLAG_RECEIVED_BELUE_BERRY            0x5D // Berry Master's wife
-#define FLAG_RECEIVED_QUICK_CLAW             0x5E
-#define FLAG_RECEIVED_MACHO_BRACE            0x5F
-#define FLAG_RECEIVED_MT_CHIMNEY_PADS        0x60
-#define FLAG_GIVEN_DEVON_SCOPE               0x61
+#define FLAG_RECEIVED_QUICK_CLAW             0x5E // trainer school, as vanilla
+#define FLAG_RECEIVED_MACHO_BRACE            0x5F // defeated winstrates and talk to victoria
+#define FLAG_RECEIVED_MT_CHIMNEY_PADS        0x60 
+#define FLAG_GIVEN_DEVON_SCOPE               0x61 // man outside mt pyre
 #define FLAG_RECEIVED_CLEANSE_TAG            0x62
 #define FLAG_RECEIVED_FOCUS_BAND             0x63
 #define FLAG_GIVEN_SHINY_DUCKLETT_REWARD     0x64 // todo man in Petalburg offers reward if player has shiny ducklett in party
@@ -126,7 +129,7 @@
 #define FLAG_GIVEN_BRANDON_COMET_SHARD       0x67
 #define FLAG_CHOSE_VICTORY_ROAD_BONUS_ITEM   0x68
 #define FLAG_GIVEN_VICTORY_ROAD_SKIP_REWARD  0x69
-#define FLAG_UNUSED_0x06A                    0x6A
+#define FLAG_GIVEN_DEWFORD_RESORT_LEEK       0x6A
 #define FLAG_UNUSED_0x06B                    0x6B
 #define FLAG_UNUSED_0x06C                    0x6C
 #define FLAG_UNUSED_0x06D                    0x6D
@@ -202,22 +205,22 @@
 #define FLAG_UNUSED_0xAF                     0xAF
 
 //Tutor Flags
-#define FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES   0xB0//hideaway, r114
-#define FLAG_MET_THOMSON_SET_DAMAGE_MOVES    0xB1//hideaway, r114
-#define FLAG_TUTOR_BITE_MOVES                0xB2//littleroot big house
-#define FLAG_TUTOR_PUNCH_MOVES               0xB3//mossdeep meditation cavern
-#define FLAG_TUTOR_TERRAIN_MOVES             0xB4//lavaridge herb shop
-#define FLAG_TUTOR_MULTI_HIT_MOVES           0xB5//
-#define FLAG_TUTOR_HIGH_CRIT_MOVES           0xB6//cutter's house, rustboro
-#define FLAG_TUTOR_SHROOMISH_SPORE           0xB7//rustboro city
-#define FLAG_RECEIVED_SECRET_POWER           0xB8
+#define FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES   0xB0 // hideaway, r114
+#define FLAG_MET_THOMSON_SET_DAMAGE_MOVES    0xB1 // hideaway, r114
+#define FLAG_TUTOR_BITE_MOVES                0xB2 // littleroot big house
+#define FLAG_TUTOR_PUNCH_MOVES               0xB3 // mossdeep meditation cavern
+#define FLAG_TUTOR_TERRAIN_MOVES             0xB4 // lavaridge herb shop
+#define FLAG_TUTOR_MULTI_HIT_MOVES           0xB5 // 
+#define FLAG_TUTOR_HIGH_CRIT_MOVES           0xB6 // cutter's house, rustboro
+#define FLAG_TUTOR_SHROOMISH_SPORE           0xB7 // rustboro city
+#define FLAG_RECEIVED_SECRET_POWER           0xB8 // r111
 #define FLAG_UNUSED_0xB9                     0xB9
 #define FLAG_UNUSED_0xBA                     0xBA
 #define FLAG_UNUSED_0xBB                     0xBB
 #define FLAG_UNUSED_0xBC                     0xBC
 #define FLAG_UNUSED_0xBD                     0xBD
 
-//space for 18 type tutor flags
+//space for 18 type tutor flags if needed
 #define FLAG_UNUSED_0xBE                     0xBE
 #define FLAG_UNUSED_0xBF                     0xBF
 #define FLAG_UNUSED_0xC0                     0xC0
@@ -238,8 +241,8 @@
 #define FLAG_UNUSED_0xCF                     0xCF
 
 //Legendary and Static Flags
-#define FLAG_ENCOUNTERED_LATIAS_OR_LATIOS    0xD0//not used for anything I can see
-#define FLAG_LATIOS_OR_LATIAS_ROAMING        0xD1//not used for anything I can see
+#define FLAG_ENCOUNTERED_LATIAS_OR_LATIOS    0xD0 // not used for anything I can see
+#define FLAG_LATIOS_OR_LATIAS_ROAMING        0xD1 // not used for anything I can see
 #define FLAG_DEFEATED_LATIAS_OR_LATIOS       0xD2
 #define FLAG_CAUGHT_LATIAS_OR_LATIOS         0xD3
 #define FLAG_DEFEATED_HO_OH                  0xD4
@@ -263,7 +266,7 @@
 #define FLAG_CAUGHT_LUGIA                    0xE6
 #define FLAG_CAUGHT_HO_OH                    0xE7
 #define FLAG_DEFEATED_ETERNAL_FLOETTE        0xE8
-#define FLAG_UNUSED_0x0E9                    0xE9
+#define FLAG_DEFEATED_REGIGIGAS              0xE9
 #define FLAG_UNUSED_0x0EA                    0xEA
 #define FLAG_UNUSED_0x0EB                    0xEB
 #define FLAG_UNUSED_0x0EC                    0xEC
@@ -453,6 +456,7 @@
 #define FLAG_REMATCH_SAWYER                  0x19B
 #define FLAG_REMATCH_KIRA_AND_DAN            0x19C
 
+//these rematch flags have been supplanted; should be reused for other purposes
 #define FLAG_REMATCH_WALLY                   0x19D
 #define FLAG_REMATCH_ROXANNE                 0x19E
 #define FLAG_REMATCH_BRAWLY                  0x19F
@@ -735,7 +739,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_132_ABILITY_PATCH              0x2AA
 #define FLAG_HIDDEN_ITEM_ROUTE_132_HEART_SCALE_1              0x2AB
 #define FLAG_HIDDEN_ITEM_ROUTE_132_HEART_SCALE_2              0x2AC
-#define FLAG_UNUSED_0x2AD  0x2AD // Unused Flag
+#define FLAG_HIDDEN_ITEM_UNDERWATER_109_COMET_SHARD           0x2AD
 #define FLAG_UNUSED_0x2AE  0x2AE // Unused Flag
 #define FLAG_UNUSED_0x2AF  0x2AF // Unused Flag
 #define FLAG_UNUSED_0x2B0  0x2B0 // Unused Flag

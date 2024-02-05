@@ -218,15 +218,15 @@
 #define VAR_TRICK_HOUSE_PRIZE_PICKUP                     0x40C1
 #define VAR_PACIFIDLOG_TM_RECEIVED_DAY                   0x40C2
 #define VAR_UNUSED_0x40C3                                0x40C3
-#define VAR_FOSSIL_RESURRECTION_STATE                    0x40C4//used to handle revive sequence
-#define VAR_WHICH_FOSSIL_REVIVED                         0x40C5//used to save choice of revived fossil
+#define VAR_FOSSIL_RESURRECTION_STATE                    0x40C4 // used to handle revive sequence
+#define VAR_WHICH_FOSSIL_REVIVED                         0x40C5 // used to save choice of revived fossil
 #define VAR_UNUSED_0x40C6                                0x40C6
 #define VAR_UNUSED_0x40C7                                0x40C7
 #define VAR_JAGGED_PASS_STATE                            0x40C8
-#define VAR_SCOTT_PETALBURG_ENCOUNTER                    0x40C9
+#define VAR_UNUSED_0x40C9                                0x40C9 // was scott petalburg encounter
 #define VAR_SKY_PILLAR_STATE                             0x40CA
 #define VAR_MIRAGE_TOWER_STATE                           0x40CB
-#define VAR_UNUSED_0x40CC                                0x40CC// was fossil maniac state
+#define VAR_UNUSED_0x40CC                                0x40CC //  was fossil maniac state
 #define VAR_CABLE_CLUB_TUTORIAL_STATE                    0x40CD
 #define VAR_FRONTIER_BATTLE_MODE                         0x40CE
 #define VAR_FRONTIER_FACILITY                            0x40CF

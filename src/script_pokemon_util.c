@@ -152,17 +152,30 @@ bool8 DoesPartyHaveEnigmaBerry(void)
 void CreateScriptedWildMon(u16 species, u8 level, u16 item)
 {
     u8 heldItem[2];
+    u8 wildIv = USE_RANDOM_IVS;
+    u32 abilityNum;
+
+    //Jinnora: allow all perfect IVs with special flag
+    if(FlagGet(FLAG_WILD_PERFECT_IVS))
+        wildIv = 31;
 
     ZeroEnemyPartyMons();
     if (OW_SYNCHRONIZE_NATURE > GEN_3)
-        CreateMonWithNature(&gEnemyParty[0], species, level, USE_RANDOM_IVS, PickWildMonNature());
+        CreateMonWithNature(&gEnemyParty[0], species, level, wildIv, PickWildMonNature());
     else
-        CreateMon(&gEnemyParty[0], species, level, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
+        CreateMon(&gEnemyParty[0], species, level, wildIv, 0, 0, OT_ID_PLAYER_ID, 0);
     if (item)
     {
         heldItem[0] = item;
         heldItem[1] = item >> 8;
         SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, heldItem);
+    }
+
+    //Jinnora: added this section to allow special wild encounters with hidden ability
+    if (FlagGet(FLAG_WILD_HIDDEN_ABILITY))
+    {
+        abilityNum = 2;
+        SetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM, &abilityNum);
     }
 }
 void CreateScriptedDoubleWildMon(u16 species1, u8 level1, u16 item1, u16 species2, u8 level2, u16 item2)

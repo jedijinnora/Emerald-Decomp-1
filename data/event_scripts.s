@@ -1241,3 +1241,9 @@ Common_EventScript_CountBadges::
 	.include "data/maps/PokemonLeague_EliteFourHallway/scripts.inc"
 
 	.include "data/maps/PokemonLeague_ReturnHallway/scripts.inc"
+
+	.include "data/maps/Underwater_Route109/scripts.inc"
+
+	.include "data/maps/Underwater_TitansGrave_Entry/scripts.inc"
+
+	.include "data/maps/TitansGrave/scripts.inc"

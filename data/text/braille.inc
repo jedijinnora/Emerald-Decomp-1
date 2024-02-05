@@ -90,10 +90,10 @@ SealedChamber_InnerRoom_Braille_ThoseWithCourageHope:
 
 SealedChamber_InnerRoom_Braille_OpenDoorEternalPokemonWaits:
 	brailleformat 3, 2, 27, 17, 6, 5
-	.braille "OPEN A DOOR.\n"
-	.braille "AN ETERNAL\n"
-	.braille "POKEMON\n"
-	.braille "WAITS.$"
+	.braille "OPEN ALL THE\n"
+	.braille "DOORS. THE\n"
+	.braille "POKEMON WE\n"
+	.braille "FEARED WAITS.$"
 
 DesertRuins_Braille_UseRockSmash:
 	brailleformat 1, 0, 27, 19, 4, 3
@@ -115,3 +115,67 @@ AncientTomb_Braille_ShineInTheMiddle:
 	.braille "INHERIT OUR\n"
 	.braille "WILL, SHINE\n"
 	.braille "IN THE MIDDLE.$"
+
+Underwater_TitansGrave_Braille_Left:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "THE FIRST KEY\n"
+	.braille "WILL RELEASE.$"
+
+Underwater_TitansGrave_Braille_Right:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "THE SECOND\n"
+	.braille "WARD UNLOCKS.$"
+
+Underwater_TitansGrave_Braille_Worthy:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "YOUR PATH\n"
+	.braille "SHALL OPEN\n"
+	.braille "WAYFINDER.$"
+
+Underwater_TitansGrave_Braille_Unworthy:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "THE WAY IS SHUT\n"
+	.braille "UNWORTHY ONE.$"
+
+TitansGrave_Braille_Instructions1:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "THE ONE WE\n"
+	.braille "FEARED\n"
+	.braille "SLEEPS HERE.$"
+
+TitansGrave_Braille_Instructions2:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "APPROACH THE\n"
+	.braille "CENTER. WAKE\n"
+	.braille "THE BEAST.$"
+
+TitansGrave_Braille_Instructions3:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "BRING THE\n"
+	.braille "TITANS TO SEE\n"
+	.braille "TRUE POWER.$"
+
+TitansGrave_Braille_Rock:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "TITAN OF\n"
+	.braille "ROCK.$"
+
+TitansGrave_Braille_Ice:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "TITAN OF\n"
+	.braille "ICE.$"
+
+TitansGrave_Braille_Steel:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "TITAN OF\n"
+	.braille "STEEL.$"
+
+TitansGrave_Braille_Electric:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "LOST ONE OF\n"
+	.braille "ELECTRIC.$"
+
+TitansGrave_Braille_Dragon:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "LOST ONE OF\n"
+	.braille "DRAGON.$"

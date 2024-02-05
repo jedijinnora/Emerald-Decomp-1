@@ -1,0 +1,237 @@
+mapscripts TitansGrave_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : TitansGrave_OnTransition
+    MAP_SCRIPT_ON_RESUME : TitansGrave_OnResume
+}
+
+script TitansGrave_OnTransition {
+    if(flag(FLAG_DEFEATED_REGIGIGAS)) {
+        setvar(VAR_TEMP_0, 10)
+    }
+    end
+}
+
+script TitansGrave_OnResume {
+	setdivewarp(MAP_UNDERWATER_TITANS_GRAVE_ENTRY, 10, 8)
+	setescapewarp(MAP_ROUTE109, 105, 11)
+	end
+}
+
+script TitansGrave_EventScript_BrailleInstructions1 {
+    lock
+    braillemsgbox(TitansGrave_Braille_Instructions1)
+    release
+    end
+}
+
+script TitansGrave_EventScript_BrailleInstructions2 {
+    lock
+    braillemsgbox(TitansGrave_Braille_Instructions2)
+    release
+    end
+}
+
+script TitansGrave_EventScript_BrailleInstructions3 {
+    lock
+    braillemsgbox(TitansGrave_Braille_Instructions3)
+    release
+    end
+}
+
+script TitansGrave_EventScript_BrailleRock {
+    lock
+    braillemsgbox(TitansGrave_Braille_Rock)
+    goto_if_set(FLAG_DEFEATED_REGIROCK, TitansGrave_EventScript_UnlockRock)
+    setvar(VAR_TEMP_0, 1)
+    release
+    end
+}
+
+script TitansGrave_EventScript_BrailleIce {
+    lock
+    braillemsgbox(TitansGrave_Braille_Ice)
+    goto_if_set(FLAG_DEFEATED_REGICE, TitansGrave_EventScript_UnlockIce)
+    setvar(VAR_TEMP_0, 1)
+    release
+    end
+}
+
+script TitansGrave_EventScript_BrailleSteel {
+    lock
+    braillemsgbox(TitansGrave_Braille_Steel)
+    goto_if_set(FLAG_DEFEATED_REGISTEEL, TitansGrave_EventScript_UnlockSteel)
+    setvar(VAR_TEMP_0, 1)
+    release
+    end
+}
+
+script TitansGrave_EventScript_UnlockRock {
+    setflag(FLAG_TEMP_1)
+    setvar(VAR_TEMP_0, 0)
+    checkforspecies(SPECIES_REGIROCK, TitansGrave_EventScript_PlayerHasRegirock)
+    msgbox(format("You have defeated Regirock. Something unlocked!"))
+    release
+    end
+}
+
+script TitansGrave_EventScript_UnlockIce {
+    setflag(FLAG_TEMP_2)
+    setvar(VAR_TEMP_0, 0)
+    checkforspecies(SPECIES_REGICE, TitansGrave_EventScript_PlayerHasRegice)
+    msgbox(format("You have defeated Regice. Something unlocked!"))
+    release
+    end
+}
+
+script TitansGrave_EventScript_UnlockSteel {
+    setflag(FLAG_TEMP_3)
+    setvar(VAR_TEMP_0, 0)
+    checkforspecies(SPECIES_REGIROCK, TitansGrave_EventScript_PlayerHasRegisteel)
+    msgbox(format("You have defeated Registeel. Something unlocked!"))
+    release
+    end
+}
+
+script TitansGrave_EventScript_PlayerHasRegirock {
+    setflag(FLAG_TEMP_4)
+    playmoncry(SPECIES_REGIROCK, CRY_MODE_ENCOUNTER)
+    msgbox(format("Regirock added power!"))
+    release
+    end
+}
+
+script TitansGrave_EventScript_PlayerHasRegice {
+    setflag(FLAG_TEMP_5)
+    playmoncry(SPECIES_REGICE, CRY_MODE_ENCOUNTER)
+    msgbox(format("Regice added power!"))
+    release
+    end
+}
+
+script TitansGrave_EventScript_PlayerHasRegisteel {
+    setflag(FLAG_TEMP_6)
+    playmoncry(SPECIES_REGISTEEL, CRY_MODE_ENCOUNTER)
+    msgbox(format("Registeel added power!"))
+    release
+    end
+}
+
+script TitansGrave_EventScript_BrailleElectric {
+    lock
+    braillemsgbox(TitansGrave_Braille_Electric)
+    release
+    end
+}
+
+script TitansGrave_EventScript_BrailleDragon {
+    lock
+    braillemsgbox(TitansGrave_Braille_Dragon)
+    release
+    end
+}
+
+script TitansGrave_EventScript_CheckRegigigas {
+    lock
+    fadeoutbgm(0)
+    playse(SE_TRUCK_DOOR)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
+    waitmovement(0)
+    delay(20)
+	goto_if_unset(FLAG_TEMP_1, TitansGrave_EventScript_CheckEnd)
+    call(TitansGrave_EventScript_Shake)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+    waitmovement(0)
+    delay(20)
+	goto_if_unset(FLAG_TEMP_2, TitansGrave_EventScript_CheckEnd)
+    call(TitansGrave_EventScript_Shake)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+    waitmovement(0)
+    delay(20)
+	goto_if_unset(FLAG_TEMP_3, TitansGrave_EventScript_CheckEnd)
+    call(TitansGrave_EventScript_Shake)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
+    waitmovement(0)
+    delay(20)
+    playmoncry(SPECIES_REGIGIGAS, CRY_MODE_ENCOUNTER)
+    goto_if_unset(FLAG_TEMP_4, TitansGrave_EventScript_WeakRegigigas)
+    goto_if_unset(FLAG_TEMP_5, TitansGrave_EventScript_WeakRegigigas)
+    goto_if_unset(FLAG_TEMP_6, TitansGrave_EventScript_WeakRegigigas)
+    goto_if_set(FLAG_SYS_GAME_CLEAR, TitansGrave_EventScript_StrongRegigigas)
+    goto_if_gt(VAR_DIFFICULTY_SETTING, 1, TitansGrave_EventScript_WeakRegigigas)
+    goto(TitansGrave_EventScript_StrongRegigigas)
+}
+
+script TitansGrave_EventScript_CheckEnd {
+    msgbox("Interesting…")
+    setvar(VAR_TEMP_0, 1)
+    fadeinbgm(0)
+    release
+    end
+}
+
+script TitansGrave_EventScript_Shake {
+    playse(SE_TRUCK_DOOR)
+	special(DoSealedChamberShakingEffect_Short)
+	waitstate
+	delay(30)
+    return
+}
+
+script TitansGrave_EventScript_WeakRegigigas {
+    msgbox(format("Something is awakening!"))
+    delay(40)
+    playmoncry(SPECIES_REGIGIGAS, CRY_MODE_WEAK)
+    waitmoncry
+    call(TitansGrave_EventScript_ChooseRegigigasLevel)
+    special(StartRegiBattle)
+    waitstate
+    setflag(FLAG_DEFEATED_REGIGIGAS)
+    setvar(VAR_TEMP_0, 10)
+    release
+    end
+}
+
+script TitansGrave_EventScript_StrongRegigigas {
+    delay(20)
+    playmoncry(SPECIES_REGIROCK, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    delay(20)
+    playmoncry(SPECIES_REGICE, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    delay(20)
+    playmoncry(SPECIES_REGISTEEL, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    call(TitansGrave_EventScript_Shake)
+    call(TitansGrave_EventScript_Shake)
+    call(TitansGrave_EventScript_Shake)
+    msgbox(format("Something monstrous is awakening!"))
+    delay(40)
+    playmoncry(SPECIES_REGIGIGAS, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    setflag(FLAG_WILD_HIDDEN_ABILITY)
+    setflag(FLAG_WILD_PERFECT_IVS)
+    call(TitansGrave_EventScript_ChooseRegigigasLevel)
+    special(StartRegiBattle)
+    waitstate
+    setflag(FLAG_DEFEATED_REGIGIGAS)
+    setvar(VAR_TEMP_0, 10)
+    clearflag(FLAG_WILD_HIDDEN_ABILITY)
+    clearflag(FLAG_WILD_PERFECT_IVS)
+    release
+    end
+}
+
+script TitansGrave_EventScript_ChooseRegigigasLevel {
+    switch(var(VAR_NUM_BADGES)) {
+        case 4:
+            setwildbattle(SPECIES_REGIGIGAS, 50)
+        case 5:
+            setwildbattle(SPECIES_REGIGIGAS, 60)
+        case 6:
+            setwildbattle(SPECIES_REGIGIGAS, 70)
+        case 7:
+            setwildbattle(SPECIES_REGIGIGAS, 75)
+        default:
+            setwildbattle(SPECIES_REGIGIGAS, 85)
+    }
+    return
+}

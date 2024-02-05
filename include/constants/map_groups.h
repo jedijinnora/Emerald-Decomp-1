@@ -84,6 +84,7 @@
 #define MAP_MONSU_ISLAND_EXTERIOR       (75 | (0 << 8))
 #define MAP_SAKURAI_OVERLOOK            (76 | (0 << 8))
 #define MAP_SUNRISE_SHORE               (77 | (0 << 8))
+#define MAP_UNDERWATER_ROUTE109         (78 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -485,15 +486,17 @@
 #define MAP_CHAMPIONS_CUT                            (126 | (25 << 8))
 
 // gMapGroup_Dungeons2
-#define MAP_SEAFOAM_COVE_B1F            (0 | (26 << 8))
-#define MAP_SEAFOAM_COVE_B2F            (1 | (26 << 8))
-#define MAP_ALTERING_CAVE_UPPER_FLOOR_1 (2 | (26 << 8))
-#define MAP_ALTERING_CAVE_UPPER_FLOOR_2 (3 | (26 << 8))
-#define MAP_DESERT_UNDERPASS_1F         (4 | (26 << 8))
-#define MAP_DESERT_UNDERPASS_B1F        (5 | (26 << 8))
-#define MAP_DESERT_UNDERPASS_B2F        (6 | (26 << 8))
-#define MAP_DESERT_UNDERPASS_EXITS      (7 | (26 << 8))
-#define MAP_FOREST_HEART                (8 | (26 << 8))
+#define MAP_SEAFOAM_COVE_B1F              (0 | (26 << 8))
+#define MAP_SEAFOAM_COVE_B2F              (1 | (26 << 8))
+#define MAP_ALTERING_CAVE_UPPER_FLOOR_1   (2 | (26 << 8))
+#define MAP_ALTERING_CAVE_UPPER_FLOOR_2   (3 | (26 << 8))
+#define MAP_DESERT_UNDERPASS_1F           (4 | (26 << 8))
+#define MAP_DESERT_UNDERPASS_B1F          (5 | (26 << 8))
+#define MAP_DESERT_UNDERPASS_B2F          (6 | (26 << 8))
+#define MAP_DESERT_UNDERPASS_EXITS        (7 | (26 << 8))
+#define MAP_FOREST_HEART                  (8 | (26 << 8))
+#define MAP_UNDERWATER_TITANS_GRAVE_ENTRY (9 | (26 << 8))
+#define MAP_TITANS_GRAVE                  (10 | (26 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (27 << 8))

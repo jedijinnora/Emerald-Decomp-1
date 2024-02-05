@@ -1,1 +1,45 @@
 mapscripts DewfordResort_StaffHouse_MapScripts {}
+
+
+const LOCALID_COOK = 1
+
+script DewfordResort_StaffHouse_EventScript_Cook {
+    lock
+    faceplayer
+    msgbox(format("Every night he comes to me and says “Cook our guests something special. Make it memorable!”"))
+    msgbox(format("I am an artist, not a vending machine! Why can't the boss shut up and let me work?"))
+    call_if_unset(FLAG_GIVEN_DEWFORD_RESORT_LEEK, DewfordResort_StaffHouse_EventScript_GiveLeek)
+    applymovement(LOCALID_COOK, Common_Movement_FaceUp)
+    waitmovement(0)
+    release
+    end
+}
+
+script DewfordResort_StaffHouse_EventScript_GiveLeek {
+    msgbox(format("Besides, I could feed these idiots straight from the freezer aisle and they wouldn't know the difference!"))
+    msgbox(format("Here, take this! It's better in your hands than served to dumb tourists as a garnish!"))
+    giveitem(ITEM_LEEK)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_GIVEN_DEWFORD_RESORT_LEEK)
+    return
+}
+
+script DewfordResort_StaffHouse_EventScript_Picnicker {
+    lock
+    faceplayer
+    msgbox(format("I hate this job, but there's not much that makes money in Dewford besides the tourism industry."))
+    msgbox(format("I love my home. I hate how I have to participate in commercializing it to make my living."))
+    release
+    end
+}
+
+script DewfordResort_StaffHouse_EventScript_RuleBook {
+    lock
+    msgbox(format("Rules for Employees:"))
+    msgbox(format("Rule 1: On time is late! Show up early, every day!"))
+    msgbox(format("Rule 2: Make the guests happy! Smile, be cheerful, and never say “no”!"))
+    msgbox(format("Rule 3: If you're on the clock, you're working! You have a wonderful twenty minute break for lunch, every day!"))
+    msgbox(format("Rule 4: Suggestions, complaints, and applications for raises may all be delivered to the nearest trash can, 24/7!"))
+    release
+    end
+}

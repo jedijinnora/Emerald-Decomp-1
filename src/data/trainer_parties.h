@@ -2,9 +2,12 @@
 //THIS IS THE ACTUAL FILE USED BY THE GAME TO BUILD NPC TRAINERS
 //WARNING: CHECK VERSION NUMBER WHEN REFERENCING THIS DOCUMENT
 
-//You should also check the file "trainers.h" to view AI flags
-//In general most trainers have smarter AI than vanilla
-
+//AI FLAG INFO:
+//You should check the file "trainers.h" to view AI flags, the game does not reference them here
+//The "default" AI in this game is AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY
+//Trainers may include smart switching flags
+//Ninja boys and some other trainers have AI_FLAG_RISKY, AI_FLAG_WILL_SUICIDE if moves like Explosion are present
+//Trainers may have AI_FLAG_HELP_PARTNER if they can be in a double battle and have a move worth targeting on an ally
 
 //EASY PARTY INFO:
 //Trainers will use the _easy version of the party if you have fewer than <threshold> badges

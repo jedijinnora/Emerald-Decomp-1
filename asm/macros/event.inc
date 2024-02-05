@@ -2105,3 +2105,9 @@
 	special SetCaughtMon
 	.endm
 
+	@ Check if player has \speciesId present in their party.
+    .macro checkforspecies speciesId:req, script:req
+    setvar VAR_0x8004, \speciesId
+    specialvar VAR_RESULT, CheckPartyForMon
+    goto_if_eq VAR_RESULT, TRUE, \script
+    .endm
