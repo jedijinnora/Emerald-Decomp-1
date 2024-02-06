@@ -1,7 +1,66 @@
-raw `
-Route107_MapScripts::
-	.byte 0
+mapscripts Route107_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route107_OnTransition
+}
 
+script Route107_OnTransition {
+	call_if_unset(FLAG_SAND_FAMILY_MOVED, Route107_EventScript_HideNPCs)
+	end
+}
+
+script Route107_EventScript_HideNPCs {
+	setflag(FLAG_TEMP_11)
+	setflag(FLAG_TEMP_12)
+	return
+}
+
+script Route107_EventScript_BlackBelt {
+	lock
+	msgbox(format("Hah! Hi-yah!"))
+	faceplayer
+	msgbox(format("Buzz off! My Tyrogue and I are training! I'm gonna evolve him without any stinking evolution stone!"))
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+	end
+}
+
+script Route107_EventScript_BattleGirl {
+	lock
+	faceplayer
+	goto_if_unset(FLAG_GIVEN_ROUTE_107_PUNCHING_GLOVE, Route107_EventScript_GiveGloves)
+	msgbox(format("Not many people come to this side of the island."))
+	release
+	end
+}
+
+script Route107_EventScript_GiveGloves {
+	msgbox(format("A Trainer like you should find these useful."))
+	giveitem(ITEM_PUNCHING_GLOVE)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_GIVEN_ROUTE_107_PUNCHING_GLOVE)
+	msgbox(format("I wore those gloves back when I was a champion boxer!"))
+	msgbox(format("Try giving them to a Pokémon like Hitmonchan!"))
+	release
+	end
+}
+
+script Route107_EventScript_PokefanF {
+	lock
+	faceplayer
+	msgbox(format("Isn't the SAND on this beach WONDERFUL?!!"))
+	release
+	end
+}
+
+script Route107_EventScript_LittleBoy {
+	lock
+	faceplayer
+	msgbox(format("I HATE YOU!"))
+	release
+	end
+}
+
+raw `
 Route107_EventScript_Darrin::
 	trainerbattle_single TRAINER_DARRIN, Route107_Text_DarrinIntro, Route107_Text_DarrinDefeated
 	msgbox Route107_Text_DarrinPostBattle, MSGBOX_AUTOCLOSE

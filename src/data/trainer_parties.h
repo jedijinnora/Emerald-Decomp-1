@@ -9607,7 +9607,62 @@ static const struct TrainerMon sParty_Pete_easy[] = {
 
 //ROUTE 104 TRAINERS
 
-//Lass Haley
+//Lass Haley: threshold 2
+static const struct TrainerMon sParty_Haley[] = {
+    {
+    .lvl = 12,
+    .species = SPECIES_SIMISAGE,
+    .heldItem = ITEM_STARF_BERRY,
+    .ability = ABILITY_GLUTTONY,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_JOLLY),
+    .moves = {MOVE_ROCK_SLIDE, MOVE_SEED_BOMB, MOVE_TICKLE, MOVE_SPIKY_SHIELD}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_SIMISEAR,
+    .heldItem = ITEM_STARF_BERRY,
+    .ability = ABILITY_GLUTTONY,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_NAIVE),
+    .moves = {MOVE_FIRE_BLAST, MOVE_FOCUS_BLAST, MOVE_NASTY_PLOT, MOVE_KNOCK_OFF}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_SIMIPOUR,
+    .heldItem = ITEM_STARF_BERRY,
+    .ability = ABILITY_GLUTTONY,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_HASTY),
+    .moves = {MOVE_SCALD, MOVE_ICE_BEAM, MOVE_WORK_UP, MOVE_GUNK_SHOT}
+    }
+};
+static const struct TrainerMon sParty_Haley_easy[] = {
+    {
+    .lvl = 12,
+    .species = SPECIES_PANSAGE,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_GLUTTONY,
+    .nature = TRAINER_PARTY_NATURE(NATURE_JOLLY),
+    .moves = {MOVE_ACROBATICS, MOVE_SEED_BOMB, MOVE_LEECH_SEED, MOVE_CRUNCH}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_PANSEAR,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_GLUTTONY,
+    .nature = TRAINER_PARTY_NATURE(NATURE_NAIVE),
+    .moves = {MOVE_INCINERATE, MOVE_LOW_SWEEP, MOVE_YAWN, MOVE_KNOCK_OFF}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_PANPOUR,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_GLUTTONY,
+    .nature = TRAINER_PARTY_NATURE(NATURE_HASTY),
+    .moves = {MOVE_BRINE, MOVE_ICE_PUNCH, MOVE_WORK_UP, MOVE_GUNK_SHOT}
+    }
+};
 //vanilla
 static const struct TrainerMon sParty_Haley1[] = {
     {

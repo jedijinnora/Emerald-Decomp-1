@@ -225,7 +225,7 @@
       "id": "LAYOUT_ROUTE107",
       "name": "Route107_Layout",
       "width": 96,
-      "height": 20,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/Route107/border.bin",

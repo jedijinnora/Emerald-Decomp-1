@@ -2,9 +2,24 @@ mapscripts DewfordTown_MapScripts{
 	MAP_SCRIPT_ON_TRANSITION : DewfordTown_OnTransition
 }
 
+const LOCALID_POKEFAN_F = 4
+const LOCALID_LITTLE_BOY = 5
+
+//FLAG_TEMP_1 Little sand boy intro
+//FLAG_TEMP_2 PokefanF request
+//VAR_TEMP_1 player x-coord
+//VAR_TEMP_2 player y-coord
+
 script DewfordTown_OnTransition {
 	setflag(FLAG_VISITED_DEWFORD_TOWN)
+	call_if_set(FLAG_SAND_FAMILY_MOVED, DewfordTown_EventScript_HideNPCs)
 	end
+}
+
+script DewfordTown_EventScript_HideNPCs {
+	setflag(FLAG_TEMP_11)
+	setflag(FLAG_TEMP_12)
+	return
 }
 
 script DewfordTown_EventScript_TownSign {
@@ -62,15 +77,94 @@ script DewfordTown_EventScript_Fisherman {
 script DewfordTown_EventScript_PokefanF {
 	lock
 	faceplayer
-	msgbox(format("Have you seen my son? He ran off when we left for the beach this morning."))
+	msgbox(format("My son ran off when we left for the beach this morning."))
+	goto_if_set(FLAG_TEMP_2, DewfordTown_EventScript_YouveSeenHim)
+	msgbox(format("If you see him, please let me know."))
+	setflag(FLAG_TEMP_2)
+	goto_if_set(FLAG_TEMP_1, DewfordTown_EventScript_YouveSeenHim)
 	release
 	end
+}
+
+script DewfordTown_EventScript_YouveSeenHim {
+	msgbox(format("Oh? Have you seen him?"))
+	dynmultipush("Don't answer", 0)
+	dynmultipush("(Lie) No idea?", 1)
+	dynmultipush("(Truth) He's hiding over there!", 2)
+	dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			msgbox(format("Where could he be?"))
+			release
+			end
+		case 2:
+			msgbox(format("Oh, thank you!"))
+			getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+			call_if_eq(VAR_TEMP_2, 25, DewfordTown_EventScript_MomLeaveSouth)
+			call_if_ne(VAR_TEMP_2, 25, DewfordTown_EventScript_MomLeaveEast)
+			applymovement(LOCALID_POKEFAN_F, DewfordTown_Movement_MomLeave)
+			waitmovement(0)
+			removeobject(LOCALID_POKEFAN_F)
+			removeobject(LOCALID_LITTLE_BOY)
+			setflag(FLAG_TEMP_11)
+			setflag(FLAG_TEMP_12)
+			setflag(FLAG_SAND_FAMILY_MOVED)
+		default:
+			release
+			end
+	}
+	release
+	end
+}
+
+script DewfordTown_EventScript_MomLeaveEast {
+	applymovement(LOCALID_POKEFAN_F, DewfordTown_Movement_MomEastFirst)
+	waitmovement(0)
+	return
+}
+
+script DewfordTown_EventScript_MomLeaveSouth {
+	applymovement(LOCALID_POKEFAN_F, DewfordTown_Movement_MomSouthFirst)
+	waitmovement(0)
+	return
+}
+
+movement DewfordTown_Movement_MomEastFirst {
+	walk_right
+	walk_down
+	step_end
+}
+
+movement DewfordTown_Movement_MomSouthFirst {
+	walk_down
+	walk_right
+	step_end
+}
+
+movement DewfordTown_Movement_MomLeave {
+	walk_down
+	walk_right * 9
+	step_end
 }
 
 script DewfordTown_EventScript_LittleBoy {
 	lock
 	faceplayer
-	msgbox(format("Don't make me go to the beach! The nasty sand will get everywhere!"))
+	call_if_set(FLAG_TEMP_2, DewfordTown_EventScript_ImHiding)
+	goto_if_set(FLAG_TEMP_1, DewfordTown_EventScript_IHateSand)
+	msgbox(format("Mom wants to make me go to the beach! The nasty sand will get all over me!"))
+	setflag(FLAG_TEMP_1)
+	release
+	end
+}
+
+script DewfordTown_EventScript_ImHiding {
+	msgbox(format("Shh! Don't tell Mom where I am!"))
+	return
+}
+
+script DewfordTown_EventScript_IHateSand {
+	msgbox(format("I hade sand! It's coarse and rough, and it gets everywhere!"))
 	release
 	end
 }

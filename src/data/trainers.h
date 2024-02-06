@@ -2731,7 +2731,9 @@ const struct Trainer gTrainers[] = {
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = BASIC_TRAINER_FLAGS,
-        .party = TRAINER_PARTY(sParty_Haley1),
+        .party = TRAINER_PARTY(sParty_Haley),
+        .badgeThreshold = 2,
+        .easyParty = sParty_Haley_easy,
     },
 
     [TRAINER_IVAN] =

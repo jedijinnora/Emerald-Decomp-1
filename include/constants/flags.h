@@ -130,7 +130,7 @@
 #define FLAG_CHOSE_VICTORY_ROAD_BONUS_ITEM   0x68
 #define FLAG_GIVEN_VICTORY_ROAD_SKIP_REWARD  0x69
 #define FLAG_GIVEN_DEWFORD_RESORT_LEEK       0x6A
-#define FLAG_UNUSED_0x06B                    0x6B
+#define FLAG_GIVEN_ROUTE_107_PUNCHING_GLOVE  0x6B
 #define FLAG_UNUSED_0x06C                    0x6C
 #define FLAG_UNUSED_0x06D                    0x6D
 #define FLAG_UNUSED_0x06E                    0x6E
@@ -949,7 +949,7 @@
 #define FLAG_ENTERED_VICTORY_ROAD                                   0x36C //used in trainer scaling
 #define FLAG_ENTERED_ELITE_FOUR                                     0x36D //used in trainer scaling
 #define FLAG_ENTERED_CHAMPION_ROOM                                  0x36E //used in trainer scaling
-#define FLAG_UNUSED_0x36F                                           0x36F
+#define FLAG_SAND_FAMILY_MOVED                                      0x36F
 #define FLAG_UNUSED_0x370                                           0x370
 #define FLAG_UNUSED_0x371                                           0x371
 #define FLAG_UNUSED_0x372                                           0x372
@@ -1339,7 +1339,7 @@
 #define FLAG_ITEM_SHOAL_CAVE_LOW_TIDE_INNER_ROOM_RAZOR_CLAW         0x4E2
 #define FLAG_ITEM_MONSU_ISLAND_EXTERIOR_BIG_NUGGET                  0x4E3
 #define FLAG_ITEM_SUNRISE_SHORE_SUN_STONE                           0x4E4
-#define FLAG_UNUSED_0x4E5                                           0x4E5
+#define FLAG_ITEM_ROUTE_107_DAWN_STONE                              0x4E5
 #define FLAG_UNUSED_0x4E6                                           0x4E6
 #define FLAG_UNUSED_0x4E7                                           0x4E7
 #define FLAG_UNUSED_0x4E8                                           0x4E8
