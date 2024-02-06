@@ -53,13 +53,12 @@ script EverGrandeCity_EventScript_Jinnora {
 }
 
 script EverGrandeCity_EventScript_OfferAllStartingItems {
-	playfanfare(MUS_OBTAIN_ITEM)
 	additem(ITEM_POKE_BALL, 30)
 	additem(ITEM_DREAM_BALL, 2)
     additem(ITEM_EXP_SHARE)
 	setflag(FLAG_SYS_POKENAV_GET)
 	//todo infinite candy
-	msgbox(format("Would you like the other items available at this point?"), MSGBOX_YESNO)
+	msgbox(format("Would you me to give you all the items available at this point?"), MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, NO, Common_EventScript_NopReturn)
 	playfanfare(MUS_OBTAIN_ITEM)
 	if(!flag(FLAG_HIDDEN_ITEM_ARRIVAL_FERRY_ROOM_FRESH_WATER)) {

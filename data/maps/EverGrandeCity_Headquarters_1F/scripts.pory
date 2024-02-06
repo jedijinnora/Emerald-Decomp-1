@@ -754,6 +754,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Cleanse Tag avoids all encounters, by devolov."))
                     msgbox(format("Use/Register only shows on Key Items with those options, by voloved."))
                     msgbox(format("Using Soot Sack shows ash collected, by Sapphire Jester."))
+                    msgbox(format("HGSS_Dex Darkest mode, by RavePossum."))
                     goto(FeaturesMenu)
                 default:
                     goto(CreditsMenu)
