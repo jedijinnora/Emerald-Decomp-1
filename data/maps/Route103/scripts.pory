@@ -2,9 +2,16 @@ mapscripts Route103_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : Route103_OnTransition
 }
 
+const LOCALID_RHETT = 13
+
 script Route103_OnTransition {
 	call(Common_EventScript_SetWild_0)
+	call_if_lt(VAR_NUM_BADGES, 3, Route103_EventScript_MoveRhett)
 	end
+}
+
+script Route103_EventScript_MoveRhett {
+	setobjectxyperm(LOCALID_RHETT, 69, 6)
 }
 
 script Route103_EventScript_RouteSign {
@@ -27,6 +34,24 @@ script Route103_EventScript_Boy {
 	msgbox(format("If I had a bike, I could ride across the bridge to get to Mauville and Slateport."))
 	msgbox(format("But to get a bike I have to go to the bike shop… in Mauville!"))
 	msgbox(format("Whose idea was this?"))
+	release
+	end
+}
+
+script Route103_EventScript_Nurse {
+	lock
+	faceplayer
+	goto_if_defeated(TRAINER_RHETT, Route103_EventScript_WantHeal)
+	msgbox(format("You should watch out for the Trainers in this area!"))
+	call(Route103_EventScript_WantHeal)
+	release
+	end
+}
+
+script Route103_EventScript_WantHeal {
+	msgbox(format("Want me to heal your Pokémon?"), MSGBOX_YESNO)
+	call_if_eq(VAR_RESULT, YES, Common_EventScript_OutOfCenterPartyHeal)
+	msgbox(format("Be careful, Trainer!"))
 	release
 	end
 }
