@@ -78,7 +78,6 @@ script DewfordTown_EventScript_PokefanF {
 	lock
 	faceplayer
 	msgbox(format("My son ran off when we left for the beach this morning."))
-	goto_if_set(FLAG_TEMP_2, DewfordTown_EventScript_YouveSeenHim)
 	msgbox(format("If you see him, please let me know."))
 	setflag(FLAG_TEMP_2)
 	goto_if_set(FLAG_TEMP_1, DewfordTown_EventScript_YouveSeenHim)
@@ -90,7 +89,7 @@ script DewfordTown_EventScript_YouveSeenHim {
 	msgbox(format("Oh? Have you seen him?"))
 	dynmultipush("Don't answer", 0)
 	dynmultipush("(Lie) No idea?", 1)
-	dynmultipush("(Truth) He's hiding over there!", 2)
+	dynmultipush("(Truth) He's over there!", 2)
 	dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
 	switch(var(VAR_RESULT)) {
 		case 1:
@@ -99,6 +98,7 @@ script DewfordTown_EventScript_YouveSeenHim {
 			end
 		case 2:
 			msgbox(format("Oh, thank you!"))
+			closemessage
 			getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
 			call_if_eq(VAR_TEMP_2, 25, DewfordTown_EventScript_MomLeaveSouth)
 			call_if_ne(VAR_TEMP_2, 25, DewfordTown_EventScript_MomLeaveEast)
@@ -154,6 +154,7 @@ script DewfordTown_EventScript_LittleBoy {
 	goto_if_set(FLAG_TEMP_1, DewfordTown_EventScript_IHateSand)
 	msgbox(format("Mom wants to make me go to the beach! The nasty sand will get all over me!"))
 	setflag(FLAG_TEMP_1)
+	call(DewfordTown_EventScript_IHateSand)
 	release
 	end
 }
@@ -164,7 +165,22 @@ script DewfordTown_EventScript_ImHiding {
 }
 
 script DewfordTown_EventScript_IHateSand {
-	msgbox(format("I hade sand! It's coarse and rough, and it gets everywhere!"))
+	msgbox(format("I hate sand! It's coarse and rough, and it gets everywhere!"))
+	release
+	end
+}
+
+//doesn't work:
+//sign can be interacted with (you hear the beep) even after flag set
+//invisible object causes collision
+script DewfordTown_EventScript_DreadPlate {
+	goto_if_set(FLAG_ITEM_DREAD_PLATE, Common_EventScript_NopReturn)
+	lock
+	giveitem(ITEM_DREAD_PLATE)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_ITEM_DREAD_PLATE)
+	msgbox("There is an engraving on the Plate.\nIt reads:")
+	msgbox(format("“Two make matter, and three make spirit, shaping the world.”"))
 	release
 	end
 }

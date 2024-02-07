@@ -34,12 +34,12 @@ script Route107_EventScript_BattleGirl {
 }
 
 script Route107_EventScript_GiveGloves {
-	msgbox(format("A Trainer like you should find these useful."))
+	msgbox(format("A Trainer like you should find this useful."))
 	giveitem(ITEM_PUNCHING_GLOVE)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
 	setflag(FLAG_GIVEN_ROUTE_107_PUNCHING_GLOVE)
-	msgbox(format("I wore those gloves back when I was a champion boxer!"))
-	msgbox(format("Try giving them to a Pokémon like Hitmonchan!"))
+	msgbox(format("That's a glove back from when I was a champion boxer!"))
+	msgbox(format("Try giving it to a Pokémon like Hitmonchan!"))
 	release
 	end
 }
@@ -47,15 +47,27 @@ script Route107_EventScript_GiveGloves {
 script Route107_EventScript_PokefanF {
 	lock
 	faceplayer
-	msgbox(format("Isn't the SAND on this beach WONDERFUL?!!"))
+	msgbox(format("Isn't the sand on this beach wonderful?!!"))
+	call_if_unset(FLAG_GIVEN_SOFT_SAND, Route107_EventScript_GiveSand)
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
 	release
 	end
+}
+
+script Route107_EventScript_GiveSand {
+	giveitem(ITEM_SOFT_SAND)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_GIVEN_SOFT_SAND)
+	return
 }
 
 script Route107_EventScript_LittleBoy {
 	lock
 	faceplayer
-	msgbox(format("I HATE YOU!"))
+	msgbox(format("I hate you! You're worse than the beach!"))
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
 	release
 	end
 }

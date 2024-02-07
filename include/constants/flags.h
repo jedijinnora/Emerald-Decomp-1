@@ -131,8 +131,8 @@
 #define FLAG_GIVEN_VICTORY_ROAD_SKIP_REWARD  0x69
 #define FLAG_GIVEN_DEWFORD_RESORT_LEEK       0x6A
 #define FLAG_GIVEN_ROUTE_107_PUNCHING_GLOVE  0x6B
-#define FLAG_UNUSED_0x06C                    0x6C
-#define FLAG_UNUSED_0x06D                    0x6D
+#define FLAG_GIVEN_SOFT_SAND                 0x6C
+#define FLAG_GIVEN_RESORT_EVOLUTION_STONE    0x6D // receive evo stone of choice after defeating all resort trainers
 #define FLAG_UNUSED_0x06E                    0x6E
 #define FLAG_UNUSED_0x06F                    0x6F
 #define FLAG_UNUSED_0x070                    0x70

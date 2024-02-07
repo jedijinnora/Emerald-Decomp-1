@@ -3,8 +3,9 @@ mapscripts DewfordTown_Hall_MapScripts {}
 script DewfordTown_Hall_EventScript_SludgeBombMan {
 	lock
 	faceplayer
+	call(Common_EventScript_BufferTrendyPhrase)
 	checkitem(ITEM_TM26_SLUDGE_BOMB)
-	goto_if_eq(VAR_RESULT, FALSE, DewfordTown_Hall_EventScript_ReceivedSludgeBomb)
+	goto_if_eq(VAR_RESULT, TRUE, DewfordTown_Hall_EventScript_ReceivedSludgeBomb)
 	msgbox(DewfordTown_Hall_Text_GiveYouSludgeBomb, MSGBOX_DEFAULT)
 	giveitem(ITEM_TM26_SLUDGE_BOMB)
 	release

@@ -1,1 +1,70 @@
-mapscripts DewfordResort_LifeguardHouse_MapScripts {}
+mapscripts DewfordResort_LifeguardHouse_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : DewfordResort_LifeguardHouse_OnTransition
+}
+
+script DewfordResort_LifeguardHouse_OnTransition {
+    call(DewfordResort_LifeguardHouse_EventScript_CheckTrainers)
+    end
+}
+
+script DewfordResort_LifeguardHouse_EventScript_StoneExpert {
+    lock
+    faceplayer
+    goto_if_set(FLAG_GIVEN_RESORT_EVOLUTION_STONE, DewfordResort_LifeguardHouse_EventScript_ReceivedStone)
+    goto_if_set(FLAG_TEMP_12, StoneChoice)
+    msgbox(format("I used to be quite the fighter."))
+    msgbox(format("Why, if I were fifty years younger I'd give every Trainer on this island a good smacking, and look glamorous doing it!"))
+    goto_if_set(FLAG_TEMP_11, DewfordResort_LifeguardHouse_EventScript_GiveStone)
+    release
+    end
+}
+
+script DewfordResort_LifeguardHouse_EventScript_ReceivedStone {
+    msgbox(format("Well, young one? How is your journey going?"))
+    release
+    end
+}
+
+script DewfordResort_LifeguardHouse_EventScript_GiveStone {
+    msgbox(format("What's that? You've beaten most of those Trainers already? Well I'll be!"))
+    StoneChoice:
+    msgbox(format("I have something for you, an evolution stone I picked up during my travels."))
+    msgbox(format("Do you want it?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, DewfordResort_LifeguardHouse_EventScript_RefusedStone)
+    msgbox(format("Oh dear, I'm afraid my eyes aren't what they used to be. What kind of stone is this?"))
+    dynmultipush("Fire Stone", ITEM_FIRE_STONE)
+    dynmultipush("Sun Stone", ITEM_SUN_STONE)
+    dynmultipush("Leaf Stone", ITEM_LEAF_STONE)
+    dynmultipush("Dawn Stone", ITEM_DAWN_STONE)
+    dynmultipush("Dusk Stone", ITEM_DUSK_STONE)
+    dynmultipush("Water Stone", ITEM_WATER_STONE)
+    dynmultipush("Moon Stone", ITEM_MOON_STONE)
+    dynmultipush("Ice Stone", ITEM_ICE_STONE)
+    dynmultipush("Thunder Stone", ITEM_THUNDER_STONE)
+    dynmultipush("Shiny Stone", ITEM_SHINY_STONE)
+    dynmultistack(0,0,TRUE,6,TRUE,0,DYN_MULTICHOICE_CB_SHOW_ITEM)
+    giveitem(VAR_RESULT)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_GIVEN_RESORT_EVOLUTION_STONE)
+    msgbox(format("Good luck on the rest of your journey!"))
+    release
+    end
+}
+
+script DewfordResort_LifeguardHouse_EventScript_RefusedStone {
+    setflag(FLAG_TEMP_12)
+    msgbox(format("Well, come back if you change your mind."))
+    release 
+    end
+}
+
+script DewfordResort_LifeguardHouse_EventScript_CheckTrainers {
+    goto_if_not_defeated(TRAINER_PHELPS, Common_EventScript_NopReturn)
+    goto_if_not_defeated(TRAINER_THOMAS, Common_EventScript_NopReturn)
+    goto_if_not_defeated(TRAINER_MAC, Common_EventScript_NopReturn)
+    goto_if_not_defeated(TRAINER_KONDO, Common_EventScript_NopReturn)
+    goto_if_not_defeated(TRAINER_KAYLEE, Common_EventScript_NopReturn)
+    goto_if_not_defeated(TRAINER_LEA_AND_JED, Common_EventScript_NopReturn)
+    setflag(FLAG_TEMP_11)
+    return
+}

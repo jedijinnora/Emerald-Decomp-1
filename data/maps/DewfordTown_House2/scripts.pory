@@ -5,7 +5,7 @@ script DewfordTown_House2_EventScript_Man {
 	faceplayer
 	goto_if_set(FLAG_TEMP_1, PlateInfo)
 	msgbox(format("Every Pokémon type has a corresponding held item that boosts the power of its moves."))
-	msgbox(format("But there's no such item for the Fairy type! Or at least, not besides the rumored seventeenth Plate."))
+	msgbox(format("But there are also Plates, strange artifacts left from long ago, that also boost each type."))
 	setflag(FLAG_TEMP_1)
 	release
 	end
