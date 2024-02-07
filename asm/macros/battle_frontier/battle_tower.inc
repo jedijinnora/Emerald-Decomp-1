@@ -163,3 +163,13 @@
 	special SavePlayerParty
 	multi_do_fixed MULTI_BATTLE_2_VS_WILD, \partnerId, \partnerPicId
 	.endm
+
+	@Jinnora: macro used for the beach battle tournament
+	@Jinnora: remember to check result for B_OUTCOME_WON and handle white out in script
+	.macro beach_player_vs_2 trainer1Id:req, trainer1LoseText:req, trainer2Id:req, trainer2LoseText:req
+	trainerbattle TRAINER_BATTLE_SET_TRAINER_A, \trainer1Id, 0, NULL, \trainer1LoseText @ set first trainer mons
+	trainerbattle TRAINER_BATTLE_SET_TRAINER_B, \trainer2Id, 0, NULL, \trainer2LoseText @ set second trainer mons
+	setvar VAR_0x8004, SPECIAL_BATTLE_BEACH
+	special DoSpecialTrainerBattle
+	waitstate
+	.endm
