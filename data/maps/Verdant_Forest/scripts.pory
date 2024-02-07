@@ -342,7 +342,7 @@ script VerdantForest_EventScript_Eternal {
     waitmessage
     playmoncry(SPECIES_FLOETTE_ETERNAL_FLOWER, CRY_MODE_ENCOUNTER)
     waitmoncry
-    setwildbattle(SPECIES_FLOETTE_ETERNAL_FLOWER, 85, ITEM_PIXIE_PLATE)
+    setwildbattle(SPECIES_FLOETTE_ETERNAL_FLOWER, 85, ITEM_FAIRY_FEATHER)
     settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 1, 1, 1)
     setflag(FLAG_SMART_WILD_AI)
     dowildbattle
