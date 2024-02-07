@@ -16105,12 +16105,12 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_CHERUBI"
+                "species": "SPECIES_SIZZLIPEDE"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_CHERUBI"
+                "species": "SPECIES_VENIPEDE"
               },
               {
                 "min_level": 5,
@@ -16125,27 +16125,27 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SIZZLIPEDE"
+                "species": "SPECIES_BURMY_PLANT_CLOAK"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_DOLLIV"
+                "species": "SPECIES_BURMY_SANDY_CLOAK"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SIZZLIPEDE"
+                "species": "SPECIES_SPINDA"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_DOLLIV"
+                "species": "SPECIES_BURMY_TRASH_CLOAK"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SCOVILLAIN"
+                "species": "SPECIES_MOTHIM"
               }
             ]
           }
