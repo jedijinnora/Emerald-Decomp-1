@@ -6,7 +6,7 @@ script MauvilleCity_House2_EventScript_Woman {
 	msgbox(format("I gambled all my money away at the Game Corner…"))
 	msgbox(format("Now they've shut it down to investigate claims of fraud!"))
 	msgbox(format("I knew my luck was better than that!"))
-	msgbox(format("As soon as I get my next paycheck I'll travel to Lilycove and buy lottery tickets!"))
+	msgbox(format("As soon as I get my next paycheck I'll invest it all into lottery tickets!"))
 	release
 	end
 }

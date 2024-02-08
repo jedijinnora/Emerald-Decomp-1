@@ -102,6 +102,7 @@ script DewfordTown_EventScript_YouveSeenHim {
 			getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
 			call_if_eq(VAR_TEMP_2, 25, DewfordTown_EventScript_MomLeaveSouth)
 			call_if_ne(VAR_TEMP_2, 25, DewfordTown_EventScript_MomLeaveEast)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
 			applymovement(LOCALID_POKEFAN_F, DewfordTown_Movement_MomLeave)
 			waitmovement(0)
 			removeobject(LOCALID_POKEFAN_F)

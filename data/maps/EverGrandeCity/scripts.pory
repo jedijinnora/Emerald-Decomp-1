@@ -54,7 +54,7 @@ script EverGrandeCity_EventScript_Jinnora {
 
 script EverGrandeCity_EventScript_OfferAllStartingItems {
 	additem(ITEM_POKE_BALL, 30)
-	additem(ITEM_DREAM_BALL, 2)
+	additem(ITEM_DREAM_BALL, 10)
     additem(ITEM_EXP_SHARE)
 	setflag(FLAG_SYS_POKENAV_GET)
 	//todo infinite candy
@@ -76,6 +76,15 @@ script EverGrandeCity_EventScript_OfferAllStartingItems {
 	if(!flag(FLAG_HIDDEN_ITEM_EVER_GRANDE_CITY_STARDUST)) {
 		additem(ITEM_STARDUST)
 		setflag(FLAG_HIDDEN_ITEM_EVER_GRANDE_CITY_STARDUST)
+	}
+	if(!flag(FLAG_GIVEN_POWER_ITEMS)) {
+		additem(ITEM_POWER_WEIGHT)
+		additem(ITEM_POWER_BRACER)
+		additem(ITEM_POWER_BELT)
+		additem(ITEM_POWER_LENS)
+		additem(ITEM_POWER_BAND)
+		additem(ITEM_POWER_ANKLET)
+		setflag(FLAG_GIVEN_POWER_ITEMS)
 	}
 	if(!flag(FLAG_RECEIVED_WAILMER_PAIL)) {
 		additem(ITEM_WAILMER_PAIL)

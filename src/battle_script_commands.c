@@ -14963,6 +14963,15 @@ static void Cmd_handleballthrow(void)
                 gBattleMons[gBattlerTarget].hp = gBattleMons[gBattlerTarget].maxHP;
                 SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_HP, &gBattleMons[gBattlerTarget].hp);
             }
+            //Dream Ball gives hidden ability, with exceptions for special mons
+            if (gLastUsedItem == ITEM_DREAM_BALL)
+            {
+                u8 hiddenAbility = 2;
+                if(gBattleMons[gBattlerTarget].species != SPECIES_REGIGIGAS)
+                {
+                    SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_ABILITY_NUM, &hiddenAbility);
+                }
+            }
         }
         else // mon may be caught, calculate shakes
         {
@@ -15017,6 +15026,15 @@ static void Cmd_handleballthrow(void)
                     gBattleMons[gBattlerTarget].hp = gBattleMons[gBattlerTarget].maxHP;
                     SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_HP, &gBattleMons[gBattlerTarget].hp);
                 }
+                //Dream Ball gives hidden ability, with exceptions for special mons
+                if (gLastUsedItem == ITEM_DREAM_BALL)
+            {
+                u8 hiddenAbility = 2;
+                if(gBattleMons[gBattlerTarget].species != SPECIES_REGIGIGAS)
+                {
+                    SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_ABILITY_NUM, &hiddenAbility);
+                }
+            }
             }
             else // not caught
             {

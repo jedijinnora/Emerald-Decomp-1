@@ -134,6 +134,11 @@ script LilycoveCity_EventScript_FerryBridgeMan {
 	end
 }
 
+script LilycoveCity_EventScript_DevelopmentSign {
+	msgbox(format("Future site of the Lilycove Department Store!"), MSGBOX_SIGN)
+	end
+}
+
 raw `
 .set LOCALID_WOMAN_1, 19
 .set LOCALID_MAN_1, 20
@@ -233,32 +238,32 @@ LilycoveCity_Text_SixtyYearsAgoHusbandProposed:
 	.string "Mufufufu mufufufufufu…$"
 
 LilycoveCity_Text_CitySign:
-	.string "LILYCOVE CITY\p"
+	.string "Lilycove City\p"
 	.string "“Where the land ends and the\n"
 	.string "sea begins.”$"
 
 LilycoveCity_Text_ContestHallSign:
-	.string "POKéMON CONTEST HALL\n"
+	.string "Pokémon Contest Hall\n"
 	.string "“The gathering place for TRAINERS!”$"
 
 LilycoveCity_Text_MotelSign:
-	.string "COVE LILY MOTEL\p"
+	.string "Cove Lily Motel\p"
 	.string "“Remember us as Cove Lily of\n"
 	.string "Lilycove.”$"
 
 LilycoveCity_Text_MuseumSign:
-	.string "LILYCOVE MUSEUM\p"
+	.string "Lilycove Museum\p"
 	.string "“Pokémon Masterpiece Collection\n"
 	.string "on exhibit!”$"
 
 LilycoveCity_Text_MuseumSignPlayersExhibit:
-	.string "LILYCOVE MUSEUM\p"
+	.string "Lilycove Museum\p"
 	.string "“{PLAYER}'s Pokémon Collection\n"
 	.string "on exhibit!”$"
 
 LilycoveCity_Text_TrainerFanClubSign:
-	.string "POKéMON TRAINER FAN CLUB\p"
-	.string "The names of Trainers are scribbled\n"
+	.string "Pokémon Trainer Fan Club\p"
+	.string "The names of tourists are scribbled\n"
 	.string "all over the sign…$"
 
 LilycoveCity_Text_DoYouKnowAboutBerryBlender:
