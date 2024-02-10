@@ -1,9 +1,37 @@
 mapscripts PetalburgCity_House3_MapScripts {}
 
+const LOCALID_A = 1
+
 script PetalburgCity_House3_EventScript_A {
     lock
     faceplayer
-    msgbox(format("…"))
+    goto_if_set(FLAG_ITEM_TM72, PetalburgCity_House3_EventScript_IgnoranceIsBliss)
+    msgbox(format("??: I can't take it anymore!"))
+    msgbox(format("??: How many times did I suffer? Eons of awakening in that same ferry cabin…"))
+    msgbox(format("??: Gifted random objects, teleported across the region again and again…"))
+    msgbox(format("??: What's my name!?!?!? Was it “Terry” or “Seth”? I think it was usually “A”…"))
+    msgbox(format("Am I even a real person, or just a convenient object for an alien's experiments?"))
+    msgbox(format("A: Please, I beg you, spare me from remembering my suffering at the hands of whatever devil created me!"))
+    delay(15)
+    playse(SE_PIN)
+    applymovement(LOCALID_A, Common_Movement_ExclamationMark)
+    waitmovement(LOCALID_A)
+    msgbox(format("A: What's this?"))
+    playfanfare(MUS_OBTAIN_TMHM)
+    msgbox(format("A: Oh…"))
+    delay(10)
+    msgbox(format("A: …"))
+    delay(10)
+    msgbox(format("A: …"))
+    msgbox(format("??: Oh hello. I'm sorry, was this yours?"))
+    giveitem(ITEM_TM72_AMNESIA)
+    setflag(FLAG_ITEM_TM72)
+    release
+    end
+}
+
+script PetalburgCity_House3_EventScript_IgnoranceIsBliss {
+    msgbox(format("??: What's your name? I don't remember mine, but that feels like a relief."))
     release
     end
 }

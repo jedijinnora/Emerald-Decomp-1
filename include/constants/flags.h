@@ -92,8 +92,8 @@
 
 //Jinnora: more config flags
 #define FLAG_VS_SEEKER              0x48 // see include/config/item.h
-#define FLAG_WILD_PERFECT_IVS       0x49 // todo should create perfect wild mon if set
-#define FLAG_WILD_HIDDEN_ABILITY    0x4A // todo should generate wild mon with hidden ability
+#define FLAG_WILD_PERFECT_IVS       0x49 // should create perfect wild mon if set
+#define FLAG_WILD_HIDDEN_ABILITY    0x4A // should generate wild mon with hidden ability
 #define FLAG_UNUSED_0x4B            0x4B
 #define FLAG_UNUSED_0x4C            0x4C
 
@@ -1083,107 +1083,107 @@
 #define FLAG_HIDE_ROUTE_120_KECLEON_4                               0x3E6
 #define FLAG_HIDE_ROUTE_120_KECLEON_5                               0x3E7
 
-// TM Flags, could mostly be replaced with item checks if need be
-#define FLAG_ITEM_TM01      0x3E8
-#define FLAG_ITEM_TM02      0x3E9
-#define FLAG_ITEM_TM03      0x3EA
-#define FLAG_ITEM_TM04      0x3EB
-#define FLAG_ITEM_TM05      0x3EC
-#define FLAG_ITEM_TM06      0x3ED
-#define FLAG_ITEM_TM07      0x3EE
-#define FLAG_ITEM_TM08      0x3EF
-#define FLAG_ITEM_TM09      0x3F0
-#define FLAG_ITEM_TM10      0x3F1
-#define FLAG_ITEM_TM11      0x3F2
-#define FLAG_ITEM_TM12      0x3F3
-#define FLAG_ITEM_TM13      0x3F4
-#define FLAG_ITEM_TM14      0x3F5
-#define FLAG_ITEM_TM15      0x3F6
-#define FLAG_ITEM_TM16      0x3F7
-#define FLAG_ITEM_TM17      0x3F8
-#define FLAG_ITEM_TM18      0x3F9
-#define FLAG_ITEM_TM19      0x3FA
-#define FLAG_ITEM_TM20      0x3FB
-#define FLAG_ITEM_TM21      0x3FC
-#define FLAG_ITEM_TM22      0x3FD
-#define FLAG_ITEM_TM23      0x3FE
-#define FLAG_ITEM_TM24      0x3FF
-#define FLAG_ITEM_TM25      0x400
-#define FLAG_ITEM_TM26      0x401
-#define FLAG_ITEM_TM27      0x402
-#define FLAG_ITEM_TM28      0x403
-#define FLAG_ITEM_TM29      0x404
-#define FLAG_ITEM_TM30      0x405
-#define FLAG_ITEM_TM31      0x406
-#define FLAG_ITEM_TM32      0x407
-#define FLAG_ITEM_TM33      0x408
-#define FLAG_ITEM_TM34      0x409
-#define FLAG_ITEM_TM35      0x40A
-#define FLAG_ITEM_TM36      0x40B
-#define FLAG_ITEM_TM37      0x40C
-#define FLAG_ITEM_TM38      0x40D
-#define FLAG_ITEM_TM39      0x40E
-#define FLAG_ITEM_TM40      0x40F
-#define FLAG_ITEM_TM41      0x410
-#define FLAG_ITEM_TM42      0x411
-#define FLAG_ITEM_TM43      0x412
-#define FLAG_ITEM_TM44      0x413
-#define FLAG_ITEM_TM45      0x414
-#define FLAG_ITEM_TM46      0x415
-#define FLAG_ITEM_TM47      0x416
-#define FLAG_ITEM_TM48      0x417
-#define FLAG_ITEM_TM49      0x418
-#define FLAG_ITEM_TM50      0x419
-#define FLAG_ITEM_TM51      0x41A
-#define FLAG_ITEM_TM52      0x41B
-#define FLAG_ITEM_TM53      0x41C
-#define FLAG_ITEM_TM54      0x41D
-#define FLAG_ITEM_TM55      0x41E
-#define FLAG_ITEM_TM56      0x41F
-#define FLAG_ITEM_TM57      0x420
-#define FLAG_ITEM_TM58      0x421
-#define FLAG_ITEM_TM59      0x422
-#define FLAG_ITEM_TM60      0x423
-#define FLAG_ITEM_TM61      0x424
-#define FLAG_ITEM_TM62      0x425
-#define FLAG_ITEM_TM63      0x426
-#define FLAG_ITEM_TM64      0x427
-#define FLAG_ITEM_TM65      0x428
-#define FLAG_ITEM_TM66      0x429
-#define FLAG_ITEM_TM67      0x42A
-#define FLAG_ITEM_TM68      0x42B
-#define FLAG_ITEM_TM69      0x42C
-#define FLAG_ITEM_TM70      0x42D
-#define FLAG_ITEM_TM71      0x42E
-#define FLAG_ITEM_TM72      0x42F
-#define FLAG_ITEM_TM73      0x430
-#define FLAG_ITEM_TM74      0x431
-#define FLAG_ITEM_TM75      0x432
-#define FLAG_ITEM_TM76      0x433
-#define FLAG_ITEM_TM77      0x434
-#define FLAG_ITEM_TM78      0x435
-#define FLAG_ITEM_TM79      0x436
-#define FLAG_ITEM_TM80      0x437
-#define FLAG_ITEM_TM81      0x438
-#define FLAG_ITEM_TM82      0x439
-#define FLAG_ITEM_TM83      0x43A
-#define FLAG_ITEM_TM84      0x43B
-#define FLAG_ITEM_TM85      0x43C
-#define FLAG_ITEM_TM86      0x43D
-#define FLAG_ITEM_TM87      0x43E
-#define FLAG_ITEM_TM88      0x43F
-#define FLAG_ITEM_TM89      0x440
-#define FLAG_ITEM_TM90      0x441
-#define FLAG_ITEM_TM91      0x442
-#define FLAG_ITEM_TM92      0x443
-#define FLAG_ITEM_TM93      0x444
-#define FLAG_ITEM_TM94      0x445
-#define FLAG_ITEM_TM95      0x446
-#define FLAG_ITEM_TM96      0x447
-#define FLAG_ITEM_TM97      0x448
-#define FLAG_ITEM_TM98      0x449
-#define FLAG_ITEM_TM99      0x44A
-#define FLAG_ITEM_TM100     0x44B
+// TM Flags
+#define FLAG_ITEM_TM01      0x3E8 // Work Up, gift from Scott (after Beach Battle)
+#define FLAG_ITEM_TM02      0x3E9 // Swords Dance, Trick House #6 (spinner puzzle)
+#define FLAG_ITEM_TM03      0x3EA // Protect, Champion's Cut item ball
+#define FLAG_ITEM_TM04      0x3EB // Endure, Victory Road item ball
+#define FLAG_ITEM_TM05      0x3EC // False Swipe, gift from Birch (Littleroot)
+#define FLAG_ITEM_TM06      0x3ED // Substitute, Victory Road item ball
+#define FLAG_ITEM_TM07      0x3EE // Sleep Talk, Fortree City gift
+#define FLAG_ITEM_TM08      0x3EF // Safeguard, Route 110 item ball
+#define FLAG_ITEM_TM09      0x3F0 // Roar, Route 114 gift
+#define FLAG_ITEM_TM10      0x3F1 // Facade, gift from Norman (Petalburg)
+#define FLAG_ITEM_TM11      0x3F2 // Body Slam, Route 116 item ball
+#define FLAG_ITEM_TM12      0x3F3 // Hyper Beam, Route 116 item ball
+#define FLAG_ITEM_TM13      0x3F4 // Giga Impact, Route 114 item ball
+#define FLAG_ITEM_TM14      0x3F5 // Natural Gift, Route 123 item ball
+#define FLAG_ITEM_TM15      0x3F6 // Bulk Up, gift from Buffy (Dewford Resort)
+#define FLAG_ITEM_TM16      0x3F7 // Brick Break, Sootopolis City gift
+#define FLAG_ITEM_TM17      0x3F8 // Focus Blast, Route 101 item ball
+#define FLAG_ITEM_TM18      0x3F9 // Drain Punch, Route 115 item ball
+#define FLAG_ITEM_TM19      0x3FA // Defog, Mt. Pyre gift (postgame only if Hardcore)
+#define FLAG_ITEM_TM20      0x3FB // Roost, gift from Winona (Pacifidlog)
+#define FLAG_ITEM_TM21      0x3FC // Dual Wingbeat, Route 120 item ball
+#define FLAG_ITEM_TM22      0x3FD // Acrobatics, Route 117 item ball
+#define FLAG_ITEM_TM23      0x3FE // Toxic, Trick House #5 (trainer gauntlet)
+#define FLAG_ITEM_TM24      0x3FF // Poison Jab, Petalburg Woods item ball
+#define FLAG_ITEM_TM25      0x400 // Gunk Shot, Altering Cave item ball
+#define FLAG_ITEM_TM26      0x401 // Sludge Bomb, Dewford Town gift
+#define FLAG_ITEM_TM27      0x402 // Sludge Wave, gift from Claudius (Slateport)
+#define FLAG_ITEM_TM28      0x403 // Earthquake, gift from Fossil Maniac (Route 114)
+#define FLAG_ITEM_TM29      0x404 // Earth Power, Route 111 item ball
+#define FLAG_ITEM_TM30      0x405 // Dig, Desert Underpass item ball
+#define FLAG_ITEM_TM31      0x406 // Bulldoze, Mirage Tower item ball
+#define FLAG_ITEM_TM32      0x407 // Sandstorm, purchase at Weather Institute (5 yellow shards)
+#define FLAG_ITEM_TM33      0x408 // Stealth Rock, Granite Cave item ball
+#define FLAG_ITEM_TM34      0x409 // Rock Slide, gift from Roxanne (Rustboro)
+#define FLAG_ITEM_TM35      0x40A // Stone Edge, Seafloor Cavern item ball
+#define FLAG_ITEM_TM36      0x40B // Rock Tomb, Route 109 item ball
+#define FLAG_ITEM_TM37      0x40C // Power Gem, Oldale Ruins item ball
+#define FLAG_ITEM_TM38      0x40D // U-Turn, gift from Hebert (Oldale)
+#define FLAG_ITEM_TM39      0x40E // Bug Buzz, Route 102 item ball
+#define FLAG_ITEM_TM40      0x40F // Leech Life, Route 104 item ball
+#define FLAG_ITEM_TM41      0x410 // Shadow Ball, gift from Persephone (Lilycove)
+#define FLAG_ITEM_TM42      0x411 // Phantom Force, Mt. Pyre item ball
+#define FLAG_ITEM_TM43      0x412 // Iron Defense, Valley of Steel item ball
+#define FLAG_ITEM_TM44      0x413 // Iron Head, gift from Steven ()
+#define FLAG_ITEM_TM45      0x414 // Flash Cannon, Route 105 item ball
+#define FLAG_ITEM_TM46      0x415 // Will-o-wisp, Summer Sea item ball
+#define FLAG_ITEM_TM47      0x416 // Sunny Day, purchase at Weather Institute (5 red shards)
+#define FLAG_ITEM_TM48      0x417 // Flamethrower, Mt. Chimney item ball
+#define FLAG_ITEM_TM49      0x418 // Fire Blast, gift from Maxie ()
+#define FLAG_ITEM_TM50      0x419 // Overheat, gift from Flannery (Lavaridge)
+#define FLAG_ITEM_TM51      0x41A // Flame Charge, Fiery Path item ball
+#define FLAG_ITEM_TM52      0x41B // Fire Punch, Jagged Pass item ball
+#define FLAG_ITEM_TM53      0x41C // Rain Dance, purchase at Weather Institute (5 blue shards)
+#define FLAG_ITEM_TM54      0x41D // Aqua Tail, Dewdrop Glen item ball
+#define FLAG_ITEM_TM55      0x41E // Flip Turn, Abandoned Ship item ball
+#define FLAG_ITEM_TM56      0x41F // Hydro Pump, gift from Archie ()
+#define FLAG_ITEM_TM57      0x420 // Wave Crash, gift from Wallace (Sootopolis)
+#define FLAG_ITEM_TM58      0x421 // Seed Bomb, Route 129 item ball
+#define FLAG_ITEM_TM59      0x422 // Power Whip, Route 108 item ball
+#define FLAG_ITEM_TM60      0x423 // Energy Ball, Forest Heart item ball
+#define FLAG_ITEM_TM61      0x424 // Giga Drain, Route 123 gift (need Grass type in party)
+#define FLAG_ITEM_TM62      0x425 // Grass Knot, gift from Quinn (Fortree)
+#define FLAG_ITEM_TM63      0x426 // Solar Beam, Route 133 item ball
+#define FLAG_ITEM_TM64      0x427 // Thunder Wave, gift from Scotty (Mauville)
+#define FLAG_ITEM_TM65      0x428 // Thunder Punch, Route 125 item ball
+#define FLAG_ITEM_TM66      0x429 // Thunderbolt, Mauville City gift (must have HM06 Rock Smash)
+#define FLAG_ITEM_TM67      0x42A // Thunder, Route 119 item ball
+#define FLAG_ITEM_TM68      0x42B // Volt Switch, New Mauville item ball
+#define FLAG_ITEM_TM69      0x42C // Wild Charge, Power Plant item ball
+#define FLAG_ITEM_TM70      0x42D // Calm Mind, gift from Tate and Liza (Mossdeep Caverns)
+#define FLAG_ITEM_TM71      0x42E // Agility, Trick House #3 (door puzzle)
+#define FLAG_ITEM_TM72      0x42F // Amnesia, gift from "A" (Petalburg)
+#define FLAG_ITEM_TM73      0x430 // Rest, Lilycove City gift
+#define FLAG_ITEM_TM74      0x431 // Reflect, Route 124 item ball
+#define FLAG_ITEM_TM75      0x432 // Light Screen, Mossdeep City item ball
+#define FLAG_ITEM_TM76      0x433 // Trick Room, Trick House #8 (slide puzzle)
+#define FLAG_ITEM_TM77      0x434 // Trick, Trick House #2 (floor gap puzzle)
+#define FLAG_ITEM_TM78      0x435 // Skill Swap, Emerald Cape item ball
+#define FLAG_ITEM_TM79      0x436 // Teleport, Mossdeep City gift
+#define FLAG_ITEM_TM80      0x437 // Psychic, Route 134 item ball
+#define FLAG_ITEM_TM81      0x438 // Psyshock, Route 128 item ball
+#define FLAG_ITEM_TM82      0x439 // Zen Headbutt, Route 127 item ball
+#define FLAG_ITEM_TM83      0x43A // Hail, purchase at Weather Institute (5 green shards)
+#define FLAG_ITEM_TM84      0x43B // Ice Punch, Route 118 item ball
+#define FLAG_ITEM_TM85      0x43C // Ice Beam, Shoal Cave item ball (low tide ice room)
+#define FLAG_ITEM_TM86      0x43D // Blizzard, gift from Ellie (Ever Grande)
+#define FLAG_ITEM_TM87      0x43E // Icicle Crash, Seafoam Cove item ball
+#define FLAG_ITEM_TM88      0x43F // Dragon Claw, Meteor Falls item ball
+#define FLAG_ITEM_TM89      0x440 // Dragon Pulse, Meteor Falls item ball
+#define FLAG_ITEM_TM90      0x441 // Dragon Tail, gift from Aster (Meteor Village)
+#define FLAG_ITEM_TM91      0x442 // Nasty Plot, Trick House #7 (mossdeep gym puzzle)
+#define FLAG_ITEM_TM92      0x443 // Hone Claws, Trick House #1 (cut tree puzzle)
+#define FLAG_ITEM_TM93      0x444 // Taunt, Trick House #4 (strength boulder puzzle)
+#define FLAG_ITEM_TM94      0x445 // Dark Pulse, Petalburg City item ball
+#define FLAG_ITEM_TM95      0x446 // Thief
+#define FLAG_ITEM_TM96      0x447 // Foul Play, gift from Megaera (Dewford)
+#define FLAG_ITEM_TM97      0x448 // Play Rough, Hacker's Hideaway gift (Route 114)
+#define FLAG_ITEM_TM98      0x449 // Dazzling Gleam, gift from Bellatrix (Verdanturf)
+#define FLAG_ITEM_TM99      0x44A // Moonblast, Route 117 item ball
+#define FLAG_ITEM_TM100     0x44B // Draining Kiss, Verdant Forest item ball
 
 // Item Ball Flags
 #define FLAG_ITEM_ABANDONED_SHIP_CAPTAINS_OFFICE_STORAGE_KEY        0x44C
@@ -1340,16 +1340,16 @@
 #define FLAG_ITEM_MONSU_ISLAND_EXTERIOR_BIG_NUGGET                  0x4E3
 #define FLAG_ITEM_SUNRISE_SHORE_SUN_STONE                           0x4E4
 #define FLAG_ITEM_ROUTE_107_DAWN_STONE                              0x4E5
-#define FLAG_UNUSED_0x4E6                                           0x4E6
-#define FLAG_UNUSED_0x4E7                                           0x4E7
-#define FLAG_UNUSED_0x4E8                                           0x4E8
-#define FLAG_UNUSED_0x4E9                                           0x4E9
-#define FLAG_UNUSED_0x4EA                                           0x4EA
-#define FLAG_UNUSED_0x4EB                                           0x4EB
-#define FLAG_UNUSED_0x4EC                                           0x4EC
-#define FLAG_UNUSED_0x4ED                                           0x4ED
-#define FLAG_UNUSED_0x4EE                                           0x4EE
-#define FLAG_UNUSED_0x4EF                                           0x4EF
+#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_1_RARE_CANDY                   0x4E6
+#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_2_RARE_CANDY                   0x4E7
+#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_2_PP_UP                        0x4E8
+#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_3_RARE_CANDY                   0x4E9
+#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_3_PP_MAX                       0x4EA
+#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_4_PP_MAX                       0x4EB
+#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_5_MAX_ELIXIR                   0x4EC
+#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_6_RARE_CANDY                   0x4ED
+#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_7_GOLD_BOTTLE_CAP              0x4EE
+#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_8_GOLD_BOTTLE_CAP              0x4EF
 
 #define FLAG_DEFEATED_RUSTBORO_GYM                                  0x4F0
 #define FLAG_DEFEATED_DEWFORD_GYM                                   0x4F1

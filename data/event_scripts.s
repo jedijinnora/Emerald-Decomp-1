@@ -1247,3 +1247,5 @@ Common_EventScript_CountBadges::
 	.include "data/maps/Underwater_TitansGrave_Entry/scripts.inc"
 
 	.include "data/maps/TitansGrave/scripts.inc"
+
+	.include "data/maps/DewfordTown_House3/scripts.inc"

@@ -11,8 +11,8 @@ Debug_ShowFieldMessageStringVar4::
 
 Debug_CheatStart::
 	setflag FLAG_SYS_POKEMON_GET
-	givemon SPECIES_TROPIUS, 20, ITEM_NONE
-	givemon SPECIES_WAILORD, 20, ITEM_NONE
+	givemon SPECIES_TROPIUS, 16, ITEM_NONE
+	givemon SPECIES_WAILORD, 16, ITEM_NONE
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH

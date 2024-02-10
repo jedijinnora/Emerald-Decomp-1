@@ -11,6 +11,24 @@ script GraniteCave_B1F_EventScript_Stash {
 	call(Common_EventScript_SecretStash)
 }
 
+script GraniteCave_B1F_EventScript_Thomas {
+	trainerbattle_single(TRAINER_THOMAS, GraniteCave_B1F_Text_ThomasIntro, GraniteCave_B1F_Text_ThomasDefeated)
+	msgbox(GraniteCave_B1F_Text_ThomasPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+text GraniteCave_B1F_Text_ThomasIntro {
+	format("I don't want any wimps wandering around this cave, you know?")
+}
+
+text GraniteCave_B1F_Text_ThomasDefeated {
+	format("You're tough enough to spelunk!")
+}
+
+text GraniteCave_B1F_Text_ThomasPostBattle {
+	format("Caves are tricky! Always bring Flash and your Escape Rope!")
+}
+
 raw `
 GraniteCave_B1F_SetHoleWarp:
 	setstepcallback STEP_CB_CRACKED_FLOOR

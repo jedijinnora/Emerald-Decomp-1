@@ -2,6 +2,47 @@ mapscripts Route106_MapScripts {
 	
 }
 
+script Route106_EventScript_HexManiac {
+	msgbox("…", MSGBOX_NPC)
+	end
+}
+
+script Route106_EventScript_Owen {
+	trainerbattle_single(TRAINER_OWEN, Route106_Text_OwenIntro, Route106_Text_OwenDefeated)
+	msgbox(Route106_Text_OwenPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+text Route106_Text_OwenIntro {
+	format("Hah! I shall defeat you and take another step on my path to power!")
+}
+
+text Route106_Text_OwenDefeated {
+	"Struck down!"
+}
+
+text Route106_Text_OwenPostBattle {
+	format("My dream is to travel to Kanto and become a student of the great master Koga!")
+}
+
+script Route106_EventScript_Michelle {
+	trainerbattle_single(TRAINER_MICHELLE, Route106_Text_MichelleIntro, Route106_Text_MichelleDefeated)
+	msgbox(Route106_Text_MichellePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+text Route106_Text_MichelleIntro {
+	format("Excuse you, this is a private section of beach!")
+}
+
+text Route106_Text_MichelleDefeated {
+	"Fine, fine, you can stay!"
+}
+
+text Route106_Text_MichellePostBattle {
+	format("I guess when you're a strong enough Trainer, you can go wherever you please.")
+}
+
 raw `
 Route106_EventScript_Douglas::
 	trainerbattle_single TRAINER_DOUGLAS, Route106_Text_DouglasIntro, Route106_Text_DouglasDefeated

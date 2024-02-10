@@ -2621,6 +2621,8 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagClear(FLAG_VISITED_SOOTOPOLIS_CITY);
         FlagClear(FLAG_VISITED_EVER_GRANDE_CITY);
         FlagClear(FLAG_LANDMARK_POKEMON_LEAGUE);
+        FlagClear(FLAG_VISITED_METEOR_VILLAGE);
+	    FlagClear(FLAG_VISITED_EMERALD_CAPE);
         FlagClear(FLAG_LANDMARK_BATTLE_FRONTIER);
     }
     else
@@ -2643,6 +2645,8 @@ static void DebugAction_FlagsVars_ToggleFlyFlags(u8 taskId)
         FlagSet(FLAG_VISITED_SOOTOPOLIS_CITY);
         FlagSet(FLAG_VISITED_EVER_GRANDE_CITY);
         FlagSet(FLAG_LANDMARK_POKEMON_LEAGUE);
+        FlagSet(FLAG_VISITED_METEOR_VILLAGE);
+	    FlagSet(FLAG_VISITED_EMERALD_CAPE);
         FlagSet(FLAG_LANDMARK_BATTLE_FRONTIER);
     }
 }

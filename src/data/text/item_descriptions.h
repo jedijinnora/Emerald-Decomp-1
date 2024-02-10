@@ -3487,9 +3487,9 @@ static const u8 sTM91Desc[] = _(
     "boost Sp. Atk.");
 
 static const u8 sTM92Desc[] = _(
-    "Lowers foe's Attack\n"
-    "and Sp. Atk before\n"
-    "switching out.");
+    "Sharpens claws to\n"
+    "boost Attack\n"
+    "and accuracy.");
 
 static const u8 sTM93Desc[] = _(
     "Enrages the foe so\n"
