@@ -171,20 +171,11 @@ script DewfordTown_EventScript_IHateSand {
 	end
 }
 
-//doesn't work:
-//sign can be interacted with (you hear the beep) even after flag set
-//invisible object causes collision
-script DewfordTown_EventScript_DreadPlate {
-	goto_if_set(FLAG_ITEM_DREAD_PLATE, Common_EventScript_NopReturn)
-	lock
-	giveitem(ITEM_DREAD_PLATE)
-	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
-	setflag(FLAG_ITEM_DREAD_PLATE)
-	msgbox("There is an engraving on the Plate.\nIt reads:")
-	msgbox(format("“Two make matter, and three make spirit, shaping the world.”"))
-	release
+script DewfordTown_EventScript_OldMan {
+	msgbox(format("Pokémon are so convenient! Instead of a giant lighthouse, a single Ampharos can light up the sea for sailing ships."), MSGBOX_NPC)
 	end
 }
+
 
 raw `
 DewfordTown_EventScript_TrendyPhraseBoy::

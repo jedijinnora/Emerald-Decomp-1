@@ -1,52 +1,13 @@
 mapscripts MtPyre_Summit_MapScripts {}
 
+script MtPyre_Summit_EventScript_OldMan {
+
+}
+script MtPyre_Summit_EventScript_OldLady {
+
+}
+
 raw `
-MtPyre_Summit_EventScript_OldMan::
-	lock
-	faceplayer
-	msgbox MtPyre_Summit_Text_WillYouHearOutMyTale, MSGBOX_YESNO
-	call_if_eq VAR_RESULT, YES, MtPyre_Summit_EventScript_OldManTale
-	call_if_eq VAR_RESULT, NO, MtPyre_Summit_EventScript_DeclineOldManTale
-	release
-	end
-
-MtPyre_Summit_EventScript_OldManTale::
-	msgbox MtPyre_Summit_Text_GroudonKyogreTale, MSGBOX_DEFAULT
-	return
-
-MtPyre_Summit_EventScript_DeclineOldManTale::
-	return
-
-MtPyre_Summit_EventScript_OldManNewTale::
-	msgbox MtPyre_Summit_Text_HoennTrioTale, MSGBOX_DEFAULT
-	return
-
-MtPyre_Summit_EventScript_OldLady::
-	lock
-	faceplayer
-	goto_if_set FLAG_RETURNED_RED_OR_BLUE_ORB, MtPyre_Summit_EventScript_OldLadyAfterOrbsReturned
-	call_if_ge VAR_MT_PYRE_STATE, 3, MtPyre_Summit_EventScript_OldLadyOrbsReturned
-	goto_if_set FLAG_KYOGRE_ESCAPED_SEAFLOOR_CAVERN, MtPyre_Summit_EventScript_OldLadyLegendariesAwake
-	msgbox MtPyre_Summit_Text_OrbsHaveBeenTaken, MSGBOX_DEFAULT
-	release
-	end
-
-MtPyre_Summit_EventScript_OldLadyOrbsReturned::
-	msgbox MtPyre_Summit_Text_ThoseTwoMenReturnedOrbs, MSGBOX_DEFAULT
-	setflag FLAG_RETURNED_RED_OR_BLUE_ORB
-	release
-	end
-
-MtPyre_Summit_EventScript_OldLadyLegendariesAwake::
-	msgbox MtPyre_Summit_Text_GroudonKyogreAwakened, MSGBOX_DEFAULT
-	release
-	end
-
-MtPyre_Summit_EventScript_OldLadyAfterOrbsReturned::
-	msgbox MtPyre_Summit_Text_SuperAncientPokemonTaughtUs, MSGBOX_DEFAULT
-	release
-	end
-
 MtPyre_Summit_Text_BothOrbsTakenMagmaLeftThis:
 	.string "Oh, no…\n"
 	.string "This cannot happen…\p"
@@ -161,5 +122,4 @@ MtPyre_Summit_Text_HoennTrioTale:
 	.string "becalmed the two enraged Pokémon.\p"
 	.string "Then, its duty done, the green Pokémon\n"
 	.string "flew off into the wild blue yonder…$"
-
 `

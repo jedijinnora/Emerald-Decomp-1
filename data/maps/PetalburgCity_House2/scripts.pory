@@ -1,26 +1,39 @@
-raw `
-PetalburgCity_House2_MapScripts::
-	.byte 0
+mapscripts PetalburgCity_House2_MapScripts {}
 
-PetalburgCity_House2_EventScript_Woman::
-	msgbox PetalburgCity_House2_Text_NormanBecameGymLeader, MSGBOX_NPC
+script PetalburgCity_House2_EventScript_Woman {
+	lock
+	faceplayer
+	msgbox(format("When I was a little girl, grocery stores used to stock produce based on the season."))
+	msgbox(format("But now you can get any kind of fresh fruits or vegetables year-round!"))
+	release
 	end
+}
 
-PetalburgCity_House2_EventScript_SchoolKid::
-	msgbox PetalburgCity_House2_Text_BattledNormanOnce, MSGBOX_NPC
+script PetalburgCity_House2_EventScript_SchoolKid {
+	lock
+	faceplayer
+	goto_if_set(FLAG_GIVEN_FAIRY_FEATHER, PetalburgCity_House2_EventScript_OrangeBlossoms)
+	msgbox(format("Do you have any strong Pokémon with orange flowers?"))
+	checkforspecies(SPECIES_FLORGES_ORANGE_FLOWER, PetalburgCity_House2_EventScript_TryGiveReward)
+	msgbox(format("Orange is my favorite color."))
+	release
 	end
+}
 
-PetalburgCity_House2_Text_NormanBecameGymLeader:
-	.string "Norman became our town's new\n"
-	.string "Gym Leader.\p"
-	.string "I think he called his family over from\n"
-	.string "somewhere far away.$"
+script PetalburgCity_House2_EventScript_TryGiveReward {
+	bufferspeciesname(STR_VAR_1, SPECIES_FLORGES_ORANGE_FLOWER)
+	msgbox(format("Wow, look at that orange {STR_VAR_1}!"))
+	msgbox(format("A Pokémon so elegant deserves to have this!"))
+	giveitem(ITEM_FAIRY_FEATHER)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_GIVEN_FAIRY_FEATHER)
+	release
+	end
+}
 
-PetalburgCity_House2_Text_BattledNormanOnce:
-	.string "I battled Norman once, but, whew,\n"
-	.string "he was way too strong.\p"
-	.string "How would I put it?\p"
-	.string "I just got the feeling that he\n"
-	.string "lives for Pokémon.$"
-
-`
+script PetalburgCity_House2_EventScript_OrangeBlossoms {
+	msgbox(format("Orange is my favorite color, fruit, blossom, and smell!"))
+	msgbox(format("What a versatile word!"))
+	release
+	end
+}

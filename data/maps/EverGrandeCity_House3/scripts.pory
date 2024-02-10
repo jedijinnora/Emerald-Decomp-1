@@ -1,87 +1,228 @@
 mapscripts EverGrandeCity_House3_MapScripts {}
 
-
-script EverGrandeCity_House3_EventScript_Ellie {
-    lock
-    faceplayer
-    msgbox(format("I am Ellie, this region's Ice-type specialist. Elite Four Glacia is my aunt."))
-    goto_if_set(FLAG_RECEIVED_EVER_GRANDE_CITY_HOUSE3_ICE_GEM, IceMenu)
-    msgbox(format("Here, something to help your most powerful Ice Pokémon."))
-    giveitem(ITEM_ICE_GEM)
-    setflag(FLAG_RECEIVED_EVER_GRANDE_CITY_HOUSE3_ICE_GEM)
-    IceMenu:
-    msgbox(format("How can I help you, student of winter?"))
-    dynmultichoice(0,0, FALSE, 6, 0, DYN_MULTICHOICE_CB_NONE, "Information", "Move Tutor", "Single Battle", "Double Battle", "Challenge Battle", "Other Ice Moves?")
-    switch(var(VAR_RESULT)) {
-        case 0:
-            msgbox(format("You may face me in a single, double, or challenge battle. For each team you defeat, I will offer to teach additional Ice-type moves."))
-            goto(IceMenu)
-        case 1:
-            IceTutor:
-            //do a dynamic multistack with move options based on opponent flag states
-            //single battle unlocks: Aurora Beam1, Ice Hammer5
-
-            //double battle unlocks: Ice Shard6, Frost Breath3, Icy Wind7
-
-            //challenge unlocks: Haze4, Freeze-Dry2, Sheer Cold8
-
-            dynmultipush("Cancel", 8)
-            msgbox(format("Which move should I teach?"))
-            dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
-            switch(var(VAR_RESULT)) {
-                case 0:
-                    //teach Aurora Beam
-                case 1:
-                    //teach Freeze-Dry
-                case 2:
-                    //teach Frost Breath
-                case 3:
-                    //teach Haze
-                case 4:
-                    //teach Ice Hammer
-                case 5:
-                    //teach Ice Shard
-                case 6:
-                    //teach Icy Wind
-                case 7:
-                    //teach Sheer Cold
-                default:
-                    goto(IceMenu)
-            }
-        case 2:
-            msgbox(format("Defeating me in a single battle will unlock Aurora Beam and Ice Hammer."))
-            msgbox(format("Shall we proceed?"), MSGBOX_YESNO)
-            //battle
-            goto(IceMenu)
-        case 3:
-            msgbox(format("Defeating me in a double battle will unlock Ice Shard, Frost Breath, and Icy Wind."))
-            msgbox(format("Are your Pokémon ready?"), MSGBOX_YESNO)
-            //battle
-            goto(IceMenu)
-        case 4:
-            msgbox(format("Defeating me in a challenge battle will unlock Haze, Sheer Cold, and Freeze-Dry."))
-            msgbox(format("For the challenge battle, you must bring a team of only Ice-type Pokémon."))
-            msgbox(format("Are you prepared?"), MSGBOX_YESNO)
-            //check team comp
-
-            //battle
-            goto(IceMenu)
-        case 5:
-            msgbox(format("There are other tutors around the region who will teach the moves Ice Fang, Icicle Spear, and Ice Spinner."))
-            goto(IceMenu)
-        default:
-            IceGoodbye:
-            msgbox(format("Farewell."))
-            release
-            end
-    }
-    release
-    end
-}
-
 script EverGrandeCity_House3_EventScript_Cushion {
     lock
     msgbox(format("Despite the warm day, this cushion is perfectly cool to the touch."))
     release
     end
+}
+
+script EverGrandeCity_House3_EventScript_Ellie {
+    lock
+    faceplayer
+    msgbox(format("Welcome, traveler."))
+    call_if_unset(FLAG_MET_ICE_TUTOR, EverGrandeCity_House3_EventScript_IceSpecialistInfo)
+    call_if_unset(FLAG_RECEIVED_ICE_GEM, EverGrandeCity_House3_EventScript_GiveIceGem)
+    goto(EverGrandeCity_House3_EventScript_IceSpecialistMenu)
+}
+
+script EverGrandeCity_House3_EventScript_IceSpecialistInfo {
+    msgbox(format("I am Ellie, this region's Ice specialist. Elite Four Glacia is my aunt."))
+    msgbox(format("If you defeat my Ice-type Pokémon in battle, I will offer to teach you various Ice-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Ice-type Pokémon."))
+    setflag(FLAG_MET_ICE_TUTOR)
+    return
+}
+
+script EverGrandeCity_House3_EventScript_GiveIceGem {
+    msgbox(format("Here, this item boosts the power of one Ice-type move per battle."))
+    giveitem(ITEM_ICE_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_ICE_GEM)
+    return
+}
+
+script EverGrandeCity_House3_EventScript_IceSpecialistMenu {
+    msgbox(format("How can I help you?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(EverGrandeCity_House3_EventScript_IceSpecialistInfo)
+        case 1:
+            call(EverGrandeCity_House3_EventScript_IceSpecialistTutor)
+        case 2:
+            call(EverGrandeCity_House3_EventScript_IceSpecialistBattle)
+        default:
+            msgbox("Farewell.", MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(EverGrandeCity_House3_EventScript_IceSpecialistMenu)
+}
+
+script EverGrandeCity_House3_EventScript_IceSpecialistTutor {
+    call(EverGrandeCity_House3_EventScript_IceSpecialistCheckMoves)
+    call_if_defeated(TRAINER_ELLIE_INITIAL, EverGrandeCity_House3_EventScript_IceSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_ELLIE_INVERSE, EverGrandeCity_House3_EventScript_IceSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_ELLIE_CHALLENGE, EverGrandeCity_House3_EventScript_IceSpecialistChallengeUnlock)
+    call(EverGrandeCity_House3_EventScript_IceSpecialistUnlockOtherTutor)
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_AURORA_BEAM)
+        case 12:
+            setvar(VAR_0x8005, MOVE_ICE_HAMMER)
+        case 21:
+            setvar(VAR_0x8005, MOVE_ICE_SHARD)
+        case 22:
+            setvar(VAR_0x8005, MOVE_FROST_BREATH)
+        case 23:
+            setvar(VAR_0x8005, MOVE_ICY_WIND)
+        case 31:
+            setvar(VAR_0x8005, MOVE_FREEZE_DRY)
+        case 32:
+            setvar(VAR_0x8005, MOVE_HAZE)
+        case 33:
+            setvar(VAR_0x8005, MOVE_SHEER_COLD)
+        case 41:
+            setvar(VAR_0x8005, MOVE_ICE_FANG)
+        case 42:
+            setvar(VAR_0x8005, MOVE_ICE_SPINNER)
+        case 43:
+            setvar(VAR_0x8005, MOVE_ICICLE_SPEAR)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, EverGrandeCity_House3_EventScript_IceSpecialistTutor)
+    return
+}
+
+script EverGrandeCity_House3_EventScript_IceSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_ELLIE_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_ELLIE_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_ELLIE_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BITE_MOVES, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_TERRAIN_MOVES, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(EverGrandeCity_House3_EventScript_IceSpecialistMenu)
+}
+
+script EverGrandeCity_House3_EventScript_IceSpecialistInitialUnlock {
+    dynmultipush("Aurora Beam", 11)
+    dynmultipush("Ice Hammer", 12)
+    return
+}
+
+script EverGrandeCity_House3_EventScript_IceSpecialistInverseUnlock {
+    dynmultipush("Ice Shard", 21)
+    dynmultipush("Frost Breath", 22)
+    dynmultipush("Icy Wind", 23)
+    return
+}
+
+script EverGrandeCity_House3_EventScript_IceSpecialistChallengeUnlock {
+    dynmultipush("Freeze-Dry", 31)
+    dynmultipush("Haze", 32)
+    dynmultipush("Sheer Cold", 33)
+    return
+}
+
+script EverGrandeCity_House3_EventScript_IceSpecialistUnlockOtherTutor {
+    if(flag(FLAG_TUTOR_BITE_MOVES)) {
+        dynmultipush("Ice Fang", 41)
+    }
+    if(flag(FLAG_TUTOR_TERRAIN_MOVES)) {
+        dynmultipush("Ice Spinner", 42)
+    }
+    if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
+        dynmultipush("Icicle Spear", 43)
+    }
+    return
+}
+
+script EverGrandeCity_House3_EventScript_IceSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Ice-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(EverGrandeCity_House3_EventScript_InitialBattle)
+        case 2:
+            call(EverGrandeCity_House3_EventScript_InverseBattle)
+        case 3:
+            call(EverGrandeCity_House3_EventScript_ChallengeBattle)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM86, EverGrandeCity_House3_EventScript_GiveBlizzard)
+    release
+    end
+}
+
+script EverGrandeCity_House3_EventScript_InitialBattle {
+    if(!defeated(TRAINER_ELLIE_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Aurora Beam and Ice Hammer."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Ready to face the power of winter?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, EverGrandeCity_House3_EventScript_IceSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_ELLIE_INITIAL, EverGrandeCity_House3_Text_EllieDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Aurora Beam and Ice Hammer to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script EverGrandeCity_House3_EventScript_InverseBattle {
+    if(!defeated(TRAINER_ELLIE_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Ice Shard, Frost Breath, and Icy Wind."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Ready for ice to freeze fire?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, EverGrandeCity_House3_EventScript_IceSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_ELLIE_INVERSE, EverGrandeCity_House3_Text_EllieDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Ice Shard, Frost Breath, and Icy Wind to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script EverGrandeCity_House3_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_ICE)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, EverGrandeCity_House3_EventScript_NotIceMonotype)
+    if(!defeated(TRAINER_ELLIE_CHALLENGE)) {
+        msgbox(format("Winning against me with all Ice-type Pokémon will unlock the tutor moves Freeze-Dry, Haze, and Sheer Cold."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Ready to prove yourself a special snowflake?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, EverGrandeCity_House3_EventScript_IceSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_ELLIE_CHALLENGE, EverGrandeCity_House3_Text_EllieDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Freeze-Dry, Haze, and Sheer Cold to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script EverGrandeCity_House3_EventScript_NotIceMonotype {
+    msgbox(format("You have a Pokémon that's not an Ice type."))
+    release
+    end
+}
+
+script EverGrandeCity_House3_EventScript_GiveBlizzard {
+    msgbox(format("What a showing! Clearly, the cold cannot bother you and your Pokémon. Here, take this TM!"))
+    giveitem(ITEM_TM86_BLIZZARD)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM86)
+    msgbox(format("Blizzard is a wonderfully chilling move. It hits all foes, and can give them a nasty case of Frostbite!"))
+    return
+}
+
+text EverGrandeCity_House3_Text_EllieDefeated {
+    "Splendid! You melted us down!"
 }

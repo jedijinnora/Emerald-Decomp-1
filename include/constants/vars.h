@@ -50,7 +50,7 @@
 #define VAR_CURRENT_SECRET_BASE                          0x4020
 #define VAR_REPEL_STEP_COUNT                             0x4021
 #define VAR_ICE_STEP_COUNT                               0x4022
-#define VAR_STARTER_MON                                  0x4023 // 0=Treecko, 1=Torchic, 2=Mudkip
+#define VAR_STARTER_MON                                  0x4023 // was starter mon 0=Treecko, 1=Torchic, 2=Mudkip
 #define VAR_MIRAGE_RND_H                                 0x4024
 #define VAR_MIRAGE_RND_L                                 0x4025
 #define VAR_SECRET_BASE_MAP                              0x4026
@@ -95,7 +95,7 @@
 #define VAR_POKELOT_RND1                                 0x404B
 #define VAR_POKELOT_RND2                                 0x404C
 #define VAR_POKELOT_PRIZE_PLACE                          0x404D
-#define VAR_STARTER_CHOICE                               0x404E // used for setting starter species in ferry room
+#define VAR_STARTER_CHOICE                               0x404E // used for setting starter species
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
 #define VAR_LITTLEROOT_TOWN_STATE                        0x4050
 #define VAR_OLDALE_TOWN_STATE                            0x4051
@@ -163,21 +163,17 @@
 #define VAR_DEVON_CORP_3F_STATE                          0x408F
 #define VAR_BRINEY_HOUSE_STATE                           0x4090
 #define VAR_BOARD_BRINEY_BOAT_STATE                      0x4091
-#define VAR_LITTLEROOT_INTRO_STATE                       0x4092
+#define VAR_UNUSED_0x4092                                0x4092 // was littleroot intro state
 #define VAR_MAUVILLE_GYM_STATE                           0x4093
 #define VAR_LILYCOVE_MUSEUM_2F_STATE                     0x4094
 #define VAR_LILYCOVE_FAN_CLUB_STATE                      0x4095
 #define VAR_BRINEY_LOCATION                              0x4096
 #define VAR_INIT_SECRET_BASE                             0x4097
-#define VAR_PETALBURG_WOODS_STATE                        0x4098
+#define VAR_UNUSED_0x4098                                0x4098 // was petalburg woods state
 #define VAR_LILYCOVE_CONTEST_LOBBY_STATE                 0x4099
-#define VAR_RUSTURF_TUNNEL_STATE                         0x409A
+#define VAR_UNUSED_0x409A                                0x409A // was rusturf tunnel state
 #define VAR_METEOR_VILLAGE_STATE                         0x409B // JINNORA: Map variable for Meteor Village
 #define VAR_ELITE_4_STATE                                0x409C
-
-// Jinnora: 
-// do I really need to use a var per each map? seems like there could be a generic var that gets reused
-// most of the time the vars get set to 0 on transition by default, this wouldn't be hard
 #define VAR_WILD_SET_ALTERING_CAVE                       0x409D // renamed from VAR_ALTERING_CAVE_WILD_SET
 #define VAR_OVERWORLD_WILD_SET                           0x409E // used for all other areas, keeping altering cave separate b/c mystery gift messes with it
 #define VAR_UNUSED_0x409F                                0x409F
@@ -186,7 +182,6 @@
 #define VAR_UNUSED_0x40A2                                0x40A2
 #define VAR_UNUSED_0x40A3                                0x40A3
 #define VAR_UNUSED_0x40A4                                0x40A4
-
 #define VAR_TRICK_HOUSE_BEING_WATCHED_STATE              0x40A5
 #define VAR_TRICK_HOUSE_FOUND_TRICK_MASTER               0x40A6
 #define VAR_TRICK_HOUSE_ENTRANCE_STATE                   0x40A7
@@ -201,13 +196,13 @@
 #define VAR_TRICK_HOUSE_PUZZLE_6_STATE                   0x40B0
 #define VAR_TRICK_HOUSE_PUZZLE_7_STATE                   0x40B1
 #define VAR_TRICK_HOUSE_PUZZLE_8_STATE                   0x40B2
-#define VAR_WEATHER_INSTITUTE_STATE                      0x40B3
+#define VAR_UNUSED_0x40B3                                0x40B3 // was weather institute state
 #define VAR_SS_TIDAL_STATE                               0x40B4
 #define VAR_TRICK_HOUSE_ENTER_FROM_CORRIDOR              0x40B5
 #define VAR_TRICK_HOUSE_PUZZLE_7_STATE_2                 0x40B6 // Leftover from RS, never set
-#define VAR_SLATEPORT_FAN_CLUB_STATE                     0x40B7//changes for intro and how many scarves have been given out
-#define VAR_SAFARI_ZONE_STATE                            0x40B8// 0: In or out of SZ, 1: Player exiting SZ, 2: Player entering SZ
-#define VAR_MT_PYRE_STATE                                0x40B9
+#define VAR_SLATEPORT_FAN_CLUB_STATE                     0x40B7 // changes for intro and how many scarves have been given out
+#define VAR_SAFARI_ZONE_STATE                            0x40B8 // 0: In or out of SZ, 1: Player exiting SZ, 2: Player entering SZ
+#define VAR_UNUSED_0x40B9                                0x40B9 // was mt pyre state
 #define VAR_NEW_MAUVILLE_STATE                           0x40BA
 #define VAR_UNUSED_0x40BB                                0x40BB
 #define VAR_BRAVO_TRAINER_BATTLE_TOWER_ON                0x40BC
@@ -222,48 +217,48 @@
 #define VAR_WHICH_FOSSIL_REVIVED                         0x40C5 // used to save choice of revived fossil
 #define VAR_UNUSED_0x40C6                                0x40C6
 #define VAR_UNUSED_0x40C7                                0x40C7
-#define VAR_JAGGED_PASS_STATE                            0x40C8
+#define VAR_UNUSED_0x40C8                                0x40C8 // was jagged pass state
 #define VAR_UNUSED_0x40C9                                0x40C9 // was scott petalburg encounter
 #define VAR_SKY_PILLAR_STATE                             0x40CA
-#define VAR_MIRAGE_TOWER_STATE                           0x40CB
-#define VAR_UNUSED_0x40CC                                0x40CC //  was fossil maniac state
+#define VAR_UNUSED_0x40CB                                0x40CB // was mirage tower state
+#define VAR_UNUSED_0x40CC                                0x40CC // was fossil maniac state
 #define VAR_CABLE_CLUB_TUTORIAL_STATE                    0x40CD
 #define VAR_FRONTIER_BATTLE_MODE                         0x40CE
 #define VAR_FRONTIER_FACILITY                            0x40CF
 #define VAR_HAS_ENTERED_BATTLE_FRONTIER                  0x40D0 // Var is used like a flag.
 #define VAR_SCOTT_STATE                                  0x40D1
-#define VAR_SLATEPORT_OUTSIDE_MUSEUM_STATE               0x40D2
+#define VAR_UNUSED_0x40D2                                0x40D2 // was slateport outside museum state
 #define VAR_DEX_UPGRADE_JOHTO_STARTER_STATE              0x40D3
 #define VAR_SS_TIDAL_SCOTT_STATE                         0x40D4 // Always equal to FLAG_MET_SCOTT_ON_SS_TIDAL
 #define VAR_ROAMER_POKEMON                               0x40D5 // 0 = Latias, 1 = Latios
 #define VAR_TRAINER_HILL_IS_ACTIVE                       0x40D6
 #define VAR_SKY_PILLAR_RAYQUAZA_CRY_DONE                 0x40D7
-#define VAR_SOOTOPOLIS_WALLACE_STATE                     0x40D8
-#define VAR_HAS_TALKED_TO_SEAFLOOR_CAVERN_ENTRANCE_GRUNT 0x40D9
-#define VAR_REGISTER_BIRCH_STATE                         0x40DA
+#define VAR_UNUSED_0x40D8                                0x40D8 // was sootopolis wallace state
+#define VAR_UNUSED_0x40D9                                0x40D9 // was talked seafloor entrance grunt
+#define VAR_UNUSED_0x40DA                                0x40DA // was register birch state
 #define VAR_UNUSED_0x40DB                                0x40DB // Unused Var
 #define VAR_UNUSED_0x40DC                                0x40DC // Unused Var
 #define VAR_GIFT_PICHU_SLOT                              0x40DD
-#define VAR_GIFT_UNUSED_1                                0x40DE // Var is written to, but never read
-#define VAR_GIFT_UNUSED_2                                0x40DF // Var is written to, but never read
-#define VAR_GIFT_UNUSED_3                                0x40E0 // Var is written to, but never read
-#define VAR_GIFT_UNUSED_4                                0x40E1 // Var is written to, but never read
-#define VAR_GIFT_UNUSED_5                                0x40E2 // Var is written to, but never read
-#define VAR_GIFT_UNUSED_6                                0x40E3 // Var is written to, but never read
-#define VAR_GIFT_UNUSED_7                                0x40E4 // var is written to, but never read
+#define VAR_UNUSED_0x40DE                                0x40DE // Unused Var
+#define VAR_UNUSED_0x40DF                                0x40DF // Unused Var
+#define VAR_UNUSED_0x40E0                                0x40E0 // Unused Var
+#define VAR_UNUSED_0x40E1                                0x40E1 // Unused Var
+#define VAR_UNUSED_0x40E2                                0x40E2 // Unused Var
+#define VAR_UNUSED_0x40E3                                0x40E3 // Unused Var
+#define VAR_UNUSED_0x40E4                                0x40E4 // Unused Var
 #define VAR_UNUSED_0x40E5                                0x40E5 // Unused Var
-#define VAR_DAILY_SLOTS                                  0x40E6
-#define VAR_DAILY_WILDS                                  0x40E7
-#define VAR_DAILY_BLENDER                                0x40E8
-#define VAR_DAILY_PLANTED_BERRIES                        0x40E9
-#define VAR_DAILY_PICKED_BERRIES                         0x40EA
-#define VAR_DAILY_ROULETTE                               0x40EB
+#define VAR_DAILY_SLOTS                                  0x40E6 // TV Var
+#define VAR_DAILY_WILDS                                  0x40E7 // TV Var
+#define VAR_DAILY_BLENDER                                0x40E8 // TV Var
+#define VAR_DAILY_PLANTED_BERRIES                        0x40E9 // TV Var
+#define VAR_DAILY_PICKED_BERRIES                         0x40EA // TV Var
+#define VAR_DAILY_ROULETTE                               0x40EB // TV Var
 #define VAR_SECRET_BASE_STEP_COUNTER                     0x40EC // Used by Secret Base TV programs
 #define VAR_SECRET_BASE_LAST_ITEM_USED                   0x40ED // Used by Secret Base TV programs
 #define VAR_SECRET_BASE_LOW_TV_FLAGS                     0x40EE // Used by Secret Base TV programs
 #define VAR_SECRET_BASE_HIGH_TV_FLAGS                    0x40EF // Used by Secret Base TV programs
 #define VAR_SECRET_BASE_IS_NOT_LOCAL                     0x40F0 // Set to TRUE while in another player's secret base.
-#define VAR_DAILY_BP                                     0x40F1
+#define VAR_DAILY_BP                                     0x40F1 // TV Var
 #define VAR_WALLY_CALL_STEP_COUNTER                      0x40F2
 #define VAR_SCOTT_FORTREE_CALL_STEP_COUNTER              0x40F3
 #define VAR_ROXANNE_CALL_STEP_COUNTER                    0x40F4

@@ -568,3 +568,5 @@ gSpecials::
 	def_special GetCurrentHMCount
 
 	def_special HardcoreSetBattleStyle
+
+	def_special CheckPartyMonotype

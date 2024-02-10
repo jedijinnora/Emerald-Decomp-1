@@ -58,7 +58,7 @@
 #define FLAG_RECEIVED_GRASS_GEM                         0x2B
 #define FLAG_RECEIVED_ELECTRIC_GEM                      0x2C
 #define FLAG_RECEIVED_PSYCHIC_GEM                       0x2D
-#define FLAG_RECEIVED_EVER_GRANDE_CITY_HOUSE3_ICE_GEM   0x2E
+#define FLAG_RECEIVED_ICE_GEM                           0x2E
 #define FLAG_RECEIVED_DRAGON_GEM                        0x2F
 #define FLAG_RECEIVED_DEWFORD_TOWN_HOUSE3_DARK_GEM      0x30
 #define FLAG_RECEIVED_FAIRY_GEM                         0x31
@@ -131,9 +131,9 @@
 #define FLAG_GIVEN_VICTORY_ROAD_SKIP_REWARD  0x69
 #define FLAG_GIVEN_DEWFORD_RESORT_LEEK       0x6A
 #define FLAG_GIVEN_ROUTE_107_PUNCHING_GLOVE  0x6B
-#define FLAG_GIVEN_SOFT_SAND                 0x6C
+#define FLAG_GIVEN_SOFT_SAND                 0x6C // from pokefan on r107 after telling her about hiding son
 #define FLAG_GIVEN_RESORT_EVOLUTION_STONE    0x6D // receive evo stone of choice after defeating all resort trainers
-#define FLAG_UNUSED_0x06E                    0x6E
+#define FLAG_GIVEN_FAIRY_FEATHER             0x6E // from school kid in petalburg after showing orange flower florges
 #define FLAG_UNUSED_0x06F                    0x6F
 #define FLAG_UNUSED_0x070                    0x70
 #define FLAG_UNUSED_0x071                    0x71
@@ -221,7 +221,7 @@
 #define FLAG_UNUSED_0xBD                     0xBD
 
 //space for 18 type tutor flags if needed
-#define FLAG_UNUSED_0xBE                     0xBE
+#define FLAG_MET_ICE_TUTOR                   0xBE
 #define FLAG_UNUSED_0xBF                     0xBF
 #define FLAG_UNUSED_0xC0                     0xC0
 #define FLAG_UNUSED_0xC1                     0xC1

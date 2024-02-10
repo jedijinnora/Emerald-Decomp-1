@@ -94,6 +94,13 @@ script EverGrandeCity_EventScript_OfferAllStartingItems {
 	if(var(VAR_RESULT) == FALSE) {
 		additem(ITEM_OLD_ROD)
 	}
+	//why the heck not, save them some farming
+	additem(ITEM_POMEG_BERRY, 99)
+	additem(ITEM_KELPSY_BERRY, 99)
+	additem(ITEM_QUALOT_BERRY, 99)
+	additem(ITEM_HONDEW_BERRY, 99)
+	additem(ITEM_GREPA_BERRY, 99)
+	additem(ITEM_TAMATO_BERRY, 99)
 	return
 }
 

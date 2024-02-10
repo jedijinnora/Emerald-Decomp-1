@@ -321,12 +321,14 @@ void SetMirageTowerVisibility(void)
     u16 rand;
     bool8 visible;
 
+    /* Jinnora: not needed
     if (VarGet(VAR_MIRAGE_TOWER_STATE))
     {
         // Mirage Tower event has already been completed, hide it
         FlagClear(FLAG_MIRAGE_TOWER_VISIBLE);
         return;
     }
+    */
 
     rand = Random();
     visible = rand & 1;

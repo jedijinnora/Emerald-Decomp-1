@@ -1858,12 +1858,12 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_BEAUTY,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F,
         .trainerName = _("Ellie"),
         .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = BASIC_TRAINER_FLAGS,
-        .party = TRAINER_PARTY(sParty_Ellie1),
+        .doubleBattle = TRUE,
+        .aiFlags = SMART_DOUBLE_FLAGS,
+        .party = TRAINER_PARTY(sParty_Ellie_initial),
         .badgeThreshold = 0,
     },
 
@@ -1871,12 +1871,12 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_BEAUTY,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F,
         .trainerName = _("Ellie"),
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = SMART_DOUBLE_FLAGS,
-        .party = TRAINER_PARTY(sParty_Ellie2),
+        .party = TRAINER_PARTY(sParty_Ellie_inverse),
         .badgeThreshold = 0,
     },
 
@@ -1884,12 +1884,12 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-        .trainerPic = TRAINER_PIC_BEAUTY,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F,
         .trainerName = _("Ellie"),
         .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = BASIC_TRAINER_FLAGS,
-        .party = TRAINER_PARTY(sParty_Ellie3),
+        .doubleBattle = TRUE,
+        .aiFlags = SMART_DOUBLE_FLAGS,
+        .party = TRAINER_PARTY(sParty_Ellie_challenge),
         .badgeThreshold = 0,
     },
 

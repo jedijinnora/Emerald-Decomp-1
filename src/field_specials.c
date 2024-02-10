@@ -4404,3 +4404,25 @@ void HardcoreSetBattleStyle(void)
     gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
     return;
 }
+
+//Jinnora: checks if the player party is a monotype based on the special var 0x8004
+// TODO handle edge cases like Castform, Hoopa, Meloetta?
+bool8 CheckPartyMonotype(void)
+{
+    u8 i;
+    u16 species;
+    struct Pokemon *pokemon;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        pokemon = &gPlayerParty[i];
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+        {
+            species = GetMonData(pokemon, MON_DATA_SPECIES);
+            if (gSpeciesInfo[species].types[0] != gSpecialVar_0x8004 && gSpeciesInfo[species].types[1] != gSpecialVar_0x8004)
+            {
+                return FALSE;
+            }
+        }
+    }
+    return TRUE;
+}
