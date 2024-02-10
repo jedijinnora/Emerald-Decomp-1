@@ -1,1 +1,90 @@
 mapscripts LittlerootTown_BigHouse_1F_MapScripts {}
+
+script LittlerootTown_BigHouse_1F_EventScript_Lass {
+    msgbox(format("Be careful of my little brother, he bites!"), MSGBOX_NPC)
+    end
+}
+
+script LittlerootTown_BigHouse_1F_EventScript_Woman {
+    msgbox(format("Dental hygiene is critical! Brush your teeth every day, and go to your dentist regularly."), MSGBOX_NPC)
+    end
+}
+
+script LittlerootTown_BigHouse_1F_EventScript_NinjaBoy {
+    lock
+    faceplayer
+    msgbox(format("Rawr!"))
+    setflag(FLAG_TUTOR_BITE_MOVES)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(LittlerootTown_BigHouse_1F_EventScript_BiteTutor)
+        case 2:
+            call(LittlerootTown_BigHouse_1F_EventScript_BiteBattle)
+        default:
+            msgbox(format("Come back here you coward, I'll bite your legs off!"))
+            release
+            end
+    }
+}
+
+script LittlerootTown_BigHouse_1F_EventScript_BiteTutor {
+    dynmultipush("Bite", 11)
+    dynmultipush("Ice Fang", 12)
+    dynmultipush("Fire Fang", 13)
+    dynmultipush("Thunder Fang", 14)
+    dynmultipush("Bug Bite", 15)
+    if(defeated(TRAINER_BITE_TUTOR)) {
+        dynmultipush("Psychic Fangs", 21)
+        dynmultipush("Crunch", 22)
+        dynmultipush("Hyper Fang", 23)
+        dynmultipush("Poison Fang", 24)
+    }
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_BITE)
+        case 12:
+            setvar(VAR_0x8005, MOVE_ICE_FANG)
+        case 13:
+            setvar(VAR_0x8005, MOVE_FIRE_FANG)
+        case 14:
+            setvar(VAR_0x8005, MOVE_THUNDER_FANG)
+        case 15:
+            setvar(VAR_0x8005, MOVE_BUG_BITE)
+        case 21:
+            setvar(VAR_0x8005, MOVE_PSYCHIC_FANGS)
+        case 22:
+            setvar(VAR_0x8005, MOVE_CRUNCH)
+        case 23:
+            setvar(VAR_0x8005, MOVE_HYPER_FANG)
+        case 24:
+            setvar(VAR_0x8005, MOVE_POISON_FANG)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, LittlerootTown_BigHouse_1F_EventScript_BiteTutor)
+    return
+}
+
+script LittlerootTown_BigHouse_1F_EventScript_BiteBattle {
+    msgbox(format("Wanna see my chompiest Pokémon?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, LittlerootTown_BigHouse_1F_EventScript_BiteAww)
+    trainerbattle_no_intro(TRAINER_BITE_TUTOR, LittlerootTown_BigHouse_1F_Text_BiteDefeat)
+    return
+}
+
+script LittlerootTown_BigHouse_1F_EventScript_BiteAww {
+    msgbox(format("No? But I wanna teach your Pokémon even better ways to bite!"))
+    release
+    end
+}
+
+text LittlerootTown_BigHouse_1F_Text_BiteDefeat {
+    "Oh no, I think I chipped a tooth!"
+}
