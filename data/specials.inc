@@ -222,7 +222,6 @@ gSpecials::
 	def_special OpenPokeblockCaseOnFeeder
 	def_special IsMirageIslandPresent
 	def_special UpdateShoalTideFlag
-	def_special InitBirchState
 	def_special ScriptGetPokedexInfo
 	def_special ShowPokedexRatingMessage
 	def_special DoPCTurnOnEffect
@@ -570,3 +569,6 @@ gSpecials::
 	def_special HardcoreSetBattleStyle
 
 	def_special CheckPartyMonotype
+
+	def_special CheckPartyForShiny
+	def_special CheckPartyForShinyDucklett

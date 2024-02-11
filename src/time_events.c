@@ -105,6 +105,8 @@ void WaitWeather(void)
     CreateTask(Task_WaitWeather, 80);
 }
 
+/*
+
 void InitBirchState(void)
 {
     *GetVarPointer(VAR_BIRCH_STATE) = 0;
@@ -116,3 +118,4 @@ void UpdateBirchState(u16 days)
     *state += days;
     *state %= 7;
 }
+*/

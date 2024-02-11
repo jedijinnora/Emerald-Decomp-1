@@ -42,22 +42,14 @@ script Route119_WeatherInstitute_1F_EventScript_LittleBoy {
 	switch(var(VAR_RESULT)) {
 		case 0:
 			msgbox(format("Did you know that two-thirds of all flowering plant species live in rainforests like this one?"))
-			release
-			end
 		case 1:
 			msgbox(format("Rainforests cover less than six percent of the Earth, but contain half of all animal species!"))
 			msgbox(format("You can find lots of different Pokémon too!"))
-			release
-			end
 		case 2:
 			msgbox(format("I hope I'll be able to visit every rainforest in the world when I grow up!"))
 			msgbox(format("But humans destroy tons of rainforest each year, so they might be gone by the time I'm old enough to go."))
-			release
-			end
 		case 3:
 			msgbox(format("The weather here changes on a four-day cycle. Why is it so predictable, do you think?"))
-			release
-			end
 	}
 	release
 	end

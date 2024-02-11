@@ -1,4 +1,5 @@
 const LOCALID_BOY = 1
+const LOCALID_GENTLEMAN = 2
 
 mapscripts PetalburgCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : PetalburgCity_OnTransition
@@ -77,8 +78,23 @@ script PetalburgCity_EventScript_Gentleman {
 	msgbox(format("We don't have industry like Rustboro or Mauville, and no marketplace like Slateport."))
 	msgbox(format("That's not necessarily a bad thing."))
 	msgbox(format("Vanilla is a perfectly wonderful flavor, after all."))
+	call_if_unset(FLAG_GIVEN_SHINY_DUCKLETT_REWARD, PetalburgCity_EventScript_TryGiveShinyDucklettReward)
 	release
 	end
+}
+
+script PetalburgCity_EventScript_TryGiveShinyDucklettReward {
+	specialvar(VAR_RESULT, CheckPartyForShinyDucklett)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	playse(SE_PIN)
+	applymovement(LOCALID_GENTLEMAN, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	msgbox(format("Well I'll be! That's a very odd Ducklett indeed!"))
+	giveitem(ITEM_BIG_NUGGET, 8)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_GIVEN_SHINY_DUCKLETT_REWARD)
+	msgbox(format("You've made my decade! What a fantastic sight!"))
+	return
 }
 
 script PetalburgCity_EventScript_GymSign {

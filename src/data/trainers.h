@@ -2131,8 +2131,8 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerPic = TRAINER_PIC_LADY,
-        .trainerName = _("Bite Tutor"),
+        .trainerPic = TRAINER_PIC_NINJA_BOY,
+        .trainerName = _("Fang"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = BASIC_TRAINER_FLAGS,

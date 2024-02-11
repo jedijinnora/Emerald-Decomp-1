@@ -134,7 +134,7 @@
 #define FLAG_GIVEN_SOFT_SAND                 0x6C // from pokefan on r107 after telling her about hiding son
 #define FLAG_GIVEN_RESORT_EVOLUTION_STONE    0x6D // receive evo stone of choice after defeating all resort trainers
 #define FLAG_GIVEN_FAIRY_FEATHER             0x6E // from school kid in petalburg after showing orange flower florges
-#define FLAG_UNUSED_0x06F                    0x6F
+#define FLAG_RECEIVED_SHINY_CHARM            0x6F
 #define FLAG_UNUSED_0x070                    0x70
 #define FLAG_UNUSED_0x071                    0x71
 #define FLAG_UNUSED_0x72                     0x72
