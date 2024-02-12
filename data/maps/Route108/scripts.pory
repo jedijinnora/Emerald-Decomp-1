@@ -1,7 +1,22 @@
-raw `
-Route108_MapScripts::
-	.byte 0
+mapscripts Route108_MapScripts {}
 
+script Route108_EventScript_Felix {
+	trainerbattle_single(TRAINER_FELIX, Route108_Text_FelixIntro, Route108_Text_FelixDefeated)
+	msgbox(format("I'm a chill enough dude, I'm willing to share this island if you want."), MSGBOX_AUTOCLOSE)
+	end
+}
+
+text Route108_Text_FelixIntro {
+	"Whoa, hey, you're crowding my\nhangout spot!"
+}
+
+text Route108_Text_FelixDefeated {
+	"Shoved off!"
+}
+
+
+
+raw `
 Route108_EventScript_Jerome::
 	trainerbattle_single TRAINER_JEROME, Route108_Text_JeromeIntro, Route108_Text_JeromeDefeated
 	msgbox Route108_Text_JeromePostBattle, MSGBOX_AUTOCLOSE

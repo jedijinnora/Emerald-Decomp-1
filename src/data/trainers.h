@@ -1347,42 +1347,42 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 0,
     },
 
-    [TRAINER_BUFFY_INITIAL] =
+    [TRAINER_BRAWLY_INITIAL] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("Buffy"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = BASIC_TRAINER_FLAGS,
-        .party = TRAINER_PARTY(sParty_Buffy1),
-        .badgeThreshold = 0,
-    },
-
-    [TRAINER_BUFFY_INVERSE] =
-    {
-        .trainerClass = TRAINER_CLASS_RIVAL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("Buffy"),
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_LEADER_BRAWLY,
+        .trainerName = _("Brawly"),
         .items = {},
         .doubleBattle = TRUE,
         .aiFlags = SMART_DOUBLE_FLAGS,
-        .party = TRAINER_PARTY(sParty_Buffy2),
+        .party = TRAINER_PARTY(sParty_Brawly_initial),
         .badgeThreshold = 0,
     },
 
-    [TRAINER_BUFFY_CHALLENGE] =
+    [TRAINER_BRAWLY_INVERSE] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_INTENSE,
-        .trainerPic = TRAINER_PIC_BATTLE_GIRL,
-        .trainerName = _("Buffy"),
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_LEADER_BRAWLY,
+        .trainerName = _("Brawly"),
         .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = BASIC_TRAINER_FLAGS,
-        .party = TRAINER_PARTY(sParty_Buffy3),
+        .doubleBattle = TRUE,
+        .aiFlags = SMART_DOUBLE_FLAGS,
+        .party = TRAINER_PARTY(sParty_Brawly_inverse),
+        .badgeThreshold = 0,
+    },
+
+    [TRAINER_BRAWLY_CHALLENGE] =
+    {
+        .trainerClass = TRAINER_CLASS_RIVAL,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_LEADER_BRAWLY,
+        .trainerName = _("Brawly"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = SMART_DOUBLE_FLAGS,
+        .party = TRAINER_PARTY(sParty_Brawly_challenge),
         .badgeThreshold = 0,
     },
 
@@ -1939,8 +1939,8 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_HEX_MANIAC,
         .trainerName = _("Megaera"),
         .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = BASIC_TRAINER_FLAGS,
+        .doubleBattle = TRUE,
+        .aiFlags = SMART_DOUBLE_FLAGS,
         .party = TRAINER_PARTY(sParty_Megaera1),
         .badgeThreshold = 0,
     },
@@ -1965,8 +1965,8 @@ const struct Trainer gTrainers[] = {
         .trainerPic = TRAINER_PIC_HEX_MANIAC,
         .trainerName = _("Megaera"),
         .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = BASIC_TRAINER_FLAGS,
+        .doubleBattle = TRUE,
+        .aiFlags = SMART_DOUBLE_FLAGS,
         .party = TRAINER_PARTY(sParty_Megaera3),
         .badgeThreshold = 0,
     },
@@ -2587,9 +2587,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_EVA] =
     {
-        .trainerClass = TRAINER_CLASS_PICNICKER,
+        .trainerClass = TRAINER_CLASS_PKMN_RANGER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
-        .trainerPic = TRAINER_PIC_PICNICKER,
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_F,
         .trainerName = _("Eva"),
         .items = {},
         .doubleBattle = FALSE,
@@ -3010,8 +3010,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Darrin"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Darrin),
+        .badgeThreshold = 2,
+        .easyParty = sParty_Darrin_easy,
     },
 
     [TRAINER_TONY] =
@@ -3022,8 +3024,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Tony"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Tony1),
+        .aiFlags = BASIC_TRAINER_FLAGS,
+        .party = TRAINER_PARTY(sParty_Tony),
+        .badgeThreshold = 4,
+        .easyParty = sParty_Tony_easy,
     },
 
     [TRAINER_DENISE] =
@@ -3034,8 +3038,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Denise"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Denise),
+        .badgeThreshold = 2,
+        .easyParty = sParty_Denise_easy,
     },
 
     [TRAINER_BETH] =
@@ -3046,8 +3052,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Beth"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Beth),
+        .badgeThreshold = 2,
+        .easyParty = sParty_Beth_easy,
     },
 
     [TRAINER_LISA_AND_RAY] =
@@ -3058,8 +3066,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Lisa & Ray"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS | AI_FLAG_SETUP_FIRST_TURN,
         .party = TRAINER_PARTY(sParty_LisaAndRay),
+        .badgeThreshold = 2,
+        .easyParty = sParty_LisaAndRay_easy,
     },
 
     [TRAINER_CAMRON] =
@@ -3070,8 +3080,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Camron"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS | AI_FLAG_OMNISCIENT,
         .party = TRAINER_PARTY(sParty_Camron),
+        .badgeThreshold = 2,
+        .easyParty = sParty_Camron_easy,
     },
 
     [TRAINER_KENNETH] =
@@ -3082,8 +3094,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Kenneth"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Kenneth),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Kenneth_easy,
     },
 
     [TRAINER_JEROME] =
@@ -3094,8 +3108,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Jerome"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Jerome),
+        .badgeThreshold = 2,
+        .easyParty = sParty_Jerome_easy,
     },
 
     [TRAINER_TARA] =
@@ -3106,8 +3122,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Tara"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Tara),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Tara_easy,
     },
 
     [TRAINER_MATTHEW] =
@@ -3118,8 +3136,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Matthew"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Matthew),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Matthew_easy,
     },
 
     [TRAINER_MISSY] =
@@ -3130,8 +3150,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Missy"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Missy),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Missy_easy,
     },
 
     [TRAINER_CAROLINA] =
@@ -3140,10 +3162,12 @@ const struct Trainer gTrainers[] = {
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_COOLTRAINER_F,
         .trainerName = _("Carolina"),
-        .items = {ITEM_HYPER_POTION, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = BASIC_TRAINER_FLAGS | AI_FLAG_OMNISCIENT,
         .party = TRAINER_PARTY(sParty_Carolina),
+        .badgeThreshold = 4,
+        .easyParty = sParty_Carolina_easy,
     },
 
     [TRAINER_CORY] =
@@ -3154,8 +3178,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Cory"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Cory1),
+        .aiFlags = BASIC_TRAINER_FLAGS,
+        .party = TRAINER_PARTY(sParty_Cory),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Cory_easy,
     },
 
     [TRAINER_FELIX] =
@@ -3168,6 +3194,8 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Felix),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Felix_easy,
     },
 
     [TRAINER_DAVID] =
@@ -3178,8 +3206,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("David"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_David),
+        .badgeThreshold = 3,
+        .easyParty = sParty_David_easy,
     },
 
     [TRAINER_ALICE] =
@@ -3190,8 +3220,9 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Alice"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Alice),
+        .badgeThreshold = 0,
     },
 
     [TRAINER_HUEY] =
@@ -3202,8 +3233,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Huey"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Huey),
+        .badgeThreshold = 2,
+        .easyParty = sParty_Huey_easy,
     },
 
     [TRAINER_EDMOND] =
@@ -3214,8 +3247,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Edmond"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Edmond),
+        .badgeThreshold = 2,
+        .easyParty = sParty_Edmond_easy,
     },
 
     [TRAINER_RICKY] =
@@ -3226,8 +3261,9 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Ricky"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Ricky1),
+        .aiFlags = BASIC_TRAINER_FLAGS,
+        .party = TRAINER_PARTY(sParty_Ricky),
+        .badgeThreshold = 0,
     },
 
     [TRAINER_LOLA] =
@@ -3238,32 +3274,37 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Lola"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_Lola1),
+        .aiFlags = BASIC_TRAINER_FLAGS,
+        .party = TRAINER_PARTY(sParty_Lola),
+        .badgeThreshold = 0,
     },
 
     [TRAINER_GWEN] =
     {
-        .trainerClass = TRAINER_CLASS_TUBER_F,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
-        .trainerPic = TRAINER_PIC_TUBER_F,
+        .trainerClass = TRAINER_CLASS_SWIMMER_F,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
+        .trainerPic = TRAINER_PIC_SWIMMER_F,
         .trainerName = _("Gwen"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS | AI_FLAG_OMNISCIENT,
         .party = TRAINER_PARTY(sParty_Gwen),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Gwen_easy,
     },
 
     [TRAINER_AUSTINA] =
     {
-        .trainerClass = TRAINER_CLASS_TUBER_F,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
-        .trainerPic = TRAINER_PIC_TUBER_F,
+        .trainerClass = TRAINER_CLASS_SWIMMER_F,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
+        .trainerPic = TRAINER_PIC_SWIMMER_F,
         .trainerName = _("Austina"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Austina),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Austina_easy,
     },
 
     [TRAINER_CARTER] =
@@ -3274,8 +3315,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Carter"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Carter),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Carter_easy,
     },
 
     [TRAINER_MEL_AND_PAUL] =
@@ -3286,32 +3329,36 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Mel & Paul"),
         .items = {},
         .doubleBattle = TRUE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_MelAndPaul),
+        .badgeThreshold = 0,
     },
 
     [TRAINER_HAILEY] =
     {
-        .trainerClass = TRAINER_CLASS_TUBER_F,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
-        .trainerPic = TRAINER_PIC_TUBER_F,
+        .trainerClass = TRAINER_CLASS_TRIATHLETE,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SWIMMER,
+        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_F,
         .trainerName = _("Hailey"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Hailey),
+        .badgeThreshold = 0,
     },
 
     [TRAINER_CHANDLER] =
     {
-        .trainerClass = TRAINER_CLASS_TUBER_M,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_GIRL,
-        .trainerPic = TRAINER_PIC_TUBER_M,
+        .trainerClass = TRAINER_CLASS_SWIMMER_M,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SWIMMER,
+        .trainerPic = TRAINER_PIC_SWIMMER_M,
         .trainerName = _("Chandler"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Chandler),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Chandler_easy,
     },
 
     [TRAINER_ELIJAH] =
@@ -3322,8 +3369,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Elijah"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS | AI_FLAG_SETUP_FIRST_TURN,
         .party = TRAINER_PARTY(sParty_Elijah),
+        .badgeThreshold = 2,
+        .easyParty = sParty_Elijah_easy,
     },
 
     [TRAINER_JASMINE] =

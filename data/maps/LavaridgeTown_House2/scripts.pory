@@ -1,9 +1,234 @@
 mapscripts LavaridgeTown_House2_MapScripts {}
 
-script LavaridgeTown_House2_EventScript_Flannery {
-
+script LavaridgeTown_House2_EventScript_Cushion {
+    lock
+    msgbox(format("The pleasantly warm cushion smells faintly of spices."))
+    release
+    end
 }
 
-script LavaridgeTown_House2_EventScript_Cushion {
-    
+script LavaridgeTown_House2_EventScript_Flannery {
+    lock
+    faceplayer
+    msgbox(format("Heya {PLAYER}."))
+    call_if_unset(FLAG_MET_FIRE_TUTOR, LavaridgeTown_House2_EventScript_FireSpecialistInfo)
+    call_if_unset(FLAG_RECEIVED_FIRE_GEM, LavaridgeTown_House2_EventScript_GiveFireGem)
+    goto(LavaridgeTown_House2_EventScript_FireSpecialistMenu)
+}
+
+script LavaridgeTown_House2_EventScript_FireSpecialistInfo {
+    msgbox(format("I'm Flannery - Gym Leader Moore is my grandpa! He's training me up to be his replacement when he retires."))
+    msgbox(format("If you defeat my Fire-type Pokémon in battle, I will offer to teach you various Fire-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Fire-type Pokémon."))
+    setflag(FLAG_MET_FIRE_TUTOR)
+    return
+}
+
+script LavaridgeTown_House2_EventScript_GiveFireGem {
+    msgbox(format("Here, this item boosts the power of one Fire-type move per battle."))
+    giveitem(ITEM_FIRE_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_FIRE_GEM)
+    return
+}
+
+script LavaridgeTown_House2_EventScript_FireSpecialistMenu {
+    msgbox(format("How can I help you?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(LavaridgeTown_House2_EventScript_FireSpecialistInfo)
+        case 1:
+            call(LavaridgeTown_House2_EventScript_FireSpecialistTutor)
+        case 2:
+            call(LavaridgeTown_House2_EventScript_FireSpecialistBattle)
+        default:
+            msgbox("Stay safe.", MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(LavaridgeTown_House2_EventScript_FireSpecialistMenu)
+}
+
+script LavaridgeTown_House2_EventScript_FireSpecialistTutor {
+    call(LavaridgeTown_House2_EventScript_FireSpecialistCheckMoves)
+    call_if_defeated(TRAINER_FLANNERY_INITIAL, LavaridgeTown_House2_EventScript_FireSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_FLANNERY_INVERSE, LavaridgeTown_House2_EventScript_FireSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_FLANNERY_CHALLENGE, LavaridgeTown_House2_EventScript_FireSpecialistChallengeUnlock)
+    call(LavaridgeTown_House2_EventScript_FireSpecialistUnlockOtherTutor)
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_INCINERATE)
+        case 12:
+            setvar(VAR_0x8005, MOVE_BURN_UP)
+        case 13:
+            setvar(VAR_0x8005, MOVE_FIRE_SPIN)
+        case 14:
+            setvar(VAR_0x8005, MOVE_FLAME_BURST)
+        case 21:
+            setvar(VAR_0x8005, MOVE_LAVA_PLUME)
+        case 22:
+            setvar(VAR_0x8005, MOVE_HEAT_WAVE)
+        case 23:
+            setvar(VAR_0x8005, MOVE_BLAZE_KICK)
+        case 24:
+            setvar(VAR_0x8005, MOVE_FLAME_WHEEL)
+        case 25:
+            setvar(VAR_0x8005, MOVE_MYSTICAL_FIRE)
+        case 31:
+            setvar(VAR_0x8005, MOVE_FLARE_BLITZ)
+        case 32:
+            setvar(VAR_0x8005, MOVE_FIRE_PLEDGE)
+        case 33:
+            setvar(VAR_0x8005, MOVE_BLAST_BURN)
+        case 34:
+            setvar(VAR_0x8005, MOVE_BURNING_JEALOUSY)
+        case 35:
+            setvar(VAR_0x8005, MOVE_TEMPER_FLARE)
+        case 41:
+            setvar(VAR_0x8005, MOVE_FIRE_FANG)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, LavaridgeTown_House2_EventScript_FireSpecialistTutor)
+    return
+}
+
+script LavaridgeTown_House2_EventScript_FireSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_FLANNERY_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_FLANNERY_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_FLANNERY_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BITE_MOVES, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(LavaridgeTown_House2_EventScript_FireSpecialistMenu)
+}
+
+script LavaridgeTown_House2_EventScript_FireSpecialistInitialUnlock {
+    dynmultipush("Incinerate", 11)
+    dynmultipush("Burn Up", 12)
+    dynmultipush("Fire Spin", 13)
+    dynmultipush("Flame Burst", 14)
+    return
+}
+
+script LavaridgeTown_House2_EventScript_FireSpecialistInverseUnlock {
+    dynmultipush("Lava Plume", 21)
+    dynmultipush("Heat Wave", 22)
+    dynmultipush("Blaze Kick", 23)
+    dynmultipush("Flame Wheel", 24)
+    dynmultipush("Mystical Fire", 25)
+    return
+}
+
+script LavaridgeTown_House2_EventScript_FireSpecialistChallengeUnlock {
+    dynmultipush("Flare Blitz", 31)
+    dynmultipush("Fire Pledge", 32)
+    dynmultipush("Blast Burn", 33)
+    dynmultipush("Burning Jealousy", 34)
+    dynmultipush("Temper Flare", 35)
+    return
+}
+
+script LavaridgeTown_House2_EventScript_FireSpecialistUnlockOtherTutor {
+    if(flag(FLAG_TUTOR_BITE_MOVES)) {
+        dynmultipush("Fire Fang", 41)
+    }
+    return
+}
+
+script LavaridgeTown_House2_EventScript_FireSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Fire-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(LavaridgeTown_House2_EventScript_InitialBattle)
+        case 2:
+            call(LavaridgeTown_House2_EventScript_InverseBattle)
+        case 3:
+            call(LavaridgeTown_House2_EventScript_ChallengeBattle)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM50, LavaridgeTown_House2_EventScript_GiveBlizzard)
+    release
+    end
+}
+
+script LavaridgeTown_House2_EventScript_InitialBattle {
+    if(!defeated(TRAINER_FLANNERY_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Incinerate, Burn Up, Fire Spin, and Flame Burst."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("I'll uh, bring the heat?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, LavaridgeTown_House2_EventScript_FireSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_FLANNERY_INITIAL, LavaridgeTown_House2_Text_FlanneryDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Incinerate, Burn Up, Fire Spin, and Flame Burst to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script LavaridgeTown_House2_EventScript_InverseBattle {
+    if(!defeated(TRAINER_FLANNERY_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Lava Plume, Heat Wave, Blaze Kick, Flame Wheel, and Mystical Fire."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("I'll show you how to boil water! Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, LavaridgeTown_House2_EventScript_FireSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_FLANNERY_INVERSE, LavaridgeTown_House2_Text_FlanneryDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Lava Plume, Heat Wave, Blaze Kick, Flame Wheel, and Mystical Fire to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script LavaridgeTown_House2_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_FIRE)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, LavaridgeTown_House2_EventScript_NotFireMonotype)
+    if(!defeated(TRAINER_FLANNERY_CHALLENGE)) {
+        msgbox(format("Winning against me with all Fire-type Pokémon will unlock the tutor moves Flare Blitz, Fire Pledge, Blast Burn, Burning Jealousy, and Temper Flare."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Grandpa believes in me! I won't lose. Ready to go?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, LavaridgeTown_House2_EventScript_FireSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_FLANNERY_CHALLENGE, LavaridgeTown_House2_Text_FlanneryDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Flare Blitz, Fire Pledge, Blast Burn, Burning Jealousy, and Temper Flare to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script LavaridgeTown_House2_EventScript_NotFireMonotype {
+    msgbox(format("You have a Pokémon that's not an Fire type."))
+    release
+    end
+}
+
+script LavaridgeTown_House2_EventScript_GiveBlizzard {
+    msgbox(format("I don't want to admit it, but you're better than me. Here, take this TM!"))
+    giveitem(ITEM_TM50_OVERHEAT)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM50)
+    msgbox(format("Overheat inflicts serious damage on the opponent. But it also sharply cuts the Sp. Atk of the Pokémon using it."))
+    return
+}
+
+text LavaridgeTown_House2_Text_FlanneryDefeated {
+    "Sorry grandpa, I lost…"
 }

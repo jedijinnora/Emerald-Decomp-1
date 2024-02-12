@@ -24,10 +24,11 @@ script LittlerootTown_BigHouse_1F_EventScript_NinjaBoy {
         case 2:
             call(LittlerootTown_BigHouse_1F_EventScript_BiteBattle)
         default:
-            msgbox(format("Come back here you coward, I'll bite your legs off!"))
-            release
-            end
+
     }
+    msgbox(format("Come back here you coward, I'll bite your legs off!"))
+    release
+    end
 }
 
 script LittlerootTown_BigHouse_1F_EventScript_BiteTutor {

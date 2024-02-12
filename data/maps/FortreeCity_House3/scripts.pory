@@ -1,16 +1,250 @@
 mapscripts FortreeCity_House3_MapScripts {}
 
-script FortreeCity_House3_EventScript_Quinn {
-	lock
-	faceplayer
-	msgbox(format("I'm Quinn, the Grass type specialist."))
-	release
-	end
-}
-
 script FortreeCity_House3_EventScript_Cushion {
 	lock
     msgbox(format("Smells faintly of citrus and freshly cut herbs."))
     release
     end
+}
+
+
+script FortreeCity_House3_EventScript_Quinn {
+    lock
+    faceplayer
+    msgbox(format("Oh hello."))
+    call_if_unset(FLAG_MET_GRASS_TUTOR, FortreeCity_House3_EventScript_GrassSpecialistInfo)
+    call_if_unset(FLAG_RECEIVED_GRASS_GEM, FortreeCity_House3_EventScript_GiveGrassGem)
+    goto(FortreeCity_House3_EventScript_GrassSpecialistMenu)
+}
+
+script FortreeCity_House3_EventScript_GrassSpecialistInfo {
+    msgbox(format("I am Quinn - I love Grass-type Pokémon. They're so amazingly versatile - gardening, agriculture, medicine, even helping with cooking…"))
+    msgbox(format("If you defeat me in battle, I will offer to teach you various Grass-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Grass-type Pokémon."))
+    setflag(FLAG_MET_GRASS_TUTOR)
+    return
+}
+
+script FortreeCity_House3_EventScript_GiveGrassGem {
+    msgbox(format("Here, this item boosts the power of one Grass-type move per battle."))
+    giveitem(ITEM_GRASS_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_GRASS_GEM)
+    return
+}
+
+script FortreeCity_House3_EventScript_GrassSpecialistMenu {
+    msgbox(format("How can I help you?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(FortreeCity_House3_EventScript_GrassSpecialistInfo)
+        case 1:
+            call(FortreeCity_House3_EventScript_GrassSpecialistTutor)
+        case 2:
+            call(FortreeCity_House3_EventScript_GrassSpecialistBattle)
+        default:
+            msgbox("Stay safe.", MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(FortreeCity_House3_EventScript_GrassSpecialistMenu)
+}
+
+script FortreeCity_House3_EventScript_GrassSpecialistTutor {
+    call(FortreeCity_House3_EventScript_GrassSpecialistCheckMoves)
+    call_if_defeated(TRAINER_QUINN_INITIAL, FortreeCity_House3_EventScript_GrassSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_QUINN_INVERSE, FortreeCity_House3_EventScript_GrassSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_QUINN_CHALLENGE, FortreeCity_House3_EventScript_GrassSpecialistChallengeUnlock)
+    call(FortreeCity_House3_EventScript_GrassSpecialistUnlockOtherTutor)
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_COTTON_GUARD)
+        case 12:
+            setvar(VAR_0x8005, MOVE_COTTON_SPORE)
+        case 13:
+            setvar(VAR_0x8005, MOVE_TRAILBLAZE)
+        case 14:
+            setvar(VAR_0x8005, MOVE_GROWTH)
+        case 21:
+            setvar(VAR_0x8005, MOVE_LEECH_SEED)
+        case 22:
+            setvar(VAR_0x8005, MOVE_INGRAIN)
+        case 23:
+            setvar(VAR_0x8005, MOVE_AROMATHERAPY)
+        case 24:
+            setvar(VAR_0x8005, MOVE_SOLAR_BLADE)
+        case 25:
+            setvar(VAR_0x8005, MOVE_GRASSY_GLIDE)
+        case 31:
+            setvar(VAR_0x8005, MOVE_GRASS_PLEDGE)
+        case 32:
+            setvar(VAR_0x8005, MOVE_FRENZY_PLANT)
+        case 33:
+            setvar(VAR_0x8005, MOVE_HORN_LEECH)
+        case 34:
+            setvar(VAR_0x8005, MOVE_LEAF_STORM)
+		case 35:
+            setvar(VAR_0x8005, MOVE_SYNTHESIS)
+        case 41:
+            setvar(VAR_0x8005, MOVE_GRASSY_TERRAIN)
+		case 42:
+            setvar(VAR_0x8005, MOVE_BULLET_SEED)
+		case 43:
+            setvar(VAR_0x8005, MOVE_LEAF_BLADE)
+		case 44:
+            setvar(VAR_0x8005, MOVE_MAGICAL_LEAF)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, FortreeCity_House3_EventScript_GrassSpecialistTutor)
+    return
+}
+
+script FortreeCity_House3_EventScript_GrassSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_QUINN_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_QUINN_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_QUINN_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BITE_MOVES, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(FortreeCity_House3_EventScript_GrassSpecialistMenu)
+}
+
+script FortreeCity_House3_EventScript_GrassSpecialistInitialUnlock {
+    dynmultipush("Cotton Guard", 11)
+    dynmultipush("Cotton Spore", 12)
+    dynmultipush("Trailblaze", 13)
+    dynmultipush("Growth", 14)
+    return
+}
+
+script FortreeCity_House3_EventScript_GrassSpecialistInverseUnlock {
+    dynmultipush("Leech Seed", 21)
+    dynmultipush("Ingrain", 22)
+    dynmultipush("Aromatherapy", 23)
+    dynmultipush("Solar Blade", 24)
+    dynmultipush("Grassy Glide", 25)
+    return
+}
+
+script FortreeCity_House3_EventScript_GrassSpecialistChallengeUnlock {
+    dynmultipush("Grass Pledge", 31)
+	dynmultipush("Frenzy Plant", 32)
+    dynmultipush("Horn Leech", 33)
+    dynmultipush("Leaf Storm", 34)
+    dynmultipush("Synthesis", 35)
+    return
+}
+
+script FortreeCity_House3_EventScript_GrassSpecialistUnlockOtherTutor {
+	if(defeated(TRAINER_TERRAIN_TUTOR_GRASSY)) {
+        dynmultipush("Grassy Terrain", 41)
+    }
+	if(defeated(TRAINER_MULTI_HIT_TUTOR)) {
+        dynmultipush("Bullet Seed", 42)
+    }
+	if(defeated(TRAINER_CRITICAL_TUTOR)) {
+        dynmultipush("Leaf Blade", 43)
+    }
+	if(flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
+        dynmultipush("Magical Leaf", 44)
+    }
+    return
+}
+
+script FortreeCity_House3_EventScript_GrassSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Grass-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(FortreeCity_House3_EventScript_InitialBattle)
+        case 2:
+            call(FortreeCity_House3_EventScript_InverseBattle)
+        case 3:
+            call(FortreeCity_House3_EventScript_ChallengeBattle)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM62, FortreeCity_House3_EventScript_GiveBlizzard)
+    release
+    end
+}
+
+script FortreeCity_House3_EventScript_InitialBattle {
+    if(!defeated(TRAINER_QUINN_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Cotton Guard, Cotton Spore, Trailblaze, and Growth."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("The jungle awaits. Are you ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, FortreeCity_House3_EventScript_GrassSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_QUINN_INITIAL, FortreeCity_House3_Text_QuinnDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Cotton Guard, Cotton Spore, Trailblaze, and Growth to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script FortreeCity_House3_EventScript_InverseBattle {
+    if(!defeated(TRAINER_QUINN_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Leech Seed, Ingrain, Aromatherapy, Solar Blade, and Grassy Glide."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("The jungle consumes all in its path. Ready to battle?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, FortreeCity_House3_EventScript_GrassSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_QUINN_INVERSE, FortreeCity_House3_Text_QuinnDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Leech Seed, Ingrain, Aromatherapy, Solar Blade, and Grassy Glide to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script FortreeCity_House3_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_GRASS)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, FortreeCity_House3_EventScript_NotGrassMonotype)
+    if(!defeated(TRAINER_QUINN_CHALLENGE)) {
+        msgbox(format("Winning against me with all Grass-type Pokémon will unlock the tutor moves Grass Pledge, Frenzy Plant, Horn Leech, Leaf Storm, and Synthesis."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Shall we see who can more elegantly dance?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, FortreeCity_House3_EventScript_GrassSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_QUINN_CHALLENGE, FortreeCity_House3_Text_QuinnDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Grass Pledge, Frenzy Plant, Horn Leech, Leaf Storm, and Synthesis to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script FortreeCity_House3_EventScript_NotGrassMonotype {
+    msgbox(format("You have a Pokémon that's not an Grass type."))
+    release
+    end
+}
+
+script FortreeCity_House3_EventScript_GiveBlizzard {
+    msgbox(format("You have proved superior. Here, take this TM!"))
+    giveitem(ITEM_TM62_GRASS_KNOT)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM62)
+    msgbox(format("Grass Knot does more damage the heavier the foe."))
+    return
+}
+
+text FortreeCity_House3_Text_QuinnDefeated {
+    "You scattered us like flower petals!"
 }

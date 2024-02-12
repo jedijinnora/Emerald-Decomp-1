@@ -60,7 +60,7 @@
 #define FLAG_RECEIVED_PSYCHIC_GEM                       0x2D
 #define FLAG_RECEIVED_ICE_GEM                           0x2E
 #define FLAG_RECEIVED_DRAGON_GEM                        0x2F
-#define FLAG_RECEIVED_DEWFORD_TOWN_HOUSE3_DARK_GEM      0x30
+#define FLAG_RECEIVED_DARK_GEM                          0x30
 #define FLAG_RECEIVED_FAIRY_GEM                         0x31
 
 #define FLAG_PENDING_DAYCARE_EGG        0x32
@@ -221,24 +221,24 @@
 #define FLAG_UNUSED_0xBD                     0xBD
 
 //space for 18 type tutor flags if needed
-#define FLAG_MET_ICE_TUTOR                   0xBE
-#define FLAG_UNUSED_0xBF                     0xBF
-#define FLAG_UNUSED_0xC0                     0xC0
-#define FLAG_UNUSED_0xC1                     0xC1
-#define FLAG_UNUSED_0xC2                     0xC2
-#define FLAG_UNUSED_0xC3                     0xC3
-#define FLAG_UNUSED_0xC4                     0xC4
-#define FLAG_UNUSED_0xC5                     0xC5
-#define FLAG_UNUSED_0xC6                     0xC6
-#define FLAG_UNUSED_0xC7                     0xC7
-#define FLAG_UNUSED_0xC8                     0xC8
-#define FLAG_UNUSED_0xC9                     0xC9
-#define FLAG_UNUSED_0xCA                     0xCA
-#define FLAG_UNUSED_0xCB                     0xCB
-#define FLAG_UNUSED_0xCC                     0xCC
-#define FLAG_UNUSED_0xCD                     0xCD
-#define FLAG_UNUSED_0xCE                     0xCE
-#define FLAG_UNUSED_0xCF                     0xCF
+#define FLAG_MET_NORMAL_TUTOR                0xBE
+#define FLAG_MET_FIGHTING_TUTOR              0xBF
+#define FLAG_MET_FLYING_TUTOR                0xC0
+#define FLAG_MET_POISON_TUTOR                0xC1
+#define FLAG_MET_GROUND_TUTOR                0xC2
+#define FLAG_MET_ROCK_TUTOR                  0xC3
+#define FLAG_MET_BUG_TUTOR                   0xC4
+#define FLAG_MET_GHOST_TUTOR                 0xC5
+#define FLAG_MET_STEEL_TUTOR                 0xC6
+#define FLAG_MET_FIRE_TUTOR                  0xC7
+#define FLAG_MET_WATER_TUTOR                 0xC8
+#define FLAG_MET_GRASS_TUTOR                 0xC9
+#define FLAG_MET_ELECTRIC_TUTOR              0xCA
+#define FLAG_MET_PSYCHIC_TUTOR               0xCB
+#define FLAG_MET_ICE_TUTOR                   0xCC
+#define FLAG_MET_DRAGON_TUTOR                0xCD
+#define FLAG_MET_DARK_TUTOR                  0xCE
+#define FLAG_MET_FAIRY_TUTOR                 0xCF
 
 //Legendary and Static Flags
 #define FLAG_ENCOUNTERED_LATIAS_OR_LATIOS    0xD0 // not used for anything I can see
@@ -1098,7 +1098,7 @@
 #define FLAG_ITEM_TM12      0x3F3 // Hyper Beam, Route 116 item ball
 #define FLAG_ITEM_TM13      0x3F4 // Giga Impact, Route 114 item ball
 #define FLAG_ITEM_TM14      0x3F5 // Natural Gift, Route 123 item ball
-#define FLAG_ITEM_TM15      0x3F6 // Bulk Up, gift from Buffy (Dewford Resort)
+#define FLAG_ITEM_TM15      0x3F6 // Bulk Up, gift from Brawly (Dewford Resort)
 #define FLAG_ITEM_TM16      0x3F7 // Brick Break, Sootopolis City gift
 #define FLAG_ITEM_TM17      0x3F8 // Focus Blast, Route 101 item ball
 #define FLAG_ITEM_TM18      0x3F9 // Drain Punch, Route 115 item ball

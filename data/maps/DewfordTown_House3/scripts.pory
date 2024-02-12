@@ -1,1 +1,253 @@
 mapscripts DewfordTown_House3_MapScripts {}
+
+script DewfordTown_House3_EventScript_Megaera {
+    lock
+    faceplayer
+    msgbox(format("Welcome, traveler."))
+    call_if_unset(FLAG_MET_DARK_TUTOR, DewfordTown_House3_EventScript_DarkSpecialistInfo)
+    call_if_unset(FLAG_RECEIVED_DARK_GEM, DewfordTown_House3_EventScript_GiveDarkGem)
+    goto(DewfordTown_House3_EventScript_DarkSpecialistMenu)
+}
+
+script DewfordTown_House3_EventScript_DarkSpecialistInfo {
+    msgbox(format("I am Megaera. I will teach you to fear the darkness."))
+    msgbox(format("If you defeat my Dark-type Pokémon in battle, I will offer to teach you various Dark-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Dark-type Pokémon."))
+    setflag(FLAG_MET_DARK_TUTOR)
+    return
+}
+
+script DewfordTown_House3_EventScript_GiveDarkGem {
+    msgbox(format("Here, this item boosts the power of one Dark-type move per battle."))
+    giveitem(ITEM_DARK_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_DARK_GEM)
+    return
+}
+
+script DewfordTown_House3_EventScript_DarkSpecialistMenu {
+    msgbox(format("What do you seek?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(DewfordTown_House3_EventScript_DarkSpecialistInfo)
+        case 1:
+            call(DewfordTown_House3_EventScript_DarkSpecialistTutor)
+        case 2:
+            call(DewfordTown_House3_EventScript_DarkSpecialistBattle)
+        default:
+            msgbox("Goodbye.", MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(DewfordTown_House3_EventScript_DarkSpecialistMenu)
+}
+
+script DewfordTown_House3_EventScript_DarkSpecialistTutor {
+    call(DewfordTown_House3_EventScript_DarkSpecialistCheckMoves)
+    call_if_defeated(TRAINER_MEGAERA_INITIAL, DewfordTown_House3_EventScript_DarkSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_MEGAERA_INVERSE, DewfordTown_House3_EventScript_DarkSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_MEGAERA_CHALLENGE, DewfordTown_House3_EventScript_DarkSpecialistChallengeUnlock)
+    call(DewfordTown_House3_EventScript_DarkSpecialistUnlockOtherTutor)
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_SNARL)
+        case 12:
+            setvar(VAR_0x8005, MOVE_PAYBACK)
+        case 13:
+            setvar(VAR_0x8005, MOVE_FLING)
+        case 21:
+            setvar(VAR_0x8005, MOVE_EMBARGO)
+        case 22:
+            setvar(VAR_0x8005, MOVE_ASSURANCE)
+        case 23:
+            setvar(VAR_0x8005, MOVE_TORMENT)
+        case 24:
+            setvar(VAR_0x8005, MOVE_SNATCH)
+        case 31:
+            setvar(VAR_0x8005, MOVE_SWITCHEROO)
+        case 32:
+            setvar(VAR_0x8005, MOVE_KNOCK_OFF)
+        case 33:
+            setvar(VAR_0x8005, MOVE_SUCKER_PUNCH)
+        case 34:
+            setvar(VAR_0x8005, MOVE_LASH_OUT)
+        case 35:
+            setvar(VAR_0x8005, MOVE_THROAT_CHOP)
+        case 36:
+            setvar(VAR_0x8005, MOVE_PARTING_SHOT)
+        case 41:
+            setvar(VAR_0x8005, MOVE_BITE)
+        case 42:
+            setvar(VAR_0x8005, MOVE_CRUNCH)
+        case 43:
+            setvar(VAR_0x8005, MOVE_SUPER_FANG)
+        case 44:
+            setvar(VAR_0x8005, MOVE_BEAT_UP)
+        case 45:
+            setvar(VAR_0x8005, MOVE_NIGHT_SLASH)
+        case 46:
+            setvar(VAR_0x8005, MOVE_FEINT_ATTACK)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, DewfordTown_House3_EventScript_DarkSpecialistTutor)
+    return
+}
+
+script DewfordTown_House3_EventScript_DarkSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_MEGAERA_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_MEGAERA_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_MEGAERA_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BITE_MOVES, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_MET_THOMSON_SET_DAMAGE_MOVES, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(DewfordTown_House3_EventScript_DarkSpecialistMenu)
+}
+
+script DewfordTown_House3_EventScript_DarkSpecialistInitialUnlock {
+    dynmultipush("Snarl", 11)
+    dynmultipush("Payback", 12)
+    dynmultipush("Fling", 13)
+    return
+}
+
+script DewfordTown_House3_EventScript_DarkSpecialistInverseUnlock {
+    dynmultipush("Embargo", 21)
+    dynmultipush("Torment", 22)
+    dynmultipush("Assurance", 23)
+    dynmultipush("Snatch", 24)
+    return
+}
+
+script DewfordTown_House3_EventScript_DarkSpecialistChallengeUnlock {
+    dynmultipush("Switcheroo", 31)
+    dynmultipush("Knock Off", 32)
+    dynmultipush("Sucker Punch", 33)
+    dynmultipush("Lash Out", 34)
+    dynmultipush("Throat Chop", 35)
+    dynmultipush("Parting Shot", 36)
+    return
+}
+
+script DewfordTown_House3_EventScript_DarkSpecialistUnlockOtherTutor {
+    if(flag(FLAG_TUTOR_BITE_MOVES)) {
+        dynmultipush("Bite", 41)
+    }
+    if (defeated(TRAINER_BITE_TUTOR)) {
+        dynmultipush("Crunch", 42)
+    }
+    if(flag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)) {
+        dynmultipush("Super Fang", 43)
+    }
+    if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
+        dynmultipush("Beat Up", 44)
+    }
+    if (defeated(TRAINER_CRITICAL_TUTOR)) {
+        dynmultipush("Night Slash", 45)
+    }
+    if(flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
+        dynmultipush("Feint Attack", 46)
+    }
+    return
+}
+
+script DewfordTown_House3_EventScript_DarkSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Dark-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(DewfordTown_House3_EventScript_InitialBattle)
+        case 2:
+            call(DewfordTown_House3_EventScript_InverseBattle)
+        case 3:
+            call(DewfordTown_House3_EventScript_ChallengeBattle)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM96, DewfordTown_House3_EventScript_GiveFoulPlay)
+    release
+    end
+}
+
+script DewfordTown_House3_EventScript_InitialBattle {
+    if(!defeated(TRAINER_MEGAERA_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Snarl, Payback, and Fling."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Are you prepared to confront my wickedness?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, DewfordTown_House3_EventScript_DarkSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_MEGAERA_INITIAL, DewfordTown_House3_Text_MegaeraDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Snarl, Payback, and Fling to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script DewfordTown_House3_EventScript_InverseBattle {
+    if(!defeated(TRAINER_MEGAERA_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Embargo, Assurance, Torment, and Snatch."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Ready for darkness to shine?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, DewfordTown_House3_EventScript_DarkSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_MEGAERA_INVERSE, DewfordTown_House3_Text_MegaeraDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Embargo, Assurance, Torment, and Snatch to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script DewfordTown_House3_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_DARK)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, DewfordTown_House3_EventScript_NotDarkMonotype)
+    if(!defeated(TRAINER_MEGAERA_CHALLENGE)) {
+        msgbox(format("Winning against me with all Dark-type Pokémon will unlock the tutor moves Switcheroo, Knock Off, Sucker Punch, Lash Out, Throat Chop, and Parting Shot."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Ready to show me your darkest potential?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, DewfordTown_House3_EventScript_DarkSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_MEGAERA_CHALLENGE, DewfordTown_House3_Text_MegaeraDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Switcheroo, Knock Off, Sucker Punch, Lash Out, Throat Chop, and Parting Shot to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script DewfordTown_House3_EventScript_NotDarkMonotype {
+    msgbox(format("You have a Pokémon that's not a Dark type."))
+    release
+    end
+}
+
+script DewfordTown_House3_EventScript_GiveFoulPlay {
+    msgbox(format("Your spirit prevailed! Here, take this TM!"))
+    giveitem(ITEM_TM96_FOUL_PLAY)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM96)
+    msgbox(format("Foul Play uses the target's Attack stat when striking. A devilish move indeed…"))
+    return
+}
+
+text DewfordTown_House3_Text_MegaeraDefeated {
+    "I must contemplate this loss…"
+}

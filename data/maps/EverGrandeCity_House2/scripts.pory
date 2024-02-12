@@ -43,7 +43,7 @@ script EverGrandeCity_House2_EventScript_ExpertM {
         case 15:
             msgbox(format("Claudius gives me the shivers. If he weren't teaching Poison types in Slateport I could see him making good money as an actor. Only villain roles, naturally."))
         case 16:
-            msgbox(format("The rough-and-tumble surfers at Dewford Resort have some of the best Fighting types. Brawly's obsessed with dethroning Sidney as Gym Leader, so if you want instruction find a lifeguard named Buffy."))
+            msgbox(format("The rough-and-tumble surfers at Dewford Resort have some of the best Fighting types. Brawly's obsessed with dethroning Sidney as Gym Leader, but there's no one better to teach you."))
         default:
             msgbox(format("Ellie is the local Ice-type specialist here in Ever Grande. She's Elite Four Glacia's niece!"))    
     }

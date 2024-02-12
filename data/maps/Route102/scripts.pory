@@ -27,6 +27,42 @@ script Route102_EventScript_Boy {
 	end
 }
 
+script Route102_EventScript_Gloria {
+	trainerbattle_single(TRAINER_GLORIA, Route102_Text_GloriaIntro, Route102_Text_GloriaDefeated)
+	msgbox(Route102_Text_GloriaPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+text Route102_Text_GloriaIntro {
+	"Eva! You're here!\n…Wait a minute, who are you?!"
+}
+
+text Route102_Text_GloriaDefeated {
+	"You're a strong Trainer!"
+}
+
+text Route102_Text_GloriaPostBattle {
+	format("Honey, you seem alright but frankly\nI have higher standards.")
+}
+
+script Route102_EventScript_Eva {
+	trainerbattle_single(TRAINER_EVA, Route102_Text_EvaIntro, Route102_Text_EvaDefeated)
+	msgbox(Route102_Text_EvaPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+text Route102_Text_EvaIntro {
+	"Hey, have you seen a pretty lady named\nGloria around here?"
+}
+
+text Route102_Text_EvaDefeated {
+	"Guess not!"
+}
+
+text Route102_Text_EvaPostBattle {
+	"I wanted to show off my outdoor skills,\nbut my date and I both got lost…"
+}
+
 
 
 raw `

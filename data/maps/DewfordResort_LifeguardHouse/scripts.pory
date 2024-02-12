@@ -68,3 +68,245 @@ script DewfordResort_LifeguardHouse_EventScript_CheckTrainers {
     setflag(FLAG_TEMP_11)
     return
 }
+
+
+
+
+
+
+script DewfordResort_LifeguardHouse_EventScript_Brawly {
+    lock
+    faceplayer
+    msgbox(format("Yo dude!"))
+    call_if_unset(FLAG_MET_FIGHTING_TUTOR, DewfordResort_LifeguardHouse_EventScript_FightingSpecialistInfo)
+    call_if_unset(FLAG_RECEIVED_FIGHTING_GEM, DewfordResort_LifeguardHouse_EventScript_GiveFightingGem)
+    goto(DewfordResort_LifeguardHouse_EventScript_FightingSpecialistMenu)
+}
+
+script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistInfo {
+    msgbox(format("I'm Brawly, the next Dewford Gym Leader! Or I will be, as soon as I crush that smug punk Sidney."))
+    msgbox(format("If you defeat my Fighting-type Pokémon in battle, I will offer to teach you various Fighting-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Fighting-type Pokémon."))
+    setflag(FLAG_MET_FIGHTING_TUTOR)
+    return
+}
+
+script DewfordResort_LifeguardHouse_EventScript_GiveFightingGem {
+    msgbox(format("Here, this item boosts the power of one Fighting-type move per battle."))
+    giveitem(ITEM_FIGHTING_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_FIGHTING_GEM)
+    return
+}
+
+script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistMenu {
+    msgbox(format("I have some time. How can I hook you up?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(DewfordResort_LifeguardHouse_EventScript_FightingSpecialistInfo)
+        case 1:
+            call(DewfordResort_LifeguardHouse_EventScript_FightingSpecialistTutor)
+        case 2:
+            call(DewfordResort_LifeguardHouse_EventScript_FightingSpecialistBattle)
+        default:
+            msgbox("Stay frosty.", MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(DewfordResort_LifeguardHouse_EventScript_FightingSpecialistMenu)
+}
+
+script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistTutor {
+    call(DewfordResort_LifeguardHouse_EventScript_FightingSpecialistCheckMoves)
+    call_if_defeated(TRAINER_BRAWLY_INITIAL, DewfordResort_LifeguardHouse_EventScript_FightingSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_BRAWLY_INVERSE, DewfordResort_LifeguardHouse_EventScript_FightingSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_BRAWLY_CHALLENGE, DewfordResort_LifeguardHouse_EventScript_FightingSpecialistChallengeUnlock)
+    call(DewfordResort_LifeguardHouse_EventScript_FightingSpecialistUnlockOtherTutor)
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_LOW_SWEEP)
+        case 12:
+            setvar(VAR_0x8005, MOVE_COUNTER)
+        case 21:
+            setvar(VAR_0x8005, MOVE_FINAL_GAMBIT)
+        case 22:
+            setvar(VAR_0x8005, MOVE_COACHING)
+        case 23:
+            setvar(VAR_0x8005, MOVE_VACUUM_WAVE)
+        case 31:
+            setvar(VAR_0x8005, MOVE_CLOSE_COMBAT)
+        case 32:
+            setvar(VAR_0x8005, MOVE_AURA_SPHERE)
+        case 33:
+            setvar(VAR_0x8005, MOVE_VICTORY_DANCE)
+        case 41:
+            setvar(VAR_0x8005, MOVE_DYNAMIC_PUNCH)
+        case 42:
+            setvar(VAR_0x8005, MOVE_MACH_PUNCH)
+        case 43:
+            setvar(VAR_0x8005, MOVE_FOCUS_PUNCH)
+        case 44:
+            setvar(VAR_0x8005, MOVE_POWER_UP_PUNCH)
+        case 45:
+            setvar(VAR_0x8005, MOVE_SEISMIC_TOSS)
+        case 46:
+            setvar(VAR_0x8005, MOVE_ARM_THRUST)
+        case 47:
+            setvar(VAR_0x8005, MOVE_CROSS_CHOP)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, DewfordResort_LifeguardHouse_EventScript_FightingSpecialistTutor)
+    return
+}
+
+script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_BRAWLY_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_BRAWLY_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_BRAWLY_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_PUNCH_MOVES, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_MET_THOMSON_SET_DAMAGE_MOVES, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(DewfordResort_LifeguardHouse_EventScript_FightingSpecialistMenu)
+}
+
+script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistInitialUnlock {
+    dynmultipush("Low Sweep", 11)
+    dynmultipush("Counter", 12)
+    return
+}
+
+script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistInverseUnlock {
+    dynmultipush("Final Gambit", 21)
+    dynmultipush("Coaching", 22)
+    dynmultipush("Vacuum Wave", 23)
+    return
+}
+
+script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistChallengeUnlock {
+    dynmultipush("Close Combat", 31)
+    dynmultipush("Aura Sphere", 32)
+    dynmultipush("Victory Dance", 33)
+    return
+}
+
+script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistUnlockOtherTutor {
+    if(flag(FLAG_TUTOR_PUNCH_MOVES)) {
+        dynmultipush("Dynamic Punch", 41)
+    }
+    if (defeated(TRAINER_PUNCH_TUTOR)) {
+        dynmultipush("Mach Punch", 42)
+        dynmultipush("Focus Punch", 43)
+        dynmultipush("Power-Up Punch", 44)
+    }
+    if(flag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)) {
+        dynmultipush("Seismic Toss", 45)
+    }
+    if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
+        dynmultipush("Arm Thrust", 46)
+    }
+    if (defeated(TRAINER_CRITICAL_TUTOR)) {
+        dynmultipush("Cross Chop", 47)
+    }
+    return
+}
+
+script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Fighting-only double battle", 3)
+    msgbox(format("What sort of rumble should we cook up?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(DewfordResort_LifeguardHouse_EventScript_InitialBattle)
+        case 2:
+            call(DewfordResort_LifeguardHouse_EventScript_InverseBattle)
+        case 3:
+            call(DewfordResort_LifeguardHouse_EventScript_ChallengeBattle)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM15, DewfordResort_LifeguardHouse_EventScript_GiveBulkUp)
+    release
+    end
+}
+
+script DewfordResort_LifeguardHouse_EventScript_InitialBattle {
+    if(!defeated(TRAINER_BRAWLY_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Low Sweep and Counter."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Ready for me to ride you like a wave?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, DewfordResort_LifeguardHouse_EventScript_FightingSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_BRAWLY_INITIAL, DewfordResort_LifeguardHouse_Text_BrawlyDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Low Sweep and Counter to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script DewfordResort_LifeguardHouse_EventScript_InverseBattle {
+    if(!defeated(TRAINER_BRAWLY_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Final Gambit, Coaching, and Vacuum Wave."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Ready for me to flip your board?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, DewfordResort_LifeguardHouse_EventScript_FightingSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_BRAWLY_INVERSE, DewfordResort_LifeguardHouse_Text_BrawlyDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Final Gambit, Coaching, and Vacuum Wave to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script DewfordResort_LifeguardHouse_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_FIGHTING)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, DewfordResort_LifeguardHouse_EventScript_NotFightingMonotype)
+    if(!defeated(TRAINER_BRAWLY_CHALLENGE)) {
+        msgbox(format("Winning against me with all Fighting-type Pokémon will unlock the tutor moves Close Combat, Aura Sphere, and Victory Dance."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("It's the ultimate throw-down! You ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, DewfordResort_LifeguardHouse_EventScript_FightingSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_BRAWLY_CHALLENGE, DewfordResort_LifeguardHouse_Text_BrawlyDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Close Combat, Aura Sphere, and Victory Dance to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script DewfordResort_LifeguardHouse_EventScript_NotFightingMonotype {
+    msgbox(format("You have a Pokémon that's not a Fighting type."))
+    release
+    end
+}
+
+script DewfordResort_LifeguardHouse_EventScript_GiveBulkUp {
+    msgbox(format("Far out! Here, take this TM!"))
+    giveitem(ITEM_TM15_BULK_UP)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM15)
+    msgbox(format("Bulk Up boosts both Attack and Defense. It's multi-faceted, man!"))
+    return
+}
+
+text DewfordResort_LifeguardHouse_Text_BrawlyDefeated {
+    "You swamped me…"
+}

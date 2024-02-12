@@ -900,19 +900,20 @@ Route109_Text_LolaRematchPostBattle:
 	.string "Pokémon's cuteness goes way up!$"
 
 Route109_Text_AustinaIntro:
-	.string "I can't swim without my inner tube,\n"
-	.string "but I won't lose at Pokémon!$"
+	.string "I'm fit from swimming every day.\n"
+	.string "I won't lose at Pokémon!$"
 
 Route109_Text_AustinaDefeated:
-	.string "Did I lose because I have an inner\n"
-	.string "tube?$"
+	.string "Did I lose because I focused on\n"
+	.string "my body instead of my Pokémon?$"
 
 Route109_Text_AustinaPostBattle:
-	.string "My inner tube is a fashion item.\n"
-	.string "I can't be seen without it.$"
+	.string "I suppose losing to you was\n"
+	.string "inevitable. I love swimming\l"
+	.string "so much more than battling!$"
 
 Route109_Text_GwenIntro:
-	.string "Hi, big Trainer.\n"
+	.string "Hi, cute Trainer.\n"
 	.string "Will you battle with me?$"
 
 Route109_Text_GwenDefeated:
@@ -969,27 +970,27 @@ Route109_Text_MelNotEnoughPokemon:
 
 Route109_Text_ChandlerIntro:
 	.string "Tadaah! See?\n"
-	.string "My inner tube's round!$"
+	.string "My swim cap keeps my head hydrodynamic!$"
 
 Route109_Text_ChandlerDefeated:
 	.string "Oh, oh!\n"
 	.string "Too bad!$"
 
 Route109_Text_ChandlerPostBattle:
-	.string "After I showed you my round inner\n"
-	.string "tube, too…$"
+	.string "After I showed you my amazing\n"
+	.string "swim wear, too…$"
 
 Route109_Text_HaileyIntro:
-	.string "I can't swim, so I'm pretending\n"
-	.string "to swim.$"
+	.string "I've trained enough for today.\n"
+	.string "Let's finish up with a battle!$"
 
 Route109_Text_HaileyDefeated:
 	.string "I thought so!\n"
 	.string "I didn't think we could win.$"
 
 Route109_Text_HaileyPostBattle:
-	.string "When I learn how to swim, I think\n"
-	.string "my Pokémon will become tougher.$"
+	.string "My Pokémon train alongside me!\n"
+	.string "We will become tougher as a family.$"
 
 Route109_Text_ElijahIntro:
 	.string "For a guy as macho as me, this kind\n"
