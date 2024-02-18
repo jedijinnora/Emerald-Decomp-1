@@ -35,8 +35,10 @@ script RustboroCity_EventScript_NinjaBoy {
 }
 
 script RustboroCity_EventScript_CheckShroomishTutor {
-	msgbox(format("Have you seen Shroomish around the Hoenn region?"))
-	goto_if_mon_caught(SPECIES_SHROOMISH, RustboroCity_EventScript_EnableShroomishTutor)
+	msgbox(format("You look like a Trainer! Have you caught a Shroomish yet?"))
+	setvar(VAR_0x8004, SPECIES_SHROOMISH)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, RustboroCity_EventScript_EnableShroomishTutor)
 	msgbox(format("Aww, you really should go get a Shroomish in Petalburg Woods. Shroomish is such a fun guy!"))
 	releaseall
 	end
@@ -44,7 +46,7 @@ script RustboroCity_EventScript_CheckShroomishTutor {
 
 script RustboroCity_EventScript_EnableShroomishTutor {
 	setflag(FLAG_TUTOR_SHROOMISH_SPORE)
-	msgbox(format("Yes! Your Pokédex has the data for Shroomish all right!"))
+	msgbox(format("Yes! That's a fantabulous Shroomish all right!"))
 	msgbox(format("I like you! I'll share the awesome power of fungi with your Pokémon!"))
 	goto(RustboroCity_EventScript_ShroomishSporeTutor)
 	end
