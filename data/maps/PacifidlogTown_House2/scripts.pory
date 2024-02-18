@@ -1,5 +1,218 @@
 mapscripts PacifidlogTown_House2_MapScripts {}
 
 script PacifidlogTown_House2_EventScript_Winona {
-    
+    lock
+    faceplayer
+    msgbox(format("Oh, hello."))
+    call_if_unset(FLAG_MET_FLYING_TUTOR, PacifidlogTown_House2_EventScript_FlyingSpecialistInfo)
+    call_if_unset(FLAG_RECEIVED_FLYING_GEM, PacifidlogTown_House2_EventScript_GiveFlyingGem)
+    goto(PacifidlogTown_House2_EventScript_FlyingSpecialistMenu)
+}
+
+script PacifidlogTown_House2_EventScript_FlyingSpecialistInfo {
+    msgbox(format("I am Winona. I have become one with bird Pokémon and have soared the skies far above Hoenn."))
+    msgbox(format("If you defeat my Pokémon in battle, I will offer to teach you various Flying-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Flying-type Pokémon."))
+    setflag(FLAG_MET_FLYING_TUTOR)
+    return
+}
+
+script PacifidlogTown_House2_EventScript_GiveFlyingGem {
+    msgbox(format("Here, this item boosts the power of one Flying-type move per battle."))
+    giveitem(ITEM_FLYING_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_FLYING_GEM)
+    return
+}
+
+script PacifidlogTown_House2_EventScript_FlyingSpecialistMenu {
+    msgbox(format("How can I help?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(PacifidlogTown_House2_EventScript_FlyingSpecialistInfo)
+        case 1:
+            call(PacifidlogTown_House2_EventScript_FlyingSpecialistTutor)
+        case 2:
+            call(PacifidlogTown_House2_EventScript_FlyingSpecialistBattle)
+        default:
+            msgbox(format("Fly high, {PLAYER}."), MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(PacifidlogTown_House2_EventScript_FlyingSpecialistMenu)
+}
+
+script PacifidlogTown_House2_EventScript_FlyingSpecialistTutor {
+    call(PacifidlogTown_House2_EventScript_FlyingSpecialistCheckMoves)
+    call_if_defeated(TRAINER_WINONA_INITIAL, PacifidlogTown_House2_EventScript_FlyingSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_WINONA_INVERSE, PacifidlogTown_House2_EventScript_FlyingSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_WINONA_CHALLENGE, PacifidlogTown_House2_EventScript_FlyingSpecialistChallengeUnlock)
+    call(PacifidlogTown_House2_EventScript_FlyingSpecialistUnlockOtherTutor)
+    msgbox("Which move should I teach?")
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_BOUNCE)
+        case 12:
+            setvar(VAR_0x8005, MOVE_PLUCK)
+        case 21:
+            setvar(VAR_0x8005, MOVE_SKY_ATTACK)
+        case 22:
+            setvar(VAR_0x8005, MOVE_FEATHER_DANCE)
+        case 31:
+            setvar(VAR_0x8005, MOVE_AIR_SLASH)
+        case 32:
+            setvar(VAR_0x8005, MOVE_TAILWIND)
+        case 33:
+            setvar(VAR_0x8005, MOVE_BRAVE_BIRD)
+        case 34:
+            setvar(VAR_0x8005, MOVE_HURRICANE)
+        case 41:
+            setvar(VAR_0x8005, MOVE_AIR_CUTTER)
+        case 42:
+            setvar(VAR_0x8005, MOVE_DRILL_PECK)
+        case 43:
+            setvar(VAR_0x8005, MOVE_AERIAL_ACE)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, PacifidlogTown_House2_EventScript_FlyingSpecialistTutor)
+    return
+}
+
+script PacifidlogTown_House2_EventScript_FlyingSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_WINONA_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_WINONA_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_WINONA_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(PacifidlogTown_House2_EventScript_FlyingSpecialistMenu)
+}
+
+script PacifidlogTown_House2_EventScript_FlyingSpecialistInitialUnlock {
+    dynmultipush("Bounce", 11)
+    dynmultipush("Pluck", 12)
+    return
+}
+
+script PacifidlogTown_House2_EventScript_FlyingSpecialistInverseUnlock {
+    dynmultipush("Sky Attack", 21)
+    dynmultipush("Feather Dance", 22)
+    return
+}
+
+script PacifidlogTown_House2_EventScript_FlyingSpecialistChallengeUnlock {
+    dynmultipush("Air Slash", 31)
+    dynmultipush("Tailwind", 32)
+    dynmultipush("Brave Bird", 33)
+    dynmultipush("Hurricane", 34)
+    return
+}
+
+script PacifidlogTown_House2_EventScript_FlyingSpecialistUnlockOtherTutor {
+    if(defeated(TRAINER_CRITICAL_TUTOR)) {
+        dynmultipush("Air Cutter", 41)
+        dynmultipush("Drill Peck", 42)
+    }
+    if(flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
+        dynmultipush("Aerial Ace", 43)
+    }
+    return
+}
+
+script PacifidlogTown_House2_EventScript_FlyingSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Flying-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(PacifidlogTown_House2_EventScript_InitialBattle)
+        case 2:
+            call(PacifidlogTown_House2_EventScript_InverseBattle)
+        case 3:
+            call(PacifidlogTown_House2_EventScript_ChallengeBattle)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM20, PacifidlogTown_House2_EventScript_GiveRoost)
+    release
+    end
+}
+
+script PacifidlogTown_House2_EventScript_InitialBattle {
+    if(!defeated(TRAINER_WINONA_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Bounce and Pluck."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("By striving for excellence, we have the power to soar! Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, PacifidlogTown_House2_EventScript_FlyingSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_WINONA_INITIAL, PacifidlogTown_House2_Text_WinonaDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Bounce and Pluck to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script PacifidlogTown_House2_EventScript_InverseBattle {
+    if(!defeated(TRAINER_WINONA_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Sky Attack and Feather Dance."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Let's see if we can escape gravity's pull! Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, PacifidlogTown_House2_EventScript_FlyingSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_WINONA_INVERSE, PacifidlogTown_House2_Text_WinonaDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Sky Attack and Feather Dance to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script PacifidlogTown_House2_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_FLYING)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, PacifidlogTown_House2_EventScript_NotFlyingMonotype)
+    if(!defeated(TRAINER_WINONA_CHALLENGE)) {
+        msgbox(format("Winning against me with all Flying-type Pokémon will unlock the tutor moves Air Slash, Tailwind, Brave Bird, and Hurricane."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Let us dance through the clouds together! Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, PacifidlogTown_House2_EventScript_FlyingSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_WINONA_CHALLENGE, PacifidlogTown_House2_Text_WinonaDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Air Slash, Tailwind, Brave Bird, and Hurricane to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script PacifidlogTown_House2_EventScript_NotFlyingMonotype {
+    msgbox(format("You have a Pokémon that's not an Flying type."))
+    release
+    end
+}
+
+script PacifidlogTown_House2_EventScript_GiveRoost {
+    msgbox(format("Never before have I seen a Trainer command their Pokémon with more grace than I… In recognition of your prowess, I present this TM!"))
+    giveitem(ITEM_TM20_ROOST)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM20)
+    msgbox(format("Roost allows a flying Pokémon to land and recover half its max HP."))
+    return
+}
+
+text PacifidlogTown_House2_Text_WinonaDefeated {
+    "Though I have lost, my wings will never \nbreak…"
 }

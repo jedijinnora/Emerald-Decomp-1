@@ -12,83 +12,228 @@ script OldaleTown_House2_EventScript_Woman {
 script OldaleTown_House2_EventScript_Hebert {
     lock
     faceplayer
-    msgbox(format("Hello. Call me Hebert. "))
-    goto_if_set(FLAG_RECEIVED_OLDALE_TOWN_HOUSE2_BUG_GEM, BugMenu)
-    msgbox(format("Here, something to help a Bug Pokémon."))
+    msgbox(format("Don't you love how bugs skitter around?"))
+    call_if_unset(FLAG_MET_BUG_TUTOR, OldaleTown_House2_EventScript_BugSpecialistInfo)
+    call_if_unset(FLAG_RECEIVED_BUG_GEM, OldaleTown_House2_EventScript_GiveBugGem)
+    goto(OldaleTown_House2_EventScript_BugSpecialistMenu)
+}
+
+script OldaleTown_House2_EventScript_BugSpecialistInfo {
+    msgbox(format("I am Hebert, this region's Bug specialist. I was bullied a lot in school, but now I have lots of creepy-crawly friends!"))
+    msgbox(format("If you defeat my Bug Pokémon in battle, I will offer to teach you various Bug-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Bug-type Pokémon."))
+    setflag(FLAG_MET_BUG_TUTOR)
+    return
+}
+
+script OldaleTown_House2_EventScript_GiveBugGem {
+    msgbox(format("Here, this item boosts the power of one Bug-type move per battle."))
     giveitem(ITEM_BUG_GEM)
-    setflag(FLAG_RECEIVED_OLDALE_TOWN_HOUSE2_BUG_GEM)
-    BugMenu:
-    msgbox(format("I just love how insects skitter around."))
-    dynmultichoice(0,0, FALSE, 6, 0, DYN_MULTICHOICE_CB_NONE, "Information", "Move Tutor", "Single Battle", "Double Battle", "Challenge Battle", "Other Bug Moves?")
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_BUG_GEM)
+    return
+}
+
+script OldaleTown_House2_EventScript_BugSpecialistMenu {
+    msgbox(format("How can I help you?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
     switch(var(VAR_RESULT)) {
         case 0:
-            msgbox(format("You may face me in a single, double, or challenge battle. For each team you defeat, I will offer to teach additional Bug-type moves."))
-            goto(BugMenu)
+            call(OldaleTown_House2_EventScript_BugSpecialistInfo)
         case 1:
-            BugTutor:
-            //do a dynamic multistack with move options based on opponent flag states
-            //single battle unlocks: Fury Cutter0, Lunge2, Silver Wind7, Skitter Smack8
-
-            //double battle unlocks: Infestation1, Megahorn3, Pollen Puff4, Signal Beam6
-
-            //challenge unlocks: Quiver Dance5, Sticky Web9, Tail Glow10
-
-            dynmultipush("Cancel", 11)
-            msgbox(format("Which move should I teach?"))
-            dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
-            switch(var(VAR_RESULT)) {
-                case 0:
-                    //teach Fury Cutter
-                case 1:
-                    //teach Infestation
-                case 2:
-                    //teach Lunge
-                case 3:
-                    //teach Megahorn
-                case 4:
-                    //teach Pollen Puff
-                case 5:
-                    //teach Quiver Dance
-                case 6:
-                    //teach Signal Beam
-                case 7:
-                    //teach Silver Wind
-				case 8:
-					//teach Skitter Smack
-				case 9:
-					//teach Sticky Web
-				case 10:
-					//teach Tail Glow
-                default:
-                    goto(BugMenu)
-            }
+            call(OldaleTown_House2_EventScript_BugSpecialistTutor)
         case 2:
-            msgbox(format("Defeating me in a single battle will unlock Fury Cutter, Lunge, Silver Wind, and Skitter Smack."))
-            msgbox(format("Does that sound copacetic?"), MSGBOX_YESNO)
-            //battle
-            goto(BugMenu)
-        case 3:
-            msgbox(format("Defeating me in a double battle will unlock Infestation, Megahorn, Pollen Puff, and Signal Beam."))
-            msgbox(format("Are your Pokémon ready?"), MSGBOX_YESNO)
-            //battle
-            goto(BugMenu)
-        case 4:
-            msgbox(format("Defeating me in a challenge battle will unlock Quiver Dance, Sticky Web, and Tail Glow."))
-            msgbox(format("For the challenge battle, you must bring a team of only Bug-type Pokémon."))
-            msgbox(format("Are you prepared?"), MSGBOX_YESNO)
-            //check team comp
-
-            //battle
-            goto(BugMenu)
-        case 5:
-            msgbox(format("There are other tutors around the region who will teach the moves Bug Bite, Pin Missile, and X-Scissor."))
-            goto(BugMenu)
+            call(OldaleTown_House2_EventScript_BugSpecialistBattle)
         default:
-            BugGoodbye:
-            msgbox(format("Later."))
+            msgbox("Farewell.", MSGBOX_AUTOCLOSE)
             release
             end
     }
+    goto(OldaleTown_House2_EventScript_BugSpecialistMenu)
+}
+
+script OldaleTown_House2_EventScript_BugSpecialistTutor {
+    call(OldaleTown_House2_EventScript_BugSpecialistCheckMoves)
+    call_if_defeated(TRAINER_HEBERT_INITIAL, OldaleTown_House2_EventScript_BugSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_HEBERT_INVERSE, OldaleTown_House2_EventScript_BugSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_HEBERT_CHALLENGE, OldaleTown_House2_EventScript_BugSpecialistChallengeUnlock)
+    call(OldaleTown_House2_EventScript_BugSpecialistUnlockOtherTutor)
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_FURY_CUTTER)
+        case 12:
+            setvar(VAR_0x8005, MOVE_SILVER_WIND)
+        case 13:
+            setvar(VAR_0x8005, MOVE_LUNGE)
+        case 14:
+            setvar(VAR_0x8005, MOVE_SKITTER_SMACK)
+        case 21:
+            setvar(VAR_0x8005, MOVE_INFESTATION)
+        case 22:
+            setvar(VAR_0x8005, MOVE_SIGNAL_BEAM)
+        case 23:
+            setvar(VAR_0x8005, MOVE_MEGAHORN)
+        case 24:
+            setvar(VAR_0x8005, MOVE_POLLEN_PUFF)
+        case 31:
+            setvar(VAR_0x8005, MOVE_QUIVER_DANCE)
+        case 32:
+            setvar(VAR_0x8005, MOVE_TAIL_GLOW)
+        case 33:
+            setvar(VAR_0x8005, MOVE_STICKY_WEB)
+        case 41:
+            setvar(VAR_0x8005, MOVE_BUG_BITE)
+        case 42:
+            setvar(VAR_0x8005, MOVE_PIN_MISSILE)
+        case 43:
+            setvar(VAR_0x8005, MOVE_X_SCISSOR)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, OldaleTown_House2_EventScript_BugSpecialistTutor)
+    return
+}
+
+script OldaleTown_House2_EventScript_BugSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_HEBERT_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_HEBERT_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_HEBERT_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BITE_MOVES, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(OldaleTown_House2_EventScript_BugSpecialistMenu)
+}
+
+script OldaleTown_House2_EventScript_BugSpecialistInitialUnlock {
+    dynmultipush("Fury Cutter", 11)
+    dynmultipush("Silver Wind", 12)
+    dynmultipush("Lunge", 13)
+    dynmultipush("Skitter Smack", 14)
+    return
+}
+
+script OldaleTown_House2_EventScript_BugSpecialistInverseUnlock {
+    dynmultipush("Infestation", 21)
+    dynmultipush("Signal Beam", 22)
+    dynmultipush("Megahorn", 23)
+    dynmultipush("Pollen Puff", 24)
+    return
+}
+
+script OldaleTown_House2_EventScript_BugSpecialistChallengeUnlock {
+    dynmultipush("Quiver Dance", 31)
+    dynmultipush("Tail Glow", 32)
+    dynmultipush("Sticky Web", 33)
+    return
+}
+
+script OldaleTown_House2_EventScript_BugSpecialistUnlockOtherTutor {
+    if(flag(FLAG_TUTOR_BITE_MOVES)) {
+        dynmultipush("Bug Bite", 41)
+    }
+    if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
+        dynmultipush("Pin Missile", 42)
+    }
+    if (defeated(TRAINER_CRITICAL_TUTOR)) {
+        dynmultipush("X-Scissor", 43)
+    }
+    return
+}
+
+script OldaleTown_House2_EventScript_BugSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Bug-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(OldaleTown_House2_EventScript_InitialBattle)
+        case 2:
+            call(OldaleTown_House2_EventScript_InverseBattle)
+        case 3:
+            call(OldaleTown_House2_EventScript_ChallengeBattle)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM38, OldaleTown_House2_EventScript_GiveUTurn)
     release
     end
+}
+
+script OldaleTown_House2_EventScript_InitialBattle {
+    if(!defeated(TRAINER_HEBERT_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Fury Cutter, Silver Wind, Lunge and Skitter Smack."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Ready to face the power of BEEES?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, OldaleTown_House2_EventScript_BugSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_HEBERT_INITIAL, OldaleTown_House2_Text_HebertDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Fury Cutter, Silver Wind, Lunge and Skitter Smack to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script OldaleTown_House2_EventScript_InverseBattle {
+    if(!defeated(TRAINER_HEBERT_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Infestation, Signal Beam, Megahorn, and Pollen Puff."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("The meek shall triumph! Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, OldaleTown_House2_EventScript_BugSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_HEBERT_INVERSE, OldaleTown_House2_Text_HebertDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Infestation, Signal Beam, Megahorn, and Pollen Puff to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script OldaleTown_House2_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_BUG)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, OldaleTown_House2_EventScript_NotBugMonotype)
+    if(!defeated(TRAINER_HEBERT_CHALLENGE)) {
+        msgbox(format("Winning against me with all Bug-type Pokémon will unlock the tutor moves Quiver Dance, Tail Glow, and Sticky Web."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("You copacetic?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, OldaleTown_House2_EventScript_BugSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_HEBERT_CHALLENGE, OldaleTown_House2_Text_HebertDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Quiver Dance, Tail Glow, and Sticky Web to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script OldaleTown_House2_EventScript_NotBugMonotype {
+    msgbox(format("You have a Pokémon that's not an Bug type."))
+    release
+    end
+}
+
+script OldaleTown_House2_EventScript_GiveUTurn {
+    msgbox(format("You defeated my swarm… Here, take this TM!"))
+    giveitem(ITEM_TM38_U_TURN)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM38)
+    msgbox(format("U-Turn switches out the user after attacking. It's great for maintaining pressure in battle!"))
+    return
+}
+
+text OldaleTown_House2_Text_HebertDefeated {
+    "Take that you worm! Oh, it's over…"
 }

@@ -1,12 +1,283 @@
-raw `
-Route123_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route123_OnTransition
-	.byte 0
+mapscripts Route123_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route123_OnTransition
+	MAP_SCRIPT_ON_RESUME : Route123_OnResume
+}
 
-Route123_OnTransition:
-	special SetRoute123Weather
+script Route123_OnTransition {
+	special(SetRoute123Weather)
 	end
+}
 
+script Route123_OnResume {
+	call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Route123_EventScript_TryRemoveStaticBall)
+	end
+}
+
+script Route123_EventScript_TryRemoveStaticBall {
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_ne(VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn)
+	removeobject(VAR_LAST_TALKED)
+	return
+}
+
+script Route123_EventScript_LikelyVoltorbBall {
+	lock
+	random(5)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			call(Route123_EventScript_EncounterFoongus)
+			call_if_set(FLAG_TEMP_2, Route123_EventScript_EncounterStunfisk)
+		case 1:
+			call(Route123_EventScript_EncounterStunfisk)
+			call_if_set(FLAG_TEMP_3, Route123_EventScript_EncounterFoongus)
+		default:
+			call(Route123_EventScript_EncounterVoltorb)
+	}
+	if(flag(FLAG_TEMP_1)) {
+		call_if_set(FLAG_TEMP_2, Route123_EventScript_EncounterStunfisk)
+		call_if_unset(FLAG_TEMP_2, Route123_EventScript_EncounterFoongus)
+	}
+	call(Route123_EventScript_BuffStaticMon)
+	call(Route123_EventScript_SelectStaticMon)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, Route123_EventScript_DefeatBall1)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, Route123_EventScript_DefeatBall1)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route123_EventScript_DefeatBall1)
+	setflag(FLAG_HIDE_ROUTE_123_BALL_1)
+	release
+	end
+}
+
+script Route123_EventScript_LikelyFoongusBall {
+	lock
+	random(5)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			call(Route123_EventScript_EncounterVoltorb)
+			call_if_set(FLAG_TEMP_1, Route123_EventScript_EncounterStunfisk)
+		case 1:
+			call(Route123_EventScript_EncounterStunfisk)
+			call_if_set(FLAG_TEMP_3, Route123_EventScript_EncounterVoltorb)
+		default:
+			call(Route123_EventScript_EncounterFoongus)
+	}
+	if(flag(FLAG_TEMP_2)) {
+		call_if_set(FLAG_TEMP_3, Route123_EventScript_EncounterVoltorb)
+		call_if_unset(FLAG_TEMP_3, Route123_EventScript_EncounterStunfisk)
+	}
+	call(Route123_EventScript_BuffStaticMon)
+	call(Route123_EventScript_SelectStaticMon)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, Route123_EventScript_DefeatBall2)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, Route123_EventScript_DefeatBall2)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route123_EventScript_DefeatBall2)
+	setflag(FLAG_HIDE_ROUTE_123_BALL_2)
+	release
+	end
+}
+
+script Route123_EventScript_LikelyStunfiskBall {
+	lock
+	random(5)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			call(Route123_EventScript_EncounterFoongus)
+			call_if_set(FLAG_TEMP_2, Route123_EventScript_EncounterVoltorb)
+		case 1:
+			call(Route123_EventScript_EncounterVoltorb)
+			call_if_set(FLAG_TEMP_1, Route123_EventScript_EncounterFoongus)
+		default:
+			call(Route123_EventScript_EncounterStunfisk)
+	}
+	if(flag(FLAG_TEMP_3)) {
+		call_if_set(FLAG_TEMP_1, Route123_EventScript_EncounterFoongus)
+		call_if_unset(FLAG_TEMP_1, Route123_EventScript_EncounterVoltorb)
+	}
+	call(Route123_EventScript_BuffStaticMon)
+	call(Route123_EventScript_SelectStaticMon)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, Route123_EventScript_DefeatBall3)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, Route123_EventScript_DefeatBall3)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route123_EventScript_DefeatBall3)
+	setflag(FLAG_HIDE_ROUTE_123_BALL_3)
+	release
+	end
+	
+}
+
+script Route123_EventScript_SelectStaticMon {
+	switch(var(VAR_TEMP_2)) {
+		case 1:
+			setflag(FLAG_TEMP_1)
+			switch(var(VAR_NUM_BADGES)) {
+				case 0:
+					setwildbattle(SPECIES_VOLTORB_HISUIAN, 14)
+					playmoncry(SPECIES_VOLTORB_HISUIAN, CRY_MODE_ENCOUNTER)
+				case 1:
+					setwildbattle(SPECIES_VOLTORB_HISUIAN, 23)
+					playmoncry(SPECIES_VOLTORB_HISUIAN, CRY_MODE_ENCOUNTER)
+				case 2:
+					setwildbattle(SPECIES_VOLTORB_HISUIAN, 32)
+					playmoncry(SPECIES_VOLTORB_HISUIAN, CRY_MODE_ENCOUNTER)
+				case 3:
+					setwildbattle(SPECIES_ELECTRODE_HISUIAN, 41)
+					playmoncry(SPECIES_ELECTRODE_HISUIAN, CRY_MODE_ENCOUNTER)
+				case 4:
+					setwildbattle(SPECIES_ELECTRODE_HISUIAN, 50)
+					playmoncry(SPECIES_ELECTRODE_HISUIAN, CRY_MODE_ENCOUNTER)
+				case 5:
+					setwildbattle(SPECIES_ELECTRODE_HISUIAN, 59)
+					playmoncry(SPECIES_ELECTRODE_HISUIAN, CRY_MODE_ENCOUNTER)
+				case 6:
+					setwildbattle(SPECIES_ELECTRODE_HISUIAN, 68)
+				default:
+					setwildbattle(SPECIES_ELECTRODE_HISUIAN, 77)
+					playmoncry(SPECIES_ELECTRODE_HISUIAN, CRY_MODE_ENCOUNTER)
+			}
+		case 2:
+			setflag(FLAG_TEMP_2)
+			switch(var(VAR_NUM_BADGES)) {
+				case 0:
+					setwildbattle(SPECIES_FOONGUS, 14)
+					playmoncry(SPECIES_FOONGUS, CRY_MODE_ENCOUNTER)
+				case 1:
+					setwildbattle(SPECIES_FOONGUS, 23)
+					playmoncry(SPECIES_FOONGUS, CRY_MODE_ENCOUNTER)
+				case 2:
+					setwildbattle(SPECIES_FOONGUS, 32)
+					playmoncry(SPECIES_FOONGUS, CRY_MODE_ENCOUNTER)
+				case 3:
+					setwildbattle(SPECIES_AMOONGUSS, 41)
+					playmoncry(SPECIES_AMOONGUSS, CRY_MODE_ENCOUNTER)
+				case 4:
+					setwildbattle(SPECIES_AMOONGUSS, 50)
+					playmoncry(SPECIES_AMOONGUSS, CRY_MODE_ENCOUNTER)
+				case 5:
+					setwildbattle(SPECIES_AMOONGUSS, 59)
+					playmoncry(SPECIES_AMOONGUSS, CRY_MODE_ENCOUNTER)
+				case 6:
+					setwildbattle(SPECIES_AMOONGUSS, 68)
+					playmoncry(SPECIES_AMOONGUSS, CRY_MODE_ENCOUNTER)
+				default:
+					setwildbattle(SPECIES_AMOONGUSS, 77)
+					playmoncry(SPECIES_AMOONGUSS, CRY_MODE_ENCOUNTER)
+			}
+		case 3:
+			setflag(FLAG_TEMP_3)
+			switch(var(VAR_NUM_BADGES)) {
+				case 0:
+					setwildbattle(SPECIES_STUNFISK_GALARIAN, 14)
+					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+				case 1:
+					setwildbattle(SPECIES_STUNFISK_GALARIAN, 23)
+					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+				case 2:
+					setwildbattle(SPECIES_STUNFISK_GALARIAN, 32)
+					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+				case 3:
+					setwildbattle(SPECIES_STUNFISK_GALARIAN, 41)
+					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+				case 4:
+					setwildbattle(SPECIES_STUNFISK_GALARIAN, 50)
+					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+				case 5:
+					setwildbattle(SPECIES_STUNFISK_GALARIAN, 59)
+					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+				case 6:
+					setwildbattle(SPECIES_STUNFISK_GALARIAN, 68)
+					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+				default:
+					setwildbattle(SPECIES_STUNFISK_GALARIAN, 77)
+					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+			}
+		default:
+		//error handler?
+		setwildbattle(SPECIES_DITTO, 15)
+		playmoncry(SPECIES_DITTO, CRY_MODE_ENCOUNTER)
+	}
+	waitmoncry
+	delay(30)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	clearflag(FLAG_WILD_HIDDEN_ABILITY)
+	clearflag(FLAG_WILD_PERFECT_IVS)
+	return
+}
+
+script Route123_EventScript_EncounterVoltorb {
+	setvar(VAR_TEMP_2, 1)
+	return
+}
+
+script Route123_EventScript_EncounterFoongus {
+	setvar(VAR_TEMP_2, 2)
+	return
+}
+
+script Route123_EventScript_EncounterStunfisk {
+	setvar(VAR_TEMP_2, 3)
+	return
+}
+
+script Route123_EventScript_BuffStaticMon {
+	call(Route123_EventScript_CountDefeatedTrainers)
+	call_if_ge(VAR_TEMP_1, 10, Route123_EventScript_GiveEncounterHiddenAbility)
+	random(16)
+	call_if_gt(VAR_TEMP_1, VAR_RESULT, Route123_EventScript_GiveEncounterPerfectIVs)
+	return
+}
+
+script Route123_EventScript_CountDefeatedTrainers {
+	setvar(VAR_TEMP_1, 0)
+	call_if_defeated(TRAINER_WENDY, Route123_EventScript_CountTrainer)
+	call_if_defeated(TRAINER_BRAXTON, Route123_EventScript_CountTrainer)
+	call_if_defeated(TRAINER_VIOLET, Route123_EventScript_CountTrainer)
+	call_if_defeated(TRAINER_MIU_AND_YUKI, Route123_EventScript_CountTrainer)
+	call_if_defeated(TRAINER_CAMERON, Route123_EventScript_CountTrainer)
+	call_if_defeated(TRAINER_JACKI, Route123_EventScript_CountTrainer)
+	call_if_defeated(TRAINER_KINDRA, Route123_EventScript_CountTrainer)
+	call_if_defeated(TRAINER_JONAS, Route123_EventScript_CountTrainer)
+	call_if_defeated(TRAINER_KAYLEY, Route123_EventScript_CountTrainer)
+	call_if_defeated(TRAINER_ED, Route123_EventScript_CountTrainer)
+	return
+}
+
+script Route123_EventScript_CountTrainer {
+	addvar(VAR_TEMP_1, 1)
+	return
+}
+
+script Route123_EventScript_GiveEncounterHiddenAbility {
+	setflag(FLAG_WILD_HIDDEN_ABILITY)
+	return
+}
+
+script Route123_EventScript_GiveEncounterPerfectIVs {
+	setflag(FLAG_WILD_PERFECT_IVS)
+	return
+}
+
+script Route123_EventScript_DefeatBall1 {
+	setflag(FLAG_HIDE_ROUTE_123_BALL_1)
+	goto(Common_EventScript_RemoveStaticPokemon)
+	end
+}
+
+script Route123_EventScript_DefeatBall2 {
+	setflag(FLAG_HIDE_ROUTE_123_BALL_2)
+	goto(Common_EventScript_RemoveStaticPokemon)
+	end
+}
+
+script Route123_EventScript_DefeatBall3 {
+	setflag(FLAG_HIDE_ROUTE_123_BALL_3)
+	goto(Common_EventScript_RemoveStaticPokemon)
+	end
+}
+
+
+raw `
 Route123_EventScript_GigaDrainGirl::
 	lock
 	faceplayer

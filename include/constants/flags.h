@@ -47,10 +47,10 @@
 #define FLAG_RECEIVED_NORMAL_GEM                        0x20
 #define FLAG_RECEIVED_FIGHTING_GEM                      0x21
 #define FLAG_RECEIVED_FLYING_GEM                        0x22
-#define FLAG_RECEIVED_SLATEPORT_CITY_HOUSE2_POISON_GEM  0x23
+#define FLAG_RECEIVED_POISON_GEM                        0x23
 #define FLAG_RECEIVED_GROUND_GEM                        0x24
 #define FLAG_RECEIVED_ROCK_GEM                          0x25
-#define FLAG_RECEIVED_OLDALE_TOWN_HOUSE2_BUG_GEM        0x26
+#define FLAG_RECEIVED_BUG_GEM                           0x26
 #define FLAG_RECEIVED_GHOST_GEM                         0x27
 #define FLAG_RECEIVED_STEEL_GEM                         0x28
 #define FLAG_RECEIVED_FIRE_GEM                          0x29
@@ -1063,9 +1063,9 @@
 
 //hide static encounter flags
 #define FLAG_HIDE_BATTLE_FRONTIER_SUDOWOODO                         0x3D4
-#define FLAG_UNUSED_0x3D5                                           0x3D5
-#define FLAG_UNUSED_0x3D6                                           0x3D6
-#define FLAG_UNUSED_0x3D7                                           0x3D7
+#define FLAG_HIDE_ROUTE_123_BALL_1                                  0x3D5
+#define FLAG_HIDE_ROUTE_123_BALL_2                                  0x3D6
+#define FLAG_HIDE_ROUTE_123_BALL_3                                  0x3D7
 #define FLAG_UNUSED_0x3D8                                           0x3D8
 #define FLAG_UNUSED_0x3D9                                           0x3D9
 #define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_1                            0x3DA
@@ -1124,7 +1124,7 @@
 #define FLAG_ITEM_TM38      0x40D // U-Turn, gift from Hebert (Oldale)
 #define FLAG_ITEM_TM39      0x40E // Bug Buzz, Route 102 item ball
 #define FLAG_ITEM_TM40      0x40F // Leech Life, Route 104 item ball
-#define FLAG_ITEM_TM41      0x410 // Shadow Ball, gift from Persephone (Lilycove)
+#define FLAG_ITEM_TM41      0x410 // Shadow Ball, gift from Phoebe (Lilycove)
 #define FLAG_ITEM_TM42      0x411 // Phantom Force, Mt. Pyre item ball
 #define FLAG_ITEM_TM43      0x412 // Iron Defense, Valley of Steel item ball
 #define FLAG_ITEM_TM44      0x413 // Iron Head, gift from Steven ()
@@ -1178,7 +1178,7 @@
 #define FLAG_ITEM_TM92      0x443 // Hone Claws, Trick House #1 (cut tree puzzle)
 #define FLAG_ITEM_TM93      0x444 // Taunt, Trick House #4 (strength boulder puzzle)
 #define FLAG_ITEM_TM94      0x445 // Dark Pulse, Petalburg City item ball
-#define FLAG_ITEM_TM95      0x446 // Thief
+#define FLAG_ITEM_TM95      0x446 // Thief, Birch's Lab gift (aide)
 #define FLAG_ITEM_TM96      0x447 // Foul Play, gift from Megaera (Dewford)
 #define FLAG_ITEM_TM97      0x448 // Play Rough, Hacker's Hideaway gift (Route 114)
 #define FLAG_ITEM_TM98      0x449 // Dazzling Gleam, gift from Bellatrix (Verdanturf)

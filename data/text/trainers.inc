@@ -3568,16 +3568,16 @@ Route123_Text_EdPostBattle:
 	.string "I think they'll make me better.$"
 
 Route123_Text_JonasIntro:
-	.string "I lay in ambush, and a Trainer has\n"
-	.string "landed in my trap!$"
+	.string "I guard the jungle's secret Pokémon.\n"
+	.string "You shall not pass!$"
 
 Route123_Text_JonasDefeat:
-	.string "If you don't lose, how am I supposed\n"
-	.string "to have fun playing ninja?$"
+	.string "I suppose this means you're worthy\n"
+	.string "enough to allow through.$"
 
 Route123_Text_JonasPostBattle:
-	.string "I'm going to ambush a weaker-looking\n"
-	.string "Trainer next time.$"
+	.string "The secret Pokémon get stronger the\n"
+	.string "more Trainers you defeat first.$"
 
 Route123_Text_KayleyIntro:
 	.string "I just bought this parasol.\n"

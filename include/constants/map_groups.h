@@ -297,6 +297,7 @@
 #define MAP_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_1F  (13 | (16 << 8))
 #define MAP_SOOTOPOLIS_CITY_MYSTERY_EVENTS_HOUSE_B1F (14 | (16 << 8))
 #define MAP_SOOTOPOLIS_CONNECTOR                     (15 | (16 << 8))
+#define MAP_SOOTOPOLIS_CITY_HOUSE8                   (16 | (16 << 8))
 
 // gMapGroup_IndoorEverGrande
 #define MAP_EVER_GRANDE_CITY_SIDNEYS_ROOM       (0 | (17 << 8))

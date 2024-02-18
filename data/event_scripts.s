@@ -1249,3 +1249,5 @@ Common_EventScript_CountBadges::
 	.include "data/maps/TitansGrave/scripts.inc"
 
 	.include "data/maps/DewfordTown_House3/scripts.inc"
+
+	.include "data/maps/SootopolisCity_House8/scripts.inc"

@@ -332,7 +332,8 @@
     "SootopolisCity_LotadAndSeedotHouse",
     "SootopolisCity_MysteryEventsHouse_1F",
     "SootopolisCity_MysteryEventsHouse_B1F",
-    "SootopolisConnector"
+    "SootopolisConnector",
+    "SootopolisCity_House8"
   ],
   "gMapGroup_IndoorEverGrande": [
     "EverGrandeCity_SidneysRoom",

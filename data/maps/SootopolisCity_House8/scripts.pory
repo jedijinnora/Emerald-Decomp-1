@@ -1,0 +1,218 @@
+mapscripts SootopolisCity_House8_MapScripts {}
+
+script SootopolisCity_House8_EventScript_Wallace {
+    lock
+    faceplayer
+    msgbox(format("Ah, welcome."))
+    call_if_unset(FLAG_MET_WATER_TUTOR, SootopolisCity_House8_EventScript_WaterSpecialistInfo)
+    call_if_unset(FLAG_RECEIVED_WATER_GEM, SootopolisCity_House8_EventScript_GiveWaterGem)
+    goto(SootopolisCity_House8_EventScript_WaterSpecialistMenu)
+}
+
+script SootopolisCity_House8_EventScript_WaterSpecialistInfo {
+    msgbox(format("I am Wallace, one of Hoenn's Water-type masters. I've studied diligently beneath Leader Juan, and now I shall teach you in turn."))
+    msgbox(format("If you defeat my Pokémon in battle, I will offer to teach you various Water-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Water-type Pokémon."))
+    setflag(FLAG_MET_WATER_TUTOR)
+    return
+}
+
+script SootopolisCity_House8_EventScript_GiveWaterGem {
+    msgbox(format("Here, this item boosts the power of one Water-type move per battle."))
+    giveitem(ITEM_WATER_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_WATER_GEM)
+    return
+}
+
+script SootopolisCity_House8_EventScript_WaterSpecialistMenu {
+    msgbox(format("How can I help?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(SootopolisCity_House8_EventScript_WaterSpecialistInfo)
+        case 1:
+            call(SootopolisCity_House8_EventScript_WaterSpecialistTutor)
+        case 2:
+            call(SootopolisCity_House8_EventScript_WaterSpecialistBattle)
+        default:
+            msgbox(format("Good luck, {PLAYER}."), MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(SootopolisCity_House8_EventScript_WaterSpecialistMenu)
+}
+
+script SootopolisCity_House8_EventScript_WaterSpecialistTutor {
+    call(SootopolisCity_House8_EventScript_WaterSpecialistCheckMoves)
+    call_if_defeated(TRAINER_WALLACE_INITIAL, SootopolisCity_House8_EventScript_WaterSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_WALLACE_INVERSE, SootopolisCity_House8_EventScript_WaterSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_WALLACE_CHALLENGE, SootopolisCity_House8_EventScript_WaterSpecialistChallengeUnlock)
+    call(SootopolisCity_House8_EventScript_WaterSpecialistUnlockOtherTutor)
+    msgbox("Which move should I teach?")
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_WATER_PULSE)
+        case 12:
+            setvar(VAR_0x8005, MOVE_WHIRLPOOL)
+        case 13:
+            setvar(VAR_0x8005, MOVE_RAZOR_SHELL)
+        case 21:
+            setvar(VAR_0x8005, MOVE_AQUA_JET)
+        case 22:
+            setvar(VAR_0x8005, MOVE_BRINE)
+        case 23:
+            setvar(VAR_0x8005, MOVE_AQUA_RING)
+        case 31:
+            setvar(VAR_0x8005, MOVE_LIQUIDATION)
+        case 32:
+            setvar(VAR_0x8005, MOVE_SCALD)
+        case 33:
+            setvar(VAR_0x8005, MOVE_WATER_PLEDGE)
+        case 34:
+            setvar(VAR_0x8005, MOVE_HYDRO_CANNON)
+        case 35:
+            setvar(VAR_0x8005, MOVE_MUDDY_WATER)
+        case 41:
+            setvar(VAR_0x8005, MOVE_SPIKE_CANNON)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, SootopolisCity_House8_EventScript_WaterSpecialistTutor)
+    return
+}
+
+script SootopolisCity_House8_EventScript_WaterSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_WALLACE_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_WALLACE_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_WALLACE_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(SootopolisCity_House8_EventScript_WaterSpecialistMenu)
+}
+
+script SootopolisCity_House8_EventScript_WaterSpecialistInitialUnlock {
+    dynmultipush("Water Pulse", 11)
+    dynmultipush("Whirlpool", 12)
+    dynmultipush("Razor Shell", 13)
+    return
+}
+
+script SootopolisCity_House8_EventScript_WaterSpecialistInverseUnlock {
+    dynmultipush("Aqua Jet", 21)
+    dynmultipush("Brine", 22)
+    dynmultipush("Aqua Ring", 23)
+    return
+}
+
+script SootopolisCity_House8_EventScript_WaterSpecialistChallengeUnlock {
+    dynmultipush("Liquidation", 31)
+    dynmultipush("Scald", 32)
+    dynmultipush("Water Pledge", 33)
+    dynmultipush("Hydro Cannon", 34)
+    dynmultipush("Muddy Water", 35)
+    return
+}
+
+script SootopolisCity_House8_EventScript_WaterSpecialistUnlockOtherTutor {
+    if(defeated(TRAINER_MULTI_HIT_TUTOR)) {
+        dynmultipush("Spike Canon", 41)
+    }
+    return
+}
+
+script SootopolisCity_House8_EventScript_WaterSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Water-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(SootopolisCity_House8_EventScript_InitialBattle)
+        case 2:
+            call(SootopolisCity_House8_EventScript_InverseBattle)
+        case 3:
+            call(SootopolisCity_House8_EventScript_ChallengeBattle)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM57, SootopolisCity_House8_EventScript_GiveWaveCrash)
+    release
+    end
+}
+
+script SootopolisCity_House8_EventScript_InitialBattle {
+    if(!defeated(TRAINER_WALLACE_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Water Pulse, Whirlpool, and Razor Shell."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Let us dance together! Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, SootopolisCity_House8_EventScript_WaterSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_WALLACE_INITIAL, SootopolisCity_House8_Text_WallaceDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Water Pulse, Whirlpool, and Razor Shell to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script SootopolisCity_House8_EventScript_InverseBattle {
+    if(!defeated(TRAINER_WALLACE_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Aqua Jet, Brine, and Aqua Ring."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("None can prevail against the power of Water! Ready to go?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, SootopolisCity_House8_EventScript_WaterSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_WALLACE_INVERSE, SootopolisCity_House8_Text_WallaceDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Aqua Jet, Brine, and Aqua Ring to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script SootopolisCity_House8_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_WATER)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, SootopolisCity_House8_EventScript_NotWaterMonotype)
+    if(!defeated(TRAINER_WALLACE_CHALLENGE)) {
+        msgbox(format("Winning against me with all Water-type Pokémon will unlock the tutor moves Liquidation, Scald, Water Pledge, Hydro Cannon, and Muddy Water."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Let us each bring our best! Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, SootopolisCity_House8_EventScript_WaterSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_WALLACE_CHALLENGE, SootopolisCity_House8_Text_WallaceDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Liquidation, Scald, Water Pledge, Hydro Cannon, and Muddy Water to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script SootopolisCity_House8_EventScript_NotWaterMonotype {
+    msgbox(format("You have a Pokémon that's not an Water type."))
+    release
+    end
+}
+
+script SootopolisCity_House8_EventScript_GiveWaveCrash {
+    msgbox(format("Your Pokémon danced like a spring breeze and struck like lightning… You are surely worthy of this TM!"))
+    giveitem(ITEM_TM57_WAVE_CRASH)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM57)
+    msgbox(format("Wave Crash slams the foe with the raw power of the ocean. The user takes a bit of recoil from channeling such wondrous force."))
+    return
+}
+
+text SootopolisCity_House8_Text_WallaceDefeated {
+    "I, Wallace, fall in defeat…"
+}

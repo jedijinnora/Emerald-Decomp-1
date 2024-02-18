@@ -4,80 +4,216 @@ script SlateportCity_House2_EventScript_Claudius {
     lock
     faceplayer
     msgbox(format("Well, well well…"))
+    call_if_unset(FLAG_MET_POISON_TUTOR, SlateportCity_House2_EventScript_PoisonSpecialistInfo)
+    call_if_unset(FLAG_RECEIVED_POISON_GEM, SlateportCity_House2_EventScript_GivePoisonGem)
+    goto(SlateportCity_House2_EventScript_PoisonSpecialistMenu)
+}
+
+script SlateportCity_House2_EventScript_PoisonSpecialistInfo {
     msgbox(format("Aren't you just a cute cut of fresh meat."))
-    msgbox(format("I am Claudius, this region's premier Poison-type specialist. You may encounter another, but she is a pale shadow compared to myself."))
-    goto_if_set(FLAG_RECEIVED_SLATEPORT_CITY_HOUSE2_POISON_GEM, PoisonMenu)
-    msgbox(format("Here, something to aid the potency of your venom."))
+    msgbox(format("I am Claudius, this region's premier Poison-type specialist. You may encounter another, but she is a pale shadow compared to my awe-inspiring self."))
+    msgbox(format("If you defeat my Poison Pokémon in battle, I will offer to teach you various Poison-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Poison-type Pokémon."))
+    setflag(FLAG_MET_POISON_TUTOR)
+    return
+}
+
+script SlateportCity_House2_EventScript_GivePoisonGem {
+    msgbox(format("Here, this item boosts the power of one Poison-type move per battle."))
     giveitem(ITEM_POISON_GEM)
-    setflag(FLAG_RECEIVED_SLATEPORT_CITY_HOUSE2_POISON_GEM)
-    PoisonMenu:
-    msgbox(format("What new toxin do you desire?"))
-    dynmultichoice(0,0, FALSE, 6, 0, DYN_MULTICHOICE_CB_NONE, "Information", "Move Tutor", "Single Battle", "Double Battle", "Challenge Battle", "Other Poison Moves?")
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_POISON_GEM)
+    return
+}
+
+script SlateportCity_House2_EventScript_PoisonSpecialistMenu {
+    msgbox(format("What do you desire?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
     switch(var(VAR_RESULT)) {
         case 0:
-            msgbox(format("You may face me in a single, double, or challenge battle. For each team you defeat, I will offer to teach additional Poison-type moves."))
-            goto(PoisonMenu)
+            call(SlateportCity_House2_EventScript_PoisonSpecialistInfo)
         case 1:
-            PoisonTutor:
-            //do a dynamic multistack with move options based on opponent flag states
-            //single battle unlocks: Venoshock9, Acid Armor1
-
-            //double battle unlocks: Coil4, Acid Spray2, Gastro Acid5, Venom Drench8
-
-            //challenge unlocks: Toxic Spikes7, Clear Smog3, Poison Tail6
-
-            dynmultipush("Cancel", 9)
-            msgbox(format("Which move should I teach?"))
-            dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
-            switch(var(VAR_RESULT)) {
-                case 0:
-                    //teach Acid Armor
-                case 1:
-                    //teach Acid Spray
-                case 2:
-                    //teach Clear Smog
-                case 3:
-                    //teach Coil
-                case 4:
-                    //teach Gastro Acid
-                case 5:
-                    //teach Poison Tail
-                case 6:
-                    //teach Toxic Spikes
-                case 7:
-                    //teach Venom Drench
-                case 8:
-                    //teach Venoshock
-                default:
-                    goto(PoisonMenu)
-            }
+            call(SlateportCity_House2_EventScript_PoisonSpecialistTutor)
         case 2:
-            msgbox(format("Defeating me in a single battle will unlock Venoshock and Acid Armor."))
-            msgbox(format("Shall we proceed?"), MSGBOX_YESNO)
-            //battle
-            goto(PoisonMenu)
-        case 3:
-            msgbox(format("Defeating me in a double battle will unlock Coil, Acid Spray, Gastro Acid, and Venom Drench."))
-            msgbox(format("Are your Pokémon ready?"), MSGBOX_YESNO)
-            //battle
-            goto(PoisonMenu)
-        case 4:
-            msgbox(format("Defeating me in a challenge battle will unlock Toxic Spikes, Clear Smog, and Poison Tail."))
-            msgbox(format("For the challenge battle, you must bring a team of only Poison-type Pokémon."))
-            msgbox(format("Are you prepared?"), MSGBOX_YESNO)
-            //check team comp
-
-            //battle
-            goto(PoisonMenu)
-        case 5:
-            msgbox(format("There are other tutors around the region who will teach the moves Poison Fang and Cross Poison."))
-            goto(PoisonMenu)
+            call(SlateportCity_House2_EventScript_PoisonSpecialistBattle)
         default:
-            PoisonGoodbye:
-            msgbox(format("I eagerly await your return…"))
+            msgbox(format("I eagerly await your return…"), MSGBOX_AUTOCLOSE)
             release
             end
     }
+    goto(SlateportCity_House2_EventScript_PoisonSpecialistMenu)
+}
+
+script SlateportCity_House2_EventScript_PoisonSpecialistTutor {
+    call(SlateportCity_House2_EventScript_PoisonSpecialistCheckMoves)
+    call_if_defeated(TRAINER_CLAUDIUS_INITIAL, SlateportCity_House2_EventScript_PoisonSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_CLAUDIUS_INVERSE, SlateportCity_House2_EventScript_PoisonSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_CLAUDIUS_CHALLENGE, SlateportCity_House2_EventScript_PoisonSpecialistChallengeUnlock)
+    call(SlateportCity_House2_EventScript_PoisonSpecialistUnlockOtherTutor)
+    msgbox(format("What new toxin shall I grant you?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_VENOSHOCK)
+        case 12:
+            setvar(VAR_0x8005, MOVE_ACID_ARMOR)
+        case 21:
+            setvar(VAR_0x8005, MOVE_VENOM_DRENCH)
+        case 22:
+            setvar(VAR_0x8005, MOVE_COIL)
+        case 23:
+            setvar(VAR_0x8005, MOVE_ACID_SPRAY)
+        case 24:
+            setvar(VAR_0x8005, MOVE_GASTRO_ACID)
+        case 31:
+            setvar(VAR_0x8005, MOVE_TOXIC_SPIKES)
+        case 32:
+            setvar(VAR_0x8005, MOVE_POISON_TAIL)
+        case 33:
+            setvar(VAR_0x8005, MOVE_CLEAR_SMOG)
+        case 41:
+            setvar(VAR_0x8005, MOVE_POISON_FANG)
+        case 42:
+            setvar(VAR_0x8005, MOVE_CROSS_POISON)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, SlateportCity_House2_EventScript_PoisonSpecialistTutor)
+    return
+}
+
+script SlateportCity_House2_EventScript_PoisonSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_CLAUDIUS_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_CLAUDIUS_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_CLAUDIUS_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_BITE_TUTOR, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(SlateportCity_House2_EventScript_PoisonSpecialistMenu)
+}
+
+script SlateportCity_House2_EventScript_PoisonSpecialistInitialUnlock {
+    dynmultipush("Venoshock", 11)
+    dynmultipush("Acid Armor", 12)
+    return
+}
+
+script SlateportCity_House2_EventScript_PoisonSpecialistInverseUnlock {
+    dynmultipush("Venom Drench", 21)
+    dynmultipush("Coil", 22)
+    dynmultipush("Acid Spray", 23)
+    dynmultipush("Gastro Acid", 24)
+    return
+}
+
+script SlateportCity_House2_EventScript_PoisonSpecialistChallengeUnlock {
+    dynmultipush("Toxic Spikes", 31)
+    dynmultipush("Poison Tail", 32)
+    dynmultipush("Clear Smog", 33)
+    return
+}
+
+script SlateportCity_House2_EventScript_PoisonSpecialistUnlockOtherTutor {
+    if(defeated(TRAINER_BITE_TUTOR)) {
+        dynmultipush("Poison Fang", 41)
+    }
+    if(defeated(TRAINER_CRITICAL_TUTOR)) {
+        dynmultipush("Cross Poison", 42)
+    }
+    return
+}
+
+script SlateportCity_House2_EventScript_PoisonSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Poison-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(SlateportCity_House2_EventScript_InitialBattle)
+        case 2:
+            call(SlateportCity_House2_EventScript_InverseBattle)
+        case 3:
+            call(SlateportCity_House2_EventScript_ChallengeBattle)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM27, SlateportCity_House2_EventScript_GiveSludgeWave)
     release
     end
+}
+
+script SlateportCity_House2_EventScript_InitialBattle {
+    if(!defeated(TRAINER_CLAUDIUS_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Venoshock and Acid Armor."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("I shall unmake you! Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, SlateportCity_House2_EventScript_PoisonSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_CLAUDIUS_INITIAL, SlateportCity_House2_Text_ClaudiusDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Venoshock and Acid Armor to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script SlateportCity_House2_EventScript_InverseBattle {
+    if(!defeated(TRAINER_CLAUDIUS_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Venom Drench, Coil, Acid Spray, and Gastro Acid."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Steel and Ground shall tremble before me! Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, SlateportCity_House2_EventScript_PoisonSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_CLAUDIUS_INVERSE, SlateportCity_House2_Text_ClaudiusDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Venom Drench, Coil, Acid Spray, and Gastro Acid to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script SlateportCity_House2_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_POISON)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, SlateportCity_House2_EventScript_NotPoisonMonotype)
+    if(!defeated(TRAINER_CLAUDIUS_CHALLENGE)) {
+        msgbox(format("Winning against me with all Poison-type Pokémon will unlock the tutor moves Toxic Spikes, Poison Tail, and Clear Smog."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("My toxins shall prove superior! Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, SlateportCity_House2_EventScript_PoisonSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_CLAUDIUS_CHALLENGE, SlateportCity_House2_Text_ClaudiusDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Toxic Spikes, Poison Tail, and Clear Smog to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script SlateportCity_House2_EventScript_NotPoisonMonotype {
+    msgbox(format("You have a Pokémon that's not an Poison type."))
+    release
+    end
+}
+
+script SlateportCity_House2_EventScript_GiveSludgeWave {
+    msgbox(format("You resisted my poisons… Here, take this TM!"))
+    giveitem(ITEM_TM27_SLUDGE_WAVE)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM27)
+    msgbox(format("Sludge Wave swamps the entire battlefield with poisonous ooze, just like me at family gatherings!"))
+    return
+}
+
+text SlateportCity_House2_Text_ClaudiusDefeated {
+    "Bah, I'll get you next time…"
 }
