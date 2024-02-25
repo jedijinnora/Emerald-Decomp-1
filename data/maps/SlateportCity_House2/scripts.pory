@@ -5,7 +5,6 @@ script SlateportCity_House2_EventScript_Claudius {
     faceplayer
     msgbox(format("Well, well well…"))
     call_if_unset(FLAG_MET_POISON_TUTOR, SlateportCity_House2_EventScript_PoisonSpecialistInfo)
-    call_if_unset(FLAG_RECEIVED_POISON_GEM, SlateportCity_House2_EventScript_GivePoisonGem)
     goto(SlateportCity_House2_EventScript_PoisonSpecialistMenu)
 }
 
@@ -141,6 +140,7 @@ script SlateportCity_House2_EventScript_PoisonSpecialistBattle {
             call(SlateportCity_House2_EventScript_InverseBattle)
         case 3:
             call(SlateportCity_House2_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_POISON_GEM, SlateportCity_House2_EventScript_GivePoisonGem)
         default:
             return
     }

@@ -12,7 +12,6 @@ script LavaridgeTown_House2_EventScript_Flannery {
     faceplayer
     msgbox(format("Heya {PLAYER}."))
     call_if_unset(FLAG_MET_FIRE_TUTOR, LavaridgeTown_House2_EventScript_FireSpecialistInfo)
-    call_if_unset(FLAG_RECEIVED_FIRE_GEM, LavaridgeTown_House2_EventScript_GiveFireGem)
     goto(LavaridgeTown_House2_EventScript_FireSpecialistMenu)
 }
 
@@ -156,6 +155,7 @@ script LavaridgeTown_House2_EventScript_FireSpecialistBattle {
             call(LavaridgeTown_House2_EventScript_InverseBattle)
         case 3:
             call(LavaridgeTown_House2_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_FIRE_GEM, LavaridgeTown_House2_EventScript_GiveFireGem)
         default:
             return
     }

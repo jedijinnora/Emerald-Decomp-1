@@ -6,7 +6,6 @@ script MossdeepCaverns_MeditationPool_EventScript_TateAndLiza {
     faceplayer
     msgbox(format("Tate: Hello…\nLiza: {PLAYER}!"))
     call_if_unset(FLAG_MET_PSYCHIC_TUTOR, MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistInfo)
-    call_if_unset(FLAG_RECEIVED_PSYCHIC_GEM, MossdeepCaverns_MeditationPool_EventScript_GivePsychicGem)
     goto(MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistMenu)
 }
 
@@ -159,6 +158,7 @@ script MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistBattle {
             call(MossdeepCaverns_MeditationPool_EventScript_InverseBattle)
         case 3:
             call(MossdeepCaverns_MeditationPool_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_PSYCHIC_GEM, MossdeepCaverns_MeditationPool_EventScript_GivePsychicGem)
         default:
             return
     }

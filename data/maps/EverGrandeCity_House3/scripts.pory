@@ -12,7 +12,6 @@ script EverGrandeCity_House3_EventScript_Ellie {
     faceplayer
     msgbox(format("Welcome, traveler."))
     call_if_unset(FLAG_MET_ICE_TUTOR, EverGrandeCity_House3_EventScript_IceSpecialistInfo)
-    call_if_unset(FLAG_RECEIVED_ICE_GEM, EverGrandeCity_House3_EventScript_GiveIceGem)
     goto(EverGrandeCity_House3_EventScript_IceSpecialistMenu)
 }
 
@@ -150,6 +149,7 @@ script EverGrandeCity_House3_EventScript_IceSpecialistBattle {
             call(EverGrandeCity_House3_EventScript_InverseBattle)
         case 3:
             call(EverGrandeCity_House3_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_ICE_GEM, EverGrandeCity_House3_EventScript_GiveIceGem)
         default:
             return
     }

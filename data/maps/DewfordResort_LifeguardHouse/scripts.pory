@@ -79,7 +79,6 @@ script DewfordResort_LifeguardHouse_EventScript_Brawly {
     faceplayer
     msgbox(format("Yo dude!"))
     call_if_unset(FLAG_MET_FIGHTING_TUTOR, DewfordResort_LifeguardHouse_EventScript_FightingSpecialistInfo)
-    call_if_unset(FLAG_RECEIVED_FIGHTING_GEM, DewfordResort_LifeguardHouse_EventScript_GiveFightingGem)
     goto(DewfordResort_LifeguardHouse_EventScript_FightingSpecialistMenu)
 }
 
@@ -234,6 +233,7 @@ script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistBattle {
             call(DewfordResort_LifeguardHouse_EventScript_InverseBattle)
         case 3:
             call(DewfordResort_LifeguardHouse_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_FIGHTING_GEM, DewfordResort_LifeguardHouse_EventScript_GiveFightingGem)
         default:
             return
     }

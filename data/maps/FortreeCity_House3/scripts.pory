@@ -13,7 +13,6 @@ script FortreeCity_House3_EventScript_Quinn {
     faceplayer
     msgbox(format("Oh hello."))
     call_if_unset(FLAG_MET_GRASS_TUTOR, FortreeCity_House3_EventScript_GrassSpecialistInfo)
-    call_if_unset(FLAG_RECEIVED_GRASS_GEM, FortreeCity_House3_EventScript_GiveGrassGem)
     goto(FortreeCity_House3_EventScript_GrassSpecialistMenu)
 }
 
@@ -172,6 +171,7 @@ script FortreeCity_House3_EventScript_GrassSpecialistBattle {
             call(FortreeCity_House3_EventScript_InverseBattle)
         case 3:
             call(FortreeCity_House3_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_GRASS_GEM, FortreeCity_House3_EventScript_GiveGrassGem)
         default:
             return
     }

@@ -14,7 +14,6 @@ script OldaleTown_House2_EventScript_Hebert {
     faceplayer
     msgbox(format("Don't you love how bugs skitter around?"))
     call_if_unset(FLAG_MET_BUG_TUTOR, OldaleTown_House2_EventScript_BugSpecialistInfo)
-    call_if_unset(FLAG_RECEIVED_BUG_GEM, OldaleTown_House2_EventScript_GiveBugGem)
     goto(OldaleTown_House2_EventScript_BugSpecialistMenu)
 }
 
@@ -161,6 +160,7 @@ script OldaleTown_House2_EventScript_BugSpecialistBattle {
             call(OldaleTown_House2_EventScript_InverseBattle)
         case 3:
             call(OldaleTown_House2_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_BUG_GEM, OldaleTown_House2_EventScript_GiveBugGem)
         default:
             return
     }

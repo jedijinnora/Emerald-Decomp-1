@@ -3,6 +3,13 @@ mapscripts GraniteCave_StevensRoom_MapScripts {}
 script GraniteCave_StevensRoom_EventScript_GemGuy {
 	lock
 	faceplayer
+	goto_if_set(FLAG_SYS_GAME_CLEAR, GraniteCave_StevensRoom_EventScript_GemMart)
+	msgbox(format("Have you seen any interesting gemstones around here? I'm collecting them."))
+	release
+	end
+}
+
+script GraniteCave_StevensRoom_EventScript_GemMart {
 	msgbox(format("Hmm? Oh, I suppose a Trainer like you wants to buy some of my Gems."))
 	pokemart(GemMart)
 	msgbox(format("Geology is fascinating!"))

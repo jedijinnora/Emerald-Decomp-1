@@ -5,7 +5,6 @@ script PacifidlogTown_House2_EventScript_Winona {
     faceplayer
     msgbox(format("Oh, hello."))
     call_if_unset(FLAG_MET_FLYING_TUTOR, PacifidlogTown_House2_EventScript_FlyingSpecialistInfo)
-    call_if_unset(FLAG_RECEIVED_FLYING_GEM, PacifidlogTown_House2_EventScript_GiveFlyingGem)
     goto(PacifidlogTown_House2_EventScript_FlyingSpecialistMenu)
 }
 
@@ -140,6 +139,7 @@ script PacifidlogTown_House2_EventScript_FlyingSpecialistBattle {
             call(PacifidlogTown_House2_EventScript_InverseBattle)
         case 3:
             call(PacifidlogTown_House2_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_FLYING_GEM, PacifidlogTown_House2_EventScript_GiveFlyingGem)
         default:
             return
     }

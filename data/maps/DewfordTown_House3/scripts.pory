@@ -5,7 +5,6 @@ script DewfordTown_House3_EventScript_Megaera {
     faceplayer
     msgbox(format("Welcome, traveler."))
     call_if_unset(FLAG_MET_DARK_TUTOR, DewfordTown_House3_EventScript_DarkSpecialistInfo)
-    call_if_unset(FLAG_RECEIVED_DARK_GEM, DewfordTown_House3_EventScript_GiveDarkGem)
     goto(DewfordTown_House3_EventScript_DarkSpecialistMenu)
 }
 
@@ -175,6 +174,7 @@ script DewfordTown_House3_EventScript_DarkSpecialistBattle {
             call(DewfordTown_House3_EventScript_InverseBattle)
         case 3:
             call(DewfordTown_House3_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_DARK_GEM, DewfordTown_House3_EventScript_GiveDarkGem)
         default:
             return
     }

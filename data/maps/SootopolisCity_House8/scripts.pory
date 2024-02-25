@@ -5,7 +5,6 @@ script SootopolisCity_House8_EventScript_Wallace {
     faceplayer
     msgbox(format("Ah, welcome."))
     call_if_unset(FLAG_MET_WATER_TUTOR, SootopolisCity_House8_EventScript_WaterSpecialistInfo)
-    call_if_unset(FLAG_RECEIVED_WATER_GEM, SootopolisCity_House8_EventScript_GiveWaterGem)
     goto(SootopolisCity_House8_EventScript_WaterSpecialistMenu)
 }
 
@@ -140,6 +139,7 @@ script SootopolisCity_House8_EventScript_WaterSpecialistBattle {
             call(SootopolisCity_House8_EventScript_InverseBattle)
         case 3:
             call(SootopolisCity_House8_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_WATER_GEM, SootopolisCity_House8_EventScript_GiveWaterGem)
         default:
             return
     }
