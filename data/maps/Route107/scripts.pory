@@ -72,6 +72,24 @@ script Route107_EventScript_LittleBoy {
 	end
 }
 
+script Route107_EventScript_Kenneth {
+	trainerbattle_single(TRAINER_KENNETH, Route107_Text_KennethIntro, Route107_Text_KennethDefeated)
+	msgbox(Route107_Text_KennethPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+text Route107_Text_KennethIntro {
+	"I've found a gap to the outside! Buzz\noff, this fishing spot is all mine!"
+}
+
+text Route107_Text_KennethDefeated {
+	"What?! But my special Pokémon…"
+}
+
+text Route107_Text_KennethPostBattle {
+	"I thought the Pokémon I caught here\nwould be special in some way…"
+}
+
 raw `
 Route107_EventScript_Darrin::
 	trainerbattle_single TRAINER_DARRIN, Route107_Text_DarrinIntro, Route107_Text_DarrinDefeated
