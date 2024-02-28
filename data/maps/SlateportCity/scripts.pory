@@ -22,6 +22,11 @@ script SlateportCity_EventScript_SternsShipyardSign {
 	end
 }
 
+script SlateportCity_EventScript_EmptyLotSign {
+	msgbox(format("Battle Tent coming soon!"), MSGBOX_SIGN)
+	end
+}
+
 script SlateportCity_EventScript_FatMan {
 	lock
 	faceplayer

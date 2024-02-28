@@ -10707,12 +10707,12 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_KILOWATTREL"
+                "species": "SPECIES_WATTREL"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SWELLOW"
+                "species": "SPECIES_TAILLOW"
               }
             ]
           },

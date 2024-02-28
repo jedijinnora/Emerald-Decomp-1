@@ -1,13 +1,41 @@
-mapscripts Route124_House_MapScripts {}
+mapscripts Route124_House_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : Route124_House_OnTransition
+}
+
+const LOCALID_LEX = 3
+
+script Route124_House_OnTransition {
+    call_if_lt(VAR_NUM_BADGES, 2, Route124_House_EventScript_MoveLex)
+    end
+}
+
+script Route124_House_EventScript_MoveLex {
+    setobjectxyperm(LOCALID_LEX, 2, 2)
+    setobjectmovementtype(LOCALID_LEX, MOVEMENT_TYPE_LOOK_AROUND)
+}
 
 script Route124_House_EventScript_Maya {
-
+    lock
+    faceplayer
+    msgbox(format("I'm Maya, Jinnora's partner. I helped test everything!"))
+    release
+    end
 }
 
 script Route124_House_EventScript_Jinnora {
-    
+    lock
+    faceplayer
+    msgbox(format("Jinnora: Hey, you found our house. Feel free to wander around, invade our privacy, loot our stuff - you know, all those protagonist things."))
+    msgbox(format("Jinnora: I hope you enjoy the game! I worked hard on it."))
+    release
+    end
 }
 
 script Route124_House_EventScript_Lex {
-    
+    lock
+    faceplayer
+    playmoncry(SPECIES_LIEPARD, CRY_MODE_ENCOUNTER)
+    msgbox(format("Lex: Prrrow?"))
+    release
+    end
 }
