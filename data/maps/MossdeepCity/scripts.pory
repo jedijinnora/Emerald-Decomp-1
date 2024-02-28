@@ -21,15 +21,19 @@ script MossdeepCity_EventScript_Kirlia {
 script MossdeepCity_EventScript_Beauty {
 	lock
 	faceplayer
-
-	checkitem(ITEM_TM79_TELEPORT)
-	if(var(VAR_RESULT) == NO) {
-		msgbox(format("You look like someone who could use this!"))
-		giveitem(ITEM_TM79_TELEPORT)
-	}
+	call_if_unset(FLAG_ITEM_TM79, MossdeepCity_EventScript_TryGiveTeleport)
 	msgbox(format("Teleport allows your Pokémon to switch out with an ally. In the field, it returns you to your last healing location."))
 	release
 	end
+}
+
+script MossdeepCity_EventScript_TryGiveTeleport {
+	goto_if_eq(VAR_DIFFICULTY_SETTING, 2, Common_EventScript_NopReturn)
+	msgbox(format("You look like someone who could use this!"))
+	giveitem(ITEM_TM79_TELEPORT)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_ITEM_TM79)
+	return
 }
 
 script MossdeepCity_EventScript_Painter {
@@ -68,13 +72,13 @@ script MossdeepCity_EventScript_CitySign {
 
 script MossdeepCity_EventScript_GymSign {
 	lock
-	msgbox(Text_GymSign)
+	msgbox(MossdeepCity_Text_GymSign)
 	waitmessage
 	release
 	end
 }
 
-text Text_GymSign {
+text MossdeepCity_Text_GymSign {
 	"Mossdeep City Pokémon Gym\n"
 	"Leader: Sabitha\p"
 	"Hoenn's premier psychic."

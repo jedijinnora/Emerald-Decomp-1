@@ -14878,6 +14878,7 @@ static const struct TrainerMon sParty_Elijah_easy[] = {
 
 //ROUTE 110 TRAINERS
 
+//Cycling Triathlete-F Jasmine
 static const struct TrainerMon sParty_Jasmine[] = {
     {
     .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
@@ -14895,6 +14896,7 @@ static const struct TrainerMon sParty_Jasmine[] = {
     }
 };
 
+//Cycling Triathlete-M Anthony
 static const struct TrainerMon sParty_Anthony[] = {
     {
     .lvl = 14,
@@ -14906,7 +14908,14 @@ static const struct TrainerMon sParty_Anthony[] = {
     }
 };
 
-//Abigail
+//Cycling Triathlete-F Abigail
+static const struct TrainerMon sParty_Abigail[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_MAGNEMITE,
+    }
+};
+//vanilla
 static const struct TrainerMon sParty_Abigail1[] = {
     {
     .lvl = 16,
@@ -14942,7 +14951,14 @@ static const struct TrainerMon sParty_Abigail5[] = {
     }
 };
 
-//Benjamin
+//Cycling Triathlete-M Benjamin
+static const struct TrainerMon sParty_Benjamin[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_MAGNEMITE,
+    }
+};
+//vanilla
 static const struct TrainerMon sParty_Benjamin1[] = {
     {
     .lvl = 16,
@@ -14978,6 +14994,7 @@ static const struct TrainerMon sParty_Benjamin5[] = {
     }
 };
 
+//Psychic-M Edward
 static const struct TrainerMon sParty_Edward[] = {
     {
     .lvl = 15,
@@ -14986,15 +15003,41 @@ static const struct TrainerMon sParty_Edward[] = {
     }
 };
 
+//Psychic-F Jaclyn: threshold 2
 static const struct TrainerMon sParty_Jaclyn[] = {
     {
     .lvl = 16,
-    .species = SPECIES_ABRA,
-    .moves = {MOVE_HIDDEN_POWER, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .species = SPECIES_ALAKAZAM,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_MAGIC_GUARD,
+    .ev = TRAINER_PARTY_EVS(100, 0, 0, 0, 200, 200),
+    .nature = TRAINER_PARTY_NATURE(NATURE_MODEST),
+    .moves = {MOVE_PSYCHIC, MOVE_SHADOW_BALL, MOVE_HIDDEN_POWER, MOVE_HYPNOSIS}
+    }
+};
+static const struct TrainerMon sParty_Jaclyn_easy[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_KADABRA,
+    .heldItem = ITEM_TWISTED_SPOON,
+    .ability = ABILITY_SYNCHRONIZE,
+    .nature = TRAINER_PARTY_NATURE(NATURE_MODEST),
+    .moves = {MOVE_PSYCHIC, MOVE_SHADOW_BALL, MOVE_HIDDEN_POWER, MOVE_HYPNOSIS}
     }
 };
 
-//Edwin
+//Collector Edwin
+static const struct TrainerMon sParty_Edwin[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_LOMBRE,
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_NUZLEAF,
+    }
+};
+//vanilla
 static const struct TrainerMon sParty_Edwin1[] = {
     {
     .lvl = 14,
@@ -15046,6 +15089,7 @@ static const struct TrainerMon sParty_Edwin5[] = {
     }
 };
 
+//Fisherman Dale
 static const struct TrainerMon sParty_Dale[] = {
     {
     .lvl = 11,
@@ -15065,6 +15109,7 @@ static const struct TrainerMon sParty_Dale[] = {
     }
 };
 
+//Cycling Triathlete-M Jacob
 static const struct TrainerMon sParty_Jacob[] = {
     {
     .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
@@ -15083,6 +15128,7 @@ static const struct TrainerMon sParty_Jacob[] = {
     }
 };
 
+//Youngster Timmy
 static const struct TrainerMon sParty_Timmy[] = {
     {
     .lvl = 15,
@@ -15094,7 +15140,20 @@ static const struct TrainerMon sParty_Timmy[] = {
     }
 };
 
-//Isabel
+//Pokefan-F Isabel
+static const struct TrainerMon sParty_Isabel[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_PLUSLE,
+    .heldItem = ITEM_ORAN_BERRY
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_MINUN,
+    .heldItem = ITEM_ORAN_BERRY
+    }
+};
+//vanilla
 static const struct TrainerMon sParty_Isabel1[] = {
     {
     .lvl = 14,
@@ -15164,6 +15223,7 @@ static const struct TrainerMon sParty_Isabel5[] = {
     }
 };
 
+//Pokefan-M Kaleb
 static const struct TrainerMon sParty_Kaleb[] = {
     {
     .lvl = 14,
@@ -15177,6 +15237,7 @@ static const struct TrainerMon sParty_Kaleb[] = {
     }
 };
 
+//Cycling Triathlete-F Alyssa
 static const struct TrainerMon sParty_Alyssa[] = {
     {
     .lvl = 15,
@@ -15184,6 +15245,7 @@ static const struct TrainerMon sParty_Alyssa[] = {
     }
 };
 
+//Guitarist Joseph
 static const struct TrainerMon sParty_Joseph[] = {
     {
     .lvl = 14,

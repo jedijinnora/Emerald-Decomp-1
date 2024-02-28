@@ -58,8 +58,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ARTIST",
-      "x": 55,
-      "y": 6,
+      "x": 51,
+      "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -137,9 +137,9 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
       "x": 48,
-      "y": 19,
+      "y": 10,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -149,8 +149,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 42,
-      "y": 15,
+      "x": 58,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -339,8 +339,8 @@
     },
     {
       "type": "sign",
-      "x": 50,
-      "y": 4,
+      "x": 55,
+      "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "MossdeepCity_EventScript_WhiteRock"
@@ -355,8 +355,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 33,
-      "y": 27,
+      "x": 44,
+      "y": 18,
       "elevation": 0,
       "item": "ITEM_ELIXIR",
       "flag": "FLAG_HIDDEN_ITEM_MOSSDEEP_CITY_ELIXIR"
@@ -371,8 +371,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 59,
-      "y": 21,
+      "x": 32,
+      "y": 27,
       "elevation": 0,
       "item": "ITEM_BOTTLE_CAP",
       "flag": "FLAG_HIDDEN_ITEM_MOSSDEEP_CITY_BOTTLE_CAP"
