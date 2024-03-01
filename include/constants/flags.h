@@ -1340,16 +1340,16 @@
 #define FLAG_ITEM_MONSU_ISLAND_EXTERIOR_BIG_NUGGET                  0x4E3
 #define FLAG_ITEM_SUNRISE_SHORE_SUN_STONE                           0x4E4
 #define FLAG_ITEM_ROUTE_107_DAWN_STONE                              0x4E5
-#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_1_RARE_CANDY                   0x4E6
-#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_2_RARE_CANDY                   0x4E7
-#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_2_PP_UP                        0x4E8
-#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_3_RARE_CANDY                   0x4E9
-#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_3_PP_MAX                       0x4EA
-#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_4_PP_MAX                       0x4EB
-#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_5_MAX_ELIXIR                   0x4EC
-#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_6_RARE_CANDY                   0x4ED
-#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_7_GOLD_BOTTLE_CAP              0x4EE
-#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_8_GOLD_BOTTLE_CAP              0x4EF
+#define FLAG_UNUSED_0x4E6                                           0x4E6
+#define FLAG_UNUSED_0x4E7                                           0x4E7
+#define FLAG_UNUSED_0x4E8                                           0x4E8
+#define FLAG_UNUSED_0x4E9                                           0x4E9
+#define FLAG_UNUSED_0x4EA                                           0x4EA
+#define FLAG_UNUSED_0x4EB                                           0x4EB
+#define FLAG_UNUSED_0x4EC                                           0x4EC
+#define FLAG_UNUSED_0x4ED                                           0x4ED
+#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_X_BALL_1                       0x4EE
+#define FLAG_ITEM_TRICK_HOUSE_PUZZLE_X_BALL_2                       0x4EF
 
 #define FLAG_DEFEATED_RUSTBORO_GYM                                  0x4F0
 #define FLAG_DEFEATED_DEWFORD_GYM                                   0x4F1

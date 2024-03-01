@@ -29,7 +29,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 10,
+      "x": 8,
       "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -55,8 +55,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 5,
-      "y": 12,
+      "x": 8,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -64,11 +64,11 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_GOLD_BOTTLE_CAP",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_TRICK_HOUSE_PUZZLE_7_GOLD_BOTTLE_CAP"
+      "flag": "FLAG_ITEM_TRICK_HOUSE_PUZZLE_X_BALL_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
-      "x": 9,
+      "x": 7,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -130,6 +130,45 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 5,
+      "y": 12,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_BOTTLE_CAP",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_TRICK_HOUSE_PUZZLE_X_BALL_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TRICK_HOUSE_STATUE",
+      "x": 4,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TRICK_HOUSE_STATUE",
+      "x": 8,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -155,8 +194,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 13,
-      "y": 4,
+      "x": 4,
+      "y": 3,
       "elevation": 0,
       "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
       "dest_warp_id": "4"
@@ -170,13 +209,13 @@
     },
     {
       "x": 13,
-      "y": 11,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
       "dest_warp_id": "6"
     },
     {
-      "x": 4,
+      "x": 1,
       "y": 3,
       "elevation": 0,
       "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
@@ -190,14 +229,14 @@
       "dest_warp_id": "8"
     },
     {
-      "x": 0,
+      "x": 13,
       "y": 11,
       "elevation": 0,
       "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
       "dest_warp_id": "7"
     },
     {
-      "x": 1,
+      "x": 2,
       "y": 3,
       "elevation": 0,
       "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
@@ -211,8 +250,8 @@
       "dest_warp_id": "9"
     },
     {
-      "x": 2,
-      "y": 3,
+      "x": 0,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_ROUTE110_TRICK_HOUSE_PUZZLE7",
       "dest_warp_id": "12"
@@ -255,12 +294,39 @@
     },
     {
       "type": "trigger",
-      "x": 9,
-      "y": 7,
+      "x": 11,
+      "y": 18,
       "elevation": 0,
       "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "Route110_TrickHousePuzzle7_EventScript_PurpleButton"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route110_TrickHousePuzzle7_EventScript_BlueButton"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route110_TrickHousePuzzle7_EventScript_BlueButton"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route110_TrickHousePuzzle7_EventScript_GreenButton"
     }
   ],
   "bg_events": [

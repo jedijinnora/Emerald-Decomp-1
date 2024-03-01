@@ -64,7 +64,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_RARE_CANDY",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_TRICK_HOUSE_PUZZLE_6_RARE_CANDY"
+      "flag": "FLAG_ITEM_TRICK_HOUSE_PUZZLE_X_BALL_1"
     }
   ],
   "warp_events": [
