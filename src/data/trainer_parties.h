@@ -7,6 +7,7 @@
 //The "default" AI in this game is AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY
 //Trainers may include smart switching flags
 //Ninja boys, Hex Maniacs, and some other trainers have AI_FLAG_RISKY (also AI_FLAG_WILL_SUICIDE if moves like Explosion are present)
+//All Psychics have AI_FLAG_OMNISCIENT; a few others do as well
 //Trainers may have AI_FLAG_HELP_PARTNER if they can be in a double battle and have a move worth targeting on an ally
 
 //EASY PARTY INFO:
