@@ -1,15 +1,18 @@
-raw `
-MossdeepCity_StevensHouse_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, MossdeepCity_StevensHouse_OnLoad
-	.byte 0
+mapscripts MossdeepCity_StevensHouse_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : MossdeepCity_StevensHouse_OnTransition
+}
 
-MossdeepCity_StevensHouse_OnLoad:
-	call_if_unset FLAG_SYS_GAME_CLEAR, MossdeepCity_StevensHouse_EventScript_HideStevensNote
+script MossdeepCity_StevensHouse_OnTransition {
+	call_if_not_defeated(TRAINER_STEVEN, MossdeepCity_StevensHouse_EventScript_HideSteven)
 	end
+}
 
-MossdeepCity_StevensHouse_EventScript_HideStevensNote::
-	setmetatile 6, 4, METATILE_GenericBuilding_TableEdge, TRUE
+script MossdeepCity_StevensHouse_EventScript_HideSteven {
+	setflag(FLAG_TEMP_11)
 	return
+}
+
+raw `
 
 MossdeepCity_StevensHouse_EventScript_RockDisplay::
 	msgbox MossdeepCity_StevensHouse_Text_CollectionOfRareRocks, MSGBOX_SIGN

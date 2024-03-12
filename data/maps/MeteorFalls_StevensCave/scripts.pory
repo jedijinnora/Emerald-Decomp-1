@@ -4,18 +4,24 @@ mapscripts MeteorFalls_StevensCave_MapScripts {
 
 script MeteorFalls_StevensCave_OnTransition {
     call(MeteorFalls_StevensCave_EventScript_TryHideStash)
+    call_if_defeated(TRAINER_STEVEN, MeteorFalls_StevensCave_EventScript_HideSteven)
     end
 }
 
 script MeteorFalls_StevensCave_EventScript_TryHideStash {
     goto_if_set(FLAG_HIDE_SECRET_STASH_METEOR_FALLS, MeteorFalls_StevensCave_EventScript_HideStash)
     goto_if_ne(VAR_SECRET_STASH_STATE, 0, MeteorFalls_StevensCave_EventScript_HideStash)
-    end
+    return
 }
 
 script MeteorFalls_StevensCave_EventScript_HideStash {
     setflag(FLAG_TEMP_11)
-    end
+    return
+}
+
+script MeteorFalls_StevensCave_EventScript_HideSteven {
+    setflag(FLAG_TEMP_12)
+    return
 }
 
 script MeteorFalls_StevensCave_EventScript_Stash {
@@ -25,4 +31,19 @@ script MeteorFalls_StevensCave_EventScript_Stash {
 	call(Common_EventScript_SecretStash)
     setflag(FLAG_HIDE_SECRET_STASH_METEOR_FALLS)
 	end
+}
+
+
+movement MeteorFalls_StevensCave_Movement_StevenExitLeft {
+    walk_left
+    walk_down * 4
+    walk_in_place_down
+}
+
+movement MeteorFalls_StevensCave_Movement_StevenExitRight {
+    walk_right
+    walk_down * 2
+    walk_left * 2
+    walk_down * 2
+    walk_in_place_down
 }

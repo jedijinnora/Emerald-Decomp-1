@@ -3,9 +3,19 @@ script Route110_EventScript_NewMauvilleSouthSign {
 	end
 }
 
+script Route110_OnLoad {
+	call_if_eq(VAR_NEW_MAUVILLE_STATE, 0, Route110_EventScript_TryBlockNewMauville)
+	end
+}
+
 script Route110_EventScript_TryBlockNewMauville {
 	checkitem(ITEM_BASEMENT_KEY)
 	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setmetatile(31, 16, 0x00E, TRUE)
+	setmetatile(31, 17, 0x0C6, TRUE)
+	setmetatile(31, 18, 0x0C6, TRUE)
+	setmetatile(32, 17, 0x0C6, TRUE)
+	setmetatile(32, 18, 0x0C6, TRUE)
 	setmetatile(33, 17, 0x0C6, TRUE)
 	setmetatile(33, 18, 0x0C6, TRUE)
 	return
@@ -18,6 +28,7 @@ raw `
 
 Route110_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route110_OnResume
+	map_script MAP_SCRIPT_ON_LOAD, Route110_OnLoad
 	map_script MAP_SCRIPT_ON_TRANSITION, Route110_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route110_OnFrame
 	.byte 0
@@ -28,7 +39,6 @@ Route110_OnResume:
 
 Route110_OnTransition:
 	call_if_eq VAR_CYCLING_CHALLENGE_STATE, 1, Route110_EventScript_SaveCyclingMusic
-	call_if_eq VAR_NEW_MAUVILLE_STATE, 0, Route110_EventScript_TryBlockNewMauville
 	end
 
 Route110_EventScript_SaveCyclingMusic::

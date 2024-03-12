@@ -11168,6 +11168,140 @@ static const struct TrainerMon sParty_BB_Phoebe[] = {
 };
 
 
+//VICTORY ROAD RIVALS
+//Jinnora's Ruby Party
+static const struct TrainerMon sParty_VR_Rival_Jinnora[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_SCEPTILE,
+    .heldItem = ITEM_MIRACLE_SEED,
+    .ability = ABILITY_OVERGROW,
+    .ev = TRAINER_PARTY_EVS(200, 100, 0, 0, 0, 200),
+    .nature = TRAINER_PARTY_NATURE(NATURE_BASHFUL),
+    .moves = {MOVE_LEAF_BLADE, MOVE_EARTHQUAKE, MOVE_ROCK_TOMB, MOVE_AERIAL_ACE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SWELLOW,
+    .heldItem = ITEM_SILK_SCARF,
+    .ability = ABILITY_GUTS,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 200, 0, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_NAIVE),
+    .moves = {MOVE_AERIAL_ACE, MOVE_STEEL_WING, MOVE_QUICK_ATTACK, MOVE_FACADE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_PIKACHU,
+    .heldItem = ITEM_LIGHT_BALL,
+    .ability = ABILITY_STATIC,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 200, 100, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_LONELY),
+    .moves = {MOVE_THUNDERBOLT, MOVE_QUICK_ATTACK, MOVE_THUNDER_WAVE, MOVE_IRON_TAIL}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_LATIOS,
+    .heldItem = ITEM_TWISTED_SPOON,
+    .ability = ABILITY_LEVITATE,
+    .iv = TRAINER_PARTY_IVS(10, 1, 0, 0, 0, 0),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 250, 250, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_QUIRKY),
+    .moves = {MOVE_THUNDERBOLT, MOVE_ICE_BEAM, MOVE_PSYCHIC, MOVE_SURF}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_GROUDON,
+    .heldItem = ITEM_SOFT_SAND,
+    .ability = ABILITY_DROUGHT,
+    .ev = TRAINER_PARTY_EVS(100, 50, 0, 200, 100, 50),
+    .nature = TRAINER_PARTY_NATURE(NATURE_RASH),
+    .moves = {MOVE_DRAGON_CLAW, MOVE_EARTHQUAKE, MOVE_SOLAR_BEAM, MOVE_ERUPTION}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_RAYQUAZA,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_AIR_LOCK,
+    .ev = TRAINER_PARTY_EVS(250, 0, 0, 0, 200, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_NAIVE),
+    .moves = {MOVE_FLY, MOVE_FLAMETHROWER, MOVE_EXTREME_SPEED, MOVE_DRAGON_CLAW}
+    }
+};
+
+//Rival 1, todo
+static const struct TrainerMon sParty_VR_Rival_1[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_UNOWN,
+    }
+};
+
+//Rival 2, todo
+static const struct TrainerMon sParty_VR_Rival_2[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_UNOWN,
+    }
+};
+
+//Rival 3, todo
+static const struct TrainerMon sParty_VR_Rival_3[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_UNOWN,
+    }
+};
+
+//Rival 4, todo
+static const struct TrainerMon sParty_VR_Rival_4[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_UNOWN,
+    }
+};
+
+//Rival 5, todo
+static const struct TrainerMon sParty_VR_Rival_5[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_UNOWN,
+    }
+};
+
+//Rival 6, todo
+static const struct TrainerMon sParty_VR_Rival_6[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_UNOWN,
+    }
+};
+
+//Rival 7, todo
+static const struct TrainerMon sParty_VR_Rival_7[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_UNOWN,
+    }
+};
+
+//Rival 8, todo
+static const struct TrainerMon sParty_VR_Rival_8[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_UNOWN,
+    }
+};
+
+//Rival 9, todo
+static const struct TrainerMon sParty_VR_Rival_9[] = {
+    {
+    .lvl = 5,
+    .species = SPECIES_UNOWN,
+    }
+};
+
+
+
 //TPP TRAINERS (done)
 //found on islands on Route 132, no easy versions
 
@@ -28866,6 +29000,68 @@ static const struct TrainerMon sParty_MayLilycoveTorchic[] = {
 
 //METEOR FALLS STEVEN
 static const struct TrainerMon sParty_Steven[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_SKARMORY,
+    .heldItem = ITEM_ROCKY_HELMET,
+    .ability = ABILITY_STURDY,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(252, 0, 4, 0, 0, 252),
+    .nature = TRAINER_PARTY_NATURE(NATURE_CAREFUL),
+    .moves = {MOVE_TOXIC, MOVE_AERIAL_ACE, MOVE_SPIKES, MOVE_STEEL_WING}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_CLAYDOL,
+    .heldItem = ITEM_WISE_GLASSES,
+    .ability = ABILITY_LEVITATE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(252, 0, 4, 0, 252, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_MODEST),
+    .moves = {MOVE_PSYCHIC, MOVE_EARTH_POWER, MOVE_ICE_BEAM, MOVE_ANCIENT_POWER}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_AGGRON,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_STURDY,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 4),
+    .nature = TRAINER_PARTY_NATURE(NATURE_ADAMANT),
+    .moves = {MOVE_DRAGON_RUSH, MOVE_IRON_TAIL, MOVE_STEALTH_ROCK, MOVE_EARTHQUAKE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_CRADILY,
+    .heldItem = ITEM_BIG_ROOT,
+    .ability = ABILITY_STORM_DRAIN,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 4),
+    .nature = TRAINER_PARTY_NATURE(NATURE_BOLD),
+    .moves = {MOVE_GIGA_DRAIN, MOVE_BRINE, MOVE_ANCIENT_POWER, MOVE_LEECH_SEED}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_ARMALDO,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_BATTLE_ARMOR,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(170, 170, 0, 0, 0, 170),
+    .nature = TRAINER_PARTY_NATURE(NATURE_ADAMANT),
+    .moves = {MOVE_LIQUIDATION, MOVE_STONE_EDGE, MOVE_X_SCISSOR, MOVE_AQUA_JET}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_METAGROSS,
+    .heldItem = ITEM_MUSCLE_BAND,
+    .ability = ABILITY_CLEAR_BODY,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(4, 252, 0, 252, 0, 0),
+    .nature = TRAINER_PARTY_NATURE(NATURE_JOLLY),
+    .moves = {MOVE_METEOR_MASH, MOVE_EARTHQUAKE, MOVE_ZEN_HEADBUTT, MOVE_KNOCK_OFF}
+    }
+};
+static const struct TrainerMon sParty_Steven_vanilla[] = {
     {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .lvl = 77,

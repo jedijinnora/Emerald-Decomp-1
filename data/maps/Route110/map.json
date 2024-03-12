@@ -200,7 +200,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "Route110_EventScript_Jaclyn",
       "flag": "0"
     },
@@ -533,8 +533,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 35,
-      "y": 19,
+      "x": 32,
+      "y": 16,
       "elevation": 0,
       "item": "ITEM_BOTTLE_CAP",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_110_BOTTLE_CAP_1"

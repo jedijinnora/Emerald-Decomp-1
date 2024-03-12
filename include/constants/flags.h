@@ -1636,7 +1636,7 @@
 #define FLAG_DAILY_WINSTRATE_VIVI_BATTLE            (DAILY_FLAGS_START + 0x1D)
 #define FLAG_DAILY_WINSTRATE_VITO_BATTLE            (DAILY_FLAGS_START + 0x1E)
 #define FLAG_DAILY_SHIRONA_REMATCH                  (DAILY_FLAGS_START + 0x1F)
-#define FLAG_UNUSED_0x940                           (DAILY_FLAGS_START + 0x20) // Unused Flag
+#define FLAG_DAILY_RIVAL_MATCH                      (DAILY_FLAGS_START + 0x20)
 #define FLAG_UNUSED_0x941                           (DAILY_FLAGS_START + 0x21) // Unused Flag
 #define FLAG_UNUSED_0x942                           (DAILY_FLAGS_START + 0x22) // Unused Flag
 #define FLAG_UNUSED_0x943                           (DAILY_FLAGS_START + 0x23) // Unused Flag

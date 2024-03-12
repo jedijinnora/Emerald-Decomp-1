@@ -214,8 +214,22 @@
 #define TRAINER_BB_PHOEBE                   (BEACH_BATTLE_TRAINERS_START + 9)
 #define BEACH_BATTLE_TRAINERS_END           TRAINER_BB_PHOEBE
 
+//Victory Road Rivals
+#define VICTORY_ROAD_RIVAL_TRAINERS_START   (BEACH_BATTLE_TRAINERS_END + 1)
+#define TRAINER_RIVAL_JINNORA               (VICTORY_ROAD_RIVAL_TRAINERS_START + 0)
+#define TRAINER_RIVAL_1                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 1)
+#define TRAINER_RIVAL_2                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 2)
+#define TRAINER_RIVAL_3                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 3)
+#define TRAINER_RIVAL_4                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 4)
+#define TRAINER_RIVAL_5                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 5)
+#define TRAINER_RIVAL_6                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 6)
+#define TRAINER_RIVAL_7                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 7)
+#define TRAINER_RIVAL_8                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 8)
+#define TRAINER_RIVAL_9                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 9)
+#define VICTORY_ROAD_RIVAL_TRAINERS_END     TRAINER_RIVAL_9
+
 //TPP Trainers
-#define TPP_TRAINERS_START                  (BEACH_BATTLE_TRAINERS_END + 1)
+#define TPP_TRAINERS_START                  (VICTORY_ROAD_RIVAL_TRAINERS_END + 1)
 #define TRAINER_TPP_RED                     (TPP_TRAINERS_START + 0)
 #define TRAINER_TPP_AJ                      (TPP_TRAINERS_START + 1)
 #define TRAINER_TPP_DOM                     (TPP_TRAINERS_START + 2)
@@ -929,7 +943,7 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 642
+//I think it's currently 652
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

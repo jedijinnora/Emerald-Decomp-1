@@ -313,7 +313,7 @@ script EverGrandeCity_EventScript_Maniac {
 		goto(GoodLuck)
 	}
 	setflag(FLAG_TEMP_5)
-	msgbox(format("Unknown trainer spotted! Sinnohan accent detected! Conclusion: you're here to challenge the Hoenn League!"))
+	msgbox(format("Unknown trainer spotted! Foreign accent detected! Conclusion: you're here to challenge the Hoenn League!"))
 	GoodLuck:
 	msgbox(format("Good luck, stranger! You'll need it."))
 	release

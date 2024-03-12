@@ -2434,6 +2434,136 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 0,
     },
 
+    [TRAINER_RIVAL_JINNORA] =
+    {
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("Jinnora"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_VR_Rival_Jinnora),
+        .badgeThreshold = 0,
+    },
+
+    [TRAINER_RIVAL_1] =
+    {
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("Jinnora"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_VR_Rival_1),
+        .badgeThreshold = 0,
+    },
+
+    [TRAINER_RIVAL_2] =
+    {
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("Jinnora"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_VR_Rival_2),
+        .badgeThreshold = 0,
+    },
+
+    [TRAINER_RIVAL_3] =
+    {
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("Jinnora"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_VR_Rival_3),
+        .badgeThreshold = 0,
+    },
+
+    [TRAINER_RIVAL_4] =
+    {
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("Jinnora"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_VR_Rival_4),
+        .badgeThreshold = 0,
+    },
+
+    [TRAINER_RIVAL_5] =
+    {
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("Jinnora"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_VR_Rival_5),
+        .badgeThreshold = 0,
+    },
+
+    [TRAINER_RIVAL_6] =
+    {
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("Jinnora"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_VR_Rival_6),
+        .badgeThreshold = 0,
+    },
+
+    [TRAINER_RIVAL_7] =
+    {
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("Jinnora"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_VR_Rival_7),
+        .badgeThreshold = 0,
+    },
+
+    [TRAINER_RIVAL_8] =
+    {
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("Jinnora"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_VR_Rival_8),
+        .badgeThreshold = 0,
+    },
+
+    [TRAINER_RIVAL_9] =
+    {
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_MAY,
+        .trainerName = _("Jinnora"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_VR_Rival_9),
+        .badgeThreshold = 0,
+    },
+
     [TRAINER_TPP_RED] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -3431,7 +3561,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Edward"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS | AI_FLAG_OMNISCIENT,
         .party = TRAINER_PARTY(sParty_Edward),
     },
 
@@ -3443,8 +3573,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Jaclyn"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = BASIC_TRAINER_FLAGS | AI_FLAG_OMNISCIENT,
         .party = TRAINER_PARTY(sParty_Jaclyn),
+        .badgeThreshold = 2,
+        .easyParty = sParty_Jaclyn_easy,
     },
 
     [TRAINER_EDWIN] =
@@ -8315,10 +8447,11 @@ const struct Trainer gTrainers[] = {
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_STEVEN,
         .trainerName = _("Steven"),
-        .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
+        .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = SMART_SWITCHING_FLAGS | AI_FLAG_RISKY,
         .party = TRAINER_PARTY(sParty_Steven),
+        .badgeThreshold = 0,
     },
 };
 

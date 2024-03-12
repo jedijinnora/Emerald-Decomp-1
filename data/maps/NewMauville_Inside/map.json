@@ -29,8 +29,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 36,
-      "y": 3,
+      "x": 33,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -180,8 +180,8 @@
     },
     {
       "type": "trigger",
-      "x": 33,
-      "y": 6,
+      "x": 31,
+      "y": 10,
       "elevation": 3,
       "var": "VAR_NEW_MAUVILLE_STATE",
       "var_value": "1",

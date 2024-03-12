@@ -159,7 +159,7 @@
 #define VAR_RECENT_SPRAY                                 0x408B // see include/config/item.h
 #define VAR_DIFFICULTY_SETTING                           0x408C // 0 = standard, 1 = easy, 2 = hard
 #define VAR_UNUSED_0x408D                                0x408D
-#define VAR_UNUSED_0x408E                                0x408E
+#define VAR_RIVAL_CHOICE                                 0x408E // Jinnora: used to select blocking trainer in Victory Road
 #define VAR_DEVON_CORP_3F_STATE                          0x408F
 #define VAR_BRINEY_HOUSE_STATE                           0x4090
 #define VAR_BOARD_BRINEY_BOAT_STATE                      0x4091

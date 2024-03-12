@@ -1,9 +1,13 @@
+const LOCALID_RIVAL = 8
+
 mapscripts VictoryRoad_1F_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : VictoryRoad_1F_OnTransition
 }
 
 script VictoryRoad_1F_OnTransition {
 	setflag(FLAG_ENTERED_VICTORY_ROAD)
+	call(VictoryRoad_1F_EventScript_SetupRivalGfx)
+	call_if_set(FLAG_SYS_GAME_CLEAR, VictoryRoad_1F_EventScript_MoveRival)
 	end
 }
 
@@ -15,6 +19,71 @@ script VictoryRoad_1F_EventScript_TrainerCheck {
 	goto_if_not_defeated(TRAINER_RUIZ, VictoryRoad_1F_EventScript_PushDown)
 	setvar(VAR_TEMP_0, 1)
 	end
+}
+
+script VictoryRoad_1F_EventScript_SetupRivalGfx {
+	switch(var(VAR_RIVAL_CHOICE)) {
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+		default:
+			setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL)
+	}
+	return
+}
+
+script VictoryRoad_1F_EventScript_MoveRival {
+	setobjectxyperm(LOCALID_RIVAL, 31, 4)
+	setobjectmovementtype(LOCALID_RIVAL, MOVEMENT_TYPE_LOOK_AROUND)
+	return
+}
+
+script VictoryRoad_1F_EventScript_Rival {
+	lock
+	faceplayer
+	switch(var(VAR_RIVAL_CHOICE)) {
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+		default:
+			call(VictoryRoad_1F_EventScript_Rival_Jinnora)
+	}
+	msgbox(format("Be seeing you!"))
+	applymovement(LOCALID_RIVAL, VictoryRoad_1F_Movement_RivalLeave)
+	removeobject(LOCALID_RIVAL)
+	setflag(FLAG_TEMP_11)
+	release
+	end
+}
+
+text VictoryRoad_1F_Text_RivalDefeated {
+	"You win!"
+}
+
+movement VictoryRoad_1F_Movement_RivalLeave {
+	walk_up * 6
+	step_end
+}
+
+script VictoryRoad_1F_EventScript_Rival_Jinnora {
+	msgbox(format("Jinnora: Hey! You're basically at the end!"))
+	msgbox(format("But it would be a shame if you got to the Elite Four without a Rival battle…"))
+	msgbox(format("So, let's see if you're up to facing my ultimate team!"))
+	trainerbattle_no_intro(TRAINER_RIVAL_JINNORA, VictoryRoad_1F_Text_RivalDefeated)
+	msgbox(format("Jinnora: Did I mention I made this team when I was 8? Oh well!"))
+	msgbox(format("Jinnora: Anyways, I'll be collecting the teams of the first players to beat the game on and putting them here. The Discord will have more info."))
 }
 
 script VictoryRoad_1F_EventScript_PushDown {
