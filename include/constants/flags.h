@@ -950,7 +950,7 @@
 #define FLAG_ENTERED_ELITE_FOUR                                     0x36D //used in trainer scaling
 #define FLAG_ENTERED_CHAMPION_ROOM                                  0x36E //used in trainer scaling
 #define FLAG_SAND_FAMILY_MOVED                                      0x36F
-#define FLAG_UNUSED_0x370                                           0x370
+#define FLAG_DEFEATED_VICTORY_ROAD_RIVAL                            0x370
 #define FLAG_UNUSED_0x371                                           0x371
 #define FLAG_UNUSED_0x372                                           0x372
 #define FLAG_UNUSED_0x373                                           0x373

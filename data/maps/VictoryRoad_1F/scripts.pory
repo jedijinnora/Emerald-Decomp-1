@@ -7,7 +7,7 @@ mapscripts VictoryRoad_1F_MapScripts {
 script VictoryRoad_1F_OnTransition {
 	setflag(FLAG_ENTERED_VICTORY_ROAD)
 	call(VictoryRoad_1F_EventScript_SetupRivalGfx)
-	call_if_set(FLAG_SYS_GAME_CLEAR, VictoryRoad_1F_EventScript_MoveRival)
+	call_if_unset(FLAG_SYS_GAME_CLEAR, VictoryRoad_1F_EventScript_HideRematchRival)
 	end
 }
 
@@ -38,9 +38,8 @@ script VictoryRoad_1F_EventScript_SetupRivalGfx {
 	return
 }
 
-script VictoryRoad_1F_EventScript_MoveRival {
-	setobjectxyperm(LOCALID_RIVAL, 31, 4)
-	setobjectmovementtype(LOCALID_RIVAL, MOVEMENT_TYPE_LOOK_AROUND)
+script VictoryRoad_1F_EventScript_HideRematchRival {
+	setflag(FLAG_TEMP_11)
 	return
 }
 
@@ -60,9 +59,14 @@ script VictoryRoad_1F_EventScript_Rival {
 		default:
 			call(VictoryRoad_1F_EventScript_Rival_Jinnora)
 	}
+	goto(VictoryRoad_1F_EventScript_RivalDefeated)
+}
+
+script VictoryRoad_1F_EventScript_RivalDefeated {
 	msgbox(format("Be seeing you!"))
 	applymovement(LOCALID_RIVAL, VictoryRoad_1F_Movement_RivalLeave)
 	removeobject(LOCALID_RIVAL)
+	setflag(FLAG_DEFEATED_VICTORY_ROAD_RIVAL)
 	setflag(FLAG_TEMP_11)
 	release
 	end
