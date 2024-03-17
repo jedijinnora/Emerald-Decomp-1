@@ -1,6 +1,8 @@
 #ifndef GUARD_CONSTANTS_OPPONENTS_H
 #define GUARD_CONSTANTS_OPPONENTS_H
 
+#include "constants/battle_partner.h"
+
 #define TRAINER_NONE                        0
 
 //Elite Four and Champion
@@ -950,5 +952,6 @@
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
 #define MAX_TRAINERS_COUNT                  864
+#define TRAINER_PARTNER(partner)           (MAX_TRAINERS_COUNT + partner)
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H
