@@ -1447,7 +1447,7 @@ void ScrCmd_dynmultipush(struct ScriptContext *ctx)
     item.name = nameBuffer;
     item.id = id;
     MultichoiceDynamic_PushElement(item);
-    return FALSE;
+    return;
 }
 
 bool8 ScrCmd_multichoice(struct ScriptContext *ctx)

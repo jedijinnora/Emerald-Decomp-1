@@ -125,16 +125,7 @@
 #define MULTI_BERRY_PLOT                   114
 
 //ADDED MULTICHOICES
-#define MULTI_STARTER_CHOICE               114
-#define MULTI_FERRY_DEWFORD                115
-#define MULTI_FERRY_EVERGRANDE             116
-#define MULTI_FERRY_LILYCOVE               117
-#define MULTI_FERRY_LITTLEROOT             118
-#define MULTI_FERRY_MOSSDEEP               119
-#define MULTI_FERRY_RUSTBORO               120
-#define MULTI_FERRY_SLATEPORT              121
-#define MULTI_FERRY_SOOTOPOLIS             122
-#define MULTI_FERRY_SOUTHERNISLAND         123
+#define MULTI_STARTER_CHOICE               115
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

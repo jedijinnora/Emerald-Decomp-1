@@ -723,7 +723,7 @@ static void DoMoveRelearnerMain(void)
                 //implemented gen 5's pp restrictions when teaching new move
                 u8 oldPP;
                 
-                StringCopy(gStringVar3, gMoveNames[moveId]);
+                StringCopy(gStringVar3, GetMoveName(moveId));
                 RemoveMonPPBonus(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->moveSlot);
 
                 oldPP = GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_PP1 + GetMoveSlotToReplace(), NULL);

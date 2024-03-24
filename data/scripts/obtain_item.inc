@@ -56,12 +56,6 @@ EventScript_ObtainedItem::
 	message gText_ObtainedTheItems
 	goto EventScript_ContinueObtainedItem
 EventScript_ObtainedItemMessage:
-	compare VAR_0x8001, TRUE
-	goto_if_eq EventScript_ObtainedItemMessage
-	buffernumberstring 0, VAR_0x8001
-	message gText_ObtainedTheItems
-	goto EventScript_ContinueObtainedItem
-EventScript_ObtainedItemMessage:
 	message gText_ObtainedTheItem
 EventScript_ContinueObtainedItem:
 	waitfanfare

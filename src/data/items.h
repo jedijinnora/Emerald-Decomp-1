@@ -1407,234 +1407,315 @@ const struct Item gItemsInfo[] =
     [ITEM_LONELY_MINT] =
     {
         .name = _("Lonely Mint"),
-        .price = 1000,
+        .price = 2000,
         .description = COMPOUND_STRING(
             "Can be smelled. It\n"
             "ups Attack, but\n"
             "reduces Defense."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_LONELY,
         .flingPower = 10,
     },
 
     [ITEM_ADAMANT_MINT] =
     {
         .name = _("Adamant Mint"),
-        .price = 20,
-        .description = sAdamantMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Attack, but\n"
+            "reduces Sp. Atk."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_ADAMANT,
         .flingPower = 10,
     },
 
     [ITEM_NAUGHTY_MINT] =
     {
         .name = _("Naughty Mint"),
-        .price = 20,
-        .description = sNaughtyMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Attack, but\n"
+            "reduces Sp. Def."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_NAUGHTY,
         .flingPower = 10,
     },
 
     [ITEM_BRAVE_MINT] =
     {
         .name = _("Brave Mint"),
-        .price = 20,
-        .description = sBraveMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Attack, but\n"
+            "reduces Speed."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_BRAVE,
         .flingPower = 10,
     },
 
     [ITEM_BOLD_MINT] =
     {
         .name = _("Bold Mint"),
-        .price = 20,
-        .description = sBoldMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Defense, but\n"
+            "reduces Attack."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_BOLD,
         .flingPower = 10,
     },
 
     [ITEM_IMPISH_MINT] =
     {
         .name = _("Impish Mint"),
-        .price = 20,
-        .description = sImpishMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Defense, but\n"
+            "reduces Sp. Atk."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_IMPISH,
         .flingPower = 10,
     },
 
     [ITEM_LAX_MINT] =
     {
         .name = _("Lax Mint"),
-        .price = 20,
-        .description = sLaxMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Defense, but\n"
+            "reduces Sp. Def."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_LAX,
         .flingPower = 10,
     },
 
     [ITEM_RELAXED_MINT] =
     {
         .name = _("Relaxed Mint"),
-        .price = 20,
-        .description = sRelaxedMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Defense, but\n"
+            "reduces Speed."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_RELAXED,
         .flingPower = 10,
     },
 
     [ITEM_MODEST_MINT] =
     {
         .name = _("Modest Mint"),
-        .price = 20,
-        .description = sModestMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Sp. Atk, but\n"
+            "reduces Attack."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_MODEST,
         .flingPower = 10,
     },
 
     [ITEM_MILD_MINT] =
     {
         .name = _("Mild Mint"),
-        .price = 20,
-        .description = sMildMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Sp. Atk, but\n"
+            "reduces Defense."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_MILD,
         .flingPower = 10,
     },
 
     [ITEM_RASH_MINT] =
     {
         .name = _("Rash Mint"),
-        .price = 20,
-        .description = sRashMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Sp. Atk, but\n"
+            "reduces Sp. Def."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_RASH,
         .flingPower = 10,
     },
 
     [ITEM_QUIET_MINT] =
     {
         .name = _("Quiet Mint"),
-        .price = 20,
-        .description = sQuietMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Sp. Atk, but\n"
+            "reduces Speed."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_QUIET,
         .flingPower = 10,
     },
 
     [ITEM_CALM_MINT] =
     {
         .name = _("Calm Mint"),
-        .price = 20,
-        .description = sCalmMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Sp. Def, but\n"
+            "reduces Attack."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_CALM,
         .flingPower = 10,
     },
 
     [ITEM_GENTLE_MINT] =
     {
         .name = _("Gentle Mint"),
-        .price = 20,
-        .description = sGentleMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Sp. Def, but\n"
+            "reduces Defense."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_GENTLE,
         .flingPower = 10,
     },
 
     [ITEM_CAREFUL_MINT] =
     {
         .name = _("Careful Mint"),
-        .price = 20,
-        .description = sCarefulMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Sp. Def, but\n"
+            "reduces Sp. Atk."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_CAREFUL,
         .flingPower = 10,
     },
 
     [ITEM_SASSY_MINT] =
     {
         .name = _("Sassy Mint"),
-        .price = 20,
-        .description = sSassyMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Sp. Def, but\n"
+            "reduces Speed."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_SASSY,
         .flingPower = 10,
     },
 
     [ITEM_TIMID_MINT] =
     {
         .name = _("Timid Mint"),
-        .price = 20,
-        .description = sTimidMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Speed, but\n"
+            "reduces Attack."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_TIMID,
         .flingPower = 10,
     },
 
     [ITEM_HASTY_MINT] =
     {
         .name = _("Hasty Mint"),
-        .price = 20,
-        .description = sHastyMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Speed, but\n"
+            "reduces Defense."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_HASTY,
         .flingPower = 10,
     },
 
     [ITEM_JOLLY_MINT] =
     {
         .name = _("Jolly Mint"),
-        .price = 20,
-        .description = sJollyMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Speed, but\n"
+            "reduces Sp. Atk."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_JOLLY,
         .flingPower = 10,
     },
 
     [ITEM_NAIVE_MINT] =
     {
         .name = _("Naive Mint"),
-        .price = 20,
-        .description = sNaiveMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "ups Speed, but\n"
+            "reduces Sp. Def."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_NAIVE,
         .flingPower = 10,
     },
 
     [ITEM_SERIOUS_MINT] =
     {
         .name = _("Serious Mint"),
-        .price = 20,
-        .description = sSeriousMintDesc,
+        .price = 2000,
+        .description = COMPOUND_STRING(
+            "Can be smelled. It\n"
+            "makes each stat\n"
+            "grow equally."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_SERIOUS,
         .flingPower = 10,
     },
 

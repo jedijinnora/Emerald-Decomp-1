@@ -27,7 +27,7 @@ if len(incs_to_check) == 0: # disabled if no jsons present
 for file in incs_to_check:
     with open(file, 'r') as f2:
         raw = f2.read()
-    if 'special ChooseMonForMoveTutor' in raw:
+    if 'special ChooseMonForMoveTutor' in raw or 'call MoveTutor_EventScript_OpenPartyMenu' in raw:
         for x in re.findall('setvar VAR_0x8005, (MOVE_.*)', raw):
             if not x in tutor_moves:
                 tutor_moves.append(x)

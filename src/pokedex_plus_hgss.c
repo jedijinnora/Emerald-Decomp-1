@@ -5955,7 +5955,7 @@ static void PrintStatsScreen_Abilities(u8 taskId)
         if (HGSS_COLOR_MODE != HGSS_DARKEST)
             PrintStatsScreenTextSmallWhite(WIN_STATS_ABILITIES, gAbilitiesInfo[ability0].name, abilities_x, abilities_y);
         else
-            PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilityNames[ability0], abilities_x, abilities_y);
+            PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[ability0].name, abilities_x, abilities_y);
 
         PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[ability0].description, abilities_x, abilities_y + 14);
 
@@ -5965,7 +5965,7 @@ static void PrintStatsScreen_Abilities(u8 taskId)
             if (HGSS_COLOR_MODE != HGSS_DARKEST)
                 PrintStatsScreenTextSmallWhite(WIN_STATS_ABILITIES, gAbilitiesInfo[ability1].name, abilities_x, abilities_y + 30);
             else
-                PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilityNames[ability1], abilities_x, abilities_y + 30);
+                PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[ability1].name, abilities_x, abilities_y + 30);
 
             PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[ability1].description, abilities_x, abilities_y + 44);
         }
@@ -5977,7 +5977,7 @@ static void PrintStatsScreen_Abilities(u8 taskId)
         if (HGSS_COLOR_MODE != HGSS_DARKEST)
             PrintStatsScreenTextSmallWhite(WIN_STATS_ABILITIES, gAbilitiesInfo[abilityHidden].name, abilities_x, abilities_y);
         else
-            PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilityNames[abilityHidden], abilities_x, abilities_y);
+            PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[abilityHidden].name, abilities_x, abilities_y);
 
         PrintStatsScreenTextSmall(WIN_STATS_ABILITIES, gAbilitiesInfo[abilityHidden].description, abilities_x, abilities_y + 14);
     }
