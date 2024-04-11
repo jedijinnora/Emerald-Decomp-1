@@ -34,12 +34,13 @@ script Route115_EventScript_Stash {
     end
 }
 
+script Route115_EventScript_Woman {
+	msgbox(format("My friend said there's a hidden part of this route with different wild Pokémon."), MSGBOX_NPC)
+	end
+}
+
 
 raw `
-Route115_EventScript_Woman::
-	msgbox Route115_Text_NeverKnowWhenCavePokemonWillAppear, MSGBOX_NPC
-	end
-
 Route115_EventScript_RouteSignRustboro::
 	msgbox Route115_Text_RouteSignRustboro, MSGBOX_SIGN
 	end
@@ -145,12 +146,6 @@ Route115_EventScript_Marlene::
 	trainerbattle_single TRAINER_MARLENE, Route115_Text_MarleneIntro, Route115_Text_MarleneDefeat
 	msgbox Route115_Text_MarlenePostBattle, MSGBOX_AUTOCLOSE
 	end
-
-Route115_Text_NeverKnowWhenCavePokemonWillAppear:
-	.string "Exploring a cave isn't like walking\n"
-	.string "on a road.\p"
-	.string "You never know when wild Pokémon will\n"
-	.string "appear. It's full of suspense.$"
 
 Route115_Text_RouteSignRustboro:
 	.string "Route 115\n"

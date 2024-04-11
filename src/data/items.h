@@ -10382,7 +10382,7 @@ const struct Item gItemsInfo[] =
         .name = _("TM76"),
         .price = 3000,
         .description = COMPOUND_STRING(
-            "Slower Pokemon get\n"
+            "Slower Pokémon get\n"
             "to move first for\n"
             "five turns."),
         .importance = I_REUSABLE_TMS,

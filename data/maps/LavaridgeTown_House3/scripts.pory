@@ -1,5 +1,10 @@
 mapscripts LavaridgeTown_House3_MapScripts {}
 
+script LavaridgeTown_House3_EventScript_Maniac {
+	msgbox(format("You can evolve a Charcadet with a Dawn or Dusk stone."), MSGBOX_NPC)
+	end
+}
+
 script LavaridgeTown_House3_EventScript_FireStarterWoman {
     lockall
 	faceplayer
