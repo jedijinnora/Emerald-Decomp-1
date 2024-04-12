@@ -1,3 +1,24 @@
+script Route113_EventScript_Ike {
+	trainerbattle_single(TRAINER_IKE, Route113_Text_IkeIntro, Route113_Text_IkeDefeat)
+	msgbox(Route113_Text_IkePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+text Route113_Text_IkeIntro {
+	"My bugs have adapted to these volcanic\n"
+	"conditions!"
+}
+
+text Route113_Text_IkeDefeat {
+	"Ack! Cough! Ash in my throat!"
+}
+
+text Route113_Text_IkePostBattle {
+	"I guess your Pokémon have adapted\n"
+	"to the volcanic ash as well."
+}
+
+
 raw `
 Route113_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route113_OnResume
