@@ -79,7 +79,7 @@ script Route107_EventScript_Kenneth {
 }
 
 text Route107_Text_KennethIntro {
-	"I've found a gap to the outside! Buzz\noff, this fishing spot is all mine!"
+	"I've found a gap to the outside! Go\naway, this fishing spot is all mine!"
 }
 
 text Route107_Text_KennethDefeated {

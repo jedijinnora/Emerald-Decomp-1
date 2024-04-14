@@ -151,9 +151,9 @@ FortreeCity_Gym_EventScript_Jared::
 	msgbox FortreeCity_Gym_Text_JaredPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-FortreeCity_Gym_EventScript_Edwardo::
-	trainerbattle_single TRAINER_EDWINA, FortreeCity_Gym_Text_EdwardoIntro, FortreeCity_Gym_Text_EdwardoDefeat
-	msgbox FortreeCity_Gym_Text_EdwardoPostBattle, MSGBOX_AUTOCLOSE
+FortreeCity_Gym_EventScript_Edwina::
+	trainerbattle_single TRAINER_EDWINA, FortreeCity_Gym_Text_EdwinaIntro, FortreeCity_Gym_Text_EdwinaDefeat
+	msgbox FortreeCity_Gym_Text_EdwinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 FortreeCity_Gym_EventScript_Flint::
@@ -171,9 +171,9 @@ FortreeCity_Gym_EventScript_Humberto::
 	msgbox FortreeCity_Gym_Text_HumbertoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-FortreeCity_Gym_EventScript_Darius::
-	trainerbattle_single TRAINER_CECILIA, FortreeCity_Gym_Text_DariusIntro, FortreeCity_Gym_Text_DariusDefeat
-	msgbox FortreeCity_Gym_Text_DariusPostBattle, MSGBOX_AUTOCLOSE
+FortreeCity_Gym_EventScript_Cecilia::
+	trainerbattle_single TRAINER_CECILIA, FortreeCity_Gym_Text_CeciliaIntro, FortreeCity_Gym_Text_CeciliaDefeat
+	msgbox FortreeCity_Gym_Text_CeciliaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 FortreeCity_Gym_EventScript_LeftGymStatue::
@@ -212,17 +212,17 @@ FortreeCity_Gym_Text_JaredPostBattle:
 	.string "Do you have the smarts to get to\n"
 	.string "our Leader?$"
 
-FortreeCity_Gym_Text_EdwardoIntro:
+FortreeCity_Gym_Text_EdwinaIntro:
 	.string "The lovers of Grass Pokémon aspire\n"
 	.string "to join this Gym.\p"
 	.string "As a member of the Fortree Gym,\n"
 	.string "I'm not allowed to lose!$"
 
-FortreeCity_Gym_Text_EdwardoDefeat:
+FortreeCity_Gym_Text_EdwinaDefeat:
 	.string "It was too much of a load for me\n"
 	.string "to bear…$"
 
-FortreeCity_Gym_Text_EdwardoPostBattle:
+FortreeCity_Gym_Text_EdwinaPostBattle:
 	.string "The world is huge, and there are\n"
 	.string "countless tough Trainers.\p"
 	.string "I'm going to keep training and make\n"
@@ -267,15 +267,15 @@ FortreeCity_Gym_Text_HumbertoPostBattle:
 	.string "Don't get distracted staring at Spenser\l"
 	.string "or you'll go crashing down in a heap!$"
 
-FortreeCity_Gym_Text_DariusIntro:
+FortreeCity_Gym_Text_CeciliaIntro:
 	.string "You'd better know that there are all\n"
 	.string "sorts of Grass-type Pokémon.\p"
 	.string "You do know that, right?$"
 
-FortreeCity_Gym_Text_DariusDefeat:
+FortreeCity_Gym_Text_CeciliaDefeat:
 	.string "You seem to know your stuff!$"
 
-FortreeCity_Gym_Text_DariusPostBattle:
+FortreeCity_Gym_Text_CeciliaPostBattle:
 	.string "Sure, you beat me all right.\n"
 	.string "But you'd better watch it! Our Leader\l"
 	.string "Spenser's Pokémon are all business.$"
