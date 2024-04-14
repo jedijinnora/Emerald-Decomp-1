@@ -7,6 +7,16 @@ script Route114_OnTransition {
 	end
 }
 
+script Route114_EventScript_Nurse {
+	lock
+	faceplayer
+	msgbox(format("Want me to heal your Pokémon?"), MSGBOX_YESNO)
+	call_if_eq(VAR_RESULT, YES, Common_EventScript_OutOfCenterPartyHeal)
+	msgbox(format("Be careful, Trainer!"))
+	release
+	end
+}
+
 
 raw `
 Route114_EventScript_Man::

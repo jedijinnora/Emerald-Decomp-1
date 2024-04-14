@@ -90,3 +90,39 @@ SootopolisCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_ANNIKA
 	settrainerflag TRAINER_DAPHNE
 	return
+
+Common_EventScript_HardcoreClearThresholdTrainers::
+	switch VAR_NUM_BADGES
+	case 1, ClearThresholdOneTrainers
+	case 2, ClearThresholdTwoTrainers
+	case 3, ClearThresholdThreeTrainers
+	case 4, ClearThresholdFourTrainers
+	case 5, ClearThresholdFiveTrainers
+	case 6, ClearThresholdSixTrainers
+	case 7, ClearThresholdSevenTrainers
+	case 8, ClearThresholdEightTrainers
+	end
+
+ClearThresholdOneTrainers::
+return
+
+ClearThresholdTwoTrainers::
+return
+
+ClearThresholdThreeTrainers::
+return
+
+ClearThresholdFourTrainers::
+return
+
+ClearThresholdFiveTrainers::
+return
+
+ClearThresholdSixTrainers::
+return
+
+ClearThresholdSevenTrainers::
+return
+
+ClearThresholdEightTrainers::
+return

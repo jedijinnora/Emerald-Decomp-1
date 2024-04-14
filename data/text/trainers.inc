@@ -2031,14 +2031,14 @@ Route115_Text_TimothyPostRematch:
 
 Route115_Text_KoichiIntro:
 	.string "You!\p"
-	.string "My Machop!\p"
+	.string "My Machoke!\p"
 	.string "Demand a battle!$"
 
 Route115_Text_KoichiDefeat:
 	.string "Ouch, ouch, ouch!$"
 
 Route115_Text_KoichiPostBattle:
-	.string "My Machop crew!\p"
+	.string "My Machoke crew!\p"
 	.string "So long as they seek power, I will\n"
 	.string "grow strong with them!$"
 
@@ -2286,7 +2286,7 @@ Route116_Text_KarenRematchDefeat:
 	.string "I lost again?$"
 
 Route116_Text_KarenPostRematch:
-	.string "You've beaten Roxanne?\n"
+	.string "You've beaten Noland?\n"
 	.string "I can't beat you, then. Not yet.$"
 
 Route116_Text_SarahIntro:
@@ -2329,15 +2329,16 @@ Route116_Text_DevanPostBattle:
 	.string "types, that's what I ought to do.$"
 
 Route116_Text_JohnsonIntro:
-	.string "It's a dead end up here.\n"
-	.string "I'm bored, so can we battle?$"
+	.string "I'm getting tired of walking.\n"
+	.string "Oh? A battle? Sure, I guess.$"
 
 Route116_Text_JohnsonDefeat:
 	.string "That was fun even though I lost.$"
 
 Route116_Text_JohnsonPostBattle:
-	.string "Want to stay here and keep\n"
-	.string "me company?$"
+	.string "Giorgio said I should walk\n"
+	.string "around until the aliens show\l"
+	.string "up. I better get back to it!$"
 
 Route117_Text_IsaacIntro:
 	.string "Listen, could I get you to battle\n"

@@ -35,6 +35,38 @@ script Route116_EventScript_TunnelersRestHouseSign {
 	end
 }
 
+script Route116_EventScript_Nurse {
+	lock
+	faceplayer
+	msgbox(format("Want me to heal your Pokémon?"), MSGBOX_YESNO)
+	call_if_eq(VAR_RESULT, YES, Common_EventScript_OutOfCenterPartyHeal)
+	msgbox(format("Be careful, Trainer!"))
+	release
+	end
+}
+
+script Route116_EventScript_Giorgio {
+	trainerbattle_single(TRAINER_GIORGIO, Route116_Text_GiorgioIntro, Route116_Text_GiorgioDefeat)
+	msgbox(Route116_Text_GiorgioPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+text Route116_Text_GiorgioIntro {
+	"Hey, you're blocking my view. I've\n"
+	"calculated every variable and a UFO\l"
+	"should be appearing soon! Buzz off!"
+}
+
+text Route116_Text_GiorgioDefeat {
+	"But my theory was perfect!"
+}
+
+text Route116_Text_GiorgioPostBattle {
+	"The aliens must have known I was on\n"
+	"their trail and sent you to defeat me.\p"
+	"But I won't give up! I'll get proof!"
+}
+
 raw `
 Route116_EventScript_Joey::
 	trainerbattle_single TRAINER_JOEY, Route116_Text_JoeyIntro, Route116_Text_JoeyDefeat

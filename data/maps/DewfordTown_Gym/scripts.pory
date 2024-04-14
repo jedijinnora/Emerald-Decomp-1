@@ -79,6 +79,7 @@ script DewfordTown_Gym_EventScript_SidneyDefeated {
 	call(Common_EventScript_CountBadges)
 	setvar(VAR_0x8008, 2)
 	call(Common_EventScript_SetGymTrainers)
+	call_if_eq(VAR_DIFFICULTY_SETTING, 2, Common_EventScript_HardcoreClearThresholdTrainers)
 	call_if_unset(FLAG_CHALLENGE_HM_NONE, Gym_EventScript_GetHM)
 	return
 }

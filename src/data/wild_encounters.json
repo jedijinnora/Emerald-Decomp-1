@@ -1588,22 +1588,22 @@
               {
                 "min_level": 16,
                 "max_level": 16,
-                "species": "SPECIES_SEEDOT"
+                "species": "SPECIES_SWABLU"
               },
               {
                 "min_level": 16,
                 "max_level": 16,
-                "species": "SPECIES_LOTAD"
+                "species": "SPECIES_DODUO"
               },
               {
                 "min_level": 17,
                 "max_level": 17,
-                "species": "SPECIES_SWABLU"
+                "species": "SPECIES_SEEDOT"
               },
               {
                 "min_level": 15,
                 "max_level": 15,
-                "species": "SPECIES_SWABLU"
+                "species": "SPECIES_LOTAD"
               },
               {
                 "min_level": 15,
@@ -1688,7 +1688,7 @@
               {
                 "min_level": 5,
                 "max_level": 10,
-                "species": "SPECIES_GEODUDE"
+                "species": "SPECIES_CARBINK"
               },
               {
                 "min_level": 15,
@@ -4653,12 +4653,42 @@
               {
                 "min_level": 7,
                 "max_level": 17,
-                "species": "SPECIES_POPPLIO"
+                "species": "SPECIES_MANTYKE"
               },
               {
                 "min_level": 7,
                 "max_level": 17,
-                "species": "SPECIES_OSHAWOTT"
+                "species": "SPECIES_MANTYKE"
+              }
+            ]
+          },
+          "rock_smash_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_NACLI"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CRABRAWLER"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CRABRAWLER"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CRABRAWLER"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CRABRAWLER"
               }
             ]
           },
@@ -4693,17 +4723,17 @@
               {
                 "min_level": 25,
                 "max_level": 30,
-                "species": "SPECIES_HORSEA"
+                "species": "SPECIES_SEADRA"
               },
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_FINNEON"
+                "species": "SPECIES_LUMINEON"
               },
               {
                 "min_level": 20,
                 "max_level": 25,
-                "species": "SPECIES_WAILMER"
+                "species": "SPECIES_WAILORD"
               },
               {
                 "min_level": 35,
@@ -4713,7 +4743,7 @@
               {
                 "min_level": 40,
                 "max_level": 45,
-                "species": "SPECIES_WAILORD"
+                "species": "SPECIES_BRUXISH"
               }
             ]
           }

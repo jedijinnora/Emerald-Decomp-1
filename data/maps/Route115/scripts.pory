@@ -16,13 +16,13 @@ script Route115_EventScript_TryMoveStash {
         case 0:
             setobjectxyperm(LOCALID_STASH, 23, 28)
         case 1:
-            setobjectxyperm(LOCALID_STASH, 4, 9)
+            setobjectxyperm(LOCALID_STASH, 15, 7)
         case 2:
             setobjectxyperm(LOCALID_STASH, 13, 63)
         case 3:
             setobjectxyperm(LOCALID_STASH, 31, 88)
         default:
-            setobjectxyperm(LOCALID_STASH, 11, 16)
+            setobjectxyperm(LOCALID_STASH, 9, 17)
     }
 }
 
