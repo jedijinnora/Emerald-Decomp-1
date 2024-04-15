@@ -1234,22 +1234,21 @@ Route110_Text_KalebPostBattle:
 	.string "could, my pretties.$"
 
 Route111_Text_DrewIntro:
-	.string "Oh, hey! Those Go-Goggles suit you.\n"
-	.string "But I think they look better on me.\p"
-	.string "Let's decide who they look better on\n"
-	.string "with a battle!$"
+	.string "Brooke and Wilton keep on trashing\n"
+	.string "all us newbie Trainers. I'll take\p"
+	.string "my anger out on you!$"
 
 Route111_Text_DrewDefeat:
-	.string "I couldn't see what was happening at\n"
-	.string "my sides because of the Go-Goggles.$"
+	.string "Argh! You're even worse than they\n"
+	.string "are!$"
 
 Route111_Text_DrewPostBattle:
-	.string "The Go-Goggles make it possible to\n"
-	.string "get through sandstorms.\l"
-	.string "That makes me happy!$"
+	.string "I really should go somewhere\n"
+	.string "I can be the toughest Camper\l"
+	.string "around!$"
 
 Route111_Text_HeidiIntro:
-	.string "I'm having a picnic in the desert.\p"
+	.string "I'm having a picnic later.\p"
 	.string "You can always find a Trainer,\n"
 	.string "so I can enjoy a battle here, too!$"
 

@@ -15021,7 +15021,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_ZIGZAGOON"
+                "species": "SPECIES_PANCHAM"
               },
               {
                 "min_level": 5,
@@ -15056,22 +15056,22 @@
               {
                 "min_level": 5,
                 "max_level": 5,
+                "species": "SPECIES_KOMALA"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
                 "species": "SPECIES_ABSOL"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NUZLEAF"
+                "species": "SPECIES_KOMALA"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_VIBRAVA"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_BRELOOM"
+                "species": "SPECIES_ABSOL"
               }
             ]
           },
@@ -15091,17 +15091,17 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_TOTODILE"
+                "species": "SPECIES_WOOPER"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_MUDKIP"
+                "species": "SPECIES_WOOPER"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_MUDKIP"
+                "species": "SPECIES_WOOPER"
               }
             ]
           },

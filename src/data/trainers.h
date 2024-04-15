@@ -7675,15 +7675,30 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_KEL] =
     {
-        .trainerClass = TRAINER_CLASS_PICNICKER,
-        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
-        .trainerPic = TRAINER_PIC_PICNICKER,
+        .trainerClass = TRAINER_CLASS_PKMN_RANGER,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_COOL,
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_F,
         .trainerName = _("Kel"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Kel),
-        .badgeThreshold = 0,
+        .badgeThreshold = 3,
+        .easyParty = sParty_Kel_easy,
+    },
+
+    [TRAINER_DOMITAN] =
+    {
+        .trainerClass = TRAINER_CLASS_GUITARIST,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+        .trainerPic = TRAINER_PIC_GUITARIST,
+        .trainerName = _("Domitan"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
+        .party = TRAINER_PARTY(sParty_Domitan),
+        .badgeThreshold = 2,
+        .easyParty = sParty_Domitan_easy,
     },
 
     [TRAINER_DAVIDE] =
@@ -7697,7 +7712,6 @@ const struct Trainer gTrainers[] = {
         .aiFlags = BASIC_TRAINER_FLAGS | AI_FLAG_OMNISCIENT,
         .party = TRAINER_PARTY(sParty_Davide),
         .badgeThreshold = 0,
-        .easyParty = sParty_None,
     },
 
     [TRAINER_FINLEY] =
@@ -7708,8 +7722,10 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Finely"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = BASIC_TRAINER_FLAGS,
+        .aiFlags = BASIC_TRAINER_FLAGS | AI_FLAG_SETUP_FIRST_TURN,
         .party = TRAINER_PARTY(sParty_Finley),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Finley_easy,
     },
 
     [TRAINER_SUMNER] =
@@ -7722,6 +7738,8 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Sumner),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Sumner_easy,
     },
 
     [TRAINER_ABNER] =
@@ -7734,8 +7752,8 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Abner),
-        .badgeThreshold = 0,
-        .easyParty = sParty_None,
+        .badgeThreshold = 1,
+        .easyParty = sParty_Abner_easy,
     },
 
     [TRAINER_LANCE] =
@@ -7748,6 +7766,8 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Lance),
+        .badgeThreshold = 2,
+        .easyParty = sParty_Lance_easy,
     },
 
     [TRAINER_ARTEMIS] =
@@ -7760,6 +7780,8 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Artemis),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Artemis_easy,
     },
 
     [TRAINER_HALLIE] =
@@ -7772,6 +7794,8 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Hallie),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Hallie_easy,
     },
 
     [TRAINER_LUTHER] =

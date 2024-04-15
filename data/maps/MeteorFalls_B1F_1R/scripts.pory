@@ -1,5 +1,61 @@
-raw `
-MeteorFalls_B1F_1R_MapScripts::
-	.byte 0
+mapscripts MeteorFalls_B1F_1R_MapScripts {}
 
-`
+script MeteorFalls_B1F_1R_EventScript_Ginny {
+	trainerbattle_single(TRAINER_GINNY, MeteorFalls_B1F_1R_Text_GinnyIntro, MeteorFalls_B1F_1R_Text_GinnyDefeat)
+	msgbox(MeteorFalls_B1F_1R_Text_GinnyPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script MeteorFalls_B1F_1R_EventScript_Charles {
+	trainerbattle_single(TRAINER_CHARLES, MeteorFalls_B1F_1R_Text_CharlesIntro, MeteorFalls_B1F_1R_Text_CharlesDefeat)
+	msgbox(MeteorFalls_B1F_1R_Text_CharlesPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+script MeteorFalls_B1F_1R_EventScript_Tess {
+	trainerbattle_single(TRAINER_TESS, MeteorFalls_B1F_1R_Text_TessIntro, MeteorFalls_B1F_1R_Text_TessDefeat)
+	msgbox(MeteorFalls_B1F_1R_Text_TessPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+
+text MeteorFalls_B1F_1R_Text_GinnyIntro {
+	"Don't underestimate us! I'm just as\n"
+	"strong as my older brothers!"
+}
+
+text MeteorFalls_B1F_1R_Text_GinnyDefeat {
+	"…But not as strong as you!"
+}
+
+text MeteorFalls_B1F_1R_Text_GinnyPostBattle {
+	"When you grow up with older siblings\n"
+	"you keep comparing yourself to them."
+}
+
+text MeteorFalls_B1F_1R_Text_CharlesIntro {
+	"Check out my cool scars! This is what\n"
+	"it takes to be a Dragon Master!"
+}
+
+text MeteorFalls_B1F_1R_Text_CharlesDefeat {
+	"How are you so tough?"
+}
+
+text MeteorFalls_B1F_1R_Text_CharlesPostBattle {
+	"Injuries happen all the time. Be sure to \n"
+	"carry enough medicine with you!"
+}
+
+text MeteorFalls_B1F_1R_Text_TessIntro {
+	"If you think Dragons are tough, try a \n"
+	"spar against my Fighting Pokémon!"
+}
+
+text MeteorFalls_B1F_1R_Text_TessDefeat {
+	"You made us tap out!"
+}
+
+text MeteorFalls_B1F_1R_Text_TessPostBattle {
+	"I guess life doesn't have to be all\n"
+	"about competition in the end…"
+}

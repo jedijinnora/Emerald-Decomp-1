@@ -24,3 +24,24 @@ script MeteorFalls_1F_1R_EventScript_HideStash_2 {
     setflag(FLAG_TEMP_12)
     return
 }
+
+script MeteorFalls_1F_1R_EventScript_Bill {
+    trainerbattle_single(TRAINER_BILL, MeteorFalls_1F_1R_Text_BillIntro, MeteorFalls_1F_1R_Text_BillDefeat)
+    msgbox(MeteorFalls_1F_1R_Text_BillPostBattle, MSGBOX_AUTOCLOSE)
+    end
+}
+
+text MeteorFalls_1F_1R_Text_BillIntro {
+    "Hey, not so fast! Are you sure you're\n"
+    "strong enough to handle those Pokémon?"
+}
+
+text MeteorFalls_1F_1R_Text_BillDefeat {
+    "Okay then, off you go!"
+}
+
+text MeteorFalls_1F_1R_Text_BillPostBattle {
+    "Best be ready to prove yourself if\n"
+    "you plan to venture deeper. I'm far\l"
+    "from the strongest Trainer in here!"
+}

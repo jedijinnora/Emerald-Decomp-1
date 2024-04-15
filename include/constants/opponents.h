@@ -837,13 +837,14 @@
 //Forina
 #define FORINA_TRAINERS_START               (SANDSWEPT_OASIS_TRAINERS_END + 1)
 #define TRAINER_KEL                         (FORINA_TRAINERS_START + 0)
-#define TRAINER_DAVIDE                      (FORINA_TRAINERS_START + 1)
-#define TRAINER_FINLEY                      (FORINA_TRAINERS_START + 2)
-#define TRAINER_SUMNER                      (FORINA_TRAINERS_START + 3)
-#define TRAINER_ABNER                       (FORINA_TRAINERS_START + 4)
-#define TRAINER_LANCE                       (FORINA_TRAINERS_START + 5)
-#define TRAINER_ARTEMIS                     (FORINA_TRAINERS_START + 6)
-#define TRAINER_HALLIE                      (FORINA_TRAINERS_START + 7)
+#define TRAINER_DOMITAN                     (FORINA_TRAINERS_START + 1)
+#define TRAINER_DAVIDE                      (FORINA_TRAINERS_START + 2)
+#define TRAINER_FINLEY                      (FORINA_TRAINERS_START + 3)
+#define TRAINER_SUMNER                      (FORINA_TRAINERS_START + 4)
+#define TRAINER_ABNER                       (FORINA_TRAINERS_START + 5)
+#define TRAINER_LANCE                       (FORINA_TRAINERS_START + 6)
+#define TRAINER_ARTEMIS                     (FORINA_TRAINERS_START + 7)
+#define TRAINER_HALLIE                      (FORINA_TRAINERS_START + 8)
 #define FORINA_TRAINERS_END                 TRAINER_HALLIE  
 
 //Slateport Beach
@@ -945,7 +946,7 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 652
+//I think it's currently 653
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

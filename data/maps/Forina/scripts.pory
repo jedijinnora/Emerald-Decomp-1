@@ -67,3 +67,153 @@ script Forina_EventScript_Twin {
 	release
 	end
 }
+
+script Forina_EventScript_Kel {
+	trainerbattle_single(TRAINER_KEL, Forina_Text_KelIntro, Forina_Text_KelDefeat)
+	msgbox(Forina_Text_KelPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Forina_Text_KelIntro {
+	"You're a new face around here.\n"
+	"How about a battle?"
+}
+text Forina_Text_KelDefeat {
+	"You have some great Pokémon!"
+}
+text Forina_Text_KelPostBattle {
+	"I love being a Ranger. I get to spend my \n"
+	"time in the wild taking care of nature."
+}
+
+script Forina_EventScript_Domitan {
+	trainerbattle_single(TRAINER_DOMITAN, Forina_Text_DomitanIntro, Forina_Text_DomitanDefeat)
+	msgbox(Forina_Text_DomitanPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Forina_Text_DomitanIntro {
+	"You can't come striding through here \n"
+	"without joining in on my jams!"
+}
+text Forina_Text_DomitanDefeat {
+	"I think I sprained my shoulder!"
+}
+text Forina_Text_DomitanPostBattle {
+	"Music makes my heart sing!"
+}
+
+script Forina_EventScript_Davide {
+	trainerbattle_single(TRAINER_DAVIDE, Forina_Text_DavideIntro, Forina_Text_DavideDefeat)
+	msgbox(Forina_Text_DavidePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Forina_Text_DavideIntro {
+	"My powers forsaw your arrival!\n"
+	"Brace yourself for battle!"
+}
+text Forina_Text_DavideDefeat {
+	"I didn't predict my defeat!"
+}
+text Forina_Text_DavidePostBattle {
+	"Sometimes it's really annoying seeing\n"
+	"bits of the future."
+}
+
+script Forina_EventScript_Finley {
+	trainerbattle_single(TRAINER_FINLEY, Forina_Text_FinleyIntro, Forina_Text_FinleyDefeat)
+	msgbox(Forina_Text_FinleyPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Forina_Text_FinleyIntro {
+	"My crustaceans will claw you up!"
+}
+text Forina_Text_FinleyDefeat {
+	"Oof, I feel all boiled."
+}
+text Forina_Text_FinleyPostBattle {
+	"When we get stronger we'll head to \n"
+	"Paldea and catch the Stony Cliff Titan."
+}
+
+script Forina_EventScript_Sumner {
+	trainerbattle_single(TRAINER_SUMNER, Forina_Text_SumnerIntro, Forina_Text_SumnerDefeat)
+	msgbox(Forina_Text_SumnerPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Forina_Text_SumnerIntro {
+	"Let's trade pointers!"
+}
+text Forina_Text_SumnerDefeat {
+	"Ah, you showed us!"
+}
+text Forina_Text_SumnerPostBattle {
+	"Thanks for showing me your fighting\n"
+	"style. We're practicing hard!"
+}
+
+script Forina_EventScript_Abner {
+	trainerbattle_single(TRAINER_ABNER, Forina_Text_AbnerIntro, Forina_Text_AbnerDefeat)
+	msgbox(Forina_Text_AbnerPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Forina_Text_AbnerIntro {
+	"Hah! You've got no bug spray!"
+}
+text Forina_Text_AbnerDefeat {
+	"Ack! Cough! I was wrong!"
+}
+text Forina_Text_AbnerPostBattle {
+	"Ever seen ten million fireflies light up \n"
+	"the night? Pretty mind-blowing!"
+}
+
+script Forina_EventScript_Lance {
+	trainerbattle_single(TRAINER_LANCE, Forina_Text_LanceIntro, Forina_Text_LanceDefeat)
+	msgbox(Forina_Text_LancePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Forina_Text_LanceIntro {
+	"I'm not as strong a runner as I am a \n"
+	"cyclist, but I'll still take you on!"
+}
+text Forina_Text_LanceDefeat {
+	"Oof, hold on. Let me catch my breath!"
+}
+text Forina_Text_LancePostBattle {
+	"Have you perfected your time on the \n"
+	"Cycling Road challenge?"
+}
+
+script Forina_EventScript_Artemis {
+	trainerbattle_single(TRAINER_ARTEMIS, Forina_Text_ArtemisIntro, Forina_Text_ArtemisDefeat)
+	msgbox(Forina_Text_ArtemisPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Forina_Text_ArtemisIntro {
+	"I biked a little too far during the last\n"
+	"race. Oh well, how about a battle?"
+}
+text Forina_Text_ArtemisDefeat {
+	"You're fast as an arrow!"
+}
+text Forina_Text_ArtemisPostBattle {
+	"I love how fast I can travel the world on\n"
+	"my Mach Bike."
+}
+
+script Forina_EventScript_Hallie {
+	trainerbattle_single(TRAINER_HALLIE, Forina_Text_HallieIntro, Forina_Text_HallieDefeat)
+	msgbox(Forina_Text_HalliePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Forina_Text_HallieIntro {
+	"Heading to the festival? Don't let my\n"
+	"sunshine rain on your parade."
+}
+text Forina_Text_HallieDefeat {
+	"I guess you didn't like my joke."
+}
+text Forina_Text_HalliePostBattle {
+	"Give your life some color! \p"
+	"Explore the world, tell stories, and \n"
+	"don't be afraid to laugh at yourself."
+}
