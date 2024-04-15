@@ -1215,7 +1215,7 @@
 #define FLAG_ITEM_ROUTE_111_ASSAULT_VEST                            0x466
 #define FLAG_ITEM_ROUTE_111_PP_UP                                   0x467
 #define FLAG_ITEM_ROUTE_111_BIG_NUGGET                              0x468
-#define FLAG_ITEM_ROUTE_112_FIRE_STONE                              0x469
+#define FLAG_ITEM_ROUTE_112_LUCKY_EGG                               0x469
 #define FLAG_ITEM_ROUTE_113_SMOKE_BALL                              0x46A
 #define FLAG_ITEM_ROUTE_113_COMET_SHARD                             0x46B
 #define FLAG_ITEM_ROUTE_113_FULL_RESTORE                            0x46C
