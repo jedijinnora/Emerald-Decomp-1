@@ -10,6 +10,8 @@ script Route116_OnTransition {
 script Route116_EventScript_SableyeWoman {
 	lock
 	faceplayer
+	msgbox(format("I had a terrifying encounter with some kind of gremlin!"))
+	
 	//check flag for sableye gift
 	//comment about a "strange encounter"
 	//offer sableye

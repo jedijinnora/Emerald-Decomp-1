@@ -584,3 +584,9 @@ gSpecials::
 
 	def_special CheckPartyForShiny
 	def_special CheckPartyForShinyDucklett
+
+	def_special TryOverworldSleepMon
+	def_special TryOverworldPoisonMon
+	def_special TryOverworldBurnMon
+	def_special TryOverworldParalyzeMon
+	def_special TryOverworldFreezeMon

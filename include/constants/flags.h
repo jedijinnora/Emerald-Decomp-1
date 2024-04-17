@@ -849,7 +849,7 @@
 #define FLAG_HIDE_LILYCOVE_CONTEST_HALL_CONTEST_ATTENDANT_2         0x310
 #define FLAG_HIDE_TRICK_HOUSE_ENTRANCE_MAN                          0x311
 #define FLAG_HIDE_TRICK_HOUSE_END_MAN                               0x312
-#define FLAG_UNUSED_0x313                                           0x313
+#define FLAG_HIDE_POKECENTER_STATUS_NINJA                           0x313
 #define FLAG_UNUSED_0x314                                           0x314
 #define FLAG_UNUSED_0x315                                           0x315
 #define FLAG_UNUSED_0x316                                           0x316

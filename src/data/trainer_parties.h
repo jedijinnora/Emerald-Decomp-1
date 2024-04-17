@@ -9726,7 +9726,6 @@ static const struct TrainerMon sParty_Bellatrix_challenge[] = {
     }
 };
 
-//Total Trainers: 93 + 54 = 147
 
 
 //OTHER TUTORS (TODO) -- 12 TRAINERS
@@ -10088,7 +10087,126 @@ static const struct TrainerMon sParty_MultiHitTutor[] = {
     }
 };
 
-//Total Trainers 147 + 12 = 159
+//Kobayashi the Status Ninja: threshold 3
+static const struct TrainerMon sParty_Kobayashi[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_DRIFBLIM,
+    .heldItem = ITEM_FLAME_ORB,
+    .ability = ABILITY_FLARE_BOOST,
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 4, 252, 252, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_STRENGTH_SAP, MOVE_TAILWIND, MOVE_AIR_CUTTER, MOVE_DESTINY_BOND}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_ZANGOOSE,
+    .heldItem = ITEM_TOXIC_ORB,
+    .ability = ABILITY_TOXIC_BOOST,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(4, 252, 0, 252, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_FACADE, MOVE_CLOSE_COMBAT, MOVE_KNOCK_OFF}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_MILOTIC,
+    .heldItem = ITEM_FLAME_ORB,
+    .ability = ABILITY_MARVEL_SCALE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(170, 0, 170, 0, 0, 170),
+    .nature = NATURE_CALM,
+    .moves = {MOVE_LIFE_DEW, MOVE_COIL, MOVE_BLIZZARD, MOVE_BREAKING_SWIPE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SWELLOW,
+    .heldItem = ITEM_TOXIC_ORB,
+    .ability = ABILITY_GUTS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(4, 252, 0, 252, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_U_TURN, MOVE_FACADE, MOVE_STEEL_WING, MOVE_BRAVE_BIRD}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_JOLTEON,
+    .heldItem = ITEM_FLAME_ORB,
+    .ability = ABILITY_QUICK_FEET,
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 252, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_WEATHER_BALL, MOVE_ELECTROWEB, MOVE_TICKLE, MOVE_VOLT_SWITCH}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_GIRAFARIG,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_EARLY_BIRD,
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 4, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_DAZZLING_GLEAM, MOVE_EXPANDING_FORCE, MOVE_REST, MOVE_FOUL_PLAY}
+    }
+};
+static const struct TrainerMon sParty_Kobayashi_easy[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_DRIFBLIM,
+    .heldItem = ITEM_FLAME_ORB,
+    .ability = ABILITY_FLARE_BOOST,
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_STRENGTH_SAP, MOVE_TAILWIND, MOVE_AIR_CUTTER, MOVE_DESTINY_BOND}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_ZANGOOSE,
+    .heldItem = ITEM_TOXIC_ORB,
+    .ability = ABILITY_TOXIC_BOOST,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_FACADE, MOVE_CLOSE_COMBAT, MOVE_KNOCK_OFF}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_MILOTIC,
+    .heldItem = ITEM_FLAME_ORB,
+    .ability = ABILITY_MARVEL_SCALE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_CALM,
+    .moves = {MOVE_LIFE_DEW, MOVE_COIL, MOVE_BLIZZARD, MOVE_BREAKING_SWIPE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SWELLOW,
+    .heldItem = ITEM_TOXIC_ORB,
+    .ability = ABILITY_GUTS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_U_TURN, MOVE_FACADE, MOVE_STEEL_WING, MOVE_BRAVE_BIRD}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_JOLTEON,
+    .heldItem = ITEM_FLAME_ORB,
+    .ability = ABILITY_QUICK_FEET,
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_WEATHER_BALL, MOVE_ELECTROWEB, MOVE_TICKLE, MOVE_VOLT_SWITCH}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_GIRAFARIG,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_EARLY_BIRD,
+    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_DAZZLING_GLEAM, MOVE_EXPANDING_FORCE, MOVE_REST, MOVE_FOUL_PLAY}
+    }
+};
+
 
 
 //WINSTRATES (done) -- 7 TRAINERS
@@ -10518,7 +10636,6 @@ static const struct TrainerMon sParty_Vito_Challenge[] = {
     }
 };
 
-//Total Trainers 159 + 7 = 168
 
 
 //GABBY AND TY (done) -- 3 TRAINERS
@@ -10765,7 +10882,6 @@ static const struct TrainerMon sParty_GabbyAndTy120_easy[] = {
     }
 };
 
-//Total Trainers = 168 + 3 = 171
 
 
 //BEACH BATTLE TRAINERS (done) -- 10 TRAINERS
@@ -11109,7 +11225,6 @@ static const struct TrainerMon sParty_BB_Phoebe[] = {
     }
 };
 
-//Total Trainers = 171 + 10 = 181
 
 
 //VICTORY ROAD RIVALS -- 10 TRAINERS
@@ -11243,8 +11358,6 @@ static const struct TrainerMon sParty_VR_Rival_9[] = {
     .species = SPECIES_UNOWN,
     }
 };
-
-//Total Trainers 181 + 10 = 191
 
 
 
@@ -11432,8 +11545,6 @@ static const struct TrainerMon sParty_TPPDom[] = {
     .moves = {MOVE_FIRE_BLAST, MOVE_AIR_SLASH, MOVE_COUNTER, MOVE_SCORCHING_SANDS}
     }
 };
-
-//Total Trainers 191 + 3 = 194
 
 
 

@@ -2190,6 +2190,20 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 0,
     },
 
+    [TRAINER_KOBAYASHI] =
+    {
+        .trainerClass = TRAINER_CLASS_NINJA_BOY,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+        .trainerPic = TRAINER_PIC_NINJA_BOY,
+        .trainerName = _("Kobayashi"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = BASIC_TRAINER_FLAGS,
+        .party = TRAINER_PARTY(sParty_Kobayashi),
+        .badgeThreshold = 3,
+        .easyParty = sParty_Kobayashi_easy,
+    },
+
     [TRAINER_VICTOR] =
     {
         .trainerClass = TRAINER_CLASS_WINSTRATE,

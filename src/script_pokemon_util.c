@@ -530,6 +530,10 @@ void Script_SetStatus1(struct ScriptContext *ctx)
     }
     else
     {
-        SetMonData(&gPlayerParty[slot], MON_DATA_STATUS, &status1);
+        //Jinnora: I added the if check because if you poison a fainted mon and walk
+        //there's an HP underflow bug, which, yikes, why would you allow that?
+        //You can't rely on players not doing this.
+        if (GetMonData(&gPlayerParty[slot], MON_DATA_HP) != 0)
+            SetMonData(&gPlayerParty[slot], MON_DATA_STATUS, &status1);
     }
 }

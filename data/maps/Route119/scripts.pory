@@ -1,4 +1,5 @@
 const LOCALID_STASH = 31
+const LOCALID_KOBAYASHI = 37
 
 script Route119_EventScript_TryMoveStash {
 	goto_if_set(FLAG_HIDE_SECRET_STASH_ROUTE_119, Common_EventScript_NopReturn)
@@ -26,6 +27,207 @@ script Route119_EventScript_Stash {
 }
 
 
+//Ninja NPC allows the player to inflict status on chosen Pokémon
+//VAR_STATUS_NINJA_STATE:
+//0: initial, pre-interaction (visible)
+//11: player challenged to defeat Mimic Circle (invisible)
+//2: mimic circle defeated, pre-interaction (visible)
+//13: player challenged to defeat Trick House 1 (all Trainers on Route 110 if NoHMs challenge) (invisible)
+//4: r110 challenge defeated, pre-interaction (visible)
+//20: defeated, now appears in Pokémon Centers (invisible)
+//5: player lost and must return to fight again (visible)
+
+//if VAR_STATUS_NINJA_STATE > 10, hide ninja (called by transition mapscript)
+script Route119_EventScript_HideNinja {
+	setflag(FLAG_TEMP_11)
+	return
+}
+
+script Route119_EventScript_TryUpdateNinja {
+	switch(var(VAR_STATUS_NINJA_STATE)) {
+		case 11:
+			call(Route119_EventScript_TryCompleteMimic)
+		case 13:
+			call(Route119_EventScript_TryCompleteR110)
+		default:
+	}
+	return
+}
+
+script Route119_EventScript_TryCompleteMimic {
+	goto_if_not_defeated(TRAINER_GREG, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_TAYLOR, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_DONALD, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_BRENT, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_DOUG, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_KENT, Common_EventScript_NopReturn)
+	setvar(VAR_STATUS_NINJA_STATE, 2)
+	clearflag(FLAG_TEMP_11)
+	return
+}
+
+script Route119_EventScript_TryCompleteR110 {
+	goto_if_not_defeated(TRAINER_JASMINE, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_ANTHONY, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_ABIGAIL, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_BENJAMIN, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_EDWARD, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_JACLYN, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_EDWIN, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_DALE, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_JACOB, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_TIMMY, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_ISABEL, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_KALEB, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_ALYSSA, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_JOSEPH, Common_EventScript_NopReturn)
+	if(flag(FLAG_CHALLENGE_HM_NONE) || var(VAR_TRICK_HOUSE_PUZZLE_2_STATE) == 2) {
+		setvar(VAR_STATUS_NINJA_STATE, 4)
+		clearflag(FLAG_TEMP_11)
+	}
+	return
+}
+
+//handles all 119 interactions
+script Route119_EventScript_StatusNinja {
+	lock
+	faceplayer
+	call(EventScript_RevealTrainer)
+	switch(var(VAR_STATUS_NINJA_STATE)) {
+		case 0: //initial
+			call(Route119_EventScript_StatusNinja_Intro)
+		case 2: //mimic circle defeated
+			call(Route119_EventScript_StatusNinja_MimicCircleDefeated)
+		case 4: //r110 challenge defeated
+			call(Route119_EventScript_StatusNinja_R110ChallengeDefeated)
+		case 5: //rematch
+			call(Route119_EventScript_StatusNinja_Rematch)
+		default: //shouldn't ever be reached
+	}
+	release
+	end
+}
+
+script Route119_EventScript_StatusNinjaVanish {
+	applymovement(LOCALID_KOBAYASHI, KecleonVanish)
+	waitmovement(0)
+	setflag(FLAG_TEMP_11)
+	return
+}
+
+script Route119_EventScript_StatusNinja_Intro {
+	msgbox(format("Ah, a new Trainer!"))
+	msgbox(format("I am Kobayashi, the Status Ninja. But you shall call me Kobayashi-sensei."))
+	msgbox(format("I can give your Pokémon status conditions so that you may execute the most fiendish strategies in battle!"))
+	msgbox(format("…But of course, you must defeat my challenges first!"))
+	call(Route119_EventScript_TryCompleteMimic)
+	goto_if_eq(VAR_STATUS_NINJA_STATE, 2, Route119_EventScript_StatusNinja_MimicCircleDefeated)
+	msgbox(format("First, you must defeat the Mimic Circle!"))
+	msgbox(format("I'll be waiting!"))
+	setvar(VAR_STATUS_NINJA_STATE, 11)
+	call(Route119_EventScript_StatusNinjaVanish)
+	release
+	end
+}
+
+script Route119_EventScript_StatusNinja_MimicCircleDefeated {
+	playse(SE_PIN)
+	applymovement(LOCALID_KOBAYASHI, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	msgbox(format("I see you've triumphed already!"))
+	setvar(VAR_STATUS_NINJA_STATE, 13)
+	call(Route119_EventScript_TryCompleteR110)
+	goto_if_eq(VAR_STATUS_NINJA_STATE, 4, Route119_EventScript_StatusNinja_R110ChallengeDefeated)
+	msgbox(format("The Mimic circle was too weak a challenge for a Trainer of your talents."))
+	msgbox(format("Fine! You shall go and defeat every Trainer on Route 110!"))
+	if(!flag(FLAG_CHALLENGE_HM_NONE) && var(VAR_TRICK_HOUSE_PUZZLE_2_STATE) != 2) {
+		msgbox(format("Also, solve the first two puzzles of the Trick Master!"))
+	}
+	msgbox(format("Now, begone!"))
+	setvar(VAR_STATUS_NINJA_STATE, 13)
+	call(Route119_EventScript_StatusNinjaVanish)
+	release
+	end
+}
+
+script Route119_EventScript_StatusNinja_R110ChallengeDefeated {
+	msgbox(format("Ah, you've defeated my challenges."))
+	trainerbattle_single(TRAINER_KOBAYASHI, Route119_Text_KobayashiIntro, Route119_Text_KobayashiDefeated, Route119_EventScript_KobayashiDefeated)
+	return
+}
+
+script Route119_EventScript_StatusNinja_Rematch {
+	msgbox(format("You could not stand against my skill before, and yet you return?"))
+	trainerbattle_single(TRAINER_KOBAYASHI, Route119_Text_KobayashiRematchIntro, Route119_Text_KobayashiRematchDefeated, Route119_EventScript_KobayashiDefeated)
+	return
+}
+
+script Route119_EventScript_KobayashiDefeated {
+	setvar(VAR_STATUS_NINJA_STATE, 20)
+	clearflag(FLAG_HIDE_POKECENTER_STATUS_NINJA)
+	msgbox(format("Well done! As promised, I can give your Pokémon any status you desire."))
+	msgbox(format("Find me in any Pokémon Center! And may the odds be ever in your favor."))
+	waitmessage
+	call(Route119_EventScript_StatusNinjaVanish)
+	release
+	end
+}
+
+text Route119_Text_KobayashiIntro {
+	"But you haven't defeated me!"
+}
+
+text Route119_Text_KobayashiDefeated {
+	"You're worthy of my skills!"
+}
+
+text Route119_Text_KobayashiRematchIntro {
+	"Show me your dedication. Bring it on!"
+}
+
+text Route119_Text_KobayashiRematchDefeated {
+	"I suppose this time you've proven \n"
+	"worthy of my skills."
+}
+
+//handles status interactions, placed here for my convenience
+script Common_EventScript_StatusNinja {
+	lock
+	faceplayer
+	msgbox(format("Aha! You must be in need of my genius!\pWhich Pokémon should have a status condition inflicted upon it?"))
+	special(ChoosePartyMon)
+	waitstate
+	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	if(var(VAR_RESULT) == SPECIES_EGG) {
+		msgbox(format("That's an Egg, dummy! Why would I waste my genius on that?"))
+	}
+	bufferpartymonnick(STR_VAR_1, VAR_0x8004)
+
+	msgbox(format("Which status condition shall I give your {STR_VAR_1}?"))
+	dynmultipush("Sleep", 1)
+	dynmultipush("Poison", 2)
+	dynmultipush("Burn", 3)
+	dynmultipush("Paralysis", 4)
+	dynmultipush("Frostbite", 5)
+	
+	dynmultistack(0,0,FALSE,6,TRUE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			specialvar(VAR_RESULT, TryOverworldSleepMon)
+		case 2:
+			specialvar(VAR_RESULT, TryOverworldPoisonMon)
+		case 3:
+			specialvar(VAR_RESULT, TryOverworldBurnMon)
+		case 4:
+			specialvar(VAR_RESULT, TryOverworldParalyzeMon)
+		case 5
+			specialvar(VAR_RESULT, TryOverworldFreezeMon)
+		default:
+	}
+	release
+	end
+}
+
 raw `
 Route119_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route119_OnResume
@@ -45,6 +247,8 @@ Route119_EventScript_TryRemoveKecleon::
 Route119_OnTransition:
 	special SetRoute119Weather
 	call Route119_EventScript_TryMoveStash
+	call Route119_EventScript_TryUpdateNinja
+	call_if_gt VAR_STATUS_NINJA_STATE, 10, Route119_EventScript_HideNinja
 	end
 
 Route119_EventScript_CyclingTriathleteM::

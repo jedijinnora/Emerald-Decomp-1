@@ -49,6 +49,7 @@
 #include "tv.h"
 #include "wallclock.h"
 #include "window.h"
+#include "constants/abilities.h"
 #include "constants/battle_frontier.h"
 #include "constants/battle_pyramid.h"
 #include "constants/battle_tower.h"
@@ -4465,6 +4466,8 @@ bool8 CheckPartyMonotype(void)
     return TRUE;
 }
 
+//TODO: rework this to return party index, allowing for easier use in scripts
+//      without having a new special for mons e.g. Ducklett
 bool8 CheckPartyForShiny(void)
 {
     u8 i;
@@ -4509,4 +4512,125 @@ bool8 CheckPartyForShinyDucklett(void)
         }
     }
     return FALSE;
+}
+
+
+//Overworld status specials return TRUE if the Pokémon at party index VAR_0x8004 
+//can successfully be statused and FALSE if they cannot
+
+
+//if (gSpeciesInfo[species].types[0] == TYPE_GRASS || gSpeciesInfo[species].types[1] == TYPE_GRASS)
+bool8 TryOverworldSleepMon(void)
+{
+    u32 status1;
+    struct Pokemon *targetMon;
+    u16 monAbility;
+
+    status1 = STATUS1_SLEEP;
+    targetMon = &gPlayerParty[gSpecialVar_0x8004];
+    monAbility = GetMonAbility(targetMon);
+    
+    if (monAbility == ABILITY_INSOMNIA
+      || monAbility == ABILITY_VITAL_SPIRIT
+      || monAbility == ABILITY_COMATOSE
+      || monAbility == ABILITY_PURIFYING_SALT
+      || monAbility == ABILITY_SWEET_VEIL
+      || GetMonData(targetMon, MON_DATA_HP) == 0)
+        return FALSE;
+
+    SetMonData(targetMon, MON_DATA_STATUS, &status1);
+    return TRUE;
+}
+
+bool8 TryOverworldPoisonMon(void)
+{
+    u32 status1;
+    struct Pokemon *targetMon;
+    u16 monAbility;
+
+    status1 = STATUS1_POISON;
+    targetMon = &gPlayerParty[gSpecialVar_0x8004];
+    monAbility = GetMonAbility(targetMon);
+    
+    //do not need to check type immunity since Corrosion allows poisoning of Poison/Steel types
+    if (monAbility == ABILITY_IMMUNITY
+      || monAbility == ABILITY_COMATOSE
+      || monAbility == ABILITY_PURIFYING_SALT
+      || monAbility == ABILITY_PASTEL_VEIL
+      || GetMonData(targetMon, MON_DATA_HP) == 0)
+        return FALSE;
+
+    SetMonData(targetMon, MON_DATA_STATUS, &status1);
+    return TRUE;
+}
+
+bool8 TryOverworldBurnMon(void)
+{
+    u32 status1;
+    struct Pokemon *targetMon;
+    u16 monAbility;
+    u32 species;
+
+    status1 = STATUS1_BURN;
+    targetMon = &gPlayerParty[gSpecialVar_0x8004];
+    monAbility = GetMonAbility(targetMon);
+    species = GetMonData(targetMon, MON_DATA_SPECIES);
+    
+    if (monAbility == ABILITY_WATER_VEIL
+      || monAbility == ABILITY_WATER_BUBBLE
+      || monAbility == ABILITY_THERMAL_EXCHANGE
+      || monAbility == ABILITY_COMATOSE
+      || monAbility == ABILITY_PURIFYING_SALT
+      || (gSpeciesInfo[species].types[0] == TYPE_FIRE || gSpeciesInfo[species].types[1] == TYPE_FIRE)
+      || GetMonData(targetMon, MON_DATA_HP) == 0)
+        return FALSE;
+
+    SetMonData(targetMon, MON_DATA_STATUS, &status1);
+    return TRUE;
+}
+
+bool8 TryOverworldParalyzeMon(void)
+{
+    u32 status1;
+    struct Pokemon *targetMon;
+    u16 monAbility;
+    u32 species;
+
+    status1 = STATUS1_PARALYSIS;
+    targetMon = &gPlayerParty[gSpecialVar_0x8004];
+    monAbility = GetMonAbility(targetMon);
+    species = GetMonData(targetMon, MON_DATA_SPECIES);
+    
+    if (monAbility == ABILITY_LIMBER
+      || monAbility == ABILITY_COMATOSE
+      || monAbility == ABILITY_PURIFYING_SALT
+      || (gSpeciesInfo[species].types[0] == TYPE_ELECTRIC || gSpeciesInfo[species].types[1] == TYPE_ELECTRIC)
+      || GetMonData(targetMon, MON_DATA_HP) == 0)
+        return FALSE;
+
+    SetMonData(targetMon, MON_DATA_STATUS, &status1);
+    return TRUE;
+}
+
+bool8 TryOverworldFreezeMon(void)
+{
+    u32 status1;
+    struct Pokemon *targetMon;
+    u16 monAbility;
+    u32 species;
+
+    status1 = STATUS1_FROSTBITE;
+    targetMon = &gPlayerParty[gSpecialVar_0x8004];
+    monAbility = GetMonAbility(targetMon);
+    species = GetMonData(targetMon, MON_DATA_SPECIES);
+    
+    if (monAbility == ABILITY_MAGMA_ARMOR
+      || monAbility == ABILITY_COMATOSE
+      || monAbility == ABILITY_PURIFYING_SALT
+      || (gSpeciesInfo[species].types[0] == TYPE_ICE || gSpeciesInfo[species].types[1] == TYPE_ICE)
+      || GetMonData(targetMon, MON_DATA_HP) == 0)
+        return FALSE;
+
+    SetMonData(targetMon, MON_DATA_STATUS, &status1);
+    return TRUE;
 }

@@ -182,7 +182,8 @@
 #define TRAINER_BITE_TUTOR                  (OTHER_TUTORS_START + 9)
 #define TRAINER_PUNCH_TUTOR                 (OTHER_TUTORS_START + 10)
 #define TRAINER_MULTI_HIT_TUTOR             (OTHER_TUTORS_START + 11)
-#define OTHER_TUTORS_END                    TRAINER_MULTI_HIT_TUTOR
+#define TRAINER_KOBAYASHI                   (OTHER_TUTORS_START + 12)
+#define OTHER_TUTORS_END                    TRAINER_KOBAYASHI
 
 //Winstrates
 #define WINSTRATE_TRAINERS_START            (OTHER_TUTORS_END + 1)
@@ -946,7 +947,7 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 653
+//I think it's currently 654
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
