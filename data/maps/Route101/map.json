@@ -34,21 +34,21 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route101_EventScript_Breyden",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
-      "x": 29,
-      "y": 27,
+      "x": 30,
+      "y": 25,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "Route101_EventScript_Vance",
       "flag": "0"
     },
     {
@@ -203,8 +203,8 @@
       "movement_range_x": 2,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route101_EventScript_Abraham",
       "flag": "0"
     },
     {
@@ -216,8 +216,8 @@
       "movement_range_x": 3,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route101_EventScript_Stephanie",
       "flag": "0"
     },
     {

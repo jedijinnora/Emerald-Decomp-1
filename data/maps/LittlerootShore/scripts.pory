@@ -36,3 +36,53 @@ script LittlerootShore_EventScript_DirectionsSign {
 	release
 	end
 }
+
+script LittlerootShore_EventScript_Samuel {
+	trainerbattle_single(TRAINER_SAMUEL, LittlerootShore_Text_SamuelIntro, LittlerootShore_Text_SamuelDefeat)
+	msgbox(LittlerootShore_Text_SamuelPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text LittlerootShore_Text_SamuelIntro {
+	"Want my Choice Band? You can't have it!"
+}
+text LittlerootShore_Text_SamuelDefeat {
+	"Fine, take the stupid thing!"
+}
+text LittlerootShore_Text_SamuelPostBattle {
+	"Go away, I don't like people who are\n"
+	"stronger than me."
+}
+
+script LittlerootShore_EventScript_Phillip {
+	trainerbattle_single(TRAINER_PHILLIP, LittlerootShore_Text_PhillipIntro, LittlerootShore_Text_PhillipDefeat)
+	msgbox(LittlerootShore_Text_PhillipPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text LittlerootShore_Text_PhillipIntro {
+	"The only thing better than fishing on\n"
+	"the beach is a Trainer battle!"
+}
+text LittlerootShore_Text_PhillipDefeat {
+	"Thanks for the battle! You made my day!"
+}
+text LittlerootShore_Text_PhillipPostBattle {
+	"The sand, the waves, the sea breeze…\n"
+	"I just love it all."
+}
+
+script LittlerootShore_EventScript_Hillary {
+	trainerbattle_single(TRAINER_HILLARY, LittlerootShore_Text_HillaryIntro, LittlerootShore_Text_HillaryDefeat)
+	msgbox(LittlerootShore_Text_HillaryPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text LittlerootShore_Text_HillaryIntro {
+	"Why would you Surf on a Pokémon when\n"
+	"you could feel the water on your skin?"
+}
+text LittlerootShore_Text_HillaryDefeat {
+	"Oops, my skin has gotten all pruney."
+}
+text LittlerootShore_Text_HillaryPostBattle {
+	"On a hot summer day, don't you love"
+	"slipping into the ocean to relax?"
+}

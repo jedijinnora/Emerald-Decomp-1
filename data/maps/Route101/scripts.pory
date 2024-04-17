@@ -4,3 +4,74 @@ script Route101_EventScript_RouteSign {
 	msgbox("Route 101\p{UP_ARROW} Oldale Town\n{DOWN_ARROW} Littleroot Town", MSGBOX_SIGN)
 	end
 }
+
+script Route101_EventScript_Breyden {
+	trainerbattle_single(TRAINER_BREYDEN, Route101_Text_BreydenIntro, Route101_Text_BreydenDefeat)
+	msgbox(Route101_Text_BreydenPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route101_Text_BreydenIntro {
+	"I'm gonna wipe you out and head back\n"
+	"home in time for dinner!"
+}
+text Route101_Text_BreydenDefeat {
+	"Hard to win when you have to go home\n"
+	"for dinner instead of training all day."
+}
+text Route101_Text_BreydenPostBattle {
+	"I wish I had the HM for Cut. Then I\n"
+	"could walk straight from Oldale to\l"
+	"Littleroot."
+}
+
+script Route101_EventScript_Vance {
+	trainerbattle_single(TRAINER_VANCE, Route101_Text_VanceIntro, Route101_Text_VanceDefeat)
+	msgbox(Route101_Text_VancePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route101_Text_VanceIntro {
+	"Watch out! There's a bug on your head!"
+}
+text Route101_Text_VanceDefeat {
+	"I wear a hat so critters can't get in my\n"
+	"hair."
+}
+text Route101_Text_VancePostBattle {
+	"I think I have a rip in my favorite\n"
+	"Butterfree net. Can you fix it for me?"
+}
+
+script Route101_EventScript_Stephanie {
+	trainerbattle_single(TRAINER_STEPHANIE, Route101_Text_StephanieIntro, Route101_Text_StephanieDefeat)
+	msgbox(Route101_Text_StephaniePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route101_Text_StephanieIntro {
+	"Do you like my running outfit?"
+	"See how it's practical and cute!"
+}
+text Route101_Text_StephanieDefeat {
+	"Nice battle! I'll remember this\n"
+	"one during my next race."
+}
+text Route101_Text_StephaniePostBattle {
+	"Don't forget to bring the proper\n"
+	"clothes for your journey!"
+}
+
+script Route101_EventScript_Abraham {
+	trainerbattle_single(TRAINER_ABRAHAM, Route101_Text_AbrahamIntro, Route101_Text_AbrahamDefeat)
+	msgbox(Route101_Text_BreydenPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route101_Text_AbrahamIntro {
+	"How dare you step in front of me?\n"
+	"I'm doing important research!"
+}
+text Route101_Text_AbrahamDefeat {
+	"Oh no, my dig site!"
+}
+text Route101_Text_AbrahamPostBattle {
+	"Do you think these stones are\n"
+	"connected with the Oldale Ruins?"
+}

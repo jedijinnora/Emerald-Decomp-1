@@ -33,3 +33,55 @@ script DewdropGlen_EventScript_Stash {
     call(Common_EventScript_SecretStash)
     end
 }
+
+script DewdropGlen_EventScript_Albert {
+	trainerbattle_single(TRAINER_ALBERT, DewdropGlen_Text_AlbertIntro, DewdropGlen_Text_AlbertDefeat)
+	msgbox(DewdropGlen_Text_AlbertPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text DewdropGlen_Text_AlbertIntro {
+	"Well, if you're going to walk around"
+	"like that I'm going to challenge you!"
+}
+text DewdropGlen_Text_AlbertDefeat {
+	"I should have been watching my own\n"
+	"feet instead of yours, I guess."
+}
+text DewdropGlen_Text_AlbertPostBattle {
+	"Respect the natural world! Take only\n"
+	"pictures, leave only footprints!"
+}
+
+script DewdropGlen_EventScript_Quincy {
+	trainerbattle_single(TRAINER_QUINCY, DewdropGlen_Text_QuincyIntro, DewdropGlen_Text_QuincyDefeat)
+	msgbox(DewdropGlen_Text_QuincyPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text DewdropGlen_Text_QuincyIntro {
+	"I love splashing through puddles!"
+}
+text DewdropGlen_Text_QuincyDefeat {
+	"Ugh, you splashed mud all over me!"
+}
+text DewdropGlen_Text_QuincyPostBattle {
+	"Why don't adults wear puddle boots\n"
+	"more oftedn? They're so fun!"
+}
+
+script DewdropGlen_EventScript_Dudley {
+	trainerbattle_single(TRAINER_DUDLEY, DewdropGlen_Text_DudleyIntro, DewdropGlen_Text_DudleyDefeat)
+	msgbox(DewdropGlen_Text_DudleyPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text DewdropGlen_Text_DudleyIntro {
+	"Is there something wrong with my Rod?"
+	"I'm not catching the Pokémon I want!"
+}
+text DewdropGlen_Text_DudleyDefeat {
+	"If my Super Rod was working right\n"
+	"I'd have beaten you for sure."
+}
+text DewdropGlen_Text_DudleyPostBattle {
+	"Be sure to carefully examine your\n"
+	"Rod for damage before using it!"
+}
