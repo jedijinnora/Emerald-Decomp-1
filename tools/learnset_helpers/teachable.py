@@ -61,9 +61,9 @@ def construct_compatibility_dict(force_custom_check):
             for move in data[mon]['LevelMoves']:
                 if not move['Move'] in dict_out[mon]:
                     dict_out[mon].append(move['Move'])
-            #for move in data[mon]['PreEvoMoves']:
-            #    if not move in dict_out[mon]:
-            #        dict_out[mon].append(move)
+            for move in data[mon]['PreEvoMoves']:
+                if not move in dict_out[mon]:
+                    dict_out[mon].append(move)
             for move in data[mon]['TMMoves']:
                 if not move in dict_out[mon]:
                     dict_out[mon].append(move)
