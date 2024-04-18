@@ -17,6 +17,7 @@
                                                 // GEN_1/2/3/4/5/6/7: Yellow, Crystal, RSE, HGSS, B2W2, ORAS, USUM learnsets respectively.
                                                 // GEN_8: Use the following priority: BDSP for Gen1-4 Pokémon, then LA for species introduced in that game, then SwSh for species present in those games. Otherwise, use GEN_7.
                                                 // GEN_9: SV For species present in those games. Otherwise use GEN_8.
+                                                // GEN_CUSTOM: Use custom learnsets, modified from GEN_9.
 
 // Evolution settings
 #define P_FRIENDSHIP_EVO_THRESHOLD   GEN_LATEST  // Since Gen 8, Pokémon that evolve by friendship evolve at or above 160 friendship instead of 220.
