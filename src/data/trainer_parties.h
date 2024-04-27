@@ -10087,7 +10087,8 @@ static const struct TrainerMon sParty_MultiHitTutor[] = {
     }
 };
 
-//Kobayashi the Status Ninja: threshold 3
+//Kobayashi the Status Ninja: threshold 3 (done)
+//double battle
 static const struct TrainerMon sParty_Kobayashi[] = {
     {
     .lvl = 16,
@@ -10156,7 +10157,6 @@ static const struct TrainerMon sParty_Kobayashi_easy[] = {
     .species = SPECIES_DRIFBLIM,
     .heldItem = ITEM_FLAME_ORB,
     .ability = ABILITY_FLARE_BOOST,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
     .nature = NATURE_TIMID,
     .moves = {MOVE_STRENGTH_SAP, MOVE_TAILWIND, MOVE_AIR_CUTTER, MOVE_DESTINY_BOND}
     },
@@ -10165,7 +10165,6 @@ static const struct TrainerMon sParty_Kobayashi_easy[] = {
     .species = SPECIES_ZANGOOSE,
     .heldItem = ITEM_TOXIC_ORB,
     .ability = ABILITY_TOXIC_BOOST,
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .nature = NATURE_ADAMANT,
     .moves = {MOVE_SWORDS_DANCE, MOVE_FACADE, MOVE_CLOSE_COMBAT, MOVE_KNOCK_OFF}
     },
@@ -10174,7 +10173,6 @@ static const struct TrainerMon sParty_Kobayashi_easy[] = {
     .species = SPECIES_MILOTIC,
     .heldItem = ITEM_FLAME_ORB,
     .ability = ABILITY_MARVEL_SCALE,
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .nature = NATURE_CALM,
     .moves = {MOVE_LIFE_DEW, MOVE_COIL, MOVE_BLIZZARD, MOVE_BREAKING_SWIPE}
     },
@@ -10183,7 +10181,6 @@ static const struct TrainerMon sParty_Kobayashi_easy[] = {
     .species = SPECIES_SWELLOW,
     .heldItem = ITEM_TOXIC_ORB,
     .ability = ABILITY_GUTS,
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .nature = NATURE_ADAMANT,
     .moves = {MOVE_U_TURN, MOVE_FACADE, MOVE_STEEL_WING, MOVE_BRAVE_BIRD}
     },
@@ -10192,7 +10189,6 @@ static const struct TrainerMon sParty_Kobayashi_easy[] = {
     .species = SPECIES_JOLTEON,
     .heldItem = ITEM_FLAME_ORB,
     .ability = ABILITY_QUICK_FEET,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
     .nature = NATURE_MODEST,
     .moves = {MOVE_WEATHER_BALL, MOVE_ELECTROWEB, MOVE_TICKLE, MOVE_VOLT_SWITCH}
     },
@@ -10201,7 +10197,6 @@ static const struct TrainerMon sParty_Kobayashi_easy[] = {
     .species = SPECIES_GIRAFARIG,
     .heldItem = ITEM_EVIOLITE,
     .ability = ABILITY_EARLY_BIRD,
-    .iv = TRAINER_PARTY_IVS(31, 0, 31, 31, 31, 31),
     .nature = NATURE_TIMID,
     .moves = {MOVE_DAZZLING_GLEAM, MOVE_EXPANDING_FORCE, MOVE_REST, MOVE_FOUL_PLAY}
     }
@@ -11260,7 +11255,7 @@ static const struct TrainerMon sParty_VR_Rival_Jinnora[] = {
     {
     .lvl = 16,
     .species = SPECIES_LATIOS,
-    .heldItem = ITEM_TWISTED_SPOON,
+    .heldItem = ITEM_NEVER_MELT_ICE,
     .ability = ABILITY_LEVITATE,
     .iv = TRAINER_PARTY_IVS(10, 1, 0, 0, 0, 0),
     .ev = TRAINER_PARTY_EVS(0, 0, 0, 250, 250, 0),

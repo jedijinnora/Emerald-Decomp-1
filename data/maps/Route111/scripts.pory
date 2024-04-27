@@ -67,6 +67,9 @@ script Route111_OnTransition {
 	call_if_not_defeated(TRAINER_VICKY, Route111_EventScript_SetWinstratesNotDefeated)
 	checkitem(ITEM_GO_GOGGLES)
 	call_if_eq(VAR_RESULT, TRUE, Route111_EventScript_HideGogglesHintMan)
+	if(flag(FLAG_LANDMARK_OLD_LADY_REST_SHOP)) {
+		setflag(FLAG_TEMP_13)
+	}
 	end
 }
 
