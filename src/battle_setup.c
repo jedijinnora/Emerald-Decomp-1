@@ -1326,7 +1326,12 @@ void ClearTrainerFlag(u16 trainerId)
 
 void BattleSetup_StartTrainerBattle(void)
 {
-    if (gNoOfApproachingTrainers == 2)
+    //Jinnora: allows scripted battles against 2 trainers
+    //note to self: what happens if you set opponent B and then try a single battle?
+    //pretty sure this simple implementation breaks some scripting cases
+    //maybe keep using the special battle case for 1v2s?
+    //see battle frontier special battles for details.
+    if (gNoOfApproachingTrainers == 2 || gTrainerBattleOpponent_B != 0)
         gBattleTypeFlags = (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TRAINER);
     else
         gBattleTypeFlags = (BATTLE_TYPE_TRAINER);
