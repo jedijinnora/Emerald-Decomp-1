@@ -9409,7 +9409,7 @@ static const struct LevelUpMove sDusknoirLevelUpLearnset[] = {
     LEVEL_UP_MOVE(42, MOVE_SHADOW_BALL),
     LEVEL_UP_MOVE(48, MOVE_FUTURE_SIGHT),
     LEVEL_UP_MOVE(54, MOVE_DESTINY_BOND),
-    LEVEL_UP_MOVE(86, MOVE_PHANTOM_FORCE),
+    LEVEL_UP_MOVE(86, MOVE_SHADOW_FORCE),
     LEVEL_UP_END
 };
 #endif //P_GEN_4_CROSS_EVOS
@@ -12254,6 +12254,8 @@ static const struct LevelUpMove sPidoveLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sTranquillLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 0, MOVE_SLASH),
+    LEVEL_UP_MOVE( 1, MOVE_SLASH),
     LEVEL_UP_MOVE( 1, MOVE_GUST),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_MOVE( 1, MOVE_LEER),
@@ -12262,6 +12264,7 @@ static const struct LevelUpMove sTranquillLevelUpLearnset[] = {
     LEVEL_UP_MOVE(16, MOVE_AIR_CUTTER),
     LEVEL_UP_MOVE(20, MOVE_SWAGGER),
     LEVEL_UP_MOVE(26, MOVE_FEATHER_DANCE),
+    LEVEL_UP_MOVE(30, MOVE_DRILL_PECK),
     LEVEL_UP_MOVE(34, MOVE_DETECT),
     LEVEL_UP_MOVE(38, MOVE_AIR_SLASH),
     LEVEL_UP_MOVE(44, MOVE_ROOST),
@@ -12271,6 +12274,7 @@ static const struct LevelUpMove sTranquillLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sUnfezantLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_SLASH),
     LEVEL_UP_MOVE( 1, MOVE_GUST),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_MOVE( 1, MOVE_LEER),
@@ -12279,6 +12283,7 @@ static const struct LevelUpMove sUnfezantLevelUpLearnset[] = {
     LEVEL_UP_MOVE(16, MOVE_AIR_CUTTER),
     LEVEL_UP_MOVE(20, MOVE_SWAGGER),
     LEVEL_UP_MOVE(26, MOVE_FEATHER_DANCE),
+    LEVEL_UP_MOVE(31, MOVE_DRILL_PECK),
     LEVEL_UP_MOVE(36, MOVE_DETECT),
     LEVEL_UP_MOVE(42, MOVE_AIR_SLASH),
     LEVEL_UP_MOVE(50, MOVE_ROOST),
@@ -12304,6 +12309,7 @@ static const struct LevelUpMove sBlitzleLevelUpLearnset[] = {
     LEVEL_UP_MOVE(38, MOVE_AGILITY),
     LEVEL_UP_MOVE(43, MOVE_JUMP_KICK),
     LEVEL_UP_MOVE(48, MOVE_THRASH),
+    LEVEL_UP_MOVE(58, MOVE_VOLT_TACKLE),
     LEVEL_UP_END
 };
 
@@ -12324,6 +12330,7 @@ static const struct LevelUpMove sZebstrikaLevelUpLearnset[] = {
     LEVEL_UP_MOVE(47, MOVE_JUMP_KICK),
     LEVEL_UP_MOVE(52, MOVE_THRASH),
     LEVEL_UP_MOVE(58, MOVE_VOLT_TACKLE),
+    LEVEL_UP_MOVE(72, MOVE_BOLT_STRIKE),
     LEVEL_UP_END
 };
 #endif //P_FAMILY_BLITZLE

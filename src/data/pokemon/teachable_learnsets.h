@@ -960,6 +960,7 @@ static const u16 sCaterpieTeachableLearnset[] = {
 static const u16 sMetapodTeachableLearnset[] = {
     MOVE_IRON_DEFENSE,
     MOVE_BUG_BITE,
+    MOVE_SNORE,
     MOVE_UNAVAILABLE,
 };
 
@@ -1043,6 +1044,7 @@ static const u16 sBeedrillTeachableLearnset[] = {
     MOVE_GIGA_DRAIN,
     MOVE_GIGA_IMPACT,
     MOVE_HYPER_BEAM,
+    MOVE_IRON_DEFENSE,
     MOVE_POISON_JAB,
     MOVE_PROTECT,
     MOVE_REFLECT,
@@ -1728,10 +1730,12 @@ static const u16 sRaichuTeachableLearnset[] = {
     MOVE_ENDURE,
     MOVE_FACADE,
     MOVE_FLASH,
+    MOVE_FLY,
     MOVE_FOCUS_BLAST,
     MOVE_GIGA_IMPACT,
     MOVE_GRASS_KNOT,
     MOVE_HYPER_BEAM,
+    MOVE_ICICLE_CRASH,
     MOVE_LIGHT_SCREEN,
     MOVE_NASTY_PLOT,
     MOVE_PLAY_ROUGH,
@@ -2831,6 +2835,7 @@ static const u16 sNinetalesTeachableLearnset[] = {
     MOVE_DREAM_EATER,
     MOVE_ENDURE,
     MOVE_FIRE_SPIN,
+    MOVE_FLAME_BURST,
     MOVE_FLAME_WHEEL,
     MOVE_FLARE_BLITZ,
     MOVE_HEAT_WAVE,
@@ -4846,6 +4851,7 @@ static const u16 sArcanineTeachableLearnset[] = {
     MOVE_ENDURE,
     MOVE_FIRE_FANG,
     MOVE_FIRE_SPIN,
+    MOVE_FLAME_BURST,
     MOVE_FLAME_WHEEL,
     MOVE_FLARE_BLITZ,
     MOVE_HEAT_WAVE,
@@ -20887,6 +20893,7 @@ static const u16 sWurmpleTeachableLearnset[] = {
 static const u16 sSilcoonTeachableLearnset[] = {
     MOVE_IRON_DEFENSE,
     MOVE_BUG_BITE,
+    MOVE_SNORE,
     MOVE_UNAVAILABLE,
 };
 
@@ -20937,6 +20944,7 @@ static const u16 sBeautiflyTeachableLearnset[] = {
 static const u16 sCascoonTeachableLearnset[] = {
     MOVE_IRON_DEFENSE,
     MOVE_BUG_BITE,
+    MOVE_SNORE,
     MOVE_UNAVAILABLE,
 };
 
@@ -34628,7 +34636,9 @@ static const u16 sSimisageTeachableLearnset[] = {
     MOVE_THIEF,
     MOVE_TOXIC,
     MOVE_WORK_UP,
+    MOVE_BITE,
     MOVE_BULLET_SEED,
+    MOVE_CRUNCH,
     MOVE_DISARMING_VOICE,
     MOVE_FLING,
     MOVE_FOCUS_PUNCH,
@@ -34636,6 +34646,7 @@ static const u16 sSimisageTeachableLearnset[] = {
     MOVE_GRASS_PLEDGE,
     MOVE_KNOCK_OFF,
     MOVE_LEAF_STORM,
+    MOVE_LEECH_SEED,
     MOVE_LOW_SWEEP,
     MOVE_MAGICAL_LEAF,
     MOVE_PAYBACK,
@@ -34704,6 +34715,7 @@ static const u16 sPansearTeachableLearnset[] = {
 
 static const u16 sSimisearTeachableLearnset[] = {
     MOVE_ACROBATICS,
+    MOVE_AMNESIA,
     MOVE_BRICK_BREAK,
     MOVE_CUT,
     MOVE_DIG,
@@ -34733,6 +34745,8 @@ static const u16 sSimisearTeachableLearnset[] = {
     MOVE_TOXIC,
     MOVE_WILL_O_WISP,
     MOVE_WORK_UP,
+    MOVE_BITE,
+    MOVE_CRUNCH,
     MOVE_DISARMING_VOICE,
     MOVE_FIRE_PLEDGE,
     MOVE_FIRE_PUNCH,
@@ -34844,6 +34858,9 @@ static const u16 sSimipourTeachableLearnset[] = {
     MOVE_WATERFALL,
     MOVE_WORK_UP,
     MOVE_AQUA_RING,
+    MOVE_BITE,
+    MOVE_BRINE,
+    MOVE_CRUNCH,
     MOVE_DISARMING_VOICE,
     MOVE_FLING,
     MOVE_FOCUS_PUNCH,
@@ -34959,6 +34976,7 @@ static const u16 sMusharnaTeachableLearnset[] = {
     MOVE_MAGIC_COAT,
     MOVE_PSYCHIC_TERRAIN,
     MOVE_PSYCH_UP,
+    MOVE_PSYWAVE,
     MOVE_ROCK_SLIDE,
     MOVE_SHOCK_WAVE,
     MOVE_SIGNAL_BEAM,
@@ -36113,6 +36131,7 @@ static const u16 sLeavannyTeachableLearnset[] = {
     MOVE_SKITTER_SMACK,
     MOVE_SLEEP_TALK,
     MOVE_SNORE,
+    MOVE_STICKY_WEB,
     MOVE_SWAGGER,
     MOVE_SWITCHEROO,
     MOVE_SWORDS_DANCE,
