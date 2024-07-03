@@ -1230,7 +1230,7 @@
 #define FLAG_ITEM_ROUTE_116_WISE_GLASSES                            0x475
 #define FLAG_ITEM_ROUTE_116_RARE_CANDY                              0x476
 #define FLAG_ITEM_ROUTE_116_GOLD_BOTTLE_CAP                         0x477
-#define FLAG_ITEM_ROUTE_117_MAX_REVIVE                              0x478
+#define FLAG_ITEM_ROUTE_117_ABILITY_PATCH                           0x478
 #define FLAG_ITEM_ROUTE_118_FULL_RESTORE                            0x479
 #define FLAG_ITEM_ROUTE_119_DAMP_ROCK                               0x47A
 #define FLAG_ITEM_ROUTE_119_GRIP_CLAW                               0x47B

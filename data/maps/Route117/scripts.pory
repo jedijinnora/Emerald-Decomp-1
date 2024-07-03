@@ -1,4 +1,5 @@
 const LOCALID_DAYCARE_MAN = 3
+const LOCALID_FLOWER_GIRL = 1
 
 mapscripts Route117_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : Route117_OnTransition
@@ -6,14 +7,29 @@ mapscripts Route117_MapScripts {
 
 script Route117_OnTransition {
 	call(Route117_EventScript_TryMoveDayCareMan)
+	call(Route117_EventScript_TryMoveFlowerGirl)
 	call(Common_EventScript_SetWild_0)
 	end
 }
 
 script Route117_EventScript_TryMoveDayCareMan {
-	goto_if_unset(FLAG_PENDING_DAYCARE_EGG, Route117_StopMoveDayCareMan)
+	goto_if_unset(FLAG_PENDING_DAYCARE_EGG, Common_EventScript_NopReturn)
 	setobjectxyperm(LOCALID_DAYCARE_MAN, 50, 6)
-Route117_StopMoveDayCareMan:
+	return
+}
+
+script Route117_EventScript_TryMoveFlowerGirl {
+	goto_if_not_defeated(TRAINER_DYLAN, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_MARIA, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_LYDIA, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_ISAAC, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_DEREK, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_ANNA_AND_MEG, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_BRANDI, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_AISHA, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_MELINA, Common_EventScript_NopReturn)
+	setobjectxyperm(LOCALID_FLOWER_GIRL, 11, 13)
+	setobjectmovementtype(LOCALID_FLOWER_GIRL, MOVEMENT_TYPE_FACE_DOWN)
 	return
 }
 

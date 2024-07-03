@@ -1,12 +1,12 @@
 //Trainer Parties 1.0
-//This is the actual file used by the game to generate NPC Trainers
+//This is the actual file used by the game to generate NPC Trainer Parties
 //WARNING: Check the version number above to make sure you are referencing an up-to-date document
 
 //I have summarized a lot of general rules I used to build NPC parties below
 //but I do not guarantee that they are always correct
 
 //AI FLAG INFO:
-//You should check the file "trainers.h" to view AI flags, the game does not reference them here
+//Each Trainer's flags are defined in the file "trainers.h" 
 //The "default" AI in this game is AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY
 //Trainers may include smart switching flags (these are currently bugged but will be included later)
 //Ninja boys, Hex Maniacs, and some other trainers have AI_FLAG_RISKY (also AI_FLAG_WILL_SUICIDE if moves like Explosion are present)
@@ -25,7 +25,7 @@
 //EASY DIFFICULTY:
 //the _easy version will always be selected if possible (including gym leaders)
 //
-//HARDCORE DIFFICULTY WARNING:
+//HARDCORE DIFFICULTY:
 //Trainers will reset when you gain the appropriate number of gym badges
 //Example: you defeat Trainer John (threshold of 3), before gaining the third badge.
 //         when you obtain badge 3, John will reset and you may have to fight him again vs. his more challenging party
@@ -100,12 +100,13 @@
 //.ev = TRAINER_PARTY_EVS(0, 200, 150, 150, 0, 0),
 //Black Belt, Battle Girl
 //
-//Collectors and Pokemaniacs always choose some 252/252 spread
+//Collectors, Bug Maniacs, and Pokemaniacs always choose some 252/252 spread
 //
 //Cooltrainers, Experts, Rangers, and Gentlemen have good EV spreads (510 totals)
 //
 //Guaranteed Double battle trainers have custom spreads
 // their parties sometimes have weird doubles-specific strategies
+// at this time the AI cannot effectively execute most of these
 
 
 //NATURES:
@@ -11221,6 +11222,339 @@ static const struct TrainerMon sParty_BB_Phoebe[] = {
 };
 
 
+//Not added to other files yet
+//"BLOCKING" RIVALS
+//Triggered on visiting 3rd and 5th badge city
+//optional on easy difficulty
+//intended to punish wide exploration without getting badges
+
+//City 3 Unova Rival
+//Red sprite
+static const struct TrainerMon sParty_BlockerRivalUnova[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_SERPERIOR,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_EMBOAR,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SAMUROTT,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_VOLCARONA,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SIGILYPH,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_HYDREIGON,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+//City 3 Kalos Rival
+//Red sprite
+static const struct TrainerMon sParty_BlockerRivalKalos[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_CHESNAUGHT,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_DELPHOX,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_GRENINJA,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_LUCARIO,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_FLORGES,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_DRAGALGE,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+//City 3 Hisui Rival
+//Red Sprite
+static const struct TrainerMon sParty_BlockerRivalHisui[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_DECIDUEYE_HISUIAN,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_TYPHLOSION_HISUIAN,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SAMUROTT_HISUIAN,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_AVALUGG_HISUIAN,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SNEASLER,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_GOODRA_HISUIAN,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+//City 5 Kanto Rival
+//Leaf Sprite
+static const struct TrainerMon sParty_BlockerRivalKanto[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_VENUSAUR,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_CHARIZARD,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_BLASTOISE,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SNORLAX,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_ALAKAZAM,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_DRAGONITE,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+//City 5 Johto Rival
+//Leaf Sprite
+static const struct TrainerMon sParty_BlockerRivalJohto[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_MEGANIUM,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_TYPHLOSION,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_FERALIGATR,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SCIZOR,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_AMPHAROS,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_TYRANITAR,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
+    .nature = NATURE_HARDY,
+    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    }
+};
+
+
+
 
 //VICTORY ROAD RIVALS -- 10 TRAINERS
 //Jinnora's Ruby Party
@@ -18917,31 +19251,119 @@ static const struct TrainerMon sParty_Giorgio_easy[] = {
 
 
 
-//ROUTE 117 TRAINERS
+//ROUTE 117 TRAINERS (done)
 
-//Running Triathlete-M Dylan
+//Running Triathlete-M Dylan: threshold 3
 static const struct TrainerMon sParty_Dylan[] = {
     {
-    .lvl = 16,
-    .species = SPECIES_NONE,
-    .heldItem = ITEM_NONE,
-    .ability = ABILITY_NONE,
+    .lvl = 13,
+    .species = SPECIES_ELECTRODE,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_AFTERMATH,
     .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
-    .nature = NATURE_HARDY,
-    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .nature = NATURE_NAUGHTY,
+    .moves = {MOVE_EXPLOSION, MOVE_VOLT_SWITCH, MOVE_LIGHT_SCREEN, MOVE_SUBSTITUTE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_DODRIO,
+    .heldItem = ITEM_STARF_BERRY,
+    .ability = ABILITY_EARLY_BIRD,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_DRILL_PECK, MOVE_JUMP_KICK, MOVE_DRILL_RUN, MOVE_SWORDS_DANCE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SWAMPERT,
+    .heldItem = ITEM_RINDO_BERRY,
+    .ability = ABILITY_TORRENT,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_WATERFALL, MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE, MOVE_ICE_PUNCH}
+    }
+};
+static const struct TrainerMon sParty_Dylan_easy[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_VOLTORB,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_AFTERMATH,
+    .nature = NATURE_NAUGHTY,
+    .moves = {MOVE_SELF_DESTRUCT, MOVE_VOLT_SWITCH, MOVE_LIGHT_SCREEN, MOVE_SUBSTITUTE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_DODUO,
+    .heldItem = ITEM_STARF_BERRY,
+    .ability = ABILITY_EARLY_BIRD,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_DRILL_PECK, MOVE_JUMP_KICK, MOVE_DRILL_RUN, MOVE_SWORDS_DANCE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_MARSHTOMP,
+    .heldItem = ITEM_RINDO_BERRY,
+    .ability = ABILITY_TORRENT,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_WATERFALL, MOVE_ROCK_SLIDE, MOVE_EARTHQUAKE, MOVE_ICE_PUNCH}
     }
 };
 
-//Running Triathlete-F Maria
+//Running Triathlete-F Maria: threshold 3
 static const struct TrainerMon sParty_Maria[] = {
     {
-    .lvl = 16,
-    .species = SPECIES_NONE,
-    .heldItem = ITEM_NONE,
-    .ability = ABILITY_NONE,
+    .lvl = 13,
+    .species = SPECIES_ELECTRODE_HISUIAN,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_AFTERMATH,
     .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
-    .nature = NATURE_HARDY,
-    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .nature = NATURE_NAUGHTY,
+    .moves = {MOVE_EXPLOSION, MOVE_VOLT_SWITCH, MOVE_CHLOROBLAST, MOVE_SUBSTITUTE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_DODRIO,
+    .heldItem = ITEM_LIECHI_BERRY,
+    .ability = ABILITY_EARLY_BIRD,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_DRILL_PECK, MOVE_JUMP_KICK, MOVE_DRILL_RUN, MOVE_ACUPRESSURE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_QUAQUAVAL,
+    .heldItem = ITEM_EXPERT_BELT,
+    .ability = ABILITY_MOXIE,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_AQUA_STEP, MOVE_CLOSE_COMBAT, MOVE_TRIPLE_AXEL, MOVE_KNOCK_OFF}
+    }
+};
+static const struct TrainerMon sParty_Maria_easy[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_VOLTORB_HISUIAN,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_AFTERMATH,
+    .nature = NATURE_NAUGHTY,
+    .moves = {MOVE_SELF_DESTRUCT, MOVE_VOLT_SWITCH, MOVE_BULLET_SEED, MOVE_SUBSTITUTE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_DODUO,
+    .heldItem = ITEM_LIECHI_BERRY,
+    .ability = ABILITY_EARLY_BIRD,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_DRILL_PECK, MOVE_JUMP_KICK, MOVE_DRILL_RUN, MOVE_ACUPRESSURE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_QUAXWELL,
+    .heldItem = ITEM_EXPERT_BELT,
+    .ability = ABILITY_MOXIE,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_AQUA_CUTTER, MOVE_AQUA_JET, MOVE_TRIPLE_AXEL, MOVE_LOW_SWEEP}
     }
 };
 
@@ -19066,7 +19488,7 @@ static const struct TrainerMon sParty_Lydia_easy[] = {
     }
 };
 
-//Breeder-M Isaac
+//Breeder-M Isaac: threshold 3
 //must battle to access EV training area
 static const struct TrainerMon sParty_Isaac[] = {
     {
@@ -19130,174 +19552,116 @@ static const struct TrainerMon sParty_Isaac[] = {
     .moves = {MOVE_FAKE_OUT, MOVE_LAST_RESORT, MOVE_NONE, MOVE_NONE}
     }
 };
-
-static const struct TrainerMon sParty_Isaac1[] = {
+static const struct TrainerMon sParty_Isaac_easy[] = {
     {
-    .lvl = 11,
-    .species = SPECIES_WHISMUR,
+    .lvl = 14,
+    .species = SPECIES_NINCADA,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_COMPOUND_EYES,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_LEECH_LIFE, MOVE_BATON_PASS, MOVE_CUT, MOVE_AERIAL_ACE}
     },
     {
-    .lvl = 11,
-    .species = SPECIES_ZIGZAGOON,
+    .lvl = 13,
+    .species = SPECIES_MUNCHLAX,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_THICK_FAT,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_CURSE, MOVE_BODY_SLAM, MOVE_SLEEP_TALK, MOVE_REST}
     },
     {
-    .lvl = 11,
-    .species = SPECIES_ARON,
+    .lvl = 12,
+    .species = SPECIES_SKARMORY,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_STURDY,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_STEEL_WING, MOVE_BODY_PRESS, MOVE_ROOST, MOVE_TOXIC}
     },
     {
-    .lvl = 11,
-    .species = SPECIES_POOCHYENA,
+    .lvl = 12,
+    .species = SPECIES_ROSELIA,
+    .heldItem = ITEM_EJECT_PACK,
+    .ability = ABILITY_NATURAL_CURE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_LEAF_STORM, MOVE_SLUDGE_BOMB, MOVE_WEATHER_BALL, MOVE_GIGA_DRAIN}
     },
     {
-    .lvl = 11,
-    .species = SPECIES_TAILLOW,
+    .lvl = 12,
+    .species = SPECIES_GOLDEEN,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_SWIFT_SWIM,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_WATERFALL, MOVE_AGILITY, MOVE_MEGAHORN, MOVE_DRILL_RUN}
     },
     {
-    .lvl = 11,
-    .species = SPECIES_MAKUHITA,
-    }
-};
-static const struct TrainerMon sParty_Isaac2[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 22,
-    .species = SPECIES_LOUDRED,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 22,
-    .species = SPECIES_LINOONE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 22,
-    .species = SPECIES_ARON,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 22,
-    .species = SPECIES_MIGHTYENA,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 22,
-    .species = SPECIES_SWELLOW,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 22,
-    .species = SPECIES_MAKUHITA,
-    }
-};
-static const struct TrainerMon sParty_Isaac3[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 25,
-    .species = SPECIES_LOUDRED,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 25,
-    .species = SPECIES_LINOONE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 25,
-    .species = SPECIES_ARON,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 25,
-    .species = SPECIES_MIGHTYENA,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 25,
-    .species = SPECIES_SWELLOW,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 25,
-    .species = SPECIES_HARIYAMA,
-    }
-};
-static const struct TrainerMon sParty_Isaac4[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 28,
-    .species = SPECIES_LOUDRED,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 28,
-    .species = SPECIES_LINOONE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 28,
-    .species = SPECIES_ARON,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 28,
-    .species = SPECIES_MIGHTYENA,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 28,
-    .species = SPECIES_SWELLOW,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 28,
-    .species = SPECIES_HARIYAMA,
-    }
-};
-static const struct TrainerMon sParty_Isaac5[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 31,
-    .species = SPECIES_LOUDRED,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 31,
-    .species = SPECIES_LINOONE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 31,
-    .species = SPECIES_LAIRON,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 31,
-    .species = SPECIES_MIGHTYENA,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 31,
-    .species = SPECIES_SWELLOW,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 31,
-    .species = SPECIES_HARIYAMA,
+    .lvl = 12,
+    .species = SPECIES_DELCATTY,
+    .heldItem = ITEM_SILK_SCARF,
+    .ability = ABILITY_NORMALIZE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_FAKE_OUT, MOVE_LAST_RESORT, MOVE_NONE, MOVE_NONE}
     }
 };
 
-//Bug Maniac Derek
+//Bug Maniac Derek: threshold 2
 //double with Melina
 static const struct TrainerMon sParty_Derek[] = {
     {
-    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
-    .lvl = 16,
-    .species = SPECIES_DUSTOX,
+    .lvl = 13,
+    .species = SPECIES_VIKAVOLT,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_LEVITATE,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 252, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_DISCHARGE, MOVE_BUG_BUZZ, MOVE_ELECTROWEB, MOVE_AGILITY}
     },
     {
-    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
     .lvl = 16,
     .species = SPECIES_BEAUTIFLY,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_BERSERK,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_QUIVER_DANCE, MOVE_GIGA_DRAIN, MOVE_POLLEN_PUFF, MOVE_AIR_CUTTER}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_DUSTOX,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SHIELD_DUST,
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_TOXIC, MOVE_VENOSHOCK, MOVE_MOONLIGHT, MOVE_PSYCHIC}
+    }
+};
+static const struct TrainerMon sParty_Derek_easy[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_GRUBBIN,
+    .heldItem = ITEM_AIR_BALLOON,
+    .ability = ABILITY_SWARM,
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_WILD_CHARGE, MOVE_BUG_BITE, MOVE_ELECTROWEB, MOVE_MUD_SLAP}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_BEAUTIFLY,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_BERSERK,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_MORNING_SUN, MOVE_GIGA_DRAIN, MOVE_POLLEN_PUFF, MOVE_AIR_CUTTER}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_DUSTOX,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SHIELD_DUST,
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_TOXIC, MOVE_VENOSHOCK, MOVE_MOONLIGHT, MOVE_PSYCHIC}
     }
 };
 
@@ -19376,510 +19740,1511 @@ static const struct TrainerMon sParty_AnnaAndMeg_easy[] = {
     }
 };
 
-//Psychic-F Brandi
+//Psychic-F Brandi: threshold 3
+//may double with Aisha
 static const struct TrainerMon sParty_Brandi[] = {
     {
-    .lvl = 17,
-    .species = SPECIES_RALTS,
+    .lvl = 13,
+    .species = SPECIES_ESPATHRA,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_OPPORTUNIST,
+    .ev = TRAINER_PARTY_EVS(100, 0, 0, 0, 200, 200),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_LUMINA_CRASH, MOVE_DAZZLING_GLEAM, MOVE_FLASH_CANNON, MOVE_HYPNOSIS}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_SWOOBAT,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_SIMPLE,
+    .ev = TRAINER_PARTY_EVS(100, 0, 0, 0, 200, 200),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_AIR_CUTTER, MOVE_STORED_POWER, MOVE_CALM_MIND, MOVE_HEAT_WAVE}
+    }
+};
+static const struct TrainerMon sParty_Brandi_easy[] = {
+    {
+    .lvl = 15,
+    .species = SPECIES_FLITTLE,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SPEED_BOOST,
+    .ev = TRAINER_PARTY_EVS(100, 0, 0, 0, 200, 200),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_PSYSHOCK, MOVE_BATON_PASS, MOVE_FOUL_PLAY, MOVE_HYPNOSIS}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_SWOOBAT,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_UNAWARE,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_AIR_CUTTER, MOVE_STORED_POWER, MOVE_CALM_MIND, MOVE_ENDEAVOR}
     }
 };
 
-//Battle Girl Aisha
+//Battle Girl Aisha: threshold 3
+//may double with Brandi
 static const struct TrainerMon sParty_Aisha[] = {
     {
-    .lvl = 17,
-    .species = SPECIES_MEDITITE,
+    .lvl = 13,
+    .species = SPECIES_LILLIGANT_HISUIAN,
+    .heldItem = ITEM_WIDE_LENS,
+    .ability = ABILITY_HUSTLE,
+    .ev = TRAINER_PARTY_EVS(0, 200, 150, 150, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_VICTORY_DANCE, MOVE_LEAF_BLADE, MOVE_POISON_JAB, MOVE_TRIPLE_AXEL}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_FLAMIGO,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_COSTAR,
+    .ev = TRAINER_PARTY_EVS(0, 200, 150, 150, 0, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_BRAVE_BIRD, MOVE_CLOSE_COMBAT, MOVE_LIQUIDATION, MOVE_THROAT_CHOP}
+    }
+};
+static const struct TrainerMon sParty_Aisha_easy[] = {
+    {
+    .lvl = 10,
+    .species = SPECIES_LILLIGANT_HISUIAN,
+    .heldItem = ITEM_WIDE_LENS,
+    .ability = ABILITY_HUSTLE,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_VICTORY_DANCE, MOVE_LEAF_BLADE, MOVE_POISON_JAB, MOVE_TRIPLE_AXEL}
+    },
+    {
+    .lvl = 10,
+    .species = SPECIES_FLAMIGO,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_SCRAPPY,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_BRAVE_BIRD, MOVE_CLOSE_COMBAT, MOVE_LIQUIDATION, MOVE_THROAT_CHOP}
     }
 };
 
-//Running Triathlete-F Melina
+//Running Triathlete-F Melina: threshold 2
+//double with Derek
 static const struct TrainerMon sParty_Melina[] = {
     {
-    .lvl = 17,
-    .species = SPECIES_DODUO,
+    .lvl = 12,
+    .species = SPECIES_DIGGERSBY,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_HUGE_POWER,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_EARTHQUAKE, MOVE_FACADE, MOVE_QUICK_ATTACK, MOVE_ICE_PUNCH}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_LANTURN,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_VOLT_ABSORB,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_MUDDY_WATER, MOVE_THUNDER, MOVE_STOCKPILE, MOVE_SOAK}
+    }
+};
+static const struct TrainerMon sParty_Melina_easy[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_BUNNELBY,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_HUGE_POWER,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_EARTHQUAKE, MOVE_FACADE, MOVE_QUICK_ATTACK, MOVE_SUPER_FANG}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_CHINCHOU,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_VOLT_ABSORB,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_MUDDY_WATER, MOVE_THUNDER, MOVE_STOCKPILE, MOVE_SOAK}
     }
 };
 
 
-//ROUTE 118 TRAINERS
+//ROUTE 118 TRAINERS (done)
 //Gabby and Ty are listed in their own section
 
+//Bird Keeper Perry: threshold 2
 static const struct TrainerMon sParty_Perry[] = {
     {
-    .lvl = 26,
+    .lvl = 13,
+    .species = SPECIES_PELIPPER,
+    .heldItem = ITEM_ROCKY_HELMET,
+    .ability = ABILITY_DRIZZLE,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_MILD,
+    .moves = {MOVE_AIR_CUTTER, MOVE_SURF, MOVE_ROOST, MOVE_GUNK_SHOT}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_KILOWATTREL,
+    .heldItem = ITEM_ROCKY_HELMET,
+    .ability = ABILITY_VOLT_ABSORB,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_THUNDER, MOVE_HURRICANE, MOVE_ROOST, MOVE_WEATHER_BALL}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_FEAROW,
+    .heldItem = ITEM_SCOPE_LENS,
+    .ability = ABILITY_SNIPER,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_DRILL_PECK, MOVE_DRILL_RUN, MOVE_STEEL_WING, MOVE_FOCUS_ENERGY}
+    }
+};
+static const struct TrainerMon sParty_Perry_easy[] = {
+    {
+    .lvl = 14,
     .species = SPECIES_WINGULL,
+    .heldItem = ITEM_ROCKY_HELMET,
+    .ability = ABILITY_HYDRATION,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_AIR_CUTTER, MOVE_SURF, MOVE_ROOST, MOVE_RAIN_DANCE}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_WATTREL,
+    .heldItem = ITEM_ROCKY_HELMET,
+    .ability = ABILITY_VOLT_ABSORB,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_THUNDER, MOVE_HURRICANE, MOVE_ROOST, MOVE_WEATHER_BALL}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_SPEAROW,
+    .heldItem = ITEM_SCOPE_LENS,
+    .ability = ABILITY_SNIPER,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_DRILL_PECK, MOVE_DRILL_RUN, MOVE_STEEL_WING, MOVE_FOCUS_ENERGY}
     }
 };
 
-//Rose
-static const struct TrainerMon sParty_Rose1[] = {
+//Aroma Lady Rose: threshold 3
+//may double with Deandre
+static const struct TrainerMon sParty_Rose[] = {
     {
     .lvl = 14,
-    .species = SPECIES_ROSELIA,
+    .species = SPECIES_ROSERADE,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_POISON_POINT,
+    .ev = TRAINER_PARTY_EVS(100, 0, 0, 0, 200, 200),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_LEAF_STORM, MOVE_TOXIC_SPIKES, MOVE_SPIKES, MOVE_VENOSHOCK}
     },
     {
-    .lvl = 14,
-    .species = SPECIES_SHROOMISH,
+    .lvl = 13,
+    .species = SPECIES_ARBOLIVA,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_SEED_SOWER,
+    .ev = TRAINER_PARTY_EVS(100, 0, 0, 0, 200, 200),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_GIGA_DRAIN, MOVE_HYPER_VOICE, MOVE_POLLEN_PUFF, MOVE_DAZZLING_GLEAM}
     },
     {
-    .lvl = 14,
-    .species = SPECIES_ROSELIA,
-    }
-};
-static const struct TrainerMon sParty_Rose2[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 26,
-    .species = SPECIES_SHROOMISH,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 26,
-    .species = SPECIES_ROSELIA,
-    }
-};
-static const struct TrainerMon sParty_Rose3[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 28,
-    .species = SPECIES_SHROOMISH,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 28,
-    .species = SPECIES_GLOOM,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 28,
-    .species = SPECIES_ROSELIA,
-    }
-};
-static const struct TrainerMon sParty_Rose4[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 31,
-    .species = SPECIES_SHROOMISH,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 31,
-    .species = SPECIES_GLOOM,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 31,
-    .species = SPECIES_ROSELIA,
-    }
-};
-static const struct TrainerMon sParty_Rose5[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 34,
+    .lvl = 13,
     .species = SPECIES_BRELOOM,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 34,
-    .species = SPECIES_GLOOM,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 34,
-    .species = SPECIES_ROSELIA,
+    .heldItem = ITEM_BLACK_BELT,
+    .ability = ABILITY_TECHNICIAN,
+    .ev = TRAINER_PARTY_EVS(100, 200, 0, 0, 0, 200),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_BULLET_SEED, MOVE_MACH_PUNCH, MOVE_SPORE, MOVE_FOCUS_PUNCH}
     }
 };
-
-static const struct TrainerMon sParty_Wade[] = {
+static const struct TrainerMon sParty_Rose_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_ROSELIA,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_POISON_POINT,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_LEAF_STORM, MOVE_TOXIC_SPIKES, MOVE_SPIKES, MOVE_VENOSHOCK}
+    },
     {
     .lvl = 16,
-    .species = SPECIES_TENTACOOL,
+    .species = SPECIES_DOLLIV,
+    .heldItem = ITEM_STARF_BERRY,
+    .ability = ABILITY_HARVEST,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_GIGA_DRAIN, MOVE_SWIFT, MOVE_STRENGTH_SAP, MOVE_EARTH_POWER}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SHROOMISH,
+    .heldItem = ITEM_MIRACLE_SEED,
+    .ability = ABILITY_TECHNICIAN,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_BULLET_SEED, MOVE_HEADBUTT, MOVE_SPORE, MOVE_LEECH_SEED}
     }
 };
 
+//Fisherman Wade: threshold 3
+static const struct TrainerMon sParty_Wade[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_MILOTIC,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_COMPETITIVE,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_MUDDY_WATER, MOVE_TOXIC, MOVE_RECOVER, MOVE_BLIZZARD}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_LUMINEON,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_DAZZLING,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_TAILWIND, MOVE_RAIN_DANCE, MOVE_CHILLING_WATER, MOVE_ICY_WIND}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_LUVDISC,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SOUL_HEART,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_DRAINING_KISS, MOVE_MOONBLAST}
+    }
+};
+static const struct TrainerMon sParty_Wade_easy[] = {
+    {
+    .lvl = 11,
+    .species = SPECIES_MILOTIC,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_COMPETITIVE,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_MUDDY_WATER, MOVE_TOXIC, MOVE_RECOVER, MOVE_BLIZZARD}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_FINNEON,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_DAZZLING,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_TAILWIND, MOVE_RAIN_DANCE, MOVE_CHILLING_WATER, MOVE_ICY_WIND}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_LUVDISC,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SOUL_HEART,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_DRAINING_KISS, MOVE_MOONBLAST}
+    }
+};
+
+//Bird Keeper Chester: threshold 3
 static const struct TrainerMon sParty_Chester[] = {
     {
-    .lvl = 25,
-    .species = SPECIES_TAILLOW,
+    .lvl = 14,
+    .species = SPECIES_STARAPTOR,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_INTIMIDATE,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_DUAL_WINGBEAT, MOVE_CLOSE_COMBAT, MOVE_U_TURN, MOVE_STEEL_WING}
     },
     {
-    .lvl = 25,
-    .species = SPECIES_SWELLOW,
+    .lvl = 14,
+    .species = SPECIES_PIDGEOT,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_NO_GUARD,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_MILD,
+    .moves = {MOVE_HURRICANE, MOVE_HEAT_WAVE, MOVE_U_TURN, MOVE_ROOST}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_MURKROW,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_PRANKSTER,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_FOUL_PLAY, MOVE_THUNDER_WAVE, MOVE_U_TURN, MOVE_ROOST}
+    }
+};
+static const struct TrainerMon sParty_Chester_easy[] = {
+    {
+    .lvl = 15,
+    .species = SPECIES_STARAVIA,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_INTIMIDATE,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_DUAL_WINGBEAT, MOVE_QUICK_ATTACK, MOVE_U_TURN, MOVE_STEEL_WING}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_PIDGEOTTO,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_NO_GUARD,
+    .nature = NATURE_MILD,
+    .moves = {MOVE_AIR_SLASH, MOVE_HEAT_WAVE, MOVE_U_TURN, MOVE_ROOST}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_MURKROW,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_PRANKSTER,
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_FOUL_PLAY, MOVE_THUNDER_WAVE, MOVE_U_TURN, MOVE_ROOST}
     }
 };
 
+//Fisherman Barny: threshold 2
 static const struct TrainerMon sParty_Barny[] = {
     {
-    .lvl = 25,
-    .species = SPECIES_TENTACOOL,
+    .lvl = 16,
+    .species = SPECIES_SHARPEDO,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_SPEED_BOOST,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_ICE_FANG, MOVE_CRUNCH, MOVE_POISON_FANG, MOVE_LIQUIDATION}
     },
     {
-    .lvl = 25,
+    .lvl = 16,
+    .species = SPECIES_FERALIGATR,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_SHEER_FORCE,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_ICE_PUNCH, MOVE_LIQUIDATION, MOVE_DRAGON_DANCE, MOVE_TRAILBLAZE}
+    }
+};
+static const struct TrainerMon sParty_Barny_easy[] = {
+    {
+    .lvl = 16,
     .species = SPECIES_CARVANHA,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_SPEED_BOOST,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_ICE_FANG, MOVE_CRUNCH, MOVE_POISON_FANG, MOVE_WATERFALL}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_CROCONAW,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_SHEER_FORCE,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_ICE_PUNCH, MOVE_WATERFALL, MOVE_DRAGON_DANCE, MOVE_TRAILBLAZE}
     }
 };
 
-//Dalton
-static const struct TrainerMon sParty_Dalton1[] = {
+//Guitarist Dalton: threshold 3
+static const struct TrainerMon sParty_Dalton[] = {
     {
-    .lvl = 15,
-    .species = SPECIES_MAGNEMITE,
+    .lvl = 14,
+    .species = SPECIES_CHATOT,
+    .heldItem = ITEM_THROAT_SPRAY,
+    .ability = ABILITY_PUNK_ROCK,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_BOOMBURST, MOVE_CHATTER, MOVE_PARTING_SHOT, MOVE_ROOST}
     },
     {
-    .lvl = 15,
-    .species = SPECIES_WHISMUR,
-    }
-};
-static const struct TrainerMon sParty_Dalton2[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_MAGNEMITE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_WHISMUR,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_MAGNEMITE,
-    }
-};
-static const struct TrainerMon sParty_Dalton3[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 28,
-    .species = SPECIES_MAGNEMITE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 28,
-    .species = SPECIES_LOUDRED,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 28,
-    .species = SPECIES_MAGNEMITE,
-    }
-};
-static const struct TrainerMon sParty_Dalton4[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 31,
-    .species = SPECIES_MAGNETON,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 31,
-    .species = SPECIES_LOUDRED,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 31,
-    .species = SPECIES_MAGNETON,
-    }
-};
-static const struct TrainerMon sParty_Dalton5[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 34,
-    .species = SPECIES_MAGNETON,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 34,
+    .lvl = 14,
     .species = SPECIES_EXPLOUD,
+    .heldItem = ITEM_CHOICE_SCARF,
+    .ability = ABILITY_SCRAPPY,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_BOOMBURST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 34,
-    .species = SPECIES_MAGNETON,
+    .lvl = 14,
+    .species = SPECIES_MAGNEZONE,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_ANALYTIC,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_QUIET,
+    .moves = {MOVE_EXPLOSION, MOVE_VOLT_SWITCH, MOVE_FLASH_CANNON, MOVE_THUNDER}
+    }
+};
+static const struct TrainerMon sParty_Dalton_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_CHATOT,
+    .heldItem = ITEM_THROAT_SPRAY,
+    .ability = ABILITY_PUNK_ROCK,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_HYPER_VOICE, MOVE_CHATTER, MOVE_PARTING_SHOT, MOVE_ROOST}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_WHISMUR,
+    .heldItem = ITEM_CHOICE_SPECS,
+    .ability = ABILITY_SCRAPPY,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_BOOMBURST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_MAGNEMITE,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_ANALYTIC,
+    .nature = NATURE_QUIET,
+    .moves = {MOVE_SELF_DESTRUCT, MOVE_VOLT_SWITCH, MOVE_FLASH_CANNON, MOVE_DISCHARGE}
     }
 };
 
+//Youngster Deandre: threshold 3
+//may double with Rose
 static const struct TrainerMon sParty_Deandre[] = {
     {
-    .lvl = 14,
+    .lvl = 13,
+    .species = SPECIES_LINOONE,
+    .heldItem = ITEM_IAPAPA_BERRY,
+    .ability = ABILITY_GLUTTONY,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_BELLY_DRUM, MOVE_STOMPING_TANTRUM, MOVE_EXTREME_SPEED, MOVE_THIEF}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_LAIRON,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_STURDY,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_CAREFUL,
+    .moves = {MOVE_METAL_BURST, MOVE_ROCK_SLIDE, MOVE_IRON_TAIL, MOVE_ROAR}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_MANECTRIC,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_INTIMIDATE,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_FLAMETHROWER, MOVE_THUNDERBOLT, MOVE_AURORA_BEAM, MOVE_VOLT_SWITCH}
+    }
+};
+static const struct TrainerMon sParty_Deandre_easy[] = {
+    {
+    .lvl = 13,
     .species = SPECIES_ZIGZAGOON,
+    .heldItem = ITEM_IAPAPA_BERRY,
+    .ability = ABILITY_GLUTTONY,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_BELLY_DRUM, MOVE_STOMPING_TANTRUM, MOVE_EXTREME_SPEED, MOVE_THIEF}
     },
     {
-    .lvl = 14,
+    .lvl = 13,
     .species = SPECIES_ARON,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_STURDY,
+    .nature = NATURE_CAREFUL,
+    .moves = {MOVE_METAL_BURST, MOVE_ROCK_SLIDE, MOVE_IRON_TAIL, MOVE_ROAR}
     },
     {
-    .lvl = 14,
+    .lvl = 13,
     .species = SPECIES_ELECTRIKE,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_INTIMIDATE,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_FLAMETHROWER, MOVE_THUNDERBOLT, MOVE_AURORA_BEAM, MOVE_VOLT_SWITCH}
     }
 };
 
 
-//ROUTE 119 TRAINERS
+//ROUTE 119 MIMIC CIRCLE BUG FOLKS (done)
+//The Bug Catchers EV as if they were also Bug Maniacs (252/252 spreads)
 
-//MIMIC CIRCLE BUG FOLKS
+//Bug Catcher Greg: threshold 3
 static const struct TrainerMon sParty_Greg[] = {
     {
-    .lvl = 25,
-    .species = SPECIES_VOLBEAT,
+    .lvl = 15,
+    .species = SPECIES_ILLUMISE,
+    .heldItem = ITEM_CHOICE_SCARF,
+    .ability = ABILITY_TINTED_LENS,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_U_TURN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
-    .lvl = 25,
-    .species = SPECIES_ILLUMISE,
+    .lvl = 15,
+    .species = SPECIES_VOLBEAT,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_PRANKSTER,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 252, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_TAIL_GLOW, MOVE_THUNDER, MOVE_BUG_BUZZ, MOVE_THUNDER_WAVE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_ESCAVALIER,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_SWARM,
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_MEGAHORN, MOVE_IRON_HEAD, MOVE_DRILL_RUN, MOVE_RAZOR_SHELL}
     }
 };
+static const struct TrainerMon sParty_Greg_easy[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_ILLUMISE,
+    .heldItem = ITEM_CHOICE_SCARF,
+    .ability = ABILITY_TINTED_LENS,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_U_TURN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_VOLBEAT,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_PRANKSTER,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_TAIL_GLOW, MOVE_THUNDER, MOVE_BUG_BUZZ, MOVE_THUNDER_WAVE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_KARRABLAST,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_SWARM,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_MEGAHORN, MOVE_KNOCK_OFF, MOVE_DRILL_RUN, MOVE_POISON_JAB}
+    }
+};
+
+//Bug Maniac Taylor: threshold 3
 static const struct TrainerMon sParty_Taylor[] = {
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 27,
-    .species = SPECIES_WURMPLE,
+    .lvl = 16,
+    .species = SPECIES_BEAUTIFLY,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_BERSERK,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_QUIVER_DANCE, MOVE_GIGA_DRAIN, MOVE_AIR_SLASH, MOVE_STUN_SPORE}
     },
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 27,
-    .species = SPECIES_CASCOON,
+    .lvl = 16,
+    .species = SPECIES_BEEDRILL,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_BERSERK,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_U_TURN, MOVE_POISON_JAB, MOVE_DRILL_RUN, MOVE_FELL_STINGER}
     },
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 27,
-    .species = SPECIES_DUSTOX,
+    .lvl = 14,
+    .species = SPECIES_SCIZOR,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_TECHNICIAN,
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_BULLET_PUNCH, MOVE_BUG_BITE, MOVE_U_TURN, MOVE_AERIAL_ACE}
     }
 };
+static const struct TrainerMon sParty_Taylor_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_BEAUTIFLY,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_BERSERK,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_QUIVER_DANCE, MOVE_GIGA_DRAIN, MOVE_AIR_SLASH, MOVE_STUN_SPORE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_BEEDRILL,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_BERSERK,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_U_TURN, MOVE_POISON_JAB, MOVE_DRILL_RUN, MOVE_FELL_STINGER}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_SCIZOR,
+    .heldItem = ITEM_OCCA_BERRY,
+    .ability = ABILITY_TECHNICIAN,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_BULLET_PUNCH, MOVE_BUG_BITE, MOVE_U_TURN, MOVE_AERIAL_ACE}
+    }
+};
+
+//Bug Maniac Donald: threshold 3
 static const struct TrainerMon sParty_Donald[] = {
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 24,
-    .species = SPECIES_WURMPLE,
+    .lvl = 16,
+    .species = SPECIES_DUSTOX,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_SHIELD_DUST,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_INFESTATION, MOVE_TOXIC, MOVE_VENOSHOCK, MOVE_SILVER_WIND}
     },
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 24,
-    .species = SPECIES_SILCOON,
+    .lvl = 16,
+    .species = SPECIES_BUTTERFREE,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_COMPOUND_EYES,
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 252, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_SLEEP_POWDER, MOVE_QUIVER_DANCE, MOVE_BUG_BUZZ, MOVE_HURRICANE}
     },
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 24,
-    .species = SPECIES_BEAUTIFLY,
+    .lvl = 14,
+    .species = SPECIES_SCYTHER,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_TECHNICIAN,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_DUAL_WINGBEAT, MOVE_TRAILBLAZE, MOVE_U_TURN, MOVE_SWORDS_DANCE}
     }
 };
+static const struct TrainerMon sParty_Donald_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_DUSTOX,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_SHIELD_DUST,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_INFESTATION, MOVE_TOXIC, MOVE_VENOSHOCK, MOVE_SILVER_WIND}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_BUTTERFREE,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_COMPOUND_EYES,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_SLEEP_POWDER, MOVE_QUIVER_DANCE, MOVE_BUG_BUZZ, MOVE_HURRICANE}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_SCYTHER,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_TECHNICIAN,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_DUAL_WINGBEAT, MOVE_TRAILBLAZE, MOVE_U_TURN, MOVE_SWORDS_DANCE}
+    }
+};
+
+//Bug Maniac Brent: threshold 3
 static const struct TrainerMon sParty_Brent[] = {
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 26,
-    .species = SPECIES_SURSKIT,
+    .lvl = 16,
+    .species = SPECIES_SHUCKLE,
+    .heldItem = ITEM_CUSTAP_BERRY,
+    .ability = ABILITY_STURDY,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 0),
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_STICKY_WEB, MOVE_FINAL_GAMBIT, MOVE_ROCK_TOMB, MOVE_STEALTH_ROCK}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_MASQUERAIN,
+    .heldItem = ITEM_WISE_GLASSES,
+    .ability = ABILITY_INTIMIDATE,
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 252, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_BLIZZARD, MOVE_MUD_SHOT, MOVE_FOUL_PLAY}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_LOKIX,
+    .heldItem = ITEM_MUSCLE_BAND,
+    .ability = ABILITY_TINTED_LENS,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_FIRST_IMPRESSION, MOVE_AXE_KICK, MOVE_SUCKER_PUNCH, MOVE_LEECH_LIFE}
     }
 };
+static const struct TrainerMon sParty_Brent_easy[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_SHUCKLE,
+    .heldItem = ITEM_CUSTAP_BERRY,
+    .ability = ABILITY_STURDY,
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_STICKY_WEB, MOVE_INFESTATION, MOVE_ROCK_TOMB, MOVE_STEALTH_ROCK}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_SURSKIT,
+    .heldItem = ITEM_WISE_GLASSES,
+    .ability = ABILITY_SWIFT_SWIM,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_BUBBLE_BEAM, MOVE_ICY_WIND, MOVE_MUD_SHOT, MOVE_SKITTER_SMACK}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_NYMBLE,
+    .heldItem = ITEM_MUSCLE_BAND,
+    .ability = ABILITY_TINTED_LENS,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_FIRST_IMPRESSION, MOVE_DOUBLE_KICK, MOVE_SUCKER_PUNCH, MOVE_LEECH_LIFE}
+    }
+};
+
+//Bug Catcher Doug: threshold 2
 static const struct TrainerMon sParty_Doug[] = {
     {
-    .lvl = 28,
-    .species = SPECIES_NINCADA,
+    .lvl = 16,
+    .species = SPECIES_NINJASK,
+    .heldItem = ITEM_CHOICE_BAND,
+    .ability = ABILITY_INFILTRATOR,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_U_TURN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
-    .lvl = 28,
-    .species = SPECIES_NINJASK,
+    .lvl = 16,
+    .species = SPECIES_SHEDINJA,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_WONDER_GUARD,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SHADOW_CLAW, MOVE_SHADOW_SNEAK, MOVE_WILL_O_WISP, MOVE_LEECH_LIFE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SHEDINJA,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_WONDER_GUARD,
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 252, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_SHADOW_BALL, MOVE_GIGA_DRAIN, MOVE_TOXIC, MOVE_SILVER_WIND}
     }
 };
+static const struct TrainerMon sParty_Doug_easy[] = {
+    {
+    .lvl = 12,
+    .species = SPECIES_NINJASK,
+    .heldItem = ITEM_CHOICE_BAND,
+    .ability = ABILITY_INFILTRATOR,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_U_TURN, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_SHEDINJA,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_WONDER_GUARD,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SHADOW_CLAW, MOVE_SHADOW_SNEAK, MOVE_WILL_O_WISP, MOVE_LEECH_LIFE}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_SHEDINJA,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_WONDER_GUARD,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_SHADOW_BALL, MOVE_GIGA_DRAIN, MOVE_TOXIC, MOVE_SILVER_WIND}
+    }
+};
+
+//Bug Catcher Kent: threshold 3
 static const struct TrainerMon sParty_Kent[] = {
     {
-    .lvl = 25,
-    .species = SPECIES_NINJASK,
+    .lvl = 15,
+    .species = SPECIES_GALVANTULA,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_COMPOUND_EYES,
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 252, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_VOLT_SWITCH, MOVE_THUNDER, MOVE_STICKY_WEB, MOVE_BUG_BUZZ}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_LEAVANNY,
+    .heldItem = ITEM_SCOPE_LENS,
+    .ability = ABILITY_SHARPNESS,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_LEAF_BLADE, MOVE_X_SCISSOR, MOVE_SHADOW_CLAW, MOVE_AERIAL_ACE}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_RIBOMBEE,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SHIELD_DUST,
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 252, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_MOONBLAST, MOVE_DRAINING_KISS, MOVE_QUIVER_DANCE, MOVE_BUG_BUZZ}
+    }
+};
+static const struct TrainerMon sParty_Kent_easy[] = {
+    {
+    .lvl = 15,
+    .species = SPECIES_JOLTIK,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_COMPOUND_EYES,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_VOLT_SWITCH, MOVE_THUNDER, MOVE_STICKY_WEB, MOVE_BUG_BUZZ}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SEWADDLE,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_OVERCOAT,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_RAZOR_LEAF, MOVE_BUG_BITE, MOVE_FACADE, MOVE_IRON_DEFENSE}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_CUTIEFLY,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SHIELD_DUST,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_MOONBLAST, MOVE_DRAINING_KISS, MOVE_QUIVER_DANCE, MOVE_BUG_BUZZ}
     }
 };
 
-//Jackson
-static const struct TrainerMon sParty_Jackson1[] = {
+
+//OTHER ROUTE 119 TRAINERS
+
+//Ranger-M Jackson: threshold 3
+static const struct TrainerMon sParty_Jackson[] = {
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 27,
+    .lvl = 14,
     .species = SPECIES_BRELOOM,
-    }
-};
-static const struct TrainerMon sParty_Jackson2[] = {
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_TECHNICIAN,
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SPORE, MOVE_LEECH_SEED, MOVE_SEED_BOMB, MOVE_MACH_PUNCH}
+    },
     {
-    .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
-    .lvl = 31,
-    .species = SPECIES_BRELOOM,
-    }
-};
-static const struct TrainerMon sParty_Jackson3[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 34,
-    .species = SPECIES_BRELOOM,
-    }
-};
-static const struct TrainerMon sParty_Jackson4[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 37,
-    .species = SPECIES_BRELOOM,
-    }
-};
-static const struct TrainerMon sParty_Jackson5[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(10, 10, 10, 10, 10, 10),
-    .lvl = 39,
+    .lvl = 14,
     .species = SPECIES_KECLEON,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_PROTEAN,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_FOUL_PLAY, MOVE_SHADOW_SNEAK, MOVE_DRAIN_PUNCH, MOVE_IRON_TAIL}
     },
     {
-    .iv = TRAINER_PARTY_IVS(10, 10, 10, 10, 10, 10),
-    .lvl = 39,
+    .lvl = 14,
+    .species = SPECIES_VILEPLUME,
+    .heldItem = ITEM_COBA_BERRY,
+    .ability = ABILITY_EFFECT_SPORE,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 252, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_ENERGY_BALL, MOVE_WEATHER_BALL, MOVE_STRENGTH_SAP}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_CASTFORM,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_FORECAST,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 252, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_WEATHER_BALL, MOVE_HURRICANE, MOVE_THUNDER, MOVE_BLIZZARD}
+    }
+};
+static const struct TrainerMon sParty_Jackson_easy[] = {
+    {
+    .lvl = 14,
     .species = SPECIES_BRELOOM,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_TECHNICIAN,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SPORE, MOVE_LEECH_SEED, MOVE_SEED_BOMB, MOVE_MACH_PUNCH}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_KECLEON,
+    .heldItem = ITEM_CHOPLE_BERRY,
+    .ability = ABILITY_PROTEAN,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_FOUL_PLAY, MOVE_SHADOW_SNEAK, MOVE_DRAIN_PUNCH, MOVE_IRON_TAIL}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_GLOOM,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_EFFECT_SPORE,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_ENERGY_BALL, MOVE_WEATHER_BALL, MOVE_STRENGTH_SAP}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_CASTFORM,
+    .heldItem = ITEM_ZOOM_LENS,
+    .ability = ABILITY_FORECAST,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_WEATHER_BALL, MOVE_HURRICANE, MOVE_THUNDER, MOVE_BLIZZARD}
     }
 };
 
-//Catherine
-static const struct TrainerMon sParty_Catherine1[] = {
+//Ranger-F Catherine: threshold 3
+static const struct TrainerMon sParty_Catherine[] = {
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 26,
-    .species = SPECIES_GLOOM,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 26,
-    .species = SPECIES_ROSELIA,
-    }
-};
-static const struct TrainerMon sParty_Catherine2[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
-    .lvl = 30,
-    .species = SPECIES_GLOOM,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(7, 7, 7, 7, 7, 7),
-    .lvl = 30,
-    .species = SPECIES_ROSELIA,
-    }
-};
-static const struct TrainerMon sParty_Catherine3[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 33,
-    .species = SPECIES_GLOOM,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(8, 8, 8, 8, 8, 8),
-    .lvl = 33,
-    .species = SPECIES_ROSELIA,
-    }
-};
-static const struct TrainerMon sParty_Catherine4[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 36,
-    .species = SPECIES_GLOOM,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(9, 9, 9, 9, 9, 9),
-    .lvl = 36,
-    .species = SPECIES_ROSELIA,
-    }
-};
-static const struct TrainerMon sParty_Catherine5[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(10, 10, 10, 10, 10, 10),
-    .lvl = 39,
+    .lvl = 14,
     .species = SPECIES_BELLOSSOM,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_DANCER,
+    .ev = TRAINER_PARTY_EVS(170, 0, 0, 170, 170, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_WEATHER_BALL, MOVE_GIGA_DRAIN, MOVE_QUIVER_DANCE, MOVE_MOONBLAST}
     },
     {
-    .iv = TRAINER_PARTY_IVS(10, 10, 10, 10, 10, 10),
-    .lvl = 39,
-    .species = SPECIES_ROSELIA,
+    .lvl = 14,
+    .species = SPECIES_RAICHU,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_RASH,
+    .moves = {MOVE_THUNDER, MOVE_NUZZLE, MOVE_IRON_TAIL, MOVE_SURF}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_EXCADRILL,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_MOLD_BREAKER,
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_IRON_HEAD, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_RAPID_SPIN}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_LILLIGANT_HISUIAN,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_HUSTLE,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_VICTORY_DANCE, MOVE_LEAF_BLADE, MOVE_AXE_KICK, MOVE_TRIPLE_AXEL}
+    }
+};
+static const struct TrainerMon sParty_Catherine_easy[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_BELLOSSOM,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_DANCER,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_WEATHER_BALL, MOVE_MEGA_DRAIN, MOVE_QUIVER_DANCE, MOVE_DAZZLING_GLEAM}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_RAICHU,
+    .heldItem = ITEM_NONE,
+    .ability = ABILITY_NONE,
+    .nature = NATURE_RASH,
+    .moves = {MOVE_THUNDERBOLT, MOVE_NUZZLE, MOVE_IRON_TAIL, MOVE_SURF}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_DRILBUR,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_MOLD_BREAKER,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_AERIAL_ACE, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_RAPID_SPIN}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_LILLIGANT_HISUIAN,
+    .heldItem = ITEM_BLUNDER_POLICY,
+    .ability = ABILITY_HUSTLE,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_VICTORY_DANCE, MOVE_LEAF_BLADE, MOVE_AXE_KICK, MOVE_TRIPLE_AXEL}
     }
 };
 
+//Ninja Boy Yasu: threshold 2
+//may double with Hugh
 static const struct TrainerMon sParty_Yasu[] = {
     {
-    .lvl = 26,
-    .species = SPECIES_NINJASK,
+    .lvl = 15,
+    .species = SPECIES_ZEBSTRIKA,
+    .heldItem = ITEM_MAGNET,
+    .ability = ABILITY_SAP_SIPPER,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_VOLT_TACKLE, MOVE_HIGH_HORSEPOWER, MOVE_OVERHEAT, MOVE_BULLDOZE}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_STUNFISK_GALARIAN,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_STAKEOUT,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SNAP_TRAP, MOVE_EARTHQUAKE, MOVE_MUDDY_WATER, MOVE_ROCK_SLIDE}
+    }
+};
+static const struct TrainerMon sParty_Yasu_easy[] = {
+    {
+    .lvl = 15,
+    .species = SPECIES_BLITZLE,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_SAP_SIPPER,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_VOLT_TACKLE, MOVE_TRAILBLAZE, MOVE_FLAME_CHARGE, MOVE_SMART_STRIKE}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_STUNFISK_GALARIAN,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_STAKEOUT,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SNAP_TRAP, MOVE_EARTHQUAKE, MOVE_MUDDY_WATER, MOVE_ROCK_SLIDE}
     }
 };
 
+//Ninja Boy Takashi: threshold 2
+//may double with Dayton
 static const struct TrainerMon sParty_Takashi[] = {
     {
-    .lvl = 25,
-    .species = SPECIES_NINJASK,
+    .lvl = 15,
+    .species = SPECIES_NINETALES,
+    .heldItem = ITEM_HEAT_ROCK,
+    .ability = ABILITY_DROUGHT,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_DAZZLING_GLEAM, MOVE_SCORCHING_SANDS, MOVE_HEAT_WAVE, MOVE_FOUL_PLAY}
     },
     {
-    .lvl = 25,
-    .species = SPECIES_KOFFING,
+    .lvl = 15,
+    .species = SPECIES_NIDOKING,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_SHEER_FORCE,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_THUNDERBOLT, MOVE_EARTH_POWER, MOVE_ICE_BEAM}
+    }
+};
+static const struct TrainerMon sParty_Takashi_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_NINETALES,
+    .heldItem = ITEM_HEAT_ROCK,
+    .ability = ABILITY_DROUGHT,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_DAZZLING_GLEAM, MOVE_SCORCHING_SANDS, MOVE_HEAT_WAVE, MOVE_FOUL_PLAY}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_NIDOKING,
+    .heldItem = ITEM_LUM_BERRY,
+    .ability = ABILITY_SHEER_FORCE,
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_THUNDERBOLT, MOVE_EARTH_POWER, MOVE_BODY_SLAM}
     }
 };
 
+//Bird Keeper Hugh: threshold 2
+//may double with Yasu
 static const struct TrainerMon sParty_Hugh[] = {
     {
-    .lvl = 25,
-    .species = SPECIES_WINGULL,
+    .lvl = 16,
+    .species = SPECIES_TROPIUS,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_HARVEST,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .moves = {MOVE_LEAF_TORNADO, MOVE_AIR_SLASH, MOVE_U_TURN, MOVE_STOMPING_TANTRUM}
     },
     {
-    .lvl = 25,
+    .lvl = 16,
+    .species = SPECIES_HAWLUCHA,
+    .heldItem = ITEM_ELECTRIC_SEED,
+    .ability = ABILITY_UNBURDEN,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .moves = {MOVE_ACROBATICS, MOVE_SWORDS_DANCE, MOVE_FLYING_PRESS, MOVE_THUNDER_PUNCH}
+    }
+};
+static const struct TrainerMon sParty_Hugh_easy[] = {
+    {
+    .lvl = 14,
     .species = SPECIES_TROPIUS,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_HARVEST,
+    .moves = {MOVE_LEAF_TORNADO, MOVE_AIR_SLASH, MOVE_U_TURN, MOVE_STOMPING_TANTRUM}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_HAWLUCHA,
+    .heldItem = ITEM_ELECTRIC_SEED,
+    .ability = ABILITY_UNBURDEN,
+    .moves = {MOVE_ACROBATICS, MOVE_SWORDS_DANCE, MOVE_FLYING_PRESS, MOVE_THUNDER_PUNCH}
     }
 };
 
+//Bird Keeper Phil: threshold 2
+//may double with Rachel
 static const struct TrainerMon sParty_Phil[] = {
     {
-    .lvl = 26,
+    .lvl = 16,
+    .species = SPECIES_KILOWATTREL,
+    .heldItem = ITEM_WISE_GLASSES,
+    .ability = ABILITY_COMPETITIVE,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_ELECTROWEB, MOVE_AIR_CUTTER, MOVE_U_TURN, MOVE_WEATHER_BALL}
+    },
+    {
+    .lvl = 16,
     .species = SPECIES_SWELLOW,
+    .heldItem = ITEM_FLAME_ORB,
+    .ability = ABILITY_GUTS,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_FACADE, MOVE_STEEL_WING, MOVE_BRAVE_BIRD, MOVE_QUICK_ATTACK}
+    }
+};
+static const struct TrainerMon sParty_Phil_easy[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_WATTREL,
+    .heldItem = ITEM_WISE_GLASSES,
+    .ability = ABILITY_COMPETITIVE,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_ELECTROWEB, MOVE_AIR_CUTTER, MOVE_U_TURN, MOVE_WEATHER_BALL}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_TAILLOW,
+    .heldItem = ITEM_FLAME_ORB,
+    .ability = ABILITY_GUTS,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_FACADE, MOVE_STEEL_WING, MOVE_BRAVE_BIRD, MOVE_QUICK_ATTACK}
     }
 };
 
+//Ninja Boy Hideo: threshold 3
 static const struct TrainerMon sParty_Hideo[] = {
     {
-    .lvl = 25,
-    .species = SPECIES_KOFFING,
-    .moves = {MOVE_TACKLE, MOVE_SELF_DESTRUCT, MOVE_SLUDGE, MOVE_SMOKESCREEN}
+    .lvl = 14,
+    .species = SPECIES_SUDOWOODO,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_ROCK_HEAD,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_WOOD_HAMMER, MOVE_HEAD_SMASH, MOVE_STEALTH_ROCK, MOVE_DRAIN_PUNCH}
     },
     {
-    .lvl = 25,
-    .species = SPECIES_KOFFING,
-    .moves = {MOVE_TACKLE, MOVE_POISON_GAS, MOVE_SLUDGE, MOVE_SMOKESCREEN}
+    .lvl = 14,
+    .species = SPECIES_SAWSBUCK_SUMMER,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_SERENE_GRACE,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_HORN_LEECH, MOVE_BODY_SLAM, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_QWILFISH,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_SWIFT_SWIM,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_POISON_JAB, MOVE_LIQUIDATION, MOVE_SPIKES, MOVE_EXPLOSION}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_TREVENANT,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_HARVEST,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_WILL_O_WISP, MOVE_DESTINY_BOND, MOVE_HORN_LEECH, MOVE_PHANTOM_FORCE}
+    }
+};
+static const struct TrainerMon sParty_Hideo_easy[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_SUDOWOODO,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_ROCK_HEAD,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_WOOD_HAMMER, MOVE_HEAD_SMASH, MOVE_STEALTH_ROCK, MOVE_DRAIN_PUNCH}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_DEERLING_SUMMER,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_SERENE_GRACE,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_SEED_BOMB, MOVE_BODY_SLAM, MOVE_ZEN_HEADBUTT, MOVE_WILD_CHARGE}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_QWILFISH,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_SWIFT_SWIM,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_POISON_JAB, MOVE_LIQUIDATION, MOVE_SPIKES, MOVE_EXPLOSION}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_TREVENANT,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_HARVEST,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_WILL_O_WISP, MOVE_DESTINY_BOND, MOVE_HORN_LEECH, MOVE_PHANTOM_FORCE}
     }
 };
 
+//Fisherman Chris: threshold 3
 static const struct TrainerMon sParty_Chris[] = {
     {
-    .lvl = 29,
-    .species = SPECIES_MAGIKARP,
+    .lvl = 14,
+    .species = SPECIES_SHARPEDO,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_SPEED_BOOST,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_CRUNCH, MOVE_LIQUIDATION, MOVE_POISON_FANG, MOVE_ICE_FANG}
     },
     {
-    .lvl = 20,
-    .species = SPECIES_TENTACOOL,
+    .lvl = 14,
+    .species = SPECIES_MILOTIC,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_MARVEL_SCALE,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_ICE_BEAM, MOVE_RECOVER, MOVE_TOXIC, MOVE_DRAGON_TAIL}
     },
     {
-    .lvl = 26,
-    .species = SPECIES_FEEBAS,
-    },
+    .lvl = 14,
+    .species = SPECIES_BARRASKEWDA,
+    .heldItem = ITEM_MYSTIC_WATER,
+    .ability = ABILITY_SWIFT_SWIM,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_AQUA_JET, MOVE_LIQUIDATION, MOVE_CLOSE_COMBAT, MOVE_DRILL_RUN}
+    }
+};
+static const struct TrainerMon sParty_Chris_easy[] = {
     {
-    .lvl = 23,
+    .lvl = 15,
     .species = SPECIES_CARVANHA,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_SPEED_BOOST,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_CRUNCH, MOVE_WATERFALL, MOVE_POISON_FANG, MOVE_ICE_FANG}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_MILOTIC,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_MARVEL_SCALE,
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_ICE_BEAM, MOVE_RECOVER, MOVE_TOXIC, MOVE_DRAGON_TAIL}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_ARROKUDA,
+    .heldItem = ITEM_MYSTIC_WATER,
+    .ability = ABILITY_SWIFT_SWIM,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_AQUA_JET, MOVE_LIQUIDATION, MOVE_CLOSE_COMBAT, MOVE_DRILL_RUN}
     }
 };
 
+//Parasol Lady Rachel: threshold 3
+//may double with Phil
 static const struct TrainerMon sParty_Rachel[] = {
     {
-    .lvl = 26,
-    .species = SPECIES_GOLDEEN,
-    }
-};
-
-static const struct TrainerMon sParty_Dayton[] = {
-    {
-    .lvl = 25,
-    .species = SPECIES_SLUGMA,
+    .lvl = 14,
+    .species = SPECIES_SEAKING,
+    .heldItem = ITEM_CLEAR_AMULET,
+    .ability = ABILITY_SWIFT_SWIM,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_FISHIOUS_REND, MOVE_DRILL_RUN, MOVE_MEGAHORN, MOVE_POISON_JAB}
     },
     {
-    .lvl = 25,
-    .species = SPECIES_NUMEL,
+    .lvl = 14,
+    .species = SPECIES_TOXICROAK,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_DRY_SKIN,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_ICE_PUNCH, MOVE_DRAIN_PUNCH, MOVE_ROCK_SLIDE, MOVE_POISON_JAB}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_PARASECT,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_DRY_SKIN,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .nature = NATURE_IMPISH,
+    .moves = {MOVE_LEECH_LIFE, MOVE_SPORE, MOVE_KNOCK_OFF, MOVE_SWORDS_DANCE}
+    }
+};
+static const struct TrainerMon sParty_Rachel_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_GOLDEEN,
+    .heldItem = ITEM_CLEAR_AMULET,
+    .ability = ABILITY_SWIFT_SWIM,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_WATERFALL, MOVE_DRILL_RUN, MOVE_MEGAHORN, MOVE_POISON_JAB}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_CROAGUNK,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_DRY_SKIN,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_ICE_PUNCH, MOVE_DRAIN_PUNCH, MOVE_ROCK_SLIDE, MOVE_POISON_JAB}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_PARAS,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_DRY_SKIN,
+    .nature = NATURE_IMPISH,
+    .moves = {MOVE_LEECH_LIFE, MOVE_SPORE, MOVE_KNOCK_OFF, MOVE_SWORDS_DANCE}
     }
 };
 
+//Kindler Dayton: threshold 3
+//may double with Takashi
+static const struct TrainerMon sParty_Dayton[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_COALOSSAL,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_STEAM_ENGINE,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_MILD,
+    .moves = {MOVE_BURN_UP, MOVE_ROCK_SLIDE, MOVE_HEAT_WAVE, MOVE_SOLAR_BEAM}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_TOUCANNON,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_SHEER_FORCE,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_RASH,
+    .moves = {MOVE_AIR_SLASH, MOVE_BULLET_SEED, MOVE_HEAT_WAVE, MOVE_GUNK_SHOT}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_OCTILLERY,
+    .heldItem = ITEM_SCOPE_LENS,
+    .ability = ABILITY_SNIPER,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_OCTAZOOKA, MOVE_FIRE_BLAST, MOVE_ICY_WIND, MOVE_CHARGE_BEAM}
+    }
+};
+static const struct TrainerMon sParty_Dayton_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_CARKOL,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_STEAM_ENGINE,
+    .nature = NATURE_MILD,
+    .moves = {MOVE_BURN_UP, MOVE_ROCK_SLIDE, MOVE_HEAT_WAVE, MOVE_SOLAR_BEAM}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_TRUMBEAK,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_SKILL_LINK,
+    .nature = NATURE_RASH,
+    .moves = {MOVE_DRILL_PECK, MOVE_BULLET_SEED, MOVE_HEAT_WAVE, MOVE_GUNK_SHOT}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_REMORAID,
+    .heldItem = ITEM_SCOPE_LENS,
+    .ability = ABILITY_SNIPER,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_OCTAZOOKA, MOVE_FIRE_BLAST, MOVE_ICY_WIND, MOVE_CHARGE_BEAM}
+    }
+};
+
+//Guitarist Fabian: threshold 3
+//mini-boss guarding Thunder TM
+//will always be thunderstorm
 static const struct TrainerMon sParty_Fabian[] = {
     {
-    .lvl = 26,
-    .species = SPECIES_MANECTRIC,
+    .lvl = 16,
+    .species = SPECIES_RAICHU_ALOLAN,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_SURGE_SURFER,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_RISING_VOLTAGE, MOVE_PSYSHOCK, MOVE_SURF, MOVE_GRASS_KNOT}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_PELIPPER,
+    .heldItem = ITEM_DAMP_ROCK,
+    .ability = ABILITY_DRIZZLE,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_NAIVE,
+    .moves = {MOVE_HURRICANE, MOVE_HYDRO_PUMP, MOVE_U_TURN, MOVE_TAILWIND}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_PINCURCHIN,
+    .heldItem = ITEM_TERRAIN_EXTENDER,
+    .ability = ABILITY_ELECTRIC_SURGE,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_ZING_ZAP, MOVE_POISON_JAB, MOVE_TOXIC_SPIKES, MOVE_MEMENTO}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_LUDICOLO,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SWIFT_SWIM,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_ICE_BEAM, MOVE_GRASS_KNOT, MOVE_HYDRO_PUMP, MOVE_LEECH_SEED}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_ACCELGOR,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_HYDRATION,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_REST, MOVE_BUG_BUZZ, MOVE_WATER_SHURIKEN, MOVE_VENOSHOCK}
+    }
+};
+static const struct TrainerMon sParty_Fabian_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_RAICHU_ALOLAN,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_SURGE_SURFER,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_RISING_VOLTAGE, MOVE_PSYSHOCK, MOVE_SURF, MOVE_GRASS_KNOT}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_PELIPPER,
+    .heldItem = ITEM_DAMP_ROCK,
+    .ability = ABILITY_DRIZZLE,
+    .nature = NATURE_NAIVE,
+    .moves = {MOVE_HURRICANE, MOVE_HYDRO_PUMP, MOVE_U_TURN, MOVE_TAILWIND}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_PINCURCHIN,
+    .heldItem = ITEM_TERRAIN_EXTENDER,
+    .ability = ABILITY_ELECTRIC_SURGE,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_ZING_ZAP, MOVE_POISON_JAB, MOVE_TOXIC_SPIKES, MOVE_MEMENTO}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_LUDICOLO,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SWIFT_SWIM,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_ICE_BEAM, MOVE_GRASS_KNOT, MOVE_HYDRO_PUMP, MOVE_LEECH_SEED}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_ACCELGOR,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_HYDRATION,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_REST, MOVE_BUG_BUZZ, MOVE_WATER_SHURIKEN, MOVE_VENOSHOCK}
     }
 };
 
@@ -19887,730 +21252,1641 @@ static const struct TrainerMon sParty_Fabian[] = {
 //ROUTE 120 TRAINERS
 //Gabby and Ty are listed in their own section
 
+//Bird Keeper Colin: threshold 3
 static const struct TrainerMon sParty_Colin[] = {
     {
-    .lvl = 28,
-    .species = SPECIES_WINGULL,
+    .lvl = 15,
+    .species = SPECIES_SWANNA,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_NO_GUARD,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_HURRICANE, MOVE_BLIZZARD, MOVE_HYDRO_PUMP, MOVE_ROOST}
     },
     {
-    .lvl = 28,
-    .species = SPECIES_NATU,
+    .lvl = 15,
+    .species = SPECIES_BOMBIRDIER,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_ROCKY_PAYLOAD,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_ROCK_SLIDE, MOVE_KNOCK_OFF, MOVE_HONE_CLAWS, MOVE_DUAL_WINGBEAT}
+    }
+};
+static const struct TrainerMon sParty_Colin_easy[] = {
+    {
+    .lvl = 15,
+    .species = SPECIES_DUCKLETT,
+    .heldItem = ITEM_WACAN_BERRY,
+    .ability = ABILITY_NO_GUARD,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_AIR_SLASH, MOVE_ICY_WIND, MOVE_BUBBLE_BEAM, MOVE_ROOST}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_BOMBIRDIER,
+    .heldItem = ITEM_LUM_BERRY,
+    .ability = ABILITY_ROCKY_PAYLOAD,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_ROCK_TOMB, MOVE_KNOCK_OFF, MOVE_HONE_CLAWS, MOVE_DUAL_WINGBEAT}
     }
 };
 
-//Robert
-static const struct TrainerMon sParty_Robert1[] = {
+//Bird Keeper Robert: threshold 3
+static const struct TrainerMon sParty_Robert[] = {
     {
-    .lvl = 29,
-    .species = SPECIES_SWABLU,
-    }
-};
-static const struct TrainerMon sParty_Robert2[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 32,
-    .species = SPECIES_NATU,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 32,
-    .species = SPECIES_SWABLU,
-    }
-};
-static const struct TrainerMon sParty_Robert3[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 35,
-    .species = SPECIES_NATU,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 35,
+    .lvl = 15,
     .species = SPECIES_ALTARIA,
-    }
-};
-static const struct TrainerMon sParty_Robert4[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 38,
-    .species = SPECIES_NATU,
+    .heldItem = ITEM_POWER_HERB,
+    .ability = ABILITY_CLOUD_NINE,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_DRAGON_DANCE, MOVE_EARTHQUAKE, MOVE_BRAVE_BIRD, MOVE_DRAGON_RUSH}
     },
     {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 38,
-    .species = SPECIES_ALTARIA,
-    }
-};
-static const struct TrainerMon sParty_Robert5[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 41,
-    .species = SPECIES_ALTARIA,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 41,
+    .lvl = 15,
     .species = SPECIES_XATU,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_MAGIC_BOUNCE,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_EXTRASENSORY, MOVE_AIR_SLASH, MOVE_NIGHT_SHADE, MOVE_WILL_O_WISP}
+    }
+};
+static const struct TrainerMon sParty_Robert_easy[] = {
+    {
+    .lvl = 15,
+    .species = SPECIES_SWABLU,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_CLOUD_NINE,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_TAILWIND, MOVE_COTTON_GUARD, MOVE_AERIAL_ACE, MOVE_DRAGON_RUSH}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_NATU,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_MAGIC_BOUNCE,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_EXTRASENSORY, MOVE_PLUCK, MOVE_NIGHT_SHADE, MOVE_WILL_O_WISP}
     }
 };
 
+//Ranger-M Lorenzo: threshold 3
 static const struct TrainerMon sParty_Lorenzo[] = {
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 28,
-    .species = SPECIES_SEEDOT,
+    .lvl = 14,
+    .species = SPECIES_SHIFTRY,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_WIND_RIDER,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_NAIVE,
+    .moves = {MOVE_KNOCK_OFF, MOVE_LEAF_BLADE, MOVE_HURRICANE, MOVE_SUCKER_PUNCH}
     },
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 28,
+    .lvl = 14,
+    .species = SPECIES_LUDICOLO,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_RAIN_DISH,
+    .ev = TRAINER_PARTY_EVS(170, 0, 170, 0, 0, 170),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_LEECH_SEED, MOVE_PROTECT, MOVE_GIGA_DRAIN, MOVE_SURF}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_LUDICOLO,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_SWIFT_SWIM,
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 252, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_GRASS_KNOT, MOVE_GIGA_DRAIN}
+    }
+};
+static const struct TrainerMon sParty_Lorenzo_easy[] = {
+    {
+    .lvl = 14,
     .species = SPECIES_NUZLEAF,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_EARLY_BIRD,
+    .nature = NATURE_NAIVE,
+    .moves = {MOVE_KNOCK_OFF, MOVE_LEAF_BLADE, MOVE_EXTRASENSORY, MOVE_SUCKER_PUNCH}
     },
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 28,
+    .lvl = 14,
     .species = SPECIES_LOMBRE,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_RAIN_DISH,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_LEECH_SEED, MOVE_PROTECT, MOVE_GIGA_DRAIN, MOVE_CHILLING_WATER}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_LUDICOLO,
+    .heldItem = ITEM_COBA_BERRY,
+    .ability = ABILITY_SWIFT_SWIM,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_BUBBLE_BEAM, MOVE_ICE_BEAM, MOVE_GRASS_KNOT, MOVE_TEETER_DANCE}
     }
 };
 
+//Ranger-F Jenna: threshold 3
 static const struct TrainerMon sParty_Jenna[] = {
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 28,
-    .species = SPECIES_LOTAD,
+    .lvl = 16,
+    .species = SPECIES_ORANGURU,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_INNER_FOCUS,
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_FUTURE_SIGHT, MOVE_PSYSHOCK, MOVE_FOCUS_BLAST, MOVE_THUNDER}
     },
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 28,
-    .species = SPECIES_LOMBRE,
+    .lvl = 16,
+    .species = SPECIES_APPLETUN,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_THICK_FAT,
+    .ev = TRAINER_PARTY_EVS(0, 0, 252, 0, 0, 252),
+    .nature = NATURE_CALM,
+    .moves = {MOVE_APPLE_ACID, MOVE_IRON_DEFENSE, MOVE_BODY_PRESS, MOVE_RECOVER}
+    }
+};
+static const struct TrainerMon sParty_Jenna_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_ORANGURU,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_INNER_FOCUS,
+    .moves = {MOVE_FUTURE_SIGHT, MOVE_PSYSHOCK, MOVE_BRICK_BREAK, MOVE_CHARGE_BEAM}
     },
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 28,
-    .species = SPECIES_NUZLEAF,
+    .lvl = 14,
+    .species = SPECIES_APPLETUN,
+    .heldItem = ITEM_BERRY_JUICE,
+    .ability = ABILITY_THICK_FAT,
+    .moves = {MOVE_BULLET_SEED, MOVE_CURSE, MOVE_BODY_PRESS, MOVE_LEECH_SEED}
     }
 };
 
-//Jeffrey
-static const struct TrainerMon sParty_Jeffrey1[] = {
+//Bug Maniac Jeffrey: threshold 3
+static const struct TrainerMon sParty_Jeffrey[] = {
     {
-    .lvl = 27,
-    .species = SPECIES_SURSKIT,
-    },
-    {
-    .lvl = 27,
-    .species = SPECIES_SURSKIT,
-    },
-    {
-    .lvl = 27,
-    .species = SPECIES_SURSKIT,
-    }
-};
-static const struct TrainerMon sParty_Jeffrey2[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 31,
-    .species = SPECIES_SURSKIT,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 31,
-    .species = SPECIES_SURSKIT,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 31,
-    .species = SPECIES_SURSKIT,
-    }
-};
-static const struct TrainerMon sParty_Jeffrey3[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 34,
-    .species = SPECIES_SURSKIT,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 34,
-    .species = SPECIES_SURSKIT,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 34,
+    .lvl = 14,
     .species = SPECIES_MASQUERAIN,
-    }
-};
-static const struct TrainerMon sParty_Jeffrey4[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 36,
-    .species = SPECIES_SURSKIT,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_INTIMIDATE,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_STICKY_WEB, MOVE_HYDRO_PUMP, MOVE_GIGA_DRAIN, MOVE_TAILWIND}
     },
     {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 36,
-    .species = SPECIES_WURMPLE,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 36,
-    .species = SPECIES_SURSKIT,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 36,
-    .species = SPECIES_MASQUERAIN,
-    }
-};
-static const struct TrainerMon sParty_Jeffrey5[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 38,
-    .species = SPECIES_SURSKIT,
-    .heldItem = ITEM_NONE
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 38,
+    .lvl = 14,
     .species = SPECIES_DUSTOX,
-    .heldItem = ITEM_NONE
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SHIELD_DUST,
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_TOXIC, MOVE_VENOSHOCK, MOVE_SILVER_WIND, MOVE_INFESTATION}
     },
     {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 38,
+    .lvl = 14,
+    .species = SPECIES_HERACROSS,
+    .heldItem = ITEM_TOXIC_ORB,
+    .ability = ABILITY_GUTS,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_FACADE, MOVE_MEGAHORN, MOVE_CLOSE_COMBAT, MOVE_ROCK_SLIDE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_RABSCA,
+    .heldItem = ITEM_QUICK_CLAW,
+    .ability = ABILITY_SYNCHRONIZE,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 252, 0),
+    .nature = NATURE_QUIET,
+    .moves = {MOVE_PSYCHIC, MOVE_BUG_BUZZ, MOVE_WEATHER_BALL, MOVE_RECOVER}
+    }
+};
+static const struct TrainerMon sParty_Jeffrey_easy[] = {
+    {
+    .lvl = 15,
     .species = SPECIES_SURSKIT,
-    .heldItem = ITEM_NONE
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_SWIFT_SWIM,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_STICKY_WEB, MOVE_HYDRO_PUMP, MOVE_GIGA_DRAIN, MOVE_ICY_WIND}
     },
     {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 38,
-    .species = SPECIES_MASQUERAIN,
-    .heldItem = ITEM_SILVER_POWDER
+    .lvl = 15,
+    .species = SPECIES_DUSTOX,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SHIELD_DUST,
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_TOXIC, MOVE_VENOSHOCK, MOVE_SILVER_WIND, MOVE_INFESTATION}
     },
     {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 38,
-    .species = SPECIES_BEAUTIFLY,
-    .heldItem = ITEM_NONE
+    .lvl = 13,
+    .species = SPECIES_HERACROSS,
+    .heldItem = ITEM_SILVER_POWDER,
+    .ability = ABILITY_SWARM,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_FACADE, MOVE_MEGAHORN, MOVE_BRICK_BREAK, MOVE_ROCK_SLIDE}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_RABSCA,
+    .heldItem = ITEM_QUICK_CLAW,
+    .ability = ABILITY_SYNCHRONIZE,
+    .nature = NATURE_QUIET,
+    .moves = {MOVE_EXTRASENSORY, MOVE_BUG_BUZZ, MOVE_WEATHER_BALL, MOVE_RECOVER}
     }
 };
 
+//Cooltrainer-F Jennifer: threshold 3
 static const struct TrainerMon sParty_Jennifer[] = {
     {
-    .iv = TRAINER_PARTY_IVS(24, 24, 24, 24, 24, 24),
-    .lvl = 30,
+    .lvl = 14,
     .species = SPECIES_SABLEYE,
+    .heldItem = ITEM_ROWAP_BERRY,
+    .ability = ABILITY_PRANKSTER,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_WILL_O_WISP, MOVE_FOUL_PLAY, MOVE_RECOVER, MOVE_SCREECH}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_KECLEON,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_ADAPTABILITY,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SLASH, MOVE_SHADOW_SNEAK, MOVE_DRAIN_PUNCH, MOVE_ROCK_SLIDE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_KECLEON,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_PROTEAN,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_FOUL_PLAY, MOVE_SHADOW_SNEAK, MOVE_DRAIN_PUNCH, MOVE_IRON_TAIL}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_AMPHAROS,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_MOLD_BREAKER,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 252, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_THUNDER, MOVE_THUNDERCLAP, MOVE_DRAGON_PULSE, MOVE_TAIL_GLOW}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_MILOTIC,
+    .heldItem = ITEM_FLAME_ORB,
+    .ability = ABILITY_MARVEL_SCALE,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 0, 252),
+    .nature = NATURE_CALM,
+    .moves = {MOVE_TOXIC, MOVE_RECOVER, MOVE_ICE_BEAM, MOVE_SURF}
+    }
+};
+static const struct TrainerMon sParty_Jennifer_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_SABLEYE,
+    .heldItem = ITEM_ROWAP_BERRY,
+    .ability = ABILITY_PRANKSTER,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_WILL_O_WISP, MOVE_FOUL_PLAY, MOVE_RECOVER, MOVE_SCREECH}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_KECLEON,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_ADAPTABILITY,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SLASH, MOVE_SHADOW_SNEAK, MOVE_DRAIN_PUNCH, MOVE_ROCK_SLIDE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_KECLEON,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_PROTEAN,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_FOUL_PLAY, MOVE_SHADOW_SNEAK, MOVE_DRAIN_PUNCH, MOVE_IRON_TAIL}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_FLAAFFY,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_LIGHTNING_ROD,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_THUNDER, MOVE_COTTON_GUARD, MOVE_DAZZLING_GLEAM, MOVE_TAIL_GLOW}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_MILOTIC,
+    .heldItem = ITEM_FLAME_ORB,
+    .ability = ABILITY_MARVEL_SCALE,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .nature = NATURE_CALM,
+    .moves = {MOVE_TOXIC, MOVE_RECOVER, MOVE_ICE_BEAM, MOVE_SURF}
     }
 };
 
+//Ruin Maniac Chip: threshold 3
 static const struct TrainerMon sParty_Chip[] = {
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 27,
-    .species = SPECIES_BALTOY,
-    .moves = {MOVE_PSYBEAM, MOVE_SELF_DESTRUCT, MOVE_SANDSTORM, MOVE_ANCIENT_POWER}
+    .lvl = 14,
+    .species = SPECIES_DUGTRIO_ALOLAN,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_TANGLING_HAIR,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .nature = NATURE_IMPISH,
+    .moves = {MOVE_EARTHQUAKE, MOVE_IRON_HEAD, MOVE_ROCK_SLIDE, MOVE_SUCKER_PUNCH}
     },
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 27,
-    .species = SPECIES_SANDSHREW,
-    .moves = {MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING}
+    .lvl = 14,
+    .species = SPECIES_RUNERIGUS,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_WANDERING_SPIRIT,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_EARTHQUAKE, MOVE_SHADOW_CLAW, MOVE_WILL_O_WISP, MOVE_DESTINY_BOND}
     },
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 27,
-    .species = SPECIES_SANDSLASH,
-    .moves = {MOVE_DIG, MOVE_SLASH, MOVE_SAND_ATTACK, MOVE_POISON_STING}
+    .lvl = 14,
+    .species = SPECIES_SEISMITOAD,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_SWIFT_SWIM,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .nature = NATURE_SASSY,
+    .moves = {MOVE_EARTH_POWER, MOVE_MUDDY_WATER, MOVE_DRAIN_PUNCH, MOVE_ICE_PUNCH}
+    }
+};
+static const struct TrainerMon sParty_Chip_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_DIGLETT_ALOLAN,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_TANGLING_HAIR,
+    .nature = NATURE_IMPISH,
+    .moves = {MOVE_BULLDOZE, MOVE_IRON_HEAD, MOVE_ROCK_SLIDE, MOVE_SUCKER_PUNCH}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_YAMASK_GALARIAN,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_WANDERING_SPIRIT,
+    .moves = {MOVE_EARTHQUAKE, MOVE_SHADOW_BALL, MOVE_WILL_O_WISP, MOVE_DESTINY_BOND}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_PALPITOAD,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SWIFT_SWIM,
+    .nature = NATURE_SASSY,
+    .moves = {MOVE_EARTH_POWER, MOVE_MUDDY_WATER, MOVE_HYPER_VOICE, MOVE_SLUDGE_WAVE}
     }
 };
 
+//Parasol Lady Clarissa: threshold 3
 static const struct TrainerMon sParty_Clarissa[] = {
     {
-    .lvl = 28,
-    .species = SPECIES_ROSELIA,
+    .lvl = 14,
+    .species = SPECIES_TURTONATOR,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_SHELL_ARMOR,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .nature = NATURE_BRAVE,
+    .moves = {MOVE_SHELL_TRAP, MOVE_FIRE_BLAST, MOVE_EARTHQUAKE, MOVE_EXPLOSION}
     },
     {
-    .lvl = 28,
-    .species = SPECIES_WAILMER,
+    .lvl = 14,
+    .species = SPECIES_VICTREEBEL,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_CHLOROPHYLL,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_POWER_WHIP, MOVE_POISON_JAB, MOVE_KNOCK_OFF, MOVE_LEECH_LIFE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_JELLICENT,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_CURSED_BODY,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .nature = NATURE_CALM,
+    .moves = {MOVE_SCALD, MOVE_HEX, MOVE_RECOVER, MOVE_WILL_O_WISP}
+    }
+};
+static const struct TrainerMon sParty_Clarissa_easy[] = {
+    {
+    .lvl = 12,
+    .species = SPECIES_TURTONATOR,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_SHELL_ARMOR,
+    .moves = {MOVE_FLAMETHROWER, MOVE_STOMPING_TANTRUM, MOVE_BODY_SLAM, MOVE_NONE}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_CARNIVINE,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_LEVITATE,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SEED_BOMB, MOVE_SLUDGE_BOMB, MOVE_KNOCK_OFF, MOVE_LEECH_LIFE}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_FRILLISH,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_CURSED_BODY,
+    .nature = NATURE_CALM,
+    .moves = {MOVE_WATER_PULSE, MOVE_HEX, MOVE_RECOVER, MOVE_WILL_O_WISP}
     }
 };
 
+//Parasol Lady Angelica: threshold 2
+//may double with Leonel
 static const struct TrainerMon sParty_Angelica[] = {
     {
-    .iv = TRAINER_PARTY_IVS(6, 6, 6, 6, 6, 6),
-    .lvl = 30,
-    .species = SPECIES_CASTFORM_NORMAL,
-    .moves = {MOVE_RAIN_DANCE, MOVE_WEATHER_BALL, MOVE_THUNDER, MOVE_WATER_PULSE}
+    .lvl = 15,
+    .species = SPECIES_CASTFORM,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_FORECAST,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_THUNDER, MOVE_WEATHER_BALL, MOVE_BLIZZARD, MOVE_HURRICANE}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_CASTFORM,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_FORECAST,
+    .ev = TRAINER_PARTY_EVS(150, 0, 150, 0, 0, 150),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_TAILWIND, MOVE_WEATHER_BALL, MOVE_ICE_BEAM, MOVE_SOLAR_BEAM}
+    }
+};
+static const struct TrainerMon sParty_Angelica_easy[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_CASTFORM,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_FORECAST,
+    .moves = {MOVE_SHOCK_WAVE, MOVE_WEATHER_BALL, MOVE_AVALANCHE, MOVE_NONE}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_CASTFORM,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_FORECAST,
+    .moves = {MOVE_TAILWIND, MOVE_WEATHER_BALL, MOVE_ICE_BEAM, MOVE_SOLAR_BEAM}
     }
 };
 
+//Ninja Boy Keigo: threshold 2
 static const struct TrainerMon sParty_Keigo[] = {
     {
-    .lvl = 28,
-    .species = SPECIES_KOFFING,
-    .moves = {MOVE_POISON_GAS, MOVE_SELF_DESTRUCT, MOVE_SLUDGE, MOVE_SMOKESCREEN}
+    .lvl = 14,
+    .species = SPECIES_ACCELGOR,
+    .heldItem = ITEM_BUG_GEM,
+    .ability = ABILITY_UNBURDEN,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_WATER_SHURIKEN, MOVE_BUG_BUZZ, MOVE_FINAL_GAMBIT, MOVE_GIGA_DRAIN}
     },
     {
-    .lvl = 28,
-    .species = SPECIES_NINJASK,
-    .moves = {MOVE_SAND_ATTACK, MOVE_DOUBLE_TEAM, MOVE_FURY_CUTTER, MOVE_SWORDS_DANCE}
+    .lvl = 14,
+    .species = SPECIES_AMBIPOM,
+    .heldItem = ITEM_LOADED_DICE,
+    .ability = ABILITY_TECHNICIAN,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_TAIL_SLAP, MOVE_ARM_THRUST, MOVE_BEAT_UP, MOVE_FAKE_OUT}
+    }
+};
+static const struct TrainerMon sParty_Keigo_easy[] = {
+    {
+    .lvl = 11,
+    .species = SPECIES_ACCELGOR,
+    .heldItem = ITEM_BUG_GEM,
+    .ability = ABILITY_UNBURDEN,
+    .moves = {MOVE_WATER_SHURIKEN, MOVE_BUG_BUZZ, MOVE_FINAL_GAMBIT, MOVE_GIGA_DRAIN}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_AIPOM,
+    .heldItem = ITEM_LOADED_DICE,
+    .moves = {MOVE_TAIL_SLAP, MOVE_ARM_THRUST, MOVE_BEAT_UP, MOVE_FAKE_OUT}
     }
 };
 
+//Ninja Boy Riley: threshold 3
+//may double with Callie
 static const struct TrainerMon sParty_Riley[] = {
     {
-    .lvl = 28,
-    .species = SPECIES_NINCADA,
-    .moves = {MOVE_LEECH_LIFE, MOVE_FURY_SWIPES, MOVE_MIND_READER, MOVE_DIG}
+    .lvl = 13,
+    .species = SPECIES_HOUNDSTONE,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_FLUFFY,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_DOUBLE_EDGE, MOVE_MEMENTO, MOVE_POLTERGEIST, MOVE_BODY_PRESS}
     },
     {
-    .lvl = 28,
+    .lvl = 13,
+    .species = SPECIES_NINJASK,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_SPEED_BOOST,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_LEECH_LIFE, MOVE_SUBSTITUTE, MOVE_SWORDS_DANCE}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_WEEZING,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_LEVITATE,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_RASH,
+    .moves = {MOVE_GUNK_SHOT, MOVE_THUNDER, MOVE_ASSURANCE, MOVE_DAZZLING_GLEAM}
+    }
+};
+static const struct TrainerMon sParty_Riley_easy[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_GREAVARD,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_FLUFFY,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_DOUBLE_EDGE, MOVE_MEMENTO, MOVE_POLTERGEIST, MOVE_SNARL}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_NINCADA,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_COMPOUND_EYES,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_DOUBLE_TEAM, MOVE_LEECH_LIFE, MOVE_SUBSTITUTE, MOVE_SAND_ATTACK}
+    },
+    {
+    .lvl = 13,
     .species = SPECIES_KOFFING,
-    .moves = {MOVE_TACKLE, MOVE_SELF_DESTRUCT, MOVE_SLUDGE, MOVE_SMOKESCREEN}
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_LEVITATE,
+    .nature = NATURE_RASH,
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_THUNDER, MOVE_ASSURANCE, MOVE_PSYBEAM}
     }
 };
 
+//Battle Girl Callie: threshold 3
+//may double with Riley
 static const struct TrainerMon sParty_Callie[] = {
     {
-    .lvl = 28,
-    .species = SPECIES_MEDITITE,
+    .lvl = 14,
+    .species = SPECIES_PASSIMIAN,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_RECEIVER,
+    .ev = TRAINER_PARTY_EVS(0, 200, 150, 150, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_DRAIN_PUNCH, MOVE_ROCK_SLIDE, MOVE_KNOCK_OFF, MOVE_IRON_HEAD}
     },
     {
-    .lvl = 28,
-    .species = SPECIES_MAKUHITA,
+    .lvl = 14,
+    .species = SPECIES_CONKELDURR,
+    .heldItem = ITEM_PUNCHING_GLOVE,
+    .ability = ABILITY_IRON_FIST,
+    .ev = TRAINER_PARTY_EVS(0, 200, 150, 150, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_FOCUS_PUNCH, MOVE_ICE_PUNCH, MOVE_THUNDER_PUNCH, MOVE_DRAIN_PUNCH}
+    }
+};
+static const struct TrainerMon sParty_Callie_easy[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_PASSIMIAN,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_RECEIVER,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_DRAIN_PUNCH, MOVE_ROCK_SLIDE, MOVE_BEAT_UP, MOVE_TAKE_DOWN}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_TIMBURR,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_IRON_FIST,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_FOCUS_PUNCH, MOVE_ICE_PUNCH, MOVE_THUNDER_PUNCH, MOVE_DRAIN_PUNCH}
     }
 };
 
+//Cooltrainer-M Leonel: threshold 5
+//may double with Angelica
 static const struct TrainerMon sParty_Leonel[] = {
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 30,
-    .species = SPECIES_MANECTRIC,
-    .moves = {MOVE_THUNDER, MOVE_QUICK_ATTACK, MOVE_THUNDER_WAVE, MOVE_NONE}
+    .lvl = 15,
+    .species = SPECIES_DRAGONITE,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_MULTISCALE,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .ev = TRAINER_PARTY_EVS(170, 170, 0, 0, 170, 0),
+    .nature = NATURE_MILD,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_HURRICANE, MOVE_EXTREME_SPEED, MOVE_DRAGON_RUSH}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_SOLROCK,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_DROUGHT,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .ev = TRAINER_PARTY_EVS(170, 170, 0, 170, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_ROCK_SLIDE, MOVE_MORNING_SUN, MOVE_FLARE_BLITZ, MOVE_ZEN_HEADBUTT}
+    }
+};
+static const struct TrainerMon sParty_Leonel_easy[] = {
+    {
+    .lvl = 15,
+    .species = SPECIES_FLAPPLE,
+    .heldItem = ITEM_STARF_BERRY,
+    .ability = ABILITY_RIPEN,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_ACID_SPRAY, MOVE_RECYCLE, MOVE_LEAF_STORM, MOVE_DRAGON_PULSE}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_SOLROCK,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_DROUGHT,
+    .iv = TRAINER_PARTY_IVS(25, 25, 25, 25, 25, 25),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_ROCK_THROW, MOVE_MORNING_SUN, MOVE_FLAMETHROWER, MOVE_ZEN_HEADBUTT}
     }
 };
 
 
 //ROUTE 121 TRAINERS
 
+//Senior and Junior Kate and Joy: threshold 0
+//senior junior double
+//meme smeargle team, no easy version
 static const struct TrainerMon sParty_KateAndJoy[] = {
     {
-    .lvl = 30,
-    .species = SPECIES_SPINDA,
-    .moves = {MOVE_HYPNOSIS, MOVE_PSYBEAM, MOVE_DIZZY_PUNCH, MOVE_TEETER_DANCE}
+    .lvl = 16,
+    .species = SPECIES_SMEARGLE,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_MOODY,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_SPORE, MOVE_NIGHTMARE, MOVE_INFESTATION, MOVE_RUINATION}
     },
     {
-    .lvl = 32,
-    .species = SPECIES_SLAKING,
-    .moves = {MOVE_FOCUS_PUNCH, MOVE_YAWN, MOVE_SLACK_OFF, MOVE_FEINT_ATTACK}
+    .lvl = 16,
+    .species = SPECIES_SMEARGLE,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_MOODY,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_FAKE_OUT, MOVE_EXTREME_SPEED, MOVE_GLACIAL_LANCE, MOVE_PRECIPICE_BLADES}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SMEARGLE,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_OWN_TEMPO,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 0),
+    .nature = NATURE_NAIVE,
+    .moves = {MOVE_MAGMA_STORM, MOVE_CLAMP, MOVE_SNAP_TRAP, MOVE_STRENGTH_SAP}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SMEARGLE,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_OWN_TEMPO,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 252, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_SPRINGTIDE_STORM, MOVE_SANDSEAR_STORM, MOVE_WILDBOLT_STORM, MOVE_BLEAKWIND_STORM}
     }
 };
 
+//Pokefan-F Vanessa: threshold 2
+//meme cosplay pikachu team
 static const struct TrainerMon sParty_Vanessa[] = {
     {
-    .lvl = 30,
-    .species = SPECIES_PIKACHU,
-    .heldItem = ITEM_ORAN_BERRY
+    .lvl = 12,
+    .species = SPECIES_PIKACHU_ROCK_STAR,
+    .heldItem = ITEM_LIGHT_BALL,
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_NAUGHTY,
+    .moves = {MOVE_METEOR_MASH, MOVE_VOLT_TACKLE, MOVE_NUZZLE, MOVE_SURF}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_PIKACHU_BELLE,
+    .heldItem = ITEM_LIGHT_BALL,
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_LONELY,
+    .moves = {MOVE_ICICLE_CRASH, MOVE_VOLT_SWITCH, MOVE_NUZZLE, MOVE_SPARK}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_PIKACHU_POP_STAR,
+    .heldItem = ITEM_LIGHT_BALL,
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_RASH,
+    .moves = {MOVE_DRAINING_KISS, MOVE_THUNDERBOLT, MOVE_NUZZLE, MOVE_GRASS_KNOT}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_PIKACHU_LIBRE,
+    .heldItem = ITEM_LIGHT_BALL,
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_MILD,
+    .moves = {MOVE_FLYING_PRESS, MOVE_KNOCK_OFF, MOVE_NUZZLE, MOVE_THUNDER}
+    }
+};
+static const struct TrainerMon sParty_Vanessa_easy[] = {
+    {
+    .lvl = 12,
+    .species = SPECIES_PIKACHU_ROCK_STAR,
+    .heldItem = ITEM_MUSCLE_BAND,
+    .moves = {MOVE_METEOR_MASH, MOVE_VOLT_TACKLE, MOVE_NUZZLE, MOVE_SURF}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_PIKACHU_BELLE,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .moves = {MOVE_ICICLE_CRASH, MOVE_VOLT_SWITCH, MOVE_NUZZLE, MOVE_SPARK}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_PIKACHU_POP_STAR,
+    .heldItem = ITEM_WISE_GLASSES,
+    .moves = {MOVE_DRAINING_KISS, MOVE_THUNDERBOLT, MOVE_NUZZLE, MOVE_GRASS_KNOT}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_PIKACHU_LIBRE,
+    .heldItem = ITEM_FOCUS_BAND,
+    .moves = {MOVE_FLYING_PRESS, MOVE_KNOCK_OFF, MOVE_NUZZLE, MOVE_THUNDER}
     }
 };
 
-//Walter
-static const struct TrainerMon sParty_Walter1[] = {
+//Gentleman Walter: threshold 3
+static const struct TrainerMon sParty_Walter[] = {
     {
-    .lvl = 29,
-    .species = SPECIES_MANECTRIC,
-    }
-};
-static const struct TrainerMon sParty_Walter2[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 34,
-    .species = SPECIES_MANECTRIC,
-    }
-};
-static const struct TrainerMon sParty_Walter3[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 36,
+    .lvl = 16,
     .species = SPECIES_LINOONE,
-    .moves = {MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_ODOR_SLEUTH, MOVE_FURY_SWIPES}
+    .heldItem = ITEM_IAPAPA_BERRY,
+    .ability = ABILITY_GLUTTONY,
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_BELLY_DRUM, MOVE_EXTREME_SPEED, MOVE_STOMPING_TANTRUM, MOVE_PIN_MISSILE}
     },
     {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 36,
-    .species = SPECIES_MANECTRIC,
-    .moves = {MOVE_QUICK_ATTACK, MOVE_SPARK, MOVE_ODOR_SLEUTH, MOVE_ROAR}
-    }
-};
-static const struct TrainerMon sParty_Walter4[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 39,
-    .species = SPECIES_LINOONE,
-    .moves = {MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_ODOR_SLEUTH, MOVE_FURY_SWIPES}
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 39,
-    .species = SPECIES_MANECTRIC,
-    .moves = {MOVE_QUICK_ATTACK, MOVE_SPARK, MOVE_ODOR_SLEUTH, MOVE_NONE}
-    }
-};
-static const struct TrainerMon sParty_Walter5[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 41,
-    .species = SPECIES_LINOONE,
-    .moves = {MOVE_HEADBUTT, MOVE_SAND_ATTACK, MOVE_ODOR_SLEUTH, MOVE_FURY_SWIPES}
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 41,
+    .lvl = 16,
     .species = SPECIES_GOLDUCK,
-    .moves = {MOVE_FURY_SWIPES, MOVE_DISABLE, MOVE_CONFUSION, MOVE_PSYCH_UP}
+    .heldItem = ITEM_WIDE_LENS,
+    .ability = ABILITY_NEUROFORCE,
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 252, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_SOAK, MOVE_GRASS_KNOT, MOVE_HYPNOSIS}
     },
     {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 41,
+    .lvl = 16,
     .species = SPECIES_MANECTRIC,
-    .moves = {MOVE_QUICK_ATTACK, MOVE_SPARK, MOVE_ODOR_SLEUTH, MOVE_ROAR}
+    .heldItem = ITEM_ICE_GEM,
+    .ability = ABILITY_INTIMIDATE,
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 252, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_THUNDERBOLT, MOVE_FLAMETHROWER, MOVE_AURORA_BEAM, MOVE_SNARL}
+    }
+};
+static const struct TrainerMon sParty_Walter_easy[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_ZIGZAGOON,
+    .heldItem = ITEM_IAPAPA_BERRY,
+    .ability = ABILITY_GLUTTONY,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_BELLY_DRUM, MOVE_EXTREME_SPEED, MOVE_MUD_SHOT, MOVE_PIN_MISSILE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_PSYDUCK,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_CLOUD_NINE,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_SOAK, MOVE_TRAILBLAZE, MOVE_HYPNOSIS}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_ELECTRIKE,
+    .heldItem = ITEM_ICE_GEM,
+    .ability = ABILITY_INTIMIDATE,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_SPARK, MOVE_FLAMETHROWER, MOVE_AURORA_BEAM, MOVE_SNARL}
     }
 };
 
+//Hex Maniac Tammy: threshold 3
+//may double with Cale
 static const struct TrainerMon sParty_Tammy[] = {
     {
-    .lvl = 29,
-    .species = SPECIES_DUSKULL,
+    .lvl = 14,
+    .species = SPECIES_ORICORIO_SENSU,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_DANCER,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 0, 252, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_QUIVER_DANCE, MOVE_REVELATION_DANCE, MOVE_AIR_SLASH, MOVE_REVELATION_DANCE}
     },
     {
-    .lvl = 29,
-    .species = SPECIES_SHUPPET,
+    .lvl = 14,
+    .species = SPECIES_GENGAR,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_LEVITATE,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 0, 252, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_SHADOW_BALL, MOVE_GIGA_DRAIN, MOVE_WILL_O_WISP}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_MIMIKYU,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_DISGUISE,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 0, 252, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_SHADOW_CLAW, MOVE_SHADOW_SNEAK, MOVE_PLAY_ROUGH}
+    }
+};
+static const struct TrainerMon sParty_Tammy_easy[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_ORICORIO_SENSU,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_DANCER,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_FEATHER_DANCE, MOVE_REVELATION_DANCE, MOVE_AIR_SLASH, MOVE_REVELATION_DANCE}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_GASTLY,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_LEVITATE,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_SHADOW_BALL, MOVE_GIGA_DRAIN, MOVE_WILL_O_WISP}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_MIMIKYU,
+    .heldItem = ITEM_SPELL_TAG,
+    .ability = ABILITY_DISGUISE,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_HONE_CLAWS, MOVE_CHARM, MOVE_SHADOW_SNEAK, MOVE_PLAY_ROUGH}
     }
 };
 
-//Jessica
-static const struct TrainerMon sParty_Jessica1[] = {
+//Beauty Jessica: threshold 2
+static const struct TrainerMon sParty_Jessica[] = {
     {
-    .lvl = 29,
-    .species = SPECIES_KECLEON,
-    .moves = {MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FEINT_ATTACK}
+    .lvl = 14,
+    .species = SPECIES_SEVIPER,
+    .heldItem = ITEM_POISON_BARB,
+    .ability = ABILITY_SHED_SKIN,
+    .ev = TRAINER_PARTY_EVS(0, 150, 0, 150, 150, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_POISON_TAIL, MOVE_CRUNCH, MOVE_GLARE, MOVE_SCREECH}
     },
     {
-    .lvl = 29,
-    .species = SPECIES_SEVIPER,
-    .moves = {MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH}
+    .lvl = 14,
+    .species = SPECIES_GLIGAR,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_HYPER_CUTTER,
+    .ev = TRAINER_PARTY_EVS(0, 150, 0, 150, 150, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_POISON_TAIL, MOVE_CRABHAMMER, MOVE_X_SCISSOR, MOVE_BREAKING_SWIPE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_KECLEON,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_COLOR_CHANGE,
+    .ev = TRAINER_PARTY_EVS(0, 150, 0, 150, 150, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_BLIZZARD, MOVE_NASTY_PLOT}
     }
 };
-static const struct TrainerMon sParty_Jessica2[] = {
+static const struct TrainerMon sParty_Jessica_easy[] = {
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 35,
-    .species = SPECIES_KECLEON,
-    .moves = {MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FEINT_ATTACK}
+    .lvl = 13,
+    .species = SPECIES_SEVIPER,
+    .heldItem = ITEM_POISON_BARB,
+    .ability = ABILITY_SHED_SKIN,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_POISON_FANG, MOVE_BITE, MOVE_GLARE, MOVE_SCREECH}
     },
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 35,
-    .species = SPECIES_SEVIPER,
-    .moves = {MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH}
-    }
-};
-static const struct TrainerMon sParty_Jessica3[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 38,
-    .species = SPECIES_KECLEON,
-    .moves = {MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FEINT_ATTACK}
+    .lvl = 13,
+    .species = SPECIES_GLIGAR,
+    .heldItem = ITEM_YACHE_BERRY,
+    .ability = ABILITY_HYPER_CUTTER,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_BULLDOZE, MOVE_ACROBATICS, MOVE_X_SCISSOR, MOVE_BREAKING_SWIPE}
     },
     {
-    .iv = TRAINER_PARTY_IVS(2, 2, 2, 2, 2, 2),
-    .lvl = 38,
-    .species = SPECIES_SEVIPER,
-    .moves = {MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH}
-    }
-};
-static const struct TrainerMon sParty_Jessica4[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 41,
+    .lvl = 13,
     .species = SPECIES_KECLEON,
-    .moves = {MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FEINT_ATTACK}
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(3, 3, 3, 3, 3, 3),
-    .lvl = 41,
-    .species = SPECIES_SEVIPER,
-    .moves = {MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH}
-    }
-};
-static const struct TrainerMon sParty_Jessica5[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 44,
-    .species = SPECIES_KECLEON,
-    .moves = {MOVE_BIND, MOVE_LICK, MOVE_FURY_SWIPES, MOVE_FEINT_ATTACK}
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(4, 4, 4, 4, 4, 4),
-    .lvl = 44,
-    .species = SPECIES_SEVIPER,
-    .moves = {MOVE_POISON_TAIL, MOVE_SCREECH, MOVE_GLARE, MOVE_CRUNCH}
+    .heldItem = ITEM_CHOPLE_BERRY,
+    .ability = ABILITY_COLOR_CHANGE,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_SHADOW_BALL, MOVE_ANCIENT_POWER, MOVE_BLIZZARD, MOVE_FEINT_ATTACK}
     }
 };
 
+//Bug Maniac Cale: threshold 2
+//may double with Tammy
 static const struct TrainerMon sParty_Cale[] = {
     {
-    .lvl = 29,
-    .species = SPECIES_DUSTOX,
+    .lvl = 14,
+    .species = SPECIES_BUTTERFREE,
+    .heldItem = ITEM_SILVER_POWDER,
+    .ability = ABILITY_TINTED_LENS,
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 252, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_POLLEN_PUFF, MOVE_QUIVER_DANCE, MOVE_NONE, MOVE_NONE}
     },
     {
-    .lvl = 29,
-    .species = SPECIES_BEAUTIFLY,
+    .lvl = 14,
+    .species = SPECIES_ARIADOS,
+    .heldItem = ITEM_SCOPE_LENS,
+    .ability = ABILITY_SNIPER,
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 252, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_CROSS_POISON, MOVE_LEECH_LIFE, MOVE_NIGHT_SLASH, MOVE_X_SCISSOR}
+    }
+};
+static const struct TrainerMon sParty_Cale_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_BUTTERFREE,
+    .heldItem = ITEM_SILVER_POWDER,
+    .ability = ABILITY_TINTED_LENS,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_POLLEN_PUFF, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_SPINARAK,
+    .heldItem = ITEM_SCOPE_LENS,
+    .ability = ABILITY_SNIPER,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_CROSS_POISON, MOVE_LEECH_LIFE, MOVE_NIGHT_SLASH, MOVE_X_SCISSOR}
     }
 };
 
+//Breeder-M Myles: threshold 3
+//may double with Pat, in which case should truncate to first 3 mons
 static const struct TrainerMon sParty_Myles[] = {
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_MAKUHITA,
+    .lvl = 13,
+    .species = SPECIES_TOXICROAK,
+    .heldItem = ITEM_MUSCLE_BAND,
+    .ability = ABILITY_POISON_TOUCH,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_POISON_JAB, MOVE_DRAIN_PUNCH, MOVE_SWORDS_DANCE, MOVE_THROAT_CHOP}
     },
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_WINGULL,
+    .lvl = 13,
+    .species = SPECIES_MAUSHOLD,
+    .heldItem = ITEM_WIDE_LENS,
+    .ability = ABILITY_TECHNICIAN,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_TIDY_UP, MOVE_POPULATION_BOMB, MOVE_NONE, MOVE_NONE}
     },
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_TROPIUS,
+    .lvl = 13,
+    .species = SPECIES_MAGCARGO,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_FLAME_BODY,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_FLAMETHROWER, MOVE_ANCIENT_POWER, MOVE_ROCK_SLIDE, MOVE_SCALD}
     },
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_ZIGZAGOON,
+    .lvl = 13,
+    .species = SPECIES_MARACTUS,
+    .heldItem = ITEM_ROCKY_HELMET,
+    .ability = ABILITY_STORM_DRAIN,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_RASH,
+    .moves = {MOVE_GIGA_DRAIN, MOVE_SPIKY_SHIELD, MOVE_PIN_MISSILE, MOVE_SUCKER_PUNCH}
     },
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_ELECTRIKE,
+    .lvl = 13,
+    .species = SPECIES_SAWK,
+    .heldItem = ITEM_PUNCHING_GLOVE,
+    .ability = ABILITY_INNER_FOCUS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_CLOSE_COMBAT, MOVE_ICE_PUNCH, MOVE_THUNDER_PUNCH, MOVE_FIRE_PUNCH}
     },
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_NUMEL,
+    .lvl = 13,
+    .species = SPECIES_MUSHARNA,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_SYNCHRONIZE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_MOONBLAST, MOVE_HYPNOSIS, MOVE_DREAM_EATER, MOVE_SHADOW_BALL}
+    }
+};
+static const struct TrainerMon sParty_Myles_easy[] = {
+    {
+    .lvl = 11,
+    .species = SPECIES_CROAGUNK,
+    .heldItem = ITEM_MUSCLE_BAND,
+    .ability = ABILITY_POISON_TOUCH,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_POISON_JAB, MOVE_DRAIN_PUNCH, MOVE_SWORDS_DANCE, MOVE_THROAT_CHOP}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_TANDEMAUS,
+    .heldItem = ITEM_WIDE_LENS,
+    .ability = ABILITY_OWN_TEMPO,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_TICKLE, MOVE_POPULATION_BOMB, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_SLUGMA,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_FLAME_BODY,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_FLAME_BURST, MOVE_ANCIENT_POWER, MOVE_ROCK_SLIDE, MOVE_SCALD}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_MARACTUS,
+    .heldItem = ITEM_ROCKY_HELMET,
+    .ability = ABILITY_STORM_DRAIN,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_RASH,
+    .moves = {MOVE_GIGA_DRAIN, MOVE_SPIKY_SHIELD, MOVE_PIN_MISSILE, MOVE_SUCKER_PUNCH}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_SAWK,
+    .heldItem = ITEM_PUNCHING_GLOVE,
+    .ability = ABILITY_INNER_FOCUS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_BRICK_BREAK, MOVE_ICE_PUNCH, MOVE_THUNDER_PUNCH, MOVE_FIRE_PUNCH}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_MUNNA,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_SYNCHRONIZE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_MOONBLAST, MOVE_HYPNOSIS, MOVE_DREAM_EATER, MOVE_SHADOW_BALL}
     }
 };
 
+//Breeder-F Pat: threshold 3
+//may double with Myles, in which case should truncate to first 3 mons
 static const struct TrainerMon sParty_Pat[] = {
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_POOCHYENA,
+    .lvl = 13,
+    .species = SPECIES_BRUXISH,
+    .heldItem = ITEM_TWISTED_SPOON,
+    .ability = ABILITY_STRONG_JAW,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_PSYCHIC_FANGS, MOVE_WAVE_CRASH, MOVE_AQUA_JET, MOVE_ICE_FANG}
     },
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_SHROOMISH,
+    .lvl = 13,
+    .species = SPECIES_PACHIRISU,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_VOLT_ABSORB,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .moves = {MOVE_NUZZLE, MOVE_SUPER_FANG, MOVE_VOLT_SWITCH, MOVE_ELECTROWEB}
     },
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_ELECTRIKE,
+    .lvl = 13,
+    .species = SPECIES_SUNFLORA,
+    .heldItem = ITEM_MIRACLE_SEED,
+    .ability = ABILITY_CHLOROPHYLL,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_ENERGY_BALL, MOVE_FLAMETHROWER, MOVE_SYNTHESIS, MOVE_DAZZLING_GLEAM}
     },
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_MARILL,
+    .lvl = 13,
+    .species = SPECIES_THROH,
+    .heldItem = ITEM_SALAC_BERRY,
+    .ability = ABILITY_GUTS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_REVENGE, MOVE_BULK_UP, MOVE_FACADE, MOVE_PAYBACK}
     },
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_SANDSHREW,
+    .lvl = 13,
+    .species = SPECIES_SQUAWKABILLY_GREEN_PLUMAGE,
+    .heldItem = ITEM_ADRENALINE_ORB,
+    .ability = ABILITY_INTIMIDATE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_HASTY,
+    .moves = {MOVE_TAUNT, MOVE_ROOST, MOVE_BRAVE_BIRD, MOVE_HYPER_VOICE}
     },
     {
-    .iv = TRAINER_PARTY_IVS(1, 1, 1, 1, 1, 1),
-    .lvl = 25,
-    .species = SPECIES_GULPIN,
+    .lvl = 13,
+    .species = SPECIES_FROSMOTH,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_ICE_SCALES,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(85, 85, 85, 85, 85, 85),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_QUIVER_DANCE, MOVE_ICE_BEAM, MOVE_BUG_BUZZ, MOVE_GIGA_DRAIN}
+    }
+};
+static const struct TrainerMon sParty_Pat_easy[] = {
+    {
+    .lvl = 11,
+    .species = SPECIES_BRUXISH,
+    .heldItem = ITEM_ADRENALINE_ORB,
+    .ability = ABILITY_DAZZLING,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_PSYSHOCK, MOVE_WATERFALL, MOVE_AQUA_JET, MOVE_ICE_FANG}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_PACHIRISU,
+    .heldItem = ITEM_BERRY_JUICE,
+    .ability = ABILITY_VOLT_ABSORB,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_NUZZLE, MOVE_SUPER_FANG, MOVE_VOLT_SWITCH, MOVE_ELECTROWEB}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_SUNFLORA,
+    .heldItem = ITEM_MIRACLE_SEED,
+    .ability = ABILITY_CHLOROPHYLL,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_ENERGY_BALL, MOVE_FLAMETHROWER, MOVE_SYNTHESIS, MOVE_DAZZLING_GLEAM}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_THROH,
+    .heldItem = ITEM_SALAC_BERRY,
+    .ability = ABILITY_GUTS,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_REVENGE, MOVE_BULK_UP, MOVE_FACADE, MOVE_PAYBACK}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_SQUAWKABILLY_GREEN_PLUMAGE,
+    .heldItem = ITEM_BERRY_JUICE,
+    .ability = ABILITY_INTIMIDATE,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_HASTY,
+    .moves = {MOVE_TAUNT, MOVE_ROOST, MOVE_AERIAL_ACE, MOVE_UPROAR}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_FROSMOTH,
+    .heldItem = ITEM_CHARTI_BERRY,
+    .ability = ABILITY_SHIELD_DUST,
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_STUN_SPORE, MOVE_ICY_WIND, MOVE_STRUGGLE_BUG, MOVE_FAIRY_WIND}
     }
 };
 
+//Youngster Marcel: threshold 3
 static const struct TrainerMon sParty_Marcel[] = {
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 29,
-    .species = SPECIES_MANECTRIC,
+    .lvl = 14,
+    .species = SPECIES_MR_MIME,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_SOUNDPROOF,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_PSYCHIC, MOVE_DAZZLING_GLEAM, MOVE_CALM_MIND, MOVE_THUNDER_WAVE}
     },
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 29,
-    .species = SPECIES_SHIFTRY,
+    .lvl = 14,
+    .species = SPECIES_ABOMASNOW,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_SOUNDPROOF,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_BRAVE,
+    .moves = {MOVE_WOOD_HAMMER, MOVE_ICE_SPINNER, MOVE_ICE_SHARD, MOVE_CURSE}
+    }
+};
+static const struct TrainerMon sParty_Marcel_easy[] = {
+    {
+    .lvl = 12,
+    .species = SPECIES_MIME_JR,
+    .heldItem = ITEM_BERRY_JUICE,
+    .ability = ABILITY_SOUNDPROOF,
+    .nature = NATURE_BOLD,
+    .moves = {MOVE_PSYBEAM, MOVE_DAZZLING_GLEAM, MOVE_CALM_MIND, MOVE_THUNDER_WAVE}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_SNOVER,
+    .heldItem = ITEM_OCCA_BERRY,
+    .ability = ABILITY_SOUNDPROOF,
+    .nature = NATURE_BRAVE,
+    .moves = {MOVE_RAZOR_LEAF, MOVE_ICE_PUNCH, MOVE_ICE_SHARD, MOVE_CURSE}
     }
 };
 
-//Cristin
-static const struct TrainerMon sParty_Cristin1[] = {
+//School Kid-F Cristin: threshold 3
+static const struct TrainerMon sParty_Cristin[] = {
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 29,
-    .species = SPECIES_LOUDRED,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 29,
-    .species = SPECIES_VIGOROTH,
-    }
-};
-static const struct TrainerMon sParty_Cristin2[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
-    .lvl = 35,
-    .species = SPECIES_LOUDRED,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(13, 13, 13, 13, 13, 13),
-    .lvl = 35,
-    .species = SPECIES_VIGOROTH,
-    }
-};
-static const struct TrainerMon sParty_Cristin3[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
-    .lvl = 37,
-    .species = SPECIES_SPINDA,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
-    .lvl = 37,
-    .species = SPECIES_LOUDRED,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(14, 14, 14, 14, 14, 14),
-    .lvl = 37,
-    .species = SPECIES_VIGOROTH,
-    }
-};
-static const struct TrainerMon sParty_Cristin4[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
-    .lvl = 39,
-    .species = SPECIES_SPINDA,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(15, 15, 15, 15, 15, 15),
-    .lvl = 39,
-    .species = SPECIES_LOUDRED,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 39,
-    .species = SPECIES_VIGOROTH,
-    }
-};
-static const struct TrainerMon sParty_Cristin5[] = {
-    {
-    .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
-    .lvl = 41,
-    .species = SPECIES_SPINDA,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
-    .lvl = 41,
-    .species = SPECIES_EXPLOUD,
-    },
-    {
-    .iv = TRAINER_PARTY_IVS(17, 17, 17, 17, 17, 17),
-    .lvl = 41,
+    .lvl = 14,
     .species = SPECIES_SLAKING,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_TRUANT,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_FACADE, MOVE_EARTHQUAKE, MOVE_BODY_SLAM, MOVE_KNOCK_OFF}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_SPINDA,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_CONTRARY,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_NAUGHTY,
+    .moves = {MOVE_PSYCHO_BOOST, MOVE_SUPERPOWER, MOVE_TEETER_DANCE, MOVE_SUCKER_PUNCH}
+    }
+};
+static const struct TrainerMon sParty_Cristin_easy[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_SLAKOTH,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_TRUANT,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_PLAY_ROUGH, MOVE_EARTHQUAKE, MOVE_BODY_SLAM, MOVE_KNOCK_OFF}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_SPINDA,
+    .heldItem = ITEM_CHOPLE_BERRY,
+    .ability = ABILITY_CONTRARY,
+    .nature = NATURE_NAUGHTY,
+    .moves = {MOVE_PSYBEAM, MOVE_BODY_SLAM, MOVE_TEETER_DANCE, MOVE_SUCKER_PUNCH}
     }
 };
 
 
 //ROUTE 122 TRAINERS
 
-//Running Triathlete-M Mitchell
+//Running Triathlete-M Mitchell: threshold 3
 static const struct TrainerMon sParty_Mitchell[] = {
     {
-    .lvl = 43,
-    .species = SPECIES_LUNATONE,
-    .moves = {MOVE_EXPLOSION, MOVE_REFLECT, MOVE_LIGHT_SCREEN, MOVE_PSYCHIC}
+    .lvl = 14,
+    .species = SPECIES_UNFEZANT,
+    .heldItem = ITEM_SCOPE_LENS,
+    .ability = ABILITY_SUPER_LUCK,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_ROOST, MOVE_TAILWIND, MOVE_BRAVE_BIRD, MOVE_FACADE}
     },
     {
-    .lvl = 43,
-    .species = SPECIES_SOLROCK,
-    .moves = {MOVE_EXPLOSION, MOVE_REFLECT, MOVE_LIGHT_SCREEN, MOVE_SHADOW_BALL}
+    .lvl = 14,
+    .species = SPECIES_ELECTRODE,
+    .heldItem = ITEM_MAGNET,
+    .ability = ABILITY_STATIC,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_THUNDERBOLT, MOVE_VOLT_SWITCH, MOVE_EXPLOSION, MOVE_SCREECH}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_KINGLER,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_SHEER_FORCE,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_AGILITY, MOVE_LIQUIDATION, MOVE_IRON_HEAD, MOVE_ROCK_SLIDE}
+    }
+};
+static const struct TrainerMon sParty_Mitchell_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_TRANQUILL,
+    .heldItem = ITEM_SCOPE_LENS,
+    .ability = ABILITY_SUPER_LUCK,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_ROOST, MOVE_TAILWIND, MOVE_BRAVE_BIRD, MOVE_FACADE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_VOLTORB,
+    .heldItem = ITEM_MAGNET,
+    .ability = ABILITY_STATIC,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_CHARGE_BEAM, MOVE_VOLT_SWITCH, MOVE_SELF_DESTRUCT, MOVE_SCREECH}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_KRABBY,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_SHEER_FORCE,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_AGILITY, MOVE_CRABHAMMER, MOVE_METAL_CLAW, MOVE_ROCK_TOMB}
     }
 };
 
-//Swimming Triathlete-F Julie
+//Swimming Triathlete-F Julie: threshold 3
 static const struct TrainerMon sParty_Julie[] = {
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 42,
-    .species = SPECIES_SANDSLASH,
+    .lvl = 14,
+    .species = SPECIES_YANMEGA,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SPEED_BOOST,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_ANCIENT_POWER, MOVE_SILVER_WIND, MOVE_DOUBLE_TEAM, MOVE_AIR_SLASH}
     },
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 42,
-    .species = SPECIES_NINETALES,
+    .lvl = 14,
+    .species = SPECIES_ELECTABUZZ,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_STATIC,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .nature = NATURE_NAIVE,
+    .moves = {MOVE_DISCHARGE, MOVE_ICE_PUNCH, MOVE_KNOCK_OFF, MOVE_LOW_KICK}
     },
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 42,
-    .species = SPECIES_TROPIUS,
+    .lvl = 14,
+    .species = SPECIES_POLIWRATH,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_SWIFT_SWIM,
+    .ev = TRAINER_PARTY_EVS(0, 128, 0, 252, 128, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_BELLY_DRUM, MOVE_DRAIN_PUNCH, MOVE_LIQUIDATION, MOVE_HYPNOSIS}
+    }
+};
+static const struct TrainerMon sParty_Julie_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_YANMA,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SPEED_BOOST,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_ANCIENT_POWER, MOVE_SILVER_WIND, MOVE_DOUBLE_TEAM, MOVE_AIR_SLASH}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_ELECTABUZZ,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_STATIC,
+    .nature = NATURE_NAIVE,
+    .moves = {MOVE_DISCHARGE, MOVE_ICE_PUNCH, MOVE_KNOCK_OFF, MOVE_LOW_KICK}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_POLIWHIRL,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_SWIFT_SWIM,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_BELLY_DRUM, MOVE_BRICK_BREAK, MOVE_WATERFALL, MOVE_HYPNOSIS}
     }
 };
 
-//Ninja Boy Hiromichi
+//Ninja Boy Hiromichi: threshold 2
 static const struct TrainerMon sParty_Hiromichi[] = {
     {
-    .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
-    .nature = 0,
-    .lvl = 2,
-    .species = SPECIES_NONE,
-    .heldItem = ITEM_NONE,
-    .ability = ABILITY_NONE,
-    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .lvl = 16,
+    .species = SPECIES_KLEAVOR,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_SHARPNESS,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_STONE_AXE, MOVE_X_SCISSOR, MOVE_AERIAL_ACE, MOVE_NIGHT_SLASH}
+    }
+};
+static const struct TrainerMon sParty_Hiromichi_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_KLEAVOR,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_SHARPNESS,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_STONE_AXE, MOVE_X_SCISSOR, MOVE_AERIAL_ACE, MOVE_NIGHT_SLASH}
     }
 };
 
-//Ninja Boy Tsunao
+//Ninja Boy Tsunao: threshold 3
 static const struct TrainerMon sParty_Tsunao[] = {
     {
-    .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 0, 0, 0),
-    .nature = 0,
-    .lvl = 2,
-    .species = SPECIES_NONE,
-    .heldItem = ITEM_NONE,
-    .ability = ABILITY_NONE,
-    .moves = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    .lvl = 14,
+    .species = SPECIES_RIBOMBEE,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SHIELD_DUST,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_STICKY_WEB, MOVE_POLLEN_PUFF, MOVE_QUIVER_DANCE, MOVE_MOONBLAST}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_NIDOQUEEN,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_SHEER_FORCE,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_ICE_BEAM, MOVE_THUNDERBOLT, MOVE_EARTH_POWER, MOVE_SLUDGE_WAVE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_TOGEKISS,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_SERENE_GRACE,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_AIR_SLASH, MOVE_THUNDER_WAVE, MOVE_ROOST, MOVE_FIRE_BLAST}
+    }
+};
+static const struct TrainerMon sParty_Tsunao_easy[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_RIBOMBEE,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_SHIELD_DUST,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_STICKY_WEB, MOVE_POLLEN_PUFF, MOVE_QUIVER_DANCE, MOVE_MOONBLAST}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_NIDOQUEEN,
+    .heldItem = ITEM_WISE_GLASSES,
+    .ability = ABILITY_SHEER_FORCE,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_ICE_BEAM, MOVE_THUNDERBOLT, MOVE_EARTH_POWER, MOVE_SLUDGE_WAVE}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_TOGEKISS,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_SERENE_GRACE,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_AIR_SLASH, MOVE_THUNDER_WAVE, MOVE_ROOST, MOVE_FIRE_BLAST}
     }
 };
 
-//Bug Catcher Micah
+//Bug Catcher Micah: threshold 3
 static const struct TrainerMon sParty_Micah[] = {
     {
-    .lvl = 44,
-    .species = SPECIES_MANECTRIC,
+    .lvl = 14,
+    .species = SPECIES_PARASECT,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_EFFECT_SPORE,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_SAPPY_SEED, MOVE_SPORE, MOVE_LEECH_LIFE, MOVE_SWORDS_DANCE}
     },
     {
-    .lvl = 44,
-    .species = SPECIES_MANECTRIC,
+    .lvl = 14,
+    .species = SPECIES_SPIDOPS,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_STAKEOUT,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_FIRST_IMPRESSION, MOVE_SILK_TRAP, MOVE_LEECH_LIFE, MOVE_U_TURN}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_VOLBEAT,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_PRANKSTER,
+    .ev = TRAINER_PARTY_EVS(100, 100, 0, 100, 100, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_THUNDERBOLT, MOVE_TAIL_GLOW, MOVE_BUG_BUZZ, MOVE_AIR_CUTTER}
+    }
+};
+static const struct TrainerMon sParty_Micah_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_PARASECT,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_EFFECT_SPORE,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_SAPPY_SEED, MOVE_SPORE, MOVE_LEECH_LIFE, MOVE_SWORDS_DANCE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_SPIDOPS,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_STAKEOUT,
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_FIRST_IMPRESSION, MOVE_SILK_TRAP, MOVE_LEECH_LIFE, MOVE_U_TURN}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_VOLBEAT,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_PRANKSTER,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_THUNDERBOLT, MOVE_TAIL_GLOW, MOVE_BUG_BUZZ, MOVE_AIR_CUTTER}
     }
 };
 
-//Swimmer-M Edgar
+//Swimmer-M Edgar: threshold 3
 static const struct TrainerMon sParty_Edgar[] = {
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 43,
-    .species = SPECIES_CACTURNE,
+    .lvl = 16,
+    .species = SPECIES_SAMUROTT_HISUIAN,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_TORRENT,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_CEASELESS_EDGE, MOVE_SUCKER_PUNCH, MOVE_AQUA_JET, MOVE_LIQUIDATION}
     },
     {
-    .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-    .lvl = 43,
-    .species = SPECIES_PELIPPER,
+    .lvl = 16,
+    .species = SPECIES_SAMUROTT,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_SHELL_ARMOR,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_RAZOR_SHELL, MOVE_IRON_HEAD, MOVE_MEGAHORN, MOVE_DRILL_RUN}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SAMUROTT,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_SHELL_ARMOR,
+    .ev = TRAINER_PARTY_EVS(120, 120, 0, 120, 120, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_GRASS_KNOT, MOVE_VACUUM_WAVE}
+    }
+};
+static const struct TrainerMon sParty_Edgar_easy[] = {
+    {
+    .lvl = 13,
+    .species = SPECIES_DEWOTT,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_TORRENT,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_AIR_SLASH, MOVE_KNOCK_OFF, MOVE_AQUA_JET, MOVE_LIQUIDATION}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_DEWOTT,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_SHELL_ARMOR,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_RAZOR_SHELL, MOVE_SACRED_SWORD, MOVE_NIGHT_SLASH, MOVE_X_SCISSOR}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_DEWOTT,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_SHELL_ARMOR,
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_GRASS_KNOT, MOVE_VACUUM_WAVE}
     }
 };
 
@@ -20695,7 +22971,7 @@ static const struct TrainerMon sParty_MiuAndYuki[] = {
     }
 };
 
-//Cameron
+//Psychic-M Cameron
 static const struct TrainerMon sParty_Cameron1[] = {
     {
     .lvl = 31,
@@ -20751,7 +23027,7 @@ static const struct TrainerMon sParty_Cameron5[] = {
     }
 };
 
-//Jacki
+//Psychic-F Jacki
 static const struct TrainerMon sParty_Jacki1[] = {
     {
     .lvl = 30,
