@@ -47,16 +47,16 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 10,
-      "y": 32,
+      "x": 9,
+      "y": 77,
       "elevation": 0,
       "item": "ITEM_BOTTLE_CAP",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_BOTTLE_CAP_1"
     },
     {
       "type": "hidden_item",
-      "x": 29,
-      "y": 65,
+      "x": 30,
+      "y": 17,
       "elevation": 0,
       "item": "ITEM_BOTTLE_CAP",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_126_BOTTLE_CAP_2"

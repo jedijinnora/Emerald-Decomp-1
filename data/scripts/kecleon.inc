@@ -71,7 +71,7 @@ EventScript_BattleKecleon::
 	playmoncry SPECIES_KECLEON, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_KECLEON, 30
+	call EventScript_SetKecleonLevel
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	dowildbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
@@ -81,6 +81,51 @@ EventScript_BattleKecleon::
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, EventScript_RemoveKecleon
 	release
 	end
+
+EventScript_SetKecleonLevel:
+	switch VAR_NUM_BADGES
+	case 1, EventScriptSetKecleonLevel_1
+	case 2, EventScriptSetKecleonLevel_2
+	case 3, EventScriptSetKecleonLevel_3
+	case 4, EventScriptSetKecleonLevel_4
+	case 5, EventScriptSetKecleonLevel_5
+	case 6, EventScriptSetKecleonLevel_6
+	case 7, EventScriptSetKecleonLevel_7
+	case 8, EventScriptSetKecleonLevel_8
+	setwildbattle SPECIES_KECLEON, 15
+	return
+
+EventScriptSetKecleonLevel_1:
+	setwildbattle SPECIES_KECLEON, 24
+	return
+
+EventScriptSetKecleonLevel_2:
+	setwildbattle SPECIES_KECLEON, 33
+	return
+
+EventScriptSetKecleonLevel_3:
+	setwildbattle SPECIES_KECLEON, 42
+	return
+
+EventScriptSetKecleonLevel_4:
+	setwildbattle SPECIES_KECLEON, 51
+	return
+
+EventScriptSetKecleonLevel_5:
+	setwildbattle SPECIES_KECLEON, 60
+	return
+
+EventScriptSetKecleonLevel_6:
+	setwildbattle SPECIES_KECLEON, 69
+	return
+
+EventScriptSetKecleonLevel_7:
+	setwildbattle SPECIES_KECLEON, 78
+	return
+
+EventScriptSetKecleonLevel_8:
+	setwildbattle SPECIES_KECLEON, 84
+	return
 
 EventScript_RemoveKecleon::
 	goto Common_EventScript_RemoveStaticPokemon

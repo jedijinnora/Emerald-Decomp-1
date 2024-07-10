@@ -15,6 +15,38 @@ script Route124_EventScript_HouseSign {
 	end
 }
 
+script Route_124_EventScript_Garret {
+	trainerbattle_single(TRAINER_GARRET, Route_124_Text_GarretIntro, Route_124_Text_GarretDefeat)
+	msgbox(Route_124_Text_GarretPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_124_Text_GarretIntro {
+	"Fly high, my pretties!"
+}
+text Route_124_Text_GarretDefeat {
+	"Brought down!"
+}
+text Route_124_Text_GarretPostBattle {
+	"Battles are nice, but soaring on a\n"
+	"bird Pokémon? That's the dream."
+}
+
+script Route_124_EventScript_Josie {
+	trainerbattle_single(TRAINER_JOSIE, Route_124_Text_JosieIntro, Route_124_Text_JosieDefeat)
+	msgbox(Route_124_Text_JosiePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_124_Text_JosieIntro {
+	"Want to share my secret spot?"
+}
+text Route_124_Text_JosieDefeat {
+	"Ahaha! Well fought."
+}
+text Route_124_Text_JosiePostBattle {
+	"I caught my rare Ghost types on\n"
+	"Route 122."
+}
+
 raw `
 Route124_EventScript_Spencer::
 	trainerbattle_single TRAINER_SPENCER, Route124_Text_SpencerIntro, Route124_Text_SpencerDefeat

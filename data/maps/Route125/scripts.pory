@@ -3,15 +3,66 @@ mapscripts Route125_MapScripts {
 }
 
 script Route125_OnLoad {
-	call_if_set(FLAG_ITEM_ROUTE_125_ABILITY_SHIELD, Route125_EventScript_OpenGarden)
+	call(Route125_EventScript_OpenGarden)
+	end
 }
 
 script Route125_EventScript_OpenGarden {
+	goto_if_not_defeated(TRAINER_NOLEN, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_SHARON, Common_EventScript_NopReturn)
 	setmetatile(62, 17, METATILE_General_CalmWater, FALSE)
 	setmetatile(63, 17, METATILE_General_CalmWater, FALSE)
 	setmetatile(62, 18, METATILE_General_CalmWater, FALSE)
 	setmetatile(63, 18, METATILE_General_CalmWater, FALSE)
 	return
+}
+
+script Route_125_EventScript_Terry {
+	trainerbattle_single(TRAINER_TERRY, Route_125_Text_TerryIntro, Route_125_Text_TerryDefeat)
+	msgbox(Route_125_Text_TerryPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_125_Text_TerryIntro {
+	"I love rock climbing!"
+}
+text Route_125_Text_TerryDefeat {
+	"Ack! Watch it, don't make me slip!"
+}
+text Route_125_Text_TerryPostBattle {
+	"You walk up stairs. I climb up cliffs\n"
+	"bare-handed. We are not the same!"
+}
+
+script Route_125_EventScript_Holly {
+	trainerbattle_single(TRAINER_HOLLY, Route_125_Text_HollyIntro, Route_125_Text_HollyDefeat)
+	msgbox(Route_125_Text_HollyPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_125_Text_HollyIntro {
+	"Ooh, ooh! Battle me, please!"
+}
+text Route_125_Text_HollyDefeat {
+	"Boo! Not fun!"
+}
+text Route_125_Text_HollyPostBattle {
+	"I don't want to grow up. I'll get too big\n"
+	"for my inner tube!"
+}
+
+script Route_125_EventScript_Colton {
+	trainerbattle_single(TRAINER_COLTON, Route_125_Text_ColtonIntro, Route_125_Text_ColtonDefeat)
+	msgbox(Route_125_Text_ColtonPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_125_Text_ColtonIntro {
+	"Splish, splash. Go, Pokémon!"
+}
+text Route_125_Text_ColtonDefeat {
+	"Nooooooooooo!"
+}
+text Route_125_Text_ColtonPostBattle {
+	"Wailmer is big and bouncy just like my\n"
+	"inner tube!"
 }
 
 

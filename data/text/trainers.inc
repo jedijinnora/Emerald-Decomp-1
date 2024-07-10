@@ -3801,8 +3801,8 @@ Route125_Text_StanDefeat:
 	.string "I floundered…$"
 
 Route125_Text_StanPostBattle:
-	.string "I was blown away by Horsea's charm,\n"
-	.string "so I started swimming, too.$"
+	.string "When I'm not swimming, I write\n"
+	.string "comic books.$"
 
 Route125_Text_TanyaIntro:
 	.string "I'm tired of swimming.\n"
@@ -3817,7 +3817,7 @@ Route125_Text_TanyaPostBattle:
 
 Route125_Text_SharonIntro:
 	.string "How would you like to take on the\n"
-	.string "Water-type Pokémon I raised?$"
+	.string "Pokémon I'm raising?$"
 
 Route125_Text_SharonDefeat:
 	.string "Lost it…$"

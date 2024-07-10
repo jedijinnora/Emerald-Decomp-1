@@ -1,12 +1,19 @@
 const LOCALID_STASH = 13
+const LOCALID_MICAH = 4
 
 mapscripts Route122_MapScripts {
     MAP_SCRIPT_ON_TRANSITION : Route122_OnTransition
+	MAP_SCRIPT_ON_RESUME : Route122_OnResume
 }
 
 script Route122_OnTransition {
     call(Route122_EventScript_TryMoveStash)
     end
+}
+
+script Route122_OnResume {
+	call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon)
+	end
 }
 
 script Route122_EventScript_TryMoveStash {
@@ -47,4 +54,115 @@ script Route122_EventScript_DevonScopeMan {
 	msgbox(format("I'm heading back to Rustboro as soon as I calm down a bit more."))
 	release
 	end
+}
+
+script Route_122_EventScript_MicahLeft {
+	applymovement(LOCALID_MICAH, Common_Movement_FaceLeft)
+	setvar(VAR_TEMP_2, 1)
+	end
+}
+
+script Route_122_EventScript_MicahRight {
+	applymovement(LOCALID_MICAH, Common_Movement_FaceRight)
+	setvar(VAR_TEMP_2, 0)
+	end
+}
+
+script Route_122_EventScript_Mitchell {
+	trainerbattle_single(TRAINER_MITCHELL, Route_122_Text_MitchellIntro, Route_122_Text_MitchellDefeat)
+	msgbox(Route_122_Text_MitchellPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_122_Text_MitchellIntro {
+	"I've had a good workout.\n"
+	"Time for a cool-down battle!"
+}
+text Route_122_Text_MitchellDefeat {
+	"Yeowch! Cramps all over!"
+}
+text Route_122_Text_MitchellPostBattle {
+	"Whenever you exercise, be sure\n"
+	"to give yourself time to stretch."
+}
+
+script Route_122_EventScript_Julie {
+	trainerbattle_single(TRAINER_JULIE, Route_122_Text_JulieIntro, Route_122_Text_JulieDefeat)
+	msgbox(Route_122_Text_JuliePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_122_Text_JulieIntro {
+	"Hello there. Fancy a fight?"
+}
+text Route_122_Text_JulieDefeat {
+	"You're a bit much for me, I think."
+}
+text Route_122_Text_JuliePostBattle {
+	"Ever wondered what it would be like to\n"
+	"swim up a waterfall?"
+}
+
+script Route_122_EventScript_Hiromichi {
+	trainerbattle_single(TRAINER_HIROMICHI, Route_122_Text_HiromichiIntro, Route_122_Text_HiromichiDefeat)
+	msgbox(Route_122_Text_HiromichiPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_122_Text_HiromichiIntro {
+	"Hack and slash!"
+}
+text Route_122_Text_HiromichiDefeat {
+	"You chipped our blades!"
+}
+text Route_122_Text_HiromichiPostBattle {
+	"You may be tough, but I don't think\n"
+	"you could handle a Pokémon like mine."
+}
+
+script Route_122_EventScript_Tsunao {
+	trainerbattle_single(TRAINER_TSUNAO, Route_122_Text_TsunaoIntro, Route_122_Text_TsunaoDefeat)
+	msgbox(Route_122_Text_TsunaoPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_122_Text_TsunaoIntro {
+	"Covertly cloaked, I strike!"
+}
+text Route_122_Text_TsunaoDefeat {
+	"Fine, you can have it."
+}
+text Route_122_Text_TsunaoPostBattle {
+	"Be sure to practice how to make your \n"
+	"cloak swoosh and swish. It's cool!"
+}
+
+script Route_122_EventScript_Micah {
+	trainerbattle_single(TRAINER_MICAH, Route_122_Text_MicahIntro, Route_122_Text_MicahDefeat)
+	msgbox(Route_122_Text_MicahPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_122_Text_MicahIntro {
+	"Don't think we Bug Catchers are easily\n"
+	"distracted. I'm focused and ready!"
+}
+text Route_122_Text_MicahDefeat {
+	"You focused on our defeat…"
+}
+text Route_122_Text_MicahPostBattle {
+	"I'll focus on catching stronger Bug\n"
+	"Pokémon for next time!"
+}
+
+script Route_122_EventScript_Edgar {
+	trainerbattle_single(TRAINER_EDGAR, Route_122_Text_EdgarIntro, Route_122_Text_EdgarDefeat)
+	msgbox(Route_122_Text_EdgarPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_122_Text_EdgarIntro {
+	"En garde!\n"
+	"My samurai otters will slice you up!"
+}
+text Route_122_Text_EdgarDefeat {
+	"Defeated…"
+}
+text Route_122_Text_EdgarPostBattle {
+	"If you want an Oshawott of your own,\n"
+	"talk to a lady in Pacifidlog Town."
 }

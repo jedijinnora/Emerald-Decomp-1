@@ -2781,7 +2781,7 @@
           "map": "MAP_ROUTE124",
           "base_label": "gRoute124",
           "land_mons": {
-            "encounter_rate": 20,
+            "encounter_rate": 30,
             "mons": [
               {
                 "min_level": 5,
@@ -2799,9 +2799,9 @@
                 "species": "SPECIES_MINIOR"
               },
               {
-                "min_level": 10,
-                "max_level": 20,
-                "species": "SPECIES_DOTTLER"
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_BLIPBUG"
               },
               {
                 "min_level": 5,
@@ -5059,7 +5059,7 @@
               {
                 "min_level": 27,
                 "max_level": 27,
-                "species": "SPECIES_CHATOT"
+                "species": "SPECIES_MANKEY"
               },
               {
                 "min_level": 25,
@@ -5079,7 +5079,7 @@
               {
                 "min_level": 27,
                 "max_level": 27,
-                "species": "SPECIES_MARILL"
+                "species": "SPECIES_CHATOT"
               },
               {
                 "min_level": 27,
@@ -6302,7 +6302,7 @@
               {
                 "min_level": 25,
                 "max_level": 30,
-                "species": "SPECIES_DEWGONG"
+                "species": "SPECIES_LAPRAS"
               }
             ]
           },
@@ -6599,12 +6599,12 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_GUMSHOOS"
+                "species": "SPECIES_VENONAT"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_ARBOK"
+                "species": "SPECIES_VENONAT"
               }
             ]
           },
@@ -19969,6 +19969,75 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_LARVESTA"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_VERDANTURF_TOWN",
+          "base_label": "gVerdanturfTown",
+          "land_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_PETILIL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_GOSSIFLEUR"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_COTTONEE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CUTIEFLY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_FIDOUGH"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_BOUNSWEET"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_FLABEBE_ORANGE_FLOWER"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_FLABEBE_WHITE_FLOWER"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_FLABEBE_YELLOW_FLOWER"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_FLABEBE_RED_FLOWER"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_LILLIGANT"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_LILLIGANT_HISUIAN"
               }
             ]
           }

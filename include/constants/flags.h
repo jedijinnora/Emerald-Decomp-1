@@ -1066,8 +1066,8 @@
 #define FLAG_HIDE_ROUTE_123_BALL_1                                  0x3D5
 #define FLAG_HIDE_ROUTE_123_BALL_2                                  0x3D6
 #define FLAG_HIDE_ROUTE_123_BALL_3                                  0x3D7
-#define FLAG_UNUSED_0x3D8                                           0x3D8
-#define FLAG_UNUSED_0x3D9                                           0x3D9
+#define FLAG_HIDE_ROUTE_122_KECLEON_1                               0x3D8
+#define FLAG_HIDE_ROUTE_122_KECLEON_2                               0x3D9
 #define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_1                            0x3DA
 #define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_2                            0x3DB
 #define FLAG_HIDE_NEW_MAUVILLE_VOLTORB_3                            0x3DC
