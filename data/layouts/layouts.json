@@ -4982,16 +4982,6 @@
       "blockdata_filepath": "data/layouts/SeafoamCove_B2F/map.bin"
     },
     {
-      "id": "LAYOUT_SOOTOPOLIS_CONNECTOR",
-      "name": "SootopolisConnector_Layout",
-      "width": 28,
-      "height": 36,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Cave",
-      "border_filepath": "data/layouts/SootopolisConnector/border.bin",
-      "blockdata_filepath": "data/layouts/SootopolisConnector/map.bin"
-    },
-    {
       "id": "LAYOUT_EVER_GRANDE_CITY_BUILDING1",
       "name": "EverGrandeCity_Building1_Layout",
       "width": 12,
@@ -5230,6 +5220,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/TitansGrave/border.bin",
       "blockdata_filepath": "data/layouts/TitansGrave/map.bin"
+    },
+    {
+      "id": "LAYOUT_CALDERA_CAVE_1F",
+      "name": "CalderaCave_1F_Layout",
+      "width": 28,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/CalderaCave_1F/border.bin",
+      "blockdata_filepath": "data/layouts/CalderaCave_1F/map.bin"
     }
   ]
 }

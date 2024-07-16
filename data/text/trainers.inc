@@ -4239,7 +4239,7 @@ Route128_Text_WayneDefeat:
 Route128_Text_WaynePostBattle:
 	.string "Awww, phooey!\p"
 	.string "My Pokémon knows Waterfall, but\n"
-	.string "I don't have the Sootopolis Gym Badge!$"
+	.string "I'm scared of heights!$"
 
 Route128_Text_HarrisonIntro:
 	.string "You're looking awfully tough.\n"
@@ -4370,8 +4370,8 @@ Route130_Text_SantiagoPostBattle:
 	.string "I'm one happy guy…$"
 
 Route131_Text_RichardIntro:
-	.string "The sea is teeming with Pokémon.\n"
-	.string "It's not easy swimming, I tell you.$"
+	.string "The world is teeming with Pokémon.\n"
+	.string "It's not easy flying, I tell you.$"
 
 Route131_Text_RichardDefeat:
 	.string "Pokémon raised by Trainers are\n"
@@ -4413,15 +4413,15 @@ Route131_Text_SusiePostBattle:
 	.string "He's hopelessly in love with the sea!$"
 
 Route131_Text_KaraIntro:
-	.string "Why do men love bathing suits so much?\p"
-	.string "They all ogle me!$"
+	.string "Check out my athletic wear!\p"
+	.string "I can run and swim without changing!$"
 
 Route131_Text_KaraDefeat:
 	.string "I'm out of my depth!$"
 
 Route131_Text_KaraPostBattle:
-	.string "Maybe it's not my bathing suit that\n"
-	.string "makes men look. It must be my beauty!$"
+	.string "I'm done for the day. Time to relax\n"
+	.string "and enjoy the weather!$"
 
 Route131_Text_ReliIntro:
 	.string "Reli: We'll work together as siblings\n"
@@ -4538,7 +4538,7 @@ Route132_Text_KiyoPostBattle:
 
 Route132_Text_MakaylaIntro:
 	.string "I'm always with my husband,\n"
-	.string "but I can win even without him.$"
+	.string "but I could win even without him.$"
 
 Route132_Text_MakaylaDefeat:
 	.string "Oh, I guess I wasn't good enough.$"
@@ -4562,29 +4562,29 @@ Route132_Text_JonathanPostBattle:
 	.string "I can't concentrate!$"
 
 Route132_Text_PaxtonIntro:
-	.string "Now where could my wife have gone?\n"
-	.string "I'm always with her.\l"
-	.string "I wonder if I can win on my own.$"
+	.string "How dare you step between us?\n"
+	.string "I'm always with my wife, and\l"
+	.string "together, we shall crush you!$"
 
 Route132_Text_PaxtonDefeat:
 	.string "Ah, I see that I couldn't manage\n"
-	.string "to win on my own after all.$"
+	.string "to win even together.$"
 
 Route132_Text_PaxtonPostBattle:
-	.string "My wife must be looking for me.\n"
-	.string "I'd best go find her right away.$"
+	.string "My wife and I have journeyed\n"
+	.string "together through thick and thin.$"
 
 Route132_Text_DarcyIntro:
 	.string "I liked training here by myself.\n"
-	.string "It's awful that all these people came!$"
+	.string "It's awful that this stupid guy came!$"
 
 Route132_Text_DarcyDefeat:
 	.string "Okay! I won't complain about other\n"
 	.string "people being here.$"
 
 Route132_Text_DarcyPostBattle:
-	.string "I suppose I can partner up with that\n"
-	.string "old man and challenge that other team.$"
+	.string "I suppose I might have done better\n"
+	.string "if I had teamed up on you.$"
 
 Route133_Text_FranklinIntro:
 	.string "Did the currents carry you here, too?\n"

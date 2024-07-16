@@ -35,3 +35,53 @@ script PowerPlant_EventScript_NewMauvilleNorthSign {
 	msgbox(format("New Mauville Power Plant\nNorth Entrance"), MSGBOX_SIGN)
 	end
 }
+
+
+script PowerPlant_EventScript_Ariarne {
+	trainerbattle_single(TRAINER_ARIARNE, PowerPlant_Text_AriarneIntro, PowerPlant_Text_AriarneDefeat)
+	msgbox(PowerPlant_Text_AriarnePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text PowerPlant_Text_AriarneIntro {
+	"My Pokémon glows. Check her out!"
+}
+text PowerPlant_Text_AriarneDefeat {
+	"We burnt out our bulbs."
+}
+text PowerPlant_Text_AriarnePostBattle {
+	"Isn't bioluminescence amazing?\n"
+	"The sea is so pretty…"
+}
+
+script PowerPlant_EventScript_Timin {
+	trainerbattle_single(TRAINER_TIMIN, PowerPlant_Text_TiminIntro, PowerPlant_Text_TiminDefeat)
+	msgbox(PowerPlant_Text_TiminPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text PowerPlant_Text_TiminIntro {
+	"Whoah! Look at this zappy Pokémon I\n"
+    "just fished up!"
+}
+text PowerPlant_Text_TiminDefeat {
+	"I thought we could take you on."
+}
+text PowerPlant_Text_TiminPostBattle {
+	"An Electric type with Levitate has\n"
+	"no weakness!"
+}
+
+script PowerPlant_EventScript_Benito {
+	trainerbattle_single(TRAINER_BENITO, PowerPlant_Text_BenitoIntro, PowerPlant_Text_BenitoDefeat)
+	msgbox(PowerPlant_Text_BenitoPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text PowerPlant_Text_BenitoIntro {
+	"Ahah! An intruder!"
+}
+text PowerPlant_Text_BenitoDefeat {
+	"Ack! How rude!"
+}
+text PowerPlant_Text_BenitoPostBattle {
+	"Wherever you go in the world, don't\n"
+    "forget your Pokémon!"
+}

@@ -19,3 +19,51 @@ script ValleyOfSteel_EventScript_ContaminatedDustSign {
     msgbox("Danger! Heavy metal exposure!\nLimit time spent in the valley!", MSGBOX_SIGN)
     end
 }
+
+script ValleyOfSteel_EventScript_Pepper {
+	trainerbattle_single(TRAINER_PEPPER, ValleyOfSteel_Text_PepperIntro, ValleyOfSteel_Text_PepperDefeat)
+	msgbox(ValleyOfSteel_Text_PepperPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text ValleyOfSteel_Text_PepperIntro {
+	"Are you heading north or south?"
+}
+text ValleyOfSteel_Text_PepperDefeat {
+	"I see, I see."
+}
+text ValleyOfSteel_Text_PepperPostBattle {
+	"Stay prepped and ready! That's the\n"
+	"Ranger way!"
+}
+
+script ValleyOfSteel_EventScript_Stark {
+	trainerbattle_single(TRAINER_STARK, ValleyOfSteel_Text_StarkIntro, ValleyOfSteel_Text_StarkDefeat)
+	msgbox(ValleyOfSteel_Text_StarkPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text ValleyOfSteel_Text_StarkIntro {
+	"Hah! I'm a titan of industry!"
+}
+text ValleyOfSteel_Text_StarkDefeat {
+	"No fair, we had a power outage."
+}
+text ValleyOfSteel_Text_StarkPostBattle {
+	"I trained these Pokémon up from\n"
+	"nothing in a cave! With some scrap!"
+}
+
+script ValleyOfSteel_EventScript_Yinsen {
+	trainerbattle_single(TRAINER_YINSEN, ValleyOfSteel_Text_YinsenIntro, ValleyOfSteel_Text_YinsenDefeat)
+	msgbox(ValleyOfSteel_Text_YinsenPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text ValleyOfSteel_Text_YinsenIntro {
+	"I'm going to buy my friend some time!"
+}
+text ValleyOfSteel_Text_YinsenDefeat {
+	"Ack! Some dust got in my mouth!"
+}
+text ValleyOfSteel_Text_YinsenPostBattle {
+	"Mr. Stark, I don't feel so good."
+	"Maybe it's all the toxic dust?"
+}

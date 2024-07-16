@@ -1255,7 +1255,7 @@
 #define FLAG_ITEM_ROUTE_128_MAX_ELIXIR                              0x48E
 #define FLAG_ITEM_ROUTE_128_BRIGHT_POWDER                           0x48F
 #define FLAG_ITEM_ROUTE_129_SOOTHE_BELL                             0x490
-#define FLAG_ITEM_ROUTE_131_BIG_PEARL                               0x491
+#define FLAG_ITEM_ROUTE_131_ABILITY_PATCH                           0x491
 #define FLAG_ITEM_ROUTE_133_RING_TARGET                             0x492
 #define FLAG_ITEM_ROUTE_133_PP_UP                                   0x493
 #define FLAG_ITEM_ROUTE_134_RARE_CANDY                              0x494

@@ -1150,8 +1150,6 @@ Common_EventScript_CountBadges::
 
 	.include "data/maps/SeafoamCove_B2F/scripts.inc"
 
-	.include "data/maps/SootopolisConnector/scripts.inc"
-
 	.include "data/maps/EverGrandeCity_Building1/scripts.inc"
 
 	.include "data/maps/EverGrandeCity_Building2/scripts.inc"
@@ -1256,3 +1254,5 @@ Common_EventScript_CountBadges::
 	.include "data/maps/DewfordTown_House3/scripts.inc"
 
 	.include "data/maps/SootopolisCity_House8/scripts.inc"
+
+	.include "data/maps/CalderaCave_1F/scripts.inc"

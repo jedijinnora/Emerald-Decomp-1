@@ -1,1 +1,17 @@
 mapscripts MossdeepCaverns_1F_MapScripts {}
+
+script MossdeepCaverns_1F_EventScript_Noran {
+	trainerbattle_single(TRAINER_NORAN, MossdeepCaverns_1F_Text_NoranIntro, MossdeepCaverns_1F_Text_NoranDefeat)
+	msgbox(MossdeepCaverns_1F_Text_NoranPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text MossdeepCaverns_1F_Text_NoranIntro {
+	"Watch out, there's a rock!"
+}
+text MossdeepCaverns_1F_Text_NoranDefeat {
+	"Bah, don't mind me."
+}
+text MossdeepCaverns_1F_Text_NoranPostBattle {
+	"It gets dark further in. You should\n"
+	"be ready!"
+}

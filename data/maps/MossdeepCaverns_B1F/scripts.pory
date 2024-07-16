@@ -1,1 +1,34 @@
 mapscripts MossdeepCaverns_B1F_MapScripts {}
+
+script MossdeepCaverns_B1F_EventScript_Cooper {
+	trainerbattle_single(TRAINER_COOPER, MossdeepCaverns_B1F_Text_CooperIntro, MossdeepCaverns_B1F_Text_CooperDefeat)
+	msgbox(MossdeepCaverns_B1F_Text_CooperPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text MossdeepCaverns_B1F_Text_CooperIntro {
+	"In this dark cave, we train our\n"
+    "fearsome potential!"
+}
+text MossdeepCaverns_B1F_Text_CooperDefeat {
+	"How did this happen?"
+}
+text MossdeepCaverns_B1F_Text_CooperPostBattle {
+	"Free yourself from the distractions of\n"
+	"the material plane! Grow your power."
+}
+
+script MossdeepCaverns_B1F_EventScript_Edmund {
+	trainerbattle_single(TRAINER_EDMUND, MossdeepCaverns_B1F_Text_EdmundIntro, MossdeepCaverns_B1F_Text_EdmundDefeat)
+	msgbox(MossdeepCaverns_B1F_Text_EdmundPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text MossdeepCaverns_B1F_Text_EdmundIntro {
+	"My partner is the toughest ever!"
+}
+text MossdeepCaverns_B1F_Text_EdmundDefeat {
+	"Your partners are even tougher!"
+}
+text MossdeepCaverns_B1F_Text_EdmundPostBattle {
+	"I like to think my Metang is stronger\n"
+	"than Stephen's."
+}

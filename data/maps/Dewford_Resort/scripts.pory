@@ -26,7 +26,7 @@ script Dewford_Resort_EventScript_LifeguardSign {
 }
 
 script Dewford_Resort_EventScript_LittleBoy {
-    msgbox(format("I stay up here, 'cause everyone on the beach wants a Pokémon battle."), MSGBOX_NPC)
+    msgbox(format("I stay up here, 'cause lots of people on the beach want a Pokémon battle."), MSGBOX_NPC)
     end
 }
 
@@ -99,4 +99,96 @@ script Dewford_Resort_EventScript_Azurill {
     msgbox(format("Azurill: Priiii!"))
     release
     end
+}
+
+script Dewford_Resort_EventScript_Beauty {
+    msgbox(format("Waiter? Oh, fetch me another drink, please."), MSGBOX_NPC)
+    end
+}
+
+script Dewford_Resort_EventScript_Lass {
+    msgbox(format("Go away and let me enjoy my shade in peace."), MSGBOX_NPC)
+    end
+}
+
+
+script Dewford_Resort_EventScript_Phelps {
+	trainerbattle_single(TRAINER_PHELPS, Dewford_Resort_Text_PhelpsIntro, Dewford_Resort_Text_PhelpsDefeat)
+	msgbox(Dewford_Resort_Text_PhelpsPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Dewford_Resort_Text_PhelpsIntro {
+	"I'm the greatest swimmer ever!"
+}
+text Dewford_Resort_Text_PhelpsDefeat {
+	"But how??"
+}
+text Dewford_Resort_Text_PhelpsPostBattle {
+	"My Pokémon and I can do anything!"
+}
+
+script Dewford_Resort_EventScript_Tatjana {
+	trainerbattle_single(TRAINER_TATJANA, Dewford_Resort_Text_TatjanaIntro, Dewford_Resort_Text_TatjanaDefeat)
+	msgbox(Dewford_Resort_Text_TatjanaPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Dewford_Resort_Text_TatjanaIntro {
+	"I found you! Let's fight!"
+}
+text Dewford_Resort_Text_TatjanaDefeat {
+	"Hmm, no thanks!"
+}
+text Dewford_Resort_Text_TatjanaPostBattle {
+	"Out of the way!"
+}
+
+script Dewford_Resort_EventScript_Mac {
+	trainerbattle_single(TRAINER_MAC, Dewford_Resort_Text_MacIntro, Dewford_Resort_Text_MacDefeat)
+	msgbox(Dewford_Resort_Text_MacPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Dewford_Resort_Text_MacIntro {
+	"Hah! Feast your eyes on my combo!"
+}
+text Dewford_Resort_Text_MacDefeat {
+	"We oozed our way to defeat."
+}
+text Dewford_Resort_Text_MacPostBattle {
+	"Pyukumuku is my favorite Pokémon!\n"
+    "It's so versatile!"
+}
+
+script Dewford_Resort_EventScript_Kondo {
+	trainerbattle_single(TRAINER_KONDO, Dewford_Resort_Text_KondoIntro, Dewford_Resort_Text_KondoDefeat)
+	msgbox(Dewford_Resort_Text_KondoPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Dewford_Resort_Text_KondoIntro {
+	"Fancy a cuppa?"
+}
+text Dewford_Resort_Text_KondoDefeat {
+	"Not a caffeine enjoyer, eh?"
+}
+text Dewford_Resort_Text_KondoPostBattle {
+	"There's nothing in the world like a\n"
+	"fresh cup of matcha!"
+}
+
+script Dewford_Resort_EventScript_Jed {
+	trainerbattle_double(TRAINER_LEA_AND_JED, Dewford_Resort_Text_JedIntro, Dewford_Resort_Text_JedDefeat, Dewford_Resort_Text_JedNotEnoughMons)
+	msgbox(Dewford_Resort_Text_JedPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Dewford_Resort_Text_JedIntro {
+	"Jed: My love! A pleabian seeks to duel!"
+}
+text Dewford_Resort_Text_JedDefeat {
+	"Not to worry my love, I can win without\n"
+    "my Pokémon!"
+}
+text Dewford_Resort_Text_JedNotEnoughMons {
+    "Hah! Fetch more Pokémon, you pleb!"
+}
+text Dewford_Resort_Text_JedPostBattle {
+	"Take your peasantry elsewhere, please."
 }

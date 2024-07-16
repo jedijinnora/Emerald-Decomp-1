@@ -183,7 +183,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "script": "ValleyOfSteel_EventScript_Pepper",
       "flag": "0"
     },
     {
@@ -196,7 +196,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "script": "ValleyOfSteel_EventScript_Stark",
       "flag": "0"
     },
     {
@@ -248,7 +248,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_BURIED",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "NULL",
+      "script": "ValleyOfSteel_EventScript_Yinsen",
       "flag": "0"
     }
   ],

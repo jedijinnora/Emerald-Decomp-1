@@ -82,3 +82,54 @@ script SandsweptDesert_EventScript_LittleBoy {
     msgbox(format("I wanna explore the Desert Underpass, but the entrance is missing!"), MSGBOX_NPC)
     end
 }
+
+script SandsweptDesert_EventScript_Neal {
+	trainerbattle_single(TRAINER_NEAL, SandsweptDesert_Text_NealIntro, SandsweptDesert_Text_NealDefeat)
+	msgbox(SandsweptDesert_Text_NealPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text SandsweptDesert_Text_NealIntro {
+	"Ho there, traveler!"
+}
+text SandsweptDesert_Text_NealDefeat {
+	"You stumped me!"
+}
+text SandsweptDesert_Text_NealPostBattle {
+	"How long can your Pokémon last in this\n"
+	"sandstorm? I hope you brought\l"
+    "protection!"
+}
+
+script SandsweptDesert_EventScript_Raoul {
+	trainerbattle_single(TRAINER_RAOUL, SandsweptDesert_Text_RaoulIntro, SandsweptDesert_Text_RaoulDefeat)
+	msgbox(SandsweptDesert_Text_RaoulPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text SandsweptDesert_Text_RaoulIntro {
+	"My Pokémon trained with the dancers\n"
+    "atop Wela Volcano!"
+}
+text SandsweptDesert_Text_RaoulDefeat {
+	"Maybe we should have trained in the\n"
+    "sandstorm instead."
+}
+text SandsweptDesert_Text_RaoulPostBattle {
+	"A Thick Club doubles the Attack stat of\n"
+	"Cubone or Marowak."
+}
+
+script SandsweptDesert_EventScript_Cleo {
+	trainerbattle_single(TRAINER_CLEO, SandsweptDesert_Text_CleoIntro, SandsweptDesert_Text_CleoDefeat)
+	msgbox(SandsweptDesert_Text_CleoPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text SandsweptDesert_Text_CleoIntro {
+	"A battle? Sure, but don't disturb the\n"
+    "oasis."
+}
+text SandsweptDesert_Text_CleoDefeat {
+	"What a mess!"
+}
+text SandsweptDesert_Text_CleoPostBattle {
+	"I love this place. It's so pristine."
+}

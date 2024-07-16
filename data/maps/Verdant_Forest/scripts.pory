@@ -78,9 +78,13 @@ script VerdantForest_EventScript_ResearchBattle {
         releaseall
         end
     }
-    //TODO: battle
+    trainerbattle_no_intro(TRAINER_DRESDEN, VerdantForest_Text_DresdenDefeat)
     setflag(FLAG_TEMP_9)
     return
+}
+
+text VerdantForest_Text_DresdenDefeat {
+    "But my theories…"
 }
 
 script VerdantForest_EventScript_LittleGirl {
@@ -535,4 +539,48 @@ script VerdantForest_EventScript_SetupGuardianBattle {
             settotemboost(B_POSITION_OPPONENT_LEFT, 0, 2, 0, 2, 0)
     }
     return
+}
+
+
+
+
+
+
+
+
+script VerdantForest_EventScript_Chapman {
+	trainerbattle_single(TRAINER_CHAPMAN, VerdantForest_Text_ChapmanIntro, VerdantForest_Text_ChapmanDefeat)
+	msgbox(VerdantForest_Text_ChapmanPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text VerdantForest_Text_ChapmanIntro {
+	"Light my fire, baby!"
+}
+text VerdantForest_Text_ChapmanDefeat {
+	"Ouch, ouch, I burnt myself."
+}
+text VerdantForest_Text_ChapmanPostBattle {
+	"Fire safety is overrated!\n"
+	"Check out all these cool burn scars!"
+}
+
+script VerdantForest_EventScript_Carrie {
+	trainerbattle_single(TRAINER_CARRIE, VerdantForest_Text_CarrieIntro, VerdantForest_Text_CarrieDefeat)
+	msgbox(VerdantForest_Text_CarriePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text VerdantForest_Text_CarrieIntro {
+	"Am I a girl who dreamed of being a\n"
+    "butterfly?\p"
+    "Or am I a butterfly now dreaming\n"
+    "I am a girl?"
+}
+text VerdantForest_Text_CarrieDefeat {
+	"Whatever the case, I lost…"
+}
+text VerdantForest_Text_CarriePostBattle {
+	"Am I a girl who dreamed of being a\n"
+    "butterfly?\p"
+    "Or am I a butterfly now dreaming\n"
+    "I am a girl?"
 }

@@ -332,7 +332,6 @@
     "SootopolisCity_LotadAndSeedotHouse",
     "SootopolisCity_MysteryEventsHouse_1F",
     "SootopolisCity_MysteryEventsHouse_B1F",
-    "SootopolisConnector",
     "SootopolisCity_House8"
   ],
   "gMapGroup_IndoorEverGrande": [
@@ -534,7 +533,8 @@
     "DesertUnderpass_Exits",
     "ForestHeart",
     "Underwater_TitansGrave_Entry",
-    "TitansGrave"
+    "TitansGrave",
+    "CalderaCave_1F"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

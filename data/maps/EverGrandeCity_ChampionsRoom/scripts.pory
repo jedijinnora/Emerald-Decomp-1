@@ -116,7 +116,7 @@ EverGrandeCity_ChampionsRoom_Text_Defeat:
 	.string "You were elegant, infuriatingly so.\l"
 	.string "And yet it was utterly glorious!\p"
 	.string "Kudos to you, {PLAYER}!\p"
-	.string "You are a truly noble POKéMON\n"
+	.string "You are a truly noble Pokémon\n"
 	.string "Trainer!$"
 
 EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech:

@@ -1,5 +1,29 @@
 mapscripts Route128_MapScripts {}
 
+script Route128_EventScript_Lass {
+	lock
+	faceplayer
+	msgbox(format("Oh, I'm not interested in battles. I just like to explore all the little islands in Hoenn."))
+	release
+	end
+}
+
+script Route128_EventScript_Leonard {
+	trainerbattle_single(TRAINER_LEONARD, Route_128_Text_LeonardIntro, Route_128_Text_LeonardDefeat)
+	msgbox(Route_128_Text_LeonardPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_128_Text_LeonardIntro {
+	"I'm the fittest dude you'll ever find!"
+}
+text Route_128_Text_LeonardDefeat {
+	"…but I'm not the strongest Trainer!"
+}
+text Route_128_Text_LeonardPostBattle {
+	"If you can beat me, you could take on\n"
+	"the Elite Four no sweat!"
+}
+
 raw `
 Route128_EventScript_Isaiah::
 	trainerbattle_single TRAINER_ISAIAH, Route128_Text_IsaiahIntro, Route128_Text_IsaiahDefeat, Route128_EventScript_RegisterIsaiah

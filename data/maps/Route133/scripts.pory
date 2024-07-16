@@ -5,6 +5,36 @@ script Route133_EventScript_Sign {
 	end
 }
 
+script Route_133_EventScript_Dianne {
+	trainerbattle_single(TRAINER_DIANNE, Route_133_Text_DianneIntro, Route_133_Text_DianneDefeat)
+	msgbox(Route_133_Text_DiannePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_133_Text_DianneIntro {
+	"Sunshine time!"
+}
+text Route_133_Text_DianneDefeat {
+	"What a rain cloud."
+}
+text Route_133_Text_DiannePostBattle {
+	"I love this island."
+}
+
+script Route_133_EventScript_Caroline {
+	trainerbattle_single(TRAINER_CAROLINE, Route_133_Text_CarolineIntro, Route_133_Text_CarolineDefeat)
+	msgbox(Route_133_Text_CarolinePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route_133_Text_CarolineIntro {
+	"Eek! Back off!"
+}
+text Route_133_Text_CarolineDefeat {
+	"Yuck!"
+}
+text Route_133_Text_CarolinePostBattle {
+	"Why are you still bothering me?"
+}
+
 raw `
 Route133_EventScript_Franklin::
 	trainerbattle_single TRAINER_FRANKLIN, Route133_Text_FranklinIntro, Route133_Text_FranklinDefeat

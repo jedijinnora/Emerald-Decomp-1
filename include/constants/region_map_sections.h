@@ -241,8 +241,9 @@
 #define MAPSEC_OLDALE_GLADE                 0xEA
 #define MAPSEC_SUNRISE_SHORE                0xEB
 #define MAPSEC_SAKURAI_OVERLOOK             0xEC
+#define MAPSEC_CALDERA_CAVE                 0xED
 
-#define MAPSEC_NONE                         0xED
+#define MAPSEC_NONE                         0xEE
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

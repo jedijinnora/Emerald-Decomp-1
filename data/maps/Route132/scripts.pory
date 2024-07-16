@@ -1,4 +1,17 @@
-mapscripts Route132_MapScripts {}
+mapscripts Route132_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route132_OnTransition
+}
+
+script Route132_OnTransition {
+	setflag(FLAG_TEMP_11)
+	call_if_set(FLAG_SYS_GAME_CLEAR, Route132_EventScript_ShowTPPTrainers)
+	end
+}
+
+script Route132_EventScript_ShowTPPTrainers {
+	clearflag(FLAG_TEMP_11)
+	return
+}
 
 script Route132_EventScript_HelixSign {
 	msgbox("Anarchy Island\n“Oak: This isn't the time to use that!”", MSGBOX_SIGN)
@@ -10,6 +23,29 @@ script Route132_EventScript_DomeSign {
 	end
 }
 
+script Route132_EventScript_Dots {
+	msgbox(Route132_Text_TPP, MSGBOX_NPC)
+	end
+}
+
+script Route132_EventScript_Red {
+	trainerbattle_single(TRAINER_TPP_RED, Route132_Text_TPP, Route132_Text_TPP)
+	end
+}
+
+script Route132_EventScript_Dom {
+	trainerbattle_single(TRAINER_TPP_DOM, Route132_Text_TPP, Route132_Text_TPP)
+	end
+}
+
+script Route132_EventScript_AJ {
+	trainerbattle_single(TRAINER_TPP_AJ, Route132_Text_TPP, Route132_Text_TPP)
+	end
+}
+
+text Route132_Text_TPP {
+	"……………"
+}
 
 raw `
 Route132_EventScript_Gilbert::

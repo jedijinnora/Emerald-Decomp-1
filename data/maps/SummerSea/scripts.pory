@@ -1,1 +1,139 @@
 mapscripts SummerSea_MapScripts {}
+
+script SummerSea_EventScript_Stanly {
+	trainerbattle_single(TRAINER_STANLY, SummerSea_Text_StanlyIntro, SummerSea_Text_StanlyDefeat)
+	msgbox(SummerSea_Text_StanlyPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text SummerSea_Text_StanlyIntro {
+	"Guts and glory!"
+}
+text SummerSea_Text_StanlyDefeat {
+	"Bwa?"
+}
+text SummerSea_Text_StanlyPostBattle {
+	"Urk, my skin is peeling from all this sun!"
+}
+
+script SummerSea_EventScript_Regan {
+	trainerbattle_single(TRAINER_REGAN, SummerSea_Text_ReganIntro, SummerSea_Text_ReganDefeat)
+	msgbox(SummerSea_Text_ReganPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text SummerSea_Text_ReganIntro {
+	"Sure, I can beat you up."
+}
+text SummerSea_Text_ReganDefeat {
+	"What? My special Clamperl!"
+}
+text SummerSea_Text_ReganPostBattle {
+	"I gave my Clamperl special items to\n"
+	"boost their stats."
+}
+
+script SummerSea_EventScript_Tya {
+	trainerbattle_double(TRAINER_TYA_AND_MADI, SummerSea_Text_TyaIntro, SummerSea_Text_TyaDefeat, SummerSea_Text_TyaNotEnoughMons)
+	msgbox(SummerSea_Text_TyaPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text SummerSea_Text_TyaIntro {
+	"Tya: I'll show my cute junior how it's\n"
+    "done!"
+}
+text SummerSea_Text_TyaDefeat {
+	"Tya: Madi's not going to be impressed\n"
+    "with me…"
+}
+text SummerSea_Text_TyaNotEnoughMons {
+    "Tya: You came all this way without two\n"
+    "Pokémon?"
+}
+text SummerSea_Text_TyaPostBattle {
+	"Tya: I can't teach Madi anything good\n"
+	"while you're still here!"
+}
+
+script SummerSea_EventScript_Madi {
+	trainerbattle_double(TRAINER_TYA_AND_MADI, SummerSea_Text_MadiIntro, SummerSea_Text_MadiDefeat, SummerSea_Text_MadiNotEnoughMons)
+	msgbox(SummerSea_Text_MadiPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text SummerSea_Text_MadiIntro {
+	"Madi: I'll beat you up and make Tya pay\n"
+    "attention to me!"
+}
+text SummerSea_Text_MadiDefeat {
+	"Madi: Tya, help me…"
+}
+text SummerSea_Text_MadiNotEnoughMons {
+    "Madi: You came all this way without two\n"
+    "Pokémon?"
+}
+text SummerSea_Text_MadiPostBattle {
+	"Madi: Sometimes I get distracted\n"
+	"staring at Tya and lose focus…"
+}
+
+script SummerSea_EventScript_Vernon {
+	trainerbattle_single(TRAINER_VERNON, SummerSea_Text_VernonIntro, SummerSea_Text_VernonDefeat)
+	msgbox(SummerSea_Text_VernonPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text SummerSea_Text_VernonIntro {
+	"My Pokémon is almost as big as me!"
+}
+text SummerSea_Text_VernonDefeat {
+	"Yuge!"
+}
+text SummerSea_Text_VernonPostBattle {
+	"You know I'm the biggest dude! Don't\n"
+	"try to deny it!"
+}
+
+script SummerSea_EventScript_Boris {
+	trainerbattle_single(TRAINER_BORIS, SummerSea_Text_BorisIntro, SummerSea_Text_BorisDefeat)
+	msgbox(SummerSea_Text_BorisPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text SummerSea_Text_BorisIntro {
+	"In Summer Sea, Pokémon fight you!"
+}
+text SummerSea_Text_BorisDefeat {
+	"In Summer Sea, you are winner!"
+}
+text SummerSea_Text_BorisPostBattle {
+	"In Summer Sea, weather is like name."
+}
+
+script SummerSea_EventScript_Theodore {
+	trainerbattle_single(TRAINER_THEODORE, SummerSea_Text_TheodoreIntro, SummerSea_Text_TheodoreDefeat)
+	msgbox(SummerSea_Text_TheodorePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text SummerSea_Text_TheodoreIntro {
+	"If you don't mind, I'd like to see how\n"
+    "you measure up."
+}
+text SummerSea_Text_TheodoreDefeat {
+	"Hah! A real challenge!"
+}
+text SummerSea_Text_TheodorePostBattle {
+	"When I was a strapping lad, my nickname\n"
+	"was the Bull Moose."
+}
+
+script SummerSea_EventScript_Howie {
+	trainerbattle_single(TRAINER_HOWIE, SummerSea_Text_HowieIntro, SummerSea_Text_HowieDefeat)
+	msgbox(SummerSea_Text_HowiePostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text SummerSea_Text_HowieIntro {
+	"Have you seen the rare Pokémon?"
+}
+text SummerSea_Text_HowieDefeat {
+	"I've seen a strong Trainer."
+}
+text SummerSea_Text_HowiePostBattle {
+	"They say it's a one in a hundred chance\n"
+	"to find Phione. But where's Manaphy?"
+}

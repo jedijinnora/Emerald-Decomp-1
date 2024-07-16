@@ -1,9 +1,9 @@
 {
-  "id": "MAP_SOOTOPOLIS_CONNECTOR",
-  "name": "SootopolisConnector",
-  "layout": "LAYOUT_SOOTOPOLIS_CONNECTOR",
-  "music": "MUS_PETALBURG_WOODS",
-  "region_map_section": "MAPSEC_SOOTOPOLIS_CITY",
+  "id": "MAP_CALDERA_CAVE_1F",
+  "name": "CalderaCave_1F",
+  "layout": "LAYOUT_CALDERA_CAVE_1F",
+  "music": "MUS_CAVE_OF_ORIGIN",
+  "region_map_section": "MAPSEC_CALDERA_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -19,7 +19,7 @@
   "warp_events": [
     {
       "x": 23,
-      "y": 33,
+      "y": 37,
       "elevation": 0,
       "dest_map": "MAP_ROUTE126",
       "dest_warp_id": "0"

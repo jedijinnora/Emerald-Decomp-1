@@ -162,16 +162,16 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 15,
-      "y": 11,
+      "x": 28,
+      "y": 6,
       "elevation": 0,
       "item": "ITEM_EVIOLITE",
       "flag": "FLAG_HIDDEN_ITEM_GRANITE_CAVE_B2F_EVIOLITE"
     },
     {
       "type": "hidden_item",
-      "x": 28,
-      "y": 6,
+      "x": 15,
+      "y": 11,
       "elevation": 0,
       "item": "ITEM_PP_MAX",
       "flag": "FLAG_HIDDEN_ITEM_GRANITE_CAVE_B2F_PP_MAX"
