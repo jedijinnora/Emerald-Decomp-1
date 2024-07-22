@@ -200,7 +200,7 @@ script SlateportCity_House2_EventScript_ChallengeBattle {
 }
 
 script SlateportCity_House2_EventScript_NotPoisonMonotype {
-    msgbox(format("You have a Pokémon that's not an Poison type."))
+    msgbox(format("You have a Pokémon that's not a Poison type."))
     release
     end
 }

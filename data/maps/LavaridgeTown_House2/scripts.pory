@@ -215,7 +215,7 @@ script LavaridgeTown_House2_EventScript_ChallengeBattle {
 }
 
 script LavaridgeTown_House2_EventScript_NotFireMonotype {
-    msgbox(format("You have a Pokémon that's not an Fire type."))
+    msgbox(format("You have a Pokémon that's not a Fire type."))
     release
     end
 }

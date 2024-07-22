@@ -135,8 +135,8 @@
 #define FLAG_GIVEN_RESORT_EVOLUTION_STONE    0x6D // receive evo stone of choice after defeating all resort trainers
 #define FLAG_GIVEN_FAIRY_FEATHER             0x6E // from school kid in petalburg after showing orange flower florges
 #define FLAG_RECEIVED_SHINY_CHARM            0x6F
-#define FLAG_UNUSED_0x070                    0x70
-#define FLAG_UNUSED_0x071                    0x71
+#define FLAG_RECEIVED_SCOPE_LENS             0x70 // lass in cutter's house
+#define FLAG_RECEIVED_ROOM_SERVICE           0x71 // dewford resort house
 #define FLAG_UNUSED_0x72                     0x72
 #define FLAG_UNUSED_0x73                     0x73
 #define FLAG_UNUSED_0x74                     0x74
@@ -267,14 +267,14 @@
 #define FLAG_CAUGHT_HO_OH                    0xE7
 #define FLAG_DEFEATED_ETERNAL_FLOETTE        0xE8
 #define FLAG_DEFEATED_REGIGIGAS              0xE9
-#define FLAG_UNUSED_0x0EA                    0xEA
-#define FLAG_UNUSED_0x0EB                    0xEB
-#define FLAG_UNUSED_0x0EC                    0xEC
-#define FLAG_UNUSED_0x0ED                    0xED
-#define FLAG_UNUSED_0x0EE                    0xEE
-#define FLAG_UNUSED_0x0EF                    0xEF
-#define FLAG_UNUSED_0x0F0                    0xF0
-#define FLAG_UNUSED_0x0F1                    0xF1
+#define FLAG_OLDALE_RUINS_1_SIGILYPH         0xEA
+#define FLAG_OLDALE_RUINS_2_LUNATONE         0xEB
+#define FLAG_OLDALE_RUINS_2_XATU             0xEC
+#define FLAG_OLDALE_RUINS_2_BRONZONG         0xED
+#define FLAG_OLDALE_RUINS_3_CLAYDOL          0xEE
+#define FLAG_OLDALE_RUINS_3_RHYDON           0xEF
+#define FLAG_OLDALE_RUINS_5_SOLROCK          0xF0
+#define FLAG_OLDALE_RUINS_5_RABSCA           0xF1
 #define FLAG_UNUSED_0x0F2                    0xF2
 #define FLAG_UNUSED_0x0F3                    0xF3
 #define FLAG_UNUSED_0x0F4                    0xF4

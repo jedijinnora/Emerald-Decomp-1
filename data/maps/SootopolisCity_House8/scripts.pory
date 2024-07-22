@@ -199,7 +199,7 @@ script SootopolisCity_House8_EventScript_ChallengeBattle {
 }
 
 script SootopolisCity_House8_EventScript_NotWaterMonotype {
-    msgbox(format("You have a Pokémon that's not an Water type."))
+    msgbox(format("You have a Pokémon that's not a Water type."))
     release
     end
 }

@@ -8,18 +8,231 @@ script MossdeepCity_StevensHouse_OnTransition {
 }
 
 script MossdeepCity_StevensHouse_EventScript_HideSteven {
-	setflag(FLAG_TEMP_11)
+	setflag(FLAG_TEMP_15)
 	return
 }
 
-raw `
-
-MossdeepCity_StevensHouse_EventScript_RockDisplay::
-	msgbox MossdeepCity_StevensHouse_Text_CollectionOfRareRocks, MSGBOX_SIGN
+script MossdeepCity_StevensHouse_EventScript_RockDisplay {
+	msgbox(format("It's a collection of rare rocks and stones assembled by Steven."), MSGBOX_SIGN)
 	end
+}
 
-MossdeepCity_StevensHouse_Text_CollectionOfRareRocks:
-	.string "It's a collection of rare rocks and\n"
-	.string "stones assembled by Steven.$"
+script MossdeepCity_StevensHouse_EventScript_Steven {
+    lock
+    faceplayer
+    msgbox(format("Steven: Hello again, {PLAYER}."))
+    call_if_unset(FLAG_MET_STEEL_TUTOR, MossdeepCity_StevensHouse_EventScript_SteelSpecialistInfo)
+    goto(MossdeepCity_StevensHouse_EventScript_SteelSpecialistMenu)
+}
 
-`
+script MossdeepCity_StevensHouse_EventScript_SteelSpecialistInfo {
+    msgbox(format("I've been training a lot since you defeated my team in Meteor Falls."))
+    msgbox(format("If you defeat my Steel Pokémon in battle, I will offer to teach you various Steel-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Steel-type Pokémon."))
+    setflag(FLAG_MET_STEEL_TUTOR)
+    return
+}
+
+script MossdeepCity_StevensHouse_EventScript_GiveSteelGem {
+    msgbox(format("Here, this item boosts the power of one Steel-type move per battle."))
+    giveitem(ITEM_STEEL_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_STEEL_GEM)
+    return
+}
+
+script MossdeepCity_StevensHouse_EventScript_SteelSpecialistMenu {
+    msgbox(format("What kind of help do you need?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(MossdeepCity_StevensHouse_EventScript_SteelSpecialistInfo)
+        case 1:
+            call(MossdeepCity_StevensHouse_EventScript_SteelSpecialistTutor)
+        case 2:
+            call(MossdeepCity_StevensHouse_EventScript_SteelSpecialistBattle)
+        default:
+            msgbox(format("Yeah, it's about time for us to head out too."), MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(MossdeepCity_StevensHouse_EventScript_SteelSpecialistMenu)
+}
+
+script MossdeepCity_StevensHouse_EventScript_SteelSpecialistTutor {
+    call(MossdeepCity_StevensHouse_EventScript_SteelSpecialistCheckMoves)
+    call_if_defeated(TRAINER_STEVEN_INITIAL, MossdeepCity_StevensHouse_EventScript_SteelSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_STEVEN_INVERSE, MossdeepCity_StevensHouse_EventScript_SteelSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_STEVEN_CHALLENGE, MossdeepCity_StevensHouse_EventScript_SteelSpecialistChallengeUnlock)
+    call(MossdeepCity_StevensHouse_EventScript_SteelSpecialistUnlockOtherTutor)
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_STEEL_WING)
+        case 12:
+            setvar(VAR_0x8005, MOVE_MIRROR_SHOT)
+        case 13:
+            setvar(VAR_0x8005, MOVE_HARD_PRESS)
+        case 21:
+            setvar(VAR_0x8005, MOVE_AUTOTOMIZE)
+        case 22:
+            setvar(VAR_0x8005, MOVE_METAL_BURST)
+        case 23:
+            setvar(VAR_0x8005, MOVE_STEEL_BEAM)
+        case 24:
+            setvar(VAR_0x8005, MOVE_GYRO_BALL)
+        case 31:
+            setvar(VAR_0x8005, MOVE_METEOR_MASH)
+        case 32:
+            setvar(VAR_0x8005, MOVE_IRON_TAIL)
+        case 33:
+            setvar(VAR_0x8005, MOVE_HEAVY_SLAM)
+        case 41:
+            setvar(VAR_0x8005, MOVE_BULLET_PUNCH)
+		case 42:
+            setvar(VAR_0x8005, MOVE_SMART_STRIKE)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, MossdeepCity_StevensHouse_EventScript_SteelSpecialistTutor)
+    return
+}
+
+script MossdeepCity_StevensHouse_EventScript_SteelSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_STEVEN_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_STEVEN_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_STEVEN_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_BITE_TUTOR, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(MossdeepCity_StevensHouse_EventScript_SteelSpecialistMenu)
+}
+
+script MossdeepCity_StevensHouse_EventScript_SteelSpecialistInitialUnlock {
+    dynmultipush("Steel Wing", 11)
+    dynmultipush("Mirror Shot", 12)
+	dynmultipush("Hard Press", 13)
+    return
+}
+
+script MossdeepCity_StevensHouse_EventScript_SteelSpecialistInverseUnlock {
+    dynmultipush("Autotomize", 21)
+	dynmultipush("Metal Burst", 22)
+    dynmultipush("Steel Beam", 23)
+    dynmultipush("Gyro Ball", 24)
+    return
+}
+
+script MossdeepCity_StevensHouse_EventScript_SteelSpecialistChallengeUnlock {
+    dynmultipush("Meteor Mash", 31)
+    dynmultipush("Iron Tail", 32)
+    dynmultipush("Heavy Slam", 33)
+    return
+}
+
+script MossdeepCity_StevensHouse_EventScript_SteelSpecialistUnlockOtherTutor {
+    if(defeated(TRAINER_PUNCH_TUTOR)) {
+        dynmultipush("Bullet Punch", 41)
+    }
+	if(flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
+        dynmultipush("Smart Strike", 42)
+    }
+    return
+}
+
+script MossdeepCity_StevensHouse_EventScript_SteelSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Steel-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(MossdeepCity_StevensHouse_EventScript_InitialBattle)
+        case 2:
+            call(MossdeepCity_StevensHouse_EventScript_InverseBattle)
+        case 3:
+            call(MossdeepCity_StevensHouse_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_STEEL_GEM, MossdeepCity_StevensHouse_EventScript_GiveSteelGem)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM44, MossdeepCity_StevensHouse_EventScript_GiveSludgeWave)
+    release
+    end
+}
+
+script MossdeepCity_StevensHouse_EventScript_InitialBattle {
+    if(!defeated(TRAINER_STEVEN_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Steel Wing, Mirror Shot, and Hard Press."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("I have to admit I've been looking forward to this. Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, MossdeepCity_StevensHouse_EventScript_SteelSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_STEVEN_INITIAL, MossdeepCity_StevensHouse_Text_StevenDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Steel Wing, Mirror Shot, and Hard Press to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script MossdeepCity_StevensHouse_EventScript_InverseBattle {
+    if(!defeated(TRAINER_STEVEN_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Autotomize, Metal Burst, Steel Beam, and Gyro Ball."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("I've got some new plans! Ready to go?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, MossdeepCity_StevensHouse_EventScript_SteelSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_STEVEN_INVERSE, MossdeepCity_StevensHouse_Text_StevenDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Autotomize, Metal Burst, Steel Beam, and Gyro Ball to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script MossdeepCity_StevensHouse_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_STEEL)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, MossdeepCity_StevensHouse_EventScript_NotSteelMonotype)
+    if(!defeated(TRAINER_STEVEN_CHALLENGE)) {
+        msgbox(format("Winning against me with all Steel-type Pokémon will unlock the tutor moves Meteor Mash, Iron Tail, and Heavy Slam."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("This time! This time, for sure! My training will prove superior! Are you ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, MossdeepCity_StevensHouse_EventScript_SteelSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_STEVEN_CHALLENGE, MossdeepCity_StevensHouse_Text_StevenDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Meteor Mash, Iron Tail, and Heavy Slam to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script MossdeepCity_StevensHouse_EventScript_NotSteelMonotype {
+    msgbox(format("You have a Pokémon that's not a Steel type."))
+    release
+    end
+}
+
+script MossdeepCity_StevensHouse_EventScript_GiveSludgeWave {
+    msgbox(format("Here, I can help you out. Take this TM!"))
+    giveitem(ITEM_TM44_IRON_HEAD)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM44)
+    msgbox(format("Iron Head can make the foe flinch! If I ever manage to track down Jirachi…"))
+    return
+}
+
+text MossdeepCity_StevensHouse_Text_StevenDefeated {
+    "I, Steven, fall in defeat…"
+}

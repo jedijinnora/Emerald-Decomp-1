@@ -3,11 +3,117 @@ mapscripts RustboroCity_CuttersHouse_MapScripts {}
 script RustboroCity_CuttersHouse_EventScript_Cutter {
 	lock
 	faceplayer
+	goto_if_defeated(TRAINER_CRITICAL_TUTOR, RustboroCity_CuttersHouse_EventScript_CriticalMenu)
 	msgbox(format("That determined expression…"))
+	msgbox(format("The limber way you move…"))
+	msgbox(format("You're after my special techniques, aren't you?"), MSGBOX_YESNO)
+	if(!var(VAR_RESULT)) {
+		msgbox(format("No? Shame."))
+		release
+		end
+	}
+	setflag(FLAG_TUTOR_HIGH_CRIT_MOVES)
+	msgbox(format("Naturally! But hold on, I can't hand out the secrets of critical hits to just anyone."))
+	msgbox(format("You'll have to beat me in a Pokémon battle first!"), MSGBOX_YESNO)
+	if(!var(VAR_RESULT)) {
+		msgbox(format("A coward like you wasn't worth it anyways."))
+		release
+		end
+	}
+	call(RustboroCity_CuttersHouse_EventScript_CriticalBattle)
+	msgbox(format("Your Pokémon have shown their worth! I shall gladly tutor you in the ways of critical hits."))
+	goto(RustboroCity_CuttersHouse_EventScript_CriticalMenu)
 	release
 	end
 }
 
+text RustboroCity_CuttersHouse_Text_CutterDefeated {
+	"Cut down! Such style!"
+}
+
+script RustboroCity_CuttersHouse_EventScript_CriticalMenu {
+	dynmultipush("Teach a move", 1)
+	dynmultipush("Rematch", 2)
+	msgbox(format("What do you need today?"))
+	dynmultistack(0,0,FALSE,6,TRUE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			call(RustboroCity_CuttersHouse_EventScript_CriticalTutor)
+		case 2:
+			call(RustboroCity_CuttersHouse_EventScript_CriticalBattle)
+		default:
+	}
+	release
+	end
+}
+
+script RustboroCity_CuttersHouse_EventScript_CriticalTutor {
+	dynmultipush("Focus Energy", 11)
+	dynmultipush("Slash", 12)
+	dynmultipush("Cross Chop", 13)
+	dynmultipush("Air Cutter", 14)
+	dynmultipush("Drill Peck", 15)
+	dynmultipush("Cross Poison", 16)
+	dynmultipush("Drill Run", 17)
+	dynmultipush("X-Scissor", 18)
+	dynmultipush("Shadow Claw", 19)
+	dynmultipush("Leaf Blade", 20)
+	dynmultipush("Psycho Cut", 21)
+	dynmultipush("Night Slash", 22)
+	msgbox(format("Which move should I teach?"))
+	dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 11:
+			setvar(VAR_0x8005, MOVE_FOCUS_ENERGY)
+		case 12:
+			setvar(VAR_0x8005, MOVE_SLASH)
+		case 13:
+			setvar(VAR_0x8005, MOVE_CROSS_CHOP)
+		case 14:
+			setvar(VAR_0x8005, MOVE_AIR_CUTTER)
+		case 15:
+			setvar(VAR_0x8005, MOVE_DRILL_PECK)
+		case 16:
+			setvar(VAR_0x8005, MOVE_CROSS_POISON)
+		case 17:
+			setvar(VAR_0x8005, MOVE_DRILL_RUN)
+		case 18:
+			setvar(VAR_0x8005, MOVE_X_SCISSOR)
+		case 19:
+			setvar(VAR_0x8005, MOVE_SHADOW_CLAW)
+		case 20:
+			setvar(VAR_0x8005, MOVE_LEAF_BLADE)
+		case 21:
+			setvar(VAR_0x8005, MOVE_PSYCHO_CUT)
+		case 22:
+			setvar(VAR_0x8005, MOVE_NIGHT_SLASH)
+		default:
+			return
+	}
+	call(MoveTutor_EventScript_OpenPartyMenu)
+	msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, RustboroCity_CuttersHouse_EventScript_CriticalTutor)
+    return
+}
+
+script RustboroCity_CuttersHouse_EventScript_CriticalBattle {
+	trainerbattle_no_intro(TRAINER_CRITICAL_TUTOR, RustboroCity_CuttersHouse_Text_CutterDefeated)
+	return
+}
+
 script RustboroCity_CuttersHouse_EventScript_Lass {
+	goto_if_defeated(TRAINER_CRITICAL_TUTOR, RustboroCity_CuttersHouse_EventScript_TryGiveScopeLens)
 	msgbox(format("The move Cut is Steel-type and has a higher chance for critical hits."), MSGBOX_NPC)
+}
+
+script RustboroCity_CuttersHouse_EventScript_TryGiveScopeLens {
+	if(flag(FLAG_RECEIVED_SCOPE_LENS)) {
+		return
+	}
+	msgbox(format("Wow, you beat my dad! Here, you should have this!"))
+	giveitem(ITEM_SCOPE_LENS)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_RECEIVED_SCOPE_LENS)
+	release
+	end
 }

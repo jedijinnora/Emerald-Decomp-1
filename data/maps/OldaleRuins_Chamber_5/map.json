@@ -50,8 +50,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "OldaleRuins_Chamber_5_EventScript_Solrock",
+      "flag": "FLAG_OLDALE_RUINS_5_SOLROCK"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TRICK_HOUSE_STATUE",
@@ -63,8 +63,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "OldaleRuins_Chamber_5_EventScript_Rabsca",
+      "flag": "FLAG_OLDALE_RUINS_5_RABSCA"
     }
   ],
   "warp_events": [
@@ -80,6 +80,21 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "OldaleRuins_Chamber_5_EventScript_SolrockBraille"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "OldaleRuins_Chamber_5_EventScript_RabscaBraille"
+    }
   ]
 }

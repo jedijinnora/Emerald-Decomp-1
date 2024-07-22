@@ -68,14 +68,6 @@ script MeteorVillage_EventScript_BugCatcher {
     end
 }
 
-script MeteorVillage_EventScript_Aster {
-    lock
-    faceplayer
-    msgbox(format(""))
-    release
-    end
-}
-
 script MeteorVillage_EventScript_Girl3 {
     lock
     faceplayer
@@ -107,3 +99,232 @@ script MeteorVillage_EventScript_AnthropologySign {
 	msgbox(format("Anthropology Field Lab"), MSGBOX_SIGN)
 	end
 }
+
+
+
+
+
+script MeteorVillage_EventScript_Aster {
+    lock
+    faceplayer
+    msgbox(format("I greet you, outsider."))
+    call_if_unset(FLAG_MET_DRAGON_TUTOR, MeteorVillage_EventScript_DragonSpecialistInfo)
+    goto(MeteorVillage_EventScript_DragonSpecialistMenu)
+}
+
+script MeteorVillage_EventScript_DragonSpecialistInfo {
+    msgbox(format("I am Aster, the Lorekeeper of the Draconid people. I guard our tribe's legends and the secrets of Dragon Pokémon."))
+    msgbox(format("If you defeat my Dragons in battle, I will offer to teach you various Dragon-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Dragon-type Pokémon."))
+    setflag(FLAG_MET_DRAGON_TUTOR)
+    return
+}
+
+script MeteorVillage_EventScript_GiveDragonGem {
+    msgbox(format("Here, this item boosts the power of one Dragon-type move per battle."))
+    giveitem(ITEM_DRAGON_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_DRAGON_GEM)
+    return
+}
+
+script MeteorVillage_EventScript_DragonSpecialistMenu {
+    msgbox(format("How can I help you?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(MeteorVillage_EventScript_DragonSpecialistInfo)
+        case 1:
+            call(MeteorVillage_EventScript_DragonSpecialistTutor)
+        case 2:
+            call(MeteorVillage_EventScript_DragonSpecialistBattle)
+        default:
+            msgbox("Farewell.", MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(MeteorVillage_EventScript_DragonSpecialistMenu)
+}
+
+script MeteorVillage_EventScript_DragonSpecialistTutor {
+    call(MeteorVillage_EventScript_DragonSpecialistCheckMoves)
+    call_if_defeated(TRAINER_ASTER_INITIAL, MeteorVillage_EventScript_DragonSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_ASTER_INVERSE, MeteorVillage_EventScript_DragonSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_ASTER_CHALLENGE, MeteorVillage_EventScript_DragonSpecialistChallengeUnlock)
+    call(MeteorVillage_EventScript_DragonSpecialistUnlockOtherTutor)
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_BREAKING_SWIPE)
+        case 12:
+            setvar(VAR_0x8005, MOVE_DRAGON_BREATH)
+        case 13:
+            setvar(VAR_0x8005, MOVE_TWISTER)
+        case 21:
+            setvar(VAR_0x8005, MOVE_DUAL_CHOP)
+        case 22:
+            setvar(VAR_0x8005, MOVE_DRAGON_RUSH)
+        case 23:
+            setvar(VAR_0x8005, MOVE_DRAGON_CHEER)
+        case 31:
+            setvar(VAR_0x8005, MOVE_DRACO_METEOR)
+        case 32:
+            setvar(VAR_0x8005, MOVE_OUTRAGE)
+        case 33:
+            setvar(VAR_0x8005, MOVE_DRAGON_DANCE)
+        case 41:
+            setvar(VAR_0x8005, MOVE_DRAGON_RAGE)
+        case 42:
+            setvar(VAR_0x8005, MOVE_SCALE_SHOT)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, MeteorVillage_EventScript_DragonSpecialistTutor)
+    return
+}
+
+script MeteorVillage_EventScript_DragonSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_ASTER_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_ASTER_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_ASTER_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_PUNCH_MOVES, Common_EventScript_NopReturn)
+	goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
+	goto_if_set(FLAG_MET_THOMSON_SET_DAMAGE_MOVES, Common_EventScript_NopReturn)
+	goto_if_defeated(TRAINER_PUNCH_TUTOR, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(MeteorVillage_EventScript_DragonSpecialistMenu)
+}
+
+script MeteorVillage_EventScript_DragonSpecialistInitialUnlock {
+    dynmultipush("Breaking Swipe", 11)
+    dynmultipush("Dragon Breath", 12)
+    dynmultipush("Twister", 13)
+    return
+}
+
+script MeteorVillage_EventScript_DragonSpecialistInverseUnlock {
+    dynmultipush("Dual Chop", 21)
+    dynmultipush("Dragon Rush", 22)
+    dynmultipush("Dragon Cheer", 23)
+    return
+}
+
+script MeteorVillage_EventScript_DragonSpecialistChallengeUnlock {
+    dynmultipush("Draco Meteor", 31)
+    dynmultipush("Outrage", 32)
+    dynmultipush("Dragon Dance", 33)
+    return
+}
+
+script MeteorVillage_EventScript_DragonSpecialistUnlockOtherTutor {
+    if(flag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)) {
+        dynmultipush("Dragon Rage", 41)
+    }
+    if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
+        dynmultipush("Scale Shot", 42)
+    }
+    return
+}
+
+script MeteorVillage_EventScript_DragonSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Dragon-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(MeteorVillage_EventScript_InitialBattle)
+        case 2:
+            call(MeteorVillage_EventScript_InverseBattle)
+        case 3:
+            call(MeteorVillage_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_DRAGON_GEM, MeteorVillage_EventScript_GiveDragonGem)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM90, MeteorVillage_EventScript_GiveDragonTail)
+    release
+    end
+}
+
+script MeteorVillage_EventScript_InitialBattle {
+    if(!defeated(TRAINER_ASTER_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Breaking Swipe, Dragon Breath, and Twister."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Ahahaha! Are you ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, MeteorVillage_EventScript_DragonSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_ASTER_INITIAL, MeteorVillage_Text_AsterDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Breaking Swipe, Dragon Breath, and Twister to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script MeteorVillage_EventScript_InverseBattle {
+    if(!defeated(TRAINER_ASTER_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Dual Chop, Dragon Rush, and Dragon Cheer."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("We're bringing something new to this encounter! Are you prepared?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, MeteorVillage_EventScript_DragonSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_ASTER_INVERSE, MeteorVillage_Text_AsterDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Dual Chop, Dragon Rush, and Dragon Cheer to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script MeteorVillage_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_DRAGON)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, MeteorVillage_EventScript_NotDragonMonotype)
+    if(!defeated(TRAINER_ASTER_CHALLENGE)) {
+        msgbox(format("Winning against me with all Dragon-type Pokémon will unlock the tutor moves Draco Meteor, Outrage, and Dragon Dance."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Which of us has the closer bond with our Pokémon? Ready to prove yourself?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, MeteorVillage_EventScript_DragonSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_ASTER_CHALLENGE, MeteorVillage_Text_AsterDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Draco Meteor, Outrage, and Dragon Dance to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script MeteorVillage_EventScript_NotDragonMonotype {
+    msgbox(format("You have a Pokémon that's not a Dragon type."))
+    release
+    end
+}
+
+script MeteorVillage_EventScript_GiveDragonTail {
+    msgbox(format("There's a definite bond between you and your Pokémon. Here, take this TM!"))
+    giveitem(ITEM_TM90_DRAGON_TAIL)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM90)
+    msgbox(format("Dragon Tail strikes the foe and forces it to retreat with a wave of draconic power!"))
+    return
+}
+
+text MeteorVillage_Text_AsterDefeated {
+    "Impressive."
+}
+
+
+
+
+

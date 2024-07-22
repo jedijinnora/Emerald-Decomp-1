@@ -1,3 +1,5 @@
+const LOCALID_STEVEN = 2
+
 mapscripts MeteorFalls_StevensCave_MapScripts {
     MAP_SCRIPT_ON_TRANSITION : MeteorFalls_StevensCave_OnTransition
 }
@@ -33,11 +35,45 @@ script MeteorFalls_StevensCave_EventScript_Stash {
 	end
 }
 
+script MeteorFalls_StevensCave_EventScript_Steven {
+    lock
+    msgbox(format("Steven: Hmph. I'll show Noland. I'll show them all!"))
+    playse(SE_PIN)
+    applymovement(LOCALID_STEVEN, Common_Movement_ExclamationMark)
+    faceplayer
+    waitmovement(LOCALID_STEVEN)
+    msgbox(format("Steven: I'll take my ancient Pokémon all the way to the top! You're but a stepping stone on my path to Champion!"))
+    trainerbattle_no_intro(TRAINER_STEVEN, MeteorFalls_StevensCave_Text_StevenDefeated)
+    msgbox(format("Steven: I don't know why I thought training in this cave would get me ahead…"))
+    msgbox(format("You're an okay Trainer, I suppose."))
+    giveitem(ITEM_HEART_SCALE, 3)
+    msgbox(format("Steven: I'm heading back to my house in Mossdeep. Maybe training where I first met Beldum will make the difference."))
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    call_if_lt(VAR_TEMP_1, 11, MeteorFalls_StevensCave_EventScript_StevenExitRight)
+    call_if_gt(VAR_TEMP_1, 11, MeteorFalls_StevensCave_EventScript_StevenExitLeft)
+    waitmovement(0)
+    playse(SE_DOOR)
+    applymovement(LOCALID_STEVEN, MeteorFalls_StevensCave_Movement_StevenExitDoor)
+    waitse
+    waitmovement(0)
+    removeobject(LOCALID_STEVEN)
+    release
+    end
+}
+
+script MeteorFalls_StevensCave_EventScript_StevenExitLeft {
+    applymovement(LOCALID_STEVEN, MeteorFalls_StevensCave_Movement_StevenExitLeft)
+    return
+}
+
+script MeteorFalls_StevensCave_EventScript_StevenExitRight {
+    applymovement(LOCALID_STEVEN, MeteorFalls_StevensCave_Movement_StevenExitRight)
+    return
+}
 
 movement MeteorFalls_StevensCave_Movement_StevenExitLeft {
     walk_left
     walk_down * 4
-    walk_in_place_down
 }
 
 movement MeteorFalls_StevensCave_Movement_StevenExitRight {
@@ -45,5 +81,13 @@ movement MeteorFalls_StevensCave_Movement_StevenExitRight {
     walk_down * 2
     walk_left * 2
     walk_down * 2
+}
+
+movement MeteorFalls_StevensCave_Movement_StevenExitDoor {
     walk_in_place_down
+}
+
+text MeteorFalls_StevensCave_Text_StevenDefeated {
+    "…Fine. Perhaps I don't have all the\n"
+    "answers yet."
 }

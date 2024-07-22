@@ -14,10 +14,6 @@ script Route118_EventScript_GoodRodFisherman {
 	if(var(VAR_RESULT)) {
 		checkitem(ITEM_SUPER_ROD)
 		if (var(VAR_RESULT)) {
-			msgbox("Hmm!\nWant a rematch?", MSGBOX_YESNO)
-			if(var(VAR_RESULT)) {
-				goto(Route118_GoodRodBattle)
-			}
 			goto(Route118_GoodRodEnd)
 		}
 		msgbox(format("Hmm!\nYou should find my brother in Mossdeep!"))
@@ -27,19 +23,13 @@ script Route118_EventScript_GoodRodFisherman {
 	msgbox("Hmm!\nA Good Rod is really good!\pWouldn't you agree?", MSGBOX_YESNO)
 	if(var(VAR_RESULT) == YES) {
 		msgbox(format("Hmm!\nWe're of identical minds!"))
-		msgbox(format("If you beat me in a battle, I'll give you a Good Rod!"), MSGBOX_YESNO)
-		if(var(VAR_RESULT) == YES) {
-			goto(Route118_GoodRodBattle)
-		}
+		giveitem(ITEM_GOOD_ROD)
+		release
+		end
 	}
-	msgbox("Hmm!\nNo?")
-	waitmessage
+	msgbox("No?\nHmm!")
 	release
 	end
-
-
-	Route118_GoodRodBattle:
-	//TODO: battle against the best pokemon available with old rod?
 
 	Route118_GoodRodEnd:
 	msgbox(format("Hmm!\pI hope you're putting your Good Rod to good use!"))

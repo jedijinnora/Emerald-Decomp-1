@@ -1256,3 +1256,7 @@ Common_EventScript_CountBadges::
 	.include "data/maps/SootopolisCity_House8/scripts.inc"
 
 	.include "data/maps/CalderaCave_1F/scripts.inc"
+
+	.include "data/maps/MauvilleCity_House3/scripts.inc"
+
+	.include "data/maps/MauvilleCity_House4/scripts.inc"

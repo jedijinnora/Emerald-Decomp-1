@@ -179,3 +179,45 @@ TitansGrave_Braille_Dragon:
 	brailleformat 0, 0, 0, 0, 0, 0
 	.braille "LOST ONE OF\n"
 	.braille "DRAGON.$"
+
+OldaleRuins_Braille_Sigilyph:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "STARS UPON\n"
+	.braille "STARSTUFF.\n"
+	.braille "WALK ACROSS\n"
+	.braille "THIS WORLD.$"
+
+OldaleRuins_Braille_Lunatone:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "BORN OF\n"
+	.braille "EARTH.$"
+
+OldaleRuins_Braille_Xatu:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "LIFE THROUGH\n"
+	.braille "WATER.$"
+
+OldaleRuins_Braille_Bronzong:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "ASCEND IN\n"
+	.braille "FIRE.$"
+
+OldaleRuins_Braille_Claydol:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "LOOK ON OUR\n"
+	.braille "WORKS.$"
+
+OldaleRuins_Braille_Rhydon:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "MOURN OUR\n"
+	.braille "ASHES.$"
+
+OldaleRuins_Braille_Solrock:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "THUS THE\n"
+	.braille "WORLD TURNS.$"
+
+OldaleRuins_Braille_Rabsca:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "EVERY LIFE\n"
+	.braille "A NEW DAWN.$"

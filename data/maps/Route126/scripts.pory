@@ -9,7 +9,7 @@ script Route126_EventScript_Beauty {
 }
 
 script Route126_EventScript_Sign {
-	msgbox("Route 126\nInterior access to Sootopolis", MSGBOX_SIGN)
+	msgbox("Route 126\n{UP_ARROW} Caldera Cave", MSGBOX_SIGN)
 	end
 }
 

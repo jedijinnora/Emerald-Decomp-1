@@ -5,38 +5,51 @@ script MossdeepCity_House3_EventScript_SuperRodFisherman {
 	faceplayer
 	checkitem(ITEM_SUPER_ROD)
 	if(var(VAR_RESULT)) {
-		goto(WantSuperRematch)
+		msgbox(format("Have you enjoyed catching seafloor fish with my Super Rod?"))
+		release
+		end
 	}
 
 	msgbox(format("Hey there, Trainer! A Super Rod really is super! Say all you want, but this baby can catch Pokémon off the seafloor!"))
 	msgbox("What do you think?\n You want it, don't you?", MSGBOX_YESNO)
 	if(var(VAR_RESULT) == NO) {
-		msgbox("Hunh?\n Don't you like to fish?")
-	}
-	msgbox("You bet, you bet!\nAfter all, a Super Rod is really super!")
-	//TODO: check all Fisherman trainer flags
-
-	msgbox(format("Well done! You've explored far and wide to find all of my brethren. But there's one more Fisherman to go!"))
-	
-	SuperRodBattle:
-	//TODO: trainer battle
-	msgbox(format("I concede! You are worthy to take the biggest rod!"))
-	checkitem(ITEM_SUPER_ROD)
-	if(var(VAR_RESULT)) {
+		msgbox("Hunh?\n Don't you want my enormous rod?")
 		release
 		end
 	}
+	msgbox("Of course you want my rod!\nAfter all, a Super Rod is really super!")
+	goto_if_not_defeated(TRAINER_ANDREW, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_IVAN, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_DARIAN, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_ELLIOT, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_NED, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_KENNETH, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_CARTER, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_DALE, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_NOLAN, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_CLAUDE, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_KAI, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_WADE, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_BARNY, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_CHRIS, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_JONAH, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_ROGER, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_HENRY, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_WAYNE, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_RONALD, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_PHILLIP, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_DUDLEY, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_MAC, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_FINLEY, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_SHEAFFER, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_TIMIN, NeedMoreFishermen)
+	goto_if_not_defeated(TRAINER_VERNON, NeedMoreFishermen)
+
+	msgbox(format("Well done! You've explored far and wide to find all of my brethren."))
 	giveitem(ITEM_SUPER_ROD)
+	msgbox(format("Oh yeah! Take that baby out for a spin! It's super, you'll see!"))
 	release
 	end
-
-	WantSuperRematch:
-	msgbox(format("Want to fight my ultimate team again?"), MSGBOX_YESNO)
-	if(var(VAR_RESULT) == NO) {
-		msgbox(format("I see, I see.\n You should go fish up some stronger Pokémon!"))
-		release
-		end
-	}
 
 	NeedMoreFishermen:
 	msgbox(format("If you want the Super Rod you'll have to prove your worth by beating every Fisherman in Hoenn!"))

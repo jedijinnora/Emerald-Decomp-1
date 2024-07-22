@@ -1,1 +1,63 @@
-mapscripts OldaleRuins_Chamber_5_MapScripts {}
+mapscripts OldaleRuins_Chamber_5_MapScripts {
+    MAP_SCRIPT_ON_RESUME : OldaleRuins_Chamber_OnResume
+}
+
+script OldaleRuins_Chamber_5_EventScript_Solrock {
+    lock
+    faceplayer
+    waitse
+    playmoncry(SPECIES_SOLROCK, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    setwildbattle(SPECIES_SOLROCK, 42, ITEM_RED_SHARD)
+    if(var(VAR_NUM_BADGES) < 3) {
+        setwildbattle(SPECIES_SOLROCK, 24, ITEM_RED_SHARD)
+    }
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    setflag(FLAG_OLDALE_RUINS_5_SOLROCK)
+    setvar(VAR_0x8004, SPECIES_SOLROCK)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, Common_EventScript_RemoveStaticPokemon)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, OldaleRuins_Chamber_5_EventScript_Solrock)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, OldaleRuins_Chamber_5_EventScript_Solrock)
+	release
+	end
+}
+
+script OldaleRuins_Chamber_5_EventScript_Rabsca {
+    lock
+    faceplayer
+    waitse
+    playmoncry(SPECIES_RABSCA, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    setwildbattle(SPECIES_RABSCA, 42, ITEM_RED_SHARD)
+    if(var(VAR_NUM_BADGES) < 3) {
+        setwildbattle(SPECIES_RABSCA, 24, ITEM_RED_SHARD)
+    }
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    setflag(FLAG_OLDALE_RUINS_5_RABSCA)
+    setvar(VAR_0x8004, SPECIES_RABSCA)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, Common_EventScript_RemoveStaticPokemon)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, OldaleRuins_Chamber_5_EventScript_Rabsca)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, OldaleRuins_Chamber_5_EventScript_Rabsca)
+	release
+	end
+}
+
+script OldaleRuins_Chamber_5_EventScript_SolrockBraille {
+    lock
+    braillemsgbox(OldaleRuins_Braille_Solrock)
+    release
+    end
+}
+
+script OldaleRuins_Chamber_5_EventScript_RabscaBraille {
+    lock
+    braillemsgbox(OldaleRuins_Braille_Rabsca)
+    release
+    end
+}

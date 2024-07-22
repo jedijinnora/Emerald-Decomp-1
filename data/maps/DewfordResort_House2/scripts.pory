@@ -1,1 +1,17 @@
 mapscripts DewfordResort_House2_MapScripts {}
+
+script DewfordResort_House2_EventScript_Girl {
+    msgbox(format("Run, run! Gonna get you!"), MSGBOX_NPC)
+    end
+}
+
+script DewfordResort_House2_EventScript_Twin {
+    msgbox(format("Whee! Out of the way!"))
+}
+
+script DewfordResort_House2_EventScript_Dad {
+    lock
+    msgbox(format("Hmm? Dad's busy enjoying his vacation."))
+    release
+    end
+}

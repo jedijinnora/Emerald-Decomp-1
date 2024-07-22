@@ -6,6 +6,9 @@ mapscripts Route114_FossilManiacsTunnel_MapScripts {
 
 script Route114_FossilManiacsTunnel_OnTransition {
 	call_if_set(FLAG_DESERT_UNDERPASS_OPEN, Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac)
+	call_if_defeated(TRAINER_ANTON_INITIAL, Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac)
+	call_if_defeated(TRAINER_ANTON_INVERSE, Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac)
+	call_if_defeated(TRAINER_ANTON_CHALLENGE, Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac)
 	end
 }
 
@@ -17,8 +20,216 @@ script Route114_FossilManiacsTunnel_EventScript_MoveFossilManiac {
 
 script Route114_FossilManiacsTunnel_EventScript_FossilManiac {
 	lock
-	faceplayer
-	msgbox(format("I'm the Ground Type specialist. Call me the Fossil Maniac!"))
-	release
-	end
+    faceplayer
+    msgbox(format("Oh? Have you come to explore the Underpass too?"))
+    call_if_unset(FLAG_MET_GROUND_TUTOR, Route114_FossilManiacsTunnel_EventScript_GroundSpecialistInfo)
+    goto(Route114_FossilManiacsTunnel_EventScript_GroundSpecialistMenu)
+}
+
+script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistInfo {
+    msgbox(format("My name is Anton, but everyone just calls me the Fossil Maniac."))
+    msgbox(format("You might think I have a lot of fossil Pokémon, but reviving them would ruin my collection…"))
+    msgbox(format("I prefer to fight with Ground Types. If you defeat my Pokémon in battle, I can teach you various Ground-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Ground-type Pokémon."))
+    setflag(FLAG_MET_GROUND_TUTOR)
+    return
+}
+
+script Route114_FossilManiacsTunnel_EventScript_GiveGroundGem {
+    msgbox(format("Here, this item boosts the power of one Ground-type move per battle."))
+    giveitem(ITEM_GROUND_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_GROUND_GEM)
+    return
+}
+
+script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistMenu {
+    msgbox(format("Look, kid, I don't have all day. What do you want?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(Route114_FossilManiacsTunnel_EventScript_GroundSpecialistInfo)
+        case 1:
+            call(Route114_FossilManiacsTunnel_EventScript_GroundSpecialistTutor)
+        case 2:
+            call(Route114_FossilManiacsTunnel_EventScript_GroundSpecialistBattle)
+        default:
+            msgbox(format("Good luck finding more fossils."), MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(Route114_FossilManiacsTunnel_EventScript_GroundSpecialistMenu)
+}
+
+script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistTutor {
+    call(Route114_FossilManiacsTunnel_EventScript_GroundSpecialistCheckMoves)
+    call_if_defeated(TRAINER_ANTON_INITIAL, Route114_FossilManiacsTunnel_EventScript_GroundSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_ANTON_INVERSE, Route114_FossilManiacsTunnel_EventScript_GroundSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_ANTON_CHALLENGE, Route114_FossilManiacsTunnel_EventScript_GroundSpecialistChallengeUnlock)
+    call(Route114_FossilManiacsTunnel_EventScript_GroundSpecialistUnlockOtherTutor)
+    msgbox(format("What move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_MUD_SLAP)
+        case 12:
+            setvar(VAR_0x8005, MOVE_SCORCHING_SANDS)
+        case 13:
+            setvar(VAR_0x8005, MOVE_STOMPING_TANTRUM)
+        case 21:
+            setvar(VAR_0x8005, MOVE_ROTOTILLER)
+        case 22:
+            setvar(VAR_0x8005, MOVE_SPIKES)
+        case 31:
+            setvar(VAR_0x8005, MOVE_HEADLONG_RUSH)
+        case 32:
+            setvar(VAR_0x8005, MOVE_HIGH_HORSEPOWER)
+        case 33:
+            setvar(VAR_0x8005, MOVE_FISSURE)
+        case 41:
+            setvar(VAR_0x8005, MOVE_BONE_RUSH)
+        case 42:
+            setvar(VAR_0x8005, MOVE_DRILL_RUN)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, Route114_FossilManiacsTunnel_EventScript_GroundSpecialistTutor)
+    return
+}
+
+script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_ANTON_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_ANTON_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_ANTON_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_BITE_TUTOR, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(Route114_FossilManiacsTunnel_EventScript_GroundSpecialistMenu)
+}
+
+script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistInitialUnlock {
+    dynmultipush("Mud-Slap", 11)
+    dynmultipush("Scorching Sands", 12)
+	dynmultipush("Stomping Tantrum", 13)
+    return
+}
+
+script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistInverseUnlock {
+    dynmultipush("Rototiller", 21)
+    dynmultipush("Spikes", 22)
+    return
+}
+
+script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistChallengeUnlock {
+    dynmultipush("Headlong Rush", 31)
+    dynmultipush("High Horsepower", 32)
+    dynmultipush("Fissure", 33)
+    return
+}
+
+script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistUnlockOtherTutor {
+    if(defeated(TRAINER_MULTI_HIT_TUTOR)) {
+        dynmultipush("Bone Rush", 41)
+    }
+    if(defeated(TRAINER_CRITICAL_TUTOR)) {
+        dynmultipush("Drill Run", 42)
+    }
+    return
+}
+
+script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Ground-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(Route114_FossilManiacsTunnel_EventScript_InitialBattle)
+        case 2:
+            call(Route114_FossilManiacsTunnel_EventScript_InverseBattle)
+        case 3:
+            call(Route114_FossilManiacsTunnel_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_GROUND_GEM, Route114_FossilManiacsTunnel_EventScript_GiveGroundGem)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM28, Route114_FossilManiacsTunnel_EventScript_GiveEarthquake)
+    release
+    end
+}
+
+script Route114_FossilManiacsTunnel_EventScript_InitialBattle {
+    if(!defeated(TRAINER_ANTON_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Mud-Slap, Scorching Sands, and Stomping Tantrum."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Ready for me to excavate you like a pyramid?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, Route114_FossilManiacsTunnel_EventScript_GroundSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_ANTON_INITIAL, Route114_FossilManiacsTunnel_Text_AntonDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Mud-Slap, Scorching Sands, and Stomping Tantrum to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script Route114_FossilManiacsTunnel_EventScript_InverseBattle {
+    if(!defeated(TRAINER_ANTON_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Rototiller and Spikes."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("You'll break before us like a trench of potsherds! Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, Route114_FossilManiacsTunnel_EventScript_GroundSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_ANTON_INVERSE, Route114_FossilManiacsTunnel_Text_AntonDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Rototiller and Spikes to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script Route114_FossilManiacsTunnel_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_GROUND)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, Route114_FossilManiacsTunnel_EventScript_NotGroundMonotype)
+    if(!defeated(TRAINER_ANTON_CHALLENGE)) {
+        msgbox(format("Winning against me with all Ground-type Pokémon will unlock the tutor moves Headlong Rush, High Horsepower, and Fissure."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("I'll turn you into a history exhibit! Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, Route114_FossilManiacsTunnel_EventScript_GroundSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_ANTON_CHALLENGE, Route114_FossilManiacsTunnel_Text_AntonDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Headlong Rush, High Horsepower, and Fissure to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script Route114_FossilManiacsTunnel_EventScript_NotGroundMonotype {
+    msgbox(format("You have a Pokémon that's not a Ground type."))
+    release
+    end
+}
+
+script Route114_FossilManiacsTunnel_EventScript_GiveEarthquake {
+    msgbox(format("You flew above us… You should have this TM."))
+    giveitem(ITEM_TM28_EARTHQUAKE)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM28)
+    msgbox(format("Earthquake rumbles the ground under the whole battlefield. It's too powerful for my excavations, but good for Pokémon battles."))
+    return
+}
+
+text Route114_FossilManiacsTunnel_Text_AntonDefeated {
+    "Incredible! Your Pokémon belong in a\n"
+	"museum…"
 }

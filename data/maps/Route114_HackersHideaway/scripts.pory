@@ -138,6 +138,7 @@ script Route114_HackersHideaway_EventScript_Youngster {
     if(!flag(FLAG_RECEIVED_AMULET_COIN)) {
         msgbox(format("Break the bank with this one cool trick!"))
         giveitem(ITEM_AMULET_COIN)
+        goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
         setflag(FLAG_RECEIVED_AMULET_COIN)
     }
     msgbox(format("Stick it to the man by doubling the money you take from people weaker than you!"))

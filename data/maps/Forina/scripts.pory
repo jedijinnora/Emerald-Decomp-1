@@ -45,7 +45,8 @@ script Forina_EventScript_116Sign {
 script Forina_EventScript_Man {
 	lock
 	faceplayer
-	msgbox(format(""))
+	msgbox(format("I could jump down the ledge and walk to Rustboro, but then what?"))
+	msgbox(format("I'd need a bunch of HMs to get back."))
 	release
 	end
 }

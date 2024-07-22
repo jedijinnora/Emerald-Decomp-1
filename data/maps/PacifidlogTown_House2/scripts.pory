@@ -199,7 +199,7 @@ script PacifidlogTown_House2_EventScript_ChallengeBattle {
 }
 
 script PacifidlogTown_House2_EventScript_NotFlyingMonotype {
-    msgbox(format("You have a Pokémon that's not an Flying type."))
+    msgbox(format("You have a Pokémon that's not a Flying type."))
     release
     end
 }

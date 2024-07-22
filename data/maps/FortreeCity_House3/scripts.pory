@@ -231,7 +231,7 @@ script FortreeCity_House3_EventScript_ChallengeBattle {
 }
 
 script FortreeCity_House3_EventScript_NotGrassMonotype {
-    msgbox(format("You have a Pokémon that's not an Grass type."))
+    msgbox(format("You have a Pokémon that's not a Grass type."))
     release
     end
 }

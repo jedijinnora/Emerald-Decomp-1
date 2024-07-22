@@ -5224,7 +5224,7 @@
     {
       "id": "LAYOUT_CALDERA_CAVE_1F",
       "name": "CalderaCave_1F_Layout",
-      "width": 28,
+      "width": 30,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",

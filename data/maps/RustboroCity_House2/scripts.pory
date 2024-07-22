@@ -6,9 +6,208 @@ script RustboroCity_House2_EventScript_PokefanF {
 }
 
 script RustboroCity_House2_EventScript_Roxanne {
-	lock
-	faceplayer
-	msgbox(format("Roxanne: I learned all about Pokémon at the Trainer's School."))
-	release
-	end
+    lock
+    faceplayer
+    msgbox(format("Hello, {PLAYER}."))
+    call_if_unset(FLAG_MET_ROCK_TUTOR, RustboroCity_House2_EventScript_RockSpecialistInfo)
+    goto(RustboroCity_House2_EventScript_RockSpecialistMenu)
+}
+
+script RustboroCity_House2_EventScript_RockSpecialistInfo {
+    msgbox("I'm Roxanne. I've been studying at the Trainer's School to become Rustboro's next Gym Leader.")
+    msgbox(format("If you beat my Rock-type Pokémon in battle, I will offer to teach you various Rock-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Rock-type Pokémon."))
+    setflag(FLAG_MET_ROCK_TUTOR)
+    return
+}
+
+script RustboroCity_House2_EventScript_GiveRockGem {
+    msgbox(format("Here, this item boosts the power of one Rock-type move per battle."))
+    giveitem(ITEM_ROCK_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_ROCK_GEM)
+    return
+}
+
+script RustboroCity_House2_EventScript_RockSpecialistMenu {
+    msgbox(format("How can I help you?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(RustboroCity_House2_EventScript_RockSpecialistInfo)
+        case 1:
+            call(RustboroCity_House2_EventScript_RockSpecialistTutor)
+        case 2:
+            call(RustboroCity_House2_EventScript_RockSpecialistBattle)
+        default:
+            msgbox("Good luck out there!", MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(RustboroCity_House2_EventScript_RockSpecialistMenu)
+}
+
+script RustboroCity_House2_EventScript_RockSpecialistTutor {
+    call(RustboroCity_House2_EventScript_RockSpecialistCheckMoves)
+    call_if_defeated(TRAINER_ROXANNE_INITIAL, RustboroCity_House2_EventScript_RockSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_ROXANNE_INVERSE, RustboroCity_House2_EventScript_RockSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_ROXANNE_CHALLENGE, RustboroCity_House2_EventScript_RockSpecialistChallengeUnlock)
+    call(RustboroCity_House2_EventScript_RockSpecialistUnlockOtherTutor)
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_ROLLOUT)
+        case 12:
+            setvar(VAR_0x8005, MOVE_ANCIENT_POWER)
+        case 13:
+            setvar(VAR_0x8005, MOVE_ROCK_POLISH)
+        case 21:
+            setvar(VAR_0x8005, MOVE_SMACK_DOWN)
+        case 22:
+            setvar(VAR_0x8005, MOVE_WIDE_GUARD)
+        case 31:
+            setvar(VAR_0x8005, MOVE_ACCELEROCK)
+        case 32:
+            setvar(VAR_0x8005, MOVE_METEOR_BEAM)
+		case 41:
+            setvar(VAR_0x8005, MOVE_ROCK_BLAST)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, RustboroCity_House2_EventScript_RockSpecialistTutor)
+    return
+}
+
+script RustboroCity_House2_EventScript_RockSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_ROXANNE_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_ROXANNE_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_ROXANNE_CHALLENGE, Common_EventScript_NopReturn)
+	goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
+	goto_if_defeated(TRAINER_TERRAIN_TUTOR_MISTY, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(RustboroCity_House2_EventScript_RockSpecialistMenu)
+}
+
+script RustboroCity_House2_EventScript_RockSpecialistInitialUnlock {
+    dynmultipush("Rollout", 11)
+    dynmultipush("Ancient Power", 12)
+	dynmultipush("Rock Polish", 13)
+    return
+}
+
+script RustboroCity_House2_EventScript_RockSpecialistInverseUnlock {
+    dynmultipush("Smack Down", 21)
+	dynmultipush("Wide Guard", 22)
+    return
+}
+
+script RustboroCity_House2_EventScript_RockSpecialistChallengeUnlock {
+    dynmultipush("Accelerock", 31)
+    dynmultipush("Meteor Beam", 32)
+    return
+}
+
+script RustboroCity_House2_EventScript_RockSpecialistUnlockOtherTutor {
+    if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
+        dynmultipush("Rock Blast", 41)
+    }
+    return
+}
+
+script RustboroCity_House2_EventScript_RockSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Rock-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(RustboroCity_House2_EventScript_InitialBattle)
+        case 2:
+            call(RustboroCity_House2_EventScript_InverseBattle)
+        case 3:
+            call(RustboroCity_House2_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_ROCK_GEM, RustboroCity_House2_EventScript_GiveRockGem)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM34, RustboroCity_House2_EventScript_GiveRockSlide)
+    release
+    end
+}
+
+script RustboroCity_House2_EventScript_InitialBattle {
+    if(!defeated(TRAINER_ROXANNE_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Rollout, Ancient Power, and Rock Polish."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Would you kindly demonstrate how you battle and with which Pokémon?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, RustboroCity_House2_EventScript_RockSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_ROXANNE_INITIAL, RustboroCity_House2_Text_RoxanneDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Rollout, Ancient Power, and Rock Polish to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script RustboroCity_House2_EventScript_InverseBattle {
+    if(!defeated(TRAINER_ROXANNE_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Smach Down and Wide Guard."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Show me how you handle an inverted type chart! Ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, RustboroCity_House2_EventScript_RockSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_ROXANNE_INVERSE, RustboroCity_House2_Text_RoxanneDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Smach Down and Wide Guard to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script RustboroCity_House2_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_ROCK)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, RustboroCity_House2_EventScript_NotRockMonotype)
+    if(!defeated(TRAINER_ROXANNE_CHALLENGE)) {
+        msgbox(format("Winning against me with all Rock-type Pokémon will unlock the tutor moves Accelerock and Meteor Beam."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Show me everything you've learned about the Rock type! Ready to prove yourself?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, RustboroCity_House2_EventScript_RockSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_ROXANNE_CHALLENGE, RustboroCity_House2_Text_RoxanneDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Accelerock and Meteor Beam to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script RustboroCity_House2_EventScript_NotRockMonotype {
+    msgbox(format("You have a Pokémon that's not a Rock type."))
+    release
+    end
+}
+
+script RustboroCity_House2_EventScript_GiveRockSlide {
+    msgbox(format("I learned a lot from that battle. Please take this with you too!"))
+    giveitem(ITEM_TM34_ROCK_SLIDE)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM34)
+    msgbox(format("Rock Slide hits both opponents and can cause flinching. It's pretty good, I think."))
+    return
+}
+
+text RustboroCity_House2_Text_RoxanneDefeated {
+    "So… I lost…\n"
+	"That's okay! You did really well!"
 }

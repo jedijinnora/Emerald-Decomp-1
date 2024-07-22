@@ -14416,12 +14416,12 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_TYNAMO"
+                "species": "SPECIES_HORSEA"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SKRELP"
+                "species": "SPECIES_HORSEA"
               }
             ]
           }
@@ -15300,7 +15300,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_CHARMANDER"
+                "species": "SPECIES_YANMA"
               },
               {
                 "min_level": 5,
@@ -17744,7 +17744,7 @@
           "map": "MAP_SAKURAI_OVERLOOK",
           "base_label": "gSakuraiOverlook",
           "land_mons": {
-            "encounter_rate": 10,
+            "encounter_rate": 20,
             "mons": [
               {
                 "min_level": 5,
@@ -17759,7 +17759,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_CHERUBI"
+                "species": "SPECIES_FLABEBE_ORANGE_FLOWER"
               },
               {
                 "min_level": 5,
@@ -20172,6 +20172,40 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_DWEBBLE"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_METEOR_VILLAGE_CENTRAL_HALL",
+          "base_label": "gMeteorVillage_CentralHall0",
+          "rock_smash_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_ARON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_ARON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_ARON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_ARON"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_ARON"
               }
             ]
           }

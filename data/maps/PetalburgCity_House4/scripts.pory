@@ -1,5 +1,244 @@
 mapscripts PetalburgCity_House4_MapScripts {}
 
 script PetalburgCity_House4_EventScript_Norman {
-    
+    lock
+    faceplayer
+    msgbox(format("Hm? Well, if it isn't {PLAYER}!"))
+    call_if_unset(FLAG_MET_NORMAL_TUTOR, PetalburgCity_House4_EventScript_NormalSpecialistInfo)
+    goto(PetalburgCity_House4_EventScript_NormalSpecialistMenu)
+}
+
+script PetalburgCity_House4_EventScript_NormalSpecialistInfo {
+    msgbox(format("I'm Norman. I grew up in Olivine City. If you've heard of Gym Leader Whitney you have some idea of the power Normal types can bring to the table."))
+    msgbox(format("If you defeat my Normal-type Pokémon in battle, I will offer to teach you various Normal-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Normal-type Pokémon."))
+    setflag(FLAG_MET_NORMAL_TUTOR)
+    return
+}
+
+script PetalburgCity_House4_EventScript_GiveNormalGem {
+    msgbox(format("Here, this item boosts the power of one Normal-type move per battle."))
+    giveitem(ITEM_NORMAL_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_NORMAL_GEM)
+    return
+}
+
+script PetalburgCity_House4_EventScript_NormalSpecialistMenu {
+    msgbox(format("How can I help you?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(PetalburgCity_House4_EventScript_NormalSpecialistInfo)
+        case 1:
+            call(PetalburgCity_House4_EventScript_NormalSpecialistTutor)
+        case 2:
+            call(PetalburgCity_House4_EventScript_NormalSpecialistBattle)
+        default:
+            msgbox("See ya.", MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(PetalburgCity_House4_EventScript_NormalSpecialistMenu)
+}
+
+script PetalburgCity_House4_EventScript_NormalSpecialistTutor {
+    call(PetalburgCity_House4_EventScript_NormalSpecialistCheckMoves)
+    call_if_defeated(TRAINER_NORMAN_INITIAL, PetalburgCity_House4_EventScript_NormalSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_NORMAN_INVERSE, PetalburgCity_House4_EventScript_NormalSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_NORMAN_CHALLENGE, PetalburgCity_House4_EventScript_NormalSpecialistChallengeUnlock)
+    call(PetalburgCity_House4_EventScript_NormalSpecialistUnlockOtherTutor)
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_HEADBUTT)
+        case 12:
+            setvar(VAR_0x8005, MOVE_ECHOED_VOICE)
+        case 13:
+            setvar(VAR_0x8005, MOVE_ROUND)
+        case 14:
+            setvar(VAR_0x8005, MOVE_ENDEAVOR)
+        case 21:
+            setvar(VAR_0x8005, MOVE_SELF_DESTRUCT)
+        case 22:
+            setvar(VAR_0x8005, MOVE_HEAL_BELL)
+        case 23:
+            setvar(VAR_0x8005, MOVE_BATON_PASS)
+        case 24:
+            setvar(VAR_0x8005, MOVE_BLOCK)
+        case 25:
+            setvar(VAR_0x8005, MOVE_HYPER_VOICE)
+        case 31:
+            setvar(VAR_0x8005, MOVE_BOOMBURST)
+        case 32:
+            setvar(VAR_0x8005, MOVE_FAKE_OUT)
+        case 33:
+            setvar(VAR_0x8005, MOVE_DOUBLE_EDGE)
+        case 34:
+            setvar(VAR_0x8005, MOVE_ENCORE)
+        case 35:
+            setvar(VAR_0x8005, MOVE_EXPLOSION)
+        case 41:
+            setvar(VAR_0x8005, MOVE_HYPER_FANG)
+        case 42:
+            setvar(VAR_0x8005, MOVE_MEGA_PUNCH)
+        case 43:
+            setvar(VAR_0x8005, MOVE_TAIL_SLAP)
+        case 44:
+            setvar(VAR_0x8005, MOVE_SWIFT)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, PetalburgCity_House4_EventScript_NormalSpecialistTutor)
+    return
+}
+
+script PetalburgCity_House4_EventScript_NormalSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_NORMAN_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_NORMAN_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_NORMAN_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BITE_MOVES, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_TERRAIN_MOVES, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(PetalburgCity_House4_EventScript_NormalSpecialistMenu)
+}
+
+script PetalburgCity_House4_EventScript_NormalSpecialistInitialUnlock {
+    dynmultipush("Headbutt", 11)
+    dynmultipush("Echoed Voice", 12)
+    dynmultipush("Round", 13)
+    dynmultipush("Endeavor", 14)
+    return
+}
+
+script PetalburgCity_House4_EventScript_NormalSpecialistInverseUnlock {
+    dynmultipush("Self-Destruct", 21)
+    dynmultipush("Heal Bell", 22)
+    dynmultipush("Baton Pass", 23)
+    dynmultipush("Block", 24)
+    dynmultipush("Hyper Voice", 25)
+    return
+}
+
+script PetalburgCity_House4_EventScript_NormalSpecialistChallengeUnlock {
+    dynmultipush("Boomburst", 31)
+    dynmultipush("Fake Out", 32)
+    dynmultipush("Double-Edge", 33)
+    dynmultipush("Encore", 34)
+    dynmultipush("Explosion", 35)
+    return
+}
+
+script PetalburgCity_House4_EventScript_NormalSpecialistUnlockOtherTutor {
+    if (defeated(TRAINER_BITE_TUTOR)) {
+        dynmultipush("Hyper Fang", 41)
+    }
+    if(flag(FLAG_TUTOR_PUNCH_MOVES)) {
+        dynmultipush("Mega Punch", 42)
+    }
+    if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
+        dynmultipush("Tail Slap", 43)
+    }
+    if(flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
+        dynmultipush("Swift", 44)
+    }
+    return
+}
+
+script PetalburgCity_House4_EventScript_NormalSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Normal-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(PetalburgCity_House4_EventScript_InitialBattle)
+        case 2:
+            call(PetalburgCity_House4_EventScript_InverseBattle)
+        case 3:
+            call(PetalburgCity_House4_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_NORMAL_GEM, PetalburgCity_House4_EventScript_GiveNormalGem)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM10, PetalburgCity_House4_EventScript_GiveFacade)
+    release
+    end
+}
+
+script PetalburgCity_House4_EventScript_InitialBattle {
+    if(!defeated(TRAINER_NORMAN_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Headbutt, Echoed Voice, Round, and Endeavor."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Let's get down to business! Ready to fight?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, PetalburgCity_House4_EventScript_NormalSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_NORMAN_INITIAL, PetalburgCity_House4_Text_NormanDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Headbutt, Echoed Voice, Round, and Endeavor to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script PetalburgCity_House4_EventScript_InverseBattle {
+    if(!defeated(TRAINER_NORMAN_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Self-Destruct, Heal Bell, Baton Pass, Block, and Hyper Voice."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("I'll do everything in my power to win! Are you ready to give your best shot too?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, PetalburgCity_House4_EventScript_NormalSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_NORMAN_INVERSE, PetalburgCity_House4_Text_NormanDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Self-Destruct, Heal Bell, Baton Pass, Block, and Hyper Voice to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script PetalburgCity_House4_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_NORMAL)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, PetalburgCity_House4_EventScript_NotNormalMonotype)
+    if(!defeated(TRAINER_NORMAN_CHALLENGE)) {
+        msgbox(format("Winning against me with all Normal-type Pokémon will unlock the tutor moves Boomburst, Fake Out, Double-Edge, Encore, and Explosion."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("We owe it to each other to bring our very best! Are you ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, PetalburgCity_House4_EventScript_NormalSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_NORMAN_CHALLENGE, PetalburgCity_House4_Text_NormanDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Boomburst, Fake Out, Double-Edge, Encore, and Explosion to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script PetalburgCity_House4_EventScript_NotNormalMonotype {
+    msgbox(format("You have a Pokémon that's not a Normal type."))
+    release
+    end
+}
+
+script PetalburgCity_House4_EventScript_GiveFacade {
+    msgbox(format("Sigh. Rules are rules. Here, take this TM!"))
+    giveitem(ITEM_TM10_FACADE)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM10)
+    msgbox(format("Facade deals double damage if the user is affected by a status condition!"))
+    return
+}
+
+text PetalburgCity_House4_Text_NormanDefeated {
+    "I lost? I lost to {PLAYER}?"
 }

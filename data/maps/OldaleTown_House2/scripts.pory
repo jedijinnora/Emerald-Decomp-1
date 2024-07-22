@@ -220,7 +220,7 @@ script OldaleTown_House2_EventScript_ChallengeBattle {
 }
 
 script OldaleTown_House2_EventScript_NotBugMonotype {
-    msgbox(format("You have a Pokémon that's not an Bug type."))
+    msgbox(format("You have a Pokémon that's not a Bug type."))
     release
     end
 }

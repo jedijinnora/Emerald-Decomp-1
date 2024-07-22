@@ -1,1 +1,63 @@
-mapscripts OldaleRuins_Chamber_3_MapScripts {}
+mapscripts OldaleRuins_Chamber_3_MapScripts {
+    MAP_SCRIPT_ON_RESUME : OldaleRuins_Chamber_OnResume
+}
+
+script OldaleRuins_Chamber_3_EventScript_Claydol {
+    lock
+    faceplayer
+    waitse
+    playmoncry(SPECIES_CLAYDOL, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    setwildbattle(SPECIES_CLAYDOL, 42, ITEM_GREEN_SHARD)
+    if(var(VAR_NUM_BADGES) < 3) {
+        setwildbattle(SPECIES_CLAYDOL, 24, ITEM_GREEN_SHARD)
+    }
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    setflag(FLAG_OLDALE_RUINS_3_CLAYDOL)
+    setvar(VAR_0x8004, SPECIES_CLAYDOL)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, Common_EventScript_RemoveStaticPokemon)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, OldaleRuins_Chamber_3_EventScript_Claydol)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, OldaleRuins_Chamber_3_EventScript_Claydol)
+	release
+	end
+}
+
+script OldaleRuins_Chamber_3_EventScript_Rhydon {
+    lock
+    faceplayer
+    waitse
+    playmoncry(SPECIES_RHYDON, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    setwildbattle(SPECIES_RHYDON, 42, ITEM_GREEN_SHARD)
+    if(var(VAR_NUM_BADGES) < 3) {
+        setwildbattle(SPECIES_RHYDON, 24, ITEM_GREEN_SHARD)
+    }
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    setflag(FLAG_OLDALE_RUINS_3_RHYDON)
+    setvar(VAR_0x8004, SPECIES_RHYDON)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, Common_EventScript_RemoveStaticPokemon)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, OldaleRuins_Chamber_3_EventScript_Rhydon)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, OldaleRuins_Chamber_3_EventScript_Rhydon)
+	release
+	end
+}
+
+script OldaleRuins_Chamber_3_EventScript_ClaydolBraille {
+    lock
+    braillemsgbox(OldaleRuins_Braille_Claydol)
+    release
+    end
+}
+
+script OldaleRuins_Chamber_3_EventScript_RhydonBraille {
+    lock
+    braillemsgbox(OldaleRuins_Braille_Rhydon)
+    release
+    end
+}

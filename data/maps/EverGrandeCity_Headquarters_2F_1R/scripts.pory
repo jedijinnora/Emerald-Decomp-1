@@ -32,7 +32,7 @@ script EverGrandeCity_Headquarters_2F_1R_EventScript_OldMan {
 script EverGrandeCity_Headquarters_2F_1R_EventScript_DevonRep {
     lock
     faceplayer
-    msgbox(format("Check out our top-of-the-line Pokénav upgrades! Our simple subscription payment plans let you unlock every feature disabled by default!"))
+    msgbox(format("Check out our top-of-the-line Pokédex upgrades! Our simple subscription payment plans let you unlock every feature disabled by default!"))
     msgbox(format("You aren't interested? C'mon, these deals won't be here forever…"))
     release
     end

@@ -44,14 +44,14 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 22,
+      "x": 23,
       "y": 22,
       "elevation": 0,
       "dest_map": "MAP_GRANITE_CAVE_B1F",
       "dest_warp_id": "8"
     },
     {
-      "x": 23,
+      "x": 24,
       "y": 26,
       "elevation": 0,
       "dest_map": "MAP_DEWFORD_RESORT",

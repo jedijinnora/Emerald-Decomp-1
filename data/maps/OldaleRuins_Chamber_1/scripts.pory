@@ -1,1 +1,45 @@
-mapscripts OldaleRuins_Chamber_1_MapScripts {}
+mapscripts OldaleRuins_Chamber_1_MapScripts {
+    MAP_SCRIPT_ON_RESUME : OldaleRuins_Chamber_OnResume
+}
+
+script OldaleRuins_Chamber_OnResume {
+    call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, OldaleRuins_EventScript_TryRemoveStatue)
+	end
+}
+
+script OldaleRuins_EventScript_TryRemoveStatue {
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_ne(VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn)
+	removeobject(VAR_LAST_TALKED)
+	return
+}
+
+script OldaleRuins_Chamber_1_EventScript_Sigilyph {
+    lock
+    faceplayer
+    waitse
+    playmoncry(SPECIES_SIGILYPH, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    setwildbattle(SPECIES_SIGILYPH, 42, ITEM_YELLOW_SHARD)
+    if(var(VAR_NUM_BADGES) < 3) {
+        setwildbattle(SPECIES_SIGILYPH, 24, ITEM_YELLOW_SHARD)
+    }
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    dowildbattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    setflag(FLAG_OLDALE_RUINS_1_SIGILYPH)
+    setvar(VAR_0x8004, SPECIES_SIGILYPH)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, Common_EventScript_RemoveStaticPokemon)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, Common_EventScript_LegendaryFlewAway)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Common_EventScript_LegendaryFlewAway)
+	release
+	end
+}
+
+script OldaleRuins_Chamber_1_EventScript_SigilyphBraille {
+    lock
+    braillemsgbox(OldaleRuins_Braille_Sigilyph)
+    release
+    end
+}

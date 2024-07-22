@@ -1,1 +1,18 @@
 mapscripts DewfordResort_House1_MapScripts {}
+
+script DewfordResort_House1_EventScript_Kid {
+    lock
+    faceplayer
+    call_if_unset(FLAG_RECEIVED_ROOM_SERVICE, DewfordResort_House1_EventScript_GiveRoomService)
+    msgbox(format("Tell the chef I expect better! Don't you know who I am?"))
+    release
+    end
+}
+
+script DewfordResort_House1_EventScript_GiveRoomService {
+    msgbox(format("Take this garbage away, I won't pay for it!"))
+    giveitem(ITEM_ROOM_SERVICE)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_ROOM_SERVICE)
+    return
+}

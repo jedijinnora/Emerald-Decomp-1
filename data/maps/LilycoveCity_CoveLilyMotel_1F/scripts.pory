@@ -1,9 +1,240 @@
+mapscripts LilycoveCity_CoveLilyMotel_1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : LilycoveCity_CoveLilyMotel_1F_OnTransition
+}
+
+script LilycoveCity_CoveLilyMotel_1F_OnTransition {
+	end
+}
+
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_Phoebe {
+    lock
+    faceplayer
+    msgbox(format("Good to see you again."))
+    call_if_unset(FLAG_MET_GHOST_TUTOR, LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistInfo)
+    goto(LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistMenu)
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistInfo {
+    msgbox(format("I'm Phoebe! I spend my time between here and Mt. Pyre, where I train my bond with the spirits!"))
+    msgbox(format("If you defeat my Ghost-type Pokémon in battle, I will offer to teach you various Ghost-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Ghost-type Pokémon."))
+    setflag(FLAG_MET_GHOST_TUTOR)
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GiveGhostGem {
+    msgbox(format("Here, this item boosts the power of one Ghost-type move per battle."))
+    giveitem(ITEM_GHOST_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_GHOST_GEM)
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistMenu {
+    msgbox(format("How can I help you?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistInfo)
+        case 1:
+            call(LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistTutor)
+        case 2:
+            call(LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistBattle)
+        default:
+            msgbox("Farewell.", MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistMenu)
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistTutor {
+    call(LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistCheckMoves)
+    call_if_defeated(TRAINER_PHOEBE_INITIAL, LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistInitialUnlock)
+    call_if_defeated(TRAINER_PHOEBE_INVERSE, LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistInverseUnlock)
+    call_if_defeated(TRAINER_PHOEBE_CHALLENGE, LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistChallengeUnlock)
+    call(LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistUnlockOtherTutor)
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_DESTINY_BOND)
+        case 12:
+            setvar(VAR_0x8005, MOVE_SHADOW_SNEAK)
+        case 21:
+            setvar(VAR_0x8005, MOVE_NIGHTMARE)
+        case 22:
+            setvar(VAR_0x8005, MOVE_OMINOUS_WIND)
+        case 23:
+            setvar(VAR_0x8005, MOVE_HEX)
+        case 31:
+            setvar(VAR_0x8005, MOVE_CURSE)
+        case 32:
+            setvar(VAR_0x8005, MOVE_POLTERGEIST)
+        case 33:
+            setvar(VAR_0x8005, MOVE_SHADOW_FORCE)
+        case 41:
+            setvar(VAR_0x8005, MOVE_SHADOW_PUNCH)
+        case 42:
+            setvar(VAR_0x8005, MOVE_NIGHT_SHADE)
+        case 43:
+            setvar(VAR_0x8005, MOVE_SHADOW_CLAW)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistTutor)
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistCheckMoves {
+    goto_if_defeated(TRAINER_PHOEBE_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_PHOEBE_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_PHOEBE_CHALLENGE, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_PUNCH_MOVES, Common_EventScript_NopReturn)
+	goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
+	goto_if_set(FLAG_MET_THOMSON_SET_DAMAGE_MOVES, Common_EventScript_NopReturn)
+	goto_if_defeated(TRAINER_PUNCH_TUTOR, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistMenu)
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistInitialUnlock {
+    dynmultipush("Destiny Bond", 11)
+    dynmultipush("Shadow Sneak", 12)
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistInverseUnlock {
+    dynmultipush("Nightmare", 21)
+    dynmultipush("Ominous Wind", 22)
+    dynmultipush("Hex", 23)
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistChallengeUnlock {
+    dynmultipush("Curse", 31)
+    dynmultipush("Poltergeist", 32)
+    dynmultipush("Shadow Force", 33)
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistUnlockOtherTutor {
+    if(flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES) || defeated(TRAINER_PUNCH_TUTOR)) {
+        dynmultipush("Shadow Punch", 41)
+    }
+    if(flag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)) {
+        dynmultipush("Night Shade", 42)
+    }
+    if (defeated(TRAINER_CRITICAL_TUTOR)) {
+        dynmultipush("Shadow Claw", 43)
+    }
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Ghost-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(LilycoveCity_CoveLilyMotel_1F_EventScript_InitialBattle)
+        case 2:
+            call(LilycoveCity_CoveLilyMotel_1F_EventScript_InverseBattle)
+        case 3:
+            call(LilycoveCity_CoveLilyMotel_1F_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_GHOST_GEM, LilycoveCity_CoveLilyMotel_1F_EventScript_GiveGhostGem)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM41, LilycoveCity_CoveLilyMotel_1F_EventScript_GiveShadowBall)
+    release
+    end
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_InitialBattle {
+    if(!defeated(TRAINER_PHOEBE_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Destiny Bond and Shadow Sneak."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Ahahaha! Are you ready?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_PHOEBE_INITIAL, LilycoveCity_CoveLilyMotel_1F_Text_PhoebeDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Destiny Bond and Shadow Sneak to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_InverseBattle {
+    if(!defeated(TRAINER_PHOEBE_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Nightmare, Ominous Wind, and Hex."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("We're bringing something new to this encounter! Are you prepared?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_PHOEBE_INVERSE, LilycoveCity_CoveLilyMotel_1F_Text_PhoebeDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Nightmare, Ominous Wind, and Hex to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_GHOST)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, LilycoveCity_CoveLilyMotel_1F_EventScript_NotGhostMonotype)
+    if(!defeated(TRAINER_PHOEBE_CHALLENGE)) {
+        msgbox(format("Winning against me with all Ghost-type Pokémon will unlock the tutor moves Curse, Poltergeist, and Shadow Force."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Which of us has the closer bond with our Pokémon? Ready to prove yourself?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistMenu)
+    trainerbattle_no_intro(TRAINER_PHOEBE_CHALLENGE, LilycoveCity_CoveLilyMotel_1F_Text_PhoebeDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Curse, Poltergeist, and Shadow Force to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_NotGhostMonotype {
+    msgbox(format("You have a Pokémon that's not a Ghost type."))
+    release
+    end
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_GiveShadowBall {
+    msgbox(format("There's a definite bond between you and your Pokémon. Here, take this TM!"))
+    giveitem(ITEM_TM41_SHADOW_BALL)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM41)
+    msgbox(format("Shadow Ball hurls an orb of spiritual energy at the foe. It can also lower the target's Sp. Def!"))
+    return
+}
+
+text LilycoveCity_CoveLilyMotel_1F_Text_PhoebeDefeated {
+    "Oh, darn. I've gone and lost."
+}
+
+
+
+
+
 raw `
 .set LOCALID_OWNER, 1
-
-LilycoveCity_CoveLilyMotel_1F_MapScripts::
-	.byte 0
-
 LilycoveCity_CoveLilyMotel_1F_EventScript_MotelOwner::
 	lockall
 	goto_if_set FLAG_SYS_GAME_CLEAR, LilycoveCity_CoveLilyMotel_1F_EventScript_GameClear
@@ -87,8 +318,8 @@ LilycoveCity_CoveLilyMotel_1F_Text_GuestsDoubledByMascot:
 LilycoveCity_CoveLilyMotel_1F_Text_NoGuestsWithTeamAqua:
 	.string "Oh, sorry, sorry!\n"
 	.string "I was too involved in watching TV!\p"
-	.string "Since that Team Aqua came to town,\n"
-	.string "the tourists have been staying away.$"
+	.string "There aren't any guests checked in\n"
+	.string "today, so feel free to hang around.$"
 
 LilycoveCity_CoveLilyMotel_1F_Text_CantSeeTheTV:
 	.string "Hey, down in front!\n"
@@ -105,9 +336,7 @@ LilycoveCity_CoveLilyMotel_1F_Text_MonFoundLostItem:
 LilycoveCity_CoveLilyMotel_1F_Text_HeardAquaHideoutBusted:
 	.string "Oh, sorry, sorry!\n"
 	.string "I was too involved in watching TV!\p"
-	.string "I heard that someone busted\n"
-	.string "the Team Aqua Hideout.\p"
-	.string "Thanks to that, we just booked\n"
+	.string "Today's a good day! We just booked\n"
 	.string "a reservation from a big group.\p"
 	.string "It was a company called… Uh…\n"
 	.string "Game something…$"

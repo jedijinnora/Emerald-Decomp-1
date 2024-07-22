@@ -1,1 +1,206 @@
 mapscripts VerdanturfTown_House2_MapScripts {}
+
+script VerdanturfTown_House2_EventScript_Bellatrix {
+    lock
+    faceplayer
+    msgbox(format("Good to see you again."))
+    call_if_unset(FLAG_MET_FAIRY_TUTOR, VerdanturfTown_House2_EventScript_FairySpecialistInfo)
+    goto(VerdanturfTown_House2_EventScript_FairySpecialistMenu)
+}
+
+script VerdanturfTown_House2_EventScript_FairySpecialistInfo {
+    msgbox("My name is…\n Hmm… \lCall me Bellatrix")
+    msgbox(format("If you prove mastery over my Fairy-type Pokémon in battle, I will offer to teach you various Fairy-type moves."))
+    msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Fairy-type Pokémon."))
+    setflag(FLAG_MET_FAIRY_TUTOR)
+    return
+}
+
+script VerdanturfTown_House2_EventScript_GiveFairyGem {
+    msgbox(format("Here, this item boosts the power of one Fairy-type move per battle."))
+    giveitem(ITEM_FAIRY_GEM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_FAIRY_GEM)
+    return
+}
+
+script VerdanturfTown_House2_EventScript_FairySpecialistMenu {
+    msgbox(format("How can I help you?"))
+    dynmultipush("Information", 0)
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 0:
+            call(VerdanturfTown_House2_EventScript_FairySpecialistInfo)
+        case 1:
+            call(VerdanturfTown_House2_EventScript_FairySpecialistTutor)
+        case 2:
+            call(VerdanturfTown_House2_EventScript_FairySpecialistBattle)
+        default:
+            msgbox("Farewell.", MSGBOX_AUTOCLOSE)
+            release
+            end
+    }
+    goto(VerdanturfTown_House2_EventScript_FairySpecialistMenu)
+}
+
+script VerdanturfTown_House2_EventScript_FairySpecialistTutor {
+    call(VerdanturfTown_House2_EventScript_FairySpecialistCheckMoves)
+    call_if_defeated(TRAINER_BELLATRIX_INITIAL, VerdanturfTown_House2_EventScript_FairySpecialistInitialUnlock)
+    call_if_defeated(TRAINER_BELLATRIX_INVERSE, VerdanturfTown_House2_EventScript_FairySpecialistInverseUnlock)
+    call_if_defeated(TRAINER_BELLATRIX_CHALLENGE, VerdanturfTown_House2_EventScript_FairySpecialistChallengeUnlock)
+    call(VerdanturfTown_House2_EventScript_FairySpecialistUnlockOtherTutor)
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_CHARM)
+        case 12:
+            setvar(VAR_0x8005, MOVE_COVET)
+        case 21:
+            setvar(VAR_0x8005, MOVE_MISTY_EXPLOSION)
+        case 31:
+            setvar(VAR_0x8005, MOVE_SPIRIT_BREAK)
+        case 32:
+            setvar(VAR_0x8005, MOVE_MOONLIGHT)
+        case 41:
+            setvar(VAR_0x8005, MOVE_MISTY_TERRAIN)
+        case 42:
+            setvar(VAR_0x8005, MOVE_DISARMING_VOICE)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, VerdanturfTown_House2_EventScript_FairySpecialistTutor)
+    return
+}
+
+script VerdanturfTown_House2_EventScript_FairySpecialistCheckMoves {
+    goto_if_defeated(TRAINER_BELLATRIX_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_BELLATRIX_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_BELLATRIX_CHALLENGE, Common_EventScript_NopReturn)
+	goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
+	goto_if_defeated(TRAINER_TERRAIN_TUTOR_MISTY, Common_EventScript_NopReturn)
+    msgbox(format("You haven't unlocked any moves yet."))
+    goto(VerdanturfTown_House2_EventScript_FairySpecialistMenu)
+}
+
+script VerdanturfTown_House2_EventScript_FairySpecialistInitialUnlock {
+    dynmultipush("Charm", 11)
+    dynmultipush("Covet", 12)
+    return
+}
+
+script VerdanturfTown_House2_EventScript_FairySpecialistInverseUnlock {
+    dynmultipush("Misty Explosion", 21)
+    return
+}
+
+script VerdanturfTown_House2_EventScript_FairySpecialistChallengeUnlock {
+    dynmultipush("Spirit Break", 31)
+    dynmultipush("Moonlight", 32)
+    return
+}
+
+script VerdanturfTown_House2_EventScript_FairySpecialistUnlockOtherTutor {
+    if (defeated(TRAINER_TERRAIN_TUTOR_MISTY)) {
+        dynmultipush("Misty Terrain", 41)
+    }
+    if(flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
+        dynmultipush("Disarming Voice", 41)
+    }
+    return
+}
+
+script VerdanturfTown_House2_EventScript_FairySpecialistBattle {
+    dynmultipush("Standard double battle", 1)
+    dynmultipush("Inverse double battle", 2)
+    dynmultipush("Fairy-only double battle", 3)
+    msgbox(format("What kind of battle would you like?"))
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(VerdanturfTown_House2_EventScript_InitialBattle)
+        case 2:
+            call(VerdanturfTown_House2_EventScript_InverseBattle)
+        case 3:
+            call(VerdanturfTown_House2_EventScript_ChallengeBattle)
+            call_if_unset(FLAG_RECEIVED_FAIRY_GEM, VerdanturfTown_House2_EventScript_GiveFairyGem)
+        default:
+            return
+    }
+    call_if_unset(FLAG_ITEM_TM98, VerdanturfTown_House2_EventScript_GiveDazzlingGleam)
+    release
+    end
+}
+
+script VerdanturfTown_House2_EventScript_InitialBattle {
+    if(!defeated(TRAINER_BELLATRIX_INITIAL)) {
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Charm and Covet."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Ready for your lesson?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, VerdanturfTown_House2_EventScript_FairySpecialistMenu)
+    trainerbattle_no_intro(TRAINER_BELLATRIX_INITIAL, VerdanturfTown_House2_Text_BellatrixDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Charm and Covet to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script VerdanturfTown_House2_EventScript_InverseBattle {
+    if(!defeated(TRAINER_BELLATRIX_INVERSE)) {
+        msgbox(format("Winning an inverse double battle will unlock the tutor move Misty Explosion."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Can you handle the upside-down?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, VerdanturfTown_House2_EventScript_FairySpecialistMenu)
+    setflag(FLAG_INVERSE_BATTLE)
+    trainerbattle_no_intro(TRAINER_BELLATRIX_INVERSE, VerdanturfTown_House2_Text_BellatrixDefeated)
+    clearflag(FLAG_INVERSE_BATTLE)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Misty Explosion to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script VerdanturfTown_House2_EventScript_ChallengeBattle {
+    setvar(VAR_0x8004, TYPE_FAIRY)
+    specialvar(VAR_RESULT, CheckPartyMonotype)
+    goto_if_eq(VAR_RESULT, FALSE, VerdanturfTown_House2_EventScript_NotFairyMonotype)
+    if(!defeated(TRAINER_BELLATRIX_CHALLENGE)) {
+        msgbox(format("Winning against me with all Fairy-type Pokémon will unlock the tutor moves Spirit Break and Moonlight."))
+        setflag(FLAG_TEMP_11)
+    }
+    msgbox(format("Which of us has the closer bond with our Pokémon? Ready to prove yourself?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, VerdanturfTown_House2_EventScript_FairySpecialistMenu)
+    trainerbattle_no_intro(TRAINER_BELLATRIX_CHALLENGE, VerdanturfTown_House2_Text_BellatrixDefeated)
+    if(flag(FLAG_TEMP_11)) {
+        msgbox(format("Added Spirit Break and Moonlight to the tutor list."))
+        clearflag(FLAG_TEMP_11)
+    }
+    return
+}
+
+script VerdanturfTown_House2_EventScript_NotFairyMonotype {
+    msgbox(format("You have a Pokémon that's not a Fairy type."))
+    release
+    end
+}
+
+script VerdanturfTown_House2_EventScript_GiveDazzlingGleam {
+    msgbox(format("You have a keen eye for Pokémon. Here, take this TM!"))
+    giveitem(ITEM_TM98_DAZZLING_GLEAM)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_ITEM_TM98)
+    msgbox(format("Dazzling Gleam strikes all foes with a burst of brilliant energy!"))
+    return
+}
+
+text VerdanturfTown_House2_Text_BellatrixDefeated {
+    "You've struck me down!"
+}
