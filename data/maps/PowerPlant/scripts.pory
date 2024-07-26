@@ -3,7 +3,7 @@ mapscripts PowerPlant_MapScripts {
 }
 
 script PowerPlant_OnTransition {
-    call_if_ne(VAR_NEW_MAUVILLE_STATE, 0, PowerPlant_EventScript_HideWorker)
+    call_if_gt(VAR_NEW_MAUVILLE_STATE, 1, PowerPlant_EventScript_HideWorker)
     end
 }
 
@@ -21,6 +21,10 @@ script PowerPlant_EventScript_Worker {
     lock
     faceplayer
     msgbox(format("We're doing some maintainence on this entrance."))
+	if(flag(FLAG_DEFEATED_MAUVILLE_GYM)) {
+		msgbox(format("We've lost contact with the engineers inside. Would you mind taking a look?"))
+		giveitem(ITEM_BASEMENT_KEY)
+	}
     checkitem(ITEM_BASEMENT_KEY)
     if(var(VAR_RESULT)) {
         msgbox(format("You can get in through the south side, via Route 110."))

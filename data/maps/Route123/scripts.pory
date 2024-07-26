@@ -9,15 +9,8 @@ script Route123_OnTransition {
 }
 
 script Route123_OnResume {
-	call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Route123_EventScript_TryRemoveStaticBall)
+	call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_TryRemoveCaughtEncounter)
 	end
-}
-
-script Route123_EventScript_TryRemoveStaticBall {
-	specialvar(VAR_RESULT, GetBattleOutcome)
-	goto_if_ne(VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn)
-	removeobject(VAR_LAST_TALKED)
-	return
 }
 
 script Route123_EventScript_LikelyVoltorbBall {

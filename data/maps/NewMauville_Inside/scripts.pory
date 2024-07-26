@@ -1,265 +1,333 @@
-raw `
-NewMauville_Inside_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, NewMauville_Inside_OnResume
-	map_script MAP_SCRIPT_ON_TRANSITION, NewMauville_Inside_OnTransition
-	map_script MAP_SCRIPT_ON_LOAD, NewMauville_Inside_OnLoad
-	.byte 0
+const LOCALID_SCOTTY = 5
+const LOCALID_ROTOM = 6 //not used yet (waiting on Rotom sprite)
 
-NewMauville_Inside_OnResume:
-	call_if_eq VAR_TEMP_1, 1, NewMauville_Inside_EventScript_SetBarrierStateBlueButton
-	call_if_eq VAR_TEMP_2, 1, NewMauville_Inside_EventScript_SetBarrierStateGreenButton
-	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, NewMauville_Inside_EventScript_TryRemoveVoltorb
+//VAR_TEMP_1: blue button state
+//VAR_TEMP_2: green button state
+//VAR_TEMP_3: rotom scene
+
+//FLAG_TEMP_15: Scotty
+
+mapscripts NewMauville_Inside_MapScripts {
+	MAP_SCRIPT_ON_RESUME :  NewMauville_Inside_OnResume
+	MAP_SCRIPT_ON_TRANSITION : NewMauville_Inside_OnTransition
+}
+
+script NewMauville_Inside_OnResume {
+	call_if_eq(VAR_TEMP_1, 1, NewMauville_Inside_EventScript_SetBarrierStateBlueButton)
+	call_if_eq(VAR_TEMP_2, 1, NewMauville_Inside_EventScript_SetBarrierStateGreenButton)
+	call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_TryRemoveCaughtEncounter)
 	end
+}
 
-NewMauville_Inside_EventScript_TryRemoveVoltorb::
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
-	removeobject VAR_LAST_TALKED
-	return
-
-NewMauville_Inside_OnTransition:
-	setvar VAR_TEMP_1, 0
-	setvar VAR_TEMP_2, 0
-	call_if_unset FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE, NewMauville_Inside_EventScript_ShowVoltorb1
-	call_if_unset FLAG_DEFEATED_VOLTORB_2_NEW_MAUVILLE, NewMauville_Inside_EventScript_ShowVoltorb2
-	call_if_unset FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE, NewMauville_Inside_EventScript_ShowVoltorb3
+script NewMauville_Inside_OnTransition {
+	setvar(VAR_TEMP_1, 0)
+	setvar(VAR_TEMP_2, 0)
+	call_if_gt(VAR_NEW_MAUVILLE_STATE, 1, NewMauville_Inside_EventScript_HideScotty)
 	end
+}
 
-NewMauville_Inside_EventScript_ShowVoltorb1::
-	clearflag FLAG_HIDE_NEW_MAUVILLE_VOLTORB_1
+script NewMauville_Inside_EventScript_HideScotty {
+	setflag(FLAG_TEMP_15)
 	return
+}
 
-NewMauville_Inside_EventScript_ShowVoltorb2::
-	clearflag FLAG_HIDE_NEW_MAUVILLE_VOLTORB_2
-	return
-
-NewMauville_Inside_EventScript_ShowVoltorb3::
-	clearflag FLAG_HIDE_NEW_MAUVILLE_VOLTORB_3
-	return
-
-NewMauville_Inside_OnLoad:
-	call_if_eq VAR_NEW_MAUVILLE_STATE, 2, NewMauville_Inside_EventScript_SetGeneratorOffMetatiles
-	end
-
-NewMauville_Inside_EventScript_BlueButton::
+script NewMauville_Inside_EventScript_BlueButton {
 	lockall
-	setvar VAR_TEMP_1, 1
-	setvar VAR_TEMP_2, 0
-	playse SE_PIN
-	call NewMauville_Inside_EventScript_SetBarrierStateBlueButton
-	special DrawWholeMapView
+	setvar(VAR_TEMP_1, 1)
+	setvar(VAR_TEMP_2, 0)
+	playse(SE_PIN)
+	call(NewMauville_Inside_EventScript_SetBarrierStateBlueButton)
+	special(DrawWholeMapView)
 	releaseall
 	end
+}
 
-NewMauville_Inside_EventScript_GreenButton::
+script NewMauville_Inside_EventScript_GreenButton {
 	lockall
-	setvar VAR_TEMP_1, 0
-	setvar VAR_TEMP_2, 1
-	playse SE_PIN
-	call NewMauville_Inside_EventScript_SetBarrierStateGreenButton
-	special DrawWholeMapView
+	setvar(VAR_TEMP_1, 0)
+	setvar(VAR_TEMP_2, 1)
+	playse(SE_PIN)
+	call(NewMauville_Inside_EventScript_SetBarrierStateGreenButton)
+	special(DrawWholeMapView)
 	releaseall
 	end
+}
 
-NewMauville_Inside_EventScript_SetBarrierStateBlueButton::
-	setmetatile 23, 34, METATILE_BikeShop_Barrier_Hidden_Top, TRUE
-	setmetatile 23, 35, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE
-	setmetatile 23, 36, METATILE_BikeShop_Floor_Shadow_Top, FALSE
-	setmetatile 23, 37, METATILE_BikeShop_Wall_Edge_Top, FALSE
-	setmetatile 10, 16, METATILE_BikeShop_Barrier_Hidden_Top, TRUE
-	setmetatile 10, 17, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE
-	setmetatile 10, 18, METATILE_BikeShop_Floor_Shadow_Top, FALSE
-	setmetatile 10, 19, METATILE_BikeShop_Wall_Edge_Top, FALSE
-	setmetatile 10, 0, METATILE_BikeShop_Barrier_Hidden_Top, TRUE
-	setmetatile 10, 1, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE
-	setmetatile 10, 2, METATILE_BikeShop_Floor_Shadow_Top, FALSE
-	setmetatile 10, 3, METATILE_BikeShop_Wall_Edge_Top, FALSE
-	setmetatile 37, 33, METATILE_BikeShop_Barrier_Green_Top, TRUE
-	setmetatile 37, 34, METATILE_BikeShop_Barrier_Green_TopMid, TRUE
-	setmetatile 37, 35, METATILE_BikeShop_Barrier_Green_BottomMid, TRUE
-	setmetatile 37, 36, METATILE_BikeShop_Barrier_Green_Bottom, TRUE
-	setmetatile 28, 22, METATILE_BikeShop_Barrier_Green_Top, TRUE
-	setmetatile 28, 23, METATILE_BikeShop_Barrier_Green_TopMid, TRUE
-	setmetatile 28, 24, METATILE_BikeShop_Barrier_Green_BottomMid, TRUE
-	setmetatile 28, 25, METATILE_BikeShop_Barrier_Green_Bottom, TRUE
-	setmetatile 10, 24, METATILE_BikeShop_Barrier_Green_Top, TRUE
-	setmetatile 10, 25, METATILE_BikeShop_Barrier_Green_TopMid, TRUE
-	setmetatile 10, 26, METATILE_BikeShop_Barrier_Green_BottomMid, TRUE
-	setmetatile 10, 27, METATILE_BikeShop_Barrier_Green_Bottom, TRUE
-	setmetatile 21, 2, METATILE_BikeShop_Barrier_Green_Top, TRUE
-	setmetatile 21, 3, METATILE_BikeShop_Barrier_Green_TopMid, TRUE
-	setmetatile 21, 4, METATILE_BikeShop_Barrier_Green_BottomMid, TRUE
-	setmetatile 21, 5, METATILE_BikeShop_Barrier_Green_Bottom, TRUE
-	setmetatile 6, 11, METATILE_BikeShop_Button_Pressed, FALSE
-	setmetatile 13, 10, METATILE_BikeShop_Button_Pressed, FALSE
-	setmetatile 16, 22, METATILE_BikeShop_Button_Pressed, FALSE
-	setmetatile 4, 26, METATILE_BikeShop_Button_Pressed, FALSE
-	setmetatile 30, 38, METATILE_BikeShop_Button_Pressed, FALSE
-	setmetatile 2, 11, METATILE_BikeShop_Button_Green, FALSE
-	setmetatile 17, 10, METATILE_BikeShop_Button_Green, FALSE
-	setmetatile 25, 18, METATILE_BikeShop_Button_Green, FALSE
-	setmetatile 18, 36, METATILE_BikeShop_Button_Green, FALSE
-	return
-
-NewMauville_Inside_EventScript_SetBarrierStateGreenButton::
-	setmetatile 23, 34, METATILE_BikeShop_Barrier_Blue_Top, TRUE
-	setmetatile 23, 35, METATILE_BikeShop_Barrier_Blue_TopMid, TRUE
-	setmetatile 23, 36, METATILE_BikeShop_Barrier_Blue_BottomMid, TRUE
-	setmetatile 23, 37, METATILE_BikeShop_Barrier_Blue_Bottom, TRUE
-	setmetatile 10, 16, METATILE_BikeShop_Barrier_Blue_Top, TRUE
-	setmetatile 10, 17, METATILE_BikeShop_Barrier_Blue_TopMid, TRUE
-	setmetatile 10, 18, METATILE_BikeShop_Barrier_Blue_BottomMid, TRUE
-	setmetatile 10, 19, METATILE_BikeShop_Barrier_Blue_Bottom, TRUE
-	setmetatile 10, 0, METATILE_BikeShop_Barrier_Blue_Top, TRUE
-	setmetatile 10, 1, METATILE_BikeShop_Barrier_Blue_TopMid, TRUE
-	setmetatile 10, 2, METATILE_BikeShop_Barrier_Blue_BottomMid, TRUE
-	setmetatile 10, 3, METATILE_BikeShop_Barrier_Blue_Bottom, TRUE
-	setmetatile 37, 33, METATILE_BikeShop_Barrier_Hidden_Top, TRUE
-	setmetatile 37, 34, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE
-	setmetatile 37, 35, METATILE_BikeShop_Floor_Shadow_Top, FALSE
-	setmetatile 37, 36, METATILE_BikeShop_Wall_Edge_Top, FALSE
-	setmetatile 28, 22, METATILE_BikeShop_Barrier_Hidden_Top, TRUE
-	setmetatile 28, 23, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE
-	setmetatile 28, 24, METATILE_BikeShop_Floor_Shadow_Top, FALSE
-	setmetatile 28, 25, METATILE_BikeShop_Wall_Edge_Top, FALSE
-	setmetatile 10, 24, METATILE_BikeShop_Barrier_Hidden_Top, TRUE
-	setmetatile 10, 25, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE
-	setmetatile 10, 26, METATILE_BikeShop_Floor_Shadow_Top, FALSE
-	setmetatile 10, 27, METATILE_BikeShop_Wall_Edge_Top, FALSE
-	setmetatile 21, 2, METATILE_BikeShop_Barrier_Hidden_Top, TRUE
-	setmetatile 21, 3, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE
-	setmetatile 21, 4, METATILE_BikeShop_Floor_Shadow_Top, FALSE
-	setmetatile 21, 5, METATILE_BikeShop_Wall_Edge_Top, FALSE
-	setmetatile 2, 11, METATILE_BikeShop_Button_Pressed, FALSE
-	setmetatile 17, 10, METATILE_BikeShop_Button_Pressed, FALSE
-	setmetatile 25, 18, METATILE_BikeShop_Button_Pressed, FALSE
-	setmetatile 18, 36, METATILE_BikeShop_Button_Pressed, FALSE
-	setmetatile 6, 11, METATILE_BikeShop_Button_Blue, FALSE
-	setmetatile 13, 10, METATILE_BikeShop_Button_Blue, FALSE
-	setmetatile 16, 22, METATILE_BikeShop_Button_Blue, FALSE
-	setmetatile 4, 26, METATILE_BikeShop_Button_Blue, FALSE
-	setmetatile 30, 38, METATILE_BikeShop_Button_Blue, FALSE
-	return
-
-NewMauville_Inside_EventScript_RedButton::
+script NewMauville_Inside_EventScript_RedButton {
 	lockall
-	msgbox NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped, MSGBOX_DEFAULT
-	call NewMauville_Inside_EventScript_SetGeneratorOffMetatiles
-	setvar VAR_NEW_MAUVILLE_STATE, 2
+	msgbox(NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped, MSGBOX_DEFAULT)
+	call(NewMauville_Inside_EventScript_SetGeneratorOffMetatiles)
+	setvar(VAR_NEW_MAUVILLE_STATE, 2)
 	releaseall
 	end
+}
 
-NewMauville_Inside_EventScript_SetGeneratorOffMetatiles::
-	setmetatile 33, 6, METATILE_BikeShop_Button_Pressed, FALSE
-	setmetatile 32, 2, METATILE_BikeShop_Generator_Off_Tile0, TRUE
-	setmetatile 33, 2, METATILE_BikeShop_Generator_Off_Tile1, TRUE
-	setmetatile 34, 2, METATILE_BikeShop_Generator_Off_Tile2, TRUE
-	setmetatile 35, 2, METATILE_BikeShop_Generator_Off_Tile3, TRUE
-	setmetatile 32, 3, METATILE_BikeShop_Generator_Off_Tile4, TRUE
-	setmetatile 33, 3, METATILE_BikeShop_Generator_Off_Tile5, TRUE
-	setmetatile 34, 3, METATILE_BikeShop_Generator_Off_Tile6, TRUE
-	setmetatile 35, 3, METATILE_BikeShop_Generator_Off_Tile7, TRUE
-	special DrawWholeMapView
+script NewMauville_Inside_EventScript_SetBarrierStateBlueButton {
+	setmetatile(23, 34, METATILE_BikeShop_Barrier_Hidden_Top, TRUE)
+	setmetatile(23, 35, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE)
+	setmetatile(23, 36, METATILE_BikeShop_Floor_Shadow_Top, FALSE)
+	setmetatile(23, 37, METATILE_BikeShop_Wall_Edge_Top, FALSE)
+	setmetatile(10, 16, METATILE_BikeShop_Barrier_Hidden_Top, TRUE)
+	setmetatile(10, 17, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE)
+	setmetatile(10, 18, METATILE_BikeShop_Floor_Shadow_Top, FALSE)
+	setmetatile(10, 19, METATILE_BikeShop_Wall_Edge_Top, FALSE)
+	setmetatile(10, 0, METATILE_BikeShop_Barrier_Hidden_Top, TRUE)
+	setmetatile(10, 1, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE)
+	setmetatile(10, 2, METATILE_BikeShop_Floor_Shadow_Top, FALSE)
+	setmetatile(10, 3, METATILE_BikeShop_Wall_Edge_Top, FALSE)
+	setmetatile(37, 33, METATILE_BikeShop_Barrier_Green_Top, TRUE)
+	setmetatile(37, 34, METATILE_BikeShop_Barrier_Green_TopMid, TRUE)
+	setmetatile(37, 35, METATILE_BikeShop_Barrier_Green_BottomMid, TRUE)
+	setmetatile(37, 36, METATILE_BikeShop_Barrier_Green_Bottom, TRUE)
+	setmetatile(28, 22, METATILE_BikeShop_Barrier_Green_Top, TRUE)
+	setmetatile(28, 23, METATILE_BikeShop_Barrier_Green_TopMid, TRUE)
+	setmetatile(28, 24, METATILE_BikeShop_Barrier_Green_BottomMid, TRUE)
+	setmetatile(28, 25, METATILE_BikeShop_Barrier_Green_Bottom, TRUE)
+	setmetatile(10, 24, METATILE_BikeShop_Barrier_Green_Top, TRUE)
+	setmetatile(10, 25, METATILE_BikeShop_Barrier_Green_TopMid, TRUE)
+	setmetatile(10, 26, METATILE_BikeShop_Barrier_Green_BottomMid, TRUE)
+	setmetatile(10, 27, METATILE_BikeShop_Barrier_Green_Bottom, TRUE)
+	setmetatile(21, 2, METATILE_BikeShop_Barrier_Green_Top, TRUE)
+	setmetatile(21, 3, METATILE_BikeShop_Barrier_Green_TopMid, TRUE)
+	setmetatile(21, 4, METATILE_BikeShop_Barrier_Green_BottomMid, TRUE)
+	setmetatile(21, 5, METATILE_BikeShop_Barrier_Green_Bottom, TRUE)
+	setmetatile(6, 11, METATILE_BikeShop_Button_Pressed, FALSE)
+	setmetatile(13, 10, METATILE_BikeShop_Button_Pressed, FALSE)
+	setmetatile(16, 22, METATILE_BikeShop_Button_Pressed, FALSE)
+	setmetatile(4, 26, METATILE_BikeShop_Button_Pressed, FALSE)
+	setmetatile(30, 38, METATILE_BikeShop_Button_Pressed, FALSE)
+	setmetatile(2, 11, METATILE_BikeShop_Button_Green, FALSE)
+	setmetatile(17, 10, METATILE_BikeShop_Button_Green, FALSE)
+	setmetatile(25, 18, METATILE_BikeShop_Button_Green, FALSE)
+	setmetatile(18, 36, METATILE_BikeShop_Button_Green, FALSE)
 	return
+}
 
-NewMauville_Inside_EventScript_Generator::
-	lockall
-	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, NewMauville_Inside_EventScript_GeneratorOff
-	msgbox NewMauville_Inside_Text_GeneratorRadiatingHeat, MSGBOX_DEFAULT
-	releaseall
-	end
+script NewMauville_Inside_EventScript_SetBarrierStateGreenButton {
+	setmetatile(23, 34, METATILE_BikeShop_Barrier_Blue_Top, TRUE)
+	setmetatile(23, 35, METATILE_BikeShop_Barrier_Blue_TopMid, TRUE)
+	setmetatile(23, 36, METATILE_BikeShop_Barrier_Blue_BottomMid, TRUE)
+	setmetatile(23, 37, METATILE_BikeShop_Barrier_Blue_Bottom, TRUE)
+	setmetatile(10, 16, METATILE_BikeShop_Barrier_Blue_Top, TRUE)
+	setmetatile(10, 17, METATILE_BikeShop_Barrier_Blue_TopMid, TRUE)
+	setmetatile(10, 18, METATILE_BikeShop_Barrier_Blue_BottomMid, TRUE)
+	setmetatile(10, 19, METATILE_BikeShop_Barrier_Blue_Bottom, TRUE)
+	setmetatile(10, 0, METATILE_BikeShop_Barrier_Blue_Top, TRUE)
+	setmetatile(10, 1, METATILE_BikeShop_Barrier_Blue_TopMid, TRUE)
+	setmetatile(10, 2, METATILE_BikeShop_Barrier_Blue_BottomMid, TRUE)
+	setmetatile(10, 3, METATILE_BikeShop_Barrier_Blue_Bottom, TRUE)
+	setmetatile(37, 33, METATILE_BikeShop_Barrier_Hidden_Top, TRUE)
+	setmetatile(37, 34, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE)
+	setmetatile(37, 35, METATILE_BikeShop_Floor_Shadow_Top, FALSE)
+	setmetatile(37, 36, METATILE_BikeShop_Wall_Edge_Top, FALSE)
+	setmetatile(28, 22, METATILE_BikeShop_Barrier_Hidden_Top, TRUE)
+	setmetatile(28, 23, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE)
+	setmetatile(28, 24, METATILE_BikeShop_Floor_Shadow_Top, FALSE)
+	setmetatile(28, 25, METATILE_BikeShop_Wall_Edge_Top, FALSE)
+	setmetatile(10, 24, METATILE_BikeShop_Barrier_Hidden_Top, TRUE)
+	setmetatile(10, 25, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE)
+	setmetatile(10, 26, METATILE_BikeShop_Floor_Shadow_Top, FALSE)
+	setmetatile(10, 27, METATILE_BikeShop_Wall_Edge_Top, FALSE)
+	setmetatile(21, 2, METATILE_BikeShop_Barrier_Hidden_Top, TRUE)
+	setmetatile(21, 3, METATILE_BikeShop_Barrier_Hidden_Bottom, TRUE)
+	setmetatile(21, 4, METATILE_BikeShop_Floor_Shadow_Top, FALSE)
+	setmetatile(21, 5, METATILE_BikeShop_Wall_Edge_Top, FALSE)
+	setmetatile(2, 11, METATILE_BikeShop_Button_Pressed, FALSE)
+	setmetatile(17, 10, METATILE_BikeShop_Button_Pressed, FALSE)
+	setmetatile(25, 18, METATILE_BikeShop_Button_Pressed, FALSE)
+	setmetatile(18, 36, METATILE_BikeShop_Button_Pressed, FALSE)
+	setmetatile(6, 11, METATILE_BikeShop_Button_Blue, FALSE)
+	setmetatile(13, 10, METATILE_BikeShop_Button_Blue, FALSE)
+	setmetatile(16, 22, METATILE_BikeShop_Button_Blue, FALSE)
+	setmetatile(4, 26, METATILE_BikeShop_Button_Blue, FALSE)
+	setmetatile(30, 38, METATILE_BikeShop_Button_Blue, FALSE)
+	return
+}
 
-NewMauville_Inside_EventScript_GeneratorOff::
-	msgbox NewMauville_Inside_Text_GeneratorQuietedDown, MSGBOX_DEFAULT
-	releaseall
-	end
+script NewMauville_Inside_EventScript_SetGeneratorOffMetatiles {
+	setmetatile(32, 2, METATILE_BikeShop_Generator_Off_Tile0, TRUE)
+	setmetatile(33, 2, METATILE_BikeShop_Generator_Off_Tile1, TRUE)
+	setmetatile(34, 2, METATILE_BikeShop_Generator_Off_Tile2, TRUE)
+	setmetatile(35, 2, METATILE_BikeShop_Generator_Off_Tile3, TRUE)
+	setmetatile(32, 3, METATILE_BikeShop_Generator_Off_Tile4, TRUE)
+	setmetatile(33, 3, METATILE_BikeShop_Generator_Off_Tile5, TRUE)
+	setmetatile(34, 3, METATILE_BikeShop_Generator_Off_Tile6, TRUE)
+	setmetatile(35, 3, METATILE_BikeShop_Generator_Off_Tile7, TRUE)
+	special(DrawWholeMapView)
+	return
+}
 
-NewMauville_Inside_EventScript_Voltorb1::
+script NewMauville_Inside_EventScript_SetGeneratorOnMetatiles {
+	setmetatile(32, 2, METATILE_BikeShop_Generator_On_Tile0, TRUE)
+	setmetatile(33, 2, METATILE_BikeShop_Generator_On_Tile1, TRUE)
+	setmetatile(34, 2, METATILE_BikeShop_Generator_On_Tile2, TRUE)
+	setmetatile(35, 2, METATILE_BikeShop_Generator_On_Tile3, TRUE)
+	setmetatile(32, 3, METATILE_BikeShop_Generator_On_Tile4, TRUE)
+	setmetatile(33, 3, METATILE_BikeShop_Generator_On_Tile5, TRUE)
+	setmetatile(34, 3, METATILE_BikeShop_Generator_On_Tile6, TRUE)
+	setmetatile(35, 3, METATILE_BikeShop_Generator_On_Tile7, TRUE)
+	special(DrawWholeMapView)
+	return
+}
+
+script NewMauville_Inside_EventScript_RotomWarning {
 	lock
-	faceplayer
-	setwildbattle SPECIES_VOLTORB, 25
-	waitse
-	playmoncry SPECIES_VOLTORB, CRY_MODE_ENCOUNTER
-	delay 40
+	playmoncry(SPECIES_ROTOM, CRY_MODE_ENCOUNTER)
 	waitmoncry
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	dowildbattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, NewMauville_Inside_EventScript_DefeatedVoltorb1
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, NewMauville_Inside_EventScript_DefeatedVoltorb1
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, NewMauville_Inside_EventScript_DefeatedVoltorb1
-	setflag FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE
+	playse(SE_BANG)
+	msgbox(format("Unknown: Buzz off! Shoo! I'll smack you with my spanner!"))
+	addvar(VAR_TEMP_3, 1)
 	release
 	end
+}
 
-NewMauville_Inside_EventScript_DefeatedVoltorb1::
-	setflag FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE
-	goto Common_EventScript_RemoveStaticPokemon
-	end
-
-NewMauville_Inside_EventScript_Voltorb2::
+script NewMauville_Inside_EventScript_MovePlayerForScene {
 	lock
-	faceplayer
-	setwildbattle SPECIES_VOLTORB, 25
+	applymovement(OBJ_EVENT_ID_PLAYER, NewMauville_Inside_Movement_PlayerApproach)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	goto(NewMauville_Inside_EventScript_RotomScene)
+	end
+}
+
+movement NewMauville_Inside_Movement_PlayerApproach {
+	walk_down
+	face_right
+}
+
+script NewMauville_Inside_EventScript_RotomScene {
+	lock
+	playse(SE_GLASS_FLUTE)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	playmoncry(SPECIES_ROTOM, CRY_MODE_ENCOUNTER)
+	delay(16)
+	applymovement(LOCALID_SCOTTY, NewMauville_Inside_Movement_Scotty_1)
+	waitmovement(LOCALID_SCOTTY)
+	playse(SE_WALL_HIT)
 	waitse
-	playmoncry SPECIES_VOLTORB, CRY_MODE_ENCOUNTER
-	delay 40
-	waitmoncry
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	applymovement(LOCALID_SCOTTY, Common_Movement_WalkInPlaceFasterUp)
+	playse(SE_WALL_HIT)
+	waitse
+	waitmovement(LOCALID_SCOTTY)
+	playmoncry(SPECIES_ROTOM, CRY_MODE_ENCOUNTER)
+	applymovement(LOCALID_SCOTTY, Common_Movement_FaceDown)
+	applymovement(LOCALID_SCOTTY, Common_Movement_Delay32)
+	waitmovement(LOCALID_SCOTTY)
+	msgbox(format("Scotty: Damn it, I'm an engineer, not a Ghost Buster!"))
+	closemessage
+	playse(SE_PIN)
+	applymovement(LOCALID_SCOTTY, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_SCOTTY)
+	applymovement(LOCALID_SCOTTY, Common_Movement_Delay32)
+	waitmovement(LOCALID_SCOTTY)
+	applymovement(LOCALID_SCOTTY, NewMauville_Inside_Movement_Scotty_2)
+	waitmovement(LOCALID_SCOTTY)
+	playmoncry(SPECIES_ROTOM, CRY_MODE_ENCOUNTER)
+	msgbox(format("Scotty: Come back here with that Magnet!"))
+	closemessage
+	applymovement(LOCALID_SCOTTY, NewMauville_Inside_Movement_Scotty_3)
+	waitmovement(LOCALID_SCOTTY)
+	//chases Rotom into the player
+	call(NewMauville_Inside_EventScript_ChooseRotom)
+	playse(SE_PIN)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	waitse
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	playmoncry(SPECIES_ROTOM, CRY_MODE_ENCOUNTER)
+	msgbox(format("Rotom attacked!"))
+	settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 1, 1, 1, 1)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	setflag(FLAG_NO_ESCAPE)
 	dowildbattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, NewMauville_Inside_EventScript_DefeatedVoltorb2
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, NewMauville_Inside_EventScript_DefeatedVoltorb2
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, NewMauville_Inside_EventScript_DefeatedVoltorb2
-	setflag FLAG_DEFEATED_VOLTORB_2_NEW_MAUVILLE
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	clearflag(FLAG_NO_ESCAPE)
+	removeobject(LOCALID_ROTOM)
+	setvar(VAR_NEW_MAUVILLE_STATE, 2)
+	applymovement(LOCALID_SCOTTY, NewMauville_Inside_Movement_Scotty_LookAround)
+	waitmovement(LOCALID_SCOTTY)
+	msgbox(format("Scotty: And that's it, then? No more gremlins going to jump out of the air vents to steal my tools?"))
+	applymovement(LOCALID_SCOTTY, NewMauville_Inside_Movement_Scotty_Approach)
+	waitmovement(LOCALID_SCOTTY)
+	msgbox(format("Scotty: Well, thanks a bunch! I left my Pokémon behind and that poltergeist sure taught me a lesson!"))
+	msgbox(format("I'm all finished down here. If you find me back in Mauville, I'll be happy to show off my knowledge of electricity!"))
+	closemessage
+	applymovement(LOCALID_SCOTTY, NewMauville_Inside_Movement_Scotty_Exit)
+	waitmovement(LOCALID_SCOTTY)
+	removeobject(LOCALID_SCOTTY)
 	release
 	end
+}
 
-NewMauville_Inside_EventScript_DefeatedVoltorb2::
-	setflag FLAG_DEFEATED_VOLTORB_2_NEW_MAUVILLE
-	goto Common_EventScript_RemoveStaticPokemon
+script NewMauville_Inside_EventScript_ChooseRotom {
+	switch(var(VAR_NUM_BADGES)) {
+		case 2:
+			setwildbattle(SPECIES_ROTOM, 33, ITEM_MAGNET)
+		case 3:
+			setwildbattle(SPECIES_ROTOM, 42, ITEM_MAGNET)
+		case 4:
+			setwildbattle(SPECIES_ROTOM, 51, ITEM_MAGNET)
+		case 5:
+			setwildbattle(SPECIES_ROTOM, 60, ITEM_MAGNET)
+		case 6:
+			setwildbattle(SPECIES_ROTOM, 69, ITEM_MAGNET)
+		case 7:
+			setwildbattle(SPECIES_ROTOM, 78, ITEM_MAGNET)
+		case 8:
+			setwildbattle(SPECIES_ROTOM, 84, ITEM_MAGNET)
+		default:
+			setwildbattle(SPECIES_ROTOM, 24, ITEM_MAGNET)
+	}
+}
+
+movement NewMauville_Inside_Movement_Scotty_1 {
+	face_right
+	delay_16
+	face_left
+	delay_16
+	walk_in_place_faster_up
+	walk_fast_down
+	walk_fast_left * 2
+	walk_faster_up * 2
+}
+movement NewMauville_Inside_Movement_Scotty_2 {
+	walk_fast_down * 3
+	walk_fast_left * 2
+}
+movement NewMauville_Inside_Movement_Scotty_3 {
+	walk_fast_up
+	walk_fast_left
+	walk_fast_up
+	face_left
+}
+
+movement NewMauville_Inside_Movement_Scotty_LookAround {
+	face_right
+	delay_16
+	face_up
+	delay_16
+	face_down
+	delay_16
+	face_left
+}
+
+movement NewMauville_Inside_Movement_Scotty_Approach {
+	walk_left
+}
+
+movement NewMauville_Inside_Movement_Scotty_Exit {
+	walk_right * 9
+}
+
+script NewMauville_Inside_EventScript_Generator {
+	msgbox(format("The generator is humming along smoothly."), MSGBOX_SIGN)
 	end
+}
 
-NewMauville_Inside_EventScript_Voltorb3::
-	lock
-	faceplayer
-	setwildbattle SPECIES_VOLTORB, 25
-	waitse
-	playmoncry SPECIES_VOLTORB, CRY_MODE_ENCOUNTER
-	delay 40
-	waitmoncry
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	dowildbattle
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, NewMauville_Inside_EventScript_DefeatedVoltorb3
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, NewMauville_Inside_EventScript_DefeatedVoltorb3
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, NewMauville_Inside_EventScript_DefeatedVoltorb3
-	setflag FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE
-	release
-	end
-
-NewMauville_Inside_EventScript_DefeatedVoltorb3::
-	setflag FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE
-	goto Common_EventScript_RemoveStaticPokemon
-	end
-
-NewMauville_Inside_Text_GeneratorRadiatingHeat:
-	.string "The generator is radiating heat that\n"
-	.string "can be felt even at a distance.\p"
-	.string "It looks like it should be turned off\n"
-	.string "as soon as possible.$"
-
-NewMauville_Inside_Text_GeneratorQuietedDown:
-	.string "The generator quieted down.$"
-
-NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped:
-	.string "{PLAYER} stepped on the switch.\p"
-	.string "Click…\p"
-	.string "… … … … … … … …\n"
-	.string "… … … … … … … …\p"
-	.string "The generator appears to have\n"
-	.string "stopped…$"
-`
+text NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped {
+	"{PLAYER} stepped on the switch.\p"
+	"Click…\p"
+	"… … … … … … … …\n"
+	"… … … … … … … …\p"
+	"The generator appears to have\n"
+	"stopped…"
+}

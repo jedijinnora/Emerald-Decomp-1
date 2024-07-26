@@ -3,15 +3,8 @@ mapscripts OldaleRuins_Chamber_1_MapScripts {
 }
 
 script OldaleRuins_Chamber_OnResume {
-    call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, OldaleRuins_EventScript_TryRemoveStatue)
+    call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_TryRemoveCaughtEncounter)
 	end
-}
-
-script OldaleRuins_EventScript_TryRemoveStatue {
-    specialvar(VAR_RESULT, GetBattleOutcome)
-	goto_if_ne(VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn)
-	removeobject(VAR_LAST_TALKED)
-	return
 }
 
 script OldaleRuins_Chamber_1_EventScript_Sigilyph {

@@ -775,6 +775,12 @@ Common_EventScript_PlayerHandedOverTheItem::
 	removeitem VAR_0x8004
 	return
 
+Common_EventScript_TryRemoveCaughtEncounter::
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
+	removeobject VAR_LAST_TALKED
+	return
+
 	.include "data/scripts/elite_four.inc"
 	.include "data/scripts/movement.inc"
 	.include "data/scripts/check_furniture.inc"
@@ -1260,3 +1266,5 @@ Common_EventScript_CountBadges::
 	.include "data/maps/MauvilleCity_House3/scripts.inc"
 
 	.include "data/maps/MauvilleCity_House4/scripts.inc"
+
+	.include "data/maps/MauvilleCity_WorkerBuilding/scripts.inc"

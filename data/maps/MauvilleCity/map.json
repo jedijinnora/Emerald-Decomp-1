@@ -225,7 +225,7 @@
       "x": 42,
       "y": 15,
       "elevation": 0,
-      "dest_map": "MAP_MAUVILLE_CITY",
+      "dest_map": "MAP_MAUVILLE_CITY_WORKER_BUILDING",
       "dest_warp_id": "0"
     },
     {

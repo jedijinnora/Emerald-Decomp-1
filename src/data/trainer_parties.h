@@ -19405,7 +19405,7 @@ static const struct TrainerMon sParty_Dylan_easy[] = {
     .moves = {MOVE_SELF_DESTRUCT, MOVE_VOLT_SWITCH, MOVE_LIGHT_SCREEN, MOVE_SUBSTITUTE}
     },
     {
-    .lvl = 16,
+    .lvl = 13,
     .species = SPECIES_DODUO,
     .heldItem = ITEM_STARF_BERRY,
     .ability = ABILITY_EARLY_BIRD,
@@ -19462,7 +19462,7 @@ static const struct TrainerMon sParty_Maria_easy[] = {
     .moves = {MOVE_SELF_DESTRUCT, MOVE_VOLT_SWITCH, MOVE_BULLET_SEED, MOVE_SUBSTITUTE}
     },
     {
-    .lvl = 16,
+    .lvl = 13,
     .species = SPECIES_DODUO,
     .heldItem = ITEM_LIECHI_BERRY,
     .ability = ABILITY_EARLY_BIRD,
@@ -19964,7 +19964,7 @@ static const struct TrainerMon sParty_Melina_easy[] = {
     .heldItem = ITEM_EVIOLITE,
     .ability = ABILITY_HUGE_POWER,
     .nature = NATURE_JOLLY,
-    .moves = {MOVE_EARTHQUAKE, MOVE_FACADE, MOVE_QUICK_ATTACK, MOVE_SUPER_FANG}
+    .moves = {MOVE_BULLDOZE, MOVE_FACADE, MOVE_QUICK_ATTACK, MOVE_SUPER_FANG}
     },
     {
     .lvl = 13,
@@ -23237,7 +23237,7 @@ static const struct TrainerMon sParty_Cameron[] = {
 };
 static const struct TrainerMon sParty_Cameron_easy[] = {
     {
-    .lvl = 14,
+    .lvl = 12,
     .species = SPECIES_SOLROCK,
     .heldItem = ITEM_SITRUS_BERRY,
     .ability = ABILITY_LEVITATE,
@@ -23245,12 +23245,12 @@ static const struct TrainerMon sParty_Cameron_easy[] = {
     .moves = {MOVE_FLAMETHROWER, MOVE_SUNNY_DAY, MOVE_ZEN_HEADBUTT, MOVE_MORNING_SUN}
     },
     {
-    .lvl = 14,
+    .lvl = 12,
     .species = SPECIES_KIRLIA,
     .heldItem = ITEM_LIFE_ORB,
     .ability = ABILITY_TRACE,
     .nature = NATURE_MODEST,
-    .moves = {MOVE_PSYSHOCK, MOVE_DAZZLING_GLEAM, MOVE_SHOCK_WAVE, MOVE_CALM_MIND}
+    .moves = {MOVE_PSYBEAM, MOVE_DAZZLING_GLEAM, MOVE_SHOCK_WAVE, MOVE_CALM_MIND}
     }
 };
 
@@ -23418,19 +23418,17 @@ static const struct TrainerMon sParty_Kayley[] = {
 };
 static const struct TrainerMon sParty_Kayley_easy[] = {
     {
-    .lvl = 14,
+    .lvl = 12,
     .species = SPECIES_CHERRIM,
     .heldItem = ITEM_BRIGHT_POWDER,
     .ability = ABILITY_FLOWER_GIFT,
-    .nature = NATURE_BOLD,
-    .moves = {MOVE_SOLAR_BEAM, MOVE_LEECH_SEED, MOVE_WEATHER_BALL, MOVE_POLLEN_PUFF}
+    .moves = {MOVE_ENERGY_BALL, MOVE_SUNNY_DAY, MOVE_WEATHER_BALL, MOVE_POLLEN_PUFF}
     },
     {
-    .lvl = 14,
+    .lvl = 12,
     .species = SPECIES_CASTFORM,
     .heldItem = ITEM_BRIGHT_POWDER,
     .ability = ABILITY_FORECAST,
-    .nature = NATURE_MODEST,
     .moves = {MOVE_SOLAR_BEAM, MOVE_ICY_WIND, MOVE_WEATHER_BALL, MOVE_THUNDERBOLT}
     }
 };

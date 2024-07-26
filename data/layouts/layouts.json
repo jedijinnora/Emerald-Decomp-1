@@ -5230,6 +5230,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/CalderaCave_1F/border.bin",
       "blockdata_filepath": "data/layouts/CalderaCave_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAUVILLE_CITY_WORKER_BUILDING",
+      "name": "MauvilleCity_WorkerBuilding_Layout",
+      "width": 16,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BikeShop",
+      "border_filepath": "data/layouts/MauvilleCity_WorkerBuilding/border.bin",
+      "blockdata_filepath": "data/layouts/MauvilleCity_WorkerBuilding/map.bin"
     }
   ]
 }

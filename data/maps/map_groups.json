@@ -243,7 +243,8 @@
     "MauvilleCity_PokemonCenter_2F",
     "MauvilleCity_Mart",
     "MauvilleCity_House3",
-    "MauvilleCity_House4"
+    "MauvilleCity_House4",
+    "MauvilleCity_WorkerBuilding"
   ],
   "gMapGroup_IndoorRustboro": [
     "RustboroCity_DevonCorp_1F",

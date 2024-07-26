@@ -12,7 +12,7 @@ script Route122_OnTransition {
 }
 
 script Route122_OnResume {
-	call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon)
+	call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_TryRemoveCaughtEncounter)
 	end
 }
 

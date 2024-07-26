@@ -13,7 +13,7 @@ script FortreeCity_OnTransition {
 
 script FortreeCity_OnResume {
 	setstepcallback(STEP_CB_FORTREE_BRIDGE)
-	call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Route119_EventScript_TryRemoveKecleon)
+	call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_TryRemoveCaughtEncounter)
 	end
 }
 

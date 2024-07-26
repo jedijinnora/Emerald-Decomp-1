@@ -216,6 +216,7 @@ script VerdantForest_EventScript_FairyFlowerbox_Upper {
     msgbox(format("An enraged fae leaps forth to challenge you!"))
     waitmessage
     setflag(FLAG_SMART_WILD_AI)
+    setflag(FLAG_NO_ESCAPE)
     switch(var(VAR_NUM_BADGES)) {
         case 0:
         case 1:
@@ -235,6 +236,7 @@ script VerdantForest_EventScript_FairyFlowerbox_Upper {
     settotemboost(B_POSITION_OPPONENT_LEFT, 1, 0, 1, 1, 0)
     dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
+    clearflag(FLAG_NO_ESCAPE)
     setvar(VAR_TEMP_2, 0)
     msgbox(format("The sweet smell of flowers is a little less cloying now."))
     addvar(VAR_TEMP_3, 2)
@@ -299,21 +301,29 @@ script VerdantForest_EventScript_Guardian {
     if(!flag(FLAG_DEFEATED_ETERNAL_FLOETTE)) {
         setflag(FLAG_NO_CATCHING) //no catching guardian until after floette defeated
     }
+
+    //guardian battle requires setting up the proper opponent and flags
     call(VerdantForest_EventScript_SetupGuardianBattle)
     setflag(FLAG_SMART_WILD_AI)
+    setflag(FLAG_NO_ESCAPE)
     dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
+    clearflag(FLAG_NO_ESCAPE)
+
+    //with no escape flag, this section should only trigger on teleport or phasing moves (eg whirlwind)
     specialvar(VAR_RESULT, GetBattleOutcome)
     if ((var(VAR_RESULT) == B_OUTCOME_RAN) || (var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED)) {
         msgbox(format("You cannot flee from the anger of the fae!"))
         goto(GuardianFight)
     }
+
     //set guardian defeated, reset temptation and disturbance
     setflag(FLAG_TEMP_7)
     setweather(WEATHER_SHADE)
     call(Common_EventScript_SetWild_2)
     setvar(VAR_TEMP_2, 0)
     setvar(VAR_TEMP_3, 0)
+
     //clear catching flag if set and regenerate hidden items
     clearflag(FLAG_NO_CATCHING)
     clearflag(FLAG_HIDDEN_ITEM_VERDANT_FOREST_HONEY)
@@ -345,6 +355,7 @@ script VerdantForest_EventScript_Eternal {
     msgbox(format("An eldritch wind is blowing!"))
     waitmessage
     playmoncry(SPECIES_FLOETTE_ETERNAL_FLOWER, CRY_MODE_ENCOUNTER)
+    msgbox(format("Something emerged from another dimension!"))
     waitmoncry
     setwildbattle(SPECIES_FLOETTE_ETERNAL_FLOWER, 85, ITEM_FAIRY_FEATHER)
     settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 1, 1, 1)
@@ -565,22 +576,16 @@ text VerdantForest_Text_ChapmanPostBattle {
 }
 
 script VerdantForest_EventScript_Carrie {
-	trainerbattle_single(TRAINER_CARRIE, VerdantForest_Text_CarrieIntro, VerdantForest_Text_CarrieDefeat)
-	msgbox(VerdantForest_Text_CarriePostBattle, MSGBOX_AUTOCLOSE)
+	trainerbattle_single(TRAINER_CARRIE, VerdantForest_Text_Carrie, VerdantForest_Text_CarrieDefeat)
+	msgbox(VerdantForest_Text_Carrie, MSGBOX_AUTOCLOSE)
 	end
 }
-text VerdantForest_Text_CarrieIntro {
-	"Am I a girl who dreamed of being a\n"
+text VerdantForest_Text_Carrie {
+	"Am I a girl who dreamed I was a\n"
     "butterfly?\p"
     "Or am I a butterfly now dreaming\n"
     "I am a girl?"
 }
 text VerdantForest_Text_CarrieDefeat {
 	"Whatever the case, I lost…"
-}
-text VerdantForest_Text_CarriePostBattle {
-	"Am I a girl who dreamed of being a\n"
-    "butterfly?\p"
-    "Or am I a butterfly now dreaming\n"
-    "I am a girl?"
 }

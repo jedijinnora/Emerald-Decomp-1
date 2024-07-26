@@ -208,6 +208,7 @@
 #define MAP_MAUVILLE_CITY_MART              (7 | (11 << 8))
 #define MAP_MAUVILLE_CITY_HOUSE3            (8 | (11 << 8))
 #define MAP_MAUVILLE_CITY_HOUSE4            (9 | (11 << 8))
+#define MAP_MAUVILLE_CITY_WORKER_BUILDING   (10 | (11 << 8))
 
 // gMapGroup_IndoorRustboro
 #define MAP_RUSTBORO_CITY_DEVON_CORP_1F     (0 | (12 << 8))
