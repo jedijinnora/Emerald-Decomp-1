@@ -783,15 +783,6 @@ static const struct MenuAction MultichoiceList_Exit[] =
     {gText_Exit},
 };
 
-//ADDED MULTICHOICES
-
-static const struct MenuAction MultichoiceList_Starters[] =
-{
-    {gText_Turtwig},
-    {gText_Chimchar},
-    {gText_Piplup},
-};
-
 struct MultichoiceListStruct
 {
     const struct MenuAction *list;
@@ -915,7 +906,6 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
     [MULTI_BERRY_PLOT]                 = MULTICHOICE(MultichoiceList_BerryPlot),
-    [MULTI_STARTER_CHOICE]             = MULTICHOICE(MultichoiceList_Starters),
 };
 
 const u8 *const gStdStrings[] =

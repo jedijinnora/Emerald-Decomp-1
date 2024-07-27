@@ -2208,7 +2208,7 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
 }
 
 //Jinnora: array with trainer boosts for level scaling
-const static u8 TrainerBoostArray[13] = {0, 9, 18, 27, 36, 45, 54, 63, 69, 71, 71, 74, 84};
+const static u8 TrainerBoostArray[13] = {0, 9, 18, 27, 36, 45, 54, 63, 69, 69, 71, 74, 84};
 
 //Jinnora: returns the current index for referencing TrainerBoostArray
 //if VAR_NUM_BADGES exceeds 12 this can return an out-of-bounds index, 

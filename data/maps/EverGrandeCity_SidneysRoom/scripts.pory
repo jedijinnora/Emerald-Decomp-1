@@ -77,6 +77,7 @@ script EverGrandeCity_SidneysRoom_EventScript_Brandon {
 	faceplayer
 	goto_if_set(FLAG_DEFEATED_ELITE_4_BRANDON, EverGrandeCity_SidneysRoom_EventScript_PostBattleSpeech)
 	playbgm(MUS_ENCOUNTER_ELITE_FOUR, FALSE)
+	setflag(FLAG_USE_NEXT_LEVEL_CAP)
 	msgbox(EverGrandeCity_SidneysRoom_Text_IntroSpeech, MSGBOX_DEFAULT)
 	random(2)
 	if(var(VAR_DIFFICULTY_SETTING) == 1) {
@@ -88,6 +89,7 @@ script EverGrandeCity_SidneysRoom_EventScript_Brandon {
 		default:
 			trainerbattle_no_intro(TRAINER_BRANDON_2, EverGrandeCity_SidneysRoom_Text_Defeat)
 	}
+	clearflag(FLAG_USE_NEXT_LEVEL_CAP)
 	goto(EverGrandeCity_SidneysRoom_EventScript_Defeated)
 	end
 }

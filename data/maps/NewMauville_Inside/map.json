@@ -49,7 +49,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "ITEM_THUNDER_STONE",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_NEW_MAUVILLE_INSIDE_THUNDER_STONE"
     },
@@ -67,7 +67,7 @@
       "flag": "FLAG_ITEM_NEW_MAUVILLE_INSIDE_CELL_BATTERY"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
       "x": 32,
       "y": 5,
       "elevation": 0,
@@ -90,7 +90,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_16"
     }
   ],
   "warp_events": [

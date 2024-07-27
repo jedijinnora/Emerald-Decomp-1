@@ -132,15 +132,15 @@
 //6 badges:     70          54              6
 //7 badges:     79          63              7
 //8 badges:     85          69              8
-//victory road: 87          71              9
-//entered e4:   90          71              10
+//victory road: 87          69              9
+//e4:           90          71              10
 //champion:     90          74              11
 //postgame:     100         84              12
 //
-//Victory Road Trainer mons are 85
-//E4 mons are 87, Champion is 90
-//but cap should lift to 90 on entering E4
-//to accommodate standard HC Nuzlocke rules
+//Victory Road Trainer mons are level 85
+//E4 mons are level 87, Champion is level 90
+//the cap during E4 battles is 90, so you may level up by defeating mons
+//but in the hallways the cap remains 87, so infinite candy will not work
 
 
 //DUMMY PARTY FOR REFERENCE, COPY/PASTE

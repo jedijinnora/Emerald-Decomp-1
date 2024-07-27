@@ -1,10 +1,134 @@
+const LOCALID_NOLAND = 15
+const LOCALID_ROXANNE = 16
+const LOCALID_STEVEN = 17
+
+//FLAG_TEMP_15 : Noland
+//FLAG_TEMP_16 : Roxanne
+//FLAG_TEMP_17 : Steven
+
 mapscripts RustboroCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : RustboroCityOnTransition
 }
 
 script RustboroCityOnTransition {
 	setflag(FLAG_VISITED_RUSTBORO_CITY)
+	call_if_ne(VAR_RUSTBORO_CITY_STATE, 0, RustboroCity_EventScript_HideNolandRoxanneSteven)
 	end
+}
+
+script RustboroCity_EventScript_HideNolandRoxanneSteven {
+	setflag(FLAG_TEMP_15)
+	setflag(FLAG_TEMP_16)
+	setflag(FLAG_TEMP_17)
+	return
+}
+
+script RustboroCity_EventScript_MovePlayerForGymScene {
+	lock
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	goto_if_eq(VAR_TEMP_2, 20, RustboroCity_EventScript_GymScene)
+	applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUp)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	goto(RustboroCity_EventScript_MovePlayerForGymScene)
+}
+
+script RustboroCity_EventScript_GymScene {
+	lock
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	applymovement(LOCALID_STEVEN, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(LOCALID_STEVEN)
+	msgbox(format("Steven: …and that's why I should be the next Gym Leader, not Roxanne!"))
+	applymovement(LOCALID_NOLAND, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement(LOCALID_NOLAND)
+	msgbox(format("Noland: Listen, kid. Your family may run the Devon Corporation, but that doesn't mean you get handouts."))
+	msgbox(format("Yelling at me won't change my mind. In fact, you're only convincing me I made the correct decision."))
+	msgbox(format("Besides, can you honestly say you won't go running off around the region as soon as an interesting rock catches your fancy?"))
+	applymovement(LOCALID_STEVEN, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(LOCALID_STEVEN)
+	msgbox(format("Steven: I'm the stronger trainer! We all know it!"))
+	msgbox(format("Noland: ………"))
+	applymovement(LOCALID_ROXANNE, Common_Movement_FaceLeft)
+	waitmovement(LOCALID_ROXANNE)
+	msgbox(format("Roxanne: Strength isn't everything. Are you even familiar with the kids at the Trainer's School you'd be responsible for mentoring? Do you even know their names?"))
+	applymovement(LOCALID_NOLAND, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement(LOCALID_NOLAND)
+	msgbox(format("Noland: Roxanne has earned the respect of the community, and has been approved by the League."))
+	applymovement(LOCALID_STEVEN, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(LOCALID_STEVEN)
+	delay(16)
+	applymovement(LOCALID_STEVEN, Common_Movement_WalkInPlaceFasterRight)
+	waitmovement(LOCALID_STEVEN)
+	msgbox(format("Steven: Fine! I can see where I'm not wanted."))
+	closemessage
+	applymovement(LOCALID_STEVEN, RustboroCity_Movement_StepLeft)
+	waitmovement(LOCALID_STEVEN)
+	msgbox(format("Steven: I'll show you. I'll show you all! If I can't be Gym Leader then I'll defeat the whole Pokémon League and become the next Champion!"))
+	closemessage
+	applymovement(LOCALID_STEVEN, Common_Movement_FaceRight)
+	waitmovement(LOCALID_STEVEN)
+	msgbox(format("I'm off to train in Meteor Falls! Roxanne! We all know you're too weak of a Trainer to face me, so I won't bother with you any longer!"))
+	closemessage
+	applymovement(LOCALID_STEVEN, RustboroCity_Movement_StevenExit)
+	waitmovement(LOCALID_STEVEN)
+	removeobject(LOCALID_STEVEN)
+
+	applymovement(LOCALID_ROXANNE, RustboroCity_Movement_StepLeft)
+	waitmovement(LOCALID_ROXANNE)
+	applymovement(LOCALID_ROXANNE, Common_Movement_FaceUp)
+	applymovement(LOCALID_NOLAND, Common_Movement_FaceDown)
+	waitmovement(0)
+	msgbox(format("Roxanne: Thanks for believing in me, Noland."))
+	msgbox(format("Noland: Sure thing, kid. We'll talk later. I've got challengers to school!"))
+	closemessage
+	applymovement(LOCALID_NOLAND, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(LOCALID_NOLAND)
+	opendoor(47, 19)
+	waitdooranim
+	applymovement(LOCALID_NOLAND, RustboroCity_Movement_StepUp)
+	waitmovement(LOCALID_NOLAND)
+	removeobject(LOCALID_NOLAND)
+	closedoor(47, 19)
+	waitdooranim
+
+	applymovement(LOCALID_ROXANNE, RustboroCity_Movement_RoxanneApproachPlayer)
+	waitmovement(LOCALID_ROXANNE)
+	applymovement(LOCALID_ROXANNE, Common_Movement_FaceUp)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
+	waitmovement(0)
+	msgbox(format("Roxanne: I'm sorry you had to see that. Steven's a good guy, really. He's just used to getting his way all the time."))
+	msgbox(format("Why don't you check on him sometime? Meteor Falls is worth exploring, and Steven might like to see someone who isn't, well, me."))
+	msgbox(format("I'm sure you're more interested in challenging the Gym, but if you want to meet up later I'd be happy to teach you about Rock types!"))
+	closemessage
+	applymovement(LOCALID_ROXANNE, RustboroCity_Movement_RoxanneExit)
+	waitmovement(LOCALID_ROXANNE)
+	removeobject(LOCALID_ROXANNE)
+
+	setvar(VAR_RUSTBORO_CITY_STATE, 1)
+	release
+	end
+}
+
+movement RustboroCity_Movement_StepUp {
+	walk_up
+}
+
+movement RustboroCity_Movement_StepLeft {
+	walk_left
+}
+
+movement RustboroCity_Movement_StevenExit {
+	walk_left * 4
+	walk_up * 7
+}
+
+movement RustboroCity_Movement_RoxanneApproachPlayer {
+	walk_left * 3
+}
+
+movement RustboroCity_Movement_RoxanneExit {
+	walk_left * 3
+	walk_down * 7
 }
 
 script RustboroCity_EventScript_Woman {

@@ -6,6 +6,7 @@ const LOCALID_ROTOM = 6 //not used yet (waiting on Rotom sprite)
 //VAR_TEMP_3: rotom scene
 
 //FLAG_TEMP_15: Scotty
+//FLAG_TEMP_16: Rotom
 
 mapscripts NewMauville_Inside_MapScripts {
 	MAP_SCRIPT_ON_RESUME :  NewMauville_Inside_OnResume
@@ -28,6 +29,7 @@ script NewMauville_Inside_OnTransition {
 
 script NewMauville_Inside_EventScript_HideScotty {
 	setflag(FLAG_TEMP_15)
+	setflag(FLAG_TEMP_16)
 	return
 }
 
@@ -194,6 +196,8 @@ movement NewMauville_Inside_Movement_PlayerApproach {
 	face_right
 }
 
+
+//TODO: handle rotom object
 script NewMauville_Inside_EventScript_RotomScene {
 	lock
 	playse(SE_GLASS_FLUTE)

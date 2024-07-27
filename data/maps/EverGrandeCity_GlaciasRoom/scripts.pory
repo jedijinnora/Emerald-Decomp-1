@@ -80,6 +80,7 @@ script EverGrandeCity_GlaciasRoom_EventScript_Glacia {
 	faceplayer
 	goto_if_set(FLAG_DEFEATED_ELITE_4_GLACIA, EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech)
 	playbgm(MUS_ENCOUNTER_ELITE_FOUR, FALSE)
+	setflag(FLAG_USE_NEXT_LEVEL_CAP)
 	msgbox(EverGrandeCity_GlaciasRoom_Text_IntroSpeech, MSGBOX_DEFAULT)
 	random(2)
 	if(var(VAR_DIFFICULTY_SETTING) == 1) {
@@ -91,6 +92,7 @@ script EverGrandeCity_GlaciasRoom_EventScript_Glacia {
 		default:
 			trainerbattle_no_intro(TRAINER_GLACIA_2, EverGrandeCity_GlaciasRoom_Text_Defeat)
 	}
+	clearflag(FLAG_USE_NEXT_LEVEL_CAP)
 	goto(EverGrandeCity_GlaciasRoom_EventScript_Defeated)
 	end
 }

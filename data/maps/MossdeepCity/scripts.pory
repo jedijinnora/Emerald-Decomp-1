@@ -1,9 +1,38 @@
+const LOCALID_STEVENS_DOOR = 11
+
+//FLAG_TEMP_15: steven's house door script
+
 mapscripts MossdeepCity_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION : MossdeepCityOnTransition
+	MAP_SCRIPT_ON_LOAD : MossdeepCity_OnLoad
+	MAP_SCRIPT_ON_TRANSITION : MossdeepCity_OnTransition
 }
 
-script MossdeepCityOnTransition {
+script MossdeepCity_OnLoad {
+	call_if_defeated(TRAINER_STEVEN, MossdeepCity_EventScript_UnlockStevensHouse)
+	call_if_not_defeated(TRAINER_STEVEN, MossdeepCity_EventScript_LockStevensHouse)
+	end
+}
+
+script MossdeepCity_OnTransition {
 	setflag(FLAG_VISITED_MOSSDEEP_CITY)
+	end
+}
+
+script MossdeepCity_EventScript_LockStevensHouse {
+	setmetatile(19, 10, METATILE_Mossdeep_LockedDoor, TRUE)
+	clearflag(FLAG_TEMP_15)
+	return
+}
+
+script MossdeepCity_EventScript_UnlockStevensHouse {
+	setmetatile(19, 10, METATILE_Mossdeep_Door, TRUE)
+	removeobject(LOCALID_STEVENS_DOOR)
+	setflag(FLAG_TEMP_15)
+	return
+}
+
+script MossdeepCity_EventScript_LockedDoor {
+	msgbox("The door is locked.", MSGBOX_SIGN)
 	end
 }
 

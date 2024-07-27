@@ -1,11 +1,15 @@
 const LOCALID_STEVEN = 2
 
+//FLAG_TEMP_11 : Stash
+//FLAG_TEMP_12 : Steven
+
 mapscripts MeteorFalls_StevensCave_MapScripts {
     MAP_SCRIPT_ON_TRANSITION : MeteorFalls_StevensCave_OnTransition
 }
 
 script MeteorFalls_StevensCave_OnTransition {
     call(MeteorFalls_StevensCave_EventScript_TryHideStash)
+    call_if_lt(VAR_RUSTBORO_CITY_STATE, 1, MeteorFalls_StevensCave_EventScript_HideSteven)
     call_if_defeated(TRAINER_STEVEN, MeteorFalls_StevensCave_EventScript_HideSteven)
     end
 }
@@ -37,12 +41,13 @@ script MeteorFalls_StevensCave_EventScript_Stash {
 
 script MeteorFalls_StevensCave_EventScript_Steven {
     lock
-    msgbox(format("Steven: Hmph. I'll show Noland. I'll show them all!"))
+    msgbox(format("Steven: Hmph. When I'm Champion, Noland will rue the day he chose Roxanne over me!"))
     playse(SE_PIN)
     applymovement(LOCALID_STEVEN, Common_Movement_ExclamationMark)
-    faceplayer
     waitmovement(LOCALID_STEVEN)
-    msgbox(format("Steven: I'll take my ancient Pokémon all the way to the top! You're but a stepping stone on my path to Champion!"))
+    faceplayer
+    msgbox(format("Steven: A visitor! It's my lucky day! I was getting bored training against wild Pokémon."))
+    msgbox(format("I'll take my ancient Pokémon all the way to the top! You're but a stepping stone on my path to Champion!"))
     trainerbattle_no_intro(TRAINER_STEVEN, MeteorFalls_StevensCave_Text_StevenDefeated)
     msgbox(format("Steven: I don't know why I thought training in this cave would get me ahead…"))
     msgbox(format("You're an okay Trainer, I suppose."))

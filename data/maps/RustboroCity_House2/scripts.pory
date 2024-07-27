@@ -1,4 +1,16 @@
-mapscripts RustboroCity_House2_MapScripts {}
+mapscripts RustboroCity_House2_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : RustboroCity_House2_OnTransition
+}
+
+script RustboroCity_House2_OnTransition {
+    call_if_eq(VAR_RUSTBORO_CITY_STATE, 0, RustboroCity_House2_EventScript_HideRoxanne)
+    end
+}
+
+script RustboroCity_House2_EventScript_HideRoxanne {
+    setflag(FLAG_TEMP_15)
+    return
+}
 
 script RustboroCity_House2_EventScript_PokefanF {
 	msgbox(format("The Trainer's School is excellent. Those who study there often become some of the best Trainers of the generation."), MSGBOX_NPC)

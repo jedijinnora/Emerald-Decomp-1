@@ -3073,9 +3073,4 @@ extern const u8 gText_ViewStats[];
 //Soot Sack
 extern const u8 gText_AshQty[];
 
-//Starter choice
-extern const u8 gText_Turtwig[];
-extern const u8 gText_Chimchar[];
-extern const u8 gText_Piplup[];
-
 #endif // GUARD_STRINGS_H

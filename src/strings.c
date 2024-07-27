@@ -1849,7 +1849,7 @@ const u8 gText_Berries[] = _("Berries");
 const u8 gText_Nickname[] = _("Nickname");
 
 //added for party move relearn
-const u8 gText_Moves_Menu[] = _("Change Moves");
+const u8 gText_Moves_Menu[] = _("Relearn Moves");
 
 //exp share strings
 const u8 gText_ExpShareOn[] = _("The Exp. Share has been turned on.{PAUSE_UNTIL_PRESS}");
@@ -1865,8 +1865,3 @@ const u8 gText_ViewStats[] =          _("Stats");
 
 //Soot Sack
 const u8 gText_AshQty[] = _("Ash collected:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}");
-
-//Starter Multichoice (TODO:remove now that I have dynamic multichoice)
-const u8 gText_Turtwig[] = _("Turtwig");
-const u8 gText_Chimchar[] = _("Chimchar");
-const u8 gText_Piplup[] = _("Piplup");

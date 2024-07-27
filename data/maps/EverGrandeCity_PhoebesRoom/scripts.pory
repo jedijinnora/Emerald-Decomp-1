@@ -80,6 +80,7 @@ script EverGrandeCity_PhoebesRoom_EventScript_Lucy {
 	faceplayer
 	goto_if_set(FLAG_DEFEATED_ELITE_4_LUCY, EverGrandeCity_PhoebesRoom_EventScript_PostBattleSpeech)
 	playbgm(MUS_ENCOUNTER_ELITE_FOUR, FALSE)
+	setflag(FLAG_USE_NEXT_LEVEL_CAP)
 	msgbox(EverGrandeCity_PhoebesRoom_Text_IntroSpeech, MSGBOX_DEFAULT)
 	random(2)
 	if(var(VAR_DIFFICULTY_SETTING) == 1) {
@@ -91,6 +92,7 @@ script EverGrandeCity_PhoebesRoom_EventScript_Lucy {
 		default:
 			trainerbattle_no_intro(TRAINER_LUCY_2, EverGrandeCity_PhoebesRoom_Text_Defeat)
 	}
+	clearflag(FLAG_USE_NEXT_LEVEL_CAP)
 	goto(EverGrandeCity_PhoebesRoom_EventScript_Defeated)
 	end
 }
