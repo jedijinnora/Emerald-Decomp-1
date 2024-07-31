@@ -1,4 +1,14 @@
 const LOCALID_KECLEON = 7
+const LOCALID_RIVAL = 9
+
+//FLAG_TEMP_1A : Rival
+
+//VAR_TEMP_1 : x coord
+//VAR_TEMP_2 : y coord
+//VAR_TEMP_A : north rival
+//VAR_TEMP_B : east rival
+//VAR_TEMP_C : south rival
+//VAR_TEMP_D : west rival
 
 mapscripts FortreeCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : FortreeCity_OnTransition
@@ -6,9 +16,18 @@ mapscripts FortreeCity_MapScripts {
 }
 
 script FortreeCity_OnTransition {
-	setflag(FLAG_VISITED_FORTREE_CITY)
+	call_if_unset(FLAG_VISITED_FORTREE_CITY, FortreeCity_EventScript_VisitFortree)
 	call(FortreeCity_EventScript_TryRespawnKecleon)
+	call_if_eq(VAR_FORTREE_CITY_STATE, 0, FortreeCity_EventScript_TrySpawnRival)
+	setflag(FLAG_TEMP_1A)
+	call_if_ne(VAR_FORTREE_CITY_STATE, 0, FortreeCity_EventScript_SetupRival)
 	end
+}
+
+script FortreeCity_EventScript_VisitFortree {
+	setflag(FLAG_VISITED_FORTREE_CITY)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
 }
 
 script FortreeCity_OnResume {
@@ -49,6 +68,240 @@ script FortreeCity_EventScript_TryRespawnKecleon {
 			setobjectxyperm(LOCALID_KECLEON, 30, 22)
 	}
 	return
+}
+
+script FortreeCity_EventScript_TrySpawnRival {
+	goto_if_lt(VAR_CITIES_VISITED, 4, Common_EventScript_NopReturn)
+	goto_if_eq(VAR_DIFFICULTY_SETTING, 2, FortreeCity_EventScript_SpawnRival)
+	goto_if_lt(VAR_CITIES_VISITED, 5, Common_EventScript_NopReturn)
+	FortreeCity_EventScript_SpawnRival:
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	if (var(VAR_TEMP_1) > 200) { 
+		//west entry
+		setvar(VAR_0x8004, 3)
+	} elif (var(VAR_TEMP_1) > 39) { 
+		//east entry
+		setvar(VAR_0x8004, 1)
+	} else {
+		//warp entry
+		setvar(VAR_0x8004, 4)
+	}
+	setvar(VAR_0x8005, 6)
+	specialvar(VAR_FORTREE_CITY_STATE, MultiplyVars)
+	copyvar(VAR_0x8004, VAR_FORTREE_CITY_STATE)
+	copyvar(VAR_0x8005, VAR_BLOCKER_RIVAL_RANDOM)
+	specialvar(VAR_FORTREE_CITY_STATE, AddVars)
+	call(Common_EventScript_IncrementRivalVar)
+	return
+}
+
+script FortreeCity_EventScript_SetupRival {
+	//if rival has been defeated, don't do anything
+	goto_if_gt(VAR_FORTREE_CITY_STATE, 99, Common_EventScript_NopReturn)
+
+	//clear rival object flag
+	clearflag(FLAG_TEMP_1A)
+
+	//lock all exits if the player has been visiting new cities
+	if(var(VAR_CITIES_VISITED) > 3) {
+		while (var(VAR_FORTREE_CITY_STATE) < 25) {
+			addvar(VAR_FORTREE_CITY_STATE, 6)
+		}
+	}
+
+	//buffer city variable and call setup
+	copyvar(VAR_0x8004, VAR_FORTREE_CITY_STATE)
+	call(Common_EventScript_SetupRival)
+	return
+}
+
+script FortreeCity_EventScript_Rival {
+	lock
+	faceplayer
+	switch(var(VAR_FORTREE_CITY_STATE)) {
+		case 1:
+		case 7:
+		case 13:
+		case 19:
+		case 25:
+			call(FortreeCity_EventScript_RivalLeaf)
+		case 2:
+		case 8:
+		case 14:
+		case 20:
+		case 26:
+			call(FortreeCity_EventScript_RivalCalem)
+		case 3:
+		case 9:
+		case 15:
+		case 21:
+		case 27:
+			call(FortreeCity_EventScript_RivalDawn)
+		case 4:
+		case 10:
+		case 16:
+		case 22:
+		case 28:
+			call(FortreeCity_EventScript_RivalHilbert)
+		case 5:
+		case 11:
+		case 17:
+		case 23:
+		case 29:
+			call(FortreeCity_EventScript_RivalKris)
+		case 6:
+		case 12:
+		case 18:
+		case 24:
+		case 30:
+			call(FortreeCity_EventScript_RivalRei)
+		default:
+	}
+	release
+	end
+}
+
+script FortreeCity_EventScript_RivalLeaf {
+	msgbox(format("Leaf: Viridian City isn't nearly this green! Look at this place!"))
+	return
+}
+
+script FortreeCity_EventScript_RivalKris {
+	msgbox(format("Kris: I wonder what kinds of Pokémon you can find in the trees around here?"))
+	return
+}
+
+script FortreeCity_EventScript_RivalDawn {
+	msgbox(format("Dawn: You don't see this kind of rainforest in Sinnoh. It's all temperate and not so tropical."))
+	return
+}
+
+script FortreeCity_EventScript_RivalRei {
+	msgbox(format("Rei: A treetop house sounds like a nice place to live, doesn't it? Elevated, breezy, free from pollution…"))
+	return
+}
+
+script FortreeCity_EventScript_RivalHilbert {
+	msgbox(format("Hilbert: This is the most interesting city I've been to in Hoenn so far!"))
+	return
+}
+
+script FortreeCity_EventScript_RivalCalem {
+	msgbox(format("Calem: Treehouses? How barbaric."))
+	return
+}
+
+script FortreeCity_EventScript_RivalEast {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 30, 4)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, FortreeCity_Movement_RivalApproachEast)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_2)) {
+		case 7:
+			applymovement(OBJ_EVENT_ID_PLAYER, FortreeCity_Movement_PlayerEast_1)
+		case 8:
+			applymovement(OBJ_EVENT_ID_PLAYER, FortreeCity_Movement_PlayerEast_2)
+		case 9:
+			applymovement(OBJ_EVENT_ID_PLAYER, FortreeCity_Movement_PlayerEast_3)
+		case 10:
+			applymovement(OBJ_EVENT_ID_PLAYER, FortreeCity_Movement_PlayerEast_4)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_FORTREE_CITY_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_FORTREE_CITY_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, FortreeCity_Movement_RivalDepartEast)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement FortreeCity_Movement_RivalApproachEast {
+	walk_right * 2
+	walk_down * 4
+	walk_right * 5
+}
+movement FortreeCity_Movement_RivalDepartEast {
+	walk_up
+	walk_right * 9
+}
+movement FortreeCity_Movement_PlayerEast_1 {
+	walk_down
+	walk_in_place_faster_left
+}
+movement FortreeCity_Movement_PlayerEast_2 {
+	walk_in_place_faster_left
+}
+movement FortreeCity_Movement_PlayerEast_3 {
+	walk_up
+	walk_in_place_faster_left
+}
+movement FortreeCity_Movement_PlayerEast_4 {
+	walk_up * 2
+	walk_in_place_faster_left
+}
+
+script FortreeCity_EventScript_RivalWest {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 9, 8)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, FortreeCity_Movement_RivalApproachWest)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_2)) {
+		case 7:
+			applymovement(OBJ_EVENT_ID_PLAYER, FortreeCity_Movement_PlayerWest_1)
+		case 8:
+			applymovement(OBJ_EVENT_ID_PLAYER, FortreeCity_Movement_PlayerWest_2)
+		case 9:
+			applymovement(OBJ_EVENT_ID_PLAYER, FortreeCity_Movement_PlayerWest_3)
+		case 10:
+			applymovement(OBJ_EVENT_ID_PLAYER, FortreeCity_Movement_PlayerWest_4)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_FORTREE_CITY_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_FORTREE_CITY_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, FortreeCity_Movement_RivalDepartWest)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement FortreeCity_Movement_RivalApproachWest {
+	walk_left * 7
+}
+movement FortreeCity_Movement_RivalDepartWest {
+	walk_right * 8
+}
+movement FortreeCity_Movement_PlayerWest_1 {
+	walk_down
+	walk_in_place_faster_right
+}
+movement FortreeCity_Movement_PlayerWest_2 {
+	walk_in_place_faster_right
+}
+movement FortreeCity_Movement_PlayerWest_3 {
+	walk_up
+	walk_in_place_faster_right
+}
+movement FortreeCity_Movement_PlayerWest_4 {
+	walk_up * 2
+	walk_in_place_faster_right
 }
 
 script FortreeCity_EventScript_CitySign {

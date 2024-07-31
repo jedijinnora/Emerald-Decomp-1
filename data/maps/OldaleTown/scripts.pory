@@ -1,10 +1,291 @@
+const LOCALID_RIVAL = 5
+
+//FLAG_TEMP_1A : Rival
+
+//VAR_TEMP_1 : x coord
+//VAR_TEMP_2 : y coord
+//VAR_TEMP_A : north rival
+//VAR_TEMP_C : south rival
+//VAR_TEMP_D : west rival
+
 mapscripts OldaleTown_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : OldaleTown_OnTransition
 }
 
 script OldaleTown_OnTransition {
-	setflag(FLAG_VISITED_OLDALE_TOWN)
+	call_if_unset(FLAG_VISITED_OLDALE_TOWN, OldaleTown_EventScript_VisitOldale)
+	call_if_eq(VAR_OLDALE_TOWN_STATE, 0, OldaleTown_EventScript_TrySpawnRival)
+	setflag(FLAG_TEMP_1A)
+	call_if_ne(VAR_OLDALE_TOWN_STATE, 0, OldaleTown_EventScript_SetupRival)
 	end
+}
+
+script OldaleTown_EventScript_VisitOldale {
+	setflag(FLAG_VISITED_OLDALE_TOWN)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
+}
+
+script OldaleTown_EventScript_TrySpawnRival {
+	goto_if_lt(VAR_CITIES_VISITED, 4, Common_EventScript_NopReturn)
+	goto_if_eq(VAR_DIFFICULTY_SETTING, 2, OldaleTown_EventScript_SpawnRival)
+	goto_if_lt(VAR_CITIES_VISITED, 5, Common_EventScript_NopReturn)
+	OldaleTown_EventScript_SpawnRival:
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	if (var(VAR_TEMP_1) > 200) { 
+		//west entry
+		setvar(VAR_0x8004, 3)
+	} elif (var(VAR_TEMP_2) > 23) { 
+		//south entry
+		setvar(VAR_0x8004, 2)
+	} elif (var(VAR_TEMP_2) > 200) {
+		//north entry
+		setvar(VAR_0x8004, 0)
+	} else {
+		//warp entry
+		setvar(VAR_0x8004, 4)
+	}
+	setvar(VAR_0x8005, 6)
+	specialvar(VAR_OLDALE_TOWN_STATE, MultiplyVars)
+	copyvar(VAR_0x8004, VAR_OLDALE_TOWN_STATE)
+	copyvar(VAR_0x8005, VAR_BLOCKER_RIVAL_RANDOM)
+	specialvar(VAR_OLDALE_TOWN_STATE, AddVars)
+	call(Common_EventScript_IncrementRivalVar)
+	return
+}
+
+script OldaleTown_EventScript_SetupRival {
+	//if rival has been defeated, don't do anything
+	goto_if_gt(VAR_OLDALE_TOWN_STATE, 99, Common_EventScript_NopReturn)
+
+	//clear rival object flag
+	clearflag(FLAG_TEMP_1A)
+
+	//lock all exits if the player has been visiting new cities
+	if(var(VAR_CITIES_VISITED) > 3) {
+		while (var(VAR_OLDALE_TOWN_STATE) < 25) {
+			addvar(VAR_OLDALE_TOWN_STATE, 6)
+		}
+	}
+
+	//buffer city variable and call setup
+	copyvar(VAR_0x8004, VAR_OLDALE_TOWN_STATE)
+	call(Common_EventScript_SetupRival)
+	return
+}
+
+script OldaleTown_EventScript_Rival {
+	lock
+	faceplayer
+	switch(var(VAR_OLDALE_TOWN_STATE)) {
+		case 1:
+		case 7:
+		case 13:
+		case 19:
+		case 25:
+			call(OldaleTown_EventScript_RivalLeaf)
+		case 2:
+		case 8:
+		case 14:
+		case 20:
+		case 26:
+			call(OldaleTown_EventScript_RivalCalem)
+		case 3:
+		case 9:
+		case 15:
+		case 21:
+		case 27:
+			call(OldaleTown_EventScript_RivalDawn)
+		case 4:
+		case 10:
+		case 16:
+		case 22:
+		case 28:
+			call(OldaleTown_EventScript_RivalHilbert)
+		case 5:
+		case 11:
+		case 17:
+		case 23:
+		case 29:
+			call(OldaleTown_EventScript_RivalKris)
+		case 6:
+		case 12:
+		case 18:
+		case 24:
+		case 30:
+			call(OldaleTown_EventScript_RivalRei)
+		default:
+	}
+	release
+	end
+}
+
+script OldaleTown_EventScript_RivalLeaf {
+	msgbox(format("Leaf: Oldale Glade reminds me of Viridian Forest, but without the Bug Catchers."))
+	return
+}
+
+script OldaleTown_EventScript_RivalKris {
+	msgbox(format("Kris: I have to admit I'm disappointed by the tower here… Sprout Tower is much more impressive!"))
+	return
+}
+
+script OldaleTown_EventScript_RivalDawn {
+	msgbox(format("Dawn: Oldale is so charming! It's like a combination of Eterna City and Celestic Town."))
+	return
+}
+
+script OldaleTown_EventScript_RivalRei {
+	msgbox(format("Rei: I like the vibe of traditional towns like this one."))
+	return
+}
+
+script OldaleTown_EventScript_RivalHilbert {
+	msgbox(format("Hilbert: You have all these small towns in Hoenn… Where's the gigantic metropolis?"))
+	return
+}
+
+script OldaleTown_EventScript_RivalCalem {
+	msgbox(format("Calem: This place reminds me of my home town a lot."))
+	return
+}
+
+script OldaleTown_EventScript_RivalNorth {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 9, 10)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, OldaleTown_Movement_RivalApproachNorth)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) {
+		case 9:
+			applymovement(OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerNorth_1)
+		case 10:
+			applymovement(OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerNorth_2)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_OLDALE_TOWN_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_OLDALE_TOWN_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, OldaleTown_Movement_RivalDepartNorth)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement OldaleTown_Movement_RivalApproachNorth {
+	walk_up * 5
+}
+movement OldaleTown_Movement_RivalDepartNorth {
+	walk_down * 6
+}
+movement OldaleTown_Movement_PlayerNorth_1 {
+	walk_in_place_faster_down
+}
+movement OldaleTown_Movement_PlayerNorth_2 {
+	walk_left
+	walk_in_place_faster_down
+}
+
+script OldaleTown_EventScript_RivalSouth {
+	lock
+	setobjectxy(LOCALID_RIVAL, 26, 16)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, OldaleTown_Movement_RivalApproachSouth)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) {
+		case 8:
+			applymovement(OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerSouth_1)
+		case 9:
+			applymovement(OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerSouth_2)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_OLDALE_TOWN_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_OLDALE_TOWN_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, OldaleTown_Movement_RivalDepartSouth)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement OldaleTown_Movement_RivalApproachSouth {
+	walk_down * 5
+}
+movement OldaleTown_Movement_RivalDepartSouth {
+	walk_up * 6
+}
+movement OldaleTown_Movement_PlayerSouth_1 {
+	walk_in_place_faster_up
+}
+movement OldaleTown_Movement_PlayerSouth_2 {
+	walk_left
+	walk_in_place_faster_up
+}
+
+script OldaleTown_EventScript_RivalWest {
+	lock
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, OldaleTown_Movement_RivalApproachWest)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_2)) {
+		case 12:
+			applymovement(OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerWest_1)
+		case 13:
+			applymovement(OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerWest_2)
+		case 14:
+			applymovement(OBJ_EVENT_ID_PLAYER, OldaleTown_Movement_PlayerWest_3)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_OLDALE_TOWN_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_OLDALE_TOWN_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, OldaleTown_Movement_RivalDepartWest)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement OldaleTown_Movement_RivalApproachWest {
+	walk_down
+	walk_left * 2
+	walk_up * 6
+	walk_left * 5
+}
+movement OldaleTown_Movement_RivalDepartWest {
+	walk_right * 5
+	walk_down * 7
+}
+movement OldaleTown_Movement_PlayerWest_1 {
+	walk_in_place_faster_right
+}
+movement OldaleTown_Movement_PlayerWest_2 {
+	walk_up
+	walk_in_place_faster_right
+}
+movement OldaleTown_Movement_PlayerWest_3 {
+	walk_up * 2
+	walk_in_place_faster_right
 }
 
 script OldaleTown_EventScript_TownSign {

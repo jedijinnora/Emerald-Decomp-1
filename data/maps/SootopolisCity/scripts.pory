@@ -4,8 +4,14 @@ mapscripts SootopolisCity_MapScripts {
 }
 
 script SootopolisCity_OnTransition {
-	setflag(FLAG_VISITED_SOOTOPOLIS_CITY)
+	call_if_unset(FLAG_VISITED_SOOTOPOLIS_CITY, SootopolisCity_EventScript_VisitSootopolis)
 	end
+}
+
+script SootopolisCity_EventScript_VisitSootopolis {
+	setflag(FLAG_VISITED_SOOTOPOLIS_CITY)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
 }
 
 script SootopolisCity_OnResume {

@@ -128,6 +128,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_CutTree",
       "flag": "FLAG_TEMP_11"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_VAR_1",
+      "x": 20,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FortreeCity_EventScript_Rival",
+      "flag": "FLAG_TEMP_1A"
     }
   ],
   "warp_events": [
@@ -203,7 +216,150 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "Common_EventScript_ClearRivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "Common_EventScript_ClearRivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "Common_EventScript_ClearRivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "Common_EventScript_ClearRivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "1",
+      "script": "Common_EventScript_ClearRivalWest"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "1",
+      "script": "Common_EventScript_ClearRivalWest"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "1",
+      "script": "Common_EventScript_ClearRivalWest"
+    },
+    {
+      "type": "trigger",
+      "x": 0,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "1",
+      "script": "Common_EventScript_ClearRivalWest"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "FortreeCity_EventScript_RivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "FortreeCity_EventScript_RivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "FortreeCity_EventScript_RivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "FortreeCity_EventScript_RivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "1",
+      "script": "FortreeCity_EventScript_RivalWest"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "1",
+      "script": "FortreeCity_EventScript_RivalWest"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "1",
+      "script": "FortreeCity_EventScript_RivalWest"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "1",
+      "script": "FortreeCity_EventScript_RivalWest"
+    }
   ],
   "bg_events": [
     {

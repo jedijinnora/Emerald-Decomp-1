@@ -9,7 +9,7 @@ mapscripts MeteorFalls_StevensCave_MapScripts {
 
 script MeteorFalls_StevensCave_OnTransition {
     call(MeteorFalls_StevensCave_EventScript_TryHideStash)
-    call_if_lt(VAR_RUSTBORO_CITY_STATE, 1, MeteorFalls_StevensCave_EventScript_HideSteven)
+    call_if_unset(FLAG_MET_ROXANNE_STEVEN, MeteorFalls_StevensCave_EventScript_HideSteven)
     call_if_defeated(TRAINER_STEVEN, MeteorFalls_StevensCave_EventScript_HideSteven)
     end
 }

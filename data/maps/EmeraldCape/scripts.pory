@@ -3,9 +3,15 @@ mapscripts EmeraldCape_MapScripts {
 }
 
 script EmeraldCape_OnTransition {
-	setflag(FLAG_VISITED_EMERALD_CAPE)
+	call_if_unset(FLAG_VISITED_EMERALD_CAPE, EmeraldCape_EventScript_VisitEmeraldCape)
 	call_if_eq(VAR_NUM_BADGES, 8, EmeraldCape_EventScript_HideAttendant)
 	end
+}
+
+script EmeraldCape_EventScript_VisitEmeraldCape {
+	setflag(FLAG_VISITED_EMERALD_CAPE)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
 }
 
 script EmeraldCape_EventScript_HideAttendant {

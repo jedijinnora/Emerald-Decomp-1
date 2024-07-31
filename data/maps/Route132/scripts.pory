@@ -30,16 +30,19 @@ script Route132_EventScript_Dots {
 
 script Route132_EventScript_Red {
 	trainerbattle_single(TRAINER_TPP_RED, Route132_Text_TPP, Route132_Text_TPP)
+	msgbox(Route132_Text_TPP, MSGBOX_AUTOCLOSE)
 	end
 }
 
 script Route132_EventScript_Dom {
 	trainerbattle_single(TRAINER_TPP_DOM, Route132_Text_TPP, Route132_Text_TPP)
+	msgbox(Route132_Text_TPP, MSGBOX_AUTOCLOSE)
 	end
 }
 
 script Route132_EventScript_AJ {
 	trainerbattle_single(TRAINER_TPP_AJ, Route132_Text_TPP, Route132_Text_TPP)
+	msgbox(Route132_Text_TPP, MSGBOX_AUTOCLOSE)
 	end
 }
 

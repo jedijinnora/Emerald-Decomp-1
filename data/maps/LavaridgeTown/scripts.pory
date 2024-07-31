@@ -1,10 +1,274 @@
+const LOCALID_RIVAL = 10
+
+//FLAG_TEMP_1A : Rival
+
+//VAR_TEMP_1 : x coord
+//VAR_TEMP_2 : y coord
+//VAR_TEMP_A : north rival
+//VAR_TEMP_B : east rival
+//VAR_TEMP_C : south rival
+//VAR_TEMP_D : west rival
+
 mapscripts LavaridgeTown_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : LavaridgeTown_OnTransition
 }
 
 script LavaridgeTown_OnTransition {
-	setflag(FLAG_VISITED_LAVARIDGE_TOWN)
+	call_if_unset(FLAG_VISITED_LAVARIDGE_TOWN, LavaridgeTown_EventScript_VisitLavaridge)
+	call_if_eq(VAR_LAVARIDGE_TOWN_STATE, 0, LavaridgeTown_EventScript_TrySpawnRival)
+	setflag(FLAG_TEMP_1A)
+	call_if_ne(VAR_LAVARIDGE_TOWN_STATE, 0, LavaridgeTown_EventScript_SetupRival)
 	end
+}
+
+script LavaridgeTown_EventScript_VisitLavaridge {
+	setflag(FLAG_VISITED_LAVARIDGE_TOWN)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
+}
+
+script LavaridgeTown_EventScript_TrySpawnRival {
+	goto_if_lt(VAR_CITIES_VISITED, 4, Common_EventScript_NopReturn)
+	goto_if_eq(VAR_DIFFICULTY_SETTING, 2, LavaridgeTown_EventScript_SpawnRival)
+	goto_if_lt(VAR_CITIES_VISITED, 5, Common_EventScript_NopReturn)
+	LavaridgeTown_EventScript_SpawnRival:
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	if (var(VAR_TEMP_1) > 200) { 
+		//west entry
+		setvar(VAR_0x8004, 3)
+	} elif (var(VAR_TEMP_1) > 31) { 
+		//east entry
+		setvar(VAR_0x8004, 1)
+	} else {
+		//warp entry
+		setvar(VAR_0x8004, 4)
+	}
+	setvar(VAR_0x8005, 6)
+	specialvar(VAR_LAVARIDGE_TOWN_STATE, MultiplyVars)
+	copyvar(VAR_0x8004, VAR_LAVARIDGE_TOWN_STATE)
+	copyvar(VAR_0x8005, VAR_BLOCKER_RIVAL_RANDOM)
+	specialvar(VAR_LAVARIDGE_TOWN_STATE, AddVars)
+	call(Common_EventScript_IncrementRivalVar)
+	return
+}
+
+script LavaridgeTown_EventScript_SetupRival {
+	//if rival has been defeated, don't do anything
+	goto_if_gt(VAR_LAVARIDGE_TOWN_STATE, 99, Common_EventScript_NopReturn)
+
+	//clear rival object flag
+	clearflag(FLAG_TEMP_1A)
+
+	//lock all exits if the player has been visiting new cities
+	if(var(VAR_CITIES_VISITED) > 3) {
+		while (var(VAR_LAVARIDGE_TOWN_STATE) < 25) {
+			addvar(VAR_LAVARIDGE_TOWN_STATE, 6)
+		}
+	}
+
+	//buffer city variable and call setup
+	copyvar(VAR_0x8004, VAR_LAVARIDGE_TOWN_STATE)
+	call(Common_EventScript_SetupRival)
+	return
+}
+
+script LavaridgeTown_EventScript_Rival {
+	lock
+	faceplayer
+	switch(var(VAR_LAVARIDGE_TOWN_STATE)) {
+		case 1:
+		case 7:
+		case 13:
+		case 19:
+		case 25:
+			call(LavaridgeTown_EventScript_RivalLeaf)
+		case 2:
+		case 8:
+		case 14:
+		case 20:
+		case 26:
+			call(LavaridgeTown_EventScript_RivalCalem)
+		case 3:
+		case 9:
+		case 15:
+		case 21:
+		case 27:
+			call(LavaridgeTown_EventScript_RivalDawn)
+		case 4:
+		case 10:
+		case 16:
+		case 22:
+		case 28:
+			call(LavaridgeTown_EventScript_RivalHilbert)
+		case 5:
+		case 11:
+		case 17:
+		case 23:
+		case 29:
+			call(LavaridgeTown_EventScript_RivalKris)
+		case 6:
+		case 12:
+		case 18:
+		case 24:
+		case 30:
+			call(LavaridgeTown_EventScript_RivalRei)
+		default:
+	}
+	release
+	end
+}
+
+script LavaridgeTown_EventScript_RivalLeaf {
+	msgbox(format("Leaf: "))
+	return
+}
+
+script LavaridgeTown_EventScript_RivalKris {
+	msgbox(format("Kris: "))
+	return
+}
+
+script LavaridgeTown_EventScript_RivalDawn {
+	msgbox(format("Dawn: "))
+	return
+}
+
+script LavaridgeTown_EventScript_RivalRei {
+	msgbox(format("Rei: "))
+	return
+}
+
+script LavaridgeTown_EventScript_RivalHilbert {
+	msgbox(format("Hilbert: "))
+	return
+}
+
+script LavaridgeTown_EventScript_RivalCalem {
+	msgbox(format("Calem: "))
+	return
+}
+
+script LavaridgeTown_EventScript_RivalEast {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 22, 13)
+	setobjectxy(LOCALID_RIVAL, 22, 13)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, LavaridgeTown_Movement_RivalApproachEast)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_2)) {
+		case 11:
+			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerEast_1)
+		case 12:
+			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerEast_2)
+		case 13:
+			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerEast_3)
+		case 14:
+			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerEast_4)
+		case 15:
+			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerEast_5)
+		case 16:
+			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerEast_6)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_LAVARIDGE_TOWN_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_LAVARIDGE_TOWN_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, LavaridgeTown_Movement_RivalDepartEast)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement LavaridgeTown_Movement_RivalApproachEast {
+	walk_right * 7
+}
+movement LavaridgeTown_Movement_RivalDepartEast {
+	walk_left * 8
+}
+movement LavaridgeTown_Movement_PlayerEast_1 {
+	walk_down * 2
+	walk_in_place_faster_left
+}
+movement LavaridgeTown_Movement_PlayerEast_2 {
+	walk_down
+	walk_in_place_faster_left
+}
+movement LavaridgeTown_Movement_PlayerEast_3 {
+	walk_in_place_faster_left
+}
+movement LavaridgeTown_Movement_PlayerEast_4 {
+	walk_up
+	walk_in_place_faster_left
+}
+movement LavaridgeTown_Movement_PlayerEast_5 {
+	walk_up * 2
+	walk_in_place_faster_left
+}
+movement LavaridgeTown_Movement_PlayerEast_6 {
+	walk_up * 3
+	walk_in_place_faster_left
+}
+
+script LavaridgeTown_EventScript_RivalWest {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 12, 26)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, LavaridgeTown_Movement_RivalApproachWest)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_2)) {
+		case 25:
+			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerWest_1)
+		case 26:
+			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerWest_2)
+		case 27:
+			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerWest_3)
+		case 28:
+			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerWest_4)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_LAVARIDGE_TOWN_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_LAVARIDGE_TOWN_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, LavaridgeTown_Movement_RivalDepartWest)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement LavaridgeTown_Movement_RivalApproachWest {
+	walk_left * 7
+}
+movement LavaridgeTown_Movement_RivalDepartWest {
+	walk_right * 8
+}
+movement LavaridgeTown_Movement_PlayerWest_1 {
+	walk_down
+	walk_in_place_faster_right
+}
+movement LavaridgeTown_Movement_PlayerWest_2 {
+	walk_in_place_faster_right
+}
+movement LavaridgeTown_Movement_PlayerWest_3 {
+	walk_up
+	walk_in_place_faster_right
+}
+movement LavaridgeTown_Movement_PlayerWest_4 {
+	walk_up * 2
+	walk_in_place_faster_right
 }
 
 script LavaridgeTown_EventScript_HotSpringsTrigger {
@@ -95,10 +359,6 @@ LavaridgeTown_EventScript_HotSpringsOldWoman2::
 	msgbox LavaridgeTown_Text_HotSpringsClaims, MSGBOX_NPC
 	end
 
-LavaridgeTown_EventScript_ExpertF::
-	msgbox LavaridgeTown_Text_OhYouLikeHotSprings, MSGBOX_NPC
-	end
-
 LavaridgeTown_EventScript_TownSign::
 	msgbox LavaridgeTown_Text_TownSign, MSGBOX_SIGN
 	end
@@ -126,11 +386,6 @@ LavaridgeTown_Text_PokemonNippedBackside:
 	.string "So warm and heavenly…\p"
 	.string "Eh? Gyaah! Ouch!\p"
 	.string "A Pokémon nipped my backside!$"
-
-LavaridgeTown_Text_OhYouLikeHotSprings:
-	.string "Oh, you like hot springs, do you?\p"
-	.string "That's surprising for one as young\n"
-	.string "as you.$"
 
 LavaridgeTown_Text_BatheInHotSpringsEveryDay:
 	.string "I bathe in the hot springs every day.\p"

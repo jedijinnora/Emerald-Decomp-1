@@ -25,6 +25,8 @@ script ArrivalFerry_Room_EventScript_Init {
     delay(20)
     setrespawn(HEAL_LOCATION_EVER_GRANDE_CITY)
     setvar(VAR_EVER_GRANDE_CITY_STATE, 1)
+    random(6)
+    copyvar(VAR_BLOCKER_RIVAL_RANDOM, VAR_RESULT)
     playse(SE_PIN)
     applymovement(LOCALID_ROOMMATE, Common_Movement_ExclamationMark)
     waitmovement(LOCALID_ROOMMATE)

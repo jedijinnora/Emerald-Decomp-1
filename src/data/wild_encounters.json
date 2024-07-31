@@ -11165,17 +11165,17 @@
               {
                 "min_level": 15,
                 "max_level": 25,
-                "species": "SPECIES_SOBBLE"
+                "species": "SPECIES_WIGLETT"
               },
               {
                 "min_level": 25,
                 "max_level": 30,
-                "species": "SPECIES_SOBBLE"
+                "species": "SPECIES_WIGLETT"
               },
               {
                 "min_level": 25,
                 "max_level": 30,
-                "species": "SPECIES_SOBBLE"
+                "species": "SPECIES_WIGLETT"
               }
             ]
           },

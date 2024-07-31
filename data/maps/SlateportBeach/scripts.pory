@@ -13,23 +13,9 @@ script SlateportBeach_EventScript_SeashoreHouseGirl {
 script SlateportBeach_EventScript_Scott {
     lock
     faceplayer
-    beach_player_vs_2(TRAINER_BB_MISCHA, SlateportBeach_Text_BeachBattleLost, TRAINER_BB_MIRABELLE, SlateportBeach_Text_BeachBattleLost)
-    frontier_get(FRONTIER_DATA_BATTLE_OUTCOME)
-    goto_if_eq(VAR_RESULT, B_OUTCOME_WON, SlateportBeach_EventScript_Victory)
-    special(HealPlayerParty)
-    msgbox(format("You lost!"))
+    msgbox(format("You lost the game!"))
     release
     end
-}
-
-script SlateportBeach_EventScript_Victory {
-    msgbox(format("You won!"))
-    release
-    end
-}
-
-text SlateportBeach_Text_BeachBattleLost {
-    "I lost!"
 }
 
 

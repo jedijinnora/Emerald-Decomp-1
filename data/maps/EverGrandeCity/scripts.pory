@@ -3,9 +3,15 @@ mapscripts EverGrandeCity_MapScripts {
 }
 
 script EverGrandeCity_OnTransition {
-	setflag(FLAG_VISITED_EVER_GRANDE_CITY)
+	call_if_unset(FLAG_VISITED_EVER_GRANDE_CITY, EverGrandeCity_EventScript_VisitEverGrande)
 	call_if_gt(VAR_EVER_GRANDE_CITY_STATE, 1, EverGrandeCity_EventScript_HideJinnora)
 	end
+}
+
+script EverGrandeCity_EventScript_VisitEverGrande {
+	setflag(FLAG_VISITED_EVER_GRANDE_CITY)
+	//addvar(VAR_CITIES_VISITED, 1)
+	return
 }
 
 script EverGrandeCity_EventScript_HideJinnora {
@@ -411,34 +417,42 @@ script Common_EventScript_Ferry {
 			warp(MAP_RUSTBORO_CITY, 13)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_RUSTBORO_CITY)
+			setvar(VAR_FERRY_DESTINATION, 1)
 		case 1:
 			warp(MAP_DEWFORD_RESORT, 6)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_DEWFORD_TOWN)
+			setvar(VAR_FERRY_DESTINATION, 2)
 		case 2:
 			warp(MAP_LITTLEROOT_SHORE, 1)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE)
+			setvar(VAR_FERRY_DESTINATION, 3)
 		case 3:
 			warp(MAP_SLATEPORT_CITY, 9)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_SLATEPORT_CITY)
+			setvar(VAR_FERRY_DESTINATION, 4)
 		case 4:
 			warp(MAP_LILYCOVE_CITY, 13)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_LILYCOVE_CITY)
+			setvar(VAR_FERRY_DESTINATION, 5)
 		case 5:
 			warp(MAP_MOSSDEEP_CITY, 13)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_MOSSDEEP_CITY)
+			setvar(VAR_FERRY_DESTINATION, 6)
 		case 6:
 			warp(MAP_SOOTOPOLIS_CITY, 14)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_SOOTOPOLIS_CITY)
+			setvar(VAR_FERRY_DESTINATION, 7)
 		case 7:
 			warp(MAP_EVER_GRANDE_CITY, 10)
 			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_EVER_GRANDE_CITY)
+			setvar(VAR_FERRY_DESTINATION, 8)
 		default:
 			msgbox(format("See you later, then!"))
 			release

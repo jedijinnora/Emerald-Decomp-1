@@ -1,4 +1,4 @@
-const EXPERT_F_ID = 1
+const LOCALID_EXPERT_F = 1
 
 //TEMPs Used:
 //FLAG_TEMP_1 - ExpertF judgment
@@ -8,8 +8,14 @@ mapscripts MeteorVillage_MapScripts {
 }
 
 script MeteorVillage_EventScript_OnTransition {
-    setflag(FLAG_VISITED_METEOR_VILLAGE)
+    call_if_unset(FLAG_VISITED_METEOR_VILLAGE, MeteorVillage_EventScript_VisitMeteor)
     end
+}
+
+script MeteorVillage_EventScript_VisitMeteor {
+    setflag(FLAG_VISITED_METEOR_VILLAGE)
+    addvar(VAR_CITIES_VISITED, 1)
+    return
 }
 
 script MeteorVillage_EventScript_ExpertF {
@@ -28,7 +34,7 @@ script MeteorVillage_EventScript_ExpertF {
     Instructions:
     msgbox(format("It isn't who you are, it's who you could be."))
     waitmessage
-    applymovement(EXPERT_F_ID, Common_Movement_FaceAwayPlayer)
+    applymovement(LOCALID_EXPERT_F, Common_Movement_FaceAwayPlayer)
     msgbox(format("Perhaps you could surprise me..."))
     waitmessage
     faceplayer

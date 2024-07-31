@@ -3,7 +3,7 @@ mapscripts RustboroCity_House2_MapScripts {
 }
 
 script RustboroCity_House2_OnTransition {
-    call_if_eq(VAR_RUSTBORO_CITY_STATE, 0, RustboroCity_House2_EventScript_HideRoxanne)
+    call_if_unset(FLAG_MET_ROXANNE_STEVEN, RustboroCity_House2_EventScript_HideRoxanne)
     end
 }
 

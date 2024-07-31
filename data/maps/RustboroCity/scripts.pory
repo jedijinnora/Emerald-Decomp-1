@@ -1,26 +1,372 @@
 const LOCALID_NOLAND = 15
 const LOCALID_ROXANNE = 16
 const LOCALID_STEVEN = 17
+const LOCALID_RIVAL = 18
 
 //FLAG_TEMP_15 : Noland
 //FLAG_TEMP_16 : Roxanne
 //FLAG_TEMP_17 : Steven
+//FLAG_TEMP_1A : Rival
+
+//VAR_TEMP_0 : gym scene script triggers
+//VAR_TEMP_1 : x coord
+//VAR_TEMP_2 : y coord
+//VAR_TEMP_A : north rival
+//VAR_TEMP_B : east rival
+//VAR_TEMP_C : south rival
 
 mapscripts RustboroCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : RustboroCityOnTransition
 }
 
 script RustboroCityOnTransition {
-	setflag(FLAG_VISITED_RUSTBORO_CITY)
-	call_if_ne(VAR_RUSTBORO_CITY_STATE, 0, RustboroCity_EventScript_HideNolandRoxanneSteven)
+	call_if_unset(FLAG_VISITED_RUSTBORO_CITY, RustboroCity_EventScript_VisitRustboro)
+	call_if_set(FLAG_MET_ROXANNE_STEVEN, RustboroCity_EventScript_HideNolandRoxanneSteven)
+	call_if_eq(VAR_RUSTBORO_CITY_STATE, 0, RustboroCity_EventScript_TrySpawnRival)
+	setflag(FLAG_TEMP_1A)
+	call_if_ne(VAR_RUSTBORO_CITY_STATE, 0, RustboroCity_EventScript_SetupRival)
 	end
+}
+
+script RustboroCity_EventScript_VisitRustboro {
+	setflag(FLAG_VISITED_RUSTBORO_CITY)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
 }
 
 script RustboroCity_EventScript_HideNolandRoxanneSteven {
 	setflag(FLAG_TEMP_15)
 	setflag(FLAG_TEMP_16)
 	setflag(FLAG_TEMP_17)
+	setvar(VAR_TEMP_0, 1)
 	return
+}
+
+script RustboroCity_EventScript_TrySpawnRival {
+	goto_if_lt(VAR_CITIES_VISITED, 4, Common_EventScript_NopReturn)
+	goto_if_eq(VAR_DIFFICULTY_SETTING, 2, RustboroCity_EventScript_SpawnRival)
+	goto_if_lt(VAR_CITIES_VISITED, 5, Common_EventScript_NopReturn)
+	RustboroCity_EventScript_SpawnRival:
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	if (var(VAR_TEMP_1) > 59) { 
+		//east entry
+		setvar(VAR_0x8004, 1)
+	} elif (var(VAR_TEMP_2) > 59) { 
+		//south entry
+		setvar(VAR_0x8004, 2)
+	} elif (var(VAR_TEMP_2) > 200) {
+		//north entry
+		setvar(VAR_0x8004, 0)
+	} else {
+		//warp entry
+		setvar(VAR_0x8004, 4)
+	}
+	setvar(VAR_0x8005, 6)
+	specialvar(VAR_RUSTBORO_CITY_STATE, MultiplyVars)
+	copyvar(VAR_0x8004, VAR_RUSTBORO_CITY_STATE)
+	copyvar(VAR_0x8005, VAR_BLOCKER_RIVAL_RANDOM)
+	specialvar(VAR_RUSTBORO_CITY_STATE, AddVars)
+	call(Common_EventScript_IncrementRivalVar)
+	return
+}
+
+script RustboroCity_EventScript_SetupRival {
+	//if rival has been defeated, don't do anything
+	goto_if_gt(VAR_RUSTBORO_CITY_STATE, 99, Common_EventScript_NopReturn)
+
+	//clear rival object flag
+	clearflag(FLAG_TEMP_1A)
+
+	//lock all exits if the player has been visiting new cities
+	if(var(VAR_CITIES_VISITED) > 3) {
+		while (var(VAR_RUSTBORO_CITY_STATE) < 25) {
+			addvar(VAR_RUSTBORO_CITY_STATE, 6)
+		}
+	}
+
+	//buffer city variable and call setup
+	copyvar(VAR_0x8004, VAR_RUSTBORO_CITY_STATE)
+	call(Common_EventScript_SetupRival)
+	return
+}
+
+script RustboroCity_EventScript_Rival {
+	lock
+	faceplayer
+	switch(var(VAR_RUSTBORO_CITY_STATE)) {
+		case 1:
+		case 7:
+		case 13:
+		case 19:
+		case 25:
+			call(RustboroCity_EventScript_RivalLeaf)
+		case 2:
+		case 8:
+		case 14:
+		case 20:
+		case 26:
+			call(RustboroCity_EventScript_RivalCalem)
+		case 3:
+		case 9:
+		case 15:
+		case 21:
+		case 27:
+			call(RustboroCity_EventScript_RivalDawn)
+		case 4:
+		case 10:
+		case 16:
+		case 22:
+		case 28:
+			call(RustboroCity_EventScript_RivalHilbert)
+		case 5:
+		case 11:
+		case 17:
+		case 23:
+		case 29:
+			call(RustboroCity_EventScript_RivalKris)
+		case 6:
+		case 12:
+		case 18:
+		case 24:
+		case 30:
+			call(RustboroCity_EventScript_RivalRei)
+		default:
+	}
+	release
+	end
+}
+
+script RustboroCity_EventScript_RivalLeaf {
+	msgbox(format("Leaf: I'm not impressed by Devon Corp, honestly. Just compare their headquarters to Silph Co.'s!"))
+	return
+}
+
+script RustboroCity_EventScript_RivalKris {
+	msgbox(format("Kris: Now here's a city with a tech industry! But where's the Radio Tower?"))
+	return
+}
+
+script RustboroCity_EventScript_RivalDawn {
+	msgbox(format("Dawn: I should catch up on Devon Corp.'s newest innovations and report back to Professor Rowan…"))
+	return
+}
+
+script RustboroCity_EventScript_RivalRei {
+	msgbox(format("Rei: Hmm, Devon Corp. is prototypting next-generation mobile devices… Mine was better."))
+	return
+}
+
+script RustboroCity_EventScript_RivalHilbert {
+	msgbox(format("Hilbert: A city this big, with no bridges? Come on!"))
+	return
+}
+
+script RustboroCity_EventScript_RivalCalem {
+	msgbox(format("Calem: I hope I can save my game here without glitching…"))
+	return
+}
+
+script RustboroCity_EventScript_RivalNorth {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 41, 10)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, RustboroCity_Movement_RivalApproachNorth)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) {
+		case 39:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerNorth_1)
+		case 40:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerNorth_2)
+		case 41:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerNorth_3)
+		case 42:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerNorth_4)
+		case 43:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerNorth_5)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_RUSTBORO_CITY_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_RUSTBORO_CITY_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, RustboroCity_Movement_RivalDepartNorth)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement RustboroCity_Movement_RivalApproachNorth {
+	walk_up * 5
+}
+movement RustboroCity_Movement_RivalDepartNorth {
+	walk_down * 6
+}
+movement RustboroCity_Movement_PlayerNorth_1 {
+	walk_right * 2
+	walk_in_place_faster_down
+}
+movement RustboroCity_Movement_PlayerNorth_2 {
+	walk_right
+	walk_in_place_faster_down
+}
+movement RustboroCity_Movement_PlayerNorth_3 {
+	walk_in_place_faster_down
+}
+movement RustboroCity_Movement_PlayerNorth_4 {
+	walk_left
+	walk_in_place_faster_down
+}
+movement RustboroCity_Movement_PlayerNorth_5 {
+	walk_left * 2
+	walk_in_place_faster_down
+}
+
+script RustboroCity_EventScript_RivalEast {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 49, 9)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, RustboroCity_Movement_RivalApproachEast)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_2)) {
+		case 8:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerEast_1)
+		case 9:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerEast_2)
+		case 10:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerEast_3)
+		case 11:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerEast_4)
+		case 12:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerEast_5)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_RUSTBORO_CITY_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_RUSTBORO_CITY_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, RustboroCity_Movement_RivalDepartEast)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement RustboroCity_Movement_RivalApproachEast {
+	walk_right * 7
+}
+movement RustboroCity_Movement_RivalDepartEast {
+	walk_left * 8
+}
+movement RustboroCity_Movement_PlayerEast_1 {
+	walk_down
+	walk_in_place_faster_left
+}
+movement RustboroCity_Movement_PlayerEast_2 {
+	walk_in_place_faster_left
+}
+movement RustboroCity_Movement_PlayerEast_3 {
+	walk_up
+	walk_in_place_faster_left
+}
+movement RustboroCity_Movement_PlayerEast_4 {
+	walk_up * 2
+	walk_in_place_faster_left
+}
+movement RustboroCity_Movement_PlayerEast_5 {
+	walk_up * 3
+	walk_in_place_faster_left
+}
+
+script RustboroCity_EventScript_RivalSouth {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 36, 51)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, RustboroCity_Movement_RivalApproachSouth)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) {
+		case 32:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_1)
+		case 33:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_2)
+		case 34:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_3)
+		case 35:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_4)
+		case 36:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_1)
+		case 37:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_2)
+		case 38:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_3)
+		case 39:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_4)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_RUSTBORO_CITY_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_RUSTBORO_CITY_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, RustboroCity_Movement_RivalDepartSouth)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement RustboroCity_Movement_RivalApproachSouth {
+	walk_left * 9
+	walk_down
+}
+movement RustboroCity_Movement_RivalDepartSouth {
+	walk_up
+	walk_right * 10
+}
+movement RustboroCity_Movement_PlayerSouth_1 {
+	walk_right * 4
+	walk_in_place_faster_up
+}
+movement RustboroCity_Movement_PlayerSouth_2 {
+	walk_right * 3
+	walk_in_place_faster_up
+}
+movement RustboroCity_Movement_PlayerSouth_3 {
+	walk_right * 2
+	walk_in_place_faster_up
+}
+movement RustboroCity_Movement_PlayerSouth_4 {
+	walk_right
+	walk_in_place_faster_up
+}
+movement RustboroCity_Movement_PlayerSouth_5 {
+	walk_in_place_faster_up
+}
+movement RustboroCity_Movement_PlayerSouth_6 {
+	walk_left
+	walk_in_place_faster_up
+}
+movement RustboroCity_Movement_PlayerSouth_7 {
+	walk_left * 2
+	walk_in_place_faster_up
+}
+movement RustboroCity_Movement_PlayerSouth_8 {
+	walk_left * 3
+	walk_in_place_faster_up
 }
 
 script RustboroCity_EventScript_MovePlayerForGymScene {
@@ -50,10 +396,12 @@ script RustboroCity_EventScript_GymScene {
 	msgbox(format("Noland: ………"))
 	applymovement(LOCALID_ROXANNE, Common_Movement_FaceLeft)
 	waitmovement(LOCALID_ROXANNE)
-	msgbox(format("Roxanne: Strength isn't everything. Are you even familiar with the kids at the Trainer's School you'd be responsible for mentoring? Do you even know their names?"))
+	msgbox(format("Roxanne: Strength isn't everything. You aren't even familiar with the kids at the Trainer's School you'd be responsible for mentoring!"))
+	msgbox(format("Do you even know their names?"))
 	applymovement(LOCALID_NOLAND, Common_Movement_WalkInPlaceFasterDown)
 	waitmovement(LOCALID_NOLAND)
 	msgbox(format("Noland: Roxanne has earned the respect of the community, and has been approved by the League."))
+	delay(16)
 	applymovement(LOCALID_STEVEN, Common_Movement_WalkInPlaceFasterUp)
 	waitmovement(LOCALID_STEVEN)
 	delay(16)
@@ -63,11 +411,13 @@ script RustboroCity_EventScript_GymScene {
 	closemessage
 	applymovement(LOCALID_STEVEN, RustboroCity_Movement_StepLeft)
 	waitmovement(LOCALID_STEVEN)
+	delay(16)
 	msgbox(format("Steven: I'll show you. I'll show you all! If I can't be Gym Leader then I'll defeat the whole Pokémon League and become the next Champion!"))
 	closemessage
 	applymovement(LOCALID_STEVEN, Common_Movement_FaceRight)
 	waitmovement(LOCALID_STEVEN)
-	msgbox(format("I'm off to train in Meteor Falls! Roxanne! We all know you're too weak of a Trainer to face me, so I won't bother with you any longer!"))
+	msgbox(format("I'm off to train in Meteor Falls!"))
+	msgbox(format("Roxanne! We all know you're too weak of a Trainer to face me, so I won't bother with you any longer!"))
 	closemessage
 	applymovement(LOCALID_STEVEN, RustboroCity_Movement_StevenExit)
 	waitmovement(LOCALID_STEVEN)
@@ -98,13 +448,14 @@ script RustboroCity_EventScript_GymScene {
 	waitmovement(0)
 	msgbox(format("Roxanne: I'm sorry you had to see that. Steven's a good guy, really. He's just used to getting his way all the time."))
 	msgbox(format("Why don't you check on him sometime? Meteor Falls is worth exploring, and Steven might like to see someone who isn't, well, me."))
-	msgbox(format("I'm sure you're more interested in challenging the Gym, but if you want to meet up later I'd be happy to teach you about Rock types!"))
+	msgbox(format("I'm sure you're interested in challenging the Gym. If you want to meet up later I'd be happy to teach you about Rock-types!"))
 	closemessage
 	applymovement(LOCALID_ROXANNE, RustboroCity_Movement_RoxanneExit)
 	waitmovement(LOCALID_ROXANNE)
 	removeobject(LOCALID_ROXANNE)
 
-	setvar(VAR_RUSTBORO_CITY_STATE, 1)
+	setflag(FLAG_MET_ROXANNE_STEVEN)
+	setvar(VAR_TEMP_0, 1)
 	release
 	end
 }

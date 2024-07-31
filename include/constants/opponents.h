@@ -217,8 +217,18 @@
 #define TRAINER_BB_PHOEBE                   (BEACH_BATTLE_TRAINERS_START + 9)
 #define BEACH_BATTLE_TRAINERS_END           TRAINER_BB_PHOEBE
 
+//Blocking Rivals
+#define BLOCKING_RIVAL_TRAINERS_START       (BEACH_BATTLE_TRAINERS_END + 1)
+#define TRAINER_RIVAL_LEAF                  (BLOCKING_RIVAL_TRAINERS_START + 0)
+#define TRAINER_RIVAL_KRIS                  (BLOCKING_RIVAL_TRAINERS_START + 1)
+#define TRAINER_RIVAL_DAWN                  (BLOCKING_RIVAL_TRAINERS_START + 2)
+#define TRAINER_RIVAL_REI                   (BLOCKING_RIVAL_TRAINERS_START + 3)
+#define TRAINER_RIVAL_HILBERT               (BLOCKING_RIVAL_TRAINERS_START + 4)
+#define TRAINER_RIVAL_CALEM                 (BLOCKING_RIVAL_TRAINERS_START + 5)
+#define BLOCKING_RIVAL_TRAINERS_END         TRAINER_RIVAL_CALEM
+
 //Victory Road Rivals
-#define VICTORY_ROAD_RIVAL_TRAINERS_START   (BEACH_BATTLE_TRAINERS_END + 1)
+#define VICTORY_ROAD_RIVAL_TRAINERS_START   (BLOCKING_RIVAL_TRAINERS_END + 1)
 #define TRAINER_RIVAL_JINNORA               (VICTORY_ROAD_RIVAL_TRAINERS_START + 0)
 #define TRAINER_RIVAL_1                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 1)
 #define TRAINER_RIVAL_2                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 2)
@@ -941,13 +951,14 @@
 #define TRAINER_BRENDAN_PLACEHOLDER         (SAFETY_TRAINERS_START + 9)
 #define TRAINER_MAY_PLACEHOLDER             (SAFETY_TRAINERS_START + 10)
 
-//Steven is needed for weird functions because of the Mossdeep tag battle from vanilla
+//Steven was needed for weird functions because of the Mossdeep tag battle from vanilla
+//now used for the Meteor Falls trainer battle
 #define TRAINER_STEVEN                      (SAFETY_TRAINERS_START + 11)
 
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 654
+//I think it's currently 660
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

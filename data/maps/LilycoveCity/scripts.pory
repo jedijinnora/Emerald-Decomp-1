@@ -3,10 +3,16 @@ mapscripts LilycoveCity_MapScripts {
 }
 
 script LilycoveCity_OnTransition {
-	setflag(FLAG_VISITED_LILYCOVE_CITY)
+	call_if_unset(FLAG_VISITED_LILYCOVE_CITY, LilycoveCity_EventScript_VisitLilycove)
 	setvar(VAR_CONTEST_HALL_STATE, 0)
 	setflag(FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER)
 	end
+}
+
+script LilycoveCity_EventScript_VisitLilycove {
+	setflag(FLAG_VISITED_LILYCOVE_CITY)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
 }
 
 const LOCALID_MAN_1 = 13

@@ -3,10 +3,16 @@ mapscripts SlateportCity_MapScripts {
 }
 
 script SlateportCityOnTransition {
-	setflag(FLAG_VISITED_SLATEPORT_CITY)
+	call_if_unset(FLAG_VISITED_SLATEPORT_CITY, SlateportCity_EventScript_VisitSlateport)
 	setvar(VAR_SLATEPORT_MUSEUM_1F_STATE, 0)
 	call_if_unset(FLAG_BEACH_BATTLE_VICTORY, SlateportCity_EventScript_HideMartsPreBeachBattle)
 	end
+}
+
+script SlateportCity_EventScript_VisitSlateport {
+	setflag(FLAG_VISITED_SLATEPORT_CITY)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
 }
 
 script SlateportCity_EventScript_HideMartsPreBeachBattle {

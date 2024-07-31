@@ -163,15 +163,15 @@
 #define VAR_DEVON_CORP_3F_STATE                          0x408F
 #define VAR_BRINEY_HOUSE_STATE                           0x4090
 #define VAR_BOARD_BRINEY_BOAT_STATE                      0x4091
-#define VAR_UNUSED_0x4092                                0x4092 // was littleroot intro state
+#define VAR_LILYCOVE_CONTEST_LOBBY_STATE                 0x4092 // was littleroot intro state
 #define VAR_MAUVILLE_GYM_STATE                           0x4093
 #define VAR_LILYCOVE_MUSEUM_2F_STATE                     0x4094
 #define VAR_LILYCOVE_FAN_CLUB_STATE                      0x4095
 #define VAR_BRINEY_LOCATION                              0x4096
 #define VAR_INIT_SECRET_BASE                             0x4097
-#define VAR_UNUSED_0x4098                                0x4098 // was petalburg woods state
-#define VAR_LILYCOVE_CONTEST_LOBBY_STATE                 0x4099
-#define VAR_UNUSED_0x409A                                0x409A // was rusturf tunnel state
+#define VAR_FERRY_DESTINATION                            0x4098 // 1-rustboro 2-dewford 3-littleroot 4-slateport 5-lilycove 6-mossdeep 7-sootopolis 8-evergrande
+#define VAR_BLOCKER_RIVAL_RANDOM                         0x4099 // randomized during ferry arrival
+#define VAR_CITIES_VISITED                               0x409A // records new towns/cities visited since last blocker rival fight
 #define VAR_METEOR_VILLAGE_STATE                         0x409B // JINNORA: Map variable for Meteor Village
 #define VAR_ELITE_4_STATE                                0x409C
 #define VAR_WILD_SET_ALTERING_CAVE                       0x409D // renamed from VAR_ALTERING_CAVE_WILD_SET

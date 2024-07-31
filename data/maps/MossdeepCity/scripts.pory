@@ -14,8 +14,14 @@ script MossdeepCity_OnLoad {
 }
 
 script MossdeepCity_OnTransition {
-	setflag(FLAG_VISITED_MOSSDEEP_CITY)
+	call_if_unset(FLAG_VISITED_MOSSDEEP_CITY, MossdeepCity_EventScript_VisitMossdeep)
 	end
+}
+
+script MossdeepCity_EventScript_VisitMossdeep {
+	setflag(FLAG_VISITED_MOSSDEEP_CITY)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
 }
 
 script MossdeepCity_EventScript_LockStevensHouse {

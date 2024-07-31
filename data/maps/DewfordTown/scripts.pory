@@ -11,9 +11,15 @@ const LOCALID_LITTLE_BOY = 5
 //VAR_TEMP_2 player y-coord
 
 script DewfordTown_OnTransition {
-	setflag(FLAG_VISITED_DEWFORD_TOWN)
+	call_if_unset(FLAG_VISITED_DEWFORD_TOWN, DewfordTown_EventScript_VisitDewford)
 	call_if_set(FLAG_SAND_FAMILY_MOVED, DewfordTown_EventScript_HideNPCs)
 	end
+}
+
+script DewfordTown_EventScript_VisitDewford {
+	setflag(FLAG_VISITED_DEWFORD_TOWN)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
 }
 
 script DewfordTown_EventScript_HideNPCs {

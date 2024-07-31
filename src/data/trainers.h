@@ -2472,9 +2472,93 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 0,
     },
 
+    [TRAINER_RIVAL_LEAF] =
+    {
+        .trainerClass = TRAINER_CLASS_RIVAL,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_LEAF,
+        .trainerName = _("Leaf"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_Rival_Leaf),
+        .badgeThreshold = 4,
+        .easyParty = sParty_Rival_Leaf_easy,
+    },
+
+    [TRAINER_RIVAL_KRIS] =
+    {
+        .trainerClass = TRAINER_CLASS_RIVAL,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_LEAF,
+        .trainerName = _("Kris"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_Rival_Kris),
+        .badgeThreshold = 4,
+        .easyParty = sParty_Rival_Kris_easy,
+    },
+
+    [TRAINER_RIVAL_DAWN] =
+    {
+        .trainerClass = TRAINER_CLASS_RIVAL,
+        .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_LEAF,
+        .trainerName = _("Dawn"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_Rival_Dawn),
+        .badgeThreshold = 4,
+        .easyParty = sParty_Rival_Dawn_easy,
+    },
+
+    [TRAINER_RIVAL_REI] =
+    {
+        .trainerClass = TRAINER_CLASS_RIVAL,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_RED,
+        .trainerName = _("Rei"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_Rival_Rei),
+        .badgeThreshold = 4,
+        .easyParty = sParty_Rival_Rei_easy,
+    },
+
+    [TRAINER_RIVAL_HILBERT] =
+    {
+        .trainerClass = TRAINER_CLASS_RIVAL,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_RED,
+        .trainerName = _("Hilbert"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_Rival_Hilbert),
+        .badgeThreshold = 4,
+        .easyParty = sParty_Rival_Hilbert_easy,
+    },
+
+    [TRAINER_RIVAL_CALEM] =
+    {
+        .trainerClass = TRAINER_CLASS_RIVAL,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_RED,
+        .trainerName = _("Calem"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = SMART_SWITCHING_FLAGS,
+        .party = TRAINER_PARTY(sParty_Rival_Calem),
+        .badgeThreshold = 4,
+        .easyParty = sParty_Rival_Calem_easy,
+    },
+
     [TRAINER_RIVAL_JINNORA] =
     {
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_MAY,
         .trainerName = _("Jinnora"),
@@ -2487,7 +2571,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_RIVAL_1] =
     {
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_MAY,
         .trainerName = _("Jinnora"),
@@ -2500,7 +2584,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_RIVAL_2] =
     {
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_MAY,
         .trainerName = _("Jinnora"),
@@ -2513,7 +2597,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_RIVAL_3] =
     {
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_MAY,
         .trainerName = _("Jinnora"),
@@ -2526,7 +2610,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_RIVAL_4] =
     {
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_MAY,
         .trainerName = _("Jinnora"),
@@ -2539,7 +2623,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_RIVAL_5] =
     {
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_MAY,
         .trainerName = _("Jinnora"),
@@ -2552,7 +2636,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_RIVAL_6] =
     {
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_MAY,
         .trainerName = _("Jinnora"),
@@ -2565,7 +2649,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_RIVAL_7] =
     {
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_MAY,
         .trainerName = _("Jinnora"),
@@ -2578,7 +2662,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_RIVAL_8] =
     {
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_MAY,
         .trainerName = _("Jinnora"),
@@ -2591,7 +2675,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_RIVAL_9] =
     {
-        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_MAY,
         .trainerName = _("Jinnora"),

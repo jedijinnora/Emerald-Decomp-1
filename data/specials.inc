@@ -590,3 +590,6 @@ gSpecials::
 	def_special TryOverworldBurnMon
 	def_special TryOverworldParalyzeMon
 	def_special TryOverworldFreezeMon
+
+	def_special MultiplyVars
+	def_special AddVars

@@ -1,14 +1,33 @@
 const LOCALID_BOY = 1
 const LOCALID_GENTLEMAN = 2
+const LOCALID_RIVAL = 9
+
+//FLAG_TEMP_1A : Rival
+
+//VAR_TEMP_1 : x coord
+//VAR_TEMP_2 : y coord
+//VAR_TEMP_B : east rival
+//VAR_TEMP_C : south rival
+//VAR_TEMP_D : west rival
 
 mapscripts PetalburgCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : PetalburgCity_OnTransition
 }
 
 script PetalburgCity_OnTransition {
-	setflag(FLAG_VISITED_PETALBURG_CITY)
+	call_if_unset(FLAG_VISITED_PETALBURG_CITY, PetalburgCity_EventScript_VisitPetalburg)
 	call_if_unset(FLAG_DEFEATED_PETALBURG_GYM, PetalburgCity_EventScript_ResetGymDoors)
+	call_if_eq(VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_TrySpawnRival)
+	setflag(FLAG_TEMP_1A)
+	call_if_ne(VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_SetupRival)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
 	end
+}
+
+script PetalburgCity_EventScript_VisitPetalburg {
+	setflag(FLAG_VISITED_PETALBURG_CITY)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
 }
 
 script PetalburgCity_EventScript_ResetGymDoors {
@@ -20,6 +39,300 @@ script PetalburgCity_EventScript_ResetGymDoors {
 	cleartrainerflag(TRAINER_JODY)
 	cleartrainerflag(TRAINER_BERKE)
 	return
+}
+
+script PetalburgCity_EventScript_TrySpawnRival {
+	goto_if_lt(VAR_CITIES_VISITED, 4, Common_EventScript_NopReturn)
+	goto_if_eq(VAR_DIFFICULTY_SETTING, 2, PetalburgCity_EventScript_SpawnRival)
+	goto_if_lt(VAR_CITIES_VISITED, 5, Common_EventScript_NopReturn)
+	PetalburgCity_EventScript_SpawnRival:
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	if (var(VAR_TEMP_1) > 200) { 
+		//west entry
+		setvar(VAR_0x8004, 3)
+	} elif (var(VAR_TEMP_2) > 40) { 
+		//south entry
+		setvar(VAR_0x8004, 2)
+	} elif (var(VAR_TEMP_1) > 28) {
+		//east entry
+		setvar(VAR_0x8004, 1)
+	} else {
+		//warp entry
+		setvar(VAR_0x8004, 4)
+	}
+	setvar(VAR_0x8005, 6)
+	specialvar(VAR_PETALBURG_CITY_STATE, MultiplyVars)
+	copyvar(VAR_0x8004, VAR_PETALBURG_CITY_STATE)
+	copyvar(VAR_0x8005, VAR_BLOCKER_RIVAL_RANDOM)
+	specialvar(VAR_PETALBURG_CITY_STATE, AddVars)
+	call(Common_EventScript_IncrementRivalVar)
+	return
+}
+
+script PetalburgCity_EventScript_SetupRival {
+	//if rival has been defeated, don't do anything
+	goto_if_gt(VAR_PETALBURG_CITY_STATE, 99, Common_EventScript_NopReturn)
+
+	//clear rival object flag
+	clearflag(FLAG_TEMP_1A)
+
+	//lock all exits if the player has been visiting new cities
+	if(var(VAR_CITIES_VISITED) > 3) {
+		while (var(VAR_PETALBURG_CITY_STATE) < 25) {
+			addvar(VAR_PETALBURG_CITY_STATE, 6)
+		}
+	}
+
+	//buffer city variable and call setup
+	copyvar(VAR_0x8004, VAR_PETALBURG_CITY_STATE)
+	call(Common_EventScript_SetupRival)
+	return
+}
+
+script PetalburgCity_EventScript_Rival {
+	lock
+	faceplayer
+	switch(var(VAR_PETALBURG_CITY_STATE)) {
+		case 1:
+		case 7:
+		case 13:
+		case 19:
+		case 25:
+			call(PetalburgCity_EventScript_RivalLeaf)
+		case 2:
+		case 8:
+		case 14:
+		case 20:
+		case 26:
+			call(PetalburgCity_EventScript_RivalCalem)
+		case 3:
+		case 9:
+		case 15:
+		case 21:
+		case 27:
+			call(PetalburgCity_EventScript_RivalDawn)
+		case 4:
+		case 10:
+		case 16:
+		case 22:
+		case 28:
+			call(PetalburgCity_EventScript_RivalHilbert)
+		case 5:
+		case 11:
+		case 17:
+		case 23:
+		case 29:
+			call(PetalburgCity_EventScript_RivalKris)
+		case 6:
+		case 12:
+		case 18:
+		case 24:
+		case 30:
+			call(PetalburgCity_EventScript_RivalRei)
+		default:
+	}
+	release
+	end
+}
+
+script PetalburgCity_EventScript_RivalLeaf {
+	msgbox(format("Leaf: This Gym is so much fun! If you don't challenge the Leader, you can run the gauntlet over and over again!"))
+	return
+}
+
+script PetalburgCity_EventScript_RivalKris {
+	msgbox(format("Kris: Hah! Greta is an awesome Gym Leader. She reminds me of Whitney!"))
+	return
+}
+
+script PetalburgCity_EventScript_RivalDawn {
+	msgbox(format("Dawn: Look at all these manicured gardens. The hedgerows are perfect!"))
+	return
+}
+
+script PetalburgCity_EventScript_RivalRei {
+	msgbox(format("Rei: It's nice to see a modern city so integrated with nature."))
+	return
+}
+
+script PetalburgCity_EventScript_RivalHilbert {
+	msgbox(format("Hilbert: Man, is there something that makes Normal-type Gym Leaders stronger? Whitney, Lenora, and now Greta…"))
+	return
+}
+
+script PetalburgCity_EventScript_RivalCalem {
+	msgbox(format("Calem: Hmph. Santalune is far more refined than this simple town."))
+	return
+}
+
+script PetalburgCity_EventScript_RivalEast {
+	lock
+	setobjectxy(LOCALID_RIVAL, 20, 23)
+	setobjectxyperm(LOCALID_RIVAL, 20, 23)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, PetalburgCity_Movement_RivalApproachEast)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_2)) {
+		case 22:
+			applymovement(OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerEast_1)
+		case 23:
+			applymovement(OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerEast_2)
+		case 24:
+			applymovement(OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerEast_3)
+		case 25:
+			applymovement(OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerEast_4)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_PETALBURG_CITY_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_PETALBURG_CITY_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, PetalburgCity_Movement_RivalDepartEast)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement PetalburgCity_Movement_RivalApproachEast {
+	walk_right * 7
+}
+movement PetalburgCity_Movement_RivalDepartEast {
+	walk_left * 8
+}
+movement PetalburgCity_Movement_PlayerEast_1 {
+	walk_down
+	walk_in_place_faster_left
+}
+movement PetalburgCity_Movement_PlayerEast_2 {
+	walk_in_place_faster_left
+}
+movement PetalburgCity_Movement_PlayerEast_3 {
+	walk_up
+	walk_in_place_faster_left
+}
+movement PetalburgCity_Movement_PlayerEast_4 {
+	walk_up * 2
+	walk_in_place_faster_left
+}
+
+script PetalburgCity_EventScript_RivalSouth {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 12, 30)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, PetalburgCity_Movement_RivalApproachSouth)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) {
+		case 10:
+			applymovement(OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerSouth_1)
+		case 11:
+			applymovement(OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerSouth_2)
+		case 12:
+			applymovement(OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerSouth_3)
+		case 13:
+			applymovement(OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerSouth_4)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_PETALBURG_CITY_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_PETALBURG_CITY_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, PetalburgCity_Movement_RivalDepartSouth)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement PetalburgCity_Movement_RivalApproachSouth {
+	walk_down
+	walk_left
+	walk_down * 4
+}
+movement PetalburgCity_Movement_RivalDepartSouth {
+	walk_up * 4
+	walk_right
+	walk_up * 2
+}
+movement PetalburgCity_Movement_PlayerSouth_1 {
+	walk_right
+	walk_in_place_faster_up
+}
+movement PetalburgCity_Movement_PlayerSouth_2 {
+	walk_in_place_faster_up
+}
+movement PetalburgCity_Movement_PlayerSouth_3 {
+	walk_left
+	walk_in_place_faster_up
+}
+movement PetalburgCity_Movement_PlayerSouth_4 {
+	walk_left * 2
+	walk_in_place_faster_up
+}
+
+script PetalburgCity_EventScript_RivalWest {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 9, 18)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, PetalburgCity_Movement_RivalApproachWest)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_2)) {
+		case 16:
+			applymovement(OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerWest_1)
+		case 17:
+			applymovement(OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerWest_2)
+		case 18:
+			applymovement(OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerWest_3)
+		case 19:
+			applymovement(OBJ_EVENT_ID_PLAYER, PetalburgCity_Movement_PlayerWest_4)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_PETALBURG_CITY_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_PETALBURG_CITY_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, PetalburgCity_Movement_RivalDepartWest)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement PetalburgCity_Movement_RivalApproachWest {
+	walk_left * 7
+}
+movement PetalburgCity_Movement_RivalDepartWest {
+	walk_right * 8
+}
+movement PetalburgCity_Movement_PlayerWest_1 {
+	walk_down * 2
+	walk_in_place_faster_right
+}
+movement PetalburgCity_Movement_PlayerWest_2 {
+	walk_down
+	walk_in_place_faster_right
+}
+movement PetalburgCity_Movement_PlayerWest_3 {
+	walk_in_place_faster_right
+}
+movement PetalburgCity_Movement_PlayerWest_4 {
+	walk_up
+	walk_in_place_faster_right
 }
 
 script PetalburgCity_EventScript_GymBoy {

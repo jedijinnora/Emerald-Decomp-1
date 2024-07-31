@@ -4,13 +4,19 @@ mapscripts PacifidlogTown_MapScripts {
 }
 
 script PacifidlogTown_OnTransition {
-	setflag(FLAG_VISITED_PACIFIDLOG_TOWN)
+	call_if_unset(FLAG_VISITED_PACIFIDLOG_TOWN, PacifidlogTown_EventScript_VisitPacifidlog)
 	end
 }
 
 script PacifidlogTown_OnResume {
 	setstepcallback(STEP_CB_PACIFIDLOG_BRIDGE)
 	end
+}
+
+script PacifidlogTown_EventScript_VisitPacifidlog {
+	setflag(FLAG_VISITED_PACIFIDLOG_TOWN)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
 }
 
 script PacifidlogTown_EventScript_Picnicker {

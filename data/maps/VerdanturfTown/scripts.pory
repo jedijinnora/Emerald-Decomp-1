@@ -5,8 +5,14 @@ mapscripts VerdanturfTown_MapScripts {
 }
 
 script VerdanturfTown_OnTransition {
-	setflag(FLAG_VISITED_VERDANTURF_TOWN)
+	call_if_unset(FLAG_VISITED_VERDANTURF_TOWN, VerdanturfTown_EventScript_VisitVerdanturf)
 	end
+}
+
+script VerdanturfTown_EventScript_VisitVerdanturf {
+	setflag(FLAG_VISITED_VERDANTURF_TOWN)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
 }
 
 script VerdanturfTown_EventScript_Man {

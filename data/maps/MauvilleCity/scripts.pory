@@ -1,13 +1,704 @@
+const LOCALID_RIVAL = 11
+
+//FLAG_TEMP_1A : Rival
+
+//VAR_TEMP_1 : x coord
+//VAR_TEMP_2 : y coord
+//VAR_TEMP_A : north rival
+//VAR_TEMP_B : east rival
+//VAR_TEMP_C : south rival
+//VAR_TEMP_D : west rival
+
 mapscripts MauvilleCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : MauvilleCity_OnTransition
 }
 
 script MauvilleCity_OnTransition {
-	setflag(FLAG_VISITED_MAUVILLE_CITY)
+	call_if_unset(FLAG_VISITED_MAUVILLE_CITY, MauvilleCity_EventScript_VisitMauville)
+	call_if_eq(VAR_MAUVILLE_CITY_STATE, 0, MauvilleCity_EventScript_TrySpawnRival)
+	setflag(FLAG_TEMP_1A)
+	call_if_ne(VAR_MAUVILLE_CITY_STATE, 0, MauvilleCity_EventScript_SetupRival)
 	setflag(FLAG_SYS_TV_START)
 	clearflag(FLAG_FORCE_MIRAGE_TOWER_VISIBLE)
 	clearflag(FLAG_MAUVILLE_GYM_BARRIERS_STATE)
 	setvar(VAR_MAUVILLE_GYM_STATE, 0)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	end
+}
+
+script MauvilleCity_EventScript_VisitMauville {
+	setflag(FLAG_VISITED_MAUVILLE_CITY)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
+}
+
+script MauvilleCity_EventScript_TrySpawnRival {
+	goto_if_lt(VAR_CITIES_VISITED, 4, Common_EventScript_NopReturn)
+	goto_if_eq(VAR_DIFFICULTY_SETTING, 2, MauvilleCity_EventScript_SpawnRival)
+	goto_if_lt(VAR_CITIES_VISITED, 5, Common_EventScript_NopReturn)
+	MauvilleCity_EventScript_SpawnRival:
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	if (var(VAR_TEMP_1) > 200) { 
+		//west entry
+		setvar(VAR_0x8004, 3)
+	} elif (var(VAR_TEMP_1) > 59) { 
+		//east entry
+		setvar(VAR_0x8004, 1)
+	} elif (var(VAR_TEMP_2) > 18) { 
+		//south entry
+		setvar(VAR_0x8004, 2)
+	} elif (var(VAR_TEMP_2) > 200) {
+		//north entry
+		setvar(VAR_0x8004, 0)
+	} else {
+		//warp entry
+		setvar(VAR_0x8004, 4)
+	}
+	setvar(VAR_0x8005, 6)
+	specialvar(VAR_MAUVILLE_CITY_STATE, MultiplyVars)
+	copyvar(VAR_0x8004, VAR_MAUVILLE_CITY_STATE)
+	copyvar(VAR_0x8005, VAR_BLOCKER_RIVAL_RANDOM)
+	specialvar(VAR_MAUVILLE_CITY_STATE, AddVars)
+	call(Common_EventScript_IncrementRivalVar)
+	return
+}
+
+script MauvilleCity_EventScript_SetupRival {
+	//if rival has been defeated, don't do anything
+	goto_if_gt(VAR_MAUVILLE_CITY_STATE, 99, Common_EventScript_NopReturn)
+
+	//clear rival object flag
+	clearflag(FLAG_TEMP_1A)
+
+	//lock all exits if the player has been visiting new cities
+	if(var(VAR_CITIES_VISITED) > 3) {
+		while (var(VAR_MAUVILLE_CITY_STATE) < 25) {
+			addvar(VAR_MAUVILLE_CITY_STATE, 6)
+		}
+	}
+
+	//buffer city variable and call setup
+	copyvar(VAR_0x8004, VAR_MAUVILLE_CITY_STATE)
+	call(Common_EventScript_SetupRival)
+	return
+}
+
+script Common_EventScript_IncrementRivalVar {
+	setvar(VAR_CITIES_VISITED, 1)
+	addvar(VAR_BLOCKER_RIVAL_RANDOM, 1)
+	call_if_gt(VAR_BLOCKER_RIVAL_RANDOM, 5, Common_EventScript_ReduceRivalVar)
+	return
+}
+
+script Common_EventScript_ReduceRivalVar {
+	setvar(VAR_BLOCKER_RIVAL_RANDOM, 0)
+	return
+}
+
+script Common_EventScript_SetupRival {
+	//if rival has been defeated, don't do anything
+	goto_if_gt(VAR_0x8004, 99, Common_EventScript_NopReturn)
+
+	//set the temp vars for the triggers
+	switch(var(VAR_0x8004)) {
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+			setvar(VAR_TEMP_B, 1)
+			setvar(VAR_TEMP_C, 1)
+			setvar(VAR_TEMP_D, 1)
+		case 7:
+		case 8:
+		case 9:
+		case 10:
+		case 11:
+		case 12:
+			setvar(VAR_TEMP_A, 1)
+			setvar(VAR_TEMP_C, 1)
+			setvar(VAR_TEMP_D, 1)
+		case 13:
+		case 14:
+		case 15:
+		case 16:
+		case 17:
+		case 18:
+			setvar(VAR_TEMP_A, 1)
+			setvar(VAR_TEMP_B, 1)
+			setvar(VAR_TEMP_D, 1)
+		case 19:
+		case 20:
+		case 21:
+		case 22:
+		case 23:
+		case 24:
+			setvar(VAR_TEMP_A, 1)
+			setvar(VAR_TEMP_B, 1)
+			setvar(VAR_TEMP_C, 1)
+		case 25:
+		case 26:
+		case 27:
+		case 28:
+		case 29:
+		case 30:
+			setvar(VAR_TEMP_A, 1)
+			setvar(VAR_TEMP_B, 1)
+			setvar(VAR_TEMP_C, 1)
+			setvar(VAR_TEMP_D, 1)
+		default:
+	}
+
+	//set the correct graphics
+	//Kanto -> Kalos -> Sinnoh -> Unova -> Johto -> Hisui -> Kanto
+	switch(var(VAR_0x8004)) {
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 9:
+		case 11:
+		case 13:
+		case 15:
+		case 17:
+		case 19:
+		case 21:
+		case 23:
+		case 25:
+		case 27:
+		case 29:
+			call(Common_EventScript_SetRivalGfxLeaf)
+		case 2:
+		case 4:
+		case 6:
+		case 8:
+		case 10:
+		case 12:
+		case 14:
+		case 16:
+		case 18:
+		case 20:
+		case 22:
+		case 24:
+		case 26:
+		case 28:
+		case 30:
+			call(Common_EventScript_SetRivalGfxRed)
+		default:
+	}
+	return
+}
+
+script Common_EventScript_SetRivalGfxLeaf {
+	setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_LEAF)
+	return
+}
+
+script Common_EventScript_SetRivalGfxRed {
+	setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RED)
+	return
+}
+
+text Rival_Text_LeafDefeated {
+	"Wait… What?!"
+}
+
+text Rival_Text_KrisDefeated {
+	"We didn't win this one, but we'll win next\ntime for sure!"
+}
+
+text Rival_Text_DawnDefeated {
+	"Gee, that was tough…"
+}
+
+text Rival_Text_ReiDefeated {
+	"Whoa… You seem so in sync with your\nPokémon."
+}
+
+text Rival_Text_HilbertDefeated {
+	"Auugh, I lost. Not cool!"
+}
+
+text Rival_Text_CalemDefeated {
+	"Battling with you was fun, but losing\ndoesn't really make me look all that\lgood."
+}
+
+script Common_EventScript_ClearRivalNorth {
+	setvar(VAR_TEMP_A, 0)
+	end
+}
+script Common_EventScript_ClearRivalEast {
+	setvar(VAR_TEMP_B, 0)
+	end
+}
+script Common_EventScript_ClearRivalSouth {
+	setvar(VAR_TEMP_C, 0)
+	end
+}
+script Common_EventScript_ClearRivalWest {
+	setvar(VAR_TEMP_D, 0)
+	end
+}
+
+script Common_EventScript_ClearRivalAll {
+	setvar(VAR_TEMP_A, 0)
+	setvar(VAR_TEMP_B, 0)
+	setvar(VAR_TEMP_C, 0)
+	setvar(VAR_TEMP_D, 0)
+	end
+}
+
+script MauvilleCity_EventScript_Rival {
+	lock
+	faceplayer
+	switch(var(VAR_MAUVILLE_CITY_STATE)) {
+		case 1:
+		case 7:
+		case 13:
+		case 19:
+		case 25:
+			call(MauvilleCity_EventScript_RivalLeaf)
+		case 2:
+		case 8:
+		case 14:
+		case 20:
+		case 26:
+			call(MauvilleCity_EventScript_RivalCalem)
+		case 3:
+		case 9:
+		case 15:
+		case 21:
+		case 27:
+			call(MauvilleCity_EventScript_RivalDawn)
+		case 4:
+		case 10:
+		case 16:
+		case 22:
+		case 28:
+			call(MauvilleCity_EventScript_RivalHilbert)
+		case 5:
+		case 11:
+		case 17:
+		case 23:
+		case 29:
+			call(MauvilleCity_EventScript_RivalKris)
+		case 6:
+		case 12:
+		case 18:
+		case 24:
+		case 30:
+			call(MauvilleCity_EventScript_RivalRei)
+		default:
+	}
+	release
+	end
+}
+
+script MauvilleCity_EventScript_RivalLeaf {
+	msgbox(format("Leaf: It's nice to have the Power Plant right next to the city. I had to use Cut and Surf to get to the one by Cerulean."))
+	return
+}
+
+script MauvilleCity_EventScript_RivalKris {
+	msgbox(format("Kris: Bikes are okay, but where's the high speed rail?"))
+	return
+}
+
+script MauvilleCity_EventScript_RivalDawn {
+	msgbox(format("Dawn: Mauville is so industrial! The Valley Windworks is much prettier."))
+	return
+}
+
+script MauvilleCity_EventScript_RivalRei {
+	msgbox(format("Rei: Look at all this modern technology! Fascinating!"))
+	return
+}
+
+script MauvilleCity_EventScript_RivalHilbert {
+	msgbox(format("Hilbert: Wattson's okay, but I think Elesa is a much cooler Gym Leader!"))
+	return
+}
+
+script MauvilleCity_EventScript_RivalCalem {
+	msgbox(format("Calem: So this is where Hoenn gets its electricity… It reminds me of the Power Plant near Lumiose City."))
+	return
+}
+
+script Common_EventScript_BattleLeaf {
+	msgbox(format("Leaf: Hi, I'm Leaf!"))
+	msgbox(format("No one loves Pokémon more than I do! I put my heart and soul into every single battle!"))
+	if(var(VAR_DIFFICULTY_SETTING) == 1) {
+		msgbox(format("Let's have a battle to see if you love Pokémon as much as I do!"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == NO) {
+			msgbox(format("Leaf: Shame! Always believe in your Pokémon's potential, and accept every battle you're challenged to!"))
+			return
+		}
+	}
+	trainerbattle_no_intro(TRAINER_RIVAL_LEAF, Rival_Text_LeafDefeated)
+	msgbox(format("Leaf: Nice! But don't think I'm done getting stronger."))
+	msgbox(format("We can overcome anything as long as we have our Pokémon with us!"))
+	msgbox(format("See you around!"))
+	return
+}
+
+script Common_EventScript_BattleKris {
+	msgbox(format("Kris: Heya! Nice to meet you."))
+	msgbox(format("I've got a lot of confidence in my knowledge of Pokémon! Feel free to ask me anything!"))
+	msgbox(format("Oh, but wait! I should check out where you're coming from first."))
+	msgbox(format("Knowing the ins and outs of Pokémon is the true path to winning battles!"))
+	if(var(VAR_DIFFICULTY_SETTING) == 1) {
+		msgbox(format("Show me your technique! I'll study it this instant!"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == NO) {
+			msgbox(format("Kris: Boo! Battles are the best way to learn more about your Pokémon."))
+			msgbox(format("I guess I'm on a level higher than you."))
+			return
+		}
+	}
+	trainerbattle_no_intro(TRAINER_RIVAL_KRIS, Rival_Text_KrisDefeated)
+	msgbox(format("Kris: That was a battle I'll never forget!"))
+	msgbox(format("Your hard work paid off! I bet I'll see you facing the Pokémon League sometime soon."))
+	msgbox(format("Me? I'm going on another adventure to meet new Pokémon!"))
+	return
+}
+
+script Common_EventScript_BattleDawn {
+	msgbox(format("Dawn: Oh! There you are!"))
+	msgbox(format("Heading out on another adventure, huh? You sure you got everything you need?"))
+	msgbox(format("Let me judge your preparation with a Pokémon battle!"))
+	if(var(VAR_DIFFICULTY_SETTING) == 1) {
+		msgbox(format("Are you up for it?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == NO) {
+			msgbox(format("Dawn: Okay, I get it! Be sure to stock up on snacks for your next journey!"))
+			return
+		}
+	}
+	trainerbattle_no_intro(TRAINER_RIVAL_DAWN, Rival_Text_DawnDefeated)
+	msgbox(format("Dawn: We won't stop here. We'll keep moving forward!"))
+	msgbox(format("I hope you keep on getting better, {PLAYER}."))
+	msgbox(format("There's no limit to the power of dreams!"))
+	return
+}
+
+script Common_EventScript_BattleRei {
+	msgbox(format("Rei: Hey there {PLAYER}! How's your survey of the Hoenn region going?"))
+	msgbox(format("You're awfully relaxed about all of this."))
+	msgbox(format("I think I should give you a trial: face me in a Pokémon battle!"))
+	if(var(VAR_DIFFICULTY_SETTING) == 1) {
+		msgbox(format("How about it? Let's have a quick match!"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == NO) {
+			msgbox(format("Rei: What good is it to be a Trainer if you're too scared to battle?"))
+			return
+		}
+	}
+	trainerbattle_no_intro(TRAINER_RIVAL_REI, Rival_Text_ReiDefeated)
+	msgbox(format("Rei: That was amazing!"))
+	msgbox(format("The way you fight alongside your Pokémon… You don't seem one bit scared of battling."))
+	msgbox(format("I'll keep being true to myself. No matter what challenges I face!"))
+	return
+}
+
+script Common_EventScript_BattleHilbert {
+	msgbox(format("Hilbert: Hey, not so fast!"))
+	msgbox(format("Look at you, walking out of town so confidently…"))
+	msgbox(format("I should take you down a peg!"))
+	if(var(VAR_DIFFICULTY_SETTING) == 1) {
+		msgbox(format("How about it? Let's have a quick match!"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == NO) {
+			msgbox(format("Hilbert: Wow, you're lame! I don't need to waste any more time with you!"))
+			return
+		}
+	}
+	trainerbattle_no_intro(TRAINER_RIVAL_HILBERT, Rival_Text_HilbertDefeated)
+	msgbox(format("Hilbert: I guess I have more to learn about Pokémon."))
+	msgbox(format("You remind me of some of my friends from Unova. Maybe I should give them a call?"))
+	msgbox(format("Be seeing you, {PLAYER}! You've come all this way, now take it to the top!"))
+	return
+}
+
+script Common_EventScript_BattleCalem {
+	msgbox(format("Calem: Excuse me!"))
+	msgbox(format("I'm glad I caught up to you."))
+	msgbox(format("Pokémon Trainers all battle each other, no matter who they are! I challenge you!"))
+	if(var(VAR_DIFFICULTY_SETTING) == 1) {
+		msgbox(format("En garde! Will you face me?"), MSGBOX_YESNO)
+		if(var(VAR_RESULT) == NO) {
+			msgbox(format("Calem: You're very cautious, aren't you? I suppose if you aren't confident in your abilities, it wouldn't be a worthwhile battle…"))
+			return
+		}
+	}
+	trainerbattle_no_intro(TRAINER_RIVAL_CALEM, Rival_Text_CalemDefeated)
+	msgbox(format("Calem: There's a definite gap in our strength. Do you have something I don't?"))
+	msgbox(format("I guess I'll have to think about that…"))
+	msgbox(format("I hope you get stronger and stronger as a Pokémon Trainer. But we'll keep getting stronger and stronger, too!"))
+	return
+}
+
+script Common_EventScript_RivalBattle {
+	switch(var(VAR_0x8004)) {
+		case 1:
+		case 7:
+		case 13:
+		case 19:
+		case 25:
+			call(Common_EventScript_BattleLeaf)
+		case 2:
+		case 8:
+		case 14:
+		case 20:
+		case 26:
+			call(Common_EventScript_BattleCalem)
+		case 3:
+		case 9:
+		case 15:
+		case 21:
+		case 27:
+			call(Common_EventScript_BattleDawn)
+		case 4:
+		case 10:
+		case 16:
+		case 22:
+		case 28:
+			call(Common_EventScript_BattleHilbert)
+		case 5:
+		case 11:
+		case 17:
+		case 23:
+		case 29:
+			call(Common_EventScript_BattleKris)
+		case 6:
+		case 12:
+		case 18:
+		case 24:
+		case 30:
+			call(Common_EventScript_BattleRei)
+		default:
+	}
+	return
+}
+
+script MauvilleCity_EventScript_RivalNorth {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 16, 7)
+	setobjectxy(LOCALID_RIVAL, 16, 7)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, MauvilleCity_Movement_RivalApproachNorth)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) {
+		case 14:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerNorth_1)
+		case 15:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerNorth_2)
+		case 16:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerNorth_3)
+		case 17:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerNorth_4)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_MAUVILLE_CITY_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_MAUVILLE_CITY_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, MauvilleCity_Movement_RivalDepartNorth)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement MauvilleCity_Movement_RivalApproachNorth {
+	walk_up * 5
+}
+movement MauvilleCity_Movement_RivalDepartNorth {
+	walk_down * 6
+}
+movement MauvilleCity_Movement_PlayerNorth_1 {
+	walk_right
+	walk_right
+	walk_in_place_faster_down
+}
+movement MauvilleCity_Movement_PlayerNorth_2 {
+	walk_right
+	walk_in_place_faster_down
+}
+movement MauvilleCity_Movement_PlayerNorth_3 {
+	walk_in_place_faster_down
+}
+movement MauvilleCity_Movement_PlayerNorth_4 {
+	walk_left
+	walk_in_place_faster_down
+}
+
+script MauvilleCity_EventScript_RivalEast {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 50, 8)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, MauvilleCity_Movement_RivalApproachEast)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_2)) {
+		case 7:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerEast_1)
+		case 8:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerEast_2)
+		case 9:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerEast_3)
+		case 10:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerEast_4)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_MAUVILLE_CITY_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_MAUVILLE_CITY_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, MauvilleCity_Movement_RivalDepartEast)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement MauvilleCity_Movement_RivalApproachEast {
+	walk_right * 7
+}
+movement MauvilleCity_Movement_RivalDepartEast {
+	walk_left * 8
+}
+movement MauvilleCity_Movement_PlayerEast_1 {
+	walk_down
+	walk_in_place_faster_left
+}
+movement MauvilleCity_Movement_PlayerEast_2 {
+	walk_in_place_faster_left
+}
+movement MauvilleCity_Movement_PlayerEast_3 {
+	walk_up
+	walk_in_place_faster_left
+}
+movement MauvilleCity_Movement_PlayerEast_4 {
+	walk_up * 2
+	walk_in_place_faster_left
+}
+
+script MauvilleCity_EventScript_RivalSouth {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 26, 16)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, MauvilleCity_Movement_RivalApproachSouth)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) {
+		case 15:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerSouth_1)
+		case 16:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerSouth_2)
+		case 17:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerSouth_3)
+		case 18:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerSouth_4)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_MAUVILLE_CITY_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_MAUVILLE_CITY_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, MauvilleCity_Movement_RivalDepartSouth)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement MauvilleCity_Movement_RivalApproachSouth {
+	walk_left * 9
+	walk_down
+}
+movement MauvilleCity_Movement_RivalDepartSouth {
+	walk_up
+	walk_right * 10
+}
+movement MauvilleCity_Movement_PlayerSouth_1 {
+	walk_right * 2
+	walk_in_place_faster_up
+}
+movement MauvilleCity_Movement_PlayerSouth_2 {
+	walk_right
+	walk_in_place_faster_up
+}
+movement MauvilleCity_Movement_PlayerSouth_3 {
+	walk_in_place_faster_up
+}
+movement MauvilleCity_Movement_PlayerSouth_4 {
+	walk_left
+	walk_in_place_faster_up
+}
+
+script MauvilleCity_EventScript_RivalWest {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 9, 8)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, MauvilleCity_Movement_RivalApproachWest)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_2)) {
+		case 7:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerWest_1)
+		case 8:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerWest_2)
+		case 9:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerWest_3)
+		case 10:
+			applymovement(OBJ_EVENT_ID_PLAYER, MauvilleCity_Movement_PlayerWest_4)
+		default:
+	}
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_MAUVILLE_CITY_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_MAUVILLE_CITY_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, MauvilleCity_Movement_RivalDepartWest)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement MauvilleCity_Movement_RivalApproachWest {
+	walk_left * 7
+}
+movement MauvilleCity_Movement_RivalDepartWest {
+	walk_right * 8
+}
+movement MauvilleCity_Movement_PlayerWest_1 {
+	walk_down
+	walk_in_place_faster_right
+}
+movement MauvilleCity_Movement_PlayerWest_2 {
+	walk_in_place_faster_right
+}
+movement MauvilleCity_Movement_PlayerWest_3 {
+	walk_up
+	walk_in_place_faster_right
+}
+movement MauvilleCity_Movement_PlayerWest_4 {
+	walk_up * 2
+	walk_in_place_faster_right
 }
 
 script MauvilleCity_EventScript_Boy {

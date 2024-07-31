@@ -4634,3 +4634,19 @@ bool8 TryOverworldFreezeMon(void)
     SetMonData(targetMon, MON_DATA_STATUS, &status1);
     return TRUE;
 }
+
+u8 MultiplyVars(void)
+{
+    u8 i = gSpecialVar_0x8004;
+    u8 j = gSpecialVar_0x8005;
+    i*=j;
+    return i;
+}
+
+u8 AddVars(void)
+{
+    u8 i = gSpecialVar_0x8004;
+    u8 j = gSpecialVar_0x8005;
+    i+=j;
+    return i;
+}
