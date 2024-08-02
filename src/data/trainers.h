@@ -15,15 +15,19 @@
 const struct Trainer gTrainers[] = {
     [TRAINER_NONE] =
     {
+#line 13
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+#line 14
         .trainerPic = TRAINER_PIC_HIKER,
-        .trainerName = _(""),
-        .items = {},
+        .encounterMusic_gender = 
+#line 16
+            TRAINER_ENCOUNTER_MUSIC_MALE,
+#line 17
         .doubleBattle = FALSE,
-        .aiFlags = 0,
         .partySize = 0,
-        .party = NULL,
+        .party = (const struct TrainerMon[])
+        {
+        },
     },
 
     [TRAINER_BRANDON_1] =
@@ -287,7 +291,7 @@ const struct Trainer gTrainers[] = {
         .party = sParty_Sidney_badge8R,
         .badgeThreshold = 0,
     },
-
+#line 4794
     [TRAINER_WATTSON_1] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -492,7 +496,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Sabitha_badge8R),
         .badgeThreshold = 0,
     },
-
+#line 5012
     [TRAINER_JUAN_1] =
     {
         .trainerClass = TRAINER_CLASS_LEADER,
@@ -533,7 +537,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Juan_badge8R),
         .badgeThreshold = 0,
     },
-
+#line 5922
     [TRAINER_TOMMY] =
     {
         .trainerClass = TRAINER_CLASS_SCHOOL_KID,
@@ -547,7 +551,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 2,
         .easyParty = sParty_Tommy_easy,
     },
-
+#line 10489
     [TRAINER_MARC] =
     {
         .trainerClass = TRAINER_CLASS_HIKER,
@@ -603,7 +607,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 2,
         .easyParty = sParty_Lilith_easy,
     },
-
+#line 10506
     [TRAINER_BRENDEN] =
     {
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -617,7 +621,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 3,
         .easyParty = sParty_Brenden_easy,
     },
-
+#line 10532
     [TRAINER_CRISTIAN] =
     {
         .trainerClass = TRAINER_CLASS_PSYCHIC,
@@ -673,7 +677,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 4,
         .easyParty = sParty_Shawn_easy,
     },
-
+#line 11815
     [TRAINER_VIVIAN] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -785,7 +789,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 3,
         .easyParty = sParty_Axle_easy,
     },
-
+#line 11840
     [TRAINER_DANIELLE] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -967,7 +971,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 2,
         .easyParty = sParty_Jared_easy,
     },
-
+#line 11949
     [TRAINER_ASHLEY] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -2919,7 +2923,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 1,
         .easyParty = sParty_Andrew_easy,
     },
-
+#line 13008
     [TRAINER_RHETT] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_BELT,
@@ -3962,7 +3966,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 4,
         .easyParty = sParty_Wilton_easy,
     },
-
+#line 13021
     [TRAINER_TYRON] =
     {
         .trainerClass = TRAINER_CLASS_CAMPER,
@@ -3974,7 +3978,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Tyron),
     },
-
+#line 13034
     [TRAINER_CELINA] =
     {
         .trainerClass = TRAINER_CLASS_AROMA_LADY,
@@ -3988,7 +3992,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 2,
         .easyParty = sParty_Celina_easy,
     },
-
+#line 13047
     [TRAINER_BIANCA] =
     {
         .trainerClass = TRAINER_CLASS_PICNICKER,
@@ -4002,7 +4006,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 2,
         .easyParty = sParty_Bianca_easy,
     },
-
+#line 13060
     [TRAINER_HAYDEN] =
     {
         .trainerClass = TRAINER_CLASS_KINDLER,
@@ -4016,7 +4020,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 3,
         .easyParty = sParty_Hayden_easy,
     },
-
+#line 13635
     [TRAINER_BRYAN] =
     {
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
@@ -4112,7 +4116,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 3,
         .easyParty = sParty_Trent_easy,
     },
-
+#line 13669
     [TRAINER_BRYANT] =
     {
         .trainerClass = TRAINER_CLASS_KINDLER,
@@ -4126,7 +4130,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 2,
         .easyParty = sParty_Bryant_easy,
     },
-
+#line 13686
     [TRAINER_SHAYLA] =
     {
         .trainerClass = TRAINER_CLASS_AROMA_LADY,
@@ -4531,7 +4535,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 4,
         .easyParty = sParty_Hector_easy,
     },
-
+#line 13703
     [TRAINER_KYRA] =
     {
         .trainerClass = TRAINER_CLASS_TRIATHLETE,
@@ -4545,7 +4549,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 2,
         .easyParty = sParty_Kyra_easy,
     },
-
+#line 13720
     [TRAINER_JAIDEN] =
     {
         .trainerClass = TRAINER_CLASS_NINJA_BOY,
@@ -4559,7 +4563,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 3,
         .easyParty = sParty_Jaiden_easy,
     },
-
+#line 13737
     [TRAINER_ALIX] =
     {
         .trainerClass = TRAINER_CLASS_PSYCHIC,
@@ -4572,7 +4576,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Alix),
         .badgeThreshold = 0,
     },
-
+#line 13754
     [TRAINER_HELENE] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -4586,7 +4590,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 3,
         .easyParty = sParty_Helene_easy,
     },
-
+#line 13771
     [TRAINER_MARLENE] =
     {
         .trainerClass = TRAINER_CLASS_PSYCHIC,
@@ -4710,7 +4714,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Dawson),
     },
-
+#line 13805
     [TRAINER_JOHNSON] =
     {
         .trainerClass = TRAINER_CLASS_YOUNGSTER,
@@ -4836,7 +4840,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 3,
         .easyParty = sParty_Lydia_easy,
     },
-
+#line 13835
     [TRAINER_BRANDI] =
     {
         .trainerClass = TRAINER_CLASS_PSYCHIC,
@@ -4850,7 +4854,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 3,
         .easyParty = sParty_Brandi_easy,
     },
-
+#line 13848
     [TRAINER_AISHA] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -5172,7 +5176,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 3,
         .easyParty = sParty_Chris_easy,
     },
-
+#line 13909
     [TRAINER_RACHEL] =
     {
         .trainerClass = TRAINER_CLASS_PARASOL_LADY,
@@ -5368,7 +5372,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 3,
         .easyParty = sParty_Riley_easy,
     },
-
+#line 13939
     [TRAINER_CALLIE] =
     {
         .trainerClass = TRAINER_CLASS_BATTLE_GIRL,
@@ -5465,7 +5469,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 2,
         .easyParty = sParty_Jessica_easy,
     },
-
+#line 13956
     [TRAINER_CALE] =
     {
         .trainerClass = TRAINER_CLASS_BUG_MANIAC,
@@ -5479,7 +5483,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 2,
         .easyParty = sParty_Cale_easy,
     },
-
+#line 13973
     [TRAINER_MYLES] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -5493,7 +5497,7 @@ const struct Trainer gTrainers[] = {
         .badgeThreshold = 3,
         .easyParty = sParty_Myles_easy,
     },
-
+#line 14006
     [TRAINER_PAT] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER,
@@ -8935,7 +8939,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Keira),
         .badgeThreshold = 0,
     },
-
+#line 15849
     [TRAINER_ANABEL] =
     {
         .trainerClass = TRAINER_CLASS_SALON_MAIDEN,
@@ -8947,7 +8951,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Anabel),
     },
-
+#line 15862
     [TRAINER_TUCKER] =
     {
         .trainerClass = TRAINER_CLASS_DOME_ACE,
@@ -8959,7 +8963,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Tucker),
     },
-
+#line 15875
     [TRAINER_SPENSER] =
     {
         .trainerClass = TRAINER_CLASS_PALACE_MAVEN,
@@ -8971,7 +8975,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Spenser),
     },
-
+#line 15888
     [TRAINER_GRETA] =
     {
         .trainerClass = TRAINER_CLASS_ARENA_TYCOON,
@@ -8983,7 +8987,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Greta),
     },
-
+#line 15901
     [TRAINER_NOLAND] =
     {
         .trainerClass = TRAINER_CLASS_FACTORY_HEAD,
@@ -8995,7 +8999,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Noland),
     },
-
+#line 15914
     [TRAINER_LUCY] =
     {
         .trainerClass = TRAINER_CLASS_PIKE_QUEEN,
@@ -9007,7 +9011,7 @@ const struct Trainer gTrainers[] = {
         .aiFlags = BASIC_TRAINER_FLAGS,
         .party = TRAINER_PARTY(sParty_Lucy),
     },
-
+#line 15927
     [TRAINER_BRANDON] =
     {
         .trainerClass = TRAINER_CLASS_PYRAMID_KING,
@@ -9028,10 +9032,23 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Red"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = 0,
-        .party = TRAINER_PARTY(sParty_Red),
+        .partySize = 1,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 16772
+            .species = SPECIES_CHARMANDER,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 16774
+            .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
+#line 16773
+            .lvl = 5,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+        },
     },
-
+#line 16776
     [TRAINER_LEAF] =
     {
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -9040,10 +9057,23 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Leaf"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = 0,
-        .party = TRAINER_PARTY(sParty_Leaf),
+        .partySize = 1,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 16784
+            .species = SPECIES_BULBASAUR,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 16786
+            .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
+#line 16785
+            .lvl = 5,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+        },
     },
-
+#line 16788
     [TRAINER_BRENDAN_PLACEHOLDER] =
     {
         .trainerClass = TRAINER_CLASS_RS_PROTAG,
@@ -9052,10 +9082,23 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Brendan"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = 0,
-        .party = TRAINER_PARTY(sParty_BrendanLinkPlaceholder),
+        .partySize = 1,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 16796
+            .species = SPECIES_GROUDON,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 16798
+            .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
+#line 16797
+            .lvl = 5,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+        },
     },
-
+#line 16800
     [TRAINER_MAY_PLACEHOLDER] =
     {
         .trainerClass = TRAINER_CLASS_RS_PROTAG,
@@ -9064,8 +9107,21 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("May"),
         .items = {},
         .doubleBattle = FALSE,
-        .aiFlags = 0,
-        .party = TRAINER_PARTY(sParty_MayLinkPlaceholder),
+        .partySize = 1,
+        .party = (const struct TrainerMon[])
+        {
+            {
+#line 16808
+            .species = SPECIES_KYOGRE,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+#line 16810
+            .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
+#line 16809
+            .lvl = 5,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+        },
     },
 
     [TRAINER_STEVEN] =
