@@ -134,6 +134,7 @@ FortreeCity_Gym_MapScripts::
 	.byte 0
 
 FortreeCity_Gym_OnTransition:
+	setflag FLAG_TEMP_HIDE_FOLLOWER
 	special RotatingGate_InitPuzzle
 	end
 
