@@ -32,6 +32,7 @@ script PokemonLeague_EliteFourHallway_TryOpenChampionDoor {
     goto_if_unset(FLAG_DEFEATED_ELITE_4_DRAKE, Common_EventScript_NopReturn)
     setmetatile(20, 1, METATILE_EliteFour_OpenDoor_Frame, TRUE)
     setmetatile(20, 2, METATILE_EliteFour_OpenDoor_Opening, FALSE)
+    return
 }
 
 script PokemonLeague_EliteFourHallway_OpenDoor1 {
