@@ -1715,6 +1715,7 @@ static void MoveSelectionDisplayMoveType(u32 battler)
     u8 *txtPtr, *end;
     u8 type;
     u32 speciesId;
+    struct Pokemon *mon;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
 
     txtPtr = StringCopy(gDisplayedStringBattle, gText_MoveInterfaceType);
