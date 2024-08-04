@@ -633,9 +633,14 @@ void BattleSetup_StartLegendaryBattle(void)
         break;
     case SPECIES_LUGIA:
     case SPECIES_HO_OH:
+    case SPECIES_RAIKOU:
+    case SPECIES_ENTEI:
+    case SPECIES_SUICUNE:
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
         break;
     case SPECIES_MEW:
+    case SPECIES_SHAYMIN:
+    case SPECIES_MANAPHY:
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
         break;
     }

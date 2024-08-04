@@ -48,31 +48,6 @@ EverGrandeCity_PhoebesRoom_EventScript_Defeated::
 	msgbox EverGrandeCity_PhoebesRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
 	release
 	end
-
-EverGrandeCity_PhoebesRoom_Text_IntroSpeech:
-	.string "Ahahaha!\p"
-	.string "I'm Phoebe of the Elite Four.\n"
-	.string "I did my training on Mt. Pyre.\p"
-	.string "While I trained, I gained the ability\n"
-	.string "to commune with Ghost-type Pokémon.\p"
-	.string "Yes, the bond I developed with Pokémon\n"
-	.string "is extremely tight.\p"
-	.string "So, come on, just try and see if you can\n"
-	.string "even inflict damage on my Pokémon!$"
-
-EverGrandeCity_PhoebesRoom_Text_Defeat:
-	.string "Oh, darn.\n"
-	.string "I've gone and lost.$"
-
-EverGrandeCity_PhoebesRoom_Text_PostBattleSpeech:
-	.string "There's a definite bond between you\n"
-	.string "and your Pokémon, too.\p"
-	.string "I didn't recognize it, so it's only\n"
-	.string "natural that I lost.\p"
-	.string "Yup, I'd like to see how far your bond\n"
-	.string "will carry you.\p"
-	.string "Go ahead, move on to the next room.$"
-
 `
 
 script EverGrandeCity_PhoebesRoom_EventScript_Lucy {
@@ -95,4 +70,23 @@ script EverGrandeCity_PhoebesRoom_EventScript_Lucy {
 	clearflag(FLAG_USE_NEXT_LEVEL_CAP)
 	goto(EverGrandeCity_PhoebesRoom_EventScript_Defeated)
 	end
+}
+
+
+text EverGrandeCity_PhoebesRoom_Text_IntroSpeech {
+	"I am Lucy.\n"
+	"I am the law here…\p"
+	"You already know it, but to advance,\n"
+	"you must defeat me…\p"
+	"…I'm not one for idle chatter.\n"
+	"Hurry… I hope you didn't use up all of\l"
+	"your luck getting here…"
+}
+text EverGrandeCity_PhoebesRoom_Text_Defeat {
+	"Urk…"
+}
+text EverGrandeCity_PhoebesRoom_Text_PostBattleSpeech {
+	"Head on to the next room…\p"
+	"That's all there is…\n"
+	"Disappear already…"
 }

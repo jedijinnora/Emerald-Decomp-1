@@ -1,3 +1,6 @@
+const LOCALID_FURFROU = 26
+const LOCALID_CINCCINO = 27
+
 mapscripts SlateportCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : SlateportCityOnTransition
 }
@@ -6,6 +9,8 @@ script SlateportCityOnTransition {
 	call_if_unset(FLAG_VISITED_SLATEPORT_CITY, SlateportCity_EventScript_VisitSlateport)
 	setvar(VAR_SLATEPORT_MUSEUM_1F_STATE, 0)
 	call_if_unset(FLAG_BEACH_BATTLE_VICTORY, SlateportCity_EventScript_HideMartsPreBeachBattle)
+	call_if_unset(FLAG_SLATEPORT_FURFROU_TRADE_COMPLETED, SlateportCity_EventScript_SetFurfrou)
+	call_if_set(FLAG_SLATEPORT_FURFROU_TRADE_COMPLETED, SlateportCity_EventScript_SetCinccino)
 	end
 }
 
@@ -17,6 +22,18 @@ script SlateportCity_EventScript_VisitSlateport {
 
 script SlateportCity_EventScript_HideMartsPreBeachBattle {
 	setflag(FLAG_TEMP_11)
+	return
+}
+
+script SlateportCity_EventScript_SetFurfrou {
+	setflag(FLAG_TEMP_12)
+	clearflag(FLAG_TEMP_13)
+	return
+}
+
+script SlateportCity_EventScript_SetCinccino {
+	clearflag(FLAG_TEMP_12)
+	setflag(FLAG_TEMP_13)
 	return
 }
 
@@ -185,7 +202,10 @@ script SlateportCity_EventScript_Woman2 {
 	copyvar(VAR_0x8005, VAR_0x800A)
 	special(CreateInGameTradePokemon)
 	special(DoInGameTradeScene)
+	removeobject(LOCALID_FURFROU)
 	waitstate
+	clearflag(FLAG_TEMP_12)
+	addobject(LOCALID_CINCCINO)
 	msgbox(format("Be sure to groom him at licensed stylists only!"))
 	setflag(FLAG_SLATEPORT_FURFROU_TRADE_COMPLETED)
 	release
@@ -204,6 +224,26 @@ script SlateportCity_EventScript_Woman2 {
 
 	FurfrouTradeCompleted:
 	msgbox(format("Are you sure you're taking proper care of Bruiser?"))
+	release
+	end
+}
+
+script SlateportCity_EventScript_Furfrou {
+	lock
+	faceplayer
+	playmoncry(SPECIES_FURFROU, CRY_MODE_ENCOUNTER)
+	msgbox(format("Bruiser: Ruff ruf!"))
+	waitmoncry
+	release
+	end
+}
+
+script SlateportCity_EventScript_Cinccino {
+	lock
+	faceplayer
+	playmoncry(SPECIES_CINCCINO, CRY_MODE_ENCOUNTER)
+	msgbox(format("Cinccino: Vwyr whi virr!"))
+	waitmoncry
 	release
 	end
 }

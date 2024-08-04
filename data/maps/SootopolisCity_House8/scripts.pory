@@ -216,3 +216,13 @@ script SootopolisCity_House8_EventScript_GiveWaveCrash {
 text SootopolisCity_House8_Text_WallaceDefeated {
     "I, Wallace, fall in defeat…"
 }
+
+script SootopolisCity_House8_EventScript_Milotic {
+    lock
+    faceplayer
+    playmoncry(SPECIES_MILOTIC, CRY_MODE_ENCOUNTER)
+    msgbox(format("Milotic: Preee!"))
+    waitmoncry
+    release
+    end
+}

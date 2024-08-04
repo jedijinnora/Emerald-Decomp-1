@@ -1,4 +1,84 @@
-mapscripts SlateportCity_PokemonFanClub_MapScripts {}
+const LOCALID_STUFFUL = 12
+const LOCALID_FLAREON = 13
+const LOCALID_PORYGON = 14
+const LOCALID_VAPOREON = 15
+
+
+mapscripts SlateportCity_PokemonFanClub_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : SlateportCity_PokemonFanClub_OnTransition
+}
+
+script SlateportCity_PokemonFanClub_OnTransition {
+	call(SlateportCity_PokemonFanClub_EventScript_SetStufful)
+	call(SlateportCity_PokemonFanClub_EventScript_SetPorygon)
+	call_if_set(FLAG_SLATEPORT_STUFFUL_TRADE_COMPLETED, SlateportCity_PokemonFanClub_EventScript_SetFlareon)
+	call_if_set(FLAG_SLATEPORT_PORYGON_TRADE_COMPLETED, SlateportCity_PokemonFanClub_EventScript_SetVaporeon)
+	end
+}
+
+script SlateportCity_PokemonFanClub_EventScript_SetStufful {
+	setflag(FLAG_TEMP_12)
+	clearflag(FLAG_TEMP_11)
+	return
+}
+
+script SlateportCity_PokemonFanClub_EventScript_SetFlareon {
+	clearflag(FLAG_TEMP_12)
+	setflag(FLAG_TEMP_11)
+	return
+}
+
+script SlateportCity_PokemonFanClub_EventScript_SetPorygon {
+	setflag(FLAG_TEMP_14)
+	clearflag(FLAG_TEMP_13)
+	return
+}
+
+script SlateportCity_PokemonFanClub_EventScript_SetVaporeon {
+	clearflag(FLAG_TEMP_14)
+	setflag(FLAG_TEMP_13)
+	return
+}
+
+script SlateportCity_PokemonFanClub_EventScript_Stufful {
+	lock
+	faceplayer
+	playmoncry(SPECIES_STUFFUL, CRY_MODE_ENCOUNTER)
+	msgbox(format("Banner: Waiooh!"))
+	waitmoncry
+	release
+	end
+}
+
+script SlateportCity_PokemonFanClub_EventScript_Flareon {
+	lock
+	faceplayer
+	playmoncry(SPECIES_FLAREON, CRY_MODE_ENCOUNTER)
+	msgbox(format("Flareon: Guwioh!"))
+	waitmoncry
+	release
+	end
+}
+
+script SlateportCity_PokemonFanClub_EventScript_Porygon {
+	lock
+	faceplayer
+	playmoncry(SPECIES_PORYGON, CRY_MODE_ENCOUNTER)
+	msgbox(format("Clippy: 01010000 01101111 01110010 01111001 01100111 01101111 01101110"))
+	waitmoncry
+	release
+	end
+}
+
+script SlateportCity_PokemonFanClub_EventScript_Vaporeon {
+	lock
+	faceplayer
+	playmoncry(SPECIES_VAPOREON, CRY_MODE_WEAK)
+	msgbox(format("Vaporeon: Prrrtiti!"))
+	waitmoncry
+	release
+	end
+}
 
 script SlateportCity_PokemonFanClub_EventScript_Twin {
 	lock
@@ -28,7 +108,10 @@ script SlateportCity_PokemonFanClub_EventScript_Twin {
 	copyvar(VAR_0x8005, VAR_0x800A)
 	special(CreateInGameTradePokemon)
 	special(DoInGameTradeScene)
+	removeobject(LOCALID_STUFFUL)
 	waitstate
+	clearflag(FLAG_TEMP_12)
+	addobject(LOCALID_FLAREON)
 	msgbox(format("I hope he doesn't hurt you…"))
 	setflag(FLAG_SLATEPORT_STUFFUL_TRADE_COMPLETED)
 	release
@@ -76,7 +159,10 @@ script SlateportCity_PokemonFanClub_EventScript_Maniac {
 	copyvar(VAR_0x8005, VAR_0x800A)
 	special(CreateInGameTradePokemon)
 	special(DoInGameTradeScene)
+	removeobject(LOCALID_PORYGON)
 	waitstate
+	clearflag(FLAG_TEMP_14)
+	addobject(LOCALID_FLAREON)
 	msgbox(format("Fufufufufu…\nOh, we'll have such fun together…"))
 	setflag(FLAG_SLATEPORT_PORYGON_TRADE_COMPLETED)
 	release

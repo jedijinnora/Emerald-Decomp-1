@@ -1,100 +1,132 @@
+const LOCALID_ANABEL = 1
+
+mapscripts EverGrandeCity_ChampionsRoom_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : EverGrandeCity_ChampionsRoom_OnTransition
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+		VAR_TEMP_1, 0: EverGrandeCity_ChampionsRoom_EventScript_PlayerTurnNorth
+	]
+	MAP_SCRIPT_ON_FRAME_TABLE[
+		VAR_TEMP_1, 0: EverGrandeCity_ChampionsRoom_EventScript_EnterRoom
+	]
+}
+
 script EverGrandeCity_ChampionsRoom_OnTransition {
 	setflag(FLAG_ENTERED_CHAMPION_ROOM)
 	setflag(FLAG_USE_NEXT_LEVEL_CAP)
 	end
 }
 
-
-raw `
-.set LOCALID_ANABEL, 1
-
-EverGrandeCity_ChampionsRoom_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, EverGrandeCity_ChampionsRoom_OnTransition
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, EverGrandeCity_ChampionsRoom_OnWarp
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, EverGrandeCity_ChampionsRoom_OnFrame
-	.byte 0
-
-EverGrandeCity_ChampionsRoom_OnWarp:
-	map_script_2 VAR_TEMP_1, 0, EverGrandeCity_ChampionsRoom_EventScript_PlayerTurnNorth
-	.2byte 0
-
-EverGrandeCity_ChampionsRoom_EventScript_PlayerTurnNorth::
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+script EverGrandeCity_ChampionsRoom_EventScript_PlayerTurnNorth {
+	turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
 	end
+}
 
-EverGrandeCity_ChampionsRoom_OnFrame:
-	map_script_2 VAR_TEMP_1, 0, EverGrandeCity_ChampionsRoom_EventScript_EnterRoom
-	.2byte 0
-
-EverGrandeCity_ChampionsRoom_EventScript_EnterRoom::
+script EverGrandeCity_ChampionsRoom_EventScript_EnterRoom{
 	lockall
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp4
-	waitmovement 0
-	delay 40
-	applymovement OBJ_EVENT_ID_PLAYER, EverGrandeCity_ChampionsRoom_Movement_PlayerApproachAnabel
-	waitmovement 0
-	setvar VAR_TEMP_1, 1
-	goto EverGrandeCity_ChampionsRoom_EventScript_Anabel
-	releaseall
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp4)
+	waitmovement(0)
+	delay(40)
+	applymovement(OBJ_EVENT_ID_PLAYER, EverGrandeCity_ChampionsRoom_Movement_PlayerApproachAnabel)
+	waitmovement(0)
+	setvar(VAR_TEMP_1, 1)
+	goto(EverGrandeCity_ChampionsRoom_EventScript_Anabel)
 	end
+}
 
-EverGrandeCity_ChampionsRoom_Movement_PlayerApproachAnabel:
-	walk_up
-	walk_up
-	step_end
+script EverGrandeCity_ChampionsRoom_EventScript_Anabel {
+	playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
+	msgbox(EverGrandeCity_ChampionsRoom_Text_IntroSpeech, MSGBOX_DEFAULT)
+	random(4)
+	copyvar(VAR_TEMP_2, VAR_RESULT)
+	if(var(VAR_DIFFICULTY_SETTING) == 1) {
+		setvar(VAR_TEMP_2, 3)
+	}
+	switch(var(VAR_TEMP_2)) {
+		case 0:
+			trainerbattle_no_intro(TRAINER_ANABEL_1, EverGrandeCity_ChampionsRoom_Text_Defeat)
+		case 1:
+			trainerbattle_no_intro(TRAINER_ANABEL_2, EverGrandeCity_ChampionsRoom_Text_Defeat)
+		case 2:
+			trainerbattle_no_intro(TRAINER_ANABEL_3, EverGrandeCity_ChampionsRoom_Text_Defeat)
+		default:
+			trainerbattle_no_intro(TRAINER_ANABEL_4, EverGrandeCity_ChampionsRoom_Text_Defeat)
+	}
 
-EverGrandeCity_ChampionsRoom_EventScript_Defeated::
-	playse SE_DOOR
-	clearflag FLAG_USE_NEXT_LEVEL_CAP
-	setmetatile 6, 1, METATILE_EliteFour_OpenDoorChampion_Frame, FALSE
-	setmetatile 6, 2, METATILE_EliteFour_OpenDoorChampion_Opening, FALSE
-	special DrawWholeMapView
-	msgbox EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
+	EverGrandeCity_ChampionsRoom_EventScript_ClearLegendaryFlags:
+	switch(var(VAR_TEMP_2)) {
+		case 0:
+			clearflag(FLAG_DEFEATED_RAIKOU)
+			clearflag(FLAG_DEFEATED_ENTEI)
+			clearflag(FLAG_DEFEATED_SUICUNE)
+		case 1:
+			clearflag(FLAG_DEFEATED_LATIAS_OR_LATIOS)
+		case 2:
+			clearflag(FLAG_DEFEATED_MANAPHY)
+		default:
+			clearflag(FLAG_DEFEATED_SHAYMIN)
+	}
+
+	EverGrandeCity_ChampionsRoom_EventScript_Defeated:
+	playse(SE_DOOR)
+	clearflag(FLAG_USE_NEXT_LEVEL_CAP)
+	setmetatile(6, 1, METATILE_EliteFour_OpenDoorChampion_Frame, FALSE)
+	setmetatile(6, 2, METATILE_EliteFour_OpenDoorChampion_Opening, FALSE)
+	special(DrawWholeMapView)
+	msgbox(EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT)
 	closemessage
-	applymovement LOCALID_ANABEL, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	delay 20
-	applymovement LOCALID_ANABEL, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox EverGrandeCity_ChampionsRoom_Text_AnabelComeWithMe, MSGBOX_DEFAULT
+	applymovement(LOCALID_ANABEL, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(0)
+	delay(20)
+	applymovement(LOCALID_ANABEL, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement(0)
+	msgbox(EverGrandeCity_ChampionsRoom_Text_AnabelComeWithMe, MSGBOX_DEFAULT)
 	closemessage
-	delay 30
-	applymovement LOCALID_ANABEL, EverGrandeCity_ChampionsRoom_Movement_AnabelExitStart
-	applymovement OBJ_EVENT_ID_PLAYER, EverGrandeCity_ChampionsRoom_Movement_PlayerExitStart
-	waitmovement 0
-	applymovement LOCALID_ANABEL, EverGrandeCity_ChampionsRoom_Movement_AnabelExit
-	applymovement OBJ_EVENT_ID_PLAYER, EverGrandeCity_ChampionsRoom_Movement_PlayerExit
-	waitmovement 0
-	warp MAP_EVER_GRANDE_CITY_HALL_OF_FAME, 7, 16
+	delay(30)
+	applymovement(LOCALID_ANABEL, EverGrandeCity_ChampionsRoom_Movement_AnabelExitStart)
+	applymovement(OBJ_EVENT_ID_PLAYER, EverGrandeCity_ChampionsRoom_Movement_PlayerExitStart)
+	waitmovement(0)
+	applymovement(LOCALID_ANABEL, EverGrandeCity_ChampionsRoom_Movement_AnabelExit)
+	applymovement(OBJ_EVENT_ID_PLAYER, EverGrandeCity_ChampionsRoom_Movement_PlayerExit)
+	waitmovement(0)
+	warp(MAP_EVER_GRANDE_CITY_HALL_OF_FAME, 7, 16)
 	waitstate
 	releaseall
 	end
+}
 
-EverGrandeCity_ChampionsRoom_Movement_PlayerExitStart:
+
+movement EverGrandeCity_ChampionsRoom_Movement_PlayerApproachAnabel {
 	walk_up
 	walk_up
 	step_end
-
-EverGrandeCity_ChampionsRoom_Movement_PlayerExit:
+}
+movement EverGrandeCity_ChampionsRoom_Movement_PlayerExitStart {
+	walk_up
+	walk_up
+	step_end
+}
+movement EverGrandeCity_ChampionsRoom_Movement_PlayerExit {
 	walk_up
 	delay_16
 	walk_up
 	delay_8
 	set_invisible
 	step_end
-
-EverGrandeCity_ChampionsRoom_Movement_AnabelExitStart:
+}
+movement EverGrandeCity_ChampionsRoom_Movement_AnabelExitStart {
 	walk_up
 	walk_up
 	walk_in_place_faster_down
 	step_end
-
-EverGrandeCity_ChampionsRoom_Movement_AnabelExit:
+}
+movement EverGrandeCity_ChampionsRoom_Movement_AnabelExit {
 	walk_up
 	delay_8
 	set_invisible
 	step_end
+}
 
+raw `
 EverGrandeCity_ChampionsRoom_Text_IntroSpeech:
 	.string "Anabel: Welcome, {PLAYER}.\p"
 	.string "We Trainers raise Pokémon by giving\n"
@@ -140,25 +172,3 @@ EverGrandeCity_ChampionsRoom_Text_AnabelComeWithMe:
 	.string "The new Champion!\p"
 	.string "Come with me.$"
 `
-
-
-script EverGrandeCity_ChampionsRoom_EventScript_Anabel {
-	playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
-	msgbox(EverGrandeCity_ChampionsRoom_Text_IntroSpeech, MSGBOX_DEFAULT)
-	random(4)
-	if(var(VAR_DIFFICULTY_SETTING) == 1) {
-		setvar(VAR_RESULT, 3)
-	}
-	switch(var(VAR_RESULT)) {
-		case 0:
-			trainerbattle_no_intro(TRAINER_ANABEL_1, EverGrandeCity_ChampionsRoom_Text_Defeat)
-		case 1:
-			trainerbattle_no_intro(TRAINER_ANABEL_2, EverGrandeCity_ChampionsRoom_Text_Defeat)
-		case 2:
-			trainerbattle_no_intro(TRAINER_ANABEL_3, EverGrandeCity_ChampionsRoom_Text_Defeat)
-		default:
-			trainerbattle_no_intro(TRAINER_ANABEL_4, EverGrandeCity_ChampionsRoom_Text_Defeat)
-	}
-	goto(EverGrandeCity_ChampionsRoom_EventScript_Defeated)
-	end
-}

@@ -33035,6 +33035,7 @@ static const struct TrainerMon sParty_Martha[] = {
     .moves = {MOVE_BULLET_PUNCH, MOVE_ROCK_SMASH, MOVE_BUG_BITE, MOVE_DUAL_WINGBEAT}
     }
 };
+
 //Hiker Alan: threshold 4
 static const struct TrainerMon sParty_Alan[] = {
     {
