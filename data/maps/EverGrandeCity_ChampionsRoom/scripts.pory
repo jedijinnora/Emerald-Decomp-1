@@ -33,20 +33,28 @@ script EverGrandeCity_ChampionsRoom_EventScript_EnterRoom{
 	end
 }
 
+script EverGrandeCity_ChampionsRoom_EventScript_SetShayminTeam {
+	goto_if_set(FLAG_RECEIVED_GRACIDEA, Common_EventScript_NopReturn)
+	setvar(VAR_TEMP_2, 3)
+	return
+}
+
 script EverGrandeCity_ChampionsRoom_EventScript_Anabel {
 	playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
 	msgbox(EverGrandeCity_ChampionsRoom_Text_IntroSpeech, MSGBOX_DEFAULT)
 	random(4)
 	copyvar(VAR_TEMP_2, VAR_RESULT)
-	if(var(VAR_DIFFICULTY_SETTING) == 1) {
-		setvar(VAR_TEMP_2, 3)
-	}
+	call_if_eq(VAR_DIFFICULTY_SETTING, 1, EverGrandeCity_ChampionsRoom_EventScript_SetShayminTeam)
+	setvar(VAR_0x8004, SPECIES_SHAYMIN)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	call_if_eq(VAR_RESULT, TRUE, EverGrandeCity_ChampionsRoom_EventScript_SetShayminTeam)
+	addvar(VAR_TEMP_2, 1)
 	switch(var(VAR_TEMP_2)) {
-		case 0:
-			trainerbattle_no_intro(TRAINER_ANABEL_1, EverGrandeCity_ChampionsRoom_Text_Defeat)
 		case 1:
-			trainerbattle_no_intro(TRAINER_ANABEL_2, EverGrandeCity_ChampionsRoom_Text_Defeat)
+			trainerbattle_no_intro(TRAINER_ANABEL_1, EverGrandeCity_ChampionsRoom_Text_Defeat)
 		case 2:
+			trainerbattle_no_intro(TRAINER_ANABEL_2, EverGrandeCity_ChampionsRoom_Text_Defeat)
+		case 3:
 			trainerbattle_no_intro(TRAINER_ANABEL_3, EverGrandeCity_ChampionsRoom_Text_Defeat)
 		default:
 			trainerbattle_no_intro(TRAINER_ANABEL_4, EverGrandeCity_ChampionsRoom_Text_Defeat)
@@ -54,15 +62,15 @@ script EverGrandeCity_ChampionsRoom_EventScript_Anabel {
 
 	EverGrandeCity_ChampionsRoom_EventScript_ClearLegendaryFlags:
 	switch(var(VAR_TEMP_2)) {
-		case 0:
+		case 1:
 			clearflag(FLAG_DEFEATED_RAIKOU)
 			clearflag(FLAG_DEFEATED_ENTEI)
 			clearflag(FLAG_DEFEATED_SUICUNE)
-		case 1:
-			clearflag(FLAG_DEFEATED_LATIAS_OR_LATIOS)
 		case 2:
+			clearflag(FLAG_DEFEATED_LATIAS_OR_LATIOS)
+		case 3:
 			clearflag(FLAG_DEFEATED_MANAPHY)
-		default:
+		case 4:
 			clearflag(FLAG_DEFEATED_SHAYMIN)
 	}
 
@@ -74,6 +82,9 @@ script EverGrandeCity_ChampionsRoom_EventScript_Anabel {
 	special(DrawWholeMapView)
 	msgbox(EverGrandeCity_ChampionsRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT)
 	closemessage
+	setvar(VAR_0x8004, SPECIES_SHAYMIN)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	call_if_eq(VAR_RESULT, TRUE, EverGrandeCity_ChampionsRoom_EventScript_TryGiveGracidea)
 	applymovement(LOCALID_ANABEL, Common_Movement_WalkInPlaceFasterUp)
 	waitmovement(0)
 	delay(20)
@@ -92,6 +103,16 @@ script EverGrandeCity_ChampionsRoom_EventScript_Anabel {
 	waitstate
 	releaseall
 	end
+}
+
+script EverGrandeCity_ChampionsRoom_EventScript_TryGiveGracidea {
+	goto_if_set(FLAG_RECEIVED_GRACIDEA, Common_EventScript_NopReturn)
+	msgbox(format("Anabel: And you brought a Shaymin of your own, too!"))
+	msgbox(format("Here, you should have this!"))
+	giveitem(ITEM_GRACIDEA)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setflag(FLAG_RECEIVED_GRACIDEA)
+	return
 }
 
 

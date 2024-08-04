@@ -137,7 +137,7 @@
 #define FLAG_RECEIVED_SHINY_CHARM            0x6F
 #define FLAG_RECEIVED_SCOPE_LENS             0x70 // lass in cutter's house
 #define FLAG_RECEIVED_ROOM_SERVICE           0x71 // dewford resort house
-#define FLAG_UNUSED_0x72                     0x72
+#define FLAG_RECEIVED_GRACIDEA               0x72 // defeat Anabel's Shaymin team with Shaymin in party
 #define FLAG_UNUSED_0x73                     0x73
 #define FLAG_UNUSED_0x74                     0x74
 #define FLAG_UNUSED_0x75                     0x75
