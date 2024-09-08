@@ -7,11 +7,11 @@
 
 //AI FLAG INFO:
 //Each Trainer's flags are defined in the file "trainers.h" 
-//The "default" AI in this game is AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY
-//Trainers may include smart switching flags (these are currently bugged but will be included later)
-//Ninja boys, Hex Maniacs, and some other trainers have AI_FLAG_RISKY (also AI_FLAG_WILL_SUICIDE if moves like Explosion are present)
+//The basic AI in this game is AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY
+//The smart AI adds AI_FLAG_HP_AWARE and AI_FLAG_SMART_SWITCHING (which sets AI_FLAG_SMART_MON_CHOICES)
+//Ninja boys, Hex Maniacs, and some other trainers have AI_FLAG_RISKY in addition to smart flags
 //All Psychics have AI_FLAG_OMNISCIENT; a few others do as well
-//Trainers may have AI_FLAG_HELP_PARTNER if they can be in a double battle and have a move worth targeting on an ally
+//Double Battles automatically set the flag AI_FLAG_DOUBLE_BATTLE
 
 //EASY PARTY INFO:
 //Trainers will use the _easy version of the party if you have fewer than <threshold> badges
@@ -120,7 +120,7 @@
 
 //LEVELS:
 //Trainer levels receive a boost depending on game progress
-//Thus, a mon listed as lvl 16 will always appear at the level cap
+//Pokemon listed as lvl 16 will have the max trainer level
 //
 //GAME STATE    LEVEL CAP   TRAINER BOOST   State
 //0 badges:     16          0               0
@@ -133,7 +133,8 @@
 //7 badges:     79          63              7
 //8 badges:     85          69              8
 //victory road: 87          69              9
-//e4:           90          71              10
+//e4 hallway:   87          69
+//e4 battle:    90          71              10
 //champion:     90          74              11
 //postgame:     100         84              12
 //

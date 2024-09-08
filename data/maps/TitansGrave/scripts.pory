@@ -1,3 +1,5 @@
+const LOCALID_REGIGIGAS = 12
+
 mapscripts TitansGrave_MapScripts {
     MAP_SCRIPT_ON_TRANSITION : TitansGrave_OnTransition
     MAP_SCRIPT_ON_RESUME : TitansGrave_OnResume
@@ -7,12 +9,14 @@ script TitansGrave_OnTransition {
     if(flag(FLAG_DEFEATED_REGIGIGAS)) {
         setvar(VAR_TEMP_0, 10)
     }
+    setflag(FLAG_TEMP_11)
     end
 }
 
 script TitansGrave_OnResume {
 	setdivewarp(MAP_UNDERWATER_TITANS_GRAVE_ENTRY, 10, 8)
 	setescapewarp(MAP_ROUTE109, 105, 11)
+    call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_TryRemoveCaughtEncounter)
 	end
 }
 
@@ -129,6 +133,13 @@ script TitansGrave_EventScript_BrailleDragon {
     end
 }
 
+script TitansGrave_EventScript_WalkUp {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+    waitmovement(0)
+    goto(TitansGrave_EventScript_CheckRegigigas)
+}
+
 script TitansGrave_EventScript_CheckRegigigas {
     lock
     fadeoutbgm(0)
@@ -176,15 +187,39 @@ script TitansGrave_EventScript_Shake {
     return
 }
 
+script TitansGrave_EventScript_RegigigasApproach {
+    clearflag(FLAG_TEMP_11)
+    call(TitansGrave_EventScript_Shake)
+    addobject(LOCALID_REGIGIGAS)
+    setmetatile(13, 14, 0x279, FALSE)
+    special(DrawWholeMapView)
+    applymovement(OBJ_EVENT_ID_PLAYER, TitansGrave_Movement_RegigigasApproach)
+    waitmovement(0)
+    delay(20)
+    playmoncry(SPECIES_REGIROCK, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    return
+}
+
+movement TitansGrave_Movement_RegigigasApproach {
+    walk_up * 7
+}
+
 script TitansGrave_EventScript_WeakRegigigas {
     msgbox(format("Something is awakening!"))
     delay(40)
     playmoncry(SPECIES_REGIGIGAS, CRY_MODE_WEAK)
     waitmoncry
+    closemessage
     call(TitansGrave_EventScript_ChooseRegigigasLevel)
+    call(TitansGrave_EventScript_RegigigasApproach)
+    setvar(VAR_LAST_TALKED, LOCALID_REGIGIGAS)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
     special(StartRegiBattle)
     waitstate
     setflag(FLAG_DEFEATED_REGIGIGAS)
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    removeobject(LOCALID_REGIGIGAS)
     setvar(VAR_TEMP_0, 10)
     release
     end
@@ -207,15 +242,23 @@ script TitansGrave_EventScript_StrongRegigigas {
     delay(40)
     playmoncry(SPECIES_REGIGIGAS, CRY_MODE_ENCOUNTER)
     waitmoncry
+    closemessage
     setflag(FLAG_WILD_HIDDEN_ABILITY)
     setflag(FLAG_WILD_PERFECT_IVS)
-    call(TitansGrave_EventScript_ChooseRegigigasLevel)
+    setflag(FLAG_SMART_WILD_AI)
+    call(TitansGrave_EventScript_ChooseStrongRegigigasLevel)
+    call(TitansGrave_EventScript_RegigigasApproach)
+    setvar(VAR_LAST_TALKED, LOCALID_REGIGIGAS)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
     special(StartRegiBattle)
     waitstate
     setflag(FLAG_DEFEATED_REGIGIGAS)
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    removeobject(LOCALID_REGIGIGAS)
     setvar(VAR_TEMP_0, 10)
     clearflag(FLAG_WILD_HIDDEN_ABILITY)
     clearflag(FLAG_WILD_PERFECT_IVS)
+    clearflag(FLAG_SMART_WILD_AI)
     release
     end
 }
@@ -223,15 +266,31 @@ script TitansGrave_EventScript_StrongRegigigas {
 script TitansGrave_EventScript_ChooseRegigigasLevel {
     switch(var(VAR_NUM_BADGES)) {
         case 4:
-            setwildbattle(SPECIES_REGIGIGAS, 50)
+            createmon(1, 0, SPECIES_REGIGIGAS, 50, ITEM_LEPPA_BERRY, move1=MOVE_ZEN_HEADBUTT, move2=MOVE_HEAVY_SLAM, move3=MOVE_HAMMER_ARM, move4=MOVE_GIGA_IMPACT)
         case 5:
-            setwildbattle(SPECIES_REGIGIGAS, 60)
+            createmon(1, 0, SPECIES_REGIGIGAS, 60, ITEM_LEPPA_BERRY, move1=MOVE_ZEN_HEADBUTT, move2=MOVE_HEAVY_SLAM, move3=MOVE_HAMMER_ARM, move4=MOVE_GIGA_IMPACT)
         case 6:
-            setwildbattle(SPECIES_REGIGIGAS, 70)
+            createmon(1, 0, SPECIES_REGIGIGAS, 70, ITEM_LEPPA_BERRY, move1=MOVE_ZEN_HEADBUTT, move2=MOVE_HEAVY_SLAM, move3=MOVE_HAMMER_ARM, move4=MOVE_GIGA_IMPACT)
         case 7:
-            setwildbattle(SPECIES_REGIGIGAS, 75)
+            createmon(1, 0, SPECIES_REGIGIGAS, 75, ITEM_LEPPA_BERRY, move1=MOVE_ZEN_HEADBUTT, move2=MOVE_HEAVY_SLAM, move3=MOVE_HAMMER_ARM, move4=MOVE_GIGA_IMPACT)
         default:
-            setwildbattle(SPECIES_REGIGIGAS, 85)
+            createmon(1, 0, SPECIES_REGIGIGAS, 85, ITEM_LEPPA_BERRY, move1=MOVE_ZEN_HEADBUTT, move2=MOVE_HEAVY_SLAM, move3=MOVE_HAMMER_ARM, move4=MOVE_GIGA_IMPACT)
+    }
+    return
+}
+
+script TitansGrave_EventScript_ChooseStrongRegigigasLevel {
+    switch(var(VAR_NUM_BADGES)) {
+        case 4:
+            createmon(1, 0, SPECIES_REGIGIGAS, 50, ITEM_LEPPA_BERRY, move1=MOVE_ZEN_HEADBUTT, move2=MOVE_HEAVY_SLAM, move3=MOVE_HAMMER_ARM, move4=MOVE_GIGA_IMPACT, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, abilityNum=2)
+        case 5:
+            createmon(1, 0, SPECIES_REGIGIGAS, 60, ITEM_LEPPA_BERRY, move1=MOVE_ZEN_HEADBUTT, move2=MOVE_HEAVY_SLAM, move3=MOVE_HAMMER_ARM, move4=MOVE_GIGA_IMPACT, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, abilityNum=2)
+        case 6:
+            createmon(1, 0, SPECIES_REGIGIGAS, 70, ITEM_LEPPA_BERRY, move1=MOVE_ZEN_HEADBUTT, move2=MOVE_HEAVY_SLAM, move3=MOVE_HAMMER_ARM, move4=MOVE_GIGA_IMPACT, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, abilityNum=2)
+        case 7:
+            createmon(1, 0, SPECIES_REGIGIGAS, 75, ITEM_LEPPA_BERRY, move1=MOVE_ZEN_HEADBUTT, move2=MOVE_HEAVY_SLAM, move3=MOVE_HAMMER_ARM, move4=MOVE_GIGA_IMPACT, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, abilityNum=2)
+        default:
+            createmon(1, 0, SPECIES_REGIGIGAS, 85, ITEM_LEPPA_BERRY, move1=MOVE_ZEN_HEADBUTT, move2=MOVE_HEAVY_SLAM, move3=MOVE_HAMMER_ARM, move4=MOVE_GIGA_IMPACT, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, abilityNum=2)
     }
     return
 }
