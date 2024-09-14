@@ -1,4 +1,7 @@
 const LOCALID_REGIGIGAS = 12
+const LOCALID_REGIROCK = 13
+const LOCALID_REGICE = 14
+const LOCALID_REGISTEEL = 15
 
 mapscripts TitansGrave_MapScripts {
     MAP_SCRIPT_ON_TRANSITION : TitansGrave_OnTransition
@@ -6,10 +9,15 @@ mapscripts TitansGrave_MapScripts {
 }
 
 script TitansGrave_OnTransition {
+    setflag(FLAG_TEMP_E)
+    setflag(FLAG_TEMP_15)
+    setflag(FLAG_TEMP_16)
+    setflag(FLAG_TEMP_17)
+    setvar(VAR_TEMP_0, 1)
     if(flag(FLAG_DEFEATED_REGIGIGAS)) {
         setvar(VAR_TEMP_0, 10)
+        setflag(FLAG_TEMP_11)
     }
-    setflag(FLAG_TEMP_11)
     end
 }
 
@@ -17,6 +25,12 @@ script TitansGrave_OnResume {
 	setdivewarp(MAP_UNDERWATER_TITANS_GRAVE_ENTRY, 10, 8)
 	setescapewarp(MAP_ROUTE109, 105, 11)
     call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_TryRemoveCaughtEncounter)
+    removeobject(LOCALID_REGIROCK)
+    removeobject(LOCALID_REGICE)
+    removeobject(LOCALID_REGISTEEL)
+    setmetatile(12, 13, 0x237, TRUE)
+    setmetatile(13, 13, 0x237, TRUE)
+    setmetatile(14, 13, 0x237, TRUE)
 	end
 }
 
@@ -44,6 +58,8 @@ script TitansGrave_EventScript_BrailleInstructions3 {
 script TitansGrave_EventScript_BrailleRock {
     lock
     braillemsgbox(TitansGrave_Braille_Rock)
+    goto_if_set(FLAG_TEMP_1, TitansGrave_EventScript_BrailleEnd)
+    goto_if_set(FLAG_DEFEATED_REGIGIGAS, TitansGrave_EventScript_BrailleEnd)
     goto_if_set(FLAG_DEFEATED_REGIROCK, TitansGrave_EventScript_UnlockRock)
     setvar(VAR_TEMP_0, 1)
     release
@@ -53,6 +69,8 @@ script TitansGrave_EventScript_BrailleRock {
 script TitansGrave_EventScript_BrailleIce {
     lock
     braillemsgbox(TitansGrave_Braille_Ice)
+    goto_if_set(FLAG_TEMP_2, TitansGrave_EventScript_BrailleEnd)
+    goto_if_set(FLAG_DEFEATED_REGIGIGAS, TitansGrave_EventScript_BrailleEnd)
     goto_if_set(FLAG_DEFEATED_REGICE, TitansGrave_EventScript_UnlockIce)
     setvar(VAR_TEMP_0, 1)
     release
@@ -62,6 +80,8 @@ script TitansGrave_EventScript_BrailleIce {
 script TitansGrave_EventScript_BrailleSteel {
     lock
     braillemsgbox(TitansGrave_Braille_Steel)
+    goto_if_set(FLAG_TEMP_3, TitansGrave_EventScript_BrailleEnd)
+    goto_if_set(FLAG_DEFEATED_REGIGIGAS, TitansGrave_EventScript_BrailleEnd)
     goto_if_set(FLAG_DEFEATED_REGISTEEL, TitansGrave_EventScript_UnlockSteel)
     setvar(VAR_TEMP_0, 1)
     release
@@ -71,6 +91,7 @@ script TitansGrave_EventScript_BrailleSteel {
 script TitansGrave_EventScript_UnlockRock {
     setflag(FLAG_TEMP_1)
     setvar(VAR_TEMP_0, 0)
+    playse(SE_UNLOCK)
     checkforspecies(SPECIES_REGIROCK, TitansGrave_EventScript_PlayerHasRegirock)
     msgbox(format("You have defeated Regirock. Something unlocked!"))
     release
@@ -80,6 +101,7 @@ script TitansGrave_EventScript_UnlockRock {
 script TitansGrave_EventScript_UnlockIce {
     setflag(FLAG_TEMP_2)
     setvar(VAR_TEMP_0, 0)
+    playse(SE_UNLOCK)
     checkforspecies(SPECIES_REGICE, TitansGrave_EventScript_PlayerHasRegice)
     msgbox(format("You have defeated Regice. Something unlocked!"))
     release
@@ -89,15 +111,29 @@ script TitansGrave_EventScript_UnlockIce {
 script TitansGrave_EventScript_UnlockSteel {
     setflag(FLAG_TEMP_3)
     setvar(VAR_TEMP_0, 0)
-    checkforspecies(SPECIES_REGIROCK, TitansGrave_EventScript_PlayerHasRegisteel)
+    playse(SE_UNLOCK)
+    checkforspecies(SPECIES_REGISTEEL, TitansGrave_EventScript_PlayerHasRegisteel)
     msgbox(format("You have defeated Registeel. Something unlocked!"))
     release
     end
 }
 
+script TitansGrave_EventScript_BrailleEnd {
+    release
+    end
+}
+
+movement TitansGrave_Movement_RegiAppear {
+    exit_pokeball
+    face_down
+}
+
 script TitansGrave_EventScript_PlayerHasRegirock {
     setflag(FLAG_TEMP_4)
     playmoncry(SPECIES_REGIROCK, CRY_MODE_ENCOUNTER)
+    addobject(LOCALID_REGIROCK)
+    applymovement(LOCALID_REGIROCK, TitansGrave_Movement_RegiAppear)
+    waitmovement(0)
     msgbox(format("Regirock added power!"))
     release
     end
@@ -106,6 +142,9 @@ script TitansGrave_EventScript_PlayerHasRegirock {
 script TitansGrave_EventScript_PlayerHasRegice {
     setflag(FLAG_TEMP_5)
     playmoncry(SPECIES_REGICE, CRY_MODE_ENCOUNTER)
+    addobject(LOCALID_REGICE)
+    applymovement(LOCALID_REGICE, TitansGrave_Movement_RegiAppear)
+    waitmovement(0)
     msgbox(format("Regice added power!"))
     release
     end
@@ -114,6 +153,9 @@ script TitansGrave_EventScript_PlayerHasRegice {
 script TitansGrave_EventScript_PlayerHasRegisteel {
     setflag(FLAG_TEMP_6)
     playmoncry(SPECIES_REGISTEEL, CRY_MODE_ENCOUNTER)
+    addobject(LOCALID_REGISTEEL)
+    applymovement(LOCALID_REGISTEEL, TitansGrave_Movement_RegiAppear)
+    waitmovement(0)
     msgbox(format("Registeel added power!"))
     release
     end
@@ -142,27 +184,33 @@ script TitansGrave_EventScript_WalkUp {
 
 script TitansGrave_EventScript_CheckRegigigas {
     lock
+    playse(SE_PIN)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	waitse
+	waitmovement(OBJ_EVENT_ID_PLAYER)
     fadeoutbgm(0)
     playse(SE_TRUCK_DOOR)
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft)
     waitmovement(0)
-    delay(20)
+    delay(10)
+    call_if_set(FLAG_TEMP_4, TitansGrave_EventScript_Regirock_Support)
 	goto_if_unset(FLAG_TEMP_1, TitansGrave_EventScript_CheckEnd)
     call(TitansGrave_EventScript_Shake)
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown)
     waitmovement(0)
-    delay(20)
+    delay(10)
+    call_if_set(FLAG_TEMP_5, TitansGrave_EventScript_Regice_Support)
 	goto_if_unset(FLAG_TEMP_2, TitansGrave_EventScript_CheckEnd)
     call(TitansGrave_EventScript_Shake)
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
     waitmovement(0)
-    delay(20)
+    delay(10)
+    call_if_set(FLAG_TEMP_6, TitansGrave_EventScript_Registeel_Support)
 	goto_if_unset(FLAG_TEMP_3, TitansGrave_EventScript_CheckEnd)
     call(TitansGrave_EventScript_Shake)
     applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp)
     waitmovement(0)
-    delay(20)
-    playmoncry(SPECIES_REGIGIGAS, CRY_MODE_ENCOUNTER)
+    delay(10)
     goto_if_unset(FLAG_TEMP_4, TitansGrave_EventScript_WeakRegigigas)
     goto_if_unset(FLAG_TEMP_5, TitansGrave_EventScript_WeakRegigigas)
     goto_if_unset(FLAG_TEMP_6, TitansGrave_EventScript_WeakRegigigas)
@@ -187,22 +235,62 @@ script TitansGrave_EventScript_Shake {
     return
 }
 
+script TitansGrave_EventScript_Regirock_Support {
+    applymovement(LOCALID_REGIROCK, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    applymovement(LOCALID_REGIROCK, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    playmoncry(SPECIES_REGIROCK, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    delay(10)
+    return
+}
+script TitansGrave_EventScript_Regice_Support {
+    applymovement(LOCALID_REGICE, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    applymovement(LOCALID_REGICE, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    playmoncry(SPECIES_REGICE, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    delay(10)
+    return
+}
+script TitansGrave_EventScript_Registeel_Support {
+    applymovement(LOCALID_REGISTEEL, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    applymovement(LOCALID_REGISTEEL, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    playmoncry(SPECIES_REGISTEEL, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    delay(10)
+    return
+}
+
 script TitansGrave_EventScript_RegigigasApproach {
     clearflag(FLAG_TEMP_11)
     call(TitansGrave_EventScript_Shake)
-    addobject(LOCALID_REGIGIGAS)
-    setmetatile(13, 14, 0x279, FALSE)
+    setmetatile(12, 13, 0x279, FALSE)
+    setmetatile(13, 13, 0x279, FALSE)
+    setmetatile(14, 13, 0x279, FALSE)
+    playse(SE_TRUCK_DOOR)
     special(DrawWholeMapView)
-    applymovement(OBJ_EVENT_ID_PLAYER, TitansGrave_Movement_RegigigasApproach)
+    applymovement(LOCALID_REGIGIGAS, TitansGrave_Movement_RegigigasApproach)
     waitmovement(0)
-    delay(20)
-    playmoncry(SPECIES_REGIROCK, CRY_MODE_ENCOUNTER)
-    waitmoncry
+    msgbox(format("The ancient titan attacked!"))
     return
 }
 
 movement TitansGrave_Movement_RegigigasApproach {
-    walk_up * 7
+    walk_down
+    delay_16
+    walk_down
+    delay_16
+    walk_down
+    delay_16
+    walk_down
+    delay_16
+    walk_down
+    delay_16
 }
 
 script TitansGrave_EventScript_WeakRegigigas {
@@ -211,7 +299,7 @@ script TitansGrave_EventScript_WeakRegigigas {
     playmoncry(SPECIES_REGIGIGAS, CRY_MODE_WEAK)
     waitmoncry
     closemessage
-    call(TitansGrave_EventScript_ChooseRegigigasLevel)
+    call(TitansGrave_EventScript_ChooseWeakRegigigasLevel)
     call(TitansGrave_EventScript_RegigigasApproach)
     setvar(VAR_LAST_TALKED, LOCALID_REGIGIGAS)
     setflag(FLAG_SYS_CTRL_OBJ_DELETE)
@@ -226,18 +314,6 @@ script TitansGrave_EventScript_WeakRegigigas {
 }
 
 script TitansGrave_EventScript_StrongRegigigas {
-    delay(20)
-    playmoncry(SPECIES_REGIROCK, CRY_MODE_ENCOUNTER)
-    waitmoncry
-    delay(20)
-    playmoncry(SPECIES_REGICE, CRY_MODE_ENCOUNTER)
-    waitmoncry
-    delay(20)
-    playmoncry(SPECIES_REGISTEEL, CRY_MODE_ENCOUNTER)
-    waitmoncry
-    call(TitansGrave_EventScript_Shake)
-    call(TitansGrave_EventScript_Shake)
-    call(TitansGrave_EventScript_Shake)
     msgbox(format("Something monstrous is awakening!"))
     delay(40)
     playmoncry(SPECIES_REGIGIGAS, CRY_MODE_ENCOUNTER)
@@ -263,7 +339,7 @@ script TitansGrave_EventScript_StrongRegigigas {
     end
 }
 
-script TitansGrave_EventScript_ChooseRegigigasLevel {
+script TitansGrave_EventScript_ChooseWeakRegigigasLevel {
     switch(var(VAR_NUM_BADGES)) {
         case 4:
             createmon(1, 0, SPECIES_REGIGIGAS, 50, ITEM_LEPPA_BERRY, move1=MOVE_ZEN_HEADBUTT, move2=MOVE_HEAVY_SLAM, move3=MOVE_HAMMER_ARM, move4=MOVE_GIGA_IMPACT)
