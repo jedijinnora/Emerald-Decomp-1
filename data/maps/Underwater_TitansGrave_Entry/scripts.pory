@@ -3,6 +3,10 @@ mapscripts Underwater_TitansGrave_Entry_MapScripts {
 }
 
 script Underwater_TitansGrave_Entry_OnDive {
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    goto_if_ne(VAR_TEMP_1, 10, Underwater_TitansGrave_Entry_EventScript_SurfaceOutside)
+    goto_if_ne(VAR_TEMP_2, 8, Underwater_TitansGrave_Entry_EventScript_SurfaceOutside)
+    goto_if_set(FLAG_DEFEATED_REGIGIGAS, Underwater_TitansGrave_Entry_EventScript_SurfaceInside)
     goto_if_unset(FLAG_TEMP_1, Underwater_TitansGrave_Entry_EventScript_SurfaceOutside)
     goto_if_unset(FLAG_TEMP_2, Underwater_TitansGrave_Entry_EventScript_SurfaceOutside)
     goto_if_unset(FLAG_TEMP_3, Underwater_TitansGrave_Entry_EventScript_SurfaceOutside)
@@ -39,7 +43,7 @@ script Underwater_TitansGrave_Entry_EventScript_RightSign {
 
 script Underwater_TitansGrave_Entry_EventScript_CenterSign {
     lock
-    if(flag(FLAG_TEMP_1) && flag(FLAG_TEMP_2)) {
+    if((flag(FLAG_TEMP_1) && flag(FLAG_TEMP_2)) || flag(FLAG_DEFEATED_REGIGIGAS)) {
         braillemsgbox(Underwater_TitansGrave_Braille_Worthy)
         setflag(FLAG_TEMP_3)
     } else {

@@ -5215,7 +5215,7 @@
       "id": "LAYOUT_TITANS_GRAVE",
       "name": "TitansGrave_Layout",
       "width": 60,
-      "height": 35,
+      "height": 33,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/TitansGrave/border.bin",
