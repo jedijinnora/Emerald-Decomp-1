@@ -173,12 +173,12 @@ TitansGrave_Braille_Steel:
 TitansGrave_Braille_Electric:
 	brailleformat 0, 0, 0, 0, 0, 0
 	.braille "LOST ONE OF\n"
-	.braille "ELECTRIC.$"
+	.braille "ELECTRICITY.$"
 
 TitansGrave_Braille_Dragon:
 	brailleformat 0, 0, 0, 0, 0, 0
 	.braille "LOST ONE OF\n"
-	.braille "DRAGON.$"
+	.braille "DRAGONS.$"
 
 OldaleRuins_Braille_Sigilyph:
 	brailleformat 0, 0, 0, 0, 0, 0
@@ -221,3 +221,15 @@ OldaleRuins_Braille_Rabsca:
 	brailleformat 0, 0, 0, 0, 0, 0
 	.braille "EVERY LIFE\n"
 	.braille "A NEW DAWN.$"
+
+WishmakersWell_Braille_Left:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "COMET SHARD.$"
+
+WishmakersWell_Braille_Center:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "WISHING PIECE.$"
+
+WishmakersWell_Braille_Right:
+	brailleformat 0, 0, 0, 0, 0, 0
+	.braille "BIG NUGGET.$"

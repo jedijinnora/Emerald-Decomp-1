@@ -1270,3 +1270,7 @@ Common_EventScript_CountBadges::
 	.include "data/maps/MauvilleCity_House4/scripts.inc"
 
 	.include "data/maps/MauvilleCity_WorkerBuilding/scripts.inc"
+
+	.include "data/maps/WishmakersWell_1F/scripts.inc"
+
+	.include "data/maps/WishmakersWell_B1F/scripts.inc"

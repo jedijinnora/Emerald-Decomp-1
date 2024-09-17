@@ -952,7 +952,7 @@
 #define FLAG_SAND_FAMILY_MOVED                                      0x36F
 #define FLAG_DEFEATED_VICTORY_ROAD_RIVAL                            0x370
 #define FLAG_MET_ROXANNE_STEVEN                                     0x371 //set after the scene in front of Rustboro Gym
-#define FLAG_UNUSED_0x372                                           0x372
+#define FLAG_WISHMAKERS_WELL_WALL_OPENED                            0x372
 #define FLAG_UNUSED_0x373                                           0x373
 #define FLAG_UNUSED_0x374                                           0x374
 #define FLAG_UNUSED_0x375                                           0x375

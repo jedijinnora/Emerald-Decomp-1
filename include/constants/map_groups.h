@@ -502,6 +502,8 @@
 #define MAP_UNDERWATER_TITANS_GRAVE_ENTRY (9 | (26 << 8))
 #define MAP_TITANS_GRAVE                  (10 | (26 << 8))
 #define MAP_CALDERA_CAVE_1F               (11 | (26 << 8))
+#define MAP_WISHMAKERS_WELL_1F            (12 | (26 << 8))
+#define MAP_WISHMAKERS_WELL_B1F           (13 | (26 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (27 << 8))

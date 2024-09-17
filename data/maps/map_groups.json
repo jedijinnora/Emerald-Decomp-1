@@ -537,7 +537,9 @@
     "ForestHeart",
     "Underwater_TitansGrave_Entry",
     "TitansGrave",
-    "CalderaCave_1F"
+    "CalderaCave_1F",
+    "WishmakersWell_1F",
+    "WishmakersWell_B1F"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

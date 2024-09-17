@@ -5240,6 +5240,26 @@
       "secondary_tileset": "gTileset_BikeShop",
       "border_filepath": "data/layouts/MauvilleCity_WorkerBuilding/border.bin",
       "blockdata_filepath": "data/layouts/MauvilleCity_WorkerBuilding/map.bin"
+    },
+    {
+      "id": "LAYOUT_WISHMAKERS_WELL_1F",
+      "name": "WishmakersWell_1F_Layout",
+      "width": 17,
+      "height": 33,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NavelRock",
+      "border_filepath": "data/layouts/WishmakersWell_1F/border.bin",
+      "blockdata_filepath": "data/layouts/WishmakersWell_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_WISHMAKERS_WELL_B1F",
+      "name": "WishmakersWell_B1F_Layout",
+      "width": 21,
+      "height": 27,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NavelRock",
+      "border_filepath": "data/layouts/WishmakersWell_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/WishmakersWell_B1F/map.bin"
     }
   ]
 }
