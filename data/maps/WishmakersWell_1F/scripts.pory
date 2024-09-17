@@ -1,0 +1,158 @@
+mapscripts WishmakersWell_1F_MapScripts {
+    MAP_SCRIPT_ON_LOAD : WishmakersWell_OnLoad
+    MAP_SCRIPT_ON_TRANSITION : WishmakersWell_OnTransition
+}
+
+script WishmakersWell_OnLoad {
+    call_if_unset(FLAG_WISHMAKERS_WELL_WALL_OPENED, WishmakersWell_1F_EventScript_CloseWall)
+    end
+}
+
+script WishmakersWell_OnTransition {
+    call(WishmakersWell_1F_EventScript_CheckForItems)
+    end
+}
+
+script WishmakersWell_1F_EventScript_CloseWall {
+    setmetatile(7, 19, 0x387, TRUE)
+	setmetatile(8, 19, 0x387, TRUE)
+	setmetatile(9, 19, 0x387, TRUE)
+	setmetatile(7, 20, 0x38F, TRUE)
+	setmetatile(8, 20, 0x38F, TRUE)
+	setmetatile(9, 20, 0x38F, TRUE)
+	return
+}
+
+script WishmakersWell_1F_EventScript_OpenWall {
+    setmetatile(7, 19, 0x384, TRUE)
+	setmetatile(8, 19, 0x385, TRUE)
+	setmetatile(9, 19, 0x386, TRUE)
+	setmetatile(7, 20, 0x38C, TRUE)
+	setmetatile(8, 20, 0x38D, TRUE)
+	setmetatile(9, 20, 0x38E, TRUE)
+	return
+}
+
+script WishmakersWell_1F_EventScript_CheckForItems {
+    goto_if_set(FLAG_WISHMAKERS_WELL_WALL_OPENED, Common_EventScript_NopReturn)
+    checkitem(ITEM_COMET_SHARD)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+    checkitem(ITEM_WISHING_PIECE)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+    checkitem(ITEM_BIG_NUGGET)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+    setvar(VAR_TEMP_1, TRUE)
+    return
+}
+
+script WishmakersWell_1F_EventScript_BrailleLeft {
+    lock
+    braillemsgbox(WishmakersWell_Braille_Left)
+    release
+    end
+}
+
+script WishmakersWell_1F_EventScript_Center {
+    lock
+    goto_if_set(FLAG_WISHMAKERS_WELL_WALL_OPENED, WishmakersWell_1F_EventScript_Hole)
+    braillemsgbox(WishmakersWell_Braille_Center)
+    release
+    end
+}
+
+script WishmakersWell_1F_EventScript_Hole {
+    msgbox(gText_BigHoleInTheWall, MSGBOX_DEFAULT)
+    release
+    end
+}
+
+script WishmakersWell_1F_EventScript_BrailleRight {
+    lock
+    braillemsgbox(WishmakersWell_Braille_Right)
+    release
+    end
+}
+
+script WishmakersWell_1F_EventScript_Well {
+    msgbox(format("Valuable coins and other items shine in the water far below."))
+    return
+}
+
+script WishmakersWell_1F_EventScript_ItemFellDown {
+    msgbox(format("The {STR_VAR_1} falls into the water…"))
+    return
+}
+
+script WishmakersWell_1F_EventScript_ItemGlimmers {
+    playse(SE_SHINY)
+    msgbox(format("Your {STR_VAR_1} shines brightly!"))
+    return
+}
+
+script WishmakersWell_1F_EventScript_WellEnd {
+    release
+    end
+}
+
+script WishmakersWell_1F_EventScript_Well_CometShard {
+    lock
+    call(WishmakersWell_1F_EventScript_Well)
+    goto_if_ne(VAR_TEMP_1, TRUE, WishmakersWell_1F_EventScript_WellEnd)
+    //call the special to select an item from the bag
+    bufferitemname(STR_VAR_1, VAR_RESULT)
+    call(WishmakersWell_1F_EventScript_ItemFellDown)
+    //compare item to ITEM_COMET_SHARD
+    goto_if_ne(VAR_RESULT, ITEM_COMET_SHARD, WishmakersWell_1F_EventScript_WellEnd)
+    call(WishmakersWell_1F_EventScript_ItemGlimmers)
+    setflag(FLAG_TEMP_11)
+    call(WishmakersWell_1F_EventScript_CheckWall)
+    release
+    end
+}
+
+script WishmakersWell_1F_EventScript_Well_WishingPiece {
+    lock
+    call(WishmakersWell_1F_EventScript_Well)
+    goto_if_ne(VAR_TEMP_1, TRUE, WishmakersWell_1F_EventScript_WellEnd)
+    //call the special to select an item from the bag
+    bufferitemname(STR_VAR_1, VAR_RESULT)
+    call(WishmakersWell_1F_EventScript_ItemFellDown)
+    //compare item to ITEM_WISHING_PIECE
+    goto_if_ne(VAR_RESULT, ITEM_WISHING_PIECE, WishmakersWell_1F_EventScript_WellEnd)
+    call(WishmakersWell_1F_EventScript_ItemGlimmers)
+    setflag(FLAG_TEMP_12)
+    call(WishmakersWell_1F_EventScript_CheckWall)
+    release
+    end
+}
+
+script WishmakersWell_1F_EventScript_Well_BigNugget {
+    lock
+    call(WishmakersWell_1F_EventScript_Well)
+    goto_if_ne(VAR_TEMP_1, TRUE, WishmakersWell_1F_EventScript_WellEnd)
+    //call the special to select an item from the bag
+    bufferitemname(STR_VAR_1, VAR_RESULT)
+    call(WishmakersWell_1F_EventScript_ItemFellDown)
+    //compare item to ITEM_BIG_NUGGET
+    goto_if_ne(VAR_RESULT, ITEM_BIG_NUGGET, WishmakersWell_1F_EventScript_WellEnd)
+    call(WishmakersWell_1F_EventScript_ItemGlimmers)
+    setflag(FLAG_TEMP_13)
+    call(WishmakersWell_1F_EventScript_CheckWall)
+    release
+    end
+}
+
+script WishmakersWell_1F_EventScript_CheckWall {
+    goto_if_unset(FLAG_TEMP_11, Common_EventScript_NopReturn)
+    goto_if_unset(FLAG_TEMP_12, Common_EventScript_NopReturn)
+    goto_if_unset(FLAG_TEMP_13, Common_EventScript_NopReturn)
+    playse(SE_PIN)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	waitse
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+    call(WishmakersWell_1F_EventScript_OpenWall)
+    special(DrawWholeMapView)
+    playse(SE_BANG)
+    setflag(FLAG_WISHMAKERS_WELL_WALL_OPENED)
+    return
+}

@@ -1,0 +1,102 @@
+{
+  "id": "MAP_WISHMAKERS_WELL_1F",
+  "name": "WishmakersWell_1F",
+  "layout": "LAYOUT_WISHMAKERS_WELL_1F",
+  "music": "MUS_PETALBURG_WOODS",
+  "region_map_section": "MAPSEC_WISHMAKERS_WELL",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 8,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_MILLENNIUM_FIELD",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_WISHMAKERS_WELL_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_WISHMAKERS_WELL_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_WISHMAKERS_WELL_B1F",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "WishmakersWell_1F_EventScript_BrailleLeft"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "WishmakersWell_1F_EventScript_Center"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "WishmakersWell_1F_EventScript_BrailleRight"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 26,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "WishmakersWell_1F_EventScript_Well_CometShard"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 23,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "WishmakersWell_1F_EventScript_Well_WishingPiece"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "WishmakersWell_1F_EventScript_Well_BigNugget"
+    }
+  ]
+}
