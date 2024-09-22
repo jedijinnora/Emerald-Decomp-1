@@ -940,7 +940,7 @@ static const struct TrainerMon sParty_Anabel4[] = {
     .lvl = 16,
     .species = SPECIES_ALAKAZAM,
     .heldItem = ITEM_LIFE_ORB,
-    .moves = {MOVE_PSYCHIC, MOVE_PSYSTRIKE, MOVE_FOCUS_BLAST, MOVE_NASTY_PLOT}
+    .moves = {MOVE_DAZZLING_GLEAM, MOVE_PSYSTRIKE, MOVE_FOCUS_BLAST, MOVE_NASTY_PLOT}
     }
 };
 

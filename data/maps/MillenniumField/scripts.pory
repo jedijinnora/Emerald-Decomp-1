@@ -5,6 +5,7 @@ mapscripts MillenniumField_MapScripts {
 //Object IDs:
 const LOCALID_KECLEON = 13  //x0y30 starting place
 const LOCALID_NINJABOY = 14
+const LOCALID_WELL_LADY = 16
 
 //TEMPs Used:
 //VAR_TEMP_1 = Pikachu item
@@ -15,6 +16,7 @@ const LOCALID_NINJABOY = 14
 script MillenniumField_OnTransition {
     call(MillenniumField_EventScript_ResetPikachu)
     call(MillenniumField_EventScript_ResetKecleon)
+    call_if_set(FLAG_SYS_GAME_CLEAR, MillenniumField_EventScript_UnblockWell)
     end
 }
 
@@ -71,6 +73,11 @@ script MillenniumField_EventScript_ResetKecleon {
         default:
             setvar(VAR_TEMP_2, ITEM_LUCKY_EGG)
     }
+    return
+}
+
+script MillenniumField_EventScript_UnblockWell {
+    setobjectxyperm(LOCALID_WELL_LADY, 18, 14)
     return
 }
 
@@ -409,8 +416,8 @@ script MillenniumField_EventScript_KecleonVanish {
             setobjectxyperm(LOCALID_KECLEON, 23, 5)
             setvar(VAR_TEMP_4, 13)
         default:
-            setobjectxy(LOCALID_KECLEON, 21, 14)
-            setobjectxyperm(LOCALID_KECLEON, 21, 14)
+            setobjectxy(LOCALID_KECLEON, 21, 13)
+            setobjectxyperm(LOCALID_KECLEON, 21, 13)
             setvar(VAR_TEMP_4, 14)
     }
     applymovement(LOCALID_KECLEON, KecleonAppear)
@@ -471,10 +478,15 @@ script MillenniumField_EventScript_PokefanF {
 }
 
 script MillenniumField_EventScript_Mom {
-    lockall
+    lock
     faceplayer
+    if(flag(FLAG_SYS_GAME_CLEAR)) {
+        msgbox(format("Once a day, the wishmaker might reward you for throwing a treasure down the well."))
+        release
+        end
+    }
     msgbox(format("Wishmaker's Well is not open to visitors."))
-    releaseall
+    release
     end
 }
 

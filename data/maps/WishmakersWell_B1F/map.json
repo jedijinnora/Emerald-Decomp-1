@@ -2,7 +2,7 @@
   "id": "MAP_WISHMAKERS_WELL_B1F",
   "name": "WishmakersWell_B1F",
   "layout": "LAYOUT_WISHMAKERS_WELL_B1F",
-  "music": "MUS_PETALBURG_WOODS",
+  "music": "MUS_SEALED_CHAMBER",
   "region_map_section": "MAPSEC_WISHMAKERS_WELL",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",
