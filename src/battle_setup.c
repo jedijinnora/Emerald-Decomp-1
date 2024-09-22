@@ -639,6 +639,7 @@ void BattleSetup_StartLegendaryBattle(void)
         CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
         break;
     case SPECIES_MEW:
+    case SPECIES_JIRACHI:
     case SPECIES_SHAYMIN:
     case SPECIES_MANAPHY:
         CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);

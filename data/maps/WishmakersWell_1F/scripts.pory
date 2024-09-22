@@ -10,6 +10,8 @@ script WishmakersWell_OnLoad {
 
 script WishmakersWell_OnTransition {
     call(WishmakersWell_1F_EventScript_CheckForItems)
+    random(7)
+    copyvar(VAR_TEMP_3, VAR_RESULT)
     end
 }
 
@@ -28,13 +30,12 @@ script WishmakersWell_1F_EventScript_OpenWall {
 	setmetatile(8, 19, 0x385, TRUE)
 	setmetatile(9, 19, 0x386, TRUE)
 	setmetatile(7, 20, 0x38C, TRUE)
-	setmetatile(8, 20, 0x38D, TRUE)
+	setmetatile(8, 20, 0x38D, FALSE)
 	setmetatile(9, 20, 0x38E, TRUE)
 	return
 }
 
 script WishmakersWell_1F_EventScript_CheckForItems {
-    goto_if_set(FLAG_WISHMAKERS_WELL_WALL_OPENED, Common_EventScript_NopReturn)
     checkitem(ITEM_COMET_SHARD)
     goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     checkitem(ITEM_WISHING_PIECE)
@@ -47,6 +48,9 @@ script WishmakersWell_1F_EventScript_CheckForItems {
 
 script WishmakersWell_1F_EventScript_BrailleLeft {
     lock
+    additem(ITEM_BIG_NUGGET)
+    additem(ITEM_WISHING_PIECE)
+    additem(ITEM_COMET_SHARD)
     braillemsgbox(WishmakersWell_Braille_Left)
     release
     end
@@ -78,9 +82,141 @@ script WishmakersWell_1F_EventScript_Well {
     return
 }
 
-script WishmakersWell_1F_EventScript_ItemFellDown {
+script WishmakersWell_1F_EventScript_ThrowTreasure {
+    clearflag(FLAG_TEMP_1)
+    msgbox(format("Throw a treasure down the well?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, WishmakersWell_1F_EventScript_WellEnd)
+    checkitem(ITEM_BOTTLE_CAP)
+    if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Bottle Cap", ITEM_BOTTLE_CAP)
+	}
+    checkitem(ITEM_GOLD_BOTTLE_CAP)
+    if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Gold Bottle Cap", ITEM_GOLD_BOTTLE_CAP)
+	}
+    checkitem(ITEM_NUGGET)
+    if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Nugget", ITEM_NUGGET)
+	}
+    checkitem(ITEM_BIG_NUGGET)
+    if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Big Nugget", ITEM_BIG_NUGGET)
+	}
+    checkitem(ITEM_PEARL)
+    if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Pearl", ITEM_PEARL)
+	}
+    checkitem(ITEM_BIG_PEARL)
+    if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Big Pearl", ITEM_BIG_PEARL)
+	}
+    checkitem(ITEM_PEARL_STRING)
+    if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Pearl String", ITEM_PEARL_STRING)
+	}
+    checkitem(ITEM_STAR_PIECE)
+    if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Star Piece", ITEM_STAR_PIECE)
+	}
+    checkitem(ITEM_COMET_SHARD)
+    if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Comet Shard", ITEM_COMET_SHARD)
+	}
+    checkitem(ITEM_HEART_SCALE)
+    if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Heart Scale", ITEM_HEART_SCALE)
+	}
+    checkitem(ITEM_WISHING_PIECE)
+    if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Wishing Piece", ITEM_WISHING_PIECE)
+	}
+    goto_if_unset(FLAG_TEMP_1, WishmakersWell_1F_EventScript_NoTreasure)
+    msgbox(format("Which treasure will you throw down the well?"))
+    dynmultistack(0,0,FALSE,6,TRUE,VAR_0x800A,DYN_MULTICHOICE_CB_SHOW_ITEM)
+    goto_if_eq(VAR_RESULT, 127, WishmakersWell_1F_EventScript_WellEnd)
+    copyvar(VAR_TEMP_2, VAR_RESULT)
+    removeitem(VAR_TEMP_2)
+    bufferitemname(STR_VAR_1, VAR_TEMP_2)
     msgbox(format("The {STR_VAR_1} falls into the water…"))
     return
+}
+
+script WishmakersWell_1F_EventScript_NoTreasure {
+    msgbox(format("You don't have anything worth throwing down the well."))
+    release
+    end
+}
+
+script WishmakersWell_1F_EventScript_TreasureUpgrade {
+    goto_if_set(FLAG_DAILY_WISHMAKERS_WELL_TREASURE, WishmakersWell_1F_EventScript_WellEnd)
+    setflag(FLAG_DAILY_WISHMAKERS_WELL_TREASURE)
+    switch(var(VAR_TEMP_2)) {
+        case ITEM_BOTTLE_CAP:
+            setvar(VAR_TEMP_4, ITEM_GOLD_BOTTLE_CAP)
+        case ITEM_GOLD_BOTTLE_CAP:
+            setvar(VAR_TEMP_4, ITEM_PP_MAX)
+        case ITEM_NUGGET:
+            setvar(VAR_TEMP_4, ITEM_BIG_NUGGET)
+        case ITEM_BIG_NUGGET:
+            setvar(VAR_TEMP_4, ITEM_COMET_SHARD)
+        case ITEM_PEARL:
+            setvar(VAR_TEMP_4, ITEM_BIG_PEARL)
+        case ITEM_BIG_PEARL:
+            setvar(VAR_TEMP_4, ITEM_KINGS_ROCK)
+        case ITEM_PEARL_STRING:
+            switch(var(VAR_TEMP_3)) {
+                case 0:
+                    setvar(VAR_TEMP_4, ITEM_CHOICE_BAND)
+                case 1:
+                    goto(WishmakersWell_1F_EventScript_WellEnd)
+                case 2:
+                    setvar(VAR_TEMP_4, ITEM_CHOICE_SPECS)
+                case 3:
+                case 4:
+                case 5:
+                    goto(WishmakersWell_1F_EventScript_WellEnd)
+                default:
+                    setvar(VAR_TEMP_4, ITEM_EVIOLITE)
+            }
+        case ITEM_STAR_PIECE:
+            setvar(VAR_TEMP_4, ITEM_WISHING_PIECE)
+        case ITEM_COMET_SHARD:
+            switch(var(VAR_TEMP_3)) {
+                case 0:
+                    setvar(VAR_TEMP_4, ITEM_CHOICE_SCARF)
+                case 1:
+                case 2:
+                case 3:
+                    goto(WishmakersWell_1F_EventScript_WellEnd)
+                case 4:
+                    setvar(VAR_TEMP_4, ITEM_SHELL_BELL)
+                case 5:
+                default:
+                    setvar(VAR_TEMP_4, ITEM_AMULET_COIN)
+            }
+        case ITEM_HEART_SCALE:
+            setvar(VAR_TEMP_4, ITEM_NUGGET)
+        case ITEM_WISHING_PIECE:
+            setvar(VAR_TEMP_4, ITEM_COMET_SHARD)
+
+        default:
+            goto(WishmakersWell_1F_EventScript_WellEnd)
+    }
+    msgbox(format("The wishmaker has a gift for you!"))
+    giveitem(VAR_TEMP_4)
+    release
+    end
 }
 
 script WishmakersWell_1F_EventScript_ItemGlimmers {
@@ -97,12 +233,13 @@ script WishmakersWell_1F_EventScript_WellEnd {
 script WishmakersWell_1F_EventScript_Well_CometShard {
     lock
     call(WishmakersWell_1F_EventScript_Well)
-    goto_if_ne(VAR_TEMP_1, TRUE, WishmakersWell_1F_EventScript_WellEnd)
-    //call the special to select an item from the bag
-    bufferitemname(STR_VAR_1, VAR_RESULT)
-    call(WishmakersWell_1F_EventScript_ItemFellDown)
-    //compare item to ITEM_COMET_SHARD
-    goto_if_ne(VAR_RESULT, ITEM_COMET_SHARD, WishmakersWell_1F_EventScript_WellEnd)
+    call(WishmakersWell_1F_EventScript_ThrowTreasure)
+    goto_if_set(FLAG_WISHMAKERS_WELL_WALL_OPENED, WishmakersWell_1F_EventScript_TreasureUpgrade)
+    msgbox(format("1"))
+    goto_if_ne(VAR_TEMP_2, ITEM_COMET_SHARD, WishmakersWell_1F_EventScript_TreasureUpgrade)
+    msgbox(format("2"))
+    goto_if_ne(VAR_TEMP_1, TRUE, WishmakersWell_1F_EventScript_TreasureUpgrade)
+    msgbox(format("3"))
     call(WishmakersWell_1F_EventScript_ItemGlimmers)
     setflag(FLAG_TEMP_11)
     call(WishmakersWell_1F_EventScript_CheckWall)
@@ -113,12 +250,10 @@ script WishmakersWell_1F_EventScript_Well_CometShard {
 script WishmakersWell_1F_EventScript_Well_WishingPiece {
     lock
     call(WishmakersWell_1F_EventScript_Well)
-    goto_if_ne(VAR_TEMP_1, TRUE, WishmakersWell_1F_EventScript_WellEnd)
-    //call the special to select an item from the bag
-    bufferitemname(STR_VAR_1, VAR_RESULT)
-    call(WishmakersWell_1F_EventScript_ItemFellDown)
-    //compare item to ITEM_WISHING_PIECE
-    goto_if_ne(VAR_RESULT, ITEM_WISHING_PIECE, WishmakersWell_1F_EventScript_WellEnd)
+    call(WishmakersWell_1F_EventScript_ThrowTreasure)
+    goto_if_set(FLAG_WISHMAKERS_WELL_WALL_OPENED, WishmakersWell_1F_EventScript_TreasureUpgrade)
+    goto_if_ne(VAR_TEMP_2, ITEM_WISHING_PIECE, WishmakersWell_1F_EventScript_TreasureUpgrade)
+    goto_if_ne(VAR_TEMP_1, TRUE, WishmakersWell_1F_EventScript_TreasureUpgrade)
     call(WishmakersWell_1F_EventScript_ItemGlimmers)
     setflag(FLAG_TEMP_12)
     call(WishmakersWell_1F_EventScript_CheckWall)
@@ -129,12 +264,10 @@ script WishmakersWell_1F_EventScript_Well_WishingPiece {
 script WishmakersWell_1F_EventScript_Well_BigNugget {
     lock
     call(WishmakersWell_1F_EventScript_Well)
-    goto_if_ne(VAR_TEMP_1, TRUE, WishmakersWell_1F_EventScript_WellEnd)
-    //call the special to select an item from the bag
-    bufferitemname(STR_VAR_1, VAR_RESULT)
-    call(WishmakersWell_1F_EventScript_ItemFellDown)
-    //compare item to ITEM_BIG_NUGGET
-    goto_if_ne(VAR_RESULT, ITEM_BIG_NUGGET, WishmakersWell_1F_EventScript_WellEnd)
+    call(WishmakersWell_1F_EventScript_ThrowTreasure)
+    goto_if_set(FLAG_WISHMAKERS_WELL_WALL_OPENED, WishmakersWell_1F_EventScript_TreasureUpgrade)
+    goto_if_ne(VAR_TEMP_2, ITEM_BIG_NUGGET, WishmakersWell_1F_EventScript_TreasureUpgrade)
+    goto_if_ne(VAR_TEMP_1, TRUE, WishmakersWell_1F_EventScript_TreasureUpgrade)
     call(WishmakersWell_1F_EventScript_ItemGlimmers)
     setflag(FLAG_TEMP_13)
     call(WishmakersWell_1F_EventScript_CheckWall)

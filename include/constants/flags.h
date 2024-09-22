@@ -285,8 +285,8 @@
 #define FLAG_CAUGHT_ENTEI                    0xF9
 #define FLAG_DEFEATED_SUICUNE                0xFA
 #define FLAG_CAUGHT_SUICUNE                  0xFB
-#define FLAG_UNUSED_0x0FC                    0xFC
-#define FLAG_UNUSED_0x0FD                    0xFD
+#define FLAG_DEFEATED_JIRACHI                0xFC
+#define FLAG_CAUGHT_JIRACHI                  0xFD
 #define FLAG_UNUSED_0x0FE                    0xFE
 #define FLAG_UNUSED_0x0FF                    0xFF
 #define FLAG_UNUSED_0x100                    0x100
@@ -1622,7 +1622,7 @@
 #define FLAG_DAILY_FLOWER_SHOP_RECEIVED_BERRY       (DAILY_FLAGS_START + 0x10)
 #define FLAG_DAILY_BERRY_MASTERS_WIFE               (DAILY_FLAGS_START + 0x11)
 #define FLAG_DAILY_SOOTOPOLIS_RECEIVED_BERRY        (DAILY_FLAGS_START + 0x12)
-#define FLAG_UNUSED_0x933                           (DAILY_FLAGS_START + 0x13) // Unused Flag
+#define FLAG_DAILY_WISHMAKERS_WELL_TREASURE         (DAILY_FLAGS_START + 0x13)
 #define FLAG_DAILY_APPRENTICE_LEAVES                (DAILY_FLAGS_START + 0x14)
 
 #define FLAG_DAILY_RUSTBORO_GYM_REMATCH             (DAILY_FLAGS_START + 0x15)

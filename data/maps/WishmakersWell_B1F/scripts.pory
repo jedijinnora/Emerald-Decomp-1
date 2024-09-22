@@ -1,1 +1,57 @@
-mapscripts WishmakersWell_B1F_MapScripts {}
+const LOCALID_JIRACHI = 1
+
+mapscripts WishmakersWell_B1F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : WishmakersWell_B1F_OnTransition
+    MAP_SCRIPT_ON_RESUME : WishmakersWell_B1F_OnResume
+}
+
+script WishmakersWell_B1F_OnTransition {
+    call_if_unset(FLAG_WISHMAKERS_WELL_WALL_OPENED, WishmakersWell_B1F_HideJirachi)
+    call_if_set(FLAG_DEFEATED_JIRACHI, WishmakersWell_B1F_HideJirachi)
+    call_if_set(FLAG_CAUGHT_JIRACHI, WishmakersWell_B1F_HideJirachi)
+    end
+}
+
+script WishmakersWell_B1F_HideJirachi {
+    setflag(FLAG_TEMP_11)
+    return
+}
+
+script WishmakersWell_B1F_OnResume {
+    call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_TryRemoveCaughtEncounter)
+    end
+}
+
+script WishmakersWell_B1F_Jirachi {
+    lock
+    faceplayer
+    playmoncry(SPECIES_JIRACHI, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+    setflag(FLAG_SMART_WILD_AI)
+	createmon(1, 0, SPECIES_JIRACHI, 90, ITEM_LEPPA_BERRY, move1=MOVE_DOOM_DESIRE, move2=MOVE_REST, move3=MOVE_ANCIENT_POWER, move4=MOVE_PSYCHIC)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	special(BattleSetup_StartLegendaryBattle)
+	waitstate
+    clearflag(FLAG_SMART_WILD_AI)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, WishmakersWell_B1F_EventScript_DefeatedJirachi)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, WishmakersWell_B1F_EventScript_RanFromJirachi)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, WishmakersWell_B1F_EventScript_RanFromJirachi)
+	setflag(FLAG_CAUGHT_JIRACHI)
+    release
+    end
+}
+
+script WishmakersWell_B1F_EventScript_DefeatedJirachi {
+	setflag(FLAG_DEFEATED_JIRACHI)
+	goto(Common_EventScript_RemoveStaticPokemon)
+	end
+}
+
+script WishmakersWell_B1F_EventScript_RanFromJirachi {
+	setflag(FLAG_DEFEATED_JIRACHI)
+	setvar(VAR_0x8004, SPECIES_JIRACHI)
+	goto(Common_EventScript_LegendaryFlewAway)
+	end
+}
