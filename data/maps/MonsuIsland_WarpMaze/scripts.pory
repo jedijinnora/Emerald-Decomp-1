@@ -1,0 +1,252 @@
+mapscripts MonsuIsland_WarpMaze_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : MonsuIsland_WarpMaze_OnTransition
+}
+
+script MonsuIsland_WarpMaze_OnTransition {
+    call_if_set(FLAG_MONSU_ISLAND_GREAT_TUSK, MonsuIsland_WarpMaze_HideGreatTusk)
+    call_if_set(FLAG_MONSU_ISLAND_SCREAM_TAIL, MonsuIsland_WarpMaze_HideScreamTail)
+    call_if_set(FLAG_MONSU_ISLAND_SLITHER_WING, MonsuIsland_WarpMaze_HideSlitherWing)
+    call_if_set(FLAG_MONSU_ISLAND_SANDY_SHOCKS, MonsuIsland_WarpMaze_HideSandyShocks)
+    call_if_set(FLAG_MONSU_ISLAND_ROARING_MOON, MonsuIsland_WarpMaze_HideRoaringMoon)
+    end
+}
+
+script MonsuIsland_WarpMaze_HideGreatTusk {
+    setflag(FLAG_TEMP_11)
+    return
+}
+
+script MonsuIsland_WarpMaze_HideScreamTail {
+    setflag(FLAG_TEMP_12)
+    return
+}
+
+script MonsuIsland_WarpMaze_HideSlitherWing {
+    setflag(FLAG_TEMP_13)
+    return
+}
+
+script MonsuIsland_WarpMaze_HideSandyShocks {
+    setflag(FLAG_TEMP_14)
+    return
+}
+
+script MonsuIsland_WarpMaze_HideRoaringMoon {
+    setflag(FLAG_TEMP_15)
+    return
+}
+
+script MonsuIsland_WarpMaze_WeatherNotification {
+    lock
+    msgbox(format("A harsh power fills the area from somewhere high above…"))
+    setweather(WEATHER_DROUGHT)
+    doweather
+    setvar(VAR_TEMP_1, 1)
+    release
+    end
+}
+
+script MonsuIsland_WarpMaze_EndEncounter {
+    release
+    end
+}
+
+script MonsuIsland_WarpMaze_GreatTusk {
+    lock
+    faceplayer
+    playmoncry(SPECIES_GREAT_TUSK, CRY_MODE_ENCOUNTER)
+	delay(10)
+	waitmoncry
+    setflag(FLAG_SMART_WILD_AI)
+    setflag(FLAG_NO_CATCHING)
+    setflag(FLAG_NO_BAG_USE)
+    switch(var(VAR_NUM_BADGES)) {
+        case 2:
+            createmon(1, 0, SPECIES_GREAT_TUSK, 34, ITEM_MUSCLE_BAND, move1=MOVE_BULLDOZE, move2=MOVE_BRICK_BREAK, move3=MOVE_RAPID_SPIN, move4=MOVE_SMACK_DOWN)
+        case 3:
+            createmon(1, 0, SPECIES_GREAT_TUSK, 43, ITEM_MUSCLE_BAND, move1=MOVE_STOMPING_TANTRUM, move2=MOVE_BRICK_BREAK, move3=MOVE_RAPID_SPIN, move4=MOVE_SMACK_DOWN)
+        case 4:
+            createmon(1, 0, SPECIES_GREAT_TUSK, 52, ITEM_MUSCLE_BAND, move1=MOVE_STOMPING_TANTRUM, move2=MOVE_BRICK_BREAK, move3=MOVE_KNOCK_OFF, move4=MOVE_SMACK_DOWN)
+        case 5:
+            createmon(1, 0, SPECIES_GREAT_TUSK, 61, ITEM_MUSCLE_BAND, move1=MOVE_EARTHQUAKE, move2=MOVE_BRICK_BREAK, move3=MOVE_KNOCK_OFF, move4=MOVE_SMACK_DOWN)
+        case 6:
+            createmon(1, 0, SPECIES_GREAT_TUSK, 70, ITEM_MUSCLE_BAND, move1=MOVE_EARTHQUAKE, move2=MOVE_CLOSE_COMBAT, move3=MOVE_KNOCK_OFF, move4=MOVE_SMACK_DOWN)
+        case 7:
+            createmon(1, 0, SPECIES_GREAT_TUSK, 79, ITEM_MUSCLE_BAND, move1=MOVE_EARTHQUAKE, move2=MOVE_CLOSE_COMBAT, move3=MOVE_KNOCK_OFF, move4=MOVE_SMACK_DOWN)
+        case 8:
+            createmon(1, 0, SPECIES_GREAT_TUSK, 85, ITEM_MUSCLE_BAND, move1=MOVE_EARTHQUAKE, move2=MOVE_CLOSE_COMBAT, move3=MOVE_KNOCK_OFF, move4=MOVE_SMACK_DOWN)
+        default:
+            createmon(1, 0, SPECIES_GREAT_TUSK, 25, ITEM_MUSCLE_BAND, move1=MOVE_BULLDOZE, move2=MOVE_BRICK_BREAK, move3=MOVE_RAPID_SPIN, move4=MOVE_ROLLOUT)
+    }
+	dowildbattle
+    clearflag(FLAG_SMART_WILD_AI)
+    clearflag(FLAG_NO_CATCHING)
+    clearflag(FLAG_NO_BAG_USE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, MonsuIsland_WarpMaze_EndEncounter)
+    goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MonsuIsland_WarpMaze_EndEncounter)
+	setflag(FLAG_MONSU_ISLAND_GREAT_TUSK)
+	goto(Common_EventScript_RemoveStaticPokemon)
+    release
+    end
+}
+
+script MonsuIsland_WarpMaze_ScreamTail {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SCREAM_TAIL, CRY_MODE_ENCOUNTER)
+	delay(10)
+	waitmoncry
+    setflag(FLAG_SMART_WILD_AI)
+    setflag(FLAG_NO_CATCHING)
+    setflag(FLAG_NO_BAG_USE)
+    switch(var(VAR_NUM_BADGES)) {
+        case 2:
+            createmon(1, 0, SPECIES_SCREAM_TAIL, 34, ITEM_LEFTOVERS, move1=MOVE_BODY_SLAM, move2=MOVE_PSYBEAM, move3=MOVE_HOWL, move4=MOVE_UPROAR)
+        case 3:
+            createmon(1, 0, SPECIES_SCREAM_TAIL, 43, ITEM_LEFTOVERS, move1=MOVE_BODY_SLAM, move2=MOVE_PSYBEAM, move3=MOVE_PLAY_ROUGH, move4=MOVE_UPROAR)
+        case 4:
+            createmon(1, 0, SPECIES_SCREAM_TAIL, 52, ITEM_LEFTOVERS, move1=MOVE_BODY_SLAM, move2=MOVE_PSYBEAM, move3=MOVE_PLAY_ROUGH, move4=MOVE_HYPER_VOICE)
+        case 5:
+            createmon(1, 0, SPECIES_SCREAM_TAIL, 61, ITEM_LEFTOVERS, move1=MOVE_BODY_SLAM, move2=MOVE_PSYCHIC_FANGS, move3=MOVE_PLAY_ROUGH, move4=MOVE_HYPER_VOICE)
+        case 6:
+            createmon(1, 0, SPECIES_SCREAM_TAIL, 70, ITEM_LEFTOVERS, move1=MOVE_BODY_SLAM, move2=MOVE_PSYCHIC_FANGS, move3=MOVE_PLAY_ROUGH, move4=MOVE_HYPER_VOICE)
+        case 7:
+            createmon(1, 0, SPECIES_SCREAM_TAIL, 79, ITEM_LEFTOVERS, move1=MOVE_BODY_SLAM, move2=MOVE_PSYCHIC_FANGS, move3=MOVE_PLAY_ROUGH, move4=MOVE_HYPER_VOICE)
+        case 8:
+            createmon(1, 0, SPECIES_SCREAM_TAIL, 85, ITEM_LEFTOVERS, move1=MOVE_BODY_SLAM, move2=MOVE_PSYCHIC_FANGS, move3=MOVE_PLAY_ROUGH, move4=MOVE_HYPER_VOICE)
+        default:
+            createmon(1, 0, SPECIES_SCREAM_TAIL, 25, ITEM_LEFTOVERS, move1=MOVE_BITE, move2=MOVE_PSYBEAM, move3=MOVE_HOWL, move4=MOVE_UPROAR)
+    }
+	dowildbattle
+    clearflag(FLAG_SMART_WILD_AI)
+    clearflag(FLAG_NO_CATCHING)
+    clearflag(FLAG_NO_BAG_USE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, MonsuIsland_WarpMaze_EndEncounter)
+    goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MonsuIsland_WarpMaze_EndEncounter)
+	setflag(FLAG_MONSU_ISLAND_SCREAM_TAIL)
+	goto(Common_EventScript_RemoveStaticPokemon)
+    release
+    end
+}
+
+script MonsuIsland_WarpMaze_SlitherWing {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SLITHER_WING, CRY_MODE_ENCOUNTER)
+	delay(10)
+	waitmoncry
+    setflag(FLAG_SMART_WILD_AI)
+    setflag(FLAG_NO_CATCHING)
+    setflag(FLAG_NO_BAG_USE)
+    switch(var(VAR_NUM_BADGES)) {
+        case 2:
+            createmon(1, 0, SPECIES_GREAT_TUSK, 34, ITEM_MUSCLE_BAND, move1=MOVE_BUG_BITE, move2=MOVE_FLAME_CHARGE, move3=MOVE_BRICK_BREAK, move4=MOVE_CURSE)
+        case 3:
+            createmon(1, 0, SPECIES_SLITHER_WING, 43, ITEM_MUSCLE_BAND, move1=MOVE_LUNGE, move2=MOVE_FLAME_CHARGE, move3=MOVE_BRICK_BREAK, move4=MOVE_BULK_UP)
+        case 4:
+            createmon(1, 0, SPECIES_SLITHER_WING, 52, ITEM_MUSCLE_BAND, move1=MOVE_LUNGE, move2=MOVE_FLAME_CHARGE, move3=MOVE_SUPERPOWER, move4=MOVE_BULK_UP)
+        case 5:
+            createmon(1, 0, SPECIES_SLITHER_WING, 61, ITEM_MUSCLE_BAND, move1=MOVE_LUNGE, move2=MOVE_FLAME_CHARGE, move3=MOVE_SUPERPOWER, move4=MOVE_BULK_UP)
+        case 6:
+            createmon(1, 0, SPECIES_SLITHER_WING, 70, ITEM_MUSCLE_BAND, move1=MOVE_LEECH_LIFE, move2=MOVE_FLAME_CHARGE, move3=MOVE_SUPERPOWER, move4=MOVE_BULK_UP)
+        case 7:
+            createmon(1, 0, SPECIES_SLITHER_WING, 79, ITEM_MUSCLE_BAND, move1=MOVE_LEECH_LIFE, move2=MOVE_FLAME_CHARGE, move3=MOVE_SUPERPOWER, move4=MOVE_BULK_UP)
+        case 8:
+            createmon(1, 0, SPECIES_SLITHER_WING, 85, ITEM_MUSCLE_BAND, move1=MOVE_LEECH_LIFE, move2=MOVE_FLAME_CHARGE, move3=MOVE_SUPERPOWER, move4=MOVE_BULK_UP)
+        default:
+            createmon(1, 0, SPECIES_SLITHER_WING, 25, ITEM_MUSCLE_BAND, move1=MOVE_BUG_BITE, move2=MOVE_FLAME_CHARGE, move3=MOVE_BRICK_BREAK, move4=MOVE_CURSE)
+    }
+	dowildbattle
+    clearflag(FLAG_SMART_WILD_AI)
+    clearflag(FLAG_NO_CATCHING)
+    clearflag(FLAG_NO_BAG_USE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, MonsuIsland_WarpMaze_EndEncounter)
+    goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MonsuIsland_WarpMaze_EndEncounter)
+	setflag(FLAG_MONSU_ISLAND_SLITHER_WING)
+	goto(Common_EventScript_RemoveStaticPokemon)
+    release
+    end
+}
+
+script MonsuIsland_WarpMaze_SandyShocks {
+    lock
+    faceplayer
+    playmoncry(SPECIES_SANDY_SHOCKS, CRY_MODE_ENCOUNTER)
+	delay(10)
+	waitmoncry
+    setflag(FLAG_SMART_WILD_AI)
+    setflag(FLAG_NO_CATCHING)
+    setflag(FLAG_NO_BAG_USE)
+    switch(var(VAR_NUM_BADGES)) {
+        case 2:
+            createmon(1, 0, SPECIES_GREAT_TUSK, 34, ITEM_WISE_GLASSES, move1=MOVE_BULLDOZE, move2=MOVE_CHARGE_BEAM, move3=MOVE_HEAVY_SLAM, move4=MOVE_TRI_ATTACK)
+        case 3:
+            createmon(1, 0, SPECIES_SANDY_SHOCKS, 43, ITEM_WISE_GLASSES, move1=MOVE_EARTH_POWER, move2=MOVE_THUNDERBOLT, move3=MOVE_HEAVY_SLAM, move4=MOVE_TRI_ATTACK)
+        case 4:
+            createmon(1, 0, SPECIES_SANDY_SHOCKS, 52, ITEM_WISE_GLASSES, move1=MOVE_EARTH_POWER, move2=MOVE_THUNDERBOLT, move3=MOVE_FLASH_CANNON, move4=MOVE_TRI_ATTACK)
+        case 5:
+            createmon(1, 0, SPECIES_SANDY_SHOCKS, 61, ITEM_WISE_GLASSES, move1=MOVE_EARTH_POWER, move2=MOVE_THUNDERBOLT, move3=MOVE_FLASH_CANNON, move4=MOVE_TRI_ATTACK)
+        case 6:
+            createmon(1, 0, SPECIES_SANDY_SHOCKS, 70, ITEM_WISE_GLASSES, move1=MOVE_EARTH_POWER, move2=MOVE_THUNDERBOLT, move3=MOVE_FLASH_CANNON, move4=MOVE_TRI_ATTACK)
+        case 7:
+            createmon(1, 0, SPECIES_SANDY_SHOCKS, 79, ITEM_WISE_GLASSES, move1=MOVE_EARTH_POWER, move2=MOVE_THUNDERBOLT, move3=MOVE_FLASH_CANNON, move4=MOVE_TRI_ATTACK)
+        case 8:
+            createmon(1, 0, SPECIES_SANDY_SHOCKS, 85, ITEM_WISE_GLASSES, move1=MOVE_EARTH_POWER, move2=MOVE_THUNDERBOLT, move3=MOVE_FLASH_CANNON, move4=MOVE_TRI_ATTACK)
+        default:
+            createmon(1, 0, SPECIES_SANDY_SHOCKS, 25, ITEM_WISE_GLASSES, move1=MOVE_BULLDOZE, move2=MOVE_CHARGE_BEAM, move3=MOVE_HEAVY_SLAM, move4=MOVE_SWIFT)
+    }
+	dowildbattle
+    clearflag(FLAG_SMART_WILD_AI)
+    clearflag(FLAG_NO_CATCHING)
+    clearflag(FLAG_NO_BAG_USE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, MonsuIsland_WarpMaze_EndEncounter)
+    goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MonsuIsland_WarpMaze_EndEncounter)
+	setflag(FLAG_MONSU_ISLAND_SANDY_SHOCKS)
+	goto(Common_EventScript_RemoveStaticPokemon)
+    release
+    end
+}
+
+script MonsuIsland_WarpMaze_RoaringMoon {
+    lock
+    faceplayer
+    playmoncry(SPECIES_ROARING_MOON, CRY_MODE_ENCOUNTER)
+	delay(10)
+	waitmoncry
+    setflag(FLAG_SMART_WILD_AI)
+    setflag(FLAG_NO_CATCHING)
+    setflag(FLAG_NO_BAG_USE)
+    switch(var(VAR_NUM_BADGES)) {
+        case 2:
+            createmon(1, 0, SPECIES_ROARING_MOON, 34, ITEM_MUSCLE_BAND, move1=MOVE_BITE, move2=MOVE_BREAKING_SWIPE, move3=MOVE_INCINERATE, move4=MOVE_TAILWIND)
+        case 3:
+            createmon(1, 0, SPECIES_ROARING_MOON, 43, ITEM_MUSCLE_BAND, move1=MOVE_CRUNCH, move2=MOVE_BREAKING_SWIPE, move3=MOVE_FLAMETHROWER, move4=MOVE_TAILWIND)
+        case 4:
+            createmon(1, 0, SPECIES_ROARING_MOON, 52, ITEM_MUSCLE_BAND, move1=MOVE_CRUNCH, move2=MOVE_DRAGON_CLAW, move3=MOVE_FLAMETHROWER, move4=MOVE_DRAGON_DANCE)
+        case 5:
+            createmon(1, 0, SPECIES_ROARING_MOON, 61, ITEM_MUSCLE_BAND, move1=MOVE_CRUNCH, move2=MOVE_DRAGON_CLAW, move3=MOVE_FIRE_FANG, move4=MOVE_DRAGON_DANCE)
+        case 6:
+            createmon(1, 0, SPECIES_ROARING_MOON, 70, ITEM_MUSCLE_BAND, move1=MOVE_CRUNCH, move2=MOVE_DRAGON_CLAW, move3=MOVE_FIRE_FANG, move4=MOVE_DRAGON_DANCE)
+        case 7:
+            createmon(1, 0, SPECIES_ROARING_MOON, 79, ITEM_MUSCLE_BAND, move1=MOVE_CRUNCH, move2=MOVE_DRAGON_CLAW, move3=MOVE_FIRE_FANG, move4=MOVE_DRAGON_DANCE)
+        case 8:
+            createmon(1, 0, SPECIES_ROARING_MOON, 85, ITEM_MUSCLE_BAND, move1=MOVE_CRUNCH, move2=MOVE_DRAGON_CLAW, move3=MOVE_FIRE_FANG, move4=MOVE_DRAGON_DANCE)
+        default:
+            createmon(1, 0, SPECIES_ROARING_MOON, 25, ITEM_MUSCLE_BAND, move1=MOVE_BITE, move2=MOVE_DRAGON_BREATH, move3=MOVE_INCINERATE, move4=MOVE_TAILWIND)
+    }
+	dowildbattle
+    clearflag(FLAG_SMART_WILD_AI)
+    clearflag(FLAG_NO_CATCHING)
+    clearflag(FLAG_NO_BAG_USE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+    goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, MonsuIsland_WarpMaze_EndEncounter)
+    goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MonsuIsland_WarpMaze_EndEncounter)
+	setflag(FLAG_MONSU_ISLAND_ROARING_MOON)
+	goto(Common_EventScript_RemoveStaticPokemon)
+    release
+    end
+}

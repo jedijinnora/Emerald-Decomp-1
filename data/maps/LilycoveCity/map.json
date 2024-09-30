@@ -29,14 +29,14 @@
       "direction": "left"
     },
     {
-      "map": "MAP_MONSU_ISLAND_EXTERIOR",
-      "offset": 30,
-      "direction": "up"
-    },
-    {
       "map": "MAP_SUNRISE_SHORE",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_MONSU_ISLAND_EXTERIOR",
+      "offset": 30,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -332,10 +332,10 @@
       "dest_warp_id": "1"
     },
     {
-      "x": 64,
-      "y": 6,
+      "x": 70,
+      "y": 5,
       "elevation": 1,
-      "dest_map": "MAP_AQUA_HIDEOUT_1F",
+      "dest_map": "MAP_MONSU_ISLAND_ENTRANCE",
       "dest_warp_id": "0"
     },
     {

@@ -39,13 +39,13 @@
       "direction": "dive"
     },
     {
-      "map": "MAP_MONSU_ISLAND_EXTERIOR",
-      "offset": -10,
+      "map": "MAP_SUNRISE_SHORE",
+      "offset": 54,
       "direction": "left"
     },
     {
-      "map": "MAP_SUNRISE_SHORE",
-      "offset": 54,
+      "map": "MAP_MONSU_ISLAND_EXTERIOR",
+      "offset": -40,
       "direction": "left"
     }
   ],

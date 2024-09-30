@@ -1274,3 +1274,13 @@ Common_EventScript_CountBadges::
 	.include "data/maps/WishmakersWell_1F/scripts.inc"
 
 	.include "data/maps/WishmakersWell_B1F/scripts.inc"
+
+	.include "data/maps/MonsuIsland_Entrance/scripts.inc"
+
+	.include "data/maps/MonsuIsland_Pyramid_1F/scripts.inc"
+
+	.include "data/maps/MonsuIsland_WarpMaze/scripts.inc"
+
+	.include "data/maps/MonsuIsland_Pyramid_2F/scripts.inc"
+
+	.include "data/maps/MonsuIsland_Pyramid_Summit/scripts.inc"

@@ -539,7 +539,12 @@
     "TitansGrave",
     "CalderaCave_1F",
     "WishmakersWell_1F",
-    "WishmakersWell_B1F"
+    "WishmakersWell_B1F",
+    "MonsuIsland_Entrance",
+    "MonsuIsland_Pyramid_1F",
+    "MonsuIsland_WarpMaze",
+    "MonsuIsland_Pyramid_2F",
+    "MonsuIsland_Pyramid_Summit"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

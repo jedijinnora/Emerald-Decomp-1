@@ -5135,9 +5135,9 @@
       "id": "LAYOUT_MONSU_ISLAND_EXTERIOR",
       "name": "MonsuIsland_Exterior_Layout",
       "width": 50,
-      "height": 20,
+      "height": 32,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Lilycove",
+      "secondary_tileset": "gTileset_BattleFrontierOutsideEast",
       "border_filepath": "data/layouts/MonsuIsland_Exterior/border.bin",
       "blockdata_filepath": "data/layouts/MonsuIsland_Exterior/map.bin"
     },
@@ -5260,6 +5260,56 @@
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/WishmakersWell_B1F/border.bin",
       "blockdata_filepath": "data/layouts/WishmakersWell_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MONSU_ISLAND_ENTRANCE",
+      "name": "MonsuIsland_Entrance_Layout",
+      "width": 30,
+      "height": 31,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/MonsuIsland_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/MonsuIsland_Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_MONSU_ISLAND_PYRAMID_1F",
+      "name": "MonsuIsland_Pyramid_1F_Layout",
+      "width": 37,
+      "height": 45,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattlePyramid",
+      "border_filepath": "data/layouts/MonsuIsland_Pyramid_1F/border.bin",
+      "blockdata_filepath": "data/layouts/MonsuIsland_Pyramid_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MONSU_ISLAND_WARP_MAZE",
+      "name": "MonsuIsland_WarpMaze_Layout",
+      "width": 30,
+      "height": 60,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattlePyramid",
+      "border_filepath": "data/layouts/MonsuIsland_WarpMaze/border.bin",
+      "blockdata_filepath": "data/layouts/MonsuIsland_WarpMaze/map.bin"
+    },
+    {
+      "id": "LAYOUT_MONSU_ISLAND_PYRAMID_2F",
+      "name": "MonsuIsland_Pyramid_2F_Layout",
+      "width": 45,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattlePyramid",
+      "border_filepath": "data/layouts/MonsuIsland_Pyramid_2F/border.bin",
+      "blockdata_filepath": "data/layouts/MonsuIsland_Pyramid_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_MONSU_ISLAND_PYRAMID_SUMMIT",
+      "name": "MonsuIsland_Pyramid_Summit_Layout",
+      "width": 34,
+      "height": 23,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattlePyramid",
+      "border_filepath": "data/layouts/MonsuIsland_Pyramid_Summit/border.bin",
+      "blockdata_filepath": "data/layouts/MonsuIsland_Pyramid_Summit/map.bin"
     }
   ]
 }

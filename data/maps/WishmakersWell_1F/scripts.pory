@@ -48,9 +48,6 @@ script WishmakersWell_1F_EventScript_CheckForItems {
 
 script WishmakersWell_1F_EventScript_BrailleLeft {
     lock
-    additem(ITEM_BIG_NUGGET)
-    additem(ITEM_WISHING_PIECE)
-    additem(ITEM_COMET_SHARD)
     braillemsgbox(WishmakersWell_Braille_Left)
     release
     end
@@ -235,11 +232,8 @@ script WishmakersWell_1F_EventScript_Well_CometShard {
     call(WishmakersWell_1F_EventScript_Well)
     call(WishmakersWell_1F_EventScript_ThrowTreasure)
     goto_if_set(FLAG_WISHMAKERS_WELL_WALL_OPENED, WishmakersWell_1F_EventScript_TreasureUpgrade)
-    msgbox(format("1"))
     goto_if_ne(VAR_TEMP_2, ITEM_COMET_SHARD, WishmakersWell_1F_EventScript_TreasureUpgrade)
-    msgbox(format("2"))
     goto_if_ne(VAR_TEMP_1, TRUE, WishmakersWell_1F_EventScript_TreasureUpgrade)
-    msgbox(format("3"))
     call(WishmakersWell_1F_EventScript_ItemGlimmers)
     setflag(FLAG_TEMP_11)
     call(WishmakersWell_1F_EventScript_CheckWall)

@@ -504,6 +504,11 @@
 #define MAP_CALDERA_CAVE_1F               (11 | (26 << 8))
 #define MAP_WISHMAKERS_WELL_1F            (12 | (26 << 8))
 #define MAP_WISHMAKERS_WELL_B1F           (13 | (26 << 8))
+#define MAP_MONSU_ISLAND_ENTRANCE         (14 | (26 << 8))
+#define MAP_MONSU_ISLAND_PYRAMID_1F       (15 | (26 << 8))
+#define MAP_MONSU_ISLAND_WARP_MAZE        (16 | (26 << 8))
+#define MAP_MONSU_ISLAND_PYRAMID_2F       (17 | (26 << 8))
+#define MAP_MONSU_ISLAND_PYRAMID_SUMMIT   (18 | (26 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (27 << 8))
