@@ -43,6 +43,7 @@ script DewfordResort_LifeguardHouse_EventScript_GiveStone {
     dynmultipush("Thunder Stone", ITEM_THUNDER_STONE)
     dynmultipush("Shiny Stone", ITEM_SHINY_STONE)
     dynmultistack(0,0,TRUE,6,TRUE,0,DYN_MULTICHOICE_CB_SHOW_ITEM)
+    goto_if_eq(VAR_RESULT, 127, DewfordResort_LifeguardHouse_EventScript_RefusedStone)
     giveitem(VAR_RESULT)
     goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
     setflag(FLAG_GIVEN_RESORT_EVOLUTION_STONE)

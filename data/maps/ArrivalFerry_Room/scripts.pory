@@ -31,6 +31,7 @@ script ArrivalFerry_Room_EventScript_Init {
     applymovement(LOCALID_ROOMMATE, Common_Movement_ExclamationMark)
     waitmovement(LOCALID_ROOMMATE)
     msgbox(format("Ah, the sleeper awakens!"))
+    closemessage
     applymovement(LOCALID_ROOMMATE, ApproachPlayer)
     waitmovement(LOCALID_ROOMMATE)
     msgbox(format("It feels like an eternity since you burst in here like a hurricane and fell straight asleep!"))
@@ -365,6 +366,8 @@ script ArrivalFerry_Room_EventScript_Monotype {
             dynmultipush("Clobbopus", SPECIES_CLOBBOPUS)
         case 2:
             dynmultipush("Pidgey", SPECIES_PIDGEY)
+            dynmultipush("Hoothoot", SPECIES_HOOTHOOT)
+            dynmultipush("Taillow", SPECIES_TAILLOW)
             dynmultipush("Starly", SPECIES_STARLY)
             dynmultipush("Pidove", SPECIES_PIDOVE)
             dynmultipush("Fletchling", SPECIES_FLETCHLING)
@@ -467,6 +470,7 @@ script ArrivalFerry_Room_EventScript_Monotype {
             dynmultipush("Gible", SPECIES_GIBLE)
             dynmultipush("Deino", SPECIES_DEINO)
             dynmultipush("Axew", SPECIES_AXEW)
+            dynmultipush("Goomy", SPECIES_GOOMY)
             dynmultipush("Noibat", SPECIES_NOIBAT)
             dynmultipush("Applin", SPECIES_APPLIN)
         case 16:

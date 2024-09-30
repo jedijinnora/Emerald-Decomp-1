@@ -145,12 +145,10 @@ script MonsuIsland_Pyramid_1F_EventScript_FlutterMane {
 	waitmoncry
     setflag(FLAG_SMART_WILD_AI)
     setflag(FLAG_NO_CATCHING)
-    setflag(FLAG_NO_BAG_USE)
     call(MonsuIsland_Pyramid_1F_EventScript_SetFlutterManeBattle)
     dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
     clearflag(FLAG_NO_CATCHING)
-    clearflag(FLAG_NO_BAG_USE)
 	specialvar(VAR_RESULT, GetBattleOutcome)
     goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, MonsuIsland_WarpMaze_EndEncounter)
     goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MonsuIsland_WarpMaze_EndEncounter)

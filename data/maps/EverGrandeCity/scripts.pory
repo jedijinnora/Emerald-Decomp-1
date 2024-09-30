@@ -1,3 +1,20 @@
+//Object IDs
+const LOCALID_JINNORA = 25
+
+//TEMPs used
+//FLAG_TEMP_1 Sailor intro
+//FLAG_TEMP_2 TuberM intro
+//FLAG_TEMP_3 and FLAG_TEMP_4 Gentleman conversation
+//FLAG_TEMP_5 Maniac intro
+
+//FLAG_TEMP_14 Jinnora hide flag
+
+//FLAG_TEMP_1E mainland gyms check
+//FLAG_TEMP_1F Surf check
+
+//VAR_TEMP_1 store current mapsec during ferry script
+
+
 mapscripts EverGrandeCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : EverGrandeCity_OnTransition
 }
@@ -19,26 +36,11 @@ script EverGrandeCity_EventScript_HideJinnora {
 	return
 }
 
-//Object IDs
-const LOCALID_JINNORA = 25
-
-//TEMPs used
-//FLAG_TEMP_1 Sailor intro
-//FLAG_TEMP_2 TuberM intro
-//FLAG_TEMP_3 and FLAG_TEMP_4 Gentleman conversation
-//FLAG_TEMP_5 Maniac intro
-
-//FLAG_TEMP_14 Jinnora hide flag
-
-//FLAG_TEMP_1E mainland gyms check
-//FLAG_TEMP_1F Surf check
-
-
 script EverGrandeCity_EventScript_Jinnora {
 	lock
 	faceplayer
-	msgbox(format("Jinnora: Hey there! I'm Jinnora, the creator of Pokémon Emerald Beryl!"))
-	msgbox(format("I'm here as a plot device to let you skip the rest of the intro if you want?"))
+	msgbox(format("Hey there! I'm Jinnora, the creator!"))
+	msgbox(format("Jinnora: I'm here as a plot device to let you skip the rest of the intro if you want?"))
 	dynmultipush("No skip wanted", 10)
 	dynmultipush("Skip to ferry departure", 1)
 	dynmultipush("Skip to difficulty/challenge selection", 2)
@@ -353,23 +355,23 @@ script Common_EventScript_Ferry {
 	faceplayer
 	checkitem(ITEM_HM03_SURF)
 	if(var(VAR_RESULT)) {
-		//if the player has surf, allow any destination
+		//if the player has surf, allow any previously visited destination
 		setflag(FLAG_TEMP_1F)
 	} 
 	//check map and count badges
 	specialvar(VAR_RESULT, GetCurrentMapSec)
+	copyvar(VAR_TEMP_1, VAR_RESULT) //mapsec stored in temp 1
 	call(Common_EventScript_CountBadges)
 
 	//check if in Ever Grande and need to go teleport to Victory Road
-	if(flag(FLAG_CHALLENGE_HM_NONE) && var(VAR_NUM_BADGES) > 7 && !flag(FLAG_SYS_GAME_CLEAR) && var(VAR_RESULT) == 0x0F) {
-		msgbox(format("The warp statue in the Pokémon Center has been unlocked!"))
-		release
-		end
+	if(flag(FLAG_CHALLENGE_HM_NONE) && var(VAR_NUM_BADGES) > 7 && !flag(FLAG_SYS_GAME_CLEAR) && var(VAR_TEMP_1) == 0x0F) {
+		msgbox(format("If you're ready to go to Emerald Cape, the warp statue in the Pokémon Center has been unlocked!"))
+		goto_if_eq(VAR_DIFFICULTY_SETTING, 2, Common_EventScript_FerryEnd)
 	}
 
 	//check ticket
-	call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_CheckFerryTicket)
-	if(var(VAR_RESULT) == 0x0E) {
+	call_if_eq(VAR_DIFFICULTY_SETTING, 2, Common_EventScript_CheckFerryTicket)
+	if(var(VAR_TEMP_1) == 0x0E) {
 		//sootopolis city has a different intro
 		msgbox(format("Yo, {PLAYER}! The ferry can't reach inside the caldera, but we can take you by Flying Pokémon!"))
 	} else {
@@ -382,79 +384,116 @@ script Common_EventScript_Ferry {
 		setflag(FLAG_TEMP_1E) //all mainland gyms defeated, must go to islands
 	}
 	
-	if (var(VAR_RESULT) != 0x0A && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_TEMP_1E) || flag(FLAG_TEMP_1F))) {
+	if (var(VAR_TEMP_1) != 0x0A 
+	  && ((var(VAR_DIFFICULTY_SETTING) != 2) 
+	    || flag(FLAG_SYS_GAME_CLEAR)
+	  	|| !flag(FLAG_TEMP_1E) 
+		|| (flag(FLAG_TEMP_1F) && flag(FLAG_VISITED_RUSTBORO_CITY)))) 
+	{
 		dynmultipush("Rustboro", 0)
 	}
-	if (var(VAR_RESULT) != 0x02 && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_BADGE02_GET) || flag(FLAG_TEMP_1F))) {
+
+	if (var(VAR_TEMP_1) != 0x02 
+	  && ((var(VAR_DIFFICULTY_SETTING) != 2)
+	  	|| flag(FLAG_SYS_GAME_CLEAR)
+	  	|| !flag(FLAG_BADGE02_GET) 
+		|| (flag(FLAG_TEMP_1F) && flag(FLAG_VISITED_DEWFORD_TOWN)))) 
+	{
 		dynmultipush("Dewford", 1)
 	}
-	if (var(VAR_RESULT) != 0x4B && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_TEMP_1E) || flag(FLAG_TEMP_1F))) {
+
+	if (var(VAR_TEMP_1) != 0x4B 
+	  && ((var(VAR_DIFFICULTY_SETTING) != 2)
+	    || flag(FLAG_SYS_GAME_CLEAR)
+	  	|| !flag(FLAG_TEMP_1E) 
+	  	|| (flag(FLAG_TEMP_1F) && flag(FLAG_VISITED_LITTLEROOT_TOWN))))
+	{
 		dynmultipush("Littleroot", 2)
 	}
-	if (var(VAR_RESULT) != 0x08 && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_TEMP_1E) || flag(FLAG_TEMP_1F))) {
+
+	if (var(VAR_TEMP_1) != 0x08 
+	  && ((var(VAR_DIFFICULTY_SETTING) != 2)
+	  	|| flag(FLAG_SYS_GAME_CLEAR)
+	    || !flag(FLAG_TEMP_1E) 
+	    || (flag(FLAG_TEMP_1F) && flag(FLAG_VISITED_SLATEPORT_CITY))))
+	{
 		dynmultipush("Slateport", 3)
 	}
-	if (var(VAR_RESULT) != 0x0C && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_TEMP_1E) || flag(FLAG_TEMP_1F))) {
+
+	if (var(VAR_TEMP_1) != 0x0C 
+	  && ((var(VAR_DIFFICULTY_SETTING) != 2)
+	  	|| flag(FLAG_SYS_GAME_CLEAR)
+	    || !flag(FLAG_TEMP_1E) 
+		|| (flag(FLAG_TEMP_1F) && flag(FLAG_VISITED_LILYCOVE_CITY))))
+	{
 		dynmultipush("Lilycove", 4)
 	}
-	if (var(VAR_RESULT) != 0x0D && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_BADGE07_GET) || flag(FLAG_TEMP_1F))) {
+
+	if (var(VAR_TEMP_1) != 0x0D 
+	  && ((var(VAR_DIFFICULTY_SETTING) != 2)
+	  	|| flag(FLAG_SYS_GAME_CLEAR)
+	    || !flag(FLAG_BADGE07_GET) 
+		|| (flag(FLAG_TEMP_1F) && flag(FLAG_VISITED_MOSSDEEP_CITY))))
+	{
 		dynmultipush("Mossdeep", 5)
 	}
-	if (var(VAR_RESULT) != 0x0E && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || !flag(FLAG_BADGE08_GET) || flag(FLAG_TEMP_1F))) {
+
+	if (var(VAR_TEMP_1) != 0x0E 
+	  && ((var(VAR_DIFFICULTY_SETTING) != 2)
+	  	|| flag(FLAG_SYS_GAME_CLEAR)
+	    || !flag(FLAG_BADGE08_GET) 
+	    || (flag(FLAG_TEMP_1F) && flag(FLAG_VISITED_SOOTOPOLIS_CITY))))
+	{
 		dynmultipush("Sootopolis", 6)
 	}
-	if (var(VAR_RESULT) != 0x0F && (!flag(FLAG_CHALLENGE_FERRY_LIMIT) || (var(VAR_NUM_BADGES) > 7) || flag(FLAG_TEMP_1F))) {
+
+	if (var(VAR_TEMP_1) != 0x0F 
+	  && ((var(VAR_DIFFICULTY_SETTING) != 2)
+	  	|| flag(FLAG_SYS_GAME_CLEAR)
+	    || (var(VAR_NUM_BADGES) > 7) 
+		|| flag(FLAG_TEMP_1F))) 
+	{
 		dynmultipush("Ever Grande", 7)
 	}
 
 	//finished all checks, do menu choice
 	msgbox(format("Where would you like to go?"))
 	dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+	goto_if_eq(VAR_RESULT, 127, Common_EventScript_FerryEnd)
+	copyvar(VAR_FERRY_DESTINATION, VAR_RESULT)
 
-	//warp to new map, use ticket if doing challenge, set heal spawn to prevent locking
-	switch(var(VAR_RESULT)) {
+	//use ticket
+	call_if_set(FLAG_DEPARTED_EVER_GRANDE, Common_EventScript_UseFerryTicket)
+	
+	//warp to new map, set heal spawn to prevent locking
+	switch(var(VAR_FERRY_DESTINATION)) {
 		case 0:
 			warp(MAP_RUSTBORO_CITY, 13)
-			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_RUSTBORO_CITY)
-			setvar(VAR_FERRY_DESTINATION, 1)
 		case 1:
 			warp(MAP_DEWFORD_RESORT, 6)
-			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_DEWFORD_TOWN)
-			setvar(VAR_FERRY_DESTINATION, 2)
 		case 2:
 			warp(MAP_LITTLEROOT_SHORE, 1)
-			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE)
-			setvar(VAR_FERRY_DESTINATION, 3)
 		case 3:
 			warp(MAP_SLATEPORT_CITY, 9)
-			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_SLATEPORT_CITY)
-			setvar(VAR_FERRY_DESTINATION, 4)
 		case 4:
 			warp(MAP_LILYCOVE_CITY, 13)
-			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_LILYCOVE_CITY)
-			setvar(VAR_FERRY_DESTINATION, 5)
 		case 5:
 			warp(MAP_MOSSDEEP_CITY, 13)
-			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_MOSSDEEP_CITY)
-			setvar(VAR_FERRY_DESTINATION, 6)
 		case 6:
 			warp(MAP_SOOTOPOLIS_CITY, 14)
-			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_SOOTOPOLIS_CITY)
-			setvar(VAR_FERRY_DESTINATION, 7)
 		case 7:
 			warp(MAP_EVER_GRANDE_CITY, 10)
-			call_if_set(FLAG_CHALLENGE_FERRY_LIMIT, Common_EventScript_UseFerryTicket)
 			setrespawn(HEAL_LOCATION_EVER_GRANDE_CITY)
-			setvar(VAR_FERRY_DESTINATION, 8)
 		default:
-			msgbox(format("See you later, then!"))
+			Common_EventScript_FerryEnd:
+			msgbox(format("See you later!"))
 			release
 			end
 	}
@@ -464,13 +503,16 @@ script Common_EventScript_Ferry {
 }
 
 script Common_EventScript_CheckFerryTicket {
-	goto_if_set(FLAG_CHALLENGE_FERRY_TICKET, Common_EventScript_NopReturn)
-	msgbox(format("Sorry, {PLAYER}! You need to refresh your ferry ticket by beating a Gym Leader!"))
+	checkitem(ITEM_SS_TICKET)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	goto_if_unset(FLAG_DEPARTED_EVER_GRANDE, Common_EventScript_NopReturn) //can always leave Ever Grande
+	msgbox(format("Sorry, {PLAYER}! You need to earn a new ferry ticket by beating a Gym Leader!"))
 	release
 	end
 }
 
 script Common_EventScript_UseFerryTicket {
-	clearflag(FLAG_CHALLENGE_FERRY_TICKET)
+	goto_if_ne(VAR_DIFFICULTY_SETTING, 2, Common_EventScript_NopReturn)
+	removeitem(ITEM_SS_TICKET)
 	return
 }

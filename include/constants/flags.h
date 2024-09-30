@@ -83,8 +83,8 @@
 //Jinnora: flags for challenge settings
 #define FLAG_CHALLENGE_HM_RANDOM    0x40 // gives random HM after gym victory
 #define FLAG_CHALLENGE_HM_NONE      0x41 // receive no HMs until postgame
-#define FLAG_CHALLENGE_FERRY_LIMIT  0x42 // one ferry ride only, replenish after gym victory
-#define FLAG_CHALLENGE_FERRY_TICKET 0x43 // is single ferry use available?
+#define FLAG_CHALLENGE_UNUSED_0x42  0x42 // 
+#define FLAG_CHALLENGE_UNUSED_0x43  0x43 // 
 #define FLAG_DEPARTED_EVER_GRANDE   0x44 // player has left EGC; may forfeit but not modify challenges
 #define FLAG_NO_EV_GRINDING         0x45 // removes EVs from stat calculations and prevents EV gain from wild battle
 #define FLAG_EXPLORE_MODE           0x46

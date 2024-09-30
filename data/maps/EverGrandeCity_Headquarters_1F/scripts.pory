@@ -74,6 +74,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
     waitfanfare
     msgbox(format("I'm legally required to inform you that attempting to damage, modify, upgrade, or customize your Pokénav without speaking to a licensed representative of the Devon Corporation is a felony under Hoenn law and will void your warranty."))
     msgbox(format("Isn't that delightful? Sorry, this bigwig at Devon has been complaining about patent violation or some other legal muck. We used to just have Silph Co. goons screaming on the phone about re-usable TMs…"))
+
+    msgbox(format("Finally, here's the ticket for using the Hoenn ferry system."))
+    giveitem(ITEM_SS_TICKET)
     
     msgbox(format("You're all set! I'll update the system with your information."))
     msgbox(format("The scientist in the white coat can give you more information about the game."))
@@ -228,7 +231,6 @@ script EverGrandeCity_Headquarters_1F_EventScript_DifficultyScientist {
     dynmultipush("Optional challenge rules", 3)
     dynmultipush("OpChal: Random HMs", 11)
     dynmultipush("OpChal: No HMs", 12)
-    dynmultipush("OpChal: Ferry Limit", 13)
     dynmultipush("Nuzlocke/Monotype", 21)
 
     dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
@@ -245,8 +247,6 @@ script EverGrandeCity_Headquarters_1F_EventScript_DifficultyScientist {
             call(EverGrandeCity_Headquarters_1F_EventScript_RandomHMInfo)
         case 12:
             call(EverGrandeCity_Headquarters_1F_EventScript_NoHMInfo)
-        case 13:
-            call(EverGrandeCity_Headquarters_1F_EventScript_FerryChallengeInfo)
         case 21:
             call(EverGrandeCity_Headquarters_1F_EventScript_NuzlockeMonotypeInfo)
         default:
@@ -287,12 +287,8 @@ script EverGrandeCity_Headquarters_1F_EventScript_ViewCurrentChallenges {
             msgbox(format("You have no optional challenges active."))
         case 2:
             msgbox(format("You have the Random HMs challenge active."))
-        case 3:
-            msgbox(format("You have the Ferry Limit challenge with Random HMs active."))
         case 6:
             msgbox(format("You have the No HMs challenge active."))
-        case 7:
-            msgbox(format("You have the Ferry Limit challenge with No HMs active."))
         default:
             buffernumberstring(STR_VAR_1, VAR_TEMP_3)
             msgbox(format("Challenge state {STR_VAR_1} should not be reachable. Please report this bug."))
@@ -302,9 +298,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_ViewCurrentChallenges {
 
 script EverGrandeCity_Headquarters_1F_EventScript_SetChallengesToTempVar3 {
     setvar(VAR_TEMP_3, 0)
-    if(flag(FLAG_CHALLENGE_FERRY_LIMIT)) {
-        addvar(VAR_TEMP_3, 1)
-    }
+
+    //the ferry limit challenge added 1, when this was separate from hardcore mode
+
     if(flag(FLAG_CHALLENGE_HM_RANDOM)) {
         addvar(VAR_TEMP_3, 2)
     }
@@ -326,7 +322,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_UpdateChallengesDifficulty {
     if(var(VAR_TEMP_3) != 0) {
         dynmultipush("Forfeit an active challenge", 3)
     }
-    if(var(VAR_DIFFICULTY_SETTING) != 2 && flag(FLAG_NO_EV_GRINDING)) {
+    if(flag(FLAG_NO_EV_GRINDING)) {
         dynmultipush("Turn on Effort Values", 11)
     } elif(!flag(FLAG_NO_EV_GRINDING)) {
         dynmultipush("Turn off Effort Values", 12)
@@ -376,9 +372,6 @@ script EverGrandeCity_Headquarters_1F_EventScript_ForfeitChallenge {
     if(var(VAR_TEMP_3) == 0) {
         return
     }
-    if(flag(FLAG_CHALLENGE_FERRY_LIMIT)) {
-        dynmultipush("Remove the Ferry Limit challenge", 1)
-    }
     if(flag(FLAG_CHALLENGE_HM_RANDOM) && !flag(FLAG_CHALLENGE_HM_NONE)) {
         dynmultipush("Remove the Random HMs challenge", 2)
     }
@@ -388,8 +381,6 @@ script EverGrandeCity_Headquarters_1F_EventScript_ForfeitChallenge {
     dynmultipush("Go Back", 10)
     dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
     switch(var(VAR_RESULT)) {
-        case 1:
-            call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitFerry)
         case 2:
             call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitNoHM)
         case 3:
@@ -398,13 +389,6 @@ script EverGrandeCity_Headquarters_1F_EventScript_ForfeitChallenge {
             return
     }
     goto(EverGrandeCity_Headquarters_1F_EventScript_ForfeitChallenge)
-}
-
-script EverGrandeCity_Headquarters_1F_EventScript_ForfeitFerry {
-    call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitWarning)
-    clearflag(FLAG_CHALLENGE_FERRY_LIMIT)
-    msgbox(format("Ferry challenge removed."))
-    return
 }
 
 script EverGrandeCity_Headquarters_1F_EventScript_ForfeitRandomHM {
@@ -447,7 +431,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_ModifyDifficulty {
     if(var(VAR_DIFFICULTY_SETTING) != 2) {
         dynmultipush("Play on Hardcore difficulty", 2)
     }
-    if(var(VAR_DIFFICULTY_SETTING) != 2 && flag(FLAG_NO_EV_GRINDING)) {
+    if(flag(FLAG_NO_EV_GRINDING)) {
         dynmultipush("Turn on Effort Values", 11)
     } elif(!flag(FLAG_NO_EV_GRINDING)) {
         dynmultipush("Turn off Effort Values", 12)
@@ -475,7 +459,6 @@ script EverGrandeCity_Headquarters_1F_EventScript_ModifyDifficulty {
 
 script EverGrandeCity_Headquarters_1F_EventScript_SetDifficultyEasy {
     setvar(VAR_DIFFICULTY_SETTING, 1)
-    clearflag(FLAG_CHALLENGE_FERRY_LIMIT)
     clearflag(FLAG_CHALLENGE_HM_NONE)
     clearflag(FLAG_CHALLENGE_HM_RANDOM)
     clearflag(FLAG_NO_BAG_USE)
@@ -516,8 +499,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_DifficultyRules {
     msgbox(format("The three difficulty options are Standard, Easy, and Hardcore."))
     msgbox(format("Standard: level caps enabled. Item use in battle is allowed. Battle style may be set in the Options menu."))
     msgbox(format("Easy: no level caps. Enemy Trainers use the easier party available to them, and all NPC levels are reduced by 1."))
-    msgbox(format("Hardcore: level caps enabled. No item use in battle. Battle style is overridden to Set Mode. EVs are turned off."))
-    msgbox(format("In Standard or Easy difficulty you may choose to toggle EVs on or off."))
+    msgbox(format("Hardcore: level caps enabled. No item use in battle. Battle style is overridden to Set Mode."))
+    msgbox(format("Also in Hardcore difficulty, your SS Ticket is used up when taking the ferry. You'll have to defeat a Gym Leader to get it back."))
+    msgbox(format("You may also choose to toggle EVs on or off."))
     return
 }
 
@@ -531,13 +515,11 @@ script EverGrandeCity_Headquarters_1F_EventScript_ChallengeRules {
 
 script EverGrandeCity_Headquarters_1F_EventScript_ModifyChallenges {
     msgbox(format("Please select your desired option."))
-    dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "No challenges", "Activate Random HMs challenge", "Activate No HMs challenge", "Activate Ferry Challenge with Random HMs", "Activate Ferry Challenge with No HMs")
+    dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "No challenges", "Activate Random HMs challenge", "Activate No HMs challenge")
     switch(var(VAR_RESULT)) {
         case 0:
             clearflag(FLAG_CHALLENGE_HM_RANDOM)
             clearflag(FLAG_CHALLENGE_HM_NONE)
-            clearflag(FLAG_CHALLENGE_FERRY_LIMIT)
-            clearflag(FLAG_CHALLENGE_FERRY_TICKET)
             msgbox(format("All optional challenges removed."))
         case 1:
             setflag(FLAG_CHALLENGE_HM_RANDOM)
@@ -547,18 +529,6 @@ script EverGrandeCity_Headquarters_1F_EventScript_ModifyChallenges {
             setflag(FLAG_CHALLENGE_HM_RANDOM)
             setflag(FLAG_CHALLENGE_HM_NONE)
             msgbox(format("You activated the No HMs challenge."))
-        case 3:
-            setflag(FLAG_CHALLENGE_HM_RANDOM)
-            clearflag(FLAG_CHALLENGE_HM_NONE)
-            setflag(FLAG_CHALLENGE_FERRY_LIMIT)
-            setflag(FLAG_CHALLENGE_FERRY_TICKET)
-            msgbox(format("You activated the Ferry challenge with Random HMs."))
-        case 4:
-            setflag(FLAG_CHALLENGE_HM_RANDOM)
-            setflag(FLAG_CHALLENGE_HM_NONE)
-            setflag(FLAG_CHALLENGE_FERRY_LIMIT)
-            setflag(FLAG_CHALLENGE_FERRY_TICKET)
-            msgbox(format("You activated the Ferry challenge with No HMs."))
         default:
             msgbox(format("Your previous challenge settings will be retained."))
     }
@@ -576,14 +546,6 @@ script EverGrandeCity_Headquarters_1F_EventScript_NoHMInfo {
     msgbox(format("You will have to acquire all 8 badges without the use of HMs, and then return to Ever Grande."))
     msgbox(format("Once you have 8 badges, the statue in the Pokémon Center will offer to warp you to Emerald Cape."))
     msgbox(format("From there you will enter Victory Road and be able to reach the Pokémon League without needing HMs."))
-    return
-}
-
-script EverGrandeCity_Headquarters_1F_EventScript_FerryChallengeInfo {
-    msgbox(format("In the standard game, you may ride the ferry around the Hoenn region as much or as little as you like."))
-    msgbox(format("In the Ferry Limit Challenge you start with one use of the ferry. To use the ferry again you must have beaten another Gym since your last use."))
-    msgbox(format("You can't stock up tickets to use later; if you beat multiple Gyms in a row you'll still only have one ferry use."))
-    msgbox(format("To activate the Ferry Limit Challenge you must also select either the Random HMs or No HMs challenge."))
     return
 }
 
@@ -726,7 +688,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Use HMs as long as a party Pokémon could learn them, by devolov and ScyrousFX."))
                     msgbox(format("Relearn moves from party menu, by Diego Mertens."))
                     msgbox(format("Instead of ask to stop learning moves, ask to continue learning, by devolov."))
-                    msgbox(format("Repeated field medicine use, by ghoulslash, AsparagusEduardo, and Alex N"))
+                    msgbox(format("Repeated field medicine use, by ghoulslash, AsparagusEduardo, and Alex N."))
                     msgbox(format("Swap party Pokémon with select button, by Lunos."))
                     msgbox(format("Display Hidden Power type in battle, by Lunos."))
                     goto(FeaturesMenu)
@@ -750,8 +712,8 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Allow forgetting of HM moves, by Lunos, thespbgamer, and Jaizu."))
                     msgbox(format("Poison Heal protects from overworld poison, by Lunos."))
                     msgbox(format("Rainy routes fully water berries, by BuffelSaft."))
-                    msgbox(format("Proper item pluralization, bu ghoulslash and Jaizu."))
-                    msgbox(format("Cleanse Tag avoids all encounters, by devolov."))
+                    msgbox(format("Proper item pluralization, by ghoulslash and Jaizu."))
+                    msgbox(format("A held Cleanse Tag in your party avoids all wild encounters, by devolov."))
                     msgbox(format("Use/Register only shows on Key Items with those options, by voloved."))
                     msgbox(format("Using Soot Sack shows ash collected, by Sapphire Jester."))
                     msgbox(format("HGSS_Dex Darkest mode, by RavePossum."))
@@ -910,7 +872,6 @@ script EverGrandeCity_Headquarters_1F_EventScript_ExploreModeActivate {
     setflag(FLAG_DEPARTED_EVER_GRANDE)
 
     //clear challenge flags
-    clearflag(FLAG_CHALLENGE_FERRY_LIMIT)
     clearflag(FLAG_CHALLENGE_HM_RANDOM)
     clearflag(FLAG_CHALLENGE_HM_NONE)
 

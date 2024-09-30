@@ -1,3 +1,8 @@
+//TEMPs used:
+
+//FLAG_TEMP_6 Camper script
+//FLAG_TEMP_7 Camper script
+
 mapscripts Dewford_Resort_MapScripts {}
 
 script Dewford_Resort_EventScript_ResortSign {
@@ -52,8 +57,8 @@ script Dewford_Resort_EventScript_BoatGuy {
 script Dewford_Resort_EventScript_StaffCamper {
     lock
     faceplayer
-    goto_if_set(FLAG_TEMP_1E, Dewford_Resort_EventScript_NotAGuest)
-    goto_if_set(FLAG_TEMP_1F, Dewford_Resort_EventScript_LameJoke)
+    goto_if_set(FLAG_TEMP_6, Dewford_Resort_EventScript_NotAGuest)
+    goto_if_set(FLAG_TEMP_7, Dewford_Resort_EventScript_LameJoke)
     msgbox(format("Welcome to Dewford Resort, home of Hoenn's best luxury rentals!"))
     msgbox(format("Are you here to check in?"), MSGBOX_YESNO)
     goto_if_eq(VAR_RESULT, NO, Dewford_Resort_EventScript_NotAGuest)
@@ -66,14 +71,14 @@ script Dewford_Resort_EventScript_StaffCamper {
 script Dewford_Resort_EventScript_NotAGuest {
     msgbox(format("Oh, you're just a traveler?"))
     msgbox(format("Please don't cause any trouble, the boss will get mad at me again!"))
-    setflag(FLAG_TEMP_1E)
+    setflag(FLAG_TEMP_6)
     release
     end
 }
 
 script Dewford_Resort_EventScript_LameJoke {
     msgbox(format("You wouldn't even get any laughs from the studio audience."))
-    setflag(FLAG_TEMP_1F)
+    setflag(FLAG_TEMP_7)
     release
     end
 }
@@ -125,6 +130,21 @@ text Dewford_Resort_Text_PhelpsDefeat {
 }
 text Dewford_Resort_Text_PhelpsPostBattle {
 	"My Pokémon and I can do anything!"
+}
+
+script Dewford_Resort_EventScript_Ledecky {
+	trainerbattle_single(TRAINER_LEDECKY, Dewford_Resort_Text_LedeckyIntro, Dewford_Resort_Text_LedeckyDefeat)
+	msgbox(Dewford_Resort_Text_LedeckyPostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Dewford_Resort_Text_LedeckyIntro {
+	"Look out!"
+}
+text Dewford_Resort_Text_LedeckyDefeat {
+	"Excellent technique!"
+}
+text Dewford_Resort_Text_LedeckyPostBattle {
+	"Swimming in the waves… it's a dream!"
 }
 
 script Dewford_Resort_EventScript_Tatjana {
@@ -180,7 +200,7 @@ script Dewford_Resort_EventScript_Jed {
 	end
 }
 text Dewford_Resort_Text_JedIntro {
-	"Jed: My love! A pleabian seeks to duel!"
+	"Jed: My love! A plebian seeks to duel!"
 }
 text Dewford_Resort_Text_JedDefeat {
 	"Not to worry my love, I can win without\n"

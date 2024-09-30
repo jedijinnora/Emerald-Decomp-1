@@ -59,7 +59,6 @@ script MonsuIsland_WarpMaze_GreatTusk {
 	waitmoncry
     setflag(FLAG_SMART_WILD_AI)
     setflag(FLAG_NO_CATCHING)
-    setflag(FLAG_NO_BAG_USE)
     switch(var(VAR_NUM_BADGES)) {
         case 2:
             createmon(1, 0, SPECIES_GREAT_TUSK, 34, ITEM_MUSCLE_BAND, move1=MOVE_BULLDOZE, move2=MOVE_BRICK_BREAK, move3=MOVE_RAPID_SPIN, move4=MOVE_SMACK_DOWN)
@@ -81,7 +80,6 @@ script MonsuIsland_WarpMaze_GreatTusk {
 	dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
     clearflag(FLAG_NO_CATCHING)
-    clearflag(FLAG_NO_BAG_USE)
 	specialvar(VAR_RESULT, GetBattleOutcome)
     goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, MonsuIsland_WarpMaze_EndEncounter)
     goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MonsuIsland_WarpMaze_EndEncounter)
@@ -99,7 +97,6 @@ script MonsuIsland_WarpMaze_ScreamTail {
 	waitmoncry
     setflag(FLAG_SMART_WILD_AI)
     setflag(FLAG_NO_CATCHING)
-    setflag(FLAG_NO_BAG_USE)
     switch(var(VAR_NUM_BADGES)) {
         case 2:
             createmon(1, 0, SPECIES_SCREAM_TAIL, 34, ITEM_LEFTOVERS, move1=MOVE_BODY_SLAM, move2=MOVE_PSYBEAM, move3=MOVE_HOWL, move4=MOVE_UPROAR)
@@ -121,7 +118,6 @@ script MonsuIsland_WarpMaze_ScreamTail {
 	dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
     clearflag(FLAG_NO_CATCHING)
-    clearflag(FLAG_NO_BAG_USE)
 	specialvar(VAR_RESULT, GetBattleOutcome)
     goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, MonsuIsland_WarpMaze_EndEncounter)
     goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MonsuIsland_WarpMaze_EndEncounter)
@@ -139,7 +135,6 @@ script MonsuIsland_WarpMaze_SlitherWing {
 	waitmoncry
     setflag(FLAG_SMART_WILD_AI)
     setflag(FLAG_NO_CATCHING)
-    setflag(FLAG_NO_BAG_USE)
     switch(var(VAR_NUM_BADGES)) {
         case 2:
             createmon(1, 0, SPECIES_GREAT_TUSK, 34, ITEM_MUSCLE_BAND, move1=MOVE_BUG_BITE, move2=MOVE_FLAME_CHARGE, move3=MOVE_BRICK_BREAK, move4=MOVE_CURSE)
@@ -161,7 +156,6 @@ script MonsuIsland_WarpMaze_SlitherWing {
 	dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
     clearflag(FLAG_NO_CATCHING)
-    clearflag(FLAG_NO_BAG_USE)
 	specialvar(VAR_RESULT, GetBattleOutcome)
     goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, MonsuIsland_WarpMaze_EndEncounter)
     goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MonsuIsland_WarpMaze_EndEncounter)
@@ -179,7 +173,6 @@ script MonsuIsland_WarpMaze_SandyShocks {
 	waitmoncry
     setflag(FLAG_SMART_WILD_AI)
     setflag(FLAG_NO_CATCHING)
-    setflag(FLAG_NO_BAG_USE)
     switch(var(VAR_NUM_BADGES)) {
         case 2:
             createmon(1, 0, SPECIES_GREAT_TUSK, 34, ITEM_WISE_GLASSES, move1=MOVE_BULLDOZE, move2=MOVE_CHARGE_BEAM, move3=MOVE_HEAVY_SLAM, move4=MOVE_TRI_ATTACK)
@@ -201,7 +194,6 @@ script MonsuIsland_WarpMaze_SandyShocks {
 	dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
     clearflag(FLAG_NO_CATCHING)
-    clearflag(FLAG_NO_BAG_USE)
 	specialvar(VAR_RESULT, GetBattleOutcome)
     goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, MonsuIsland_WarpMaze_EndEncounter)
     goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MonsuIsland_WarpMaze_EndEncounter)
@@ -219,7 +211,6 @@ script MonsuIsland_WarpMaze_RoaringMoon {
 	waitmoncry
     setflag(FLAG_SMART_WILD_AI)
     setflag(FLAG_NO_CATCHING)
-    setflag(FLAG_NO_BAG_USE)
     switch(var(VAR_NUM_BADGES)) {
         case 2:
             createmon(1, 0, SPECIES_ROARING_MOON, 34, ITEM_MUSCLE_BAND, move1=MOVE_BITE, move2=MOVE_BREAKING_SWIPE, move3=MOVE_INCINERATE, move4=MOVE_TAILWIND)
@@ -241,7 +232,6 @@ script MonsuIsland_WarpMaze_RoaringMoon {
 	dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
     clearflag(FLAG_NO_CATCHING)
-    clearflag(FLAG_NO_BAG_USE)
 	specialvar(VAR_RESULT, GetBattleOutcome)
     goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, MonsuIsland_WarpMaze_EndEncounter)
     goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MonsuIsland_WarpMaze_EndEncounter)
