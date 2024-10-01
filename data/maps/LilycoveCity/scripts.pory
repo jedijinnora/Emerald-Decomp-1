@@ -250,7 +250,7 @@ LilycoveCity_Text_CitySign:
 
 LilycoveCity_Text_ContestHallSign:
 	.string "Pokémon Contest Hall\n"
-	.string "“The gathering place for TRAINERS!”$"
+	.string "“The gathering place for Trainers!”$"
 
 LilycoveCity_Text_MotelSign:
 	.string "Cove Lily Motel\p"

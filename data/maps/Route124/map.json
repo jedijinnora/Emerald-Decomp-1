@@ -45,7 +45,7 @@
     },
     {
       "map": "MAP_MONSU_ISLAND_EXTERIOR",
-      "offset": -40,
+      "offset": -38,
       "direction": "left"
     }
   ],
@@ -171,7 +171,7 @@
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 39,
       "y": 12,
-      "elevation": 5,
+      "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
@@ -210,7 +210,7 @@
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 31,
       "y": 10,
-      "elevation": 5,
+      "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
@@ -249,7 +249,7 @@
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 34,
       "y": 8,
-      "elevation": 3,
+      "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,

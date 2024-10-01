@@ -260,8 +260,8 @@
     },
     {
       "type": "hidden_item",
-      "x": 62,
-      "y": 5,
+      "x": 63,
+      "y": 4,
       "elevation": 0,
       "item": "ITEM_PSYCHIC_SEED",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_127_PSYCHIC_SEED"
