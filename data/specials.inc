@@ -593,3 +593,5 @@ gSpecials::
 
 	def_special MultiplyVars
 	def_special AddVars
+
+	def_special GetDayOfTheWeek

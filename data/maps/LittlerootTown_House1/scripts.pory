@@ -1,1 +1,51 @@
 mapscripts LittlerootTown_House1_MapScripts {}
+
+script LittlerootTown_House1_EventScript_Youngster {
+    msgbox(format("Ziggy 5 is a little strange, but I love all my Zigzagoon just the same!"), MSGBOX_NPC)
+    end
+}
+
+script LittlerootTown_House1_EventScript_Ziggy_1 {
+    lock
+    faceplayer
+    playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_WEAK)
+    msgbox(format("Ziggy 1: Zig!"))
+    release
+    end
+}
+
+script LittlerootTown_House1_EventScript_Ziggy_2 {
+    lock
+    faceplayer
+    playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_ENCOUNTER)
+    msgbox(format("Ziggy 1: Zag?"))
+    release
+    end
+}
+
+script LittlerootTown_House1_EventScript_Ziggy_3 {
+    lock
+    faceplayer
+    playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_WEAK)
+    msgbox(format("Ziggy 3: Zug!"))
+    release
+    end
+}
+
+script LittlerootTown_House1_EventScript_Ziggy_4 {
+    lock
+    faceplayer
+    playmoncry(SPECIES_ZIGZAGOON_GALARIAN, CRY_MODE_WEAK)
+    msgbox(format("Ziggy 4: Zog!"))
+    release
+    end
+}
+
+script LittlerootTown_House1_EventScript_Zorua {
+    lock
+    faceplayer
+    playmoncry(SPECIES_ZORUA, CRY_MODE_ENCOUNTER)
+    msgbox(format("Ziggy 5: Roo ruh?"))
+    release
+    end
+}

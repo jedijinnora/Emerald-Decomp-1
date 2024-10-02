@@ -4634,3 +4634,9 @@ u8 AddVars(void)
     i+=j;
     return i;
 }
+
+u8 GetDayOfTheWeek(void)
+{
+    u8 day = VarGet(VAR_DAYS) % 7;
+    return day;
+}

@@ -6,7 +6,8 @@ script DewfordResort_House2_EventScript_Girl {
 }
 
 script DewfordResort_House2_EventScript_Twin {
-    msgbox(format("Whee! Out of the way!"))
+    msgbox(format("Whee! Out of the way!"), MSGBOX_NPC)
+    end
 }
 
 script DewfordResort_House2_EventScript_Dad {

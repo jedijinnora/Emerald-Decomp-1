@@ -178,7 +178,7 @@ script DewfordTown_EventScript_IHateSand {
 }
 
 script DewfordTown_EventScript_OldMan {
-	msgbox(format("Pokémon are so convenient! Instead of a giant lighthouse, a single Ampharos can light up the sea for sailing ships."), MSGBOX_NPC)
+	msgbox(format("Pokémon are so convenient! One Ampharos can light up the whole sea for a sailing ship."), MSGBOX_NPC)
 	end
 }
 

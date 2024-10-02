@@ -24,6 +24,17 @@ script Route107_EventScript_BlackBelt {
 	end
 }
 
+script Route107_EventScript_Tyrogue {
+	lock
+	faceplayer
+	playmoncry(SPECIES_TYROGUE, CRY_MODE_ENCOUNTER)
+	msgbox(format("Tyrogue: Bbppi!"))
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+	end
+}
+
 script Route107_EventScript_BattleGirl {
 	lock
 	faceplayer
