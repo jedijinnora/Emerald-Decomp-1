@@ -68,6 +68,7 @@ script MossdeepCity_Gym_EventScript_Sabitha {
 	setflag(FLAG_DAILY_MOSSDEEP_GYM_REMATCH)
 	cleartrainerflag(TRAINER_SABITHA_3)
 	trainerbattle_single(TRAINER_SABITHA_3, MossdeepCity_Gym_Text_SabithaPreRematch, MossdeepCity_Gym_Text_SabithaRematchDefeat)
+	clearflag(FLAG_ROUTE_127_PSYCHIC_ENCOUNTER)
 
 	SabithaEnd:
 	msgbox(MossdeepCity_Gym_Text_SabithaPostBattle)

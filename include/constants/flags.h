@@ -298,7 +298,7 @@
 #define FLAG_CAUGHT_WALKING_WAKE             0x106
 #define FLAG_CAUGHT_GOUGING_FIRE             0x107
 #define FLAG_CAUGHT_RAGING_BOLT              0x108
-#define FLAG_UNUSED_0x109                    0x109
+#define FLAG_ROUTE_127_PSYCHIC_ENCOUNTER     0x109
 #define FLAG_UNUSED_0x10A                    0x10A
 #define FLAG_UNUSED_0x10B                    0x10B
 #define FLAG_UNUSED_0x10C                    0x10C
@@ -1637,12 +1637,12 @@
 #define FLAG_DAILY_WINSTRATE_VITO_BATTLE            (DAILY_FLAGS_START + 0x1E)
 #define FLAG_DAILY_SHIRONA_REMATCH                  (DAILY_FLAGS_START + 0x1F)
 #define FLAG_DAILY_RIVAL_MATCH                      (DAILY_FLAGS_START + 0x20)
-#define FLAG_UNUSED_0x941                           (DAILY_FLAGS_START + 0x21) // Unused Flag
-#define FLAG_UNUSED_0x942                           (DAILY_FLAGS_START + 0x22) // Unused Flag
-#define FLAG_UNUSED_0x943                           (DAILY_FLAGS_START + 0x23) // Unused Flag
-#define FLAG_UNUSED_0x944                           (DAILY_FLAGS_START + 0x24) // Unused Flag
-#define FLAG_UNUSED_0x945                           (DAILY_FLAGS_START + 0x25) // Unused Flag
-#define FLAG_UNUSED_0x946                           (DAILY_FLAGS_START + 0x26) // Unused Flag
+#define FLAG_DAILY_LEAF_REMATCH                     (DAILY_FLAGS_START + 0x21)
+#define FLAG_DAILY_KRIS_REMATCH                     (DAILY_FLAGS_START + 0x22)
+#define FLAG_DAILY_DAWN_REMATCH                     (DAILY_FLAGS_START + 0x23)
+#define FLAG_DAILY_REI_REMATCH                      (DAILY_FLAGS_START + 0x24)
+#define FLAG_DAILY_HILBERT_REMATCH                  (DAILY_FLAGS_START + 0x25)
+#define FLAG_DAILY_CALEM_REMATCH                    (DAILY_FLAGS_START + 0x26)
 #define FLAG_UNUSED_0x947                           (DAILY_FLAGS_START + 0x27) // Unused Flag
 #define FLAG_UNUSED_0x948                           (DAILY_FLAGS_START + 0x28) // Unused Flag
 #define FLAG_UNUSED_0x949                           (DAILY_FLAGS_START + 0x29) // Unused Flag

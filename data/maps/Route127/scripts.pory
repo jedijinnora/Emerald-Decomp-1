@@ -1,4 +1,260 @@
-mapscripts Route127_MapScripts {}
+const LOCALID_STATIC_MON = 14
+
+//TEMPs used:
+
+//FLAG_TEMP_11 static encounter
+
+//VAR_TEMP_1 day of the week
+
+
+mapscripts Route127_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route127_OnTransition
+	MAP_SCRIPT_ON_RESUME : Route127_OnResume
+}
+
+script Route127_OnTransition {
+	call_if_set(FLAG_ROUTE_127_PSYCHIC_ENCOUNTER, Route127_EventScript_HideStaticEncounter)
+	call_if_lt(VAR_NUM_BADGES, 1, Route127_EventScript_HideStaticEncounter)
+	call_if_ge(VAR_NUM_BADGES, 1, Route127_EventScript_ConfigureStaticEncounter)
+	end
+}
+
+script Route127_OnResume {
+	call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_TryRemoveCaughtEncounter)
+	end
+}
+
+script Route127_EventScript_HideStaticEncounter {
+	setflag(FLAG_TEMP_11)
+	return
+}
+
+script Route127_EventScript_ConfigureStaticEncounter {
+	specialvar(VAR_TEMP_1, GetDayOfTheWeek)
+	switch(var(VAR_TEMP_1)) {
+		case 0:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SPECIES(INDEEDEE_FEMALE))
+		case 1:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SPECIES(GRUMPIG))
+		case 2:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SPECIES(INDEEDEE_MALE))
+		case 3:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SPECIES(CHIMECHO))
+		case 4:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SPECIES(MEOWSTIC_MALE))
+		case 5:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SPECIES(MUSHARNA))
+		default:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SPECIES(MEOWSTIC_FEMALE))
+	}
+	return
+}
+
+script Route127_EventScript_StaticPsychic {
+	lock
+	faceplayer
+	switch(var(VAR_TEMP_1)) {
+		case 0:
+			call(Route127_EventScript_Indeedee_F)
+		case 1:
+			call(Route127_EventScript_Grumpig)
+		case 2:
+			call(Route127_EventScript_Indeedee_M)
+		case 3:
+			call(Route127_EventScript_Chimecho)
+		case 4:
+			call(Route127_EventScript_Meowstic_M)
+		case 5:
+			call(Route127_EventScript_Musharna)
+		default:
+			call(Route127_EventScript_Meowstic_F)
+	}
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	dowildbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, Common_EventScript_RemoveStaticPokemon)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, Common_EventScript_RemoveStaticPokemon)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Common_EventScript_RemoveStaticPokemon)
+	setflag(FLAG_ROUTE_127_PSYCHIC_ENCOUNTER)
+	release
+	end
+}
+
+script Route127_EventScript_Indeedee_F {
+	playmoncry(SPECIES_INDEEDEE_FEMALE, CRY_MODE_ENCOUNTER)
+	msgbox(format("Indeedee: Fii fo?"))
+	switch(var(VAR_NUM_BADGES)) {
+		case 1:
+			createmon(1, 0, SPECIES_INDEEDEE_FEMALE, 24, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_METRONOME, move4=MOVE_ENCORE, abilityNum=2)
+		case 2:
+			createmon(1, 0, SPECIES_INDEEDEE_FEMALE, 33, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_METRONOME, move4=MOVE_ENCORE, abilityNum=2)
+		case 3:
+			createmon(1, 0, SPECIES_INDEEDEE_FEMALE, 42, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_METRONOME, move4=MOVE_ENCORE, abilityNum=2)
+		case 4:
+			createmon(1, 0, SPECIES_INDEEDEE_FEMALE, 51, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_METRONOME, move4=MOVE_ENCORE, abilityNum=2)
+		case 5:
+			createmon(1, 0, SPECIES_INDEEDEE_FEMALE, 60, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_METRONOME, move4=MOVE_ENCORE, abilityNum=2)
+		case 6:
+			createmon(1, 0, SPECIES_INDEEDEE_FEMALE, 69, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_METRONOME, move4=MOVE_ENCORE, abilityNum=2)
+		case 7:
+			createmon(1, 0, SPECIES_INDEEDEE_FEMALE, 78, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_METRONOME, move4=MOVE_ENCORE, abilityNum=2)
+		default:
+			createmon(1, 0, SPECIES_INDEEDEE_FEMALE, 84, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_METRONOME, move4=MOVE_ENCORE, abilityNum=2)
+	}
+	waitmoncry
+	return
+}
+
+script Route127_EventScript_Grumpig {
+	playmoncry(SPECIES_GRUMPIG, CRY_MODE_ENCOUNTER)
+	msgbox(format("Grumpig: Hrra?"))
+	switch(var(VAR_NUM_BADGES)) {
+		case 1:
+			createmon(1, 0, SPECIES_GRUMPIG, 24, ITEM_SITRUS_BERRY, move1=MOVE_SNARL, move2=MOVE_ICY_WIND, move3=MOVE_PSYCHIC_NOISE, move4=MOVE_NASTY_PLOT, abilityNum=2)
+		case 2:
+			createmon(1, 0, SPECIES_GRUMPIG, 33, ITEM_SITRUS_BERRY, move1=MOVE_SNARL, move2=MOVE_ICY_WIND, move3=MOVE_PSYCHIC_NOISE, move4=MOVE_NASTY_PLOT, abilityNum=2)
+		case 3:
+			createmon(1, 0, SPECIES_GRUMPIG, 42, ITEM_SITRUS_BERRY, move1=MOVE_SNARL, move2=MOVE_ICY_WIND, move3=MOVE_PSYCHIC_NOISE, move4=MOVE_NASTY_PLOT, abilityNum=2)
+		case 4:
+			createmon(1, 0, SPECIES_GRUMPIG, 51, ITEM_SITRUS_BERRY, move1=MOVE_SNARL, move2=MOVE_ICY_WIND, move3=MOVE_PSYCHIC_NOISE, move4=MOVE_NASTY_PLOT, abilityNum=2)
+		case 5:
+			createmon(1, 0, SPECIES_GRUMPIG, 60, ITEM_SITRUS_BERRY, move1=MOVE_SNARL, move2=MOVE_ICY_WIND, move3=MOVE_PSYCHIC_NOISE, move4=MOVE_NASTY_PLOT, abilityNum=2)
+		case 6:
+			createmon(1, 0, SPECIES_GRUMPIG, 69, ITEM_SITRUS_BERRY, move1=MOVE_SNARL, move2=MOVE_ICY_WIND, move3=MOVE_PSYCHIC_NOISE, move4=MOVE_NASTY_PLOT, abilityNum=2)
+		case 7:
+			createmon(1, 0, SPECIES_GRUMPIG, 78, ITEM_SITRUS_BERRY, move1=MOVE_SNARL, move2=MOVE_ICY_WIND, move3=MOVE_PSYCHIC_NOISE, move4=MOVE_NASTY_PLOT, abilityNum=2)
+		default:
+			createmon(1, 0, SPECIES_GRUMPIG, 84, ITEM_SITRUS_BERRY, move1=MOVE_SNARL, move2=MOVE_ICY_WIND, move3=MOVE_PSYCHIC_NOISE, move4=MOVE_NASTY_PLOT, abilityNum=2)
+	}
+	waitmoncry
+	return
+}
+
+script Route127_EventScript_Indeedee_M {
+	playmoncry(SPECIES_INDEEDEE_MALE, CRY_MODE_ENCOUNTER)
+	msgbox(format("Indeedee: Fii fo?"))
+	switch(var(VAR_NUM_BADGES)) {
+		case 1:
+			createmon(1, 0, SPECIES_INDEEDEE_MALE, 24, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_DRAIN_PUNCH, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 2:
+			createmon(1, 0, SPECIES_INDEEDEE_MALE, 33, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_DRAIN_PUNCH, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 3:
+			createmon(1, 0, SPECIES_INDEEDEE_MALE, 42, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_DRAIN_PUNCH, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 4:
+			createmon(1, 0, SPECIES_INDEEDEE_MALE, 51, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_DRAIN_PUNCH, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 5:
+			createmon(1, 0, SPECIES_INDEEDEE_MALE, 60, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_DRAIN_PUNCH, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 6:
+			createmon(1, 0, SPECIES_INDEEDEE_MALE, 69, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_DRAIN_PUNCH, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 7:
+			createmon(1, 0, SPECIES_INDEEDEE_MALE, 78, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_DRAIN_PUNCH, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		default:
+			createmon(1, 0, SPECIES_INDEEDEE_MALE, 84, ITEM_SITRUS_BERRY, move1=MOVE_EXPANDING_FORCE, move2=MOVE_DAZZLING_GLEAM, move3=MOVE_DRAIN_PUNCH, move4=MOVE_SHADOW_BALL, abilityNum=2)
+	}
+	waitmoncry
+	return
+}
+
+script Route127_EventScript_Chimecho {
+	playmoncry(SPECIES_CHIMECHO, CRY_MODE_ENCOUNTER)
+	msgbox(format("Chimecho: Di li ling?"))
+	switch(var(VAR_NUM_BADGES)) {
+		case 1:
+			createmon(1, 0, SPECIES_CHIMECHO, 24, ITEM_SITRUS_BERRY, move1=MOVE_RECOVER, move2=MOVE_DRAINING_KISS, move3=MOVE_EXTRASENSORY, move4=MOVE_KNOCK_OFF, abilityNum=2)
+		case 2:
+			createmon(1, 0, SPECIES_CHIMECHO, 33, ITEM_SITRUS_BERRY, move1=MOVE_RECOVER, move2=MOVE_DRAINING_KISS, move3=MOVE_EXTRASENSORY, move4=MOVE_KNOCK_OFF, abilityNum=2)
+		case 3:
+			createmon(1, 0, SPECIES_CHIMECHO, 42, ITEM_SITRUS_BERRY, move1=MOVE_RECOVER, move2=MOVE_DRAINING_KISS, move3=MOVE_EXTRASENSORY, move4=MOVE_KNOCK_OFF, abilityNum=2)
+		case 4:
+			createmon(1, 0, SPECIES_CHIMECHO, 51, ITEM_SITRUS_BERRY, move1=MOVE_RECOVER, move2=MOVE_DRAINING_KISS, move3=MOVE_EXTRASENSORY, move4=MOVE_KNOCK_OFF, abilityNum=2)
+		case 5:
+			createmon(1, 0, SPECIES_CHIMECHO, 60, ITEM_SITRUS_BERRY, move1=MOVE_RECOVER, move2=MOVE_DRAINING_KISS, move3=MOVE_EXTRASENSORY, move4=MOVE_KNOCK_OFF, abilityNum=2)
+		case 6:
+			createmon(1, 0, SPECIES_CHIMECHO, 69, ITEM_SITRUS_BERRY, move1=MOVE_RECOVER, move2=MOVE_DRAINING_KISS, move3=MOVE_EXTRASENSORY, move4=MOVE_KNOCK_OFF, abilityNum=2)
+		case 7:
+			createmon(1, 0, SPECIES_CHIMECHO, 78, ITEM_SITRUS_BERRY, move1=MOVE_RECOVER, move2=MOVE_DRAINING_KISS, move3=MOVE_EXTRASENSORY, move4=MOVE_KNOCK_OFF, abilityNum=2)
+		default:
+			createmon(1, 0, SPECIES_CHIMECHO, 84, ITEM_SITRUS_BERRY, move1=MOVE_RECOVER, move2=MOVE_DRAINING_KISS, move3=MOVE_EXTRASENSORY, move4=MOVE_KNOCK_OFF, abilityNum=2)
+	}
+	waitmoncry
+	return
+}
+
+script Route127_EventScript_Meowstic_M {
+	playmoncry(SPECIES_MEOWSTIC_MALE, CRY_MODE_ENCOUNTER)
+	msgbox(format("Meowstic: Reaw?"))
+	switch(var(VAR_NUM_BADGES)) {
+		case 1:
+			createmon(1, 0, SPECIES_MEOWSTIC_MALE, 24, ITEM_SITRUS_BERRY, move1=MOVE_PSYSHOCK, move2=MOVE_TICKLE, move3=MOVE_THUNDER_WAVE, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 2:
+			createmon(1, 0, SPECIES_MEOWSTIC_MALE, 33, ITEM_SITRUS_BERRY, move1=MOVE_PSYSHOCK, move2=MOVE_TICKLE, move3=MOVE_THUNDER_WAVE, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 3:
+			createmon(1, 0, SPECIES_MEOWSTIC_MALE, 42, ITEM_SITRUS_BERRY, move1=MOVE_PSYSHOCK, move2=MOVE_TICKLE, move3=MOVE_THUNDER_WAVE, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 4:
+			createmon(1, 0, SPECIES_MEOWSTIC_MALE, 51, ITEM_SITRUS_BERRY, move1=MOVE_PSYSHOCK, move2=MOVE_TICKLE, move3=MOVE_THUNDER_WAVE, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 5:
+			createmon(1, 0, SPECIES_MEOWSTIC_MALE, 60, ITEM_SITRUS_BERRY, move1=MOVE_PSYSHOCK, move2=MOVE_TICKLE, move3=MOVE_THUNDER_WAVE, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 6:
+			createmon(1, 0, SPECIES_MEOWSTIC_MALE, 69, ITEM_SITRUS_BERRY, move1=MOVE_PSYSHOCK, move2=MOVE_TICKLE, move3=MOVE_THUNDER_WAVE, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 7:
+			createmon(1, 0, SPECIES_MEOWSTIC_MALE, 78, ITEM_SITRUS_BERRY, move1=MOVE_PSYSHOCK, move2=MOVE_TICKLE, move3=MOVE_THUNDER_WAVE, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		default:
+			createmon(1, 0, SPECIES_MEOWSTIC_MALE, 84, ITEM_SITRUS_BERRY, move1=MOVE_PSYSHOCK, move2=MOVE_TICKLE, move3=MOVE_THUNDER_WAVE, move4=MOVE_SHADOW_BALL, abilityNum=2)
+	}
+	waitmoncry
+	return
+}
+
+script Route127_EventScript_Musharna {
+	playmoncry(SPECIES_MUSHARNA, CRY_MODE_ENCOUNTER)
+	msgbox(format("Musharna: Wuuuu?"))
+	switch(var(VAR_NUM_BADGES)) {
+		case 1:
+			createmon(1, 0, SPECIES_MUSHARNA, 24, ITEM_SITRUS_BERRY, move1=MOVE_BARRIER, move2=MOVE_SONIC_BOOM, move3=MOVE_MOONLIGHT, move4=MOVE_PSYWAVE, abilityNum=2)
+		case 2:
+			createmon(1, 0, SPECIES_MUSHARNA, 33, ITEM_SITRUS_BERRY, move1=MOVE_BARRIER, move2=MOVE_SONIC_BOOM, move3=MOVE_MOONLIGHT, move4=MOVE_PSYWAVE, abilityNum=2)
+		case 3:
+			createmon(1, 0, SPECIES_MUSHARNA, 42, ITEM_SITRUS_BERRY, move1=MOVE_BARRIER, move2=MOVE_SONIC_BOOM, move3=MOVE_MOONLIGHT, move4=MOVE_PSYWAVE, abilityNum=2)
+		case 4:
+			createmon(1, 0, SPECIES_MUSHARNA, 51, ITEM_SITRUS_BERRY, move1=MOVE_BARRIER, move2=MOVE_SONIC_BOOM, move3=MOVE_MOONLIGHT, move4=MOVE_PSYWAVE, abilityNum=2)
+		case 5:
+			createmon(1, 0, SPECIES_MUSHARNA, 60, ITEM_SITRUS_BERRY, move1=MOVE_BARRIER, move2=MOVE_SONIC_BOOM, move3=MOVE_MOONLIGHT, move4=MOVE_PSYWAVE, abilityNum=2)
+		case 6:
+			createmon(1, 0, SPECIES_MUSHARNA, 69, ITEM_SITRUS_BERRY, move1=MOVE_BARRIER, move2=MOVE_SONIC_BOOM, move3=MOVE_MOONLIGHT, move4=MOVE_PSYWAVE, abilityNum=2)
+		case 7:
+			createmon(1, 0, SPECIES_MUSHARNA, 78, ITEM_SITRUS_BERRY, move1=MOVE_BARRIER, move2=MOVE_SONIC_BOOM, move3=MOVE_MOONLIGHT, move4=MOVE_PSYWAVE, abilityNum=2)
+		default:
+			createmon(1, 0, SPECIES_MUSHARNA, 84, ITEM_SITRUS_BERRY, move1=MOVE_BARRIER, move2=MOVE_SONIC_BOOM, move3=MOVE_MOONLIGHT, move4=MOVE_PSYWAVE, abilityNum=2)
+	}
+	waitmoncry
+	return
+}
+
+script Route127_EventScript_Meowstic_F {
+	playmoncry(SPECIES_MEOWSTIC_FEMALE, CRY_MODE_ENCOUNTER)
+	msgbox(format("Meowstic: Reaw?"))
+	switch(var(VAR_NUM_BADGES)) {
+		case 1:
+			createmon(1, 0, SPECIES_MEOWSTIC_FEMALE, 24, ITEM_SITRUS_BERRY, move1=MOVE_PSYCHIC, move2=MOVE_NASTY_PLOT, move3=MOVE_CHARGE_BEAM, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 2:
+			createmon(1, 0, SPECIES_MEOWSTIC_FEMALE, 33, ITEM_SITRUS_BERRY, move1=MOVE_PSYCHIC, move2=MOVE_NASTY_PLOT, move3=MOVE_CHARGE_BEAM, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 3:
+			createmon(1, 0, SPECIES_MEOWSTIC_FEMALE, 42, ITEM_SITRUS_BERRY, move1=MOVE_PSYCHIC, move2=MOVE_NASTY_PLOT, move3=MOVE_CHARGE_BEAM, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 4:
+			createmon(1, 0, SPECIES_MEOWSTIC_FEMALE, 51, ITEM_SITRUS_BERRY, move1=MOVE_PSYCHIC, move2=MOVE_NASTY_PLOT, move3=MOVE_CHARGE_BEAM, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 5:
+			createmon(1, 0, SPECIES_MEOWSTIC_FEMALE, 60, ITEM_SITRUS_BERRY, move1=MOVE_PSYCHIC, move2=MOVE_NASTY_PLOT, move3=MOVE_CHARGE_BEAM, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 6:
+			createmon(1, 0, SPECIES_MEOWSTIC_FEMALE, 69, ITEM_SITRUS_BERRY, move1=MOVE_PSYCHIC, move2=MOVE_NASTY_PLOT, move3=MOVE_CHARGE_BEAM, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		case 7:
+			createmon(1, 0, SPECIES_MEOWSTIC_FEMALE, 78, ITEM_SITRUS_BERRY, move1=MOVE_PSYCHIC, move2=MOVE_NASTY_PLOT, move3=MOVE_CHARGE_BEAM, move4=MOVE_SHADOW_BALL, abilityNum=2)
+		default:
+			createmon(1, 0, SPECIES_MEOWSTIC_FEMALE, 84, ITEM_SITRUS_BERRY, move1=MOVE_PSYCHIC, move2=MOVE_NASTY_PLOT, move3=MOVE_CHARGE_BEAM, move4=MOVE_SHADOW_BALL, abilityNum=2)
+	}
+	waitmoncry
+	return
+}
 
 script Route127_EventScript_Camper {
 	lock
