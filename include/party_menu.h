@@ -103,6 +103,7 @@ void MoveDeleterForgetMove(void);
 void BufferMoveDeleterNicknameAndMove(void);
 void GetNumMovesSelectedMonHas(void);
 void MoveDeleterChooseMoveToForget(void);
+bool32 IsItemFlute(u16 item);
 void ItemUseCB_PokeBall(u8 taskId, TaskFunc task);//for Lunos's pokeball swap
 void CB2_ReturnToPartyMenuFromSummaryScreen(void); //for move relearner
 void ItemUseCB_Mints(u8 taskId, TaskFunc task); //for mints
