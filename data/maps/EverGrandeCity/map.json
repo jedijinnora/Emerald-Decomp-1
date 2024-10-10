@@ -227,7 +227,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 25,
+      "x": 30,
       "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -253,8 +253,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 8,
-      "y": 18,
+      "x": 6,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -305,7 +305,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 14,
+      "x": 12,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -372,8 +372,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 23,
-      "y": 15,
+      "x": 22,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_EVER_GRANDE_CITY_NATURE_SHOP",
       "dest_warp_id": "0"
