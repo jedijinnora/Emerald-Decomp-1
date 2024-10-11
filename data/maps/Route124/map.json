@@ -42,11 +42,6 @@
       "map": "MAP_SUNRISE_SHORE",
       "offset": 54,
       "direction": "left"
-    },
-    {
-      "map": "MAP_MONSU_ISLAND_EXTERIOR",
-      "offset": -38,
-      "direction": "left"
     }
   ],
   "object_events": [
