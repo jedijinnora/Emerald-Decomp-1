@@ -32,6 +32,7 @@
 // Only maps in the following map groups have their encounters considered for the area screen
 #define MAP_GROUP_TOWNS_AND_ROUTES MAP_GROUP(PETALBURG_CITY)
 #define MAP_GROUP_DUNGEONS MAP_GROUP(METEOR_FALLS_1F_1R)
+#define MAP_GROUP_DUNGEONS_2 MAP_GROUP(SEAFOAM_COVE_B1F)
 #define MAP_GROUP_SPECIAL_AREA MAP_GROUP(SAFARI_ZONE_NORTHWEST)
 
 #define AREA_SCREEN_WIDTH 32
@@ -277,6 +278,7 @@ static void FindMapsWithMon(u16 species)
                 SetAreaHasMon(sFeebasData[i][1], sFeebasData[i][2]);
                 break;
             case MAP_GROUP_DUNGEONS:
+            case MAP_GROUP_DUNGEONS_2:
             case MAP_GROUP_SPECIAL_AREA:
                 SetSpecialMapHasMon(sFeebasData[i][1], sFeebasData[i][2]);
                 break;
@@ -295,6 +297,7 @@ static void FindMapsWithMon(u16 species)
                 SetAreaHasMon(gWildMonHeaders[i].mapGroup, gWildMonHeaders[i].mapNum);
                 break;
             case MAP_GROUP_DUNGEONS:
+            case MAP_GROUP_DUNGEONS_2:
             case MAP_GROUP_SPECIAL_AREA:
                 SetSpecialMapHasMon(gWildMonHeaders[i].mapGroup, gWildMonHeaders[i].mapNum);
                 break;

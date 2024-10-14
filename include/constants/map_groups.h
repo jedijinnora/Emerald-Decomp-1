@@ -85,6 +85,7 @@
 #define MAP_SAKURAI_OVERLOOK            (76 | (0 << 8))
 #define MAP_SUNRISE_SHORE               (77 | (0 << 8))
 #define MAP_UNDERWATER_ROUTE109         (78 | (0 << 8))
+#define MAP_SOUTHERN_ISLAND             (79 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -509,6 +510,10 @@
 #define MAP_MONSU_ISLAND_WARP_MAZE        (16 | (26 << 8))
 #define MAP_MONSU_ISLAND_PYRAMID_2F       (17 | (26 << 8))
 #define MAP_MONSU_ISLAND_PYRAMID_SUMMIT   (18 | (26 << 8))
+#define MAP_SOUTHERN_ISLAND_FORK          (19 | (26 << 8))
+#define MAP_SOUTHERN_ISLAND_LATIOS_GLEN   (20 | (26 << 8))
+#define MAP_SOUTHERN_ISLAND_LATIAS_GLEN   (21 | (26 << 8))
+#define MAP_SOUTHERN_ISLAND_CLEARING      (22 | (26 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (27 << 8))
@@ -712,17 +717,10 @@
 // gMapGroup_IndoorLittlerootShore
 #define MAP_LITTLEROOT_SHORE_HOUSE (0 | (37 << 8))
 
-// gMapGroup_SouthernIsland
-#define MAP_SOUTHERN_ISLAND             (0 | (38 << 8))
-#define MAP_SOUTHERN_ISLAND_FORK        (1 | (38 << 8))
-#define MAP_SOUTHERN_ISLAND_LATIOS_GLEN (2 | (38 << 8))
-#define MAP_SOUTHERN_ISLAND_LATIAS_GLEN (3 | (38 << 8))
-#define MAP_SOUTHERN_ISLAND_CLEARING    (4 | (38 << 8))
-
 // gMapGroup_IndoorEmeraldCape
-#define MAP_EMERALD_CAPE_POKEMON_CENTER_1F (0 | (39 << 8))
-#define MAP_EMERALD_CAPE_POKEMON_CENTER_2F (1 | (39 << 8))
+#define MAP_EMERALD_CAPE_POKEMON_CENTER_1F (0 | (38 << 8))
+#define MAP_EMERALD_CAPE_POKEMON_CENTER_2F (1 | (38 << 8))
 
-#define MAP_GROUPS_COUNT 40
+#define MAP_GROUPS_COUNT 39
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

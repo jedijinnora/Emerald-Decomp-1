@@ -607,9 +607,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_GivePuzzleHint {
             msgbox(format("How many Swordfish can 1d10t5 like you fit in one password file?"))
             msgbox(format("{UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {UP_ARROW} {RIGHT_ARROW}"))
         case 3: 
-            msgbox(format("I goin in ur cave, taking ur icicles! \n {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {DOWN_ARROW}"))
+            msgbox(format("I goin in ur cave, taking ur icicles! \n {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {DOWN_ARROW}"))
         case 4: 
-            msgbox(format("Articuno can't Kanto deez nuts! \n {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {UP_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {UP_ARROW}"))
+            msgbox(format("Articuno can't Kanto deez nuts! \n {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {LEFT_ARROW} {UP_ARROW} {LEFT_ARROW} {UP_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {UP_ARROW}"))
         case 5: 
             msgbox(format("I hacked the Trick Master! \n {RIGHT_ARROW} {UP_ARROW} {RIGHT_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {UP_ARROW} {LEFT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {DOWN_ARROW}"))
         case 6: 

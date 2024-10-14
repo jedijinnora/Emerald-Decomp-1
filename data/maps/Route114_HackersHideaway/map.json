@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE114_HACKERS_HIDEAWAY",
   "name": "Route114_HackersHideaway",
   "layout": "LAYOUT_ROUTE114_HACKERS_HIDEAWAY",
-  "music": "MUS_FALLARBOR",
+  "music": "MUS_B_FACTORY",
   "region_map_section": "MAPSEC_ROUTE_114",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

@@ -17568,12 +17568,12 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_CLAYDOL"
+                "species": "SPECIES_BALTOY"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_CLAYDOL"
+                "species": "SPECIES_BALTOY"
               }
             ]
           }
@@ -17627,17 +17627,17 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_YAMASK_GALARIAN"
+                "species": "SPECIES_BALTOY"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_YAMASK_GALARIAN"
+                "species": "SPECIES_SPIRITOMB"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_YAMASK_GALARIAN"
+                "species": "SPECIES_SPIRITOMB"
               },
               {
                 "min_level": 5,
@@ -17696,22 +17696,22 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_YAMASK_GALARIAN"
+                "species": "SPECIES_YAMASK"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_GOLURK"
+                "species": "SPECIES_YAMASK"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_YAMASK_GALARIAN"
+                "species": "SPECIES_YAMASK"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_RUNERIGUS"
+                "species": "SPECIES_YAMASK"
               }
             ]
           }
@@ -17775,12 +17775,12 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_CLAYDOL"
+                "species": "SPECIES_BALTOY"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_CLAYDOL"
+                "species": "SPECIES_BALTOY"
               }
             ]
           }

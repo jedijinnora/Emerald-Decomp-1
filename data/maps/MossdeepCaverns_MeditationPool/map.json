@@ -2,7 +2,7 @@
   "id": "MAP_MOSSDEEP_CAVERNS_MEDITATION_POOL",
   "name": "MossdeepCaverns_MeditationPool",
   "layout": "LAYOUT_MOSSDEEP_CAVERNS_MEDITATION_POOL",
-  "music": "MUS_SEALED_CHAMBER",
+  "music": "MUS_B_ARENA",
   "region_map_section": "MAPSEC_MOSSDEEP_CAVERNS",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
