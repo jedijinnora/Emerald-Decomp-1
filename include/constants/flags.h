@@ -1338,9 +1338,9 @@
 #define FLAG_ITEM_DESERT_UNDERPASS_EXITS_MAX_ELIXIR                 0x4E1
 #define FLAG_ITEM_SHOAL_CAVE_LOW_TIDE_INNER_ROOM_RAZOR_CLAW         0x4E2
 #define FLAG_ITEM_MONSU_ISLAND_EXTERIOR_BIG_NUGGET                  0x4E3
-#define FLAG_ITEM_SUNRISE_SHORE_SUN_STONE                           0x4E4
-#define FLAG_ITEM_ROUTE_107_DAWN_STONE                              0x4E5
-#define FLAG_UNUSED_0x4E6                                           0x4E6
+#define FLAG_ITEM_MONSU_ISLAND_EXTERIOR_BOOSTER_ENERGY              0x4E4
+#define FLAG_ITEM_SUNRISE_SHORE_SUN_STONE                           0x4E5
+#define FLAG_ITEM_ROUTE_107_DAWN_STONE                              0x4E6
 #define FLAG_UNUSED_0x4E7                                           0x4E7
 #define FLAG_UNUSED_0x4E8                                           0x4E8
 #define FLAG_UNUSED_0x4E9                                           0x4E9
