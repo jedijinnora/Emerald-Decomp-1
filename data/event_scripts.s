@@ -1284,3 +1284,5 @@ Common_EventScript_CountBadges::
 	.include "data/maps/MonsuIsland_Pyramid_2F/scripts.inc"
 
 	.include "data/maps/MonsuIsland_Pyramid_Summit/scripts.inc"
+
+	.include "data/maps/SootopolisGardens/scripts.inc"

@@ -1887,6 +1887,14 @@
       "y": 8,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SOOTOPOLIS_GARDENS",
+      "name": "Sootopolis Gardens",
+      "x": 20,
+      "y": 7,
+      "width": 1,
+      "height": 1
     }
   ]
 }

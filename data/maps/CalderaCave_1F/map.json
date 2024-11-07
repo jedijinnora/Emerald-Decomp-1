@@ -18,18 +18,25 @@
   ],
   "warp_events": [
     {
-      "x": 24,
+      "x": 34,
       "y": 37,
       "elevation": 0,
       "dest_map": "MAP_ROUTE126",
       "dest_warp_id": "0"
     },
     {
-      "x": 15,
+      "x": 25,
       "y": 5,
       "elevation": 0,
       "dest_map": "MAP_SOOTOPOLIS_CITY",
       "dest_warp_id": "13"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_SOOTOPOLIS_GARDENS",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

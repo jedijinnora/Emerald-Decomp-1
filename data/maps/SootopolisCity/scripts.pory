@@ -138,8 +138,8 @@ script EventScript_ClosedSootopolisDoor {
 	msgbox(SootopolisCity_Text_DoorIsClosed, MSGBOX_SIGN)
 }
 
-script SootopolisCity_EventScript_ConnectorSign {
-	msgbox("Sootopolis Connector\n Access to Route 126", MSGBOX_SIGN)
+script SootopolisCity_EventScript_CalderaCaveSign {
+	msgbox("Caldera Cave\n Access to Route 126", MSGBOX_SIGN)
 }
 raw `
 SootopolisCity_Text_GymSign:
@@ -167,33 +167,12 @@ SootopolisCity_Text_WonderWhatWorldIsLike:
 	.string "I wonder what the world is like on\n"
 	.string "the other side of this round sky?$"
 
-SootopolisCity_Text_SeeingLegendWithOwnEyes:
-	.string "There's an ancient legend that claims\n"
-	.string "the land and sea were shaped by\l"
-	.string "a colossal battle between Pokémon.\p"
-	.string "Well, I'm seeing that happen with\n"
-	.string "my very own eyes!\p"
-	.string "Whoa! I never expected to be\n"
-	.string "witness to something this huge!$"
-
-SootopolisCity_Text_SawLegendWithOwnEyes:
-	.string "There's an ancient legend that claims\n"
-	.string "the land and sea were shaped by\l"
-	.string "a colossal battle between Pokémon.\p"
-	.string "Well, I saw that happen with\n"
-	.string "my very own eyes!\p"
-	.string "Whoa! I never expected to be\n"
-	.string "witness to something this huge!$"
-
 SootopolisCity_Text_NoOrdinaryTourist:
 	.string "Hm!\n"
 	.string "You've come all the way to Sootopolis?\l"
 	.string "You're no ordinary tourist.\p"
 	.string "But I suppose that doesn't make you\n"
 	.string "an extraordinary tourist, either.$"
-
-SootopolisCity_Text_CityRegainedCalm:
-	.string "The city has regained its calm…$"
 
 SootopolisCity_Text_CaveOfOriginPleaseLeave:
 	.string "Who might you be?\p"

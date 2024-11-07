@@ -5224,7 +5224,7 @@
     {
       "id": "LAYOUT_CALDERA_CAVE_1F",
       "name": "CalderaCave_1F_Layout",
-      "width": 30,
+      "width": 40,
       "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
@@ -5310,6 +5310,16 @@
       "secondary_tileset": "gTileset_BattlePyramid",
       "border_filepath": "data/layouts/MonsuIsland_Pyramid_Summit/border.bin",
       "blockdata_filepath": "data/layouts/MonsuIsland_Pyramid_Summit/map.bin"
+    },
+    {
+      "id": "LAYOUT_SOOTOPOLIS_GARDENS",
+      "name": "SootopolisGardens_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Sootopolis",
+      "border_filepath": "data/layouts/SootopolisGardens/border.bin",
+      "blockdata_filepath": "data/layouts/SootopolisGardens/map.bin"
     }
   ]
 }

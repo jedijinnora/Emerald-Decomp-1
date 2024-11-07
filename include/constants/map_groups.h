@@ -514,6 +514,7 @@
 #define MAP_SOUTHERN_ISLAND_LATIOS_GLEN   (20 | (26 << 8))
 #define MAP_SOUTHERN_ISLAND_LATIAS_GLEN   (21 | (26 << 8))
 #define MAP_SOUTHERN_ISLAND_CLEARING      (22 | (26 << 8))
+#define MAP_SOOTOPOLIS_GARDENS            (23 | (26 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (27 << 8))
