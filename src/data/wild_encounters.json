@@ -1643,7 +1643,7 @@
               {
                 "min_level": 15,
                 "max_level": 15,
-                "species": "SPECIES_MINIOR"
+                "species": "SPECIES_MINIOR_GREEN"
               }
             ]
           },
@@ -20843,7 +20843,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_CRABRAWLER"
+                "species": "SPECIES_CRABOMINABLE"
               },
               {
                 "min_level": 5,
