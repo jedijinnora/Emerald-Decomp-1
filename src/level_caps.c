@@ -51,7 +51,7 @@ u32 GetCurrentLevelCap(void)
         //if (FlagGet(FLAG_ENTERED_ELITE_FOUR)) i++;
         //Jinnora: things are a little weird here, this handles the caps 
         //so the in-battle max level is correct
-        //but the player cannot level-up in E4 with infinite candy
+        //but the player cannot level-up in E4 with the candy jar
         //we do this by setting/clearing FLAG_USE_NEXT_LEVEL_CAP before/after each fight
         if (FlagGet(FLAG_ENTERED_CHAMPION_ROOM)) i+=2;
 

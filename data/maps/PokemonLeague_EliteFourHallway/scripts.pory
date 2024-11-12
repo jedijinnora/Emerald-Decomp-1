@@ -22,6 +22,7 @@ script PokemonLeague_EliteFourHallway_OnWarp {
 
 script PokemonLeague_EliteFourHallway_OnTransition {
     setflag(FLAG_ENTERED_ELITE_FOUR)
+    call(Common_EventScript_CountBadges)
     end
 }
 
@@ -37,24 +38,24 @@ script PokemonLeague_EliteFourHallway_TryOpenChampionDoor {
 
 script PokemonLeague_EliteFourHallway_OpenDoor1 {
     setmetatile(3, 15, METATILE_EliteFour_OpenDoor_Frame, TRUE)
-    setmetatile(3, 15, METATILE_EliteFour_OpenDoor_Opening, FALSE)
+    setmetatile(3, 16, METATILE_EliteFour_OpenDoor_Opening, FALSE)
     return
 }
 
 script PokemonLeague_EliteFourHallway_OpenDoor2 {
     setmetatile(12, 15, METATILE_EliteFour_OpenDoor_Frame, TRUE)
-    setmetatile(12, 15, METATILE_EliteFour_OpenDoor_Opening, FALSE)
+    setmetatile(12, 16, METATILE_EliteFour_OpenDoor_Opening, FALSE)
     return
 }
 
 script PokemonLeague_EliteFourHallway_OpenDoor3 {
     setmetatile(28, 15, METATILE_EliteFour_OpenDoor_Frame, TRUE)
-    setmetatile(28, 15, METATILE_EliteFour_OpenDoor_Opening, FALSE)
+    setmetatile(28, 16, METATILE_EliteFour_OpenDoor_Opening, FALSE)
     return
 }
 
 script PokemonLeague_EliteFourHallway_OpenDoor4 {
     setmetatile(37, 15, METATILE_EliteFour_OpenDoor_Frame, TRUE)
-    setmetatile(37, 15, METATILE_EliteFour_OpenDoor_Opening, FALSE)
+    setmetatile(37, 16, METATILE_EliteFour_OpenDoor_Opening, FALSE)
     return
 }

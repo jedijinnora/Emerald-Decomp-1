@@ -2335,9 +2335,9 @@ Route116_Text_JohnsonDefeat:
 	.string "That was fun even though I lost.$"
 
 Route116_Text_JohnsonPostBattle:
-	.string "Giorgio said I should walk\n"
-	.string "around until the aliens show\l"
-	.string "up. I better get back to it!$"
+	.string "Giorgio said I should walk around until\n"
+	.string "the aliens show up.\l"
+	.string "I better get back to it!$"
 
 Route117_Text_IsaacIntro:
 	.string "Listen, could I get you to battle\n"

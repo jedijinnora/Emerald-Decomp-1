@@ -68,9 +68,8 @@ script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
     giveitem(ITEM_EXP_SHARE)
     msgbox(format("The Exp. Share toggles whether all party Pokémon gain experience during battle."))
 
-    //infinite candy
-    //giveitem()
-    //msgbox(format("The Infinite Candy can level a Pokémon up to your current level cap."))
+    giveitem(ITEM_CANDY_JAR)
+    msgbox(format("If you'd rather avoid grinding, the Candy Jar can level a Pokémon up to your current level cap."))
 
     giveitem(ITEM_VS_SEEKER)
     msgbox(format("The Vs. Seeker charges by walking and challenges nearby Trainers for a rematch."))
@@ -560,8 +559,8 @@ script EverGrandeCity_Headquarters_1F_EventScript_NoHMInfo {
 script EverGrandeCity_Headquarters_1F_EventScript_NuzlockeMonotypeInfo {
     msgbox(format("Monotype or Nuzlocke runs are the responsibility of the player to manage."))
     msgbox(format("Jinnora: it didn't seem worth the dev time I'd have to spend on all the rule variants."))
-    msgbox(format("Look at the starter option for monotype runs if you missed it."))
-    msgbox(format("For Nuzlockes, check the option to disable EVs and there's an infinite candy to avoid grinding."))
+    msgbox(format("Go check out the starter options for monotype runs if you missed them."))
+    msgbox(format("For Nuzlockes, try the option to disable EVs and use the Candy Jar to avoid grinding."))
     return
 }
 
@@ -708,6 +707,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Set wild levels dynamically, by Hestia."))
                     msgbox(format("Get or Set a Pokémon's Seen/Caught flag specials, by Lunos."))
                     msgbox(format("Removing EVs from stat calculations for no grinding mode was based on a Discord comment by Lunos."))
+                    msgbox(format("The Candy Jar item's icon and palette were taken from Team Aqua's Asset Repo, by Pawkkie."))
                     goto(FeaturesMenu)
                 case 2: // Tweaks/Bugfixes
                     msgbox(format("Disable unnecessary Union Room check, from the tutorial master list."))
@@ -828,7 +828,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_ExploreModeGifts {
     dynmultipush("Heart Scales and Shards", 3)
     dynmultipush("HMs", 4)
     dynmultipush("HM Pokémon", 5)
-    //should have infinite candy, so no need to give rare candies once implemented
+    //should have Candy Jar, not really needed
     dynmultipush("Rare Candies", 6)
     dynmultipush("Toggle Trainer vision", 7)
     msgbox(format("What do you need?"))

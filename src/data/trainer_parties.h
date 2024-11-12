@@ -141,7 +141,7 @@
 //Victory Road Trainer mons are level 85
 //E4 mons are level 87, Champion is level 90
 //the cap during E4 battles is 90, so you may level up by defeating mons
-//but in the hallways the cap remains 87, so infinite candy will not work
+//but in the hallways the cap remains 87, so Candy Jar will not work
 
 
 //DUMMY PARTY FOR REFERENCE, COPY/PASTE
