@@ -40,7 +40,7 @@ script DewdropGlen_EventScript_Albert {
 	end
 }
 text DewdropGlen_Text_AlbertIntro {
-	"Well, if you're going to walk around"
+	"Well, if you're going to walk around\n"
 	"like that I'm going to challenge you!"
 }
 text DewdropGlen_Text_AlbertDefeat {
@@ -74,7 +74,7 @@ script DewdropGlen_EventScript_Dudley {
 	end
 }
 text DewdropGlen_Text_DudleyIntro {
-	"Is there something wrong with my Rod?"
+	"Is there something wrong with my Rod?\n"
 	"I'm not catching the Pokémon I want!"
 }
 text DewdropGlen_Text_DudleyDefeat {

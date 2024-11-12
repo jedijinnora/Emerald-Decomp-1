@@ -30660,20 +30660,20 @@ static const struct TrainerMon sParty_Albert[] = {
 };
 static const struct TrainerMon sParty_Albert_easy[] = {
     {
-    .lvl = 12,
+    .lvl = 9,
     .species = SPECIES_BRAMBLIN,
     .heldItem = ITEM_EVIOLITE,
     .moves = {MOVE_INFESTATION, MOVE_BULLET_SEED, MOVE_SHADOW_SNEAK, MOVE_POUNCE}
     },
     {
-    .lvl = 12,
+    .lvl = 10,
     .species = SPECIES_WOOPER_PALDEAN,
     .heldItem = ITEM_BLACK_SLUDGE,
     .ability = ABILITY_WATER_ABSORB,
     .moves = {MOVE_YAWN, MOVE_POISON_JAB, MOVE_EARTHQUAKE, MOVE_RECOVER}
     },
     {
-    .lvl = 12,
+    .lvl = 10,
     .species = SPECIES_FLITTLE,
     .heldItem = ITEM_TWISTED_SPOON,
     .ability = ABILITY_SPEED_BOOST,
@@ -30702,14 +30702,14 @@ static const struct TrainerMon sParty_Quincy[] = {
 };
 static const struct TrainerMon sParty_Quincy_easy[] = {
     {
-    .lvl = 12,
+    .lvl = 9,
     .species = SPECIES_SHROODLE,
     .heldItem = ITEM_FOCUS_SASH,
     .ability = ABILITY_UNBURDEN,
     .moves = {MOVE_SLASH, MOVE_POISON_JAB, MOVE_KNOCK_OFF, MOVE_U_TURN}
     },
     {
-    .lvl = 12,
+    .lvl = 10,
     .species = SPECIES_WOOLOO,
     .heldItem = ITEM_EVIOLITE,
     .ability = ABILITY_BULLETPROOF,
@@ -30744,7 +30744,7 @@ static const struct TrainerMon sParty_Dudley[] = {
 };
 static const struct TrainerMon sParty_Dudley_easy[] = {
     {
-    .lvl = 11,
+    .lvl = 10,
     .species = SPECIES_TATSUGIRI,
     .heldItem = ITEM_ASSAULT_VEST,
     .moves = {MOVE_WATER_PULSE, MOVE_DRAGON_PULSE, MOVE_MIRROR_COAT, MOVE_COUNTER}

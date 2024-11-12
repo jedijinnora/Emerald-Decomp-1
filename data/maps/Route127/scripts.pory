@@ -259,7 +259,7 @@ script Route127_EventScript_Meowstic_F {
 script Route127_EventScript_Camper {
 	lock
 	faceplayer
-	msgbox(format("Seafoam Cove and Shoal Cave are some of the only places you can find Ice types in the Hoenn region."))
+	msgbox(format("Seafoam Cove and Shoal Cave are some of the only places you can find Ice-type Pokémon in the Hoenn region."))
 	release
 	end
 }
@@ -276,8 +276,13 @@ script Route127_EventScript_Picnicker {
 script Route127_EventScript_LittleBoy {
 	lock
 	faceplayer
-	msgbox(format("Hah! I love splashing through the shallows around Mossdeep and exploring the islands."))
+	msgbox(format("Hah! I love splashing through the shallows!"))
 	release
+	end
+}
+
+script Route127_EventScript_SeafoamCoveSign {
+	msgbox(format("Seafoam Cove"), MSGBOX_SIGN)
 	end
 }
 

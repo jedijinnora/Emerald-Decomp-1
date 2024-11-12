@@ -21,6 +21,15 @@ script Route110_EventScript_TryBlockNewMauville {
 	return
 }
 
+script Route110_EventScript_AquaGrunt {
+	msgbox(format("This place is a nightmare!\p Just think about how many Pokémon we disrupted by building TWO bridges across the estuary."), MSGBOX_NPC)
+	end
+}
+
+script Route110_EventScript_MagmaGrunt {
+	msgbox(format("Heh, this project was a smashing success!\p Now it's super easy, barely an inconvenience to travel between Slateport and Mauville!"), MSGBOX_NPC)
+	end
+}
 
 
 raw `

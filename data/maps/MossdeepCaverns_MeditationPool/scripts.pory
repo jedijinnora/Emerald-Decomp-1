@@ -303,7 +303,7 @@ script MossdeepCaverns_MeditationPool_EventScript_PunchTutor {
 script MossdeepCaverns_MeditationPool_EventScript_PunchBattle {
     msgbox(format("Hah! My Pokémon will punch your lights out!"), MSGBOX_YESNO)
     goto_if_eq(VAR_RESULT, NO, MossdeepCaverns_MeditationPool_EventScript_PunchBattleDeclined)
-    trainerbattle_no_intro(TRAINER_BITE_TUTOR, MossdeepCaverns_MeditationPool_Text_PunchDefeat)
+    trainerbattle_no_intro(TRAINER_PUNCH_TUTOR, MossdeepCaverns_MeditationPool_Text_PunchDefeat)
     return
 }
 

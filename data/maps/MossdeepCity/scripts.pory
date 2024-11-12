@@ -97,6 +97,16 @@ script MossdeepCity_EventScript_PsychicM {
 	end
 }
 
+script MossdeepCity_EventScript_Girl1 {
+	msgbox(format("Sometimes the local Clefairy gather around the Space Center and do a little dance. It's cute!"), MSGBOX_NPC)
+	end
+}
+
+script MossdeepCity_EventScript_Man1 {
+	msgbox(format("Which way do you think it goes?\pDo we have a lot of Psychic Pokémon because of all the Psychic Trainers?\pOr do we have a lot of Psychic Trainers because of all the Psychic Pokémon?"), MSGBOX_NPC)
+	end
+}
+
 script MossdeepCity_EventScript_CitySign {
 	lock
 	msgbox(format("Mossdeep City \n“The island of science and psionics.”"))

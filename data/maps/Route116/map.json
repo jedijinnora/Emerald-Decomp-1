@@ -149,14 +149,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 76,
+      "x": 75,
       "y": 10,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "4",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "Route116_EventScript_Clark",
       "flag": "0"
     },
@@ -267,11 +267,11 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
       "x": 94,
-      "y": 16,
+      "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_DOWN_RIGHT_UP",
-      "movement_range_x": 3,
-      "movement_range_y": 3,
+      "movement_range_x": 2,
+      "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
       "script": "Route116_EventScript_Johnson",
@@ -280,9 +280,9 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
       "x": 39,
-      "y": 16,
+      "y": 15,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_DOWN_RIGHT_UP",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 3,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -331,8 +331,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 77,
-      "y": 14,
+      "x": 72,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -344,8 +344,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 75,
-      "y": 22,
+      "x": 71,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -406,6 +406,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route116_EventScript_Nurse",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SKITTY",
+      "x": 42,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -424,7 +437,7 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 85,
+      "x": 86,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_RUSTURF_TUNNEL",
@@ -476,8 +489,8 @@
     },
     {
       "type": "secret_base",
-      "x": 95,
-      "y": 11,
+      "x": 111,
+      "y": 14,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BLUE_CAVE2_1"
     },
@@ -490,7 +503,7 @@
     },
     {
       "type": "secret_base",
-      "x": 75,
+      "x": 83,
       "y": 15,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_BLUE_CAVE4_2"

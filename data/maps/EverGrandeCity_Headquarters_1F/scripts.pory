@@ -33,6 +33,14 @@ movement EverGrandeCity_Headquarters_1F_Movement_PlayerApproachDesk {
     step_end
 }
 
+script EverGrandeCity_Headquarters_1F_TrainerCount {
+    lock
+    buffernumberstring(STR_VAR_1, TRAINERS_COUNT)
+    msgbox(format("Trainers: {STR_VAR_1}"))
+    release
+    end
+}
+
 
 // Desk Lady scripts
 script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
