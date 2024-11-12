@@ -1843,10 +1843,5 @@ const u8 gText_PlantBerry[] = _("Plant Berry");
 const u8 gText_AM[] = _("AM");
 const u8 gText_PM[] = _("PM");
 
-// view IVs and EVs on summary screen
-const u8 gText_ViewIVs[] =            _("IVs");
-const u8 gText_ViewEVs[] =            _("EVs");
-const u8 gText_ViewStats[] =          _("Stats");
-
 //Soot Sack
 const u8 gText_AshQty[] = _("Ash collected:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}");

@@ -684,8 +684,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                 case 0: // Player QOL
                     msgbox(format("Nature stat colors, by DizzyEgg."))
                     msgbox(format("Bag sorting, by ghoulslash."))
-                    msgbox(format("IV/EV summary screen, by BuffelSaft."))
-                    msgbox(format("IV/EV button promts, by RavePossum."))
+                    msgbox(format("IV/EV summary screen, by Jaizu, Buffel Saft, AkimotoBubble, PokemonCrazy, and Scyrous."))
                     msgbox(format("Increased bag stack size, by MapleFall."))
                     msgbox(format("Fast Berry interactions, by dunsparce9."))
                     msgbox(format("Berry trees remain until picked, by BuffelSaft."))

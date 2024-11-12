@@ -3050,11 +3050,6 @@ extern const u8 gText_PM[];
 
 // Jinnora's Added Strings
 
-// view IVs and EVs on summary screen
-extern const u8 gText_ViewIVs[];
-extern const u8 gText_ViewEVs[];
-extern const u8 gText_ViewStats[];
-
 //Soot Sack
 extern const u8 gText_AshQty[];
 
