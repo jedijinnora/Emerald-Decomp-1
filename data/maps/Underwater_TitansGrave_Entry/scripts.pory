@@ -1,5 +1,11 @@
 mapscripts Underwater_TitansGrave_Entry_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : Underwater_TitansGrave_Entry_OnTransition
     MAP_SCRIPT_ON_DIVE_WARP : Underwater_TitansGrave_Entry_OnDive
+}
+
+script Underwater_TitansGrave_Entry_OnTransition {
+    setflag(FLAG_LANDMARK_TITANS_GRAVE)
+    end
 }
 
 script Underwater_TitansGrave_Entry_OnDive {

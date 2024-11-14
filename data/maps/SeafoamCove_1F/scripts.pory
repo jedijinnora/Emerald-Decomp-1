@@ -1,1 +1,8 @@
-mapscripts SeafoamCove_1F_MapScripts {}
+mapscripts SeafoamCove_1F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : SeafoamCove_1F_OnTransition
+}
+
+script SeafoamCove_1F_OnTransition {
+    setflag(FLAG_LANDMARK_SEAFOAM_COVE)
+    end
+}

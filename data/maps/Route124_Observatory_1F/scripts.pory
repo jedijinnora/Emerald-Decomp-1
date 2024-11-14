@@ -1,1 +1,8 @@
-mapscripts Route124_Observatory_1F_MapScripts {}
+mapscripts Route124_Observatory_1F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : Route124_Observatory_1F_OnTransition
+}
+
+script Route124_Observatory_1F_OnTransition {
+    setflag(FLAG_LANDMARK_OBSERVATORY)
+    end
+}

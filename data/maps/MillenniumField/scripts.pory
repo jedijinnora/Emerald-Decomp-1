@@ -484,6 +484,7 @@ script MillenniumField_EventScript_PokefanF {
 script MillenniumField_EventScript_Mom {
     lock
     faceplayer
+    setflag(FLAG_LANDMARK_WISHMAKERS_WELL)
     if(flag(FLAG_SYS_GAME_CLEAR)) {
         msgbox(format("Once a day, the wishmaker might reward you for throwing a treasure down the well."))
         release
@@ -577,6 +578,7 @@ script MillenniumField_EventScript_FieldSign {
 
 script MillenniumField_EventScript_WellSign {
     lock
+    setflag(FLAG_LANDMARK_WISHMAKERS_WELL)
     msgbox(format("Wishmaker's Well \n “Where lost wishes sleep forever.”"))
     release
     end

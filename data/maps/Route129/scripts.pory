@@ -17,6 +17,7 @@ script Route129_OnTransition {
 
 script Route129_EventScript_ShayminShrub {
 	lock
+	setflag(FLAG_LANDMARK_FLOWER_PARADISE)
 	msgbox(format("It's a pile of moss and tiny flowers."))
 	call_if_set(FLAG_SYS_GAME_CLEAR, Route129_EventScript_TrySetupShayminBattle)
 	release
@@ -75,6 +76,7 @@ script Route129_EventScript_RanFromShaymin {
 script Route129_EventScript_Beauty {
 	lock
 	faceplayer
+	setflag(FLAG_LANDMARK_FLOWER_PARADISE)
 	msgbox(format("This island reminds me of a place in Sinnoh I once visited."))
 	goto_if_set(FLAG_CAUGHT_SHAYMIN, Route129_EventScript_BeautyCaughtShaymin)
 	release
@@ -88,6 +90,7 @@ script Route129_EventScript_BeautyCaughtShaymin {
 }
 
 script Route129_EventScript_Sign {
+	setflag(FLAG_LANDMARK_FLOWER_PARADISE)
 	msgbox("Route 129\nFlower Paradise", MSGBOX_SIGN)
 	end
 }

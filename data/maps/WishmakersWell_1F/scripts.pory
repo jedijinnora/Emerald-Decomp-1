@@ -9,6 +9,7 @@ script WishmakersWell_OnLoad {
 }
 
 script WishmakersWell_OnTransition {
+    setflag(FLAG_LANDMARK_WISHMAKERS_WELL)
     call(WishmakersWell_1F_EventScript_CheckForItems)
     random(7)
     copyvar(VAR_TEMP_3, VAR_RESULT)

@@ -5,6 +5,7 @@ mapscripts Route124_House_MapScripts {
 const LOCALID_LEX = 3
 
 script Route124_House_OnTransition {
+    setflag(FLAG_LANDMARK_CREATORS_HOUSE)
     call_if_lt(VAR_NUM_BADGES, 2, Route124_House_EventScript_MoveLex)
     end
 }

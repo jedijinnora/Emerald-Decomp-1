@@ -14,11 +14,13 @@ script Route132_EventScript_ShowTPPTrainers {
 }
 
 script Route132_EventScript_HelixSign {
+	setflag(FLAG_LANDMARK_ANARCHY_ISLAND)
 	msgbox("Anarchy Island\n“Oak: This isn't the time to use that!”", MSGBOX_SIGN)
 	end
 }
 
 script Route132_EventScript_DomeSign {
+	setflag(FLAG_LANDMARK_DOMECRACY_ISLAND)
 	msgbox("Domecracy Island\n“Slaying gods with a Lazor Gator!”", MSGBOX_SIGN)
 	end
 }

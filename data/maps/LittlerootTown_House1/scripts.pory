@@ -18,7 +18,7 @@ script LittlerootTown_House1_EventScript_Ziggy_2 {
     lock
     faceplayer
     playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_ENCOUNTER)
-    msgbox(format("Ziggy 1: Zag?"))
+    msgbox(format("Ziggy 2: Zag?"))
     release
     end
 }

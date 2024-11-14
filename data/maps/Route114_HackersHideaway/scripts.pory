@@ -1,4 +1,11 @@
-mapscripts Route114_HackersHideaway_MapScripts {}
+mapscripts Route114_HackersHideaway_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : HackersHideaway_OnTransition
+}
+
+script HackersHideaway_OnTransition {
+    setflag(FLAG_LANDMARK_HACKERS_HIDEAWAY)
+    end
+}
 
 script Route114_HackersHideaway_EventScript_PC {
     msgbox(format("You don't have a login for this computer."), MSGBOX_SIGN)

@@ -46,7 +46,7 @@ script VerdantForest_OnTransition {
 }
 
 script VerdantForest_EventScript_Maniac {
-    lockall
+    lock
     applymovement(MANIAC_ID, Common_Movement_FacePlayer)
     goto_if_set(FLAG_TEMP_8, ResearchBattle)
     BugFairy:
@@ -58,7 +58,7 @@ script VerdantForest_EventScript_Maniac {
     call_if_unset(FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY, VerdantForest_EventScript_Tanga)
     ResearchBattle:
     call_if_unset(FLAG_TEMP_9, VerdantForest_EventScript_ResearchBattle)
-    releaseall
+    release
     end
 }
 
@@ -75,7 +75,7 @@ script VerdantForest_EventScript_ResearchBattle {
     msgbox(format("Want to battle to help me further my research?"), MSGBOX_YESNO)
     if(var(VAR_RESULT) == NO) {
         msgbox(format("Hmph. Fine then. Go away."))
-        releaseall
+        release
         end
     }
     trainerbattle_no_intro(TRAINER_DRESDEN, VerdantForest_Text_DresdenDefeat)
@@ -88,18 +88,18 @@ text VerdantForest_Text_DresdenDefeat {
 }
 
 script VerdantForest_EventScript_LittleGirl {
-    lockall
+    lock
     applymovement(LITTLE_GIRL_ID, Common_Movement_FacePlayer)
     msgbox(format("Puff, puff."))
     waitmessage
     msgbox(format("The other kids - puff - said the fairies can't get you - puff - if you don't stop - puff - moving."))
     waitmessage
-    releaseall
+    release
     end
 }
 
 script VerdantForest_EventScript_Woman {
-    lockall
+    lock
     applymovement(WOMAN_ID, Common_Movement_FacePlayer)
     msgbox(format("This forest is peaceful as long as you don't trespass too far."))
     waitmessage
@@ -111,7 +111,7 @@ script VerdantForest_EventScript_Woman {
             addvar(VAR_TEMP_3, 3)
             msgbox(format("I can no longer help you. If you leave now misfortune might pass you by."))
             waitmessage
-            releaseall
+            release
             end
         }
         msgbox(format("Why don't you have a drink of water to clear your head?"), MSGBOX_YESNO)
@@ -135,19 +135,19 @@ script VerdantForest_EventScript_Woman {
         msgbox(format("I love the flowers here, though I never pick any. They're best admired from a distance."))
         waitmessage
     }
-    releaseall
+    release
     end
 }
 
 script VerdantForest_EventScript_Flowerbox {
-    lockall
+    lock
     msgbox(format("A crate full of pretty flowers gathered by the people of Verdanturf."))
-    releaseall
+    release
     end
 }
 
 script VerdantForest_EventScript_FairyFlowerbox_Lower {
-    lockall
+    lock
     goto_if_set(FLAG_TEMP_7, VerdantForest_EventScript_BoxQuiet)
     msgbox(format("The crate is full of beautifully cut flowers which seem fresh and perfectly preserved."))
     if (var(VAR_TEMP_2) > 7) {
@@ -159,7 +159,7 @@ script VerdantForest_EventScript_FairyFlowerbox_Lower {
         addvar(VAR_TEMP_2, 1)
         msgbox(format("Probably a wise choice."))
         call(Verdant_Forest_EventScript_Danger)
-        releaseall
+        release
         end
     }
     LowerTemptation:
@@ -189,12 +189,12 @@ script VerdantForest_EventScript_FairyFlowerbox_Lower {
     setvar(VAR_TEMP_2, 0)
     msgbox(format("The sweet smell of flowers is a little less cloying now."))
     addvar(VAR_TEMP_3, 1)
-    releaseall
+    release
     end
 }
 
 script VerdantForest_EventScript_FairyFlowerbox_Upper {
-    lockall
+    lock
     goto_if_set(FLAG_TEMP_7, VerdantForest_EventScript_BoxQuiet)
     msgbox(format("The crate is full of artfully placed flowers which drip sweet pollen. Their intoxicating beauty tempts you."))
     if (var(VAR_TEMP_2) > 7) {
@@ -206,7 +206,7 @@ script VerdantForest_EventScript_FairyFlowerbox_Upper {
         addvar(VAR_TEMP_2, 3)
         msgbox(format("So pretty..."))
         call(Verdant_Forest_EventScript_Danger)
-        releaseall
+        release
         end
     }
     UpperTemptation:
@@ -240,7 +240,7 @@ script VerdantForest_EventScript_FairyFlowerbox_Upper {
     setvar(VAR_TEMP_2, 0)
     msgbox(format("The sweet smell of flowers is a little less cloying now."))
     addvar(VAR_TEMP_3, 2)
-    releaseall
+    release
     end
 }
 
@@ -255,19 +255,20 @@ script Verdant_Forest_EventScript_Danger {
 script VerdantForest_EventScript_TreeQuiet {
     msgbox(format("With its protector vanquished, the Guardian's tree is silent."))
     msgbox(format("The forest watches you with quiet hatred."))
-    releaseall
+    release
     end
 }
 
 script VerdantForest_EventScript_BoxQuiet {
     msgbox(format("The box is full of ash and dry twigs."))
     msgbox(format("The forest watches you with quiet hatred."))
-    releaseall
+    release
     end
 }
 
 script VerdantForest_EventScript_FaeTree {
-    lockall
+    lock
+    setflag(FLAG_LANDMARK_GUARDIAN_TREE)
     goto_if_set(FLAG_TEMP_7, VerdantForest_EventScript_TreeQuiet)
     msgbox(format("This tree is the center of the forest's strange energy."))
     waitmessage
@@ -288,7 +289,7 @@ script VerdantForest_EventScript_FaeTree {
         addvar(VAR_TEMP_3, 1)
         playmoncry(SPECIES_FLABEBE, CRY_MODE_ENCOUNTER)
     }
-    releaseall
+    release
     end
 }
 
@@ -342,7 +343,7 @@ script VerdantForest_EventScript_Guardian {
             clearflag(FLAG_HIDDEN_ITEM_VERDANT_FOREST_ELIXIR_2)
         default:
     }
-    releaseall
+    release
     end
 }
 
@@ -362,7 +363,7 @@ script VerdantForest_EventScript_Eternal {
     setflag(FLAG_SMART_WILD_AI)
     dowildbattle
     clearflag(FLAG_SMART_WILD_AI)
-    releaseall
+    release
     end
 }
 
