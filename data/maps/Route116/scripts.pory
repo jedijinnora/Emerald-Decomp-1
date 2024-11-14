@@ -28,7 +28,7 @@ script Route116_EventScript_RouteSignRustboro {
 }
 
 script Route116_EventScript_RusturfTunnelSign {
-	msgbox(format("Rusturf Tunnel\p “Progress is underway to link Rustboro and Verdanturf!”"), MSGBOX_SIGN)
+	msgbox(format("Rusturf Tunnel\p “Progress is under way to link Rustboro and Verdanturf!”"), MSGBOX_SIGN)
 	end
 }
 

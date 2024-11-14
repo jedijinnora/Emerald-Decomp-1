@@ -17,11 +17,11 @@ script Forina_EventScript_TryMoveStash {
 		case 1:
 			setobjectxyperm(LOCALID_STASH, 15, 25)
 		case 2:
-			setobjectxyperm(LOCALID_STASH, 45, 9)
+			setobjectxyperm(LOCALID_STASH, 45, 10)
 		case 3:
 			setobjectxyperm(LOCALID_STASH, 83, 29)
 		default:
-			setobjectxyperm(LOCALID_STASH, 46, 28)
+			setobjectxyperm(LOCALID_STASH, 49, 28)
 	}
     return
 }
@@ -39,7 +39,7 @@ script Forina_EventScript_LavaridgeSign {
 }
 
 script Forina_EventScript_116Sign {
-	msgbox(format("Forina\n“The land of pillars and wishes.”\p{DOWN_ARROW} Route 115"), MSGBOX_SIGN)
+	msgbox(format("Forina\n“The land of pillars and wishes.”\p{DOWN_ARROW} Route 116"), MSGBOX_SIGN)
 }
 
 script Forina_EventScript_Man {

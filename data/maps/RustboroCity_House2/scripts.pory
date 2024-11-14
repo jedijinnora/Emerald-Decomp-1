@@ -26,7 +26,7 @@ script RustboroCity_House2_EventScript_Roxanne {
 }
 
 script RustboroCity_House2_EventScript_RockSpecialistInfo {
-    msgbox("I'm Roxanne. I've been studying at the Trainer's School to become Rustboro's next Gym Leader.")
+    msgbox(format("I'm Roxanne. I've been studying at the Trainer's School to become Rustboro's next Gym Leader."))
     msgbox(format("If you beat my Rock-type Pokémon in battle, I will offer to teach you various Rock-type moves."))
     msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Rock-type Pokémon."))
     setflag(FLAG_MET_ROCK_TUTOR)

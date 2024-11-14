@@ -197,7 +197,7 @@
       "name": "Route 109",
       "x": 8,
       "y": 13,
-      "width": 3,
+      "width": 4,
       "height": 1
     },
     {
@@ -1803,9 +1803,9 @@
     {
       "map_section": "MAPSEC_SUMMER_SEA",
       "name": "Summer Sea",
-      "x": 11,
+      "x": 12,
       "y": 13,
-      "width": 2,
+      "width": 1,
       "height": 1
     },
     {

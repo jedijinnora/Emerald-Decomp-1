@@ -396,7 +396,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NURSE",
-      "x": 56,
+      "x": 57,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -430,7 +430,7 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 58,
+      "x": 59,
       "y": 8,
       "elevation": 0,
       "dest_map": "MAP_ROUTE116_TUNNELERS_REST_HOUSE",
@@ -474,7 +474,7 @@
     },
     {
       "type": "sign",
-      "x": 60,
+      "x": 61,
       "y": 9,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

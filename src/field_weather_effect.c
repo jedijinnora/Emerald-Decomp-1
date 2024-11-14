@@ -1375,9 +1375,9 @@ void FogHorizontal_Main(void)
     case 0:
         CreateFogHorizontalSprites();
         if (gWeatherPtr->currWeather == WEATHER_FOG_HORIZONTAL)
-            Weather_SetTargetBlendCoeffs(12, 8, 3);
-        else
-            Weather_SetTargetBlendCoeffs(4, 16, 0);
+            Weather_SetTargetBlendCoeffs(8, 8, 3); //vanilla (12, 8, 3)
+        else //WEATHER_UNDERWATER
+            Weather_SetTargetBlendCoeffs(3, 12, 3); //vanilla (4, 16, 0)
         gWeatherPtr->initStep++;
         break;
     case 1:

@@ -725,6 +725,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Using Soot Sack shows ash collected, by Sapphire Jester."))
                     msgbox(format("HGSS_Dex Darkest mode, by RavePossum."))
                     msgbox(format("Additional NPC walking animations, by Bivurnum."))
+                    msgbox(format("Better fog weather blending, by wiz1989."))
                     goto(FeaturesMenu)
                 default:
                     goto(CreditsMenu)
