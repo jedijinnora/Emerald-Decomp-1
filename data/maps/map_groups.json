@@ -120,7 +120,8 @@
     "SakuraiOverlook",
     "SunriseShore",
     "Underwater_Route109",
-    "SouthernIsland"
+    "SouthernIsland",
+    "SkyPillar_Outside"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -475,7 +476,6 @@
     "AquaHideout_UnusedRubyMap2",
     "AquaHideout_UnusedRubyMap3",
     "SkyPillar_Entrance",
-    "SkyPillar_Outside",
     "SkyPillar_1F",
     "SkyPillar_2F",
     "SkyPillar_3F",

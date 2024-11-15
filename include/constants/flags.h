@@ -95,7 +95,7 @@
 #define FLAG_WILD_PERFECT_IVS       0x49 // should create perfect wild mon if set
 #define FLAG_WILD_HIDDEN_ABILITY    0x4A // should generate wild mon with hidden ability
 #define FLAG_NO_ESCAPE              0x4B // prevents running from wild battle
-#define FLAG_UNUSED_0x4C            0x4C
+#define FLAG_NO_FOLLOWERS           0x4C // persistent hide follower flag
 
 //Jinnora: Beach Battle Flags
 #define FLAG_BEACH_BATTLE_VICTORY            0x4D // set after returning from special beach map

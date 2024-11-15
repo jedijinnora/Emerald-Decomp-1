@@ -176,7 +176,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_TRICK_HOUSE_STATUE",
       "x": 14,
-      "y": 22,
+      "y": 23,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -236,7 +236,7 @@
     },
     {
       "x": 14,
-      "y": 23,
+      "y": 24,
       "elevation": 0,
       "dest_map": "MAP_ROUTE134",
       "dest_warp_id": "1"

@@ -228,7 +228,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_DifficultyScientist {
 	faceplayer
     goto_if_le(VAR_EVER_GRANDE_CITY_STATE, 11, EverGrandeCity_Headquarters_1F_EventScript_GoCheckIn)
     goto_if_set(FLAG_DEPARTED_EVER_GRANDE, EverGrandeCity_Headquarters_1F_EventScript_UpdateChallengesDifficulty)
-	msgbox(format("I am the Challenge Guy!\nHow can I help you?"))
+	msgbox(format("I am the Settings and Challenges Guy!\nHow can I help you?"))
 
     dynmultipush("View current settings", 0)
     dynmultipush("Select difficulty settings", 1)
@@ -238,6 +238,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_DifficultyScientist {
     dynmultipush("Optional challenge rules", 3)
     dynmultipush("OpChal: Random HMs", 11)
     dynmultipush("OpChal: No HMs", 12)
+    dynmultipush("Toggle followers on/off", 20)
     dynmultipush("Nuzlocke/Monotype", 21)
 
     dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
@@ -254,6 +255,8 @@ script EverGrandeCity_Headquarters_1F_EventScript_DifficultyScientist {
             call(EverGrandeCity_Headquarters_1F_EventScript_RandomHMInfo)
         case 12:
             call(EverGrandeCity_Headquarters_1F_EventScript_NoHMInfo)
+        case 20:
+            call(EverGrandeCity_Headquarters_1F_EventScript_ToggleFollowers)
         case 21:
             call(EverGrandeCity_Headquarters_1F_EventScript_NuzlockeMonotypeInfo)
         default:
@@ -556,6 +559,18 @@ script EverGrandeCity_Headquarters_1F_EventScript_NoHMInfo {
     return
 }
 
+script EverGrandeCity_Headquarters_1F_EventScript_ToggleFollowers {
+    if(flag(FLAG_NO_FOLLOWERS)) {
+        clearflag(FLAG_NO_FOLLOWERS)
+        msgbox(format("Followers enabled."))
+    } else {
+        setflag(FLAG_NO_FOLLOWERS)
+        msgbox(format("Followers disabled."))
+    }
+    msgbox(format("View the Party screen or change maps for this change to take effect."))
+    return
+}
+
 script EverGrandeCity_Headquarters_1F_EventScript_NuzlockeMonotypeInfo {
     msgbox(format("Monotype or Nuzlocke runs are the responsibility of the player to manage."))
     msgbox(format("Jinnora: it didn't seem worth the dev time I'd have to spend on all the rule variants."))
@@ -626,7 +641,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_GivePuzzleHint {
             msgbox(format("{LEFT_ARROW} {UP_ARROW} {UP_ARROW} {UP_ARROW} {LEFT_ARROW} {UP_ARROW} {UP_ARROW} {UP_ARROW} {UP_ARROW} {RIGHT_ARROW} {RIGHT_ARROW} {RIGHT_ARROW} {UP_ARROW}"))
         case 8:
             msgbox(format("Did you even read the booklet? It's just Braille."))
-            msgbox(format("{DOWN_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {DOWN_ARROW} {DOWN_ARROW} A 7{DOWN_ARROW} {LEFT_ARROW} B {LEFT_ARROW} {LEFT_ARROW} {LEFT_ARROW} {DOWN_ARROW} A {DOWN_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {DOWN_ARROW} 6{RIGHT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {RIGHT_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {RIGHT_ARROW} {RIGHT_ARROW} {DOWN_ARROW} {DOWN_ARROW} A {LEFT_ARROW} A"))
+            msgbox(format("{DOWN_ARROW} A 7{DOWN_ARROW} 3{LEFT_ARROW} A 3{DOWN_ARROW} 21{LEFT_ARROW} B 9{RIGHT_ARROW} 3{UP_ARROW} 3{RIGHT_ARROW} 2{UP_ARROW} A 3{UP_ARROW} A 5{UP_ARROW} 5{LEFT_ARROW} B 3{UP_ARROW} 9{LEFT_ARROW} A 4{LEFT_ARROW} 7{DOWN_ARROW} 4{LEFT_ARROW} {DOWN_ARROW} A 2{DOWN_ARROW} 8{RIGHT_ARROW} 2{DOWN_ARROW} 10{RIGHT_ARROW} 3{DOWN_ARROW} A"))
         default:
             goto(EverGrandeCity_Headquarters_1F_EventScript_GameOverPlayAgain)
     }

@@ -274,6 +274,13 @@ script ArrivalFerry_Room_EventScript_Bag {
         call(Common_EventScript_NameReceivedPartyMon)
     }
 
+    msgbox(format("Want the first Pokémon in your party to join you outside their ball?"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        msgbox(format("View the Party screen or change maps for this change to take effect."))
+    } else {
+        setflag(FLAG_NO_FOLLOWERS)
+    }
+
     //ending message
     msgbox(format("With your first Pokémon back at your side you are ready to take on the world!"))
     msgbox(format("Assuming you've cleaned up enough that the madman will let you out the door…"))

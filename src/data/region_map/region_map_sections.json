@@ -602,7 +602,7 @@
     },
     {
       "map_section": "MAPSEC_UNDERWATER_SEALED_CHAMBER",
-      "name": "Underwater Chamber",
+      "name": "Underwater",
       "x": 10,
       "y": 10,
       "width": 1,

@@ -3,9 +3,13 @@ mapscripts Route134_MapScripts {}
 script Route134_EventScript_WestStatue {
 	lock
 	if(flag(FLAG_LANDMARK_SEALED_CHAMBER)) {
-		msgbox(format("Where do you want to warp?"))
-		dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Sealed Chamber", "Route 134 East", "Cancel")
-		switch(var(VAR_RESULT)) {
+		dynmultipush("Sealed Chamber", 0)
+	}
+	dynmultipush("Route 134 East", 1)
+	dynmultipush("Cancel", 2)
+	msgbox(format("Where do you want to warp?"))
+	dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
 		case 0:
 			warpteleport(MAP_SEALED_CHAMBER_OUTER_ROOM, 1)
 			release
@@ -15,7 +19,6 @@ script Route134_EventScript_WestStatue {
 			release
 			end
 		default:
-		}
 	}
 	msgbox(format("The ancient statue is silent."))
 	release
@@ -25,9 +28,13 @@ script Route134_EventScript_WestStatue {
 script Route134_EventScript_EastStatue {
 	lock
 	if(flag(FLAG_LANDMARK_SEALED_CHAMBER)) {
-		msgbox(format("Where do you want to warp?"))
-		dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Sealed Chamber", "Route 134 West", "Cancel")
-		switch(var(VAR_RESULT)) {
+		dynmultipush("Sealed Chamber", 0)
+	}
+	dynmultipush("Route 134 West", 1)
+	dynmultipush("Cancel", 2)
+	msgbox(format("Where do you want to warp?"))
+	dynmultistack(0,0,FALSE,6,FALSE, 0,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
 		case 0:
 			warpteleport(MAP_SEALED_CHAMBER_OUTER_ROOM, 1)
 			release
@@ -37,7 +44,6 @@ script Route134_EventScript_EastStatue {
 			release
 			end
 		default:
-		}
 	}
 	msgbox(format("The ancient statue is silent."))
 	release
@@ -83,7 +89,7 @@ script Route134_EventScript_StatueWoman {
 	lock
 	faceplayer
 	msgbox(format("There are some ancient statues on the east and west sides of this Route."))
-	msgbox(format("I can't get them to do anything, but I wonder if they are connected somehow?"))
+	msgbox(format("I wonder if they are connected somehow?"))
 	release
 	end
 }
