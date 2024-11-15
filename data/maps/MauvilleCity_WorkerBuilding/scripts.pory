@@ -26,6 +26,29 @@ script MauvilleCity_WorkerBuilding_EventScript_Man1 {
     end
 }
 
+script MauvilleCity_WorkerBuilding_EventScript_BatteryGuy {
+    lock
+	faceplayer
+    goto_if_set(FLAG_SYS_GAME_CLEAR, MauvilleCity_WorkerBuilding_EventScript_BatterySeller)
+    msgbox(format("As soon as the new generators come online, I'm going to make bank selling my single-use chargeable items!"))
+    release
+    end
+}
+
+script MauvilleCity_WorkerBuilding_EventScript_BatterySeller {
+    msgbox(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(BatteryMart)
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+mart BatteryMart {
+	ITEM_CELL_BATTERY
+    ITEM_BOOSTER_ENERGY
+}
+
 script MauvilleCity_WorkerBuilding_EventScript_Scotty {
     lock
     faceplayer
@@ -74,6 +97,7 @@ script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistMenu {
 
 script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistTutor {
     call(MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_SCOTTY_INITIAL, MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistInitialUnlock)
     call_if_defeated(TRAINER_SCOTTY_INVERSE, MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistInverseUnlock)
     call_if_defeated(TRAINER_SCOTTY_CHALLENGE, MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistChallengeUnlock)
@@ -123,7 +147,8 @@ script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistCheckMoves {
     goto_if_defeated(TRAINER_BITE_TUTOR, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistInitialUnlock {

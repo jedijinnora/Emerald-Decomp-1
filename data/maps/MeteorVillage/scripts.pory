@@ -157,6 +157,7 @@ script MeteorVillage_EventScript_DragonSpecialistMenu {
 
 script MeteorVillage_EventScript_DragonSpecialistTutor {
     call(MeteorVillage_EventScript_DragonSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_ASTER_INITIAL, MeteorVillage_EventScript_DragonSpecialistInitialUnlock)
     call_if_defeated(TRAINER_ASTER_INVERSE, MeteorVillage_EventScript_DragonSpecialistInverseUnlock)
     call_if_defeated(TRAINER_ASTER_CHALLENGE, MeteorVillage_EventScript_DragonSpecialistChallengeUnlock)
@@ -205,7 +206,8 @@ script MeteorVillage_EventScript_DragonSpecialistCheckMoves {
 	goto_if_defeated(TRAINER_PUNCH_TUTOR, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(MeteorVillage_EventScript_DragonSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script MeteorVillage_EventScript_DragonSpecialistInitialUnlock {

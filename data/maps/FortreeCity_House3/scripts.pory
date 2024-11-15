@@ -55,6 +55,7 @@ script FortreeCity_House3_EventScript_GrassSpecialistMenu {
 
 script FortreeCity_House3_EventScript_GrassSpecialistTutor {
     call(FortreeCity_House3_EventScript_GrassSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_QUINN_INITIAL, FortreeCity_House3_EventScript_GrassSpecialistInitialUnlock)
     call_if_defeated(TRAINER_QUINN_INVERSE, FortreeCity_House3_EventScript_GrassSpecialistInverseUnlock)
     call_if_defeated(TRAINER_QUINN_CHALLENGE, FortreeCity_House3_EventScript_GrassSpecialistChallengeUnlock)
@@ -113,7 +114,8 @@ script FortreeCity_House3_EventScript_GrassSpecialistCheckMoves {
     goto_if_defeated(TRAINER_QUINN_CHALLENGE, Common_EventScript_NopReturn)
     goto_if_set(FLAG_TUTOR_BITE_MOVES, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(FortreeCity_House3_EventScript_GrassSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script FortreeCity_House3_EventScript_GrassSpecialistInitialUnlock {

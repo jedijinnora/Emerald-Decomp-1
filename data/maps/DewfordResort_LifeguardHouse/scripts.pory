@@ -122,6 +122,7 @@ script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistMenu {
 
 script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistTutor {
     call(DewfordResort_LifeguardHouse_EventScript_FightingSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_BRAWLY_INITIAL, DewfordResort_LifeguardHouse_EventScript_FightingSpecialistInitialUnlock)
     call_if_defeated(TRAINER_BRAWLY_INVERSE, DewfordResort_LifeguardHouse_EventScript_FightingSpecialistInverseUnlock)
     call_if_defeated(TRAINER_BRAWLY_CHALLENGE, DewfordResort_LifeguardHouse_EventScript_FightingSpecialistChallengeUnlock)
@@ -177,7 +178,8 @@ script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistCheckMoves {
     goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(DewfordResort_LifeguardHouse_EventScript_FightingSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistInitialUnlock {

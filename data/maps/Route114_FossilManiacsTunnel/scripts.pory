@@ -66,6 +66,7 @@ script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistMenu {
 
 script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistTutor {
     call(Route114_FossilManiacsTunnel_EventScript_GroundSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_ANTON_INITIAL, Route114_FossilManiacsTunnel_EventScript_GroundSpecialistInitialUnlock)
     call_if_defeated(TRAINER_ANTON_INVERSE, Route114_FossilManiacsTunnel_EventScript_GroundSpecialistInverseUnlock)
     call_if_defeated(TRAINER_ANTON_CHALLENGE, Route114_FossilManiacsTunnel_EventScript_GroundSpecialistChallengeUnlock)
@@ -109,7 +110,8 @@ script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistCheckMoves {
     goto_if_defeated(TRAINER_BITE_TUTOR, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(Route114_FossilManiacsTunnel_EventScript_GroundSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistInitialUnlock {

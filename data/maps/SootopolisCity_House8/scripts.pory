@@ -47,6 +47,7 @@ script SootopolisCity_House8_EventScript_WaterSpecialistMenu {
 
 script SootopolisCity_House8_EventScript_WaterSpecialistTutor {
     call(SootopolisCity_House8_EventScript_WaterSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_WALLACE_INITIAL, SootopolisCity_House8_EventScript_WaterSpecialistInitialUnlock)
     call_if_defeated(TRAINER_WALLACE_INVERSE, SootopolisCity_House8_EventScript_WaterSpecialistInverseUnlock)
     call_if_defeated(TRAINER_WALLACE_CHALLENGE, SootopolisCity_House8_EventScript_WaterSpecialistChallengeUnlock)
@@ -93,7 +94,8 @@ script SootopolisCity_House8_EventScript_WaterSpecialistCheckMoves {
     goto_if_defeated(TRAINER_WALLACE_CHALLENGE, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(SootopolisCity_House8_EventScript_WaterSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script SootopolisCity_House8_EventScript_WaterSpecialistInitialUnlock {

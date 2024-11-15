@@ -56,6 +56,7 @@ script OldaleTown_House2_EventScript_BugSpecialistMenu {
 
 script OldaleTown_House2_EventScript_BugSpecialistTutor {
     call(OldaleTown_House2_EventScript_BugSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_HEBERT_INITIAL, OldaleTown_House2_EventScript_BugSpecialistInitialUnlock)
     call_if_defeated(TRAINER_HEBERT_INVERSE, OldaleTown_House2_EventScript_BugSpecialistInverseUnlock)
     call_if_defeated(TRAINER_HEBERT_CHALLENGE, OldaleTown_House2_EventScript_BugSpecialistChallengeUnlock)
@@ -108,7 +109,8 @@ script OldaleTown_House2_EventScript_BugSpecialistCheckMoves {
     goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(OldaleTown_House2_EventScript_BugSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script OldaleTown_House2_EventScript_BugSpecialistInitialUnlock {

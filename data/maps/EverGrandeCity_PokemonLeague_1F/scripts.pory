@@ -41,6 +41,302 @@ script EverGrandeCity_PokemonLeague_1F_EventScript_Clerk {
 	end
 }
 
+script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_VendorPersistent {
+	lock
+	faceplayer
+	special(ShowBattlePointsWindow)
+	msgbox("Welcome!", MSGBOX_DEFAULT)
+	goto(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_Persistent)
+	end
+}
+
+script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_Persistent {
+	msgbox("Which item would you like?", MSGBOX_DEFAULT)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	
+	dynmultipush("Choice Band {CLEAR_TO 0x64} 64BP", ITEM_CHOICE_BAND)
+	dynmultipush("Choice Specs {CLEAR_TO 0x64} 64BP", ITEM_CHOICE_SPECS)
+	dynmultipush("Choice Scarf {CLEAR_TO 0x64} 64BP", ITEM_CHOICE_SCARF)
+	dynmultipush("Scope Lens {CLEAR_TO 0x64} 64BP", ITEM_SCOPE_LENS)
+	dynmultipush("Leftovers {CLEAR_TO 0x64} 64BP", ITEM_LEFTOVERS)
+	dynmultipush("Expert Belt {CLEAR_TO 0x64} 64BP", ITEM_EXPERT_BELT)
+	dynmultipush("Life Orb {CLEAR_TO 0x64} 64BP", ITEM_LIFE_ORB)
+	dynmultipush("Black Sludge {CLEAR_TO 0x64} 64BP", ITEM_BLACK_SLUDGE)
+	dynmultipush("Eviolite {CLEAR_TO 0x64} 64BP", ITEM_EVIOLITE)
+	dynmultipush("Rocky Helmet {CLEAR_TO 0x64} 64BP", ITEM_ROCKY_HELMET)
+	dynmultipush("Assault Vest {CLEAR_TO 0x64} 64BP", ITEM_ASSAULT_VEST)
+	dynmultipush("Safety Goggles {CLEAR_TO 0x64} 64BP", ITEM_SAFETY_GOGGLES)
+	dynmultipush("Heavy-Duty Boots {CLEAR_TO 0x64} 64BP", ITEM_HEAVY_DUTY_BOOTS)
+
+	dynmultipush("Flame Orb {CLEAR_TO 0x64} 48BP", ITEM_FLAME_ORB)
+	dynmultipush("Toxic Orb {CLEAR_TO 0x64} 48BP", ITEM_TOXIC_ORB)
+	dynmultipush("Focus Band {CLEAR_TO 0x64} 48BP", ITEM_FOCUS_BAND)
+	dynmultipush("Wide Lens {CLEAR_TO 0x64} 48BP", ITEM_WIDE_LENS)
+	dynmultipush("Muscle Band {CLEAR_TO 0x64} 48BP", ITEM_MUSCLE_BAND)
+	dynmultipush("Wise Glasses {CLEAR_TO 0x64} 48BP", ITEM_WISE_GLASSES)
+	dynmultipush("Light Clay {CLEAR_TO 0x64} 48BP", ITEM_LIGHT_CLAY)
+	dynmultipush("Ability Shield {CLEAR_TO 0x64} 48BP", ITEM_ABILITY_SHIELD)
+	dynmultipush("Clear Amulet {CLEAR_TO 0x64} 48BP", ITEM_CLEAR_AMULET)
+	dynmultipush("Punching Glove {CLEAR_TO 0x64} 48BP", ITEM_PUNCHING_GLOVE)
+	dynmultipush("Covert Cloak {CLEAR_TO 0x64} 48BP", ITEM_COVERT_CLOAK)
+	dynmultipush("Loaded Dice {CLEAR_TO 0x64} 48BP", ITEM_LOADED_DICE)
+
+	dynmultipush("Bright Powder {CLEAR_TO 0x64} 32BP", ITEM_BRIGHT_POWDER)
+	dynmultipush("Quick Claw {CLEAR_TO 0x64} 32BP", ITEM_QUICK_CLAW)
+	dynmultipush("Amulet Coin {CLEAR_TO 0x64} 32BP", ITEM_AMULET_COIN)
+	dynmultipush("Zoom Lens {CLEAR_TO 0x64} 32BP", ITEM_ZOOM_LENS)
+	dynmultipush("Metronome {CLEAR_TO 0x64} 32BP", ITEM_METRONOME)
+	dynmultipush("Grip Claw {CLEAR_TO 0x64} 32BP", ITEM_GRIP_CLAW)
+	dynmultipush("Protective Pads {CLEAR_TO 0x64} 32BP", ITEM_PROTECTIVE_PADS)
+	dynmultipush("Utility Umbrella {CLEAR_TO 0x64} 32BP", ITEM_UTILITY_UMBRELLA)
+
+	dynmultipush("Iron Ball {CLEAR_TO 0x64} 16BP", ITEM_IRON_BALL)
+	dynmultipush("Lagging Tail {CLEAR_TO 0x64} 16BP", ITEM_LAGGING_TAIL)
+	dynmultipush("Sticky Barb {CLEAR_TO 0x64} 16BP", ITEM_STICKY_BARB)
+	dynmultipush("Float Stone {CLEAR_TO 0x64} 16BP", ITEM_FLOAT_STONE)
+	dynmultipush("Ring Target {CLEAR_TO 0x64} 16BP", ITEM_RING_TARGET)
+	
+	
+	dynmultistack(0,4,FALSE,4,FALSE,0,DYN_MULTICHOICE_CB_SHOW_ITEM)
+	switch(var(VAR_RESULT)) {
+		//cost 64:
+		case ITEM_CHOICE_BAND:
+		case ITEM_CHOICE_SPECS:
+		case ITEM_CHOICE_SCARF:
+		case ITEM_SCOPE_LENS:
+		case ITEM_LEFTOVERS:
+		case ITEM_EXPERT_BELT:
+		case ITEM_LIFE_ORB:
+		case ITEM_BLACK_SLUDGE:
+		case ITEM_EVIOLITE:
+		case ITEM_ROCKY_HELMET:
+		case ITEM_ASSAULT_VEST:
+		case ITEM_SAFETY_GOGGLES:
+		case ITEM_HEAVY_DUTY_BOOTS:
+			setvar(VAR_0x8004, 64)
+
+		//cost 48:
+		case ITEM_FLAME_ORB:
+		case ITEM_TOXIC_ORB:
+		case ITEM_FOCUS_BAND:
+		case ITEM_WIDE_LENS:
+		case ITEM_MUSCLE_BAND:
+		case ITEM_WISE_GLASSES:
+		case ITEM_LIGHT_CLAY:
+		case ITEM_ABILITY_SHIELD:
+		case ITEM_CLEAR_AMULET:
+		case ITEM_PUNCHING_GLOVE:
+		case ITEM_COVERT_CLOAK:
+		case ITEM_LOADED_DICE:
+			setvar(VAR_0x8004, 48)
+
+		//cost 32:
+		case ITEM_BRIGHT_POWDER:
+		case ITEM_QUICK_CLAW:
+		case ITEM_AMULET_COIN:
+		case ITEM_ZOOM_LENS:
+		case ITEM_METRONOME:
+		case ITEM_GRIP_CLAW:
+		case ITEM_PROTECTIVE_PADS:
+		case ITEM_UTILITY_UMBRELLA:
+			setvar(VAR_0x8004, 32)
+
+		//cost 16:
+		case ITEM_IRON_BALL:
+		case ITEM_LAGGING_TAIL:
+		case ITEM_STICKY_BARB:
+		case ITEM_FLOAT_STONE:
+		case ITEM_RING_TARGET:
+			setvar(VAR_0x8004, 16)
+
+		default:
+		goto(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_End)
+	}
+	copyvar(VAR_TEMP_2, VAR_RESULT)
+
+	call(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_ItemConfirm)
+	goto_if_eq(VAR_RESULT, NO, EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_Persistent)
+
+	checkitemspace(VAR_TEMP_2)
+	if (var(VAR_RESULT) == FALSE) {
+		call(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_NoSpace)
+		goto(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_Persistent)
+	}
+
+	if (var(VAR_TEMP_1) < VAR_0x8004) {
+		call(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_NotEnoughBP)
+		goto(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_Persistent)
+	}
+
+	call(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_BuyItem)
+	goto(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_Persistent)
+	end
+}
+
+script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_VendorSingleUse {
+	lock
+	faceplayer
+	special(ShowBattlePointsWindow)
+	msgbox("Welcome!", MSGBOX_DEFAULT)
+	goto(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_SingleUse)
+	end
+}
+
+script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_SingleUse {
+	msgbox("Which item would you like?", MSGBOX_DEFAULT)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	
+	dynmultipush("White Herb {CLEAR_TO 0x64} 64BP", ITEM_WHITE_HERB)
+	dynmultipush("Focus Sash {CLEAR_TO 0x64} 64BP", ITEM_FOCUS_SASH)
+	dynmultipush("Air Balloon {CLEAR_TO 0x64} 64BP", ITEM_AIR_BALLOON)
+	dynmultipush("Red Card {CLEAR_TO 0x64} 64BP", ITEM_RED_CARD)
+	dynmultipush("Weakness Policy {CLEAR_TO 0x64} 64BP", ITEM_WEAKNESS_POLICY)
+	dynmultipush("Booster Energy {CLEAR_TO 0x64} 64BP", ITEM_BOOSTER_ENERGY)
+	dynmultipush("Linking Cord {CLEAR_TO 0x64} 64BP", ITEM_LINKING_CORD)
+
+	dynmultipush("Mental Herb {CLEAR_TO 0x64} 32BP", ITEM_MENTAL_HERB)
+	dynmultipush("Power Herb {CLEAR_TO 0x64} 32BP", ITEM_POWER_HERB)
+	dynmultipush("Destiny Knot {CLEAR_TO 0x64} 32BP", ITEM_DESTINY_KNOT)
+	dynmultipush("Shed Shell {CLEAR_TO 0x64} 32BP", ITEM_SHED_SHELL)
+	dynmultipush("Eject Button {CLEAR_TO 0x64} 32BP", ITEM_EJECT_BUTTON)
+	dynmultipush("Adrenaline Orb {CLEAR_TO 0x64} 32BP", ITEM_ADRENALINE_ORB)
+	dynmultipush("Throat Spray {CLEAR_TO 0x64} 32BP", ITEM_THROAT_SPRAY)
+	dynmultipush("Eject Pack {CLEAR_TO 0x64} 32BP", ITEM_EJECT_PACK)
+	dynmultipush("Blunder Policy {CLEAR_TO 0x64} 32BP", ITEM_BLUNDER_POLICY)
+	dynmultipush("Room Service {CLEAR_TO 0x64} 32BP", ITEM_ROOM_SERVICE)
+	dynmultipush("Mirror Herb {CLEAR_TO 0x64} 32BP", ITEM_MIRROR_HERB)
+	
+	dynmultistack(0,4,FALSE,4,FALSE,0,DYN_MULTICHOICE_CB_SHOW_ITEM)
+	switch(var(VAR_RESULT)) {
+		//cost 64:
+		case ITEM_WHITE_HERB:
+		case ITEM_FOCUS_SASH:
+		case ITEM_AIR_BALLOON:
+		case ITEM_RED_CARD:
+		case ITEM_WEAKNESS_POLICY:
+		case ITEM_BOOSTER_ENERGY:
+		case ITEM_LINKING_CORD:
+			setvar(VAR_0x8004, 64)
+
+		//cost 32:
+		case ITEM_MENTAL_HERB:
+		case ITEM_POWER_HERB:
+		case ITEM_DESTINY_KNOT:
+		case ITEM_SHED_SHELL:
+		case ITEM_EJECT_BUTTON:
+		case ITEM_ADRENALINE_ORB:
+		case ITEM_THROAT_SPRAY:
+		case ITEM_EJECT_PACK:
+		case ITEM_BLUNDER_POLICY:
+		case ITEM_ROOM_SERVICE:
+		case ITEM_MIRROR_HERB:
+			setvar(VAR_0x8004, 32)
+
+		default:
+		goto(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_End)
+	}
+	copyvar(VAR_TEMP_2, VAR_RESULT)
+
+	call(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_ItemConfirm)
+	goto_if_eq(VAR_RESULT, NO, EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_SingleUse)
+
+	checkitemspace(VAR_TEMP_2)
+	if (var(VAR_RESULT) == FALSE) {
+		call(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_NoSpace)
+		goto(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_SingleUse)
+	}
+
+	if (var(VAR_TEMP_1) < VAR_0x8004) {
+		call(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_NotEnoughBP)
+		goto(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_SingleUse)
+	}
+
+	call(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_BuyItem)
+	goto(EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_SingleUse)
+	end
+}
+
+script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_NoSpace {
+	msgbox(format("You don't have space in your Bag for that item!"))
+	return
+}
+
+script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_NotEnoughBP {
+	msgbox(format("You don't have enough Battle Points for that item!"))
+	return
+}
+
+script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_ItemConfirm {
+	bufferitemname(STR_VAR_1, VAR_TEMP_2)
+	msgbox(format("So you'd like the {STR_VAR_1}?"), MSGBOX_YESNO)
+	return
+}
+
+script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_BuyItem {
+	special(TakeFrontierBattlePoints)
+	additem(VAR_TEMP_2)
+	special(UpdateBattlePointsWindow)
+	playse(SE_SHOP)
+	msgbox(format("Obtained the {STR_VAR_1}!"))
+	return
+}
+
+script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_End {
+	special(CloseBattlePointsWindow)
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+script EverGrandeCity_PokemonLeague_1F_EventScript_OmniTutor {
+	lock
+	faceplayer
+	msgbox(format("What type of moves would you like to learn?"))
+	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Normal","Fighting","Flying","Poison","Ground","Rock","Bug","Ghost","Steel","Fire","Water","Grass","Electric","Psychic","Ice","Dragon","Dark","Fairy")
+	switch(var(VAR_RESULT)) {
+		case 0:
+			call(PetalburgCity_House4_EventScript_NormalSpecialistTutor)
+		case 1:
+			call(DewfordResort_LifeguardHouse_EventScript_FightingSpecialistTutor)
+		case 2:
+			call(PacifidlogTown_House2_EventScript_FlyingSpecialistTutor)
+		case 3:
+			call(SlateportCity_House2_EventScript_PoisonSpecialistTutor)
+		case 4:
+			call(Route114_FossilManiacsTunnel_EventScript_GroundSpecialistTutor)
+		case 5:
+			call(RustboroCity_House2_EventScript_RockSpecialistTutor)
+		case 6:
+			call(OldaleTown_House2_EventScript_BugSpecialistTutor)
+		case 7:
+			call(LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistTutor)
+		case 8:
+			call(MossdeepCity_StevensHouse_EventScript_SteelSpecialistTutor)
+		case 9:
+			call(LavaridgeTown_House2_EventScript_FireSpecialistTutor)
+		case 10:
+			call(SootopolisCity_House8_EventScript_WaterSpecialistTutor)
+		case 11:
+			call(FortreeCity_House3_EventScript_GrassSpecialistTutor)
+		case 12:
+			call(MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistTutor)
+		case 13:
+			call(MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistTutor)
+		case 14:
+			call(EverGrandeCity_House3_EventScript_IceSpecialistTutor)
+		case 15:
+			call(MeteorVillage_EventScript_DragonSpecialistTutor)
+		case 16:
+			call(DewfordTown_House3_EventScript_DarkSpecialistTutor)
+		case 17:
+			call(VerdanturfTown_House2_EventScript_FairySpecialistTutor)
+		default:
+		release 
+		end
+	}
+	goto(EverGrandeCity_PokemonLeague_1F_EventScript_OmniTutor)
+	end
+}
 
 raw `
 .set LOCALID_GUARD_1, 3

@@ -54,6 +54,7 @@ script EverGrandeCity_House3_EventScript_IceSpecialistMenu {
 
 script EverGrandeCity_House3_EventScript_IceSpecialistTutor {
     call(EverGrandeCity_House3_EventScript_IceSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_ELLIE_INITIAL, EverGrandeCity_House3_EventScript_IceSpecialistInitialUnlock)
     call_if_defeated(TRAINER_ELLIE_INVERSE, EverGrandeCity_House3_EventScript_IceSpecialistInverseUnlock)
     call_if_defeated(TRAINER_ELLIE_CHALLENGE, EverGrandeCity_House3_EventScript_IceSpecialistChallengeUnlock)
@@ -100,7 +101,8 @@ script EverGrandeCity_House3_EventScript_IceSpecialistCheckMoves {
     goto_if_set(FLAG_TUTOR_TERRAIN_MOVES, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(EverGrandeCity_House3_EventScript_IceSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script EverGrandeCity_House3_EventScript_IceSpecialistInitialUnlock {

@@ -47,6 +47,7 @@ script VerdanturfTown_House2_EventScript_FairySpecialistMenu {
 
 script VerdanturfTown_House2_EventScript_FairySpecialistTutor {
     call(VerdanturfTown_House2_EventScript_FairySpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_BELLATRIX_INITIAL, VerdanturfTown_House2_EventScript_FairySpecialistInitialUnlock)
     call_if_defeated(TRAINER_BELLATRIX_INVERSE, VerdanturfTown_House2_EventScript_FairySpecialistInverseUnlock)
     call_if_defeated(TRAINER_BELLATRIX_CHALLENGE, VerdanturfTown_House2_EventScript_FairySpecialistChallengeUnlock)
@@ -84,7 +85,8 @@ script VerdanturfTown_House2_EventScript_FairySpecialistCheckMoves {
 	goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
 	goto_if_defeated(TRAINER_TERRAIN_TUTOR_MISTY, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(VerdanturfTown_House2_EventScript_FairySpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script VerdanturfTown_House2_EventScript_FairySpecialistInitialUnlock {

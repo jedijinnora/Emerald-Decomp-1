@@ -47,6 +47,7 @@ script PacifidlogTown_House2_EventScript_FlyingSpecialistMenu {
 
 script PacifidlogTown_House2_EventScript_FlyingSpecialistTutor {
     call(PacifidlogTown_House2_EventScript_FlyingSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_WINONA_INITIAL, PacifidlogTown_House2_EventScript_FlyingSpecialistInitialUnlock)
     call_if_defeated(TRAINER_WINONA_INVERSE, PacifidlogTown_House2_EventScript_FlyingSpecialistInverseUnlock)
     call_if_defeated(TRAINER_WINONA_CHALLENGE, PacifidlogTown_House2_EventScript_FlyingSpecialistChallengeUnlock)
@@ -92,7 +93,8 @@ script PacifidlogTown_House2_EventScript_FlyingSpecialistCheckMoves {
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
     goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(PacifidlogTown_House2_EventScript_FlyingSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script PacifidlogTown_House2_EventScript_FlyingSpecialistInitialUnlock {

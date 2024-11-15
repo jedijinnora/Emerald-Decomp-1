@@ -64,6 +64,7 @@ script RustboroCity_House2_EventScript_RockSpecialistMenu {
 
 script RustboroCity_House2_EventScript_RockSpecialistTutor {
     call(RustboroCity_House2_EventScript_RockSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_ROXANNE_INITIAL, RustboroCity_House2_EventScript_RockSpecialistInitialUnlock)
     call_if_defeated(TRAINER_ROXANNE_INVERSE, RustboroCity_House2_EventScript_RockSpecialistInverseUnlock)
     call_if_defeated(TRAINER_ROXANNE_CHALLENGE, RustboroCity_House2_EventScript_RockSpecialistChallengeUnlock)
@@ -103,7 +104,8 @@ script RustboroCity_House2_EventScript_RockSpecialistCheckMoves {
 	goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
 	goto_if_defeated(TRAINER_TERRAIN_TUTOR_MISTY, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(RustboroCity_House2_EventScript_RockSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script RustboroCity_House2_EventScript_RockSpecialistInitialUnlock {

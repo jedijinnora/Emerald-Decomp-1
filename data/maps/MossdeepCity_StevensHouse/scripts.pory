@@ -64,6 +64,7 @@ script MossdeepCity_StevensHouse_EventScript_SteelSpecialistMenu {
 
 script MossdeepCity_StevensHouse_EventScript_SteelSpecialistTutor {
     call(MossdeepCity_StevensHouse_EventScript_SteelSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_STEVEN_INITIAL, MossdeepCity_StevensHouse_EventScript_SteelSpecialistInitialUnlock)
     call_if_defeated(TRAINER_STEVEN_INVERSE, MossdeepCity_StevensHouse_EventScript_SteelSpecialistInverseUnlock)
     call_if_defeated(TRAINER_STEVEN_CHALLENGE, MossdeepCity_StevensHouse_EventScript_SteelSpecialistChallengeUnlock)
@@ -111,7 +112,8 @@ script MossdeepCity_StevensHouse_EventScript_SteelSpecialistCheckMoves {
     goto_if_defeated(TRAINER_BITE_TUTOR, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(MossdeepCity_StevensHouse_EventScript_SteelSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script MossdeepCity_StevensHouse_EventScript_SteelSpecialistInitialUnlock {

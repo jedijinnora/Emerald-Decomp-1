@@ -47,6 +47,7 @@ script PetalburgCity_House4_EventScript_NormalSpecialistMenu {
 
 script PetalburgCity_House4_EventScript_NormalSpecialistTutor {
     call(PetalburgCity_House4_EventScript_NormalSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_NORMAN_INITIAL, PetalburgCity_House4_EventScript_NormalSpecialistInitialUnlock)
     call_if_defeated(TRAINER_NORMAN_INVERSE, PetalburgCity_House4_EventScript_NormalSpecialistInverseUnlock)
     call_if_defeated(TRAINER_NORMAN_CHALLENGE, PetalburgCity_House4_EventScript_NormalSpecialistChallengeUnlock)
@@ -107,7 +108,8 @@ script PetalburgCity_House4_EventScript_NormalSpecialistCheckMoves {
     goto_if_set(FLAG_TUTOR_TERRAIN_MOVES, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(PetalburgCity_House4_EventScript_NormalSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script PetalburgCity_House4_EventScript_NormalSpecialistInitialUnlock {

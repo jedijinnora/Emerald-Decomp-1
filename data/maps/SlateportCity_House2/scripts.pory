@@ -48,6 +48,7 @@ script SlateportCity_House2_EventScript_PoisonSpecialistMenu {
 
 script SlateportCity_House2_EventScript_PoisonSpecialistTutor {
     call(SlateportCity_House2_EventScript_PoisonSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_CLAUDIUS_INITIAL, SlateportCity_House2_EventScript_PoisonSpecialistInitialUnlock)
     call_if_defeated(TRAINER_CLAUDIUS_INVERSE, SlateportCity_House2_EventScript_PoisonSpecialistInverseUnlock)
     call_if_defeated(TRAINER_CLAUDIUS_CHALLENGE, SlateportCity_House2_EventScript_PoisonSpecialistChallengeUnlock)
@@ -93,7 +94,8 @@ script SlateportCity_House2_EventScript_PoisonSpecialistCheckMoves {
     goto_if_defeated(TRAINER_BITE_TUTOR, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(SlateportCity_House2_EventScript_PoisonSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script SlateportCity_House2_EventScript_PoisonSpecialistInitialUnlock {

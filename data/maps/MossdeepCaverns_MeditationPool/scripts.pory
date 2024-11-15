@@ -48,6 +48,7 @@ script MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistMenu {
 
 script MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistTutor {
     call(MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistCheckMoves)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
     call_if_defeated(TRAINER_TATE_AND_LIZA_INITIAL, MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistInitialUnlock)
     call_if_defeated(TRAINER_TATE_AND_LIZA_INVERSE, MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistInverseUnlock)
     call_if_defeated(TRAINER_TATE_AND_LIZA_CHALLENGE, MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistChallengeUnlock)
@@ -103,7 +104,8 @@ script MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistCheckMoves {
     goto_if_set(FLAG_MET_THOMSON_SET_DAMAGE_MOVES, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
-    goto(MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistMenu)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistInitialUnlock {

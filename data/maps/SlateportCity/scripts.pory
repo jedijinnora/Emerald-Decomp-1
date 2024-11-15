@@ -340,10 +340,17 @@ mart SlateportStoneMart {
 script SlateportCity_EventScript_EvoGuy {
 	lock
 	faceplayer
+	goto_if_lt(VAR_NUM_BADGES, 3, SlateportCity_EventScript_EvoTooStrong)
     msgbox(gText_HowMayIServeYou)
 	waitmessage
 	pokemart(SlateportEvoMart)
 	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+script SlateportCity_EventScript_EvoTooStrong {
+	msgbox(format("My evolution items are too strong for you, Trainer."))
 	release
 	end
 }
@@ -353,8 +360,14 @@ mart SlateportEvoMart {
 	ITEM_KINGS_ROCK
 	ITEM_RAZOR_CLAW
 	ITEM_RAZOR_FANG
-	ITEM_MAGMARIZER
+	ITEM_DRAGON_SCALE
+	ITEM_PROTECTOR
 	ITEM_ELECTIRIZER
+	ITEM_MAGMARIZER
+	ITEM_REAPER_CLOTH
+	ITEM_PRISM_SCALE
+	ITEM_OVAL_STONE
+	ITEM_BLACK_AUGURITE
 }
 
 script SlateportCity_EventScript_MailGirl {
