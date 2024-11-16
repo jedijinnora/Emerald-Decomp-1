@@ -4640,3 +4640,58 @@ u8 GetDayOfTheWeek(void)
     u8 day = VarGet(VAR_DAYS) % 7;
     return day;
 }
+
+void IncrementRecentTrainerPointer(void)
+{
+    u8 i = VarGet(VAR_LAST_TRAINER_BATTLE_POINTER);
+    i += 1;
+    if (i > 10) {
+        i = 1;
+    }
+    VarSet(VAR_LAST_TRAINER_BATTLE_POINTER, i);
+    return;
+}
+
+bool8 IsTrainerRecentlyRematched(void)
+{
+    u8 i;
+    u8 rematchTrainer = gSpecialVar_0x8003;
+    for (i = 0; i < 10; i++)
+    {
+        if (rematchTrainer == VarGet(VAR_RECENT_TRAINER_1 + i))
+        {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+void UpdateRecentTrainers(void)
+{
+    u8 lastTrainer = gSpecialVar_0x8003;
+    u8 i = VarGet(VAR_LAST_TRAINER_BATTLE_POINTER);
+    switch(i)
+    {
+        case 1:
+            VarSet(VAR_RECENT_TRAINER_1, lastTrainer);
+        case 2:
+            VarSet(VAR_RECENT_TRAINER_2, lastTrainer);
+        case 3:
+            VarSet(VAR_RECENT_TRAINER_3, lastTrainer);
+        case 4:
+            VarSet(VAR_RECENT_TRAINER_4, lastTrainer);
+        case 5:
+            VarSet(VAR_RECENT_TRAINER_5, lastTrainer);
+        case 6:
+            VarSet(VAR_RECENT_TRAINER_6, lastTrainer);
+        case 7:
+            VarSet(VAR_RECENT_TRAINER_7, lastTrainer);
+        case 8:
+            VarSet(VAR_RECENT_TRAINER_8, lastTrainer);
+        case 9:
+            VarSet(VAR_RECENT_TRAINER_9, lastTrainer);
+        default:
+            VarSet(VAR_RECENT_TRAINER_10, lastTrainer);
+    }
+    return;
+}

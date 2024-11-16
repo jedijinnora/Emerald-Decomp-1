@@ -594,3 +594,9 @@ gSpecials::
 	def_special AddVars
 
 	def_special GetDayOfTheWeek
+
+	def_special IncrementRecentTrainerPointer
+	def_special IsTrainerRecentlyRematched
+	def_special UpdateRecentTrainers
+
+	def_special VsSeekerResetChargingStepCounter

@@ -80,18 +80,19 @@
 #define FLAG_FORCE_SHINY        0x3E
 #define FLAG_FORCE_NO_SHINY     0x3F
 
+#define FLAG_BP_FROM_REMATCHES  0x40 // if set, trainer rematches give BP instead of money
+#define FLAG_SEEKING_REMATCHES  0x41 // if set, trainer scripts will prompt for rematch
+
 //Jinnora: flags for challenge settings
-#define FLAG_CHALLENGE_HM_RANDOM    0x40 // gives random HM after gym victory
-#define FLAG_CHALLENGE_HM_NONE      0x41 // receive no HMs until postgame
-#define FLAG_CHALLENGE_UNUSED_0x42  0x42 // 
-#define FLAG_CHALLENGE_UNUSED_0x43  0x43 // 
+#define FLAG_CHALLENGE_HM_RANDOM    0x42 // gives random HM after gym victory
+#define FLAG_CHALLENGE_HM_NONE      0x43 // receive no HMs until postgame
 #define FLAG_DEPARTED_EVER_GRANDE   0x44 // player has left EGC; may forfeit but not modify challenges
 #define FLAG_NO_EV_GRINDING         0x45 // removes EVs from stat calculations and prevents EV gain from wild battle
 #define FLAG_EXPLORE_MODE           0x46
 #define FLAG_USE_NEXT_LEVEL_CAP     0x47 // for going to next level cap during boss battle
 
 //Jinnora: more config flags
-#define FLAG_VS_SEEKER              0x48 // see include/config/item.h
+#define FLAG_VS_SEEKER_CHARGING     0x48 // see include/config/item.h
 #define FLAG_WILD_PERFECT_IVS       0x49 // should create perfect wild mon if set
 #define FLAG_WILD_HIDDEN_ABILITY    0x4A // should generate wild mon with hidden ability
 #define FLAG_NO_ESCAPE              0x4B // prevents running from wild battle

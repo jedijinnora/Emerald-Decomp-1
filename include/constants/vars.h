@@ -233,20 +233,20 @@
 #define VAR_ROAMER_POKEMON                               0x40D5 // 0 = Latias, 1 = Latios
 #define VAR_TRAINER_HILL_IS_ACTIVE                       0x40D6
 #define VAR_SKY_PILLAR_RAYQUAZA_CRY_DONE                 0x40D7
-#define VAR_UNUSED_0x40D8                                0x40D8 // was sootopolis wallace state
-#define VAR_UNUSED_0x40D9                                0x40D9 // was talked seafloor entrance grunt
-#define VAR_UNUSED_0x40DA                                0x40DA // was register birch state
-#define VAR_UNUSED_0x40DB                                0x40DB // Unused Var
-#define VAR_UNUSED_0x40DC                                0x40DC // Unused Var
-#define VAR_GIFT_PICHU_SLOT                              0x40DD
-#define VAR_UNUSED_0x40DE                                0x40DE // Unused Var
-#define VAR_UNUSED_0x40DF                                0x40DF // Unused Var
-#define VAR_UNUSED_0x40E0                                0x40E0 // Unused Var
-#define VAR_UNUSED_0x40E1                                0x40E1 // Unused Var
-#define VAR_UNUSED_0x40E2                                0x40E2 // Unused Var
-#define VAR_UNUSED_0x40E3                                0x40E3 // Unused Var
-#define VAR_UNUSED_0x40E4                                0x40E4 // Unused Var
-#define VAR_UNUSED_0x40E5                                0x40E5 // Unused Var
+#define VAR_GIFT_PICHU_SLOT                              0x40D8
+#define VAR_UNUSED_0x40D9                                0x40D9
+#define VAR_UNUSED_0x40DA                                0x40DA
+#define VAR_LAST_TRAINER_BATTLE_POINTER                  0x40DB // points to the last edited VAR_RECENT_TRAINER_X
+#define VAR_RECENT_TRAINER_6                             0x40DC
+#define VAR_RECENT_TRAINER_7                             0x40DD
+#define VAR_RECENT_TRAINER_8                             0x40DE
+#define VAR_RECENT_TRAINER_9                             0x40DF
+#define VAR_RECENT_TRAINER_10                            0x40E0
+#define VAR_RECENT_TRAINER_1                             0x40E1
+#define VAR_RECENT_TRAINER_2                             0x40E2
+#define VAR_RECENT_TRAINER_3                             0x40E3
+#define VAR_RECENT_TRAINER_4                             0x40E4
+#define VAR_RECENT_TRAINER_5                             0x40E5
 #define VAR_DAILY_SLOTS                                  0x40E6 // TV Var
 #define VAR_DAILY_WILDS                                  0x40E7 // TV Var
 #define VAR_DAILY_BLENDER                                0x40E8 // TV Var

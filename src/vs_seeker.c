@@ -79,7 +79,7 @@ struct VsSeekerStruct
 static EWRAM_DATA struct VsSeekerStruct *sVsSeeker = NULL;
 
 static void VsSeekerResetInBagStepCounter(void);
-static void VsSeekerResetChargingStepCounter(void);
+//static void VsSeekerResetChargingStepCounter(void);
 static void Task_ResetObjectsRematchWantedState(u8 taskId);
 static void ResetMovementOfRematchableTrainers(void);
 static void Task_VsSeekerFrameCountdown(u8 taskId);
@@ -295,7 +295,8 @@ static void VsSeekerResetInBagStepCounter(void)
 #endif //FREE_MATCH_CALL
 }
 
-static void VsSeekerResetChargingStepCounter(void)
+//not static because I want to use this as a field special
+void VsSeekerResetChargingStepCounter(void)
 {
 #if FREE_MATCH_CALL == FALSE
     gSaveBlock1Ptr->trainerRematchStepCounter &= 0x00FF;

@@ -1015,6 +1015,32 @@ Common_EventScript_CountBadges::
 	call_if_set FLAG_BADGE08_GET, Common_EventScript_AddBadgeCount
 	return
 
+gText_RematchThisTrainer::
+	.string "Want to rematch this Trainer?$"
+
+Common_EventScript_ShouldDoRematch::
+	setvar VAR_RESULT, FALSE
+	goto_if_unset FLAG_SEEKING_REMATCHES, Common_EventScript_NopReturn
+	goto_if_set FLAG_VS_SEEKER_CHARGING, Common_EventScript_NopReturn
+	msgbox gText_RematchThisTrainer, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Common_EventScript_NopReturn
+	setflag FLAG_VS_SEEKER_CHARGING
+	special VsSeekerResetChargingStepCounter
+	setvar VAR_RESULT, TRUE
+	return
+
+Common_EventScript_CheckRecentRematchesSetBP::
+	setvar VAR_0x800B, 0
+	call_if_set FLAG_BP_FROM_REMATCHES, Common_EventScript_EnableBPReward
+	special IncrementRecentTrainerPointer
+	specialvar VAR_RESULT, IsTrainerRecentlyRematched
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_NopReturn
+	setvar VAR_0x800B, 0
+	return
+
+Common_EventScript_EnableBPReward:
+	setvar VAR_0x800B, 1
+	return
 
 
 	.include "data/scripts/pc_transfer.inc"

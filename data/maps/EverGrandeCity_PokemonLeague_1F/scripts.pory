@@ -97,7 +97,7 @@ script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_Persistent {
 	dynmultipush("Ring Target {CLEAR_TO 0x64} 16BP", ITEM_RING_TARGET)
 	
 	
-	dynmultistack(0,4,FALSE,4,FALSE,0,DYN_MULTICHOICE_CB_SHOW_ITEM)
+	dynmultistack(0,4,FALSE,4,FALSE,VAR_TEMP_2,DYN_MULTICHOICE_CB_SHOW_ITEM)
 	switch(var(VAR_RESULT)) {
 		//cost 64:
 		case ITEM_CHOICE_BAND:
@@ -206,6 +206,10 @@ script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_SingleUse {
 	dynmultipush("Room Service {CLEAR_TO 0x64} 32BP", ITEM_ROOM_SERVICE)
 	dynmultipush("Mirror Herb {CLEAR_TO 0x64} 32BP", ITEM_MIRROR_HERB)
 
+	dynmultipush("Big Nugget {CLEAR_TO 0x64} 16BP", ITEM_BIG_NUGGET)
+
+	dynmultipush("Nugget {CLEAR_TO 0x64} 4BP", ITEM_NUGGET)
+
 	dynmultipush("HP Up {CLEAR_TO 0x64} 1BP", ITEM_HP_UP)
 	dynmultipush("Protein {CLEAR_TO 0x64} 1BP", ITEM_PROTEIN)
 	dynmultipush("Iron {CLEAR_TO 0x64} 1BP", ITEM_IRON)
@@ -214,7 +218,7 @@ script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_SingleUse {
 	dynmultipush("Carbos {CLEAR_TO 0x64} 1BP", ITEM_CARBOS)
 	dynmultipush("PP Up {CLEAR_TO 0x64} 1BP", ITEM_PP_UP)
 	
-	dynmultistack(0,4,FALSE,4,FALSE,0,DYN_MULTICHOICE_CB_SHOW_ITEM)
+	dynmultistack(0,4,FALSE,4,FALSE,VAR_TEMP_2,DYN_MULTICHOICE_CB_SHOW_ITEM)
 	switch(var(VAR_RESULT)) {
 		//cost 64:
 		case ITEM_WHITE_HERB:
@@ -239,6 +243,14 @@ script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_SingleUse {
 		case ITEM_ROOM_SERVICE:
 		case ITEM_MIRROR_HERB:
 			setvar(VAR_0x8004, 32)
+		
+		//cost 16:
+		case ITEM_BIG_NUGGET:
+			setvar(VAR_0x8004, 16)
+
+		//cost 4:
+		case ITEM_NUGGET:
+			setvar(VAR_0x8004, 4)
 
 		//cost 1:
 		case ITEM_HP_UP:
