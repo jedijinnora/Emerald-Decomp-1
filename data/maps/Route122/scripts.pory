@@ -8,6 +8,7 @@ mapscripts Route122_MapScripts {
 
 script Route122_OnTransition {
     call(Route122_EventScript_TryMoveStash)
+	call(Common_EventScript_DisableBPReward)
     end
 }
 
@@ -56,113 +57,191 @@ script Route122_EventScript_DevonScopeMan {
 	end
 }
 
-script Route_122_EventScript_MicahLeft {
+script Route122_EventScript_MicahLeft {
 	applymovement(LOCALID_MICAH, Common_Movement_FaceLeft)
 	setvar(VAR_TEMP_2, 1)
 	end
 }
 
-script Route_122_EventScript_MicahRight {
+script Route122_EventScript_MicahRight {
 	applymovement(LOCALID_MICAH, Common_Movement_FaceRight)
 	setvar(VAR_TEMP_2, 0)
 	end
 }
 
-script Route_122_EventScript_Mitchell {
-	trainerbattle_single(TRAINER_MITCHELL, Route_122_Text_MitchellIntro, Route_122_Text_MitchellDefeat)
-	msgbox(Route_122_Text_MitchellPostBattle, MSGBOX_AUTOCLOSE)
+script Route122_EventScript_Mitchell {
+	trainerbattle_single(TRAINER_MITCHELL, Route122_Text_MitchellIntro, Route122_Text_MitchellDefeat)
+	msgbox(Route122_Text_MitchellPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route122_EventScript_TryMitchellRematch)
+	release
 	end
 }
-text Route_122_Text_MitchellIntro {
+script Route122_EventScript_TryMitchellRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MITCHELL)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MITCHELL, Route122_Text_MitchellDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route122_Text_MitchellIntro {
 	"I've had a good workout.\n"
 	"Time for a cool-down battle!"
 }
-text Route_122_Text_MitchellDefeat {
+text Route122_Text_MitchellDefeat {
 	"Yeowch! Cramps all over!"
 }
-text Route_122_Text_MitchellPostBattle {
+text Route122_Text_MitchellPostBattle {
 	"Whenever you exercise, be sure\n"
 	"to give yourself time to stretch."
 }
 
-script Route_122_EventScript_Julie {
-	trainerbattle_single(TRAINER_JULIE, Route_122_Text_JulieIntro, Route_122_Text_JulieDefeat)
-	msgbox(Route_122_Text_JuliePostBattle, MSGBOX_AUTOCLOSE)
+script Route122_EventScript_Julie {
+	trainerbattle_single(TRAINER_JULIE, Route122_Text_JulieIntro, Route122_Text_JulieDefeat)
+	msgbox(Route122_Text_JuliePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route122_EventScript_TryJulieRematch)
+	release
 	end
 }
-text Route_122_Text_JulieIntro {
+script Route122_EventScript_TryJulieRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JULIE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JULIE, Route122_Text_JulieDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route122_Text_JulieIntro {
 	"Hello there. Fancy a fight?"
 }
-text Route_122_Text_JulieDefeat {
+text Route122_Text_JulieDefeat {
 	"You're a bit much for me, I think."
 }
-text Route_122_Text_JuliePostBattle {
+text Route122_Text_JuliePostBattle {
 	"Ever wondered what it would be like to\n"
 	"swim up a waterfall?"
 }
 
-script Route_122_EventScript_Hiromichi {
-	trainerbattle_single(TRAINER_HIROMICHI, Route_122_Text_HiromichiIntro, Route_122_Text_HiromichiDefeat)
-	msgbox(Route_122_Text_HiromichiPostBattle, MSGBOX_AUTOCLOSE)
+script Route122_EventScript_Hiromichi {
+	trainerbattle_single(TRAINER_HIROMICHI, Route122_Text_HiromichiIntro, Route122_Text_HiromichiDefeat)
+	msgbox(Route122_Text_HiromichiPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route122_EventScript_TryHiromichiRematch)
+	release
 	end
 }
-text Route_122_Text_HiromichiIntro {
+script Route122_EventScript_TryHiromichiRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HIROMICHI)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HIROMICHI, Route122_Text_HiromichiDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route122_Text_HiromichiIntro {
 	"Hack and slash!"
 }
-text Route_122_Text_HiromichiDefeat {
+text Route122_Text_HiromichiDefeat {
 	"You chipped our blades!"
 }
-text Route_122_Text_HiromichiPostBattle {
+text Route122_Text_HiromichiPostBattle {
 	"You may be tough, but I don't think\n"
 	"you could handle a Pokémon like mine."
 }
 
-script Route_122_EventScript_Tsunao {
-	trainerbattle_single(TRAINER_TSUNAO, Route_122_Text_TsunaoIntro, Route_122_Text_TsunaoDefeat)
-	msgbox(Route_122_Text_TsunaoPostBattle, MSGBOX_AUTOCLOSE)
+script Route122_EventScript_Tsunao {
+	trainerbattle_single(TRAINER_TSUNAO, Route122_Text_TsunaoIntro, Route122_Text_TsunaoDefeat)
+	msgbox(Route122_Text_TsunaoPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route122_EventScript_TryTsunaoRematch)
+	release
 	end
 }
-text Route_122_Text_TsunaoIntro {
+script Route122_EventScript_TryTsunaoRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TSUNAO)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TSUNAO, Route122_Text_TsunaoDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route122_Text_TsunaoIntro {
 	"Covertly cloaked, I strike!"
 }
-text Route_122_Text_TsunaoDefeat {
+text Route122_Text_TsunaoDefeat {
 	"Fine, you can have it."
 }
-text Route_122_Text_TsunaoPostBattle {
+text Route122_Text_TsunaoPostBattle {
 	"Be sure to practice how to make your \n"
 	"cloak swoosh and swish. It's cool!"
 }
 
-script Route_122_EventScript_Micah {
-	trainerbattle_single(TRAINER_MICAH, Route_122_Text_MicahIntro, Route_122_Text_MicahDefeat)
-	msgbox(Route_122_Text_MicahPostBattle, MSGBOX_AUTOCLOSE)
+script Route122_EventScript_Micah {
+	trainerbattle_single(TRAINER_MICAH, Route122_Text_MicahIntro, Route122_Text_MicahDefeat)
+	msgbox(Route122_Text_MicahPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route122_EventScript_TryMicahRematch)
+	release
 	end
 }
-text Route_122_Text_MicahIntro {
+script Route122_EventScript_TryMicahRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MICAH)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MICAH, Route122_Text_MicahDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route122_Text_MicahIntro {
 	"Don't think we Bug Catchers are easily\n"
 	"distracted. I'm focused and ready!"
 }
-text Route_122_Text_MicahDefeat {
+text Route122_Text_MicahDefeat {
 	"You focused on our defeat…"
 }
-text Route_122_Text_MicahPostBattle {
+text Route122_Text_MicahPostBattle {
 	"I'll focus on catching stronger Bug\n"
 	"Pokémon for next time!"
 }
 
-script Route_122_EventScript_Edgar {
-	trainerbattle_single(TRAINER_EDGAR, Route_122_Text_EdgarIntro, Route_122_Text_EdgarDefeat)
-	msgbox(Route_122_Text_EdgarPostBattle, MSGBOX_AUTOCLOSE)
+script Route122_EventScript_Edgar {
+	trainerbattle_single(TRAINER_EDGAR, Route122_Text_EdgarIntro, Route122_Text_EdgarDefeat)
+	msgbox(Route122_Text_EdgarPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route122_EventScript_TryEdgarRematch)
+	release
 	end
 }
-text Route_122_Text_EdgarIntro {
+script Route122_EventScript_TryEdgarRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_EDGAR)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_EDGAR, Route122_Text_EdgarDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route122_Text_EdgarIntro {
 	"En garde!\n"
 	"My samurai otters will slice you up!"
 }
-text Route_122_Text_EdgarDefeat {
+text Route122_Text_EdgarDefeat {
 	"Defeated…"
 }
-text Route_122_Text_EdgarPostBattle {
+text Route122_Text_EdgarPostBattle {
 	"If you want an Oshawott of your own,\n"
 	"talk to a lady in Pacifidlog Town."
 }

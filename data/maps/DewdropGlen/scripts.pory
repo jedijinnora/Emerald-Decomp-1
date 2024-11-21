@@ -7,6 +7,7 @@ mapscripts DewdropGlen_MapScripts {
 
 script DewdropGlen_OnTransition {
     call(DewdropGlen_EventScript_TryMoveStash)
+	call(Common_EventScript_DisableBPReward)
     end
 }
 
@@ -37,7 +38,20 @@ script DewdropGlen_EventScript_Stash {
 script DewdropGlen_EventScript_Albert {
 	trainerbattle_single(TRAINER_ALBERT, DewdropGlen_Text_AlbertIntro, DewdropGlen_Text_AlbertDefeat)
 	msgbox(DewdropGlen_Text_AlbertPostBattle, MSGBOX_AUTOCLOSE)
+	call(DewdropGlen_EventScript_TryAlbertRematch)
+	release
 	end
+}
+script DewdropGlen_EventScript_TryAlbertRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ALBERT)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ALBERT, DewdropGlen_Text_AlbertDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text DewdropGlen_Text_AlbertIntro {
 	"Well, if you're going to walk around\n"
@@ -55,7 +69,20 @@ text DewdropGlen_Text_AlbertPostBattle {
 script DewdropGlen_EventScript_Quincy {
 	trainerbattle_single(TRAINER_QUINCY, DewdropGlen_Text_QuincyIntro, DewdropGlen_Text_QuincyDefeat)
 	msgbox(DewdropGlen_Text_QuincyPostBattle, MSGBOX_AUTOCLOSE)
+	call(DewdropGlen_EventScript_TryQuincyRematch)
+	release
 	end
+}
+script DewdropGlen_EventScript_TryQuincyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_QUINCY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_QUINCY, DewdropGlen_Text_QuincyDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text DewdropGlen_Text_QuincyIntro {
 	"I love splashing through puddles!"
@@ -71,7 +98,20 @@ text DewdropGlen_Text_QuincyPostBattle {
 script DewdropGlen_EventScript_Dudley {
 	trainerbattle_single(TRAINER_DUDLEY, DewdropGlen_Text_DudleyIntro, DewdropGlen_Text_DudleyDefeat)
 	msgbox(DewdropGlen_Text_DudleyPostBattle, MSGBOX_AUTOCLOSE)
+	call(DewdropGlen_EventScript_TryDudleyRematch)
+	release
 	end
+}
+script DewdropGlen_EventScript_TryDudleyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DUDLEY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DUDLEY, DewdropGlen_Text_DudleyDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text DewdropGlen_Text_DudleyIntro {
 	"Is there something wrong with my Rod?\n"

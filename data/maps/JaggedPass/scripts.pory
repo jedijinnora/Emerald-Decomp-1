@@ -1,3 +1,8 @@
+mapscripts JaggedPass_MapScripts {
+	MAP_SCRIPT_ON_RESUME : JaggedPass_OnResume
+	MAP_SCRIPT_ON_TRANSITION : JaggedPass_OnTransition
+}
+
 script JaggedPass_EventScript_Stash {
 	setvar(VAR_TEMP_D, ITEM_PROTEIN)
 	setvar(VAR_TEMP_D, ITEM_FIRE_STONE)
@@ -6,79 +11,130 @@ script JaggedPass_EventScript_Stash {
 	end
 }
 
-raw `
-JaggedPass_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, JaggedPass_OnResume
-	map_script MAP_SCRIPT_ON_TRANSITION, JaggedPass_OnTransition
-	.byte 0
+script JaggedPass_EventScript_Eric {
+	trainerbattle_single(TRAINER_ERIC, JaggedPass_Text_EricIntro, JaggedPass_Text_EricDefeat)
+	msgbox(JaggedPass_Text_EricPostBattle, MSGBOX_AUTOCLOSE)
+	call(JaggedPass_EventScript_TryEricRematch)
+	release
+	end
+}
+script JaggedPass_EventScript_TryEricRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ERIC)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ERIC, JaggedPass_Text_EricDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
+script JaggedPass_EventScript_Diana {
+	trainerbattle_single(TRAINER_DIANA, JaggedPass_Text_DianaIntro, JaggedPass_Text_DianaDefeat)
+	msgbox(JaggedPass_Text_DianaPostBattle, MSGBOX_DEFAULT)
+	call(JaggedPass_EventScript_TryDianaRematch)
+	release
+	end
+}
+script JaggedPass_EventScript_TryDianaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DIANA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DIANA, JaggedPass_Text_DianaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script JaggedPass_EventScript_Ethan {
+	trainerbattle_single(TRAINER_ETHAN, JaggedPass_Text_EthanIntro, JaggedPass_Text_EthanDefeat)
+	msgbox(JaggedPass_Text_EthanPostBattle, MSGBOX_DEFAULT)
+	call(JaggedPass_EventScript_TryEthanRematch)
+	release
+	end
+}
+script JaggedPass_EventScript_TryEthanRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ETHAN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ETHAN, JaggedPass_Text_EthanDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script JaggedPass_EventScript_Julio {
+	trainerbattle_single(TRAINER_JULIO, JaggedPass_Text_JulioIntro, JaggedPass_Text_JulioDefeat)
+	msgbox(JaggedPass_Text_JulioPostBattle, MSGBOX_AUTOCLOSE)
+	call(JaggedPass_EventScript_TryJulioRematch)
+	release
+	end
+}
+script JaggedPass_EventScript_TryJulioRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JULIO)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_AUTUMN)) {
+		msgbox(format("Include Autumn and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_AUTUMN, 0, NULL, JaggedPass_Text_AutumnDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JULIO, JaggedPass_Text_JulioDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script JaggedPass_EventScript_Autumn {
+	trainerbattle_single(TRAINER_AUTUMN, JaggedPass_Text_AutumnIntro, JaggedPass_Text_AutumnDefeat)
+	msgbox(JaggedPass_Text_AutumnPostBattle, MSGBOX_AUTOCLOSE)
+	call(JaggedPass_EventScript_TryAutumnRematch)
+	release
+	end
+}
+script JaggedPass_EventScript_TryAutumnRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_AUTUMN)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_JULIO)) {
+		msgbox(format("Include Julio and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JULIO, 0, NULL, JaggedPass_Text_JulioDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_AUTUMN, JaggedPass_Text_AutumnDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+
+raw `
 JaggedPass_OnResume:
 	setstepcallback STEP_CB_ASH
 	end
 
 JaggedPass_OnTransition:
 	call_if_eq VAR_JAGGED_PASS_ASH_WEATHER, 1, JaggedPass_EventScript_SetWeatherAsh
+	call Common_EventScript_DisableBPReward
 	end
 
 JaggedPass_EventScript_SetWeatherAsh::
 	setweather WEATHER_VOLCANIC_ASH
 	doweather
 	return
-
-JaggedPass_EventScript_Eric::
-	trainerbattle_single TRAINER_ERIC, JaggedPass_Text_EricIntro, JaggedPass_Text_EricDefeat
-	msgbox JaggedPass_Text_EricPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-JaggedPass_EventScript_Diana::
-	trainerbattle_single TRAINER_DIANA, JaggedPass_Text_DianaIntro, JaggedPass_Text_DianaDefeat, JaggedPass_EventScript_RegisterDiana
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, JaggedPass_EventScript_DianaRematch
-	msgbox JaggedPass_Text_DianaPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-JaggedPass_EventScript_RegisterDiana::
-	special PlayerFaceTrainerAfterBattle
-	msgbox JaggedPass_Text_DianaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_DIANA
-	release
-	end
-
-JaggedPass_EventScript_DianaRematch::
-	trainerbattle_rematch TRAINER_DIANA, JaggedPass_Text_DianaRematchIntro, JaggedPass_Text_DianaRematchDefeat
-	msgbox JaggedPass_Text_DianaPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-JaggedPass_EventScript_Ethan::
-	trainerbattle_single TRAINER_ETHAN, JaggedPass_Text_EthanIntro, JaggedPass_Text_EthanDefeat, JaggedPass_EventScript_RegisterEthan
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, JaggedPass_EventScript_EthanRematch
-	msgbox JaggedPass_Text_EthanPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-JaggedPass_EventScript_RegisterEthan::
-	special PlayerFaceTrainerAfterBattle
-	msgbox JaggedPass_Text_EthanRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ETHAN
-	release
-	end
-
-JaggedPass_EventScript_EthanRematch::
-	trainerbattle_rematch TRAINER_ETHAN, JaggedPass_Text_EthanRematchIntro, JaggedPass_Text_EthanRematchDefeat
-	msgbox JaggedPass_Text_EthanPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-JaggedPass_EventScript_Julio::
-	trainerbattle_single TRAINER_JULIO, JaggedPass_Text_JulioIntro, JaggedPass_Text_JulioDefeat
-	msgbox JaggedPass_Text_JulioPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-JaggedPass_EventScript_Autumn::
-	trainerbattle_single TRAINER_AUTUMN, JaggedPass_Text_AutumnIntro, JaggedPass_Text_AutumnDefeat
-	msgbox JaggedPass_Text_AutumnPostBattle, MSGBOX_AUTOCLOSE
-	end
 
 JaggedPass_Text_EricIntro:
 	.string "Mt. Chimney's Jagged Pass…\p"

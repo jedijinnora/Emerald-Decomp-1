@@ -4,6 +4,7 @@ mapscripts PowerPlant_MapScripts {
 
 script PowerPlant_OnTransition {
     call_if_gt(VAR_NEW_MAUVILLE_STATE, 1, PowerPlant_EventScript_HideWorker)
+	call(Common_EventScript_DisableBPReward)
     end
 }
 
@@ -44,7 +45,20 @@ script PowerPlant_EventScript_NewMauvilleNorthSign {
 script PowerPlant_EventScript_Ariarne {
 	trainerbattle_single(TRAINER_ARIARNE, PowerPlant_Text_AriarneIntro, PowerPlant_Text_AriarneDefeat)
 	msgbox(PowerPlant_Text_AriarnePostBattle, MSGBOX_AUTOCLOSE)
+	call(PowerPlant_EventScript_TryAriarneRematch)
+	release
 	end
+}
+script PowerPlant_EventScript_TryAriarneRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ARIARNE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ARIARNE, PowerPlant_Text_AriarneDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text PowerPlant_Text_AriarneIntro {
 	"My Pokémon glows. Check her out!"
@@ -60,7 +74,20 @@ text PowerPlant_Text_AriarnePostBattle {
 script PowerPlant_EventScript_Timin {
 	trainerbattle_single(TRAINER_TIMIN, PowerPlant_Text_TiminIntro, PowerPlant_Text_TiminDefeat)
 	msgbox(PowerPlant_Text_TiminPostBattle, MSGBOX_AUTOCLOSE)
+	call(PowerPlant_EventScript_TryTiminRematch)
+	release
 	end
+}
+script PowerPlant_EventScript_TryTiminRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TIMIN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TIMIN, PowerPlant_Text_TiminDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text PowerPlant_Text_TiminIntro {
 	"Whoah! Look at this zappy Pokémon I\n"
@@ -77,7 +104,20 @@ text PowerPlant_Text_TiminPostBattle {
 script PowerPlant_EventScript_Benito {
 	trainerbattle_single(TRAINER_BENITO, PowerPlant_Text_BenitoIntro, PowerPlant_Text_BenitoDefeat)
 	msgbox(PowerPlant_Text_BenitoPostBattle, MSGBOX_AUTOCLOSE)
+	call(PowerPlant_EventScript_TryBenitoRematch)
+	release
 	end
+}
+script PowerPlant_EventScript_TryBenitoRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_BENITO)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_BENITO, PowerPlant_Text_BenitoDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text PowerPlant_Text_BenitoIntro {
 	"Ahah! An intruder!"

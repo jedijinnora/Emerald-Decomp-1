@@ -1,4 +1,11 @@
-mapscripts Route121_MapScripts {}
+mapscripts Route121_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route121_OnTransition
+}
+
+script Route121_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	end
+}
 
 script Route121_EventScript_Rydel {
 	lockall
@@ -17,6 +24,241 @@ script Route121_EventScript_Rydel {
 	end
 }
 
+script Route121_EventScript_Vanessa {
+	trainerbattle_single(TRAINER_VANESSA, Route121_Text_VanessaIntro, Route121_Text_VanessaDefeat)
+	msgbox(Route121_Text_VanessaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route121_EventScript_TryVanessaRematch)
+	release
+	end
+}
+script Route121_EventScript_TryVanessaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_VANESSA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_VANESSA, Route121_Text_VanessaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route121_EventScript_Walter {
+	trainerbattle_single(TRAINER_WALTER, Route121_Text_WalterIntro, Route121_Text_WalterDefeat)
+	msgbox(Route121_Text_WalterPostRematch, MSGBOX_DEFAULT)
+	call(Route121_EventScript_TryWalterRematch)
+	release
+	end
+}
+script Route121_EventScript_TryWalterRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_WALTER)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_WALTER, Route121_Text_WalterDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route121_EventScript_Tammy {
+	trainerbattle_single(TRAINER_TAMMY, Route121_Text_TammyIntro, Route121_Text_TammyDefeat)
+	msgbox(Route121_Text_TammyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route121_EventScript_TryTammyRematch)
+	release
+	end
+}
+script Route121_EventScript_TryTammyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TAMMY)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_CALE)) {
+		msgbox(format("Include Cale and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CALE, 0, NULL, Route121_Text_CaleDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TAMMY, Route121_Text_TammyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route121_EventScript_Kate {
+	trainerbattle_double(TRAINER_KATE_AND_JOY, Route121_Text_KateIntro, Route121_Text_KateDefeat, Route121_Text_KateNotEnoughMons)
+	msgbox(Route121_Text_KatePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route121_EventScript_TryKateRematch)
+	release
+	end
+}
+script Route121_EventScript_TryKateRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KATE_AND_JOY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KATE_AND_JOY, Route121_Text_KateDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route121_EventScript_Joy {
+	trainerbattle_double(TRAINER_KATE_AND_JOY, Route121_Text_JoyIntro, Route121_Text_JoyDefeat, Route121_Text_JoyNotEnoughMons)
+	msgbox(Route121_Text_JoyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route121_EventScript_TryJoyRematch)
+	release
+	end
+}
+script Route121_EventScript_TryJoyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KATE_AND_JOY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KATE_AND_JOY, Route121_Text_JoyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route121_EventScript_Jessica {
+	trainerbattle_single(TRAINER_JESSICA, Route121_Text_JessicaIntro, Route121_Text_JessicaDefeat)
+	msgbox(Route121_Text_JessicaPostBattle, MSGBOX_DEFAULT)
+	call(Route121_EventScript_TryJessicaRematch)
+	release
+	end
+}
+script Route121_EventScript_TryJessicaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JESSICA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JESSICA, Route121_Text_JessicaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route121_EventScript_Cale {
+	trainerbattle_single(TRAINER_CALE, Route121_Text_CaleIntro, Route121_Text_CaleDefeat)
+	msgbox(Route121_Text_CalePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route121_EventScript_TryCaleRematch)
+	release
+	end
+}
+script Route121_EventScript_TryCaleRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CALE)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_TAMMY)) {
+		msgbox(format("Include Tammy and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_TAMMY, 0, NULL, Route121_Text_TammyDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CALE, Route121_Text_CaleDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route121_EventScript_Myles {
+	trainerbattle_single(TRAINER_MYLES, Route121_Text_MylesIntro, Route121_Text_MylesDefeat)
+	msgbox(Route121_Text_MylesPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route121_EventScript_TryMylesRematch)
+	release
+	end
+}
+script Route121_EventScript_TryMylesRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MYLES)
+	setvar(VAR_0x8004, 2)
+	if (defeated(TRAINER_PAT)) {
+		msgbox(format("Include Pat and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_PAT, 0, NULL, Route121_Text_PatDefeat)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MYLES, Route121_Text_MylesDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route121_EventScript_Pat {
+	trainerbattle_single(TRAINER_PAT, Route121_Text_PatIntro, Route121_Text_PatDefeat)
+	msgbox(Route121_Text_PatPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route121_EventScript_TryPatRematch)
+	release
+	end
+}
+script Route121_EventScript_TryPatRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_PAT)
+	setvar(VAR_0x8004, 2)
+	if (defeated(TRAINER_MYLES)) {
+		msgbox(format("Include Myles and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MYLES, 0, NULL, Route121_Text_MylesDefeat)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_PAT, Route121_Text_PatDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route121_EventScript_Marcel {
+	trainerbattle_single(TRAINER_MARCEL, Route121_Text_MarcelIntro, Route121_Text_MarcelDefeat)
+	msgbox(Route121_Text_MarcelPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route121_EventScript_TryMarcelRematch)
+	release
+	end
+}
+script Route121_EventScript_TryMarcelRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MARCEL)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MARCEL, Route121_Text_MarcelDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route121_EventScript_Cristin {
+	trainerbattle_single(TRAINER_CRISTIN, Route121_Text_CristinIntro, Route121_Text_CristinDefeat)
+	msgbox(Route121_Text_CristinPostBattle, MSGBOX_DEFAULT)
+	call(Route121_EventScript_TryCristinRematch)
+	release
+	end
+}
+script Route121_EventScript_TryCristinRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CRISTIN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CRISTIN, Route121_Text_CristinRematchDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
 raw `
 Route121_EventScript_Woman::
 	msgbox Route121_Text_AheadLoomsMtPyre, MSGBOX_NPC
@@ -28,109 +270,6 @@ Route121_EventScript_MtPyrePierSign::
 
 Route121_EventScript_SafariZoneSign::
 	msgbox Route121_Text_SafariZoneSign, MSGBOX_SIGN
-	end
-
-Route121_EventScript_Vanessa::
-	trainerbattle_single TRAINER_VANESSA, Route121_Text_VanessaIntro, Route121_Text_VanessaDefeat
-	msgbox Route121_Text_VanessaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Walter::
-	trainerbattle_single TRAINER_WALTER, Route121_Text_WalterIntro, Route121_Text_WalterDefeat, Route121_EventScript_RegisterWalter
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route121_EventScript_RematchWalter
-	msgbox Route121_Text_WalterPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route121_EventScript_RegisterWalter::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route121_Text_WalterRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_WALTER
-	release
-	end
-
-Route121_EventScript_RematchWalter::
-	trainerbattle_rematch TRAINER_WALTER, Route121_Text_WalterRematchIntro, Route121_Text_WalterRematchDefeat
-	msgbox Route121_Text_WalterPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Tammy::
-	trainerbattle_single TRAINER_TAMMY, Route121_Text_TammyIntro, Route121_Text_TammyDefeat
-	msgbox Route121_Text_TammyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Kate::
-	trainerbattle_double TRAINER_KATE_AND_JOY, Route121_Text_KateIntro, Route121_Text_KateDefeat, Route121_Text_KateNotEnoughMons
-	msgbox Route121_Text_KatePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Joy::
-	trainerbattle_double TRAINER_KATE_AND_JOY, Route121_Text_JoyIntro, Route121_Text_JoyDefeat, Route121_Text_JoyNotEnoughMons
-	msgbox Route121_Text_JoyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Jessica::
-	trainerbattle_single TRAINER_JESSICA, Route121_Text_JessicaIntro, Route121_Text_JessicaDefeat, Route121_EventScript_RegisterJessica
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route121_EventScript_RematchJessica
-	msgbox Route121_Text_JessicaPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route121_EventScript_RegisterJessica::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route121_Text_JessicaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JESSICA
-	release
-	end
-
-Route121_EventScript_RematchJessica::
-	trainerbattle_rematch TRAINER_JESSICA, Route121_Text_JessicaRematchIntro, Route121_Text_JessicaRematchDefeat
-	msgbox Route121_Text_JessicaPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Cale::
-	trainerbattle_single TRAINER_CALE, Route121_Text_CaleIntro, Route121_Text_CaleDefeat
-	msgbox Route121_Text_CalePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Myles::
-	trainerbattle_single TRAINER_MYLES, Route121_Text_MylesIntro, Route121_Text_MylesDefeat
-	msgbox Route121_Text_MylesPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Pat::
-	trainerbattle_single TRAINER_PAT, Route121_Text_PatIntro, Route121_Text_PatDefeat
-	msgbox Route121_Text_PatPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Marcel::
-	trainerbattle_single TRAINER_MARCEL, Route121_Text_MarcelIntro, Route121_Text_MarcelDefeat
-	msgbox Route121_Text_MarcelPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route121_EventScript_Cristin::
-	trainerbattle_single TRAINER_CRISTIN, Route121_Text_CristinIntro, Route121_Text_CristinDefeat, Route121_EventScript_RegisterCristin
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route121_EventScript_RematchCristin
-	msgbox Route121_Text_CristinPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route121_EventScript_RegisterCristin::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route121_Text_CristinRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_CRISTIN
-	release
-	end
-
-Route121_EventScript_RematchCristin::
-	trainerbattle_rematch TRAINER_CRISTIN, Route121_Text_CristinRematchIntro, Route121_Text_CristinRematchDefeat
-	msgbox Route121_Text_CristinPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route121_Text_AheadLoomsMtPyre:

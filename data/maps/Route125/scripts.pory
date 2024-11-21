@@ -1,5 +1,6 @@
 mapscripts Route125_MapScripts {
 	MAP_SCRIPT_ON_LOAD : Route125_OnLoad
+	MAP_SCRIPT_ON_TRANSITION : Route125_OnTransition
 }
 
 script Route125_OnLoad {
@@ -7,9 +8,22 @@ script Route125_OnLoad {
 	end
 }
 
+script Route125_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	end
+}
+
 script Route125_EventScript_OpenGarden {
 	goto_if_not_defeated(TRAINER_NOLEN, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_TANYA, Common_EventScript_NopReturn)
 	goto_if_not_defeated(TRAINER_SHARON, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_ERNEST, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_KIM_AND_IRIS, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_PRESLEY, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_AURON, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_TERRY, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_HOLLY, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_COLTON, Common_EventScript_NopReturn)
 	setmetatile(62, 17, METATILE_General_CalmWater, FALSE)
 	setmetatile(63, 17, METATILE_General_CalmWater, FALSE)
 	setmetatile(62, 18, METATILE_General_CalmWater, FALSE)
@@ -17,115 +31,260 @@ script Route125_EventScript_OpenGarden {
 	return
 }
 
-script Route_125_EventScript_Terry {
-	trainerbattle_single(TRAINER_TERRY, Route_125_Text_TerryIntro, Route_125_Text_TerryDefeat)
-	msgbox(Route_125_Text_TerryPostBattle, MSGBOX_AUTOCLOSE)
+script Route125_EventScript_Nolen {
+	trainerbattle_single(TRAINER_NOLEN, Route125_Text_NolenIntro, Route125_Text_NolenDefeat)
+	msgbox(Route125_Text_NolenPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route125_EventScript_TryNolenRematch)
+	release
 	end
 }
-text Route_125_Text_TerryIntro {
+script Route125_EventScript_TryNolenRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_NOLEN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_NOLEN, Route125_Text_NolenDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route125_EventScript_Stan {
+	trainerbattle_single(TRAINER_STAN, Route125_Text_StanIntro, Route125_Text_StanDefeat)
+	msgbox(Route125_Text_StanPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route125_EventScript_TryStanRematch)
+	release
+	end
+}
+script Route125_EventScript_TryStanRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_STAN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_STAN, Route125_Text_StanDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route125_EventScript_Tanya {
+	trainerbattle_single(TRAINER_TANYA, Route125_Text_TanyaIntro, Route125_Text_TanyaDefeat)
+	msgbox(Route125_Text_TanyaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route125_EventScript_TryTanyaRematch)
+	release
+	end
+}
+script Route125_EventScript_TryTanyaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TANYA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TANYA, Route125_Text_TanyaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route125_EventScript_Sharon {
+	trainerbattle_single(TRAINER_SHARON, Route125_Text_SharonIntro, Route125_Text_SharonDefeat)
+	msgbox(Route125_Text_SharonPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route125_EventScript_TrySharonRematch)
+	release
+	end
+}
+script Route125_EventScript_TrySharonRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SHARON)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SHARON, Route125_Text_SharonDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route125_EventScript_Ernest {
+	trainerbattle_single(TRAINER_ERNEST, Route125_Text_ErnestIntro, Route125_Text_ErnestDefeat)
+	msgbox(Route125_Text_ErnestPostBattle, MSGBOX_DEFAULT)
+	call(Route125_EventScript_TryErnestRematch)
+	release
+	end
+}
+script Route125_EventScript_TryErnestRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ERNEST)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ERNEST, Route125_Text_ErnestDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route125_EventScript_Kim {
+	trainerbattle_double(TRAINER_KIM_AND_IRIS, Route125_Text_KimIntro, Route125_Text_KimDefeat, Route125_Text_KimNotEnoughMons)
+	msgbox(Route125_Text_KimPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route125_EventScript_TryKimRematch)
+	release
+	end
+}
+script Route125_EventScript_TryKimRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KIM_AND_IRIS)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KIM_AND_IRIS, Route125_Text_KimDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route125_EventScript_Iris {
+	trainerbattle_double(TRAINER_KIM_AND_IRIS, Route125_Text_IrisIntro, Route125_Text_IrisDefeat, Route125_Text_IrisNotEnoughMons)
+	msgbox(Route125_Text_IrisPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route125_EventScript_TryIrisRematch)
+	release
+	end
+}
+script Route125_EventScript_TryIrisRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KIM_AND_IRIS)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KIM_AND_IRIS, Route125_Text_IrisDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route125_EventScript_Presley {
+	trainerbattle_single(TRAINER_PRESLEY, Route125_Text_PresleyIntro, Route125_Text_PresleyDefeat)
+	msgbox(Route125_Text_PresleyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route125_EventScript_TryPresleyRematch)
+	release
+	end
+}
+script Route125_EventScript_TryPresleyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_PRESLEY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_PRESLEY, Route125_Text_PresleyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route125_EventScript_Auron {
+	trainerbattle_single(TRAINER_AURON, Route125_Text_AuronIntro, Route125_Text_AuronDefeat)
+	msgbox(Route125_Text_AuronPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route125_EventScript_TryAuronRematch)
+	release
+	end
+}
+script Route125_EventScript_TryAuronRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_AURON)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_AURON, Route125_Text_AuronDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route125_EventScript_Terry {
+	trainerbattle_single(TRAINER_TERRY, Route125_Text_TerryIntro, Route125_Text_TerryDefeat)
+	msgbox(Route125_Text_TerryPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route125_EventScript_TryTerryRematch)
+	release
+	end
+}
+script Route125_EventScript_TryTerryRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TERRY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TERRY, Route125_Text_TerryDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route125_Text_TerryIntro {
 	"I love rock climbing!"
 }
-text Route_125_Text_TerryDefeat {
+text Route125_Text_TerryDefeat {
 	"Ack! Watch it, don't make me slip!"
 }
-text Route_125_Text_TerryPostBattle {
+text Route125_Text_TerryPostBattle {
 	"You walk up stairs. I climb up cliffs\n"
 	"bare-handed. We are not the same!"
 }
 
-script Route_125_EventScript_Holly {
-	trainerbattle_single(TRAINER_HOLLY, Route_125_Text_HollyIntro, Route_125_Text_HollyDefeat)
-	msgbox(Route_125_Text_HollyPostBattle, MSGBOX_AUTOCLOSE)
+script Route125_EventScript_Holly {
+	trainerbattle_single(TRAINER_HOLLY, Route125_Text_HollyIntro, Route125_Text_HollyDefeat)
+	msgbox(Route125_Text_HollyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route125_EventScript_TryHollyRematch)
+	release
 	end
 }
-text Route_125_Text_HollyIntro {
+script Route125_EventScript_TryHollyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HOLLY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HOLLY, Route125_Text_HollyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route125_Text_HollyIntro {
 	"Ooh, ooh! Battle me, please!"
 }
-text Route_125_Text_HollyDefeat {
+text Route125_Text_HollyDefeat {
 	"Boo! Not fun!"
 }
-text Route_125_Text_HollyPostBattle {
+text Route125_Text_HollyPostBattle {
 	"I don't want to grow up. I'll get too big\n"
 	"for my inner tube!"
 }
 
-script Route_125_EventScript_Colton {
-	trainerbattle_single(TRAINER_COLTON, Route_125_Text_ColtonIntro, Route_125_Text_ColtonDefeat)
-	msgbox(Route_125_Text_ColtonPostBattle, MSGBOX_AUTOCLOSE)
+script Route125_EventScript_Colton {
+	trainerbattle_single(TRAINER_COLTON, Route125_Text_ColtonIntro, Route125_Text_ColtonDefeat)
+	msgbox(Route125_Text_ColtonPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route125_EventScript_TryColtonRematch)
+	release
 	end
 }
-text Route_125_Text_ColtonIntro {
+script Route125_EventScript_TryColtonRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_COLTON)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_COLTON, Route125_Text_ColtonDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route125_Text_ColtonIntro {
 	"Splish, splash. Go, Pokémon!"
 }
-text Route_125_Text_ColtonDefeat {
+text Route125_Text_ColtonDefeat {
 	"Nooooooooooo!"
 }
-text Route_125_Text_ColtonPostBattle {
+text Route125_Text_ColtonPostBattle {
 	"Wailmer is big and bouncy just like my\n"
 	"inner tube!"
 }
-
-
-raw `
-Route125_EventScript_Nolen::
-	trainerbattle_single TRAINER_NOLEN, Route125_Text_NolenIntro, Route125_Text_NolenDefeat
-	msgbox Route125_Text_NolenPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route125_EventScript_Stan::
-	trainerbattle_single TRAINER_STAN, Route125_Text_StanIntro, Route125_Text_StanDefeat
-	msgbox Route125_Text_StanPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route125_EventScript_Tanya::
-	trainerbattle_single TRAINER_TANYA, Route125_Text_TanyaIntro, Route125_Text_TanyaDefeat
-	msgbox Route125_Text_TanyaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route125_EventScript_Sharon::
-	trainerbattle_single TRAINER_SHARON, Route125_Text_SharonIntro, Route125_Text_SharonDefeat
-	msgbox Route125_Text_SharonPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route125_EventScript_Ernest::
-	trainerbattle_single TRAINER_ERNEST, Route125_Text_ErnestIntro, Route125_Text_ErnestDefeat, Route125_EventScript_RegisterErnest
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route125_EventScript_RematchErnest
-	msgbox Route125_Text_ErnestPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route125_EventScript_RegisterErnest::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route125_Text_ErnestRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ERNEST
-	release
-	end
-
-Route125_EventScript_RematchErnest::
-	trainerbattle_rematch TRAINER_ERNEST, Route125_Text_ErnestRematchIntro, Route125_Text_ErnestRematchDefeat
-	msgbox Route125_Text_ErnestRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route125_EventScript_Kim::
-	trainerbattle_double TRAINER_KIM_AND_IRIS, Route125_Text_KimIntro, Route125_Text_KimDefeat, Route125_Text_KimNotEnoughMons
-	msgbox Route125_Text_KimPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route125_EventScript_Iris::
-	trainerbattle_double TRAINER_KIM_AND_IRIS, Route125_Text_IrisIntro, Route125_Text_IrisDefeat, Route125_Text_IrisNotEnoughMons
-	msgbox Route125_Text_IrisPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route125_EventScript_Presley::
-	trainerbattle_single TRAINER_PRESLEY, Route125_Text_PresleyIntro, Route125_Text_PresleyDefeat
-	msgbox Route125_Text_PresleyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route125_EventScript_Auron::
-	trainerbattle_single TRAINER_AURON, Route125_Text_AuronIntro, Route125_Text_AuronDefeat
-	msgbox Route125_Text_AuronPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-`

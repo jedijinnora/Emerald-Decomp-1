@@ -1,9 +1,24 @@
-mapscripts MossdeepCaverns_B1F_MapScripts {}
+mapscripts MossdeepCaverns_B1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Common_EventScript_DisableBPReward
+}
 
 script MossdeepCaverns_B1F_EventScript_Cooper {
 	trainerbattle_single(TRAINER_COOPER, MossdeepCaverns_B1F_Text_CooperIntro, MossdeepCaverns_B1F_Text_CooperDefeat)
 	msgbox(MossdeepCaverns_B1F_Text_CooperPostBattle, MSGBOX_AUTOCLOSE)
+	call(MossdeepCaverns_B1F_EventScript_TryCooperRematch)
+	release
 	end
+}
+script MossdeepCaverns_B1F_EventScript_TryCooperRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_COOPER)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_COOPER, MossdeepCaverns_B1F_Text_CooperDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text MossdeepCaverns_B1F_Text_CooperIntro {
 	"In this dark cave, we train our\n"
@@ -20,7 +35,20 @@ text MossdeepCaverns_B1F_Text_CooperPostBattle {
 script MossdeepCaverns_B1F_EventScript_Edmund {
 	trainerbattle_single(TRAINER_EDMUND, MossdeepCaverns_B1F_Text_EdmundIntro, MossdeepCaverns_B1F_Text_EdmundDefeat)
 	msgbox(MossdeepCaverns_B1F_Text_EdmundPostBattle, MSGBOX_AUTOCLOSE)
+	call(MossdeepCaverns_B1F_EventScript_TryEdmundRematch)
+	release
 	end
+}
+script MossdeepCaverns_B1F_EventScript_TryEdmundRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_EDMUND)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_EDMUND, MossdeepCaverns_B1F_Text_EdmundDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text MossdeepCaverns_B1F_Text_EdmundIntro {
 	"My partner is the toughest ever!"

@@ -1,9 +1,31 @@
-mapscripts SummerSea_MapScripts {}
+mapscripts SummerSea_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Common_EventScript_DisableBPReward
+}
 
 script SummerSea_EventScript_Stanly {
 	trainerbattle_single(TRAINER_STANLY, SummerSea_Text_StanlyIntro, SummerSea_Text_StanlyDefeat)
 	msgbox(SummerSea_Text_StanlyPostBattle, MSGBOX_AUTOCLOSE)
+	call(SummerSea_EventScript_TryStanlyRematch)
+	release
 	end
+}
+script SummerSea_EventScript_TryStanlyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_STANLY)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_THEODORE)) {
+		msgbox(format("Include Theodore and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_THEODORE, 0, NULL, SummerSea_Text_TheodoreDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_STANLY, SummerSea_Text_StanlyDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SummerSea_Text_StanlyIntro {
 	"Guts and glory!"
@@ -18,7 +40,20 @@ text SummerSea_Text_StanlyPostBattle {
 script SummerSea_EventScript_Regan {
 	trainerbattle_single(TRAINER_REGAN, SummerSea_Text_ReganIntro, SummerSea_Text_ReganDefeat)
 	msgbox(SummerSea_Text_ReganPostBattle, MSGBOX_AUTOCLOSE)
+	call(SummerSea_EventScript_TryReganRematch)
+	release
 	end
+}
+script SummerSea_EventScript_TryReganRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_REGAN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_REGAN, SummerSea_Text_ReganDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SummerSea_Text_ReganIntro {
 	"Sure, I can beat you up."
@@ -34,7 +69,20 @@ text SummerSea_Text_ReganPostBattle {
 script SummerSea_EventScript_Tya {
 	trainerbattle_double(TRAINER_TYA_AND_MADI, SummerSea_Text_TyaIntro, SummerSea_Text_TyaDefeat, SummerSea_Text_TyaNotEnoughMons)
 	msgbox(SummerSea_Text_TyaPostBattle, MSGBOX_AUTOCLOSE)
+	call(SummerSea_EventScript_TryTyaRematch)
+	release
 	end
+}
+script SummerSea_EventScript_TryTyaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TYA_AND_MADI)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TYA_AND_MADI, SummerSea_Text_TyaDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SummerSea_Text_TyaIntro {
 	"Tya: I'll show my cute junior how it's\n"
@@ -56,7 +104,20 @@ text SummerSea_Text_TyaPostBattle {
 script SummerSea_EventScript_Madi {
 	trainerbattle_double(TRAINER_TYA_AND_MADI, SummerSea_Text_MadiIntro, SummerSea_Text_MadiDefeat, SummerSea_Text_MadiNotEnoughMons)
 	msgbox(SummerSea_Text_MadiPostBattle, MSGBOX_AUTOCLOSE)
+	call(SummerSea_EventScript_TryMadiRematch)
+	release
 	end
+}
+script SummerSea_EventScript_TryMadiRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TYA_AND_MADI)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TYA_AND_MADI, SummerSea_Text_MadiDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SummerSea_Text_MadiIntro {
 	"Madi: I'll beat you up and make Tya pay\n"
@@ -77,7 +138,20 @@ text SummerSea_Text_MadiPostBattle {
 script SummerSea_EventScript_Vernon {
 	trainerbattle_single(TRAINER_VERNON, SummerSea_Text_VernonIntro, SummerSea_Text_VernonDefeat)
 	msgbox(SummerSea_Text_VernonPostBattle, MSGBOX_AUTOCLOSE)
+	call(SummerSea_EventScript_TryVernonRematch)
+	release
 	end
+}
+script SummerSea_EventScript_TryVernonRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_VERNON)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_VERNON, SummerSea_Text_VernonDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SummerSea_Text_VernonIntro {
 	"My Pokémon is almost as big as me!"
@@ -93,7 +167,20 @@ text SummerSea_Text_VernonPostBattle {
 script SummerSea_EventScript_Boris {
 	trainerbattle_single(TRAINER_BORIS, SummerSea_Text_BorisIntro, SummerSea_Text_BorisDefeat)
 	msgbox(SummerSea_Text_BorisPostBattle, MSGBOX_AUTOCLOSE)
+	call(SummerSea_EventScript_TryBorisRematch)
+	release
 	end
+}
+script SummerSea_EventScript_TryBorisRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_BORIS)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_BORIS, SummerSea_Text_BorisDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SummerSea_Text_BorisIntro {
 	"In Summer Sea, Pokémon fight you!"
@@ -108,7 +195,27 @@ text SummerSea_Text_BorisPostBattle {
 script SummerSea_EventScript_Theodore {
 	trainerbattle_single(TRAINER_THEODORE, SummerSea_Text_TheodoreIntro, SummerSea_Text_TheodoreDefeat)
 	msgbox(SummerSea_Text_TheodorePostBattle, MSGBOX_AUTOCLOSE)
+	call(SummerSea_EventScript_TryTheodoreRematch)
+	release
 	end
+}
+script SummerSea_EventScript_TryTheodoreRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_THEODORE)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_STANLY)) {
+		msgbox(format("Include Stanly and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_STANLY, 0, NULL, SummerSea_Text_StanlyDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_THEODORE, SummerSea_Text_TheodoreDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SummerSea_Text_TheodoreIntro {
 	"If you don't mind, I'd like to see how\n"
@@ -125,7 +232,20 @@ text SummerSea_Text_TheodorePostBattle {
 script SummerSea_EventScript_Howie {
 	trainerbattle_single(TRAINER_HOWIE, SummerSea_Text_HowieIntro, SummerSea_Text_HowieDefeat)
 	msgbox(SummerSea_Text_HowiePostBattle, MSGBOX_AUTOCLOSE)
+	call(SummerSea_EventScript_TryHowieRematch)
+	release
 	end
+}
+script SummerSea_EventScript_TryHowieRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HOWIE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HOWIE, SummerSea_Text_HowieDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SummerSea_Text_HowieIntro {
 	"Have you seen the rare Pokémon?"

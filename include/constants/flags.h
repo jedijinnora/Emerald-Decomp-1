@@ -111,7 +111,7 @@
 #define FLAG_RECEIVED_SAFETY_GOGGLES         0x54 // desert oasis
 #define FLAG_RECEIVED_SPACE_CENTER_EJECT_PACK 0x55
 #define FLAG_RECEIVED_UTILITY_UMBRELLA       0x56
-#define FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY 0x57
+#define FLAG_UNUSED_0x57                     0x57
 #define FLAG_RECEIVED_SITRUS_BERRY_ROUTE_104 0x58
 #define FLAG_RECEIVED_SPELON_BERRY           0x59 // Berry Master's wife
 #define FLAG_RECEIVED_PAMTRE_BERRY           0x5A // Berry Master's wife
@@ -129,7 +129,7 @@
 #define FLAG_RECEIVED_DOWSING_MACHINE        0x66
 #define FLAG_GIVEN_BRANDON_COMET_SHARD       0x67
 #define FLAG_CHOSE_VICTORY_ROAD_BONUS_ITEM   0x68
-#define FLAG_GIVEN_VICTORY_ROAD_SKIP_REWARD  0x69
+#define FLAG_UNUSED_0x69                     0x69
 #define FLAG_GIVEN_DEWFORD_RESORT_LEEK       0x6A
 #define FLAG_GIVEN_ROUTE_107_PUNCHING_GLOVE  0x6B
 #define FLAG_GIVEN_SOFT_SAND                 0x6C // from pokefan on r107 after telling her about hiding son

@@ -1,4 +1,6 @@
-mapscripts SlateportBeach_MapScripts {}
+mapscripts SlateportBeach_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Common_EventScript_DisableBPReward
+}
 
 script SlateportBeach_EventScript_SeashoreHouseSign {
     msgbox("Seashore House\p“May fierce battles rage on the sands!\n The place for hot Trainers!”", MSGBOX_SIGN)
@@ -26,7 +28,20 @@ script SlateportBeach_EventScript_Scott {
 script SlateportBeach_EventScript_Luther {
 	trainerbattle_single(TRAINER_LUTHER, SlateportBeach_Text_LutherIntro, SlateportBeach_Text_LutherDefeat)
 	msgbox(SlateportBeach_Text_LutherPostBattle, MSGBOX_AUTOCLOSE)
+	call(SlateportBeach_EventScript_TryLutherRematch)
+	release
 	end
+}
+script SlateportBeach_EventScript_TryLutherRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LUTHER)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LUTHER, SlateportBeach_Text_LutherDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SlateportBeach_Text_LutherIntro {
 	"Go away, I'm on shore leave."
@@ -42,7 +57,27 @@ text SlateportBeach_Text_LutherPostBattle {
 script SlateportBeach_EventScript_Hali {
 	trainerbattle_single(TRAINER_HALI, SlateportBeach_Text_HaliIntro, SlateportBeach_Text_HaliDefeat)
 	msgbox(SlateportBeach_Text_HaliPostBattle, MSGBOX_AUTOCLOSE)
+	call(SlateportBeach_EventScript_TryHaliRematch)
+	release
 	end
+}
+script SlateportBeach_EventScript_TryHaliRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HALI)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_HANK)) {
+		msgbox(format("Include Hank and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_HANK, 0, NULL, SlateportBeach_Text_HankDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HALI, SlateportBeach_Text_HaliDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SlateportBeach_Text_HaliIntro {
 	"A big kid? Go, Pokémon!"
@@ -58,7 +93,27 @@ text SlateportBeach_Text_HaliPostBattle {
 script SlateportBeach_EventScript_Hank {
 	trainerbattle_single(TRAINER_HANK, SlateportBeach_Text_HankIntro, SlateportBeach_Text_HankDefeat)
 	msgbox(SlateportBeach_Text_HankPostBattle, MSGBOX_AUTOCLOSE)
+	call(SlateportBeach_EventScript_TryHankRematch)
+	release
 	end
+}
+script SlateportBeach_EventScript_TryHankRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HANK)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_HALI)) {
+		msgbox(format("Include Hali and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_HALI, 0, NULL, SlateportBeach_Text_HaliDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HANK, SlateportBeach_Text_HankDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SlateportBeach_Text_HankIntro {
 	"I like digging in the sand with Pokémon!"
@@ -74,7 +129,20 @@ text SlateportBeach_Text_HankPostBattle {
 script SlateportBeach_EventScript_Halle {
 	trainerbattle_single(TRAINER_HALLE, SlateportBeach_Text_HalleIntro, SlateportBeach_Text_HalleDefeat)
 	msgbox(SlateportBeach_Text_HallePostBattle, MSGBOX_AUTOCLOSE)
+	call(SlateportBeach_EventScript_TryHalleRematch)
+	release
 	end
+}
+script SlateportBeach_EventScript_TryHalleRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HALLE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HALLE, SlateportBeach_Text_HalleDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SlateportBeach_Text_HalleIntro {
 	"You aren't here to cause trouble, are\n"
@@ -91,7 +159,20 @@ text SlateportBeach_Text_HallePostBattle {
 script SlateportBeach_EventScript_Sheaffer {
 	trainerbattle_single(TRAINER_SHEAFFER, SlateportBeach_Text_SheafferIntro, SlateportBeach_Text_SheafferDefeat)
 	msgbox(SlateportBeach_Text_SheafferPostBattle, MSGBOX_AUTOCLOSE)
+	call(SlateportBeach_EventScript_TrySheafferRematch)
+	release
 	end
+}
+script SlateportBeach_EventScript_TrySheafferRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SHEAFFER)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SHEAFFER, SlateportBeach_Text_SheafferDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SlateportBeach_Text_SheafferIntro {
 	"Looks like we've hooked ourselves\n"
@@ -108,7 +189,20 @@ text SlateportBeach_Text_SheafferPostBattle {
 script SlateportBeach_EventScript_Ashlin {
 	trainerbattle_single(TRAINER_ASHLIN, SlateportBeach_Text_AshlinIntro, SlateportBeach_Text_AshlinDefeat)
 	msgbox(SlateportBeach_Text_AshlinPostBattle, MSGBOX_AUTOCLOSE)
+	call(SlateportBeach_EventScript_TryAshlinRematch)
+	release
 	end
+}
+script SlateportBeach_EventScript_TryAshlinRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ASHLIN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ASHLIN, SlateportBeach_Text_AshlinDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SlateportBeach_Text_AshlinIntro {
 	"Please don't block the sun while I'm\n"
@@ -125,7 +219,20 @@ text SlateportBeach_Text_AshlinPostBattle {
 script SlateportBeach_EventScript_Simone {
 	trainerbattle_single(TRAINER_SIMONE, SlateportBeach_Text_SimoneIntro, SlateportBeach_Text_SimoneDefeat)
 	msgbox(SlateportBeach_Text_SimonePostBattle, MSGBOX_AUTOCLOSE)
+	call(SlateportBeach_EventScript_TrySimoneRematch)
+	release
 	end
+}
+script SlateportBeach_EventScript_TrySimoneRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SIMONE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SIMONE, SlateportBeach_Text_SimoneDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SlateportBeach_Text_SimoneIntro {
 	"Excuse me, you're a bit too close to my\n"
@@ -142,7 +249,20 @@ text SlateportBeach_Text_SimonePostBattle {
 script SlateportBeach_EventScript_Ellis {
 	trainerbattle_single(TRAINER_ELLIS, SlateportBeach_Text_EllisIntro, SlateportBeach_Text_EllisDefeat)
 	msgbox(SlateportBeach_Text_EllisPostBattle, MSGBOX_AUTOCLOSE)
+	call(SlateportBeach_EventScript_TryEllisRematch)
+	release
 	end
+}
+script SlateportBeach_EventScript_TryEllisRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ELLIS)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ELLIS, SlateportBeach_Text_EllisDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SlateportBeach_Text_EllisIntro {
 	"Ahah! My tough bugs will eat you up!"
@@ -158,7 +278,20 @@ text SlateportBeach_Text_EllisPostBattle {
 script SlateportBeach_EventScript_Kinsley {
 	trainerbattle_single(TRAINER_KINSLEY, SlateportBeach_Text_KinsleyIntro, SlateportBeach_Text_KinsleyDefeat)
 	msgbox(SlateportBeach_Text_KinsleyPostBattle, MSGBOX_AUTOCLOSE)
+	call(SlateportBeach_EventScript_TryKinsleyRematch)
+	release
 	end
+}
+script SlateportBeach_EventScript_TryKinsleyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KINSLEY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KINSLEY, SlateportBeach_Text_KinsleyDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SlateportBeach_Text_KinsleyIntro {
 	"Watch out for the rip tide!"

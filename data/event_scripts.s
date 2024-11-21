@@ -1042,6 +1042,9 @@ Common_EventScript_EnableBPReward:
 	setvar VAR_0x800B, 1
 	return
 
+Common_EventScript_DisableBPReward::
+	setvar VAR_0x800B, 0
+	return
 
 	.include "data/scripts/pc_transfer.inc"
 	.include "data/scripts/questionnaire.inc"

@@ -94,7 +94,7 @@
       "movement_range_y": 8,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "Route124_EventScript_Grace",
+      "script": "Route124_EventScript_Rischel",
       "flag": "0"
     },
     {
@@ -185,7 +185,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route_124_EventScript_Garret",
+      "script": "Route124_EventScript_Garret",
       "flag": "0"
     },
     {
@@ -198,7 +198,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route_124_EventScript_Josie",
+      "script": "Route124_EventScript_Josie",
       "flag": "0"
     },
     {

@@ -2914,7 +2914,7 @@
     .aiFlags = BASIC_TRAINER_FLAGS,
     .party = TRAINER_PARTY(sParty_Miguel),
     .badgeThreshold = 1,
-    .easyParty = sParty_Andrew_easy,
+    .easyParty = sParty_Miguel_easy,
 },
 
 [TRAINER_RHETT] =
@@ -5785,18 +5785,18 @@
     .easyParty = sParty_Alberto_easy,
 },
 
-[TRAINER_FREDRICK] =
+[TRAINER_FREDERICK] =
 {
     .trainerClass = TRAINER_CLASS_EXPERT,
     .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
     .trainerPic = TRAINER_PIC_EXPERT_M,
-    .trainerName = _("Fredrick"),
+    .trainerName = _("Frederick"),
     .items = {},
     .doubleBattle = FALSE,
     .aiFlags = BASIC_TRAINER_FLAGS,
-    .party = TRAINER_PARTY(sParty_Fredrick),
+    .party = TRAINER_PARTY(sParty_Frederick),
     .badgeThreshold = 2,
-    .easyParty = sParty_Fredrick_easy,
+    .easyParty = sParty_Frederick_easy,
 },
 
 [TRAINER_JAZMYN] =
@@ -7521,16 +7521,16 @@
     .easyParty = sParty_Cedric_easy,
 },
 
-[TRAINER_YOSHI] =
+[TRAINER_MANO] =
 {
     .trainerClass = TRAINER_CLASS_COOLTRAINER,
     .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
     .trainerPic = TRAINER_PIC_COOLTRAINER_M,
-    .trainerName = _("Yoshi"),
+    .trainerName = _("Mano"),
     .items = {},
-    .doubleBattle = FALSE,
-    .aiFlags = OMNISCIENT_TRAINER_FLAGS | AI_FLAG_POWERFUL_STATUS,
-    .party = TRAINER_PARTY(sParty_Yoshi),
+    .doubleBattle = TRUE,
+    .aiFlags = OMNISCIENT_TRAINER_FLAGS,
+    .party = TRAINER_PARTY(sParty_Mano),
     .badgeThreshold = 0,
 },
 
@@ -7541,7 +7541,7 @@
     .trainerPic = TRAINER_PIC_COOLTRAINER_M,
     .trainerName = _("Tsuji"),
     .items = {},
-    .doubleBattle = FALSE,
+    .doubleBattle = TRUE,
     .aiFlags = OMNISCIENT_TRAINER_FLAGS,
     .party = TRAINER_PARTY(sParty_Tsuji),
     .badgeThreshold = 0,
@@ -7567,7 +7567,7 @@
     .trainerPic = TRAINER_PIC_COOLTRAINER_M,
     .trainerName = _("Ryota"),
     .items = {},
-    .doubleBattle = FALSE,
+    .doubleBattle = TRUE,
     .aiFlags = OMNISCIENT_TRAINER_FLAGS,
     .party = TRAINER_PARTY(sParty_Ryota),
     .badgeThreshold = 0,
@@ -7619,7 +7619,7 @@
     .trainerPic = TRAINER_PIC_COOLTRAINER_M,
     .trainerName = _("Shoma"),
     .items = {},
-    .doubleBattle = FALSE,
+    .doubleBattle = TRUE,
     .aiFlags = OMNISCIENT_TRAINER_FLAGS,
     .party = TRAINER_PARTY(sParty_Shoma),
     .badgeThreshold = 0,
@@ -7632,7 +7632,7 @@
     .trainerPic = TRAINER_PIC_COOLTRAINER_M,
     .trainerName = _("Arash"),
     .items = {},
-    .doubleBattle = FALSE,
+    .doubleBattle = TRUE,
     .aiFlags = OMNISCIENT_TRAINER_FLAGS,
     .party = TRAINER_PARTY(sParty_Arash),
     .badgeThreshold = 0,
@@ -7674,6 +7674,19 @@
     .doubleBattle = FALSE,
     .aiFlags = OMNISCIENT_TRAINER_FLAGS,
     .party = TRAINER_PARTY(sParty_Katelynn),
+    .badgeThreshold = 0,
+},
+
+[TRAINER_EIFIE] =
+{
+    .trainerClass = TRAINER_CLASS_COOLTRAINER,
+    .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_COOL,
+    .trainerPic = TRAINER_PIC_COOLTRAINER_F,
+    .trainerName = _("Eifie"),
+    .items = {},
+    .doubleBattle = TRUE,
+    .aiFlags = OMNISCIENT_TRAINER_FLAGS,
+    .party = TRAINER_PARTY(sParty_Eifie),
     .badgeThreshold = 0,
 },
 

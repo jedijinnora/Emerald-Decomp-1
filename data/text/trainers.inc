@@ -889,7 +889,7 @@ Route109_Text_LolaRegister:
 	.string "I'm here every day!$"
 
 Route109_Text_LolaRematchIntro:
-	.string "I'm not losing to you again!\n"
+	.string "I'm not losing to you!\n"
 	.string "That's why I have my inner tube!$"
 
 Route109_Text_LolaRematchDefeated:
@@ -1196,7 +1196,7 @@ Route110_Text_TimmyDefeated:
 
 Route110_Text_TimmyPostBattle:
 	.string "It's hard to battle with Pokémon you\n"
-	.string "just caught.$"
+	.string "just caught. But it's cool!$"
 
 Route110_Text_AlyssaIntro:
 	.string "I fell off Cycling Road…\p"
@@ -1417,7 +1417,7 @@ Route111_Text_BrookeRematchIntro:
 	.string "know?$"
 
 Route111_Text_BrookeRematchDefeat:
-	.string "You've taught them good moves!$"
+	.string "You've worked hard!$"
 
 Route111_Text_BrookePostRematch:
 	.string "Maybe I should have stopped my\n"
@@ -2266,7 +2266,7 @@ Route116_Text_KarenDefeat:
 
 Route116_Text_KarenPostBattle:
 	.string "Awww, I'll never become an elegant\n"
-	.string "Trainer like Roxanne this way!$"
+	.string "Trainer like Glacia this way!$"
 
 Route116_Text_KarenRegister1:
 	.string "Oh, wow! Isn't that a Pokénav?\n"
@@ -3648,15 +3648,15 @@ Route124_Text_JennyPostRematch:
 	.string "This has nothing to do with anything,\n"
 	.string "but maybe I'll visit the TRICK House.$"
 
-Route124_Text_GraceIntro:
+Route124_Text_RischelIntro:
 	.string "I'm growing bored of swimming…\n"
 	.string "How about a battle?$"
 
-Route124_Text_GraceDefeat:
+Route124_Text_RischelDefeat:
 	.string "I had no idea that you were\n"
 	.string "this strong!$"
 
-Route124_Text_GracePostBattle:
+Route124_Text_RischelPostBattle:
 	.string "All the effort you put in must have\n"
 	.string "made you this strong.$"
 
@@ -4148,7 +4148,7 @@ Route127_Text_AthenaPostBattle:
 	.string "and sky, it feels as if time slows down.$"
 
 Route128_Text_IsaiahIntro:
-	.string "Ever Grande City is still a long ways\n"
+	.string "Emerald Cape is still a long ways\n"
 	.string "away…$"
 
 Route128_Text_IsaiahDefeat:

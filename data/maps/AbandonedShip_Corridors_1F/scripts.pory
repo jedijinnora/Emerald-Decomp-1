@@ -1,14 +1,34 @@
-raw `
-AbandonedShip_Corridors_1F_MapScripts::
-	.byte 0
+mapscripts AbandonedShip_Corridors_1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : AbandonedShip_Corridors_1F_OnTransition
+}
 
+script AbandonedShip_Corridors_1F_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	end
+}
+
+script AbandonedShip_Corridors_1F_EventScript_Charlie {
+	trainerbattle_single(TRAINER_CHARLIE, AbandonedShip_Corridors_1F_Text_CharlieIntro, AbandonedShip_Corridors_1F_Text_CharlieDefeat)
+	msgbox(AbandonedShip_Corridors_1F_Text_CharliePostBattle, MSGBOX_AUTOCLOSE)
+	call(AbandonedShip_Corridors_1F_EventScript_TryCharlieRematch)
+	release
+	end
+}
+script AbandonedShip_Corridors_1F_EventScript_TryCharlieRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CHARLIE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CHARLIE, AbandonedShip_Corridors_1F_Text_CharlieDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+raw `
 AbandonedShip_Corridors_1F_EventScript_Youngster::
 	msgbox AbandonedShip_Corridors_1F_Text_IsntItFunHere, MSGBOX_NPC
-	end
-
-AbandonedShip_Corridors_1F_EventScript_Charlie::
-	trainerbattle_single TRAINER_CHARLIE, AbandonedShip_Corridors_1F_Text_CharlieIntro, AbandonedShip_Corridors_1F_Text_CharlieDefeat
-	msgbox AbandonedShip_Corridors_1F_Text_CharliePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 AbandonedShip_Corridors_1F_Text_CharlieIntro:

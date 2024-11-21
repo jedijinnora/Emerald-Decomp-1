@@ -1,4 +1,5 @@
 const LOCALID_RIVAL = 8
+const LOCALID_NURSE = 10
 
 mapscripts VictoryRoad_1F_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : VictoryRoad_1F_OnTransition
@@ -8,16 +9,7 @@ script VictoryRoad_1F_OnTransition {
 	setflag(FLAG_ENTERED_VICTORY_ROAD)
 	call(VictoryRoad_1F_EventScript_SetupRivalGfx)
 	call_if_unset(FLAG_SYS_GAME_CLEAR, VictoryRoad_1F_EventScript_HideRematchRival)
-	end
-}
-
-script VictoryRoad_1F_EventScript_TrainerCheck {
-	goto_if_not_defeated(TRAINER_RIZZO, VictoryRoad_1F_EventScript_PushDown)
-	goto_if_not_defeated(TRAINER_PARK, VictoryRoad_1F_EventScript_PushDown)
-	goto_if_not_defeated(TRAINER_GLICK, VictoryRoad_1F_EventScript_PushDown)
-	goto_if_not_defeated(TRAINER_WOLFE, VictoryRoad_1F_EventScript_PushDown)
-	goto_if_not_defeated(TRAINER_RUIZ, VictoryRoad_1F_EventScript_PushDown)
-	setvar(VAR_TEMP_0, 1)
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 
@@ -90,53 +82,120 @@ script VictoryRoad_1F_EventScript_Rival_Jinnora {
 	msgbox(format("Jinnora: Anyways, I'll be collecting the teams of the first players to beat the game on and putting them here. The Discord will have more info."))
 }
 
-script VictoryRoad_1F_EventScript_PushDown {
-	msgbox(format("You managed to skip some mandatory double battles!"))
-	if(!flag(FLAG_GIVEN_VICTORY_ROAD_SKIP_REWARD)) {
-		giveitem(ITEM_CHOICE_SCARF)
-		setflag(FLAG_GIVEN_VICTORY_ROAD_SKIP_REWARD)
-	}
-	msgbox(format("Clever work, now go do it properly!"))
-	waitmessage
-	applymovement(OBJ_EVENT_ID_PLAYER, VictoryRoad_1F_Movement_PushDownFromExit)
-	waitmovement(0)
+script VictoryRoad_1F_EventScript_DoublesWarningSign {
+	msgbox(format("Be aware, many of the Trainers here will challenge you to a Double Battle."), MSGBOX_SIGN)
+	end
+}
+
+script VictoryRoad_1F_EventScript_HealTrigger {
+	setvar(VAR_TEMP_0, 1)
+	setvar(VAR_LAST_TALKED, LOCALID_NURSE)
+	goto(VictoryRoad_1F_EventScript_Nurse)
+	end
+}
+
+script VictoryRoad_1F_EventScript_Nurse {
+	lock
+	faceplayer
+	msgbox(format("Before you go any further, let's heal your Pokémon."))
+	call(Common_EventScript_OutOfCenterPartyHeal)
 	release
+	end
+}
+
+script VictoryRoad_1F_EventScript_Mano {
+	trainerbattle_double(TRAINER_MANO, VictoryRoad_1F_Text_ManoIntro, VictoryRoad_1F_Text_ManoDefeat, VictoryRoad_Text_NotEnoughMons)
+	msgbox(VictoryRoad_1F_Text_ManoPostBattle, MSGBOX_AUTOCLOSE)
+	call(VictoryRoad_1F_EventScript_TryManoRematch)
+	release
+	end
+}
+script VictoryRoad_1F_EventScript_TryManoRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MANO)
+	setvar(VAR_0x8004, 5)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MANO, VictoryRoad_1F_Text_ManoDefeat)
+	special(UpdateRecentTrainers)
 	return
 }
 
-movement VictoryRoad_1F_Movement_PushDownFromExit {
-	walk_down
-	step_end
-}
-
-script VictoryRoad_1F_EventScript_Yoshi {
-	trainerbattle_single(TRAINER_YOSHI, VictoryRoad_1F_Text_HopeIntro, VictoryRoad_1F_Text_HopeDefeat)
-	msgbox(VictoryRoad_1F_Text_HopePostBattle, MSGBOX_AUTOCLOSE)
-	end
-}
-
 script VictoryRoad_1F_EventScript_Tsuji {
-	trainerbattle_single(TRAINER_TSUJI, VictoryRoad_1F_Text_QuincyIntro, VictoryRoad_1F_Text_QuincyDefeat)
-	msgbox(VictoryRoad_1F_Text_QuincyPostBattle, MSGBOX_AUTOCLOSE)
+	trainerbattle_double(TRAINER_TSUJI, VictoryRoad_1F_Text_TsujiIntro, VictoryRoad_1F_Text_TsujiDefeat, VictoryRoad_Text_NotEnoughMons)
+	msgbox(VictoryRoad_1F_Text_TsujiPostBattle, MSGBOX_AUTOCLOSE)
+	call(VictoryRoad_1F_EventScript_TryTsujiRematch)
+	release
 	end
+}
+script VictoryRoad_1F_EventScript_TryTsujiRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TSUJI)
+	setvar(VAR_0x8004, 5)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TSUJI, VictoryRoad_1F_Text_TsujiDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 
 script VictoryRoad_1F_EventScript_Wolfe {
-	trainerbattle_double(TRAINER_WOLFE, VictoryRoad_1F_Text_EdgarIntro, VictoryRoad_1F_Text_EdgarDefeat, VictoryRoad_Text_NotEnoughMons)
-	msgbox(VictoryRoad_1F_Text_EdgarPostBattle, MSGBOX_AUTOCLOSE)
+	trainerbattle_double(TRAINER_WOLFE, VictoryRoad_1F_Text_WolfeIntro, VictoryRoad_1F_Text_WolfeDefeat, VictoryRoad_Text_NotEnoughMons)
+	msgbox(VictoryRoad_1F_Text_WolfePostBattle, MSGBOX_AUTOCLOSE)
+	call(VictoryRoad_1F_EventScript_TryWolfeRematch)
+	release
 	end
+}
+script VictoryRoad_1F_EventScript_TryWolfeRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_WOLFE)
+	setvar(VAR_0x8004, 5)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_WOLFE, VictoryRoad_1F_Text_WolfeDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 
 script VictoryRoad_1F_EventScript_Ryota {
-	trainerbattle_single(TRAINER_RYOTA, VictoryRoad_1F_Text_AlbertIntro, VictoryRoad_1F_Text_AlbertDefeat)
-	msgbox(VictoryRoad_1F_Text_AlbertPostBattle, MSGBOX_AUTOCLOSE)
+	trainerbattle_double(TRAINER_RYOTA, VictoryRoad_1F_Text_RyotaIntro, VictoryRoad_1F_Text_RyotaDefeat, VictoryRoad_Text_NotEnoughMons)
+	msgbox(VictoryRoad_1F_Text_RyotaPostBattle, MSGBOX_AUTOCLOSE)
+	call(VictoryRoad_1F_EventScript_TryRyotaRematch)
+	release
 	end
+}
+script VictoryRoad_1F_EventScript_TryRyotaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_RYOTA)
+	setvar(VAR_0x8004, 5)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_RYOTA, VictoryRoad_1F_Text_RyotaDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 
 script VictoryRoad_1F_EventScript_Ruiz {
-	trainerbattle_double(TRAINER_RUIZ, VictoryRoad_1F_Text_KatelynnIntro, VictoryRoad_1F_Text_KatelynnDefeat, VictoryRoad_Text_NotEnoughMons)
-	msgbox(VictoryRoad_1F_Text_KatelynnPostBattle, MSGBOX_AUTOCLOSE)
+	trainerbattle_double(TRAINER_RUIZ, VictoryRoad_1F_Text_RuizIntro, VictoryRoad_1F_Text_RuizDefeat, VictoryRoad_Text_NotEnoughMons)
+	msgbox(VictoryRoad_1F_Text_RuizPostBattle, MSGBOX_AUTOCLOSE)
+	call(VictoryRoad_1F_EventScript_TryRuizRematch)
+	release
 	end
+}
+script VictoryRoad_1F_EventScript_TryRuizRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_RUIZ)
+	setvar(VAR_0x8004, 5)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_RUIZ, VictoryRoad_1F_Text_RuizDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 
 text VictoryRoad_Text_NotEnoughMons {
@@ -144,65 +203,65 @@ text VictoryRoad_Text_NotEnoughMons {
 }
 
 raw `
-VictoryRoad_1F_Text_EdgarIntro:
+VictoryRoad_1F_Text_WolfeIntro:
 	.string "I've made it this far a couple times,\n"
 	.string "but the last stretch is so long…$"
 
-VictoryRoad_1F_Text_EdgarDefeat:
+VictoryRoad_1F_Text_WolfeDefeat:
 	.string "My dream ends here again…$"
 
-VictoryRoad_1F_Text_EdgarPostBattle:
+VictoryRoad_1F_Text_WolfePostBattle:
 	.string "You've made it this far. Keep the\n"
 	.string "momentum going and become the\l"
 	.string "Champion! If anyone can, it's you!$"
 
-VictoryRoad_1F_Text_AlbertIntro:
+VictoryRoad_1F_Text_RyotaIntro:
 	.string "I didn't come all this way to lose now.\n"
 	.string "That possibility doesn't exist!$"
 
-VictoryRoad_1F_Text_AlbertDefeat:
+VictoryRoad_1F_Text_RyotaDefeat:
 	.string "Impossible…\n"
 	.string "I lost?$"
 
-VictoryRoad_1F_Text_AlbertPostBattle:
+VictoryRoad_1F_Text_RyotaPostBattle:
 	.string "I lost here…\p"
 	.string "That means I lack the qualifications\n"
 	.string "to become the Champion…$"
 
-VictoryRoad_1F_Text_HopeIntro:
+VictoryRoad_1F_Text_ManoIntro:
 	.string "This seemingly infinite and harsh road\n"
 	.string "lives up to its name of Victory.$"
 
-VictoryRoad_1F_Text_HopeDefeat:
+VictoryRoad_1F_Text_ManoDefeat:
 	.string "Your battle style is fantastic…$"
 
-VictoryRoad_1F_Text_HopePostBattle:
+VictoryRoad_1F_Text_ManoPostBattle:
 	.string "You seem to have the potential for\n"
 	.string "becoming the Champion.$"
 
-VictoryRoad_1F_Text_QuincyIntro:
+VictoryRoad_1F_Text_TsujiIntro:
 	.string "What is the Victory Road?\n"
 	.string "I'll tell you if you win!$"
 
-VictoryRoad_1F_Text_QuincyDefeat:
+VictoryRoad_1F_Text_TsujiDefeat:
 	.string "Okay!\n"
 	.string "Well done!$"
 
-VictoryRoad_1F_Text_QuincyPostBattle:
+VictoryRoad_1F_Text_TsujiPostBattle:
 	.string "Getting through here safely--that's\n"
 	.string "the final test for any Trainer aiming\l"
 	.string "to become the Pokémon Champion.\p"
 	.string "That's why it's called the Victory\n"
 	.string "Road.$"
 
-VictoryRoad_1F_Text_KatelynnIntro:
+VictoryRoad_1F_Text_RuizIntro:
 	.string "I have nothing to say to anyone\n"
 	.string "that's come this far. Come on!$"
 
-VictoryRoad_1F_Text_KatelynnDefeat:
+VictoryRoad_1F_Text_RuizDefeat:
 	.string "This is a disgrace…$"
 
-VictoryRoad_1F_Text_KatelynnPostBattle:
+VictoryRoad_1F_Text_RuizPostBattle:
 	.string "Humph, go right on ahead.\n"
 	.string "See if I care.$"
 `

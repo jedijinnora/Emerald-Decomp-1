@@ -4,6 +4,7 @@ mapscripts Route118_MapScripts {
 
 script Route118_OnTransition {
 	call(GabbyAndTy_EventScript_UpdateLocation)
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 
@@ -38,6 +39,153 @@ script Route118_EventScript_GoodRodFisherman {
 	end
 }
 
+script Route118_EventScript_Rose {
+	trainerbattle_single(TRAINER_ROSE, Route118_Text_RoseRematchIntro, Route118_Text_RoseRematchDefeat)
+	msgbox(Route118_Text_RosePostRematch, MSGBOX_DEFAULT)
+	call(Route118_EventScript_TryRoseRematch)
+	release
+	end
+}
+script Route118_EventScript_TryRoseRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ROSE)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_DEANDRE)) {
+		msgbox(format("Include Deandre and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DEANDRE, 0, NULL, Route118_Text_DeandreDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ROSE, Route118_Text_RoseRematchDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route118_EventScript_Barny {
+	trainerbattle_single(TRAINER_BARNY, Route118_Text_BarnyIntro, Route118_Text_BarnyDefeat)
+	msgbox(Route118_Text_BarnyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route118_EventScript_TryBarnyRematch)
+	release
+	end
+}
+script Route118_EventScript_TryBarnyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_BARNY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_BARNY, Route118_Text_BarnyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route118_EventScript_Wade {
+	trainerbattle_single(TRAINER_WADE, Route118_Text_WadeIntro, Route118_Text_WadeDefeat)
+	msgbox(Route118_Text_WadePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route118_EventScript_TryWadeRematch)
+	release
+	end
+}
+script Route118_EventScript_TryWadeRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_WADE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_WADE, Route118_Text_WadeDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route118_EventScript_Dalton {
+	trainerbattle_single(TRAINER_DALTON, Route118_Text_DaltonRematchIntro, Route118_Text_DaltonRematchDefeat)
+	msgbox(Route118_Text_DaltonPostRematch, MSGBOX_DEFAULT)
+	call(Route118_EventScript_TryDaltonRematch)
+	release
+	end
+}
+script Route118_EventScript_TryDaltonRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DALTON)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DALTON, Route118_Text_DaltonRematchDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route118_EventScript_Perry {
+	trainerbattle_single(TRAINER_PERRY, Route118_Text_PerryIntro, Route118_Text_PerryDefeat)
+	msgbox(Route118_Text_PerryPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route118_EventScript_TryPerryRematch)
+	release
+	end
+}
+script Route118_EventScript_TryPerryRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_PERRY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_PERRY, Route118_Text_PerryDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route118_EventScript_Chester {
+	trainerbattle_single(TRAINER_CHESTER, Route118_Text_ChesterIntro, Route118_Text_ChesterDefeat)
+	msgbox(Route118_Text_ChesterPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route118_EventScript_TryChesterRematch)
+	release
+	end
+}
+script Route118_EventScript_TryChesterRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CHESTER)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CHESTER, Route118_Text_ChesterDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route118_EventScript_Deandre {
+	trainerbattle_single(TRAINER_DEANDRE, Route118_Text_DeandreIntro, Route118_Text_DeandreDefeat)
+	msgbox(Route118_Text_DeandrePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route118_EventScript_TryDeandreRematch)
+	release
+	end
+}
+script Route118_EventScript_TryDeandreRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DEANDRE)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ROSE)) {
+		msgbox(format("Include Rose and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ROSE, 0, NULL, Route118_Text_RoseDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DEANDRE, Route118_Text_DeandreDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
 raw `
 Route118_EventScript_Girl::
 	msgbox Route118_Text_CanCrossRiversWithSurf, MSGBOX_NPC
@@ -49,73 +197,6 @@ Route118_EventScript_RouteSignMauville::
 
 Route118_EventScript_RouteSign119::
 	msgbox Route118_Text_RouteSign119, MSGBOX_SIGN
-	end
-
-Route118_EventScript_Rose::
-	trainerbattle_single TRAINER_ROSE, Route118_Text_RoseIntro, Route118_Text_RoseDefeat, Route118_EventScript_RegisterRose
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route118_EventScript_RematchRose
-	msgbox Route118_Text_RosePostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route118_EventScript_RegisterRose::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route118_Text_RoseRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ROSE
-	release
-	end
-
-Route118_EventScript_RematchRose::
-	trainerbattle_rematch TRAINER_ROSE, Route118_Text_RoseRematchIntro, Route118_Text_RoseRematchDefeat
-	msgbox Route118_Text_RosePostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route118_EventScript_Barny::
-	trainerbattle_single TRAINER_BARNY, Route118_Text_BarnyIntro, Route118_Text_BarnyDefeat
-	msgbox Route118_Text_BarnyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route118_EventScript_Wade::
-	trainerbattle_single TRAINER_WADE, Route118_Text_WadeIntro, Route118_Text_WadeDefeat
-	msgbox Route118_Text_WadePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route118_EventScript_Dalton::
-	trainerbattle_single TRAINER_DALTON, Route118_Text_DaltonIntro, Route118_Text_DaltonDefeat, Route118_EventScript_RegisterDalton
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route118_EventScript_RematchDalton
-	msgbox Route118_Text_DaltonPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route118_EventScript_RegisterDalton::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route118_Text_DaltonRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_DALTON
-	release
-	end
-
-Route118_EventScript_RematchDalton::
-	trainerbattle_rematch TRAINER_DALTON, Route118_Text_DaltonRematchIntro, Route118_Text_DaltonRematchDefeat
-	msgbox Route118_Text_DaltonPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route118_EventScript_Perry::
-	trainerbattle_single TRAINER_PERRY, Route118_Text_PerryIntro, Route118_Text_PerryDefeat
-	msgbox Route118_Text_PerryPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route118_EventScript_Chester::
-	trainerbattle_single TRAINER_CHESTER, Route118_Text_ChesterIntro, Route118_Text_ChesterDefeat
-	msgbox Route118_Text_ChesterPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route118_EventScript_Deandre::
-	trainerbattle_single TRAINER_DEANDRE, Route118_Text_DeandreIntro, Route118_Text_DeandreDefeat
-	msgbox Route118_Text_DeandrePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route118_Text_CanCrossRiversWithSurf:

@@ -1,4 +1,11 @@
-mapscripts Route133_MapScripts {}
+mapscripts Route133_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route133_OnTransition
+}
+
+script Route133_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	end
+}
 
 script Route133_EventScript_Sign {
 	setflag(FLAG_LANDMARK_SUNNY_LAGOON)
@@ -6,70 +13,219 @@ script Route133_EventScript_Sign {
 	end
 }
 
-script Route_133_EventScript_Dianne {
-	trainerbattle_single(TRAINER_DIANNE, Route_133_Text_DianneIntro, Route_133_Text_DianneDefeat)
-	msgbox(Route_133_Text_DiannePostBattle, MSGBOX_AUTOCLOSE)
+script Route133_EventScript_Franklin {
+	trainerbattle_single(TRAINER_FRANKLIN, Route133_Text_FranklinIntro, Route133_Text_FranklinDefeat)
+	msgbox(Route133_Text_FranklinPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route133_EventScript_TryFranklinRematch)
+	release
 	end
 }
-text Route_133_Text_DianneIntro {
+script Route133_EventScript_TryFranklinRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_FRANKLIN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_FRANKLIN, Route133_Text_FranklinDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route133_EventScript_Debra {
+	trainerbattle_single(TRAINER_DEBRA, Route133_Text_DebraIntro, Route133_Text_DebraDefeat)
+	msgbox(Route133_Text_DebraPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route133_EventScript_TryDebraRematch)
+	release
+	end
+}
+script Route133_EventScript_TryDebraRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DEBRA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DEBRA, Route133_Text_DebraDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route133_EventScript_Linda {
+	trainerbattle_single(TRAINER_LINDA, Route133_Text_LindaIntro, Route133_Text_LindaDefeat)
+	msgbox(Route133_Text_LindaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route133_EventScript_TryLindaRematch)
+	release
+	end
+}
+script Route133_EventScript_TryLindaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LINDA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LINDA, Route133_Text_LindaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route133_EventScript_Warren {
+	trainerbattle_single(TRAINER_WARREN, Route133_Text_WarrenIntro, Route133_Text_WarrenDefeat)
+	msgbox(Route133_Text_WarrenPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route133_EventScript_TryWarrenRematch)
+	release
+	end
+}
+script Route133_EventScript_TryWarrenRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_WARREN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_WARREN, Route133_Text_WarrenDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route133_EventScript_Beck {
+	trainerbattle_single(TRAINER_BECK, Route133_Text_BeckIntro, Route133_Text_BeckDefeat)
+	msgbox(Route133_Text_BeckPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route133_EventScript_TryBeckRematch)
+	release
+	end
+}
+script Route133_EventScript_TryBeckRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_BECK)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_DIANNE)) {
+		msgbox(format("Include Dianne and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DIANNE, 0, NULL, Route133_Text_DianneDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_BECK, Route133_Text_BeckDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route133_EventScript_Mollie {
+	trainerbattle_single(TRAINER_MOLLIE, Route133_Text_MollieIntro, Route133_Text_MollieDefeat)
+	msgbox(Route133_Text_MolliePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route133_EventScript_TryMollieRematch)
+	release
+	end
+}
+script Route133_EventScript_TryMollieRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MOLLIE)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_CONOR)) {
+		msgbox(format("Include Conor and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CONOR, 0, NULL, Route133_Text_ConorDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MOLLIE, Route133_Text_MollieDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route133_EventScript_Conor {
+	trainerbattle_single(TRAINER_CONOR, Route133_Text_ConorIntro, Route133_Text_ConorDefeat)
+	msgbox(Route133_Text_ConorPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route133_EventScript_TryConorRematch)
+	release
+	end
+}
+script Route133_EventScript_TryConorRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CONOR)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_MOLLIE)) {
+		msgbox(format("Include Mollie and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MOLLIE, 0, NULL, Route133_Text_MollieDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CONOR, Route133_Text_ConorDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route133_EventScript_Dianne {
+	trainerbattle_single(TRAINER_DIANNE, Route133_Text_DianneIntro, Route133_Text_DianneDefeat)
+	msgbox(Route133_Text_DiannePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route133_EventScript_TryDianneRematch)
+	release
+	end
+}
+script Route133_EventScript_TryDianneRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DIANNE)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_BECK)) {
+		msgbox(format("Include Beck and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BECK, 0, NULL, Route133_Text_BeckDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DIANNE, Route133_Text_DianneDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route133_Text_DianneIntro {
 	"Sunshine time!"
 }
-text Route_133_Text_DianneDefeat {
+text Route133_Text_DianneDefeat {
 	"What a rain cloud."
 }
-text Route_133_Text_DiannePostBattle {
+text Route133_Text_DiannePostBattle {
 	"I love this island."
 }
 
-script Route_133_EventScript_Caroline {
-	trainerbattle_single(TRAINER_CAROLINE, Route_133_Text_CarolineIntro, Route_133_Text_CarolineDefeat)
-	msgbox(Route_133_Text_CarolinePostBattle, MSGBOX_AUTOCLOSE)
+script Route133_EventScript_Caroline {
+	trainerbattle_single(TRAINER_CAROLINE, Route133_Text_CarolineIntro, Route133_Text_CarolineDefeat)
+	msgbox(Route133_Text_CarolinePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route133_EventScript_TryCarolineRematch)
+	release
 	end
 }
-text Route_133_Text_CarolineIntro {
+script Route133_EventScript_TryCarolineRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CAROLINE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CAROLINE, Route133_Text_CarolineDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route133_Text_CarolineIntro {
 	"Eek! Back off!"
 }
-text Route_133_Text_CarolineDefeat {
+text Route133_Text_CarolineDefeat {
 	"Yuck!"
 }
-text Route_133_Text_CarolinePostBattle {
+text Route133_Text_CarolinePostBattle {
 	"Why are you still bothering me?"
 }
-
-raw `
-Route133_EventScript_Franklin::
-	trainerbattle_single TRAINER_FRANKLIN, Route133_Text_FranklinIntro, Route133_Text_FranklinDefeat
-	msgbox Route133_Text_FranklinPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route133_EventScript_Debra::
-	trainerbattle_single TRAINER_DEBRA, Route133_Text_DebraIntro, Route133_Text_DebraDefeat
-	msgbox Route133_Text_DebraPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route133_EventScript_Linda::
-	trainerbattle_single TRAINER_LINDA, Route133_Text_LindaIntro, Route133_Text_LindaDefeat
-	msgbox Route133_Text_LindaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route133_EventScript_Warren::
-	trainerbattle_single TRAINER_WARREN, Route133_Text_WarrenIntro, Route133_Text_WarrenDefeat
-	msgbox Route133_Text_WarrenPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route133_EventScript_Beck::
-	trainerbattle_single TRAINER_BECK, Route133_Text_BeckIntro, Route133_Text_BeckDefeat
-	msgbox Route133_Text_BeckPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route133_EventScript_Mollie::
-	trainerbattle_single TRAINER_MOLLIE, Route133_Text_MollieIntro, Route133_Text_MollieDefeat
-	msgbox Route133_Text_MolliePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route133_EventScript_Conor::
-	trainerbattle_single TRAINER_CONOR, Route133_Text_ConorIntro, Route133_Text_ConorDefeat
-	msgbox Route133_Text_ConorPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-`

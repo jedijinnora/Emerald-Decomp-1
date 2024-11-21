@@ -5,6 +5,7 @@ mapscripts Route123_MapScripts {
 
 script Route123_OnTransition {
 	special(SetRoute123Weather)
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 
@@ -269,6 +270,379 @@ script Route123_EventScript_DefeatBall3 {
 	end
 }
 
+script Route123_EventScript_Wendy {
+	trainerbattle_single(TRAINER_WENDY, Route123_Text_WendyIntro, Route123_Text_WendyDefeat)
+	msgbox(Route123_Text_WendyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route123_EventScript_TryWendyRematch)
+	release
+	end
+}
+script Route123_EventScript_TryWendyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_WENDY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_WENDY, Route123_Text_WendyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Braxton {
+	trainerbattle_single(TRAINER_BRAXTON, Route123_Text_BraxtonIntro, Route123_Text_BraxtonDefeat)
+	msgbox(Route123_Text_BraxtonPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route123_EventScript_TryBraxtonRematch)
+	release
+	end
+}
+script Route123_EventScript_TryBraxtonRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_BRAXTON)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_BRAXTON, Route123_Text_BraxtonDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Violet {
+	trainerbattle_single(TRAINER_VIOLET, Route123_Text_VioletIntro, Route123_Text_VioletDefeat)
+	msgbox(Route123_Text_VioletPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route123_EventScript_TryVioletRematch)
+	release
+	end
+}
+script Route123_EventScript_TryVioletRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_VIOLET)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_VIOLET, Route123_Text_VioletDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Cameron {
+	trainerbattle_single(TRAINER_CAMERON, Route123_Text_CameronIntro, Route123_Text_CameronDefeat)
+	msgbox(Route123_Text_CameronPostBattle, MSGBOX_DEFAULT)
+	call(Route123_EventScript_TryCameronRematch)
+	release
+	end
+}
+script Route123_EventScript_TryCameronRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CAMERON)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_KAYLEY)) {
+		msgbox(format("Include Kayley and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_KAYLEY, 0, NULL, Route123_Text_KayleyDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CAMERON, Route123_Text_CameronDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Jacki {
+	trainerbattle_single(TRAINER_JACKI, Route123_Text_JackiIntro, Route123_Text_JackiDefeat)
+	msgbox(Route123_Text_JackiPostBattle, MSGBOX_DEFAULT)
+	call(Route123_EventScript_TryJackiRematch)
+	release
+	end
+}
+script Route123_EventScript_TryJackiRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JACKI)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_FREDERICK)) {
+		msgbox(format("Include Frederick and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_FREDERICK, 0, NULL, Route123_Text_FrederickDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JACKI, Route123_Text_JackiDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Miu {
+	trainerbattle_double(TRAINER_MIU_AND_YUKI, Route123_Text_MiuIntro, Route123_Text_MiuDefeat, Route123_Text_MiuNotEnoughMons)
+	msgbox(Route123_Text_MiuPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route123_EventScript_TryMiuRematch)
+	release
+	end
+}
+script Route123_EventScript_TryMiuRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MIU_AND_YUKI)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MIU_AND_YUKI, Route123_Text_MiuDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Yuki {
+	trainerbattle_double(TRAINER_MIU_AND_YUKI, Route123_Text_YukiIntro, Route123_Text_YukiDefeat, Route123_Text_YukiNotEnoughMons)
+	msgbox(Route123_Text_YukiPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route123_EventScript_TryYukiRematch)
+	release
+	end
+}
+script Route123_EventScript_TryYukiRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MIU_AND_YUKI)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MIU_AND_YUKI, Route123_Text_YukiDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Kindra {
+	trainerbattle_single(TRAINER_KINDRA, Route123_Text_KindraIntro, Route123_Text_KindraDefeat)
+	msgbox(Route123_Text_KindraPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route123_EventScript_TryKindraRematch)
+	release
+	end
+}
+script Route123_EventScript_TryKindraRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KINDRA)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ED)) {
+		msgbox(format("Include Ed and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ED, 0, NULL, Route123_Text_EdDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KINDRA, Route123_Text_KindraDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Frederick {
+	trainerbattle_single(TRAINER_FREDERICK, Route123_Text_FrederickIntro, Route123_Text_FrederickDefeat)
+	msgbox(Route123_Text_FrederickPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route123_EventScript_TryFrederickRematch)
+	release
+	end
+}
+script Route123_EventScript_TryFrederickRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_FREDERICK)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_JACKI)) {
+		msgbox(format("Include Jacki and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JACKI, 0, NULL, Route123_Text_JackiDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_FREDERICK, Route123_Text_FrederickDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Alberto {
+	trainerbattle_single(TRAINER_ALBERTO, Route123_Text_AlbertoIntro, Route123_Text_AlbertoDefeat)
+	msgbox(Route123_Text_AlbertoPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route123_EventScript_TryAlbertoRematch)
+	release
+	end
+}
+script Route123_EventScript_TryAlbertoRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ALBERTO)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_FERNANDO)) {
+		msgbox(format("Include Fernando and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_FERNANDO, 0, NULL, Route123_Text_FernandoRematchDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ALBERTO, Route123_Text_AlbertoDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Ed {
+	trainerbattle_single(TRAINER_ED, Route123_Text_EdIntro, Route123_Text_EdDefeat)
+	msgbox(Route123_Text_EdPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route123_EventScript_TryEdRematch)
+	release
+	end
+}
+script Route123_EventScript_TryEdRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ED)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_KINDRA)) {
+		msgbox(format("Include Kindra and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_KINDRA, 0, NULL, Route123_Text_KindraDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ED, Route123_Text_EdDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Kayley {
+	trainerbattle_single(TRAINER_KAYLEY, Route123_Text_KayleyIntro, Route123_Text_KayleyDefeat)
+	msgbox(Route123_Text_KayleyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route123_EventScript_TryKayleyRematch)
+	release
+	end
+}
+script Route123_EventScript_TryKayleyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KAYLEY)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_CAMERON)) {
+		msgbox(format("Include Cameron and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CAMERON, 0, NULL, Route123_Text_CameronDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KAYLEY, Route123_Text_KayleyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Jonas {
+	trainerbattle_single(TRAINER_JONAS, Route123_Text_JonasIntro, Route123_Text_JonasDefeat)
+	msgbox(Route123_Text_JonasPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route123_EventScript_TryJonasRematch)
+	release
+	end
+}
+script Route123_EventScript_TryJonasRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JONAS)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JONAS, Route123_Text_JonasDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Jazmyn {
+	trainerbattle_single(TRAINER_JAZMYN, Route123_Text_JazmynIntro, Route123_Text_JazmynDefeat)
+	msgbox(Route123_Text_JazmynPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route123_EventScript_TryJazmynRematch)
+	release
+	end
+}
+script Route123_EventScript_TryJazmynRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JAZMYN)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_DAVIS)) {
+		msgbox(format("Include Davis and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DAVIS, 0, NULL, Route123_Text_DavisDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JAZMYN, Route123_Text_JazmynDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Davis {
+	trainerbattle_single(TRAINER_DAVIS, Route123_Text_DavisIntro, Route123_Text_DavisDefeat)
+	msgbox(Route123_Text_DavisPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route123_EventScript_TryDavisRematch)
+	release
+	end
+}
+script Route123_EventScript_TryDavisRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DAVIS)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_JAZMYN)) {
+		msgbox(format("Include Jazmyn and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JAZMYN, 0, NULL, Route123_Text_JazmynDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DAVIS, Route123_Text_DavisDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route123_EventScript_Fernando {
+	trainerbattle_single(TRAINER_FERNANDO, Route123_Text_FernandoIntro, Route123_Text_FernandoDefeat)
+	msgbox(Route123_Text_FernandoPostBattle, MSGBOX_DEFAULT)
+	call(Route123_EventScript_TryFernandoRematch)
+	release
+	end
+}
+script Route123_EventScript_TryFernandoRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_FERNANDO)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ALBERTO)) {
+		msgbox(format("Include Alberto and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ALBERTO, 0, NULL, Route123_Text_AlbertoDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_FERNANDO, Route123_Text_FernandoRematchDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
 raw `
 Route123_EventScript_GigaDrainGirl::
@@ -305,134 +679,6 @@ Route123_EventScript_RouteSignMtPyre::
 
 Route123_EventScript_BerryMastersHouseSign::
 	msgbox Route123_Text_BerryMastersHouse, MSGBOX_SIGN
-	end
-
-Route123_EventScript_Wendy::
-	trainerbattle_single TRAINER_WENDY, Route123_Text_WendyIntro, Route123_Text_WendyDefeat
-	msgbox Route123_Text_WendyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Braxton::
-	trainerbattle_single TRAINER_BRAXTON, Route123_Text_BraxtonIntro, Route123_Text_BraxtonDefeat
-	msgbox Route123_Text_BraxtonPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Violet::
-	trainerbattle_single TRAINER_VIOLET, Route123_Text_VioletIntro, Route123_Text_VioletDefeat
-	msgbox Route123_Text_VioletPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Cameron::
-	trainerbattle_single TRAINER_CAMERON, Route123_Text_CameronIntro, Route123_Text_CameronDefeat, Route123_EventScript_RegisterCameron
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route123_EventScript_RematchCameron
-	msgbox Route123_Text_CameronPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route123_EventScript_RegisterCameron::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route123_Text_CameronRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_CAMERON
-	release
-	end
-
-Route123_EventScript_RematchCameron::
-	trainerbattle_rematch TRAINER_CAMERON, Route123_Text_CameronRematchIntro, Route123_Text_CameronRematchDefeat
-	msgbox Route123_Text_CameronPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Jacki::
-	trainerbattle_single TRAINER_JACKI, Route123_Text_JackiIntro, Route123_Text_JackiDefeat, Route123_EventScript_RegisterJacki
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route123_EventScript_RematchJacki
-	msgbox Route123_Text_JackiPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route123_EventScript_RegisterJacki::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route123_Text_JackiRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JACKI
-	release
-	end
-
-Route123_EventScript_RematchJacki::
-	trainerbattle_rematch TRAINER_JACKI, Route123_Text_JackiRematchIntro, Route123_Text_JackiRematchDefeat
-	msgbox Route123_Text_JackiPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Miu::
-	trainerbattle_double TRAINER_MIU_AND_YUKI, Route123_Text_MiuIntro, Route123_Text_MiuDefeat, Route123_Text_MiuNotEnoughMons
-	msgbox Route123_Text_MiuPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Yuki::
-	trainerbattle_double TRAINER_MIU_AND_YUKI, Route123_Text_YukiIntro, Route123_Text_YukiDefeat, Route123_Text_YukiNotEnoughMons
-	msgbox Route123_Text_YukiPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Kindra::
-	trainerbattle_single TRAINER_KINDRA, Route123_Text_KindraIntro, Route123_Text_KindraDefeat
-	msgbox Route123_Text_KindraPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Frederick::
-	trainerbattle_single TRAINER_FREDRICK, Route123_Text_FrederickIntro, Route123_Text_FrederickDefeat
-	msgbox Route123_Text_FrederickPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Alberto::
-	trainerbattle_single TRAINER_ALBERTO, Route123_Text_AlbertoIntro, Route123_Text_AlbertoDefeat
-	msgbox Route123_Text_AlbertoPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Ed::
-	trainerbattle_single TRAINER_ED, Route123_Text_EdIntro, Route123_Text_EdDefeat
-	msgbox Route123_Text_EdPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Kayley::
-	trainerbattle_single TRAINER_KAYLEY, Route123_Text_KayleyIntro, Route123_Text_KayleyDefeat
-	msgbox Route123_Text_KayleyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Jonas::
-	trainerbattle_single TRAINER_JONAS, Route123_Text_JonasIntro, Route123_Text_JonasDefeat
-	msgbox Route123_Text_JonasPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Jazmyn::
-	trainerbattle_single TRAINER_JAZMYN, Route123_Text_JazmynIntro, Route123_Text_JazmynDefeat
-	msgbox Route123_Text_JazmynPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Davis::
-	trainerbattle_single TRAINER_DAVIS, Route123_Text_DavisIntro, Route123_Text_DavisDefeat
-	msgbox Route123_Text_DavisPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route123_EventScript_Fernando::
-	trainerbattle_single TRAINER_FERNANDO, Route123_Text_FernandoIntro, Route123_Text_FernandoDefeat, Route123_EventScript_RegisterFernando
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route123_EventScript_RematchFernando
-	msgbox Route123_Text_FernandoPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route123_EventScript_RegisterFernando::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route123_Text_FernandoRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_FERNANDO
-	release
-	end
-
-Route123_EventScript_RematchFernando::
-	trainerbattle_rematch TRAINER_FERNANDO, Route123_Text_FernandoRematchIntro, Route123_Text_FernandoRematchDefeat
-	msgbox Route123_Text_FernandoPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route123_Text_LoveGrassMonsHaveAny:

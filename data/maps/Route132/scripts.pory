@@ -5,6 +5,7 @@ mapscripts Route132_MapScripts {
 script Route132_OnTransition {
 	setflag(FLAG_TEMP_11)
 	call_if_set(FLAG_SYS_GAME_CLEAR, Route132_EventScript_ShowTPPTrainers)
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 
@@ -33,64 +34,240 @@ script Route132_EventScript_Dots {
 script Route132_EventScript_Red {
 	trainerbattle_single(TRAINER_TPP_RED, Route132_Text_TPP, Route132_Text_TPP)
 	msgbox(Route132_Text_TPP, MSGBOX_AUTOCLOSE)
+	call(Route132_EventScript_TryRedRematch)
+	release
 	end
+}
+script Route132_EventScript_TryRedRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TPP_RED)
+	setvar(VAR_0x8004, 4)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TPP_RED, Route132_Text_TPP)
+	special(UpdateRecentTrainers)
+	return
 }
 
 script Route132_EventScript_Dom {
 	trainerbattle_single(TRAINER_TPP_DOM, Route132_Text_TPP, Route132_Text_TPP)
 	msgbox(Route132_Text_TPP, MSGBOX_AUTOCLOSE)
+	call(Route132_EventScript_TryDomRematch)
+	release
 	end
+}
+script Route132_EventScript_TryDomRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TPP_DOM)
+	setvar(VAR_0x8004, 4)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TPP_DOM, Route132_Text_TPP)
+	special(UpdateRecentTrainers)
+	return
 }
 
 script Route132_EventScript_AJ {
 	trainerbattle_single(TRAINER_TPP_AJ, Route132_Text_TPP, Route132_Text_TPP)
 	msgbox(Route132_Text_TPP, MSGBOX_AUTOCLOSE)
+	call(Route132_EventScript_TryAJRematch)
+	release
 	end
+}
+script Route132_EventScript_TryAJRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TPP_AJ)
+	setvar(VAR_0x8004, 4)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TPP_AJ, Route132_Text_TPP)
+	special(UpdateRecentTrainers)
+	return
 }
 
 text Route132_Text_TPP {
 	"……………"
 }
 
-raw `
-Route132_EventScript_Gilbert::
-	trainerbattle_single TRAINER_GILBERT, Route132_Text_GilbertIntro, Route132_Text_GilbertDefeat
-	msgbox Route132_Text_GilbertPostBattle, MSGBOX_AUTOCLOSE
+script Route132_EventScript_Gilbert {
+	trainerbattle_single(TRAINER_GILBERT, Route132_Text_GilbertIntro, Route132_Text_GilbertDefeat)
+	msgbox(Route132_Text_GilbertPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route132_EventScript_TryGilbertRematch)
+	release
 	end
+}
+script Route132_EventScript_TryGilbertRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_GILBERT)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_DANA)) {
+		msgbox(format("Include Dana and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DANA, 0, NULL, Route132_Text_DanaDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_GILBERT, Route132_Text_GilbertDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route132_EventScript_Dana::
-	trainerbattle_single TRAINER_DANA, Route132_Text_DanaIntro, Route132_Text_DanaDefeat
-	msgbox Route132_Text_DanaPostBattle, MSGBOX_AUTOCLOSE
+script Route132_EventScript_Dana {
+	trainerbattle_single(TRAINER_DANA, Route132_Text_DanaIntro, Route132_Text_DanaDefeat)
+	msgbox(Route132_Text_DanaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route132_EventScript_TryDanaRematch)
+	release
 	end
+}
+script Route132_EventScript_TryDanaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DANA)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_GILBERT)) {
+		msgbox(format("Include Gilbert and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GILBERT, 0, NULL, Route132_Text_GilbertDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DANA, Route132_Text_DanaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route132_EventScript_Ronald::
-	trainerbattle_single TRAINER_RONALD, Route132_Text_RonaldIntro, Route132_Text_RonaldDefeat
-	msgbox Route132_Text_RonaldPostBattle, MSGBOX_AUTOCLOSE
+script Route132_EventScript_Ronald {
+	trainerbattle_single(TRAINER_RONALD, Route132_Text_RonaldIntro, Route132_Text_RonaldDefeat)
+	msgbox(Route132_Text_RonaldPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route132_EventScript_TryRonaldRematch)
+	release
 	end
+}
+script Route132_EventScript_TryRonaldRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_RONALD)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_RONALD, Route132_Text_RonaldDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route132_EventScript_Kiyo::
-	trainerbattle_single TRAINER_KIYO, Route132_Text_KiyoIntro, Route132_Text_KiyoDefeat
-	msgbox Route132_Text_KiyoPostBattle, MSGBOX_AUTOCLOSE
+script Route132_EventScript_Kiyo {
+	trainerbattle_single(TRAINER_KIYO, Route132_Text_KiyoIntro, Route132_Text_KiyoDefeat)
+	msgbox(Route132_Text_KiyoPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route132_EventScript_TryKiyoRematch)
+	release
 	end
+}
+script Route132_EventScript_TryKiyoRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KIYO)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KIYO, Route132_Text_KiyoDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route132_EventScript_Paxton::
-	trainerbattle_single TRAINER_PAXTON, Route132_Text_PaxtonIntro, Route132_Text_PaxtonDefeat
-	msgbox Route132_Text_PaxtonPostBattle, MSGBOX_AUTOCLOSE
+script Route132_EventScript_Paxton {
+	trainerbattle_single(TRAINER_PAXTON, Route132_Text_PaxtonIntro, Route132_Text_PaxtonDefeat)
+	msgbox(Route132_Text_PaxtonPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route132_EventScript_TryPaxtonRematch)
+	release
 	end
+}
+script Route132_EventScript_TryPaxtonRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_PAXTON)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_MAKAYLA)) {
+		msgbox(format("Include Makayla and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MAKAYLA, 0, NULL, Route132_Text_MakaylaDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_PAXTON, Route132_Text_PaxtonDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route132_EventScript_Darcy::
-	trainerbattle_single TRAINER_DARCY, Route132_Text_DarcyIntro, Route132_Text_DarcyDefeat
-	msgbox Route132_Text_DarcyPostBattle, MSGBOX_AUTOCLOSE
+script Route132_EventScript_Darcy {
+	trainerbattle_single(TRAINER_DARCY, Route132_Text_DarcyIntro, Route132_Text_DarcyDefeat)
+	msgbox(Route132_Text_DarcyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route132_EventScript_TryDarcyRematch)
+	release
 	end
+}
+script Route132_EventScript_TryDarcyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DARCY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DARCY, Route132_Text_DarcyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route132_EventScript_Jonathan::
-	trainerbattle_single TRAINER_JONATHAN, Route132_Text_JonathanIntro, Route132_Text_JonathanDefeat
-	msgbox Route132_Text_JonathanPostBattle, MSGBOX_AUTOCLOSE
+script Route132_EventScript_Jonathan {
+	trainerbattle_single(TRAINER_JONATHAN, Route132_Text_JonathanIntro, Route132_Text_JonathanDefeat)
+	msgbox(Route132_Text_JonathanPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route132_EventScript_TryJonathanRematch)
+	release
 	end
+}
+script Route132_EventScript_TryJonathanRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JONATHAN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JONATHAN, Route132_Text_JonathanDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route132_EventScript_Makayla::
-	trainerbattle_single TRAINER_MAKAYLA, Route132_Text_MakaylaIntro, Route132_Text_MakaylaDefeat
-	msgbox Route132_Text_MakaylaPostBattle, MSGBOX_AUTOCLOSE
+script Route132_EventScript_Makayla {
+	trainerbattle_single(TRAINER_MAKAYLA, Route132_Text_MakaylaIntro, Route132_Text_MakaylaDefeat)
+	msgbox(Route132_Text_MakaylaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route132_EventScript_TryMakaylaRematch)
+	release
 	end
-
-`
+}
+script Route132_EventScript_TryMakaylaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MAKAYLA)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_PAXTON)) {
+		msgbox(format("Include Paxton and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_PAXTON, 0, NULL, Route132_Text_PaxtonDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MAKAYLA, Route132_Text_MakaylaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}

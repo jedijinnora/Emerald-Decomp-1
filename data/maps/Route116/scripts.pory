@@ -4,6 +4,7 @@ mapscripts Route116_MapScripts {
 
 script Route116_OnTransition {
 	call(Common_EventScript_SetWild_0)
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 
@@ -47,148 +48,266 @@ script Route116_EventScript_Nurse {
 	end
 }
 
+script Route116_EventScript_Joey {
+	trainerbattle_single(TRAINER_JOEY, Route116_Text_JoeyIntro, Route116_Text_JoeyDefeat)
+	msgbox(Route116_Text_JoeyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route116_EventScript_TryJoeyRematch)
+	release
+	end
+}
+script Route116_EventScript_TryJoeyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JOEY)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_KAREN)) {
+		msgbox(format("Include Karen and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_KAREN, 0, NULL, Route116_Text_KarenRematchDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JOEY, Route116_Text_JoeyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route116_EventScript_Jose {
+	trainerbattle_single(TRAINER_JOSE, Route116_Text_JoseIntro, Route116_Text_JoseDefeat)
+	msgbox(Route116_Text_JosePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route116_EventScript_TryJoseRematch)
+	release
+	end
+}
+script Route116_EventScript_TryJoseRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JOSE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JOSE, Route116_Text_JoseDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route116_EventScript_Jerry {
+	trainerbattle_single(TRAINER_JERRY, Route116_Text_JerryIntro, Route116_Text_JerryDefeat)
+	msgbox(Route116_Text_JerryPostBattle, MSGBOX_DEFAULT)
+	call(Route116_EventScript_TryJerryRematch)
+	release
+	end
+}
+script Route116_EventScript_TryJerryRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JERRY)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_JANICE)) {
+		msgbox(format("Include Janice and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JANICE, 0, NULL, Route116_Text_JaniceDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JERRY, Route116_Text_JerryDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route116_EventScript_Clark {
+	trainerbattle_single(TRAINER_CLARK, Route116_Text_ClarkIntro, Route116_Text_ClarkDefeat)
+	msgbox(Route116_Text_ClarkPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route116_EventScript_TryClarkRematch)
+	release
+	end
+}
+script Route116_EventScript_TryClarkRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CLARK)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CLARK, Route116_Text_ClarkDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route116_EventScript_Janice {
+	trainerbattle_single(TRAINER_JANICE, Route116_Text_JaniceIntro, Route116_Text_JaniceDefeat)
+	msgbox(Route116_Text_JanicePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route116_EventScript_TryJaniceRematch)
+	release
+	end
+}
+script Route116_EventScript_TryJaniceRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JANICE)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_JERRY)) {
+		msgbox(format("Include Jerry and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JERRY, 0, NULL, Route116_Text_JerryDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JANICE, Route116_Text_JaniceDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route116_EventScript_Karen {
+	trainerbattle_single(TRAINER_KAREN, Route116_Text_KarenIntro, Route116_Text_KarenRematchDefeat)
+	msgbox(Route116_Text_KarenPostBattle, MSGBOX_DEFAULT)
+	call(Route116_EventScript_TryKarenRematch)
+	release
+	end
+}
+script Route116_EventScript_TryKarenRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KAREN)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_JOEY)) {
+		msgbox(format("Include Joey and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JOEY, 0, NULL, Route116_Text_JoeyDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KAREN, Route116_Text_KarenDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route116_EventScript_Sarah {
+	trainerbattle_single(TRAINER_SARAH, Route116_Text_SarahIntro, Route116_Text_SarahDefeat)
+	msgbox(Route116_Text_SarahPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route116_EventScript_TrySarahRematch)
+	release
+	end
+}
+script Route116_EventScript_TrySarahRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SARAH)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_DAWSON)) {
+		msgbox(format("Include Dawson and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DAWSON, 0, NULL, Route116_Text_DawsonDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SARAH, Route116_Text_SarahDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route116_EventScript_Dawson {
+	trainerbattle_single(TRAINER_DAWSON, Route116_Text_DawsonIntro, Route116_Text_DawsonDefeat)
+	msgbox(Route116_Text_DawsonPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route116_EventScript_TryDawsonRematch)
+	release
+	end
+}
+script Route116_EventScript_TryDawsonRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DAWSON)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_SARAH)) {
+		msgbox(format("Include Sarah and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SARAH, 0, NULL, Route116_Text_SarahDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DAWSON, Route116_Text_DawsonDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route116_EventScript_Devan {
+	trainerbattle_single(TRAINER_DEVAN, Route116_Text_DevanIntro, Route116_Text_DevanDefeat)
+	msgbox(Route116_Text_DevanPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route116_EventScript_TryDevanRematch)
+	release
+	end
+}
+script Route116_EventScript_TryDevanRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DEVAN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DEVAN, Route116_Text_DevanDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route116_EventScript_Johnson {
+	trainerbattle_single(TRAINER_JOHNSON, Route116_Text_JohnsonIntro, Route116_Text_JohnsonDefeat)
+	msgbox(Route116_Text_JohnsonPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route116_EventScript_TryJohnsonRematch)
+	release
+	end
+}
+script Route116_EventScript_TryJohnsonRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JOHNSON)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JOHNSON, Route116_Text_JohnsonDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
 script Route116_EventScript_Giorgio {
 	trainerbattle_single(TRAINER_GIORGIO, Route116_Text_GiorgioIntro, Route116_Text_GiorgioDefeat)
 	msgbox(Route116_Text_GiorgioPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route116_EventScript_TryGiorgioRematch)
+	release
 	end
 }
-
+script Route116_EventScript_TryGiorgioRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_GIORGIO)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_GIORGIO, Route116_Text_GiorgioDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 text Route116_Text_GiorgioIntro {
 	"Hey, you're blocking my view. I've\n"
 	"calculated every variable and a UFO\l"
 	"should be appearing soon! Buzz off!"
 }
-
 text Route116_Text_GiorgioDefeat {
 	"But my theory was perfect!"
 }
-
 text Route116_Text_GiorgioPostBattle {
 	"The aliens must have known I was on\n"
 	"their trail and sent you to defeat me.\p"
-	"But I won't give up! I'll get proof!"
+	"I won't give up! I'll get proof!"
 }
-
-raw `
-Route116_EventScript_Joey::
-	trainerbattle_single TRAINER_JOEY, Route116_Text_JoeyIntro, Route116_Text_JoeyDefeat
-	msgbox Route116_Text_JoeyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route116_EventScript_Jose::
-	trainerbattle_single TRAINER_JOSE, Route116_Text_JoseIntro, Route116_Text_JoseDefeat
-	msgbox Route116_Text_JosePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route116_EventScript_Jerry::
-	trainerbattle_single TRAINER_JERRY, Route116_Text_JerryIntro, Route116_Text_JerryDefeat, Route116_EventScript_TryRegisterJerryAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route116_EventScript_RematchJerry
-	setvar VAR_0x8004, TRAINER_JERRY
-	specialvar VAR_RESULT, IsTrainerRegistered
-	goto_if_eq VAR_RESULT, FALSE, Route116_EventScript_TryRegisterJerry
-	msgbox Route116_Text_JerryPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route116_EventScript_TryRegisterJerryAfterBattle::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterJerryAfterBattle
-	release
-	end
-
-Route116_EventScript_RegisterJerryAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route116_Text_JerryRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JERRY
-	release
-	end
-
-Route116_EventScript_TryRegisterJerry::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterJerry
-	msgbox Route116_Text_JerryPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route116_EventScript_RegisterJerry::
-	msgbox Route116_Text_JerryRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JERRY
-	release
-	end
-
-Route116_EventScript_RematchJerry::
-	trainerbattle_rematch TRAINER_JERRY, Route116_Text_JerryRematchIntro, Route116_Text_JerryRematchDefeat
-	msgbox Route116_Text_JerryPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route116_EventScript_Clark::
-	trainerbattle_single TRAINER_CLARK, Route116_Text_ClarkIntro, Route116_Text_ClarkDefeat
-	msgbox Route116_Text_ClarkPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route116_EventScript_Janice::
-	trainerbattle_single TRAINER_JANICE, Route116_Text_JaniceIntro, Route116_Text_JaniceDefeat
-	msgbox Route116_Text_JanicePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route116_EventScript_Karen::
-	trainerbattle_single TRAINER_KAREN, Route116_Text_KarenIntro, Route116_Text_KarenDefeat, Route116_EventScript_TryRegisterKarenAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route116_EventScript_RematchKaren
-	setvar VAR_0x8004, TRAINER_KAREN
-	specialvar VAR_RESULT, IsTrainerRegistered
-	goto_if_eq VAR_RESULT, FALSE, Route116_EventScript_TryRegisterKaren
-	msgbox Route116_Text_KarenPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route116_EventScript_TryRegisterKarenAfterBattle::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterKarenAfterBattle
-	release
-	end
-
-Route116_EventScript_RegisterKarenAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route116_Text_KarenRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_KAREN
-	release
-	end
-
-Route116_EventScript_TryRegisterKaren::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterKaren
-	msgbox Route116_Text_KarenPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route116_EventScript_RegisterKaren::
-	msgbox Route116_Text_KarenRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_KAREN
-	release
-	end
-
-Route116_EventScript_RematchKaren::
-	trainerbattle_rematch TRAINER_KAREN, Route116_Text_KarenRematchIntro, Route116_Text_KarenRematchDefeat
-	msgbox Route116_Text_KarenPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route116_EventScript_Sarah::
-	trainerbattle_single TRAINER_SARAH, Route116_Text_SarahIntro, Route116_Text_SarahDefeat
-	msgbox Route116_Text_SarahPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route116_EventScript_Dawson::
-	trainerbattle_single TRAINER_DAWSON, Route116_Text_DawsonIntro, Route116_Text_DawsonDefeat
-	msgbox Route116_Text_DawsonPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route116_EventScript_Devan::
-	trainerbattle_single TRAINER_DEVAN, Route116_Text_DevanIntro, Route116_Text_DevanDefeat
-	msgbox Route116_Text_DevanPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route116_EventScript_Johnson::
-	trainerbattle_single TRAINER_JOHNSON, Route116_Text_JohnsonIntro, Route116_Text_JohnsonDefeat
-	msgbox Route116_Text_JohnsonPostBattle, MSGBOX_AUTOCLOSE
-	end
-`

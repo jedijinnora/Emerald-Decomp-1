@@ -1,3 +1,5 @@
+mapscripts MtPyre_4F_MapScripts {}
+
 script MtPyre_5F_EventScript_Stash {
 	setvar(VAR_TEMP_D, ITEM_HP_UP)
 	setvar(VAR_TEMP_E, ITEM_DUSK_STONE)
@@ -6,29 +8,39 @@ script MtPyre_5F_EventScript_Stash {
 	end
 }
 
-
+script MtPyre_4F_EventScript_Tasha {
+	trainerbattle_single(TRAINER_TASHA, MtPyre_4F_Text_TashaIntro, MtPyre_4F_Text_TashaDefeat)
+	msgbox(MtPyre_4F_Text_TashaPostBattle, MSGBOX_AUTOCLOSE)
+	call(MtPyre_4F_EventScript_TryTashaRematch)
+	release
+	end
+}
+script MtPyre_4F_EventScript_TryTashaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TASHA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TASHA, MtPyre_4F_Text_TashaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
 raw `
-MtPyre_4F_MapScripts::
-	.byte 0
+MtPyre_4F_Text_TashaIntro:
+	.string "I love all things horrifying…\n"
+	.string "It's like a disease…\p"
+	.string "When I'm here…\n"
+	.string "I shiver with fear…$"
 
-@ Seems like the scripts for the 4F and 5F were swapped
+MtPyre_4F_Text_TashaDefeat:
+	.string "Losing, how dreadful…\n"
+	.string "Oh, you make me shiver…$"
 
-MtPyre_5F_EventScript_Atsushi::
-	trainerbattle_single TRAINER_ATSUSHI, MtPyre_5F_Text_AtsushiIntro, MtPyre_5F_Text_AtsushiDefeat
-	msgbox MtPyre_5F_Text_AtsushiPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-MtPyre_5F_Text_AtsushiIntro:
-	.string "Teacher…\n"
-	.string "Please watch over my progress!$"
-
-MtPyre_5F_Text_AtsushiDefeat:
-	.string "Teacher…\n"
-	.string "Please forgive me!$"
-
-MtPyre_5F_Text_AtsushiPostBattle:
-	.string "Until I improve, my teacher, who rests\n"
-	.string "here, will never find true peace…$"
-
+MtPyre_4F_Text_TashaPostBattle:
+	.string "I want to see dreadful things…\n"
+	.string "I can't leave…\p"
+	.string "Stay…\n"
+	.string "Won't you stay with me?$"
 `

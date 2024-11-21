@@ -1,4 +1,6 @@
-mapscripts LittlerootShore_MapScripts {}
+mapscripts LittlerootShore_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Common_EventScript_DisableBPReward
+}
 
 script LittlerootShore_EventScript_Twin {
 	lock
@@ -40,10 +42,24 @@ script LittlerootShore_EventScript_DirectionsSign {
 script LittlerootShore_EventScript_Samuel {
 	trainerbattle_single(TRAINER_SAMUEL, LittlerootShore_Text_SamuelIntro, LittlerootShore_Text_SamuelDefeat)
 	msgbox(LittlerootShore_Text_SamuelPostBattle, MSGBOX_AUTOCLOSE)
+	call(LittlerootShore_EventScript_TrySamuelRematch)
+	release
 	end
 }
+script LittlerootShore_EventScript_TrySamuelRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SAMUEL)
+	setvar(VAR_0x8004, 3)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SAMUEL, LittlerootShore_Text_SamuelDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 text LittlerootShore_Text_SamuelIntro {
-	"Want my Choice Band? You can't have it!"
+	"Want my Choice Specs?\n"
+	"You can't have them!"
 }
 text LittlerootShore_Text_SamuelDefeat {
 	"Fine, take the stupid thing!"
@@ -56,7 +72,20 @@ text LittlerootShore_Text_SamuelPostBattle {
 script LittlerootShore_EventScript_Phillip {
 	trainerbattle_single(TRAINER_PHILLIP, LittlerootShore_Text_PhillipIntro, LittlerootShore_Text_PhillipDefeat)
 	msgbox(LittlerootShore_Text_PhillipPostBattle, MSGBOX_AUTOCLOSE)
+	call(LittlerootShore_EventScript_TryPhillipRematch)
+	release
 	end
+}
+script LittlerootShore_EventScript_TryPhillipRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_PHILLIP)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_PHILLIP, LittlerootShore_Text_PhillipDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text LittlerootShore_Text_PhillipIntro {
 	"The only thing better than fishing on\n"
@@ -73,7 +102,20 @@ text LittlerootShore_Text_PhillipPostBattle {
 script LittlerootShore_EventScript_Hillary {
 	trainerbattle_single(TRAINER_HILLARY, LittlerootShore_Text_HillaryIntro, LittlerootShore_Text_HillaryDefeat)
 	msgbox(LittlerootShore_Text_HillaryPostBattle, MSGBOX_AUTOCLOSE)
+	call(LittlerootShore_EventScript_TryHillaryRematch)
+	release
 	end
+}
+script LittlerootShore_EventScript_TryHillaryRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HILLARY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HILLARY, LittlerootShore_Text_HillaryDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text LittlerootShore_Text_HillaryIntro {
 	"Why would you Surf on a Pokémon when\n"

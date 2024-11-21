@@ -12,6 +12,7 @@ script Route129_OnResume {
 
 script Route129_OnTransition {
 	setflag(FLAG_TEMP_11)
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 
@@ -95,89 +96,203 @@ script Route129_EventScript_Sign {
 	end
 }
 
-script Route_129_EventScript_Shannon {
-	trainerbattle_single(TRAINER_SHANNON, Route_129_Text_ShannonIntro, Route_129_Text_ShannonDefeat)
-	msgbox(Route_129_Text_ShannonPostBattle, MSGBOX_AUTOCLOSE)
+script Route129_EventScript_Chase {
+	trainerbattle_single(TRAINER_CHASE, Route129_Text_ChaseIntro, Route129_Text_ChaseDefeat)
+	msgbox(Route129_Text_ChasePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route129_EventScript_TryChaseRematch)
+	release
 	end
 }
-text Route_129_Text_ShannonIntro {
+script Route129_EventScript_TryChaseRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CHASE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CHASE, Route129_Text_ChaseDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route129_EventScript_Allison {
+	trainerbattle_single(TRAINER_ALLISON, Route129_Text_AllisonIntro, Route129_Text_AllisonDefeat)
+	msgbox(Route129_Text_AllisonPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route129_EventScript_TryAllisonRematch)
+	release
+	end
+}
+script Route129_EventScript_TryAllisonRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ALLISON)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ALLISON)) {
+		msgbox(format("Include Reed and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ALLISON, 0, NULL, Route129_Text_ReedDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ALLISON, Route129_Text_AllisonDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route129_EventScript_Reed {
+	trainerbattle_single(TRAINER_REED, Route129_Text_ReedIntro, Route129_Text_ReedDefeat)
+	msgbox(Route129_Text_ReedPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route129_EventScript_TryReedRematch)
+	release
+	end
+}
+script Route129_EventScript_TryReedRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_REED)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ALLISON)) {
+		msgbox(format("Include Allison and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ALLISON, 0, NULL, Route129_Text_AllisonDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_REED, Route129_Text_ReedDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route129_EventScript_Tisha {
+	trainerbattle_single(TRAINER_TISHA, Route129_Text_TishaIntro, Route129_Text_TishaDefeat)
+	msgbox(Route129_Text_TishaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route129_EventScript_TryTishaRematch)
+	release
+	end
+}
+script Route129_EventScript_TryTishaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TISHA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TISHA, Route129_Text_TishaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route129_EventScript_Clarence {
+	trainerbattle_single(TRAINER_CLARENCE, Route129_Text_ClarenceIntro, Route129_Text_ClarenceDefeat)
+	msgbox(Route129_Text_ClarencePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route129_EventScript_TryClarenceRematch)
+	release
+	end
+}
+script Route129_EventScript_TryClarenceRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CLARENCE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CLARENCE, Route129_Text_ClarenceDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route129_EventScript_Shannon {
+	trainerbattle_single(TRAINER_SHANNON, Route129_Text_ShannonIntro, Route129_Text_ShannonDefeat)
+	msgbox(Route129_Text_ShannonPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route129_EventScript_TryShannonRematch)
+	release
+	end
+}
+script Route129_EventScript_TryShannonRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SHANNON)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SHANNON, Route129_Text_ShannonDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route129_Text_ShannonIntro {
 	"Are you worthy?"
 }
-text Route_129_Text_ShannonDefeat {
+text Route129_Text_ShannonDefeat {
 	"Good enough for me, anyway!"
 }
-text Route_129_Text_ShannonPostBattle {
+text Route129_Text_ShannonPostBattle {
 	"How has life been treating you lately?\n"
 	"Take some time to smell the flowers."
 }
 
-script Route_129_EventScript_Emma {
-	trainerbattle_double(TRAINER_EMMA_AND_LIL, Route_129_Text_EmmaIntro, Route_129_Text_EmmaDefeat, Route_129_Text_EmmaNotEnoughMons)
-	msgbox(Route_129_Text_EmmaPostBattle, MSGBOX_AUTOCLOSE)
+script Route129_EventScript_Emma {
+	trainerbattle_double(TRAINER_EMMA_AND_LIL, Route129_Text_EmmaIntro, Route129_Text_EmmaDefeat, Route129_Text_EmmaNotEnoughMons)
+	msgbox(Route129_Text_EmmaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route129_EventScript_TryEmmaRematch)
+	release
 	end
 }
-
-text Route_129_Text_EmmaIntro {
+script Route129_EventScript_TryEmmaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_EMMA_AND_LIL)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_EMMA_AND_LIL, Route129_Text_EmmaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route129_Text_EmmaIntro {
 	"Emma: Look sis, we can beat this loser!"
 }
 
-text Route_129_Text_EmmaDefeat {
+text Route129_Text_EmmaDefeat {
 	"Emma: What? How?"
 }
-
-text Route_129_Text_EmmaNotEnoughMons {
+text Route129_Text_EmmaNotEnoughMons {
 	"Emma: Come back with two Pokémon, worm!"
 }
-
-text Route_129_Text_EmmaPostBattle {
+text Route129_Text_EmmaPostBattle {
 	"Emma: Hmph! You're still a loser."
 }
 
-script Route_129_EventScript_Lil {
-	trainerbattle_double(TRAINER_EMMA_AND_LIL, Route_129_Text_LilIntro, Route_129_Text_LilDefeat, Route_129_Text_LilNotEnoughMons)
-	msgbox(Route_129_Text_LilPostBattle, MSGBOX_AUTOCLOSE)
+script Route129_EventScript_Lil {
+	trainerbattle_double(TRAINER_EMMA_AND_LIL, Route129_Text_LilIntro, Route129_Text_LilDefeat, Route129_Text_LilNotEnoughMons)
+	msgbox(Route129_Text_LilPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route129_EventScript_TryLilRematch)
+	release
 	end
 }
-
-text Route_129_Text_LilIntro {
+script Route129_EventScript_TryLilRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_EMMA_AND_LIL)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_EMMA_AND_LIL, Route129_Text_LilDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route129_Text_LilIntro {
 	"Lil: Me and Em are tougher than we look!"
 }
-
-text Route_129_Text_LilDefeat {
+text Route129_Text_LilDefeat {
 	"Lil: Oh, no! My Pokémon!"
 }
-
-text Route_129_Text_LilNotEnoughMons {
+text Route129_Text_LilNotEnoughMons {
 	"Lil: You need two Pokémon to fight us!"
 }
-
-text Route_129_Text_LilPostBattle {
+text Route129_Text_LilPostBattle {
 	"Lil: You're so cool!"
 }
-
-raw `
-Route129_EventScript_Chase::
-	trainerbattle_single TRAINER_CHASE, Route129_Text_ChaseIntro, Route129_Text_ChaseDefeat
-	msgbox Route129_Text_ChasePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route129_EventScript_Allison::
-	trainerbattle_single TRAINER_ALLISON, Route129_Text_AllisonIntro, Route129_Text_AllisonDefeat
-	msgbox Route129_Text_AllisonPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route129_EventScript_Reed::
-	trainerbattle_single TRAINER_REED, Route129_Text_ReedIntro, Route129_Text_ReedDefeat
-	msgbox Route129_Text_ReedPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route129_EventScript_Tisha::
-	trainerbattle_single TRAINER_TISHA, Route129_Text_TishaIntro, Route129_Text_TishaDefeat
-	msgbox Route129_Text_TishaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route129_EventScript_Clarence::
-	trainerbattle_single TRAINER_CLARENCE, Route129_Text_ClarenceIntro, Route129_Text_ClarenceDefeat
-	msgbox Route129_Text_ClarencePostBattle, MSGBOX_AUTOCLOSE
-	end
-`

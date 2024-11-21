@@ -1,7 +1,13 @@
 mapscripts Route104_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route104_OnTransition
 	MAP_SCRIPT_ON_FRAME_TABLE[
         VAR_BOARD_BRINEY_BOAT_STATE, 1: Route104_EventScript_StartSailToIsland
     ] 
+}
+
+script Route104_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	end
 }
 
 script Route104_EventScript_StartSailToIsland {
@@ -129,7 +135,6 @@ script Route104_EventScript_Boy2 {
 	end
 }
 
-
 raw `
 .set LOCALID_BRINEY_R104, 8
 
@@ -165,160 +170,162 @@ Route104_Movement_BrineyBoardBoat:
 	walk_down
 	step_end
 
-Route104_EventScript_Ivan::
-	trainerbattle_single TRAINER_IVAN, Route104_Text_IvanIntro, Route104_Text_IvanDefeat
-	msgbox Route104_Text_IvanPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route104_EventScript_Billy::
-	trainerbattle_single TRAINER_BILLY, Route104_Text_BillyIntro, Route104_Text_BillyDefeat
-	msgbox Route104_Text_BillyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route104_EventScript_Haley::
-	trainerbattle_single TRAINER_HALEY, Route104_Text_HaleyIntro, Route104_Text_HaleyDefeat, Route104_EventScript_TryRegisterHaleyAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchHaley
-	setvar VAR_0x8004, TRAINER_HALEY
-	specialvar VAR_RESULT, IsTrainerRegistered
-	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterHaley
-	msgbox Route104_Text_HaleyPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route104_EventScript_TryRegisterHaleyAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterHaleyAfterBattle
-	release
-	end
-
-Route104_EventScript_RegisterHaleyAfterBattle::
-	msgbox Route104_Text_HaleyRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_HALEY
-	release
-	end
-
-Route104_EventScript_TryRegisterHaley::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterHaley
-	msgbox Route104_Text_HaleyPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route104_EventScript_RegisterHaley::
-	msgbox Route104_Text_HaleyRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_HALEY
-	release
-	end
-
-Route104_EventScript_RematchHaley::
-	trainerbattle_rematch TRAINER_HALEY, Route104_Text_HaleyRematchIntro, Route104_Text_HaleyRematchDefeat
-	msgbox Route104_Text_HaleyPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route104_EventScript_Winston::
-	trainerbattle_single TRAINER_WINSTON, Route104_Text_WinstonIntro, Route104_Text_WinstonDefeat, Route104_EventScript_TryRegisterWinstonAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchWinston
-	setvar VAR_0x8004, TRAINER_WINSTON
-	specialvar VAR_RESULT, IsTrainerRegistered
-	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterWinston
-	msgbox Route104_Text_WinstonPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route104_EventScript_TryRegisterWinstonAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterWinstonAfterBattle
-	release
-	end
-
-Route104_EventScript_RegisterWinstonAfterBattle::
-	msgbox Route104_Text_WinstonRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_WINSTON
-	release
-	end
-
-Route104_EventScript_TryRegisterWinston::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterWinston
-	msgbox Route104_Text_WinstonPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route104_EventScript_RegisterWinston::
-	msgbox Route104_Text_WinstonRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_WINSTON
-	release
-	end
-
-Route104_EventScript_RematchWinston::
-	trainerbattle_rematch TRAINER_WINSTON, Route104_Text_WinstonRematchIntro, Route104_Text_WinstonRematchDefeat
-	msgbox Route104_Text_WinstonPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route104_EventScript_Cindy::
-	trainerbattle_single TRAINER_CINDY, Route104_Text_CindyIntro, Route104_Text_CindyDefeat, Route104_EventScript_TryRegisterCindyAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchCindy
-	setvar VAR_0x8004, TRAINER_CINDY
-	specialvar VAR_RESULT, IsTrainerRegistered
-	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterCindy
-	msgbox Route104_Text_CindyPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route104_EventScript_TryRegisterCindyAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterCindyAfterBattle
-	release
-	end
-
-Route104_EventScript_RegisterCindyAfterBattle::
-	msgbox Route104_Text_CindyRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_CINDY
-	release
-	end
-
-Route104_EventScript_TryRegisterCindy::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterCindy
-	msgbox Route104_Text_CindyPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route104_EventScript_RegisterCindy::
-	msgbox Route104_Text_CindyRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_CINDY
-	release
-	end
-
-Route104_EventScript_RematchCindy::
-	trainerbattle_rematch TRAINER_CINDY, Route104_Text_CindyRematchIntro, Route104_Text_CindyRematchDefeat
-	msgbox Route104_Text_CindyPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route104_EventScript_Gina::
-	trainerbattle_double TRAINER_GINA_AND_MIA, Route104_Text_GinaIntro, Route104_Text_GinaDefeat, Route104_Text_GinaNotEnoughMons
-	special GetPlayerBigGuyGirlString
-	msgbox Route104_Text_GinaPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route104_EventScript_Mia::
-	trainerbattle_double TRAINER_GINA_AND_MIA, Route104_Text_MiaIntro, Route104_Text_MiaDefeat, Route104_Text_MiaNotEnoughMons
-	special GetPlayerBigGuyGirlString
-	msgbox Route104_Text_MiaPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route104_EventScript_Darian::
-	trainerbattle_single TRAINER_DARIAN, Route104_Text_DarianIntro, Route104_Text_DarianDefeat
-	msgbox Route104_Text_DarianPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route104_Text_WhatsItLikeAtBottomOfSea:
 	.string "The sea, huh?\p"
 	.string "I wonder what it's like at the bottom\n"
 	.string "of the sea?$"
 `
+
+script Route104_EventScript_Ivan {
+	trainerbattle_single(TRAINER_IVAN, Route104_Text_IvanIntro, Route104_Text_IvanDefeat)
+	msgbox(Route104_Text_IvanPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route104_EventScript_TryIvanRematch)
+	release
+	end
+}
+script Route104_EventScript_TryIvanRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_IVAN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_IVAN, Route104_Text_IvanDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route104_EventScript_Billy {
+	trainerbattle_single(TRAINER_BILLY, Route104_Text_BillyIntro, Route104_Text_BillyDefeat)
+	msgbox(Route104_Text_BillyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route104_EventScript_TryBillyRematch)
+	release
+	end
+}
+script Route104_EventScript_TryBillyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_BILLY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_BILLY, Route104_Text_BillyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route104_EventScript_Haley {
+	trainerbattle_single(TRAINER_HALEY, Route104_Text_HaleyIntro, Route104_Text_HaleyDefeat)
+	msgbox(Route104_Text_HaleyPostBattle, MSGBOX_DEFAULT)
+	call(Route104_EventScript_TryHaleyRematch)
+	release
+	end
+}
+script Route104_EventScript_TryHaleyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HALEY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HALEY, Route104_Text_HaleyRematchDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route104_EventScript_Winston {
+	trainerbattle_single(TRAINER_WINSTON, Route104_Text_WinstonIntro, Route104_Text_WinstonDefeat)
+	msgbox(Route104_Text_WinstonPostBattle, MSGBOX_DEFAULT)
+	call(Route104_EventScript_TryWinstonRematch)
+	release
+	end
+}
+script Route104_EventScript_TryWinstonRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_WINSTON)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_WINSTON, Route104_Text_WinstonRematchDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route104_EventScript_Cindy {
+	trainerbattle_single(TRAINER_CINDY, Route104_Text_CindyIntro, Route104_Text_CindyDefeat)
+	msgbox(Route104_Text_CindyPostBattle, MSGBOX_DEFAULT)
+	call(Route104_EventScript_TryCindyRematch)
+	release
+	end
+}
+script Route104_EventScript_TryCindyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CINDY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CINDY, Route104_Text_CindyRematchDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route104_EventScript_Gina {
+	trainerbattle_double(TRAINER_GINA_AND_MIA, Route104_Text_GinaIntro, Route104_Text_GinaDefeat, Route104_Text_GinaNotEnoughMons)
+	special(GetPlayerBigGuyGirlString)
+	msgbox(Route104_Text_GinaPostBattle, MSGBOX_DEFAULT)
+	call(Route104_EventScript_TryGinaRematch)
+	release
+	end
+}
+script Route104_EventScript_TryGinaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_GINA_AND_MIA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_GINA_AND_MIA, Route104_Text_GinaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route104_EventScript_Mia {
+	trainerbattle_double(TRAINER_GINA_AND_MIA, Route104_Text_MiaIntro, Route104_Text_MiaDefeat, Route104_Text_MiaNotEnoughMons)
+	special(GetPlayerBigGuyGirlString)
+	msgbox(Route104_Text_MiaPostBattle, MSGBOX_DEFAULT)
+	call(Route104_EventScript_TryMiaRematch)
+	release
+	end
+}
+script Route104_EventScript_TryMiaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_GINA_AND_MIA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_GINA_AND_MIA, Route104_Text_MiaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route104_EventScript_Darian {
+	trainerbattle_single(TRAINER_DARIAN, Route104_Text_DarianIntro, Route104_Text_DarianDefeat)
+	msgbox(Route104_Text_DarianPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route104_EventScript_TryDarianRematch)
+	release
+	end
+}
+script Route104_EventScript_TryDarianRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DARIAN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DARIAN, Route104_Text_DarianDefeat)
+	special(UpdateRecentTrainers)
+	return
+}

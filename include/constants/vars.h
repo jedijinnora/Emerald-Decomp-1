@@ -237,16 +237,16 @@
 #define VAR_UNUSED_0x40D9                                0x40D9
 #define VAR_UNUSED_0x40DA                                0x40DA
 #define VAR_LAST_TRAINER_BATTLE_POINTER                  0x40DB // points to the last edited VAR_RECENT_TRAINER_X
-#define VAR_RECENT_TRAINER_6                             0x40DC
-#define VAR_RECENT_TRAINER_7                             0x40DD
-#define VAR_RECENT_TRAINER_8                             0x40DE
-#define VAR_RECENT_TRAINER_9                             0x40DF
-#define VAR_RECENT_TRAINER_10                            0x40E0
-#define VAR_RECENT_TRAINER_1                             0x40E1
-#define VAR_RECENT_TRAINER_2                             0x40E2
-#define VAR_RECENT_TRAINER_3                             0x40E3
-#define VAR_RECENT_TRAINER_4                             0x40E4
-#define VAR_RECENT_TRAINER_5                             0x40E5
+#define VAR_RECENT_TRAINER_1                             0x40DC
+#define VAR_RECENT_TRAINER_2                             0x40DD
+#define VAR_RECENT_TRAINER_3                             0x40DE
+#define VAR_RECENT_TRAINER_4                             0x40DF
+#define VAR_RECENT_TRAINER_5                             0x40E0
+#define VAR_RECENT_TRAINER_6                             0x40E1
+#define VAR_RECENT_TRAINER_7                             0x40E2
+#define VAR_RECENT_TRAINER_8                             0x40E3
+#define VAR_RECENT_TRAINER_9                             0x40E4
+#define VAR_RECENT_TRAINER_10                            0x40E5
 #define VAR_DAILY_SLOTS                                  0x40E6 // TV Var
 #define VAR_DAILY_WILDS                                  0x40E7 // TV Var
 #define VAR_DAILY_BLENDER                                0x40E8 // TV Var

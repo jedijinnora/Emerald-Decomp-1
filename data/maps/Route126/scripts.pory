@@ -1,4 +1,11 @@
-mapscripts Route126_MapScripts {}
+mapscripts Route126_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route126_OnTransition
+}
+
+script Route126_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	end
+}
 
 script Route126_EventScript_Beauty {
 	lock
@@ -13,61 +20,182 @@ script Route126_EventScript_Sign {
 	end
 }
 
-raw `
-Route126_EventScript_Barry::
-	trainerbattle_single TRAINER_BARRY, Route126_Text_BarryIntro, Route126_Text_BarryDefeat
-	msgbox Route126_Text_BarryPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route126_EventScript_Dean::
-	trainerbattle_single TRAINER_DEAN, Route126_Text_DeanIntro, Route126_Text_DeanDefeat
-	msgbox Route126_Text_DeanPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route126_EventScript_Nikki::
-	trainerbattle_single TRAINER_NIKKI, Route126_Text_NikkiIntro, Route126_Text_NikkiDefeat
-	msgbox Route126_Text_NikkiPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route126_EventScript_Brenda::
-	trainerbattle_single TRAINER_BRENDA, Route126_Text_BrendaIntro, Route126_Text_BrendaDefeat
-	msgbox Route126_Text_BrendaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route126_EventScript_Leonardo::
-	trainerbattle_single TRAINER_LEONARDO, Route126_Text_LeonardoIntro, Route126_Text_LeonardoDefeat
-	msgbox Route126_Text_LeonardoPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route126_EventScript_Isobel::
-	trainerbattle_single TRAINER_ISOBEL, Route126_Text_IsobelIntro, Route126_Text_IsobelDefeat
-	msgbox Route126_Text_IsobelPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route126_EventScript_Sienna::
-	trainerbattle_single TRAINER_SIENNA, Route126_Text_SiennaIntro, Route126_Text_SiennaDefeat
-	msgbox Route126_Text_SiennaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route126_EventScript_Pablo::
-	trainerbattle_single TRAINER_PABLO, Route126_Text_PabloIntro, Route126_Text_PabloDefeat, Route126_EventScript_RegisterPablo
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route126_EventScript_RematchPablo
-	msgbox Route126_Text_PabloPostBattle, MSGBOX_DEFAULT
+script Route126_EventScript_Barry {
+	trainerbattle_single(TRAINER_BARRY, Route126_Text_BarryIntro, Route126_Text_BarryDefeat)
+	msgbox(Route126_Text_BarryPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route126_EventScript_TryBarryRematch)
 	release
 	end
+}
+script Route126_EventScript_TryBarryRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_BARRY)
+	setvar(VAR_0x8004, 2)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_BARRY, Route126_Text_BarryDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route126_EventScript_RegisterPablo::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route126_Text_PabloRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_PABLO
+script Route126_EventScript_Dean {
+	trainerbattle_single(TRAINER_DEAN, Route126_Text_DeanIntro, Route126_Text_DeanDefeat)
+	msgbox(Route126_Text_DeanPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route126_EventScript_TryDeanRematch)
 	release
 	end
+}
+script Route126_EventScript_TryDeanRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DEAN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DEAN, Route126_Text_DeanDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route126_EventScript_RematchPablo::
-	trainerbattle_rematch TRAINER_PABLO, Route126_Text_PabloRematchIntro, Route126_Text_PabloRematchDefeat
-	msgbox Route126_Text_PabloPostRematch, MSGBOX_AUTOCLOSE
+script Route126_EventScript_Nikki {
+	trainerbattle_single(TRAINER_NIKKI, Route126_Text_NikkiIntro, Route126_Text_NikkiDefeat)
+	msgbox(Route126_Text_NikkiPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route126_EventScript_TryNikkiRematch)
+	release
 	end
+}
+script Route126_EventScript_TryNikkiRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_NIKKI)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_NIKKI, Route126_Text_NikkiDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-`
+script Route126_EventScript_Brenda {
+	trainerbattle_single(TRAINER_BRENDA, Route126_Text_BrendaIntro, Route126_Text_BrendaDefeat)
+	msgbox(Route126_Text_BrendaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route126_EventScript_TryBrendaRematch)
+	release
+	end
+}
+script Route126_EventScript_TryBrendaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_BRENDA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_BRENDA, Route126_Text_BrendaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route126_EventScript_Leonardo {
+	trainerbattle_single(TRAINER_LEONARDO, Route126_Text_LeonardoIntro, Route126_Text_LeonardoDefeat)
+	msgbox(Route126_Text_LeonardoPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route126_EventScript_TryLeonardoRematch)
+	release
+	end
+}
+script Route126_EventScript_TryLeonardoRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LEONARDO)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ISOBEL)) {
+		msgbox(format("Include Isobel and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ISOBEL, 0, NULL, Route126_Text_IsobelDefeat)
+			addvar(VAR_0x8004, 2)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LEONARDO, Route126_Text_LeonardoDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route126_EventScript_Isobel {
+	trainerbattle_single(TRAINER_ISOBEL, Route126_Text_IsobelIntro, Route126_Text_IsobelDefeat)
+	msgbox(Route126_Text_IsobelPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route126_EventScript_TryIsobelRematch)
+	release
+	end
+}
+script Route126_EventScript_TryIsobelRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ISOBEL)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_LEONARDO)) {
+		msgbox(format("Include Leonardo and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_LEONARDO, 0, NULL, Route126_Text_LeonardoDefeat)
+			addvar(VAR_0x8004, 2)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ISOBEL, Route126_Text_IsobelDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route126_EventScript_Sienna {
+	trainerbattle_single(TRAINER_SIENNA, Route126_Text_SiennaIntro, Route126_Text_SiennaDefeat)
+	msgbox(Route126_Text_SiennaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route126_EventScript_TrySiennaRematch)
+	release
+	end
+}
+script Route126_EventScript_TrySiennaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SIENNA)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_PABLO)) {
+		msgbox(format("Include Pablo and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_PABLO, 0, NULL, Route126_Text_PabloDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SIENNA, Route126_Text_SiennaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route126_EventScript_Pablo {
+	trainerbattle_single(TRAINER_PABLO, Route126_Text_PabloIntro, Route126_Text_PabloDefeat)
+	msgbox(Route126_Text_PabloPostBattle, MSGBOX_DEFAULT)
+	call(Route126_EventScript_TryPabloRematch)
+	release
+	end
+}
+script Route126_EventScript_TryPabloRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_PABLO)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_SIENNA)) {
+		msgbox(format("Include Sienna and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SIENNA, 0, NULL, Route126_Text_SiennaDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_PABLO, Route126_Text_PabloDefeat)
+	special(UpdateRecentTrainers)
+	return
+}

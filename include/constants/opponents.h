@@ -562,7 +562,7 @@
 #define TRAINER_ED                          (ROUTE_123_TRAINERS_START + 9)
 #define TRAINER_FERNANDO                    (ROUTE_123_TRAINERS_START + 10)
 #define TRAINER_ALBERTO                     (ROUTE_123_TRAINERS_START + 11)
-#define TRAINER_FREDRICK                    (ROUTE_123_TRAINERS_START + 12)
+#define TRAINER_FREDERICK                    (ROUTE_123_TRAINERS_START + 12)
 #define TRAINER_JAZMYN                      (ROUTE_123_TRAINERS_START + 13)
 #define TRAINER_DAVIS                       (ROUTE_123_TRAINERS_START + 14)
 #define ROUTE_123_TRAINERS_END              TRAINER_DAVIS
@@ -763,7 +763,7 @@
 
 //Victory Road
 #define VICTORY_ROAD_TRAINERS_START         (MT_PYRE_TRAINERS_END + 1)
-#define TRAINER_YOSHI                       (VICTORY_ROAD_TRAINERS_START + 0)
+#define TRAINER_MANO                        (VICTORY_ROAD_TRAINERS_START + 0)
 #define TRAINER_TSUJI                       (VICTORY_ROAD_TRAINERS_START + 1)
 #define TRAINER_RIZZO                       (VICTORY_ROAD_TRAINERS_START + 2)
 #define TRAINER_GLICK                       (VICTORY_ROAD_TRAINERS_START + 3)
@@ -775,8 +775,9 @@
 #define TRAINER_RUIZ                        (VICTORY_ROAD_TRAINERS_START + 9)
 #define TRAINER_SHIRONA                     (VICTORY_ROAD_TRAINERS_START + 10)
 #define TRAINER_KATELYNN                    (VICTORY_ROAD_TRAINERS_START + 11)
-#define TRAINER_HOPE                        (VICTORY_ROAD_TRAINERS_START + 12)
-#define TRAINER_GRACE                       (VICTORY_ROAD_TRAINERS_START + 13)
+#define TRAINER_EIFIE                       (VICTORY_ROAD_TRAINERS_START + 12)
+#define TRAINER_HOPE                        (VICTORY_ROAD_TRAINERS_START + 13)
+#define TRAINER_GRACE                       (VICTORY_ROAD_TRAINERS_START + 14)
 #define VICTORY_ROAD_TRAINERS_END           TRAINER_GRACE
 
 //Southern Island
@@ -958,7 +959,7 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 661 (660 + TRAINER_NONE)
+//I think it's currently 662 (661 + TRAINER_NONE)
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

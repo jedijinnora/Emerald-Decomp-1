@@ -144,7 +144,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route_133_EventScript_Dianne",
+      "script": "Route133_EventScript_Dianne",
       "flag": "0"
     },
     {
@@ -157,7 +157,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route_133_EventScript_Caroline",
+      "script": "Route133_EventScript_Caroline",
       "flag": "0"
     },
     {

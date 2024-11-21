@@ -1,7 +1,12 @@
 mapscripts GraniteCave_B1F_MapScripts {
 	MAP_SCRIPT_ON_FRAME_TABLE : CaveHole_CheckFallDownHole
-	MAP_SCRIPT_ON_TRANSITION : CaveHole_FixCrackedGround
+	MAP_SCRIPT_ON_TRANSITION : GraniteCave_B1F_OnTransition
 	MAP_SCRIPT_ON_RESUME : GraniteCave_B1F_SetHoleWarp
+}
+
+script GraniteCave_B1F_OnTransition {
+	call(CaveHole_FixCrackedGround)
+	call(Common_EventScript_DisableBPReward)
 }
 
 script GraniteCave_B1F_EventScript_Stash {
@@ -12,19 +17,29 @@ script GraniteCave_B1F_EventScript_Stash {
 }
 
 script GraniteCave_B1F_EventScript_Thomas {
-	trainerbattle_single(TRAINER_THOMAS, GraniteCave_B1F_Text_ThomasIntro, GraniteCave_B1F_Text_ThomasDefeated)
+	trainerbattle_single(TRAINER_THOMAS, GraniteCave_B1F_Text_ThomasIntro, GraniteCave_B1F_Text_ThomasDefeat)
 	msgbox(GraniteCave_B1F_Text_ThomasPostBattle, MSGBOX_AUTOCLOSE)
+	call(GraniteCave_B1F_EventScript_TryThomasRematch)
+	release
 	end
 }
-
+script GraniteCave_B1F_EventScript_TryThomasRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_THOMAS)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_THOMAS, GraniteCave_B1F_Text_ThomasDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 text GraniteCave_B1F_Text_ThomasIntro {
 	format("I don't want any wimps wandering around this cave, you know?")
 }
-
-text GraniteCave_B1F_Text_ThomasDefeated {
+text GraniteCave_B1F_Text_ThomasDefeat {
 	format("You're tough enough to spelunk!")
 }
-
 text GraniteCave_B1F_Text_ThomasPostBattle {
 	format("Caves are tricky! Always bring Flash and your Escape Rope!")
 }

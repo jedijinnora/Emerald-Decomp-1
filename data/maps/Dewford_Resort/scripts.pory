@@ -3,7 +3,9 @@
 //FLAG_TEMP_6 Camper script
 //FLAG_TEMP_7 Camper script
 
-mapscripts Dewford_Resort_MapScripts {}
+mapscripts Dewford_Resort_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : Common_EventScript_DisableBPReward
+}
 
 script Dewford_Resort_EventScript_ResortSign {
     msgbox(format("Dewford Resort\n“A tourist's paradise!”"), MSGBOX_SIGN)
@@ -120,7 +122,20 @@ script Dewford_Resort_EventScript_Lass {
 script Dewford_Resort_EventScript_Phelps {
 	trainerbattle_single(TRAINER_PHELPS, Dewford_Resort_Text_PhelpsIntro, Dewford_Resort_Text_PhelpsDefeat)
 	msgbox(Dewford_Resort_Text_PhelpsPostBattle, MSGBOX_AUTOCLOSE)
+	call(Dewford_Resort_EventScript_TryPhelpsRematch)
+	release
 	end
+}
+script Dewford_Resort_EventScript_TryPhelpsRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_PHELPS)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_PHELPS, Dewford_Resort_Text_PhelpsDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text Dewford_Resort_Text_PhelpsIntro {
 	"I'm the greatest swimmer ever!"
@@ -135,7 +150,20 @@ text Dewford_Resort_Text_PhelpsPostBattle {
 script Dewford_Resort_EventScript_Ledecky {
 	trainerbattle_single(TRAINER_LEDECKY, Dewford_Resort_Text_LedeckyIntro, Dewford_Resort_Text_LedeckyDefeat)
 	msgbox(Dewford_Resort_Text_LedeckyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Dewford_Resort_EventScript_TryLedeckyRematch)
+	release
 	end
+}
+script Dewford_Resort_EventScript_TryLedeckyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LEDECKY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LEDECKY, Dewford_Resort_Text_LedeckyDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text Dewford_Resort_Text_LedeckyIntro {
 	"Look out!"
@@ -150,7 +178,20 @@ text Dewford_Resort_Text_LedeckyPostBattle {
 script Dewford_Resort_EventScript_Tatjana {
 	trainerbattle_single(TRAINER_TATJANA, Dewford_Resort_Text_TatjanaIntro, Dewford_Resort_Text_TatjanaDefeat)
 	msgbox(Dewford_Resort_Text_TatjanaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Dewford_Resort_EventScript_TryTatjanaRematch)
+	release
 	end
+}
+script Dewford_Resort_EventScript_TryTatjanaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TATJANA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TATJANA, Dewford_Resort_Text_TatjanaDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text Dewford_Resort_Text_TatjanaIntro {
 	"I found you! Let's fight!"
@@ -165,7 +206,20 @@ text Dewford_Resort_Text_TatjanaPostBattle {
 script Dewford_Resort_EventScript_Mac {
 	trainerbattle_single(TRAINER_MAC, Dewford_Resort_Text_MacIntro, Dewford_Resort_Text_MacDefeat)
 	msgbox(Dewford_Resort_Text_MacPostBattle, MSGBOX_AUTOCLOSE)
+	call(Dewford_Resort_EventScript_TryMacRematch)
+	release
 	end
+}
+script Dewford_Resort_EventScript_TryMacRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MAC)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MAC, Dewford_Resort_Text_MacDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text Dewford_Resort_Text_MacIntro {
 	"Hah! Feast your eyes on my combo!"
@@ -181,7 +235,20 @@ text Dewford_Resort_Text_MacPostBattle {
 script Dewford_Resort_EventScript_Kondo {
 	trainerbattle_single(TRAINER_KONDO, Dewford_Resort_Text_KondoIntro, Dewford_Resort_Text_KondoDefeat)
 	msgbox(Dewford_Resort_Text_KondoPostBattle, MSGBOX_AUTOCLOSE)
+	call(Dewford_Resort_EventScript_TryKondoRematch)
+	release
 	end
+}
+script Dewford_Resort_EventScript_TryKondoRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KONDO)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KONDO, Dewford_Resort_Text_KondoDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text Dewford_Resort_Text_KondoIntro {
 	"Fancy a cuppa?"
@@ -197,7 +264,20 @@ text Dewford_Resort_Text_KondoPostBattle {
 script Dewford_Resort_EventScript_Jed {
 	trainerbattle_double(TRAINER_LEA_AND_JED, Dewford_Resort_Text_JedIntro, Dewford_Resort_Text_JedDefeat, Dewford_Resort_Text_JedNotEnoughMons)
 	msgbox(Dewford_Resort_Text_JedPostBattle, MSGBOX_AUTOCLOSE)
+	call(Dewford_Resort_EventScript_TryJedRematch)
+	release
 	end
+}
+script Dewford_Resort_EventScript_TryJedRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LEA_AND_JED)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LEA_AND_JED, Dewford_Resort_Text_JedDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text Dewford_Resort_Text_JedIntro {
 	"Jed: My love! A plebian seeks to duel!"

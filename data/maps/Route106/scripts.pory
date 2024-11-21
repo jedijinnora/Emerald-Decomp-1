@@ -1,5 +1,10 @@
 mapscripts Route106_MapScripts {
-	
+	MAP_SCRIPT_ON_TRANSITION : Route106_OnTransition
+}
+
+script Route106_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	end
 }
 
 script Route106_EventScript_HexManiac {
@@ -7,76 +12,143 @@ script Route106_EventScript_HexManiac {
 	end
 }
 
+script Route106_EventScript_Douglas {
+	trainerbattle_single(TRAINER_DOUGLAS, Route106_Text_DouglasIntro, Route106_Text_DouglasDefeated)
+	msgbox(Route106_Text_DouglasPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route106_EventScript_TryDouglasRematch)
+	release
+	end
+}
+script Route106_EventScript_TryDouglasRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DOUGLAS)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DOUGLAS, Route106_Text_DouglasDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route106_EventScript_Kyla {
+	trainerbattle_single(TRAINER_KYLA, Route106_Text_KylaIntro, Route106_Text_KylaDefeated)
+	msgbox(Route106_Text_KylaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route106_EventScript_TryKylaRematch)
+	release
+	end
+}
+script Route106_EventScript_TryKylaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KYLA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KYLA, Route106_Text_KylaDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route106_EventScript_Elliot {
+	trainerbattle_single(TRAINER_ELLIOT, Route106_Text_ElliotIntro, Route106_Text_ElliotDefeated)
+	msgbox(Route106_Text_ElliotPostBattle, MSGBOX_DEFAULT)
+	call(Route106_EventScript_TryElliotRematch)
+	release
+	end
+}
+script Route106_EventScript_TryElliotRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ELLIOT)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ELLIOT, Route106_Text_ElliotRematchDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route106_EventScript_Ned {
+	trainerbattle_single(TRAINER_NED, Route106_Text_NedIntro, Route106_Text_NedDefeated)
+	msgbox(Route106_Text_NedPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route106_EventScript_TryNedRematch)
+	release
+	end
+}
+script Route106_EventScript_TryNedRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_NED)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_NED, Route106_Text_NedDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
 script Route106_EventScript_Owen {
 	trainerbattle_single(TRAINER_OWEN, Route106_Text_OwenIntro, Route106_Text_OwenDefeated)
 	msgbox(Route106_Text_OwenPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route106_EventScript_TryOwenRematch)
+	release
 	end
 }
-
+script Route106_EventScript_TryOwenRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_OWEN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_OWEN, Route106_Text_OwenRematchDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 text Route106_Text_OwenIntro {
 	format("Hah! I shall defeat you and take another step on my path to power!")
 }
-
 text Route106_Text_OwenDefeated {
 	"Struck down!"
 }
-
 text Route106_Text_OwenPostBattle {
 	format("My dream is to travel to Kanto and become a student of the great master Koga!")
+}
+text Route106_Text_OwenRematchDefeated {
+	"Master Koga! I failed…"
 }
 
 script Route106_EventScript_Michelle {
 	trainerbattle_single(TRAINER_MICHELLE, Route106_Text_MichelleIntro, Route106_Text_MichelleDefeated)
 	msgbox(Route106_Text_MichellePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route106_EventScript_TryMichelleRematch)
+	release
 	end
 }
-
+script Route106_EventScript_TryMichelleRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MICHELLE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MICHELLE, Route106_Text_MichelleRematchDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 text Route106_Text_MichelleIntro {
 	format("Excuse you, this is a private section of beach!")
 }
-
 text Route106_Text_MichelleDefeated {
 	"Fine, fine, you can stay!"
 }
-
 text Route106_Text_MichellePostBattle {
-	format("I guess when you're a strong enough Trainer, you can go wherever you please.")
+	"I guess when you're a strong enough\n"
+	"Trainer, you can go wherever you\l"
+	"please."
 }
-
-raw `
-Route106_EventScript_Douglas::
-	trainerbattle_single TRAINER_DOUGLAS, Route106_Text_DouglasIntro, Route106_Text_DouglasDefeated
-	msgbox Route106_Text_DouglasPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route106_EventScript_Kyla::
-	trainerbattle_single TRAINER_KYLA, Route106_Text_KylaIntro, Route106_Text_KylaDefeated
-	msgbox Route106_Text_KylaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route106_EventScript_Elliot::
-	trainerbattle_single TRAINER_ELLIOT, Route106_Text_ElliotIntro, Route106_Text_ElliotDefeated, Route106_EventScript_ElliotRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route106_EventScript_ElliotRematch
-	msgbox Route106_Text_ElliotPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route106_EventScript_ElliotRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route106_Text_ElliotRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ELLIOT
-	release
-	end
-
-Route106_EventScript_ElliotRematch::
-	trainerbattle_rematch TRAINER_ELLIOT, Route106_Text_ElliotRematchIntro, Route106_Text_ElliotRematchDefeated
-	msgbox Route106_Text_ElliotRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route106_EventScript_Ned::
-	trainerbattle_single TRAINER_NED, Route106_Text_NedIntro, Route106_Text_NedDefeated
-	msgbox Route106_Text_NedPostBattle, MSGBOX_AUTOCLOSE
-	end
-`
+text Route106_Text_MichelleRematchDefeated {
+	"That wasn't an invitation to walk all\n"
+	"over me!"
+}

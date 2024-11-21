@@ -1,33 +1,58 @@
+mapscripts MtPyre_6F_MapScripts {}
+
+script MtPyre_6F_EventScript_Valerie {
+	trainerbattle_single(TRAINER_VALERIE, MtPyre_6F_Text_ValerieIntro, MtPyre_6F_Text_ValerieDefeat)
+	msgbox(MtPyre_6F_Text_ValeriePostBattle, MSGBOX_DEFAULT)
+	call(MtPyre_6F_EventScript_TryValerieRematch)
+	release
+	end
+}
+script MtPyre_6F_EventScript_TryValerieRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_VALERIE)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_CEDRIC)) {
+		msgbox(format("Include Cedric and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CEDRIC, 0, NULL, MtPyre_6F_Text_CedricDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_VALERIE, MtPyre_6F_Text_ValerieDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script MtPyre_6F_EventScript_Cedric {
+	trainerbattle_single(TRAINER_CEDRIC, MtPyre_6F_Text_CedricIntro, MtPyre_6F_Text_CedricDefeat)
+	msgbox(MtPyre_6F_Text_CedricPostBattle, MSGBOX_AUTOCLOSE)
+	call(MtPyre_6F_EventScript_TryCedricRematch)
+	release
+	end
+}
+script MtPyre_6F_EventScript_TryCedricRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CEDRIC)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_VALERIE)) {
+		msgbox(format("Include Valerie and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_VALERIE, 0, NULL, MtPyre_6F_Text_ValerieDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CEDRIC, MtPyre_6F_Text_CedricDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
 raw `
-MtPyre_6F_MapScripts::
-	.byte 0
-
-MtPyre_6F_EventScript_Valerie::
-	trainerbattle_single TRAINER_VALERIE, MtPyre_6F_Text_ValerieIntro, MtPyre_6F_Text_ValerieDefeat, MtPyre_6F_EventScript_RegisterValerie
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, MtPyre_6F_EventScript_RematchValerie
-	msgbox MtPyre_6F_Text_ValeriePostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-MtPyre_6F_EventScript_RegisterValerie::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox MtPyre_6F_Text_ValerieRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_VALERIE
-	release
-	end
-
-MtPyre_6F_EventScript_RematchValerie::
-	trainerbattle_rematch TRAINER_VALERIE, MtPyre_6F_Text_ValerieRematchIntro, MtPyre_6F_Text_ValerieRematchDefeat
-	msgbox MtPyre_6F_Text_ValeriePostRematch, MSGBOX_AUTOCLOSE
-	end
-
-MtPyre_6F_EventScript_Cedric::
-	trainerbattle_single TRAINER_CEDRIC, MtPyre_6F_Text_CedricIntro, MtPyre_6F_Text_CedricDefeat
-	msgbox MtPyre_6F_Text_CedricPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 MtPyre_6F_Text_ValerieIntro:
 	.string "When I'm here…\n"
 	.string "A curious power flows into me…$"

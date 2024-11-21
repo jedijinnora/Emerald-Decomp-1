@@ -1,4 +1,11 @@
-mapscripts Route134_MapScripts {}
+mapscripts Route134_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route134_OnTransition
+}
+
+script Route134_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	end
+}
 
 script Route134_EventScript_WestStatue {
 	lock
@@ -94,51 +101,215 @@ script Route134_EventScript_StatueWoman {
 	end
 }
 
-
-raw `
-Route134_EventScript_Jack::
-	trainerbattle_single TRAINER_JACK, Route134_Text_JackIntro, Route134_Text_JackDefeat
-	msgbox Route134_Text_JackPostBattle, MSGBOX_AUTOCLOSE
+script Route134_EventScript_Jack {
+	trainerbattle_single(TRAINER_JACK, Route134_Text_JackIntro, Route134_Text_JackDefeat)
+	msgbox(Route134_Text_JackPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route134_EventScript_TryJackRematch)
+	release
 	end
+}
+script Route134_EventScript_TryJackRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JACK)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_LAUREL)) {
+		msgbox(format("Include Laurel and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_LAUREL, 0, NULL, Route134_Text_LaurelDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JACK, Route134_Text_JackDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route134_EventScript_Laurel::
-	trainerbattle_single TRAINER_LAUREL, Route134_Text_LaurelIntro, Route134_Text_LaurelDefeat
-	msgbox Route134_Text_LaurelPostBattle, MSGBOX_AUTOCLOSE
+script Route134_EventScript_Laurel {
+	trainerbattle_single(TRAINER_LAUREL, Route134_Text_LaurelIntro, Route134_Text_LaurelDefeat)
+	msgbox(Route134_Text_LaurelPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route134_EventScript_TryLaurelRematch)
+	release
 	end
+}
+script Route134_EventScript_TryLaurelRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LAUREL)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_JACK)) {
+		msgbox(format("Include Jack and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JACK, 0, NULL, Route134_Text_JackDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LAUREL, Route134_Text_LaurelDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route134_EventScript_Alex::
-	trainerbattle_single TRAINER_ALEX, Route134_Text_AlexIntro, Route134_Text_AlexDefeat
-	msgbox Route134_Text_AlexPostBattle, MSGBOX_AUTOCLOSE
+script Route134_EventScript_Alex {
+	trainerbattle_single(TRAINER_ALEX, Route134_Text_AlexIntro, Route134_Text_AlexDefeat)
+	msgbox(Route134_Text_AlexPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route134_EventScript_TryAlexRematch)
+	release
 	end
+}
+script Route134_EventScript_TryAlexRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ALEX)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_HUDSON)) {
+		msgbox(format("Include Hudson and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_HUDSON, 0, NULL, Route134_Text_HudsonDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ALEX, Route134_Text_AlexDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route134_EventScript_Aaron::
-	trainerbattle_single TRAINER_AARON, Route134_Text_AaronIntro, Route134_Text_AaronDefeat
-	msgbox Route134_Text_AaronPostBattle, MSGBOX_AUTOCLOSE
+script Route134_EventScript_Aaron {
+	trainerbattle_single(TRAINER_AARON, Route134_Text_AaronIntro, Route134_Text_AaronDefeat)
+	msgbox(Route134_Text_AaronPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route134_EventScript_TryAaronRematch)
+	release
 	end
+}
+script Route134_EventScript_TryAaronRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_AARON)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_AARON, Route134_Text_AaronDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route134_EventScript_Hitoshi::
-	trainerbattle_single TRAINER_HITOSHI, Route134_Text_HitoshiIntro, Route134_Text_HitoshiDefeat
-	msgbox Route134_Text_HitoshiPostBattle, MSGBOX_AUTOCLOSE
+script Route134_EventScript_Hitoshi {
+	trainerbattle_single(TRAINER_HITOSHI, Route134_Text_HitoshiIntro, Route134_Text_HitoshiDefeat)
+	msgbox(Route134_Text_HitoshiPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route134_EventScript_TryHitoshiRematch)
+	release
 	end
+}
+script Route134_EventScript_TryHitoshiRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HITOSHI)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_REYNA)) {
+		msgbox(format("Include Reyna and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_REYNA, 0, NULL, Route134_Text_ReynaDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HITOSHI, Route134_Text_HitoshiDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route134_EventScript_Hudson::
-	trainerbattle_single TRAINER_HUDSON, Route134_Text_HudsonIntro, Route134_Text_HudsonDefeat
-	msgbox Route134_Text_HudsonPostBattle, MSGBOX_AUTOCLOSE
+script Route134_EventScript_Hudson {
+	trainerbattle_single(TRAINER_HUDSON, Route134_Text_HudsonIntro, Route134_Text_HudsonDefeat)
+	msgbox(Route134_Text_HudsonPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route134_EventScript_TryHudsonRematch)
+	release
 	end
+}
+script Route134_EventScript_TryHudsonRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HUDSON)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ALEX)) {
+		msgbox(format("Include Alex and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ALEX, 0, NULL, Route134_Text_AlexDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HUDSON, Route134_Text_HudsonDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route134_EventScript_Reyna::
-	trainerbattle_single TRAINER_REYNA, Route134_Text_ReynaIntro, Route134_Text_ReynaDefeat
-	msgbox Route134_Text_ReynaPostBattle, MSGBOX_AUTOCLOSE
+script Route134_EventScript_Reyna {
+	trainerbattle_single(TRAINER_REYNA, Route134_Text_ReynaIntro, Route134_Text_ReynaDefeat)
+	msgbox(Route134_Text_ReynaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route134_EventScript_TryReynaRematch)
+	release
 	end
+}
+script Route134_EventScript_TryReynaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_REYNA)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_HITOSHI)) {
+		msgbox(format("Include Hitoshi and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_HITOSHI, 0, NULL, Route134_Text_HitoshiDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_REYNA, Route134_Text_ReynaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route134_EventScript_Marley::
-	trainerbattle_single TRAINER_MARLEY, Route134_Text_MarleyIntro, Route134_Text_MarleyDefeat
-	msgbox Route134_Text_MarleyPostBattle, MSGBOX_AUTOCLOSE
+script Route134_EventScript_Marley {
+	trainerbattle_single(TRAINER_MARLEY, Route134_Text_MarleyIntro, Route134_Text_MarleyDefeat)
+	msgbox(Route134_Text_MarleyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route134_EventScript_TryMarleyRematch)
+	release
 	end
+}
+script Route134_EventScript_TryMarleyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MARLEY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MARLEY, Route134_Text_MarleyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route134_EventScript_Kelvin::
-	trainerbattle_single TRAINER_KELVIN, Route134_Text_KelvinIntro, Route134_Text_KelvinDefeat
-	msgbox Route134_Text_KelvinPostBattle, MSGBOX_AUTOCLOSE
+script Route134_EventScript_Kelvin {
+	trainerbattle_single(TRAINER_KELVIN, Route134_Text_KelvinIntro, Route134_Text_KelvinDefeat)
+	msgbox(Route134_Text_KelvinPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route134_EventScript_TryKelvinRematch)
+	release
 	end
-
-`
+}
+script Route134_EventScript_TryKelvinRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KELVIN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KELVIN, Route134_Text_KelvinDefeat)
+	special(UpdateRecentTrainers)
+	return
+}

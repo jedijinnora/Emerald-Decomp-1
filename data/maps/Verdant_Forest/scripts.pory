@@ -5,7 +5,6 @@ mapscripts Verdant_Forest_MapScripts {
 //Object IDs
 const WOMAN_ID = 6
 const LITTLE_GIRL_ID = 7
-const MANIAC_ID = 8
 
 //TEMPs used:
 //VAR_TEMP_2 = Temptation level
@@ -13,10 +12,6 @@ const MANIAC_ID = 8
 
 //VAR_TEMP_4 = Guardian species
 //FLAG_TEMP_7 = Guardian defeated
-
-//FLAG_TEMP_8 = Maniac intro
-//FLAG_TEMP_9 = Maniac defeated
-
 
 script VerdantForest_OnTransition {
     call(Common_EventScript_SetWild_0)
@@ -43,53 +38,13 @@ script VerdantForest_OnTransition {
         default: //FLORGES
             setvar(VAR_TEMP_4, SPECIES_FLORGES)
     }
-}
-
-script VerdantForest_EventScript_Maniac {
-    lock
-    applymovement(MANIAC_ID, Common_Movement_FacePlayer)
-    goto_if_set(FLAG_TEMP_8, ResearchBattle)
-    BugFairy:
-    msgbox(format("I'm studying the relationship between the Bug and Fairy types."))
-    waitmessage
-    msgbox(format("It seems that Pokémon with the Fairy type are resistant against Bug-type attacks."))
-    waitmessage
-    setflag(FLAG_TEMP_8)
-    call_if_unset(FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY, VerdantForest_EventScript_Tanga)
-    ResearchBattle:
-    call_if_unset(FLAG_TEMP_9, VerdantForest_EventScript_ResearchBattle)
-    release
+    call(Common_EventScript_DisableBPReward)
     end
-}
-
-script VerdantForest_EventScript_Tanga {
-    giveitem(ITEM_TANGA_BERRY, 5)
-    setflag(FLAG_GIVEN_VERDANT_FOREST_TANGA_BERRY)
-    msgbox(format("I thought it should be the other way around, but these Berries aren't useful for Fairy-types."))
-    waitmessage
-    return
-}
-
-script VerdantForest_EventScript_ResearchBattle {
-    goto_if_set(FLAG_TEMP_9, BugFairy)
-    msgbox(format("Want to battle to help me further my research?"), MSGBOX_YESNO)
-    if(var(VAR_RESULT) == NO) {
-        msgbox(format("Hmph. Fine then. Go away."))
-        release
-        end
-    }
-    trainerbattle_no_intro(TRAINER_DRESDEN, VerdantForest_Text_DresdenDefeat)
-    setflag(FLAG_TEMP_9)
-    return
-}
-
-text VerdantForest_Text_DresdenDefeat {
-    "But my theories…"
 }
 
 script VerdantForest_EventScript_LittleGirl {
     lock
-    applymovement(LITTLE_GIRL_ID, Common_Movement_FacePlayer)
+    faceplayer
     msgbox(format("Puff, puff."))
     waitmessage
     msgbox(format("The other kids - puff - said the fairies can't get you - puff - if you don't stop - puff - moving."))
@@ -556,14 +511,55 @@ script VerdantForest_EventScript_SetupGuardianBattle {
 
 
 
-
-
-
+script VerdantForest_EventScript_Dresden {
+	trainerbattle_single(TRAINER_DRESDEN, VerdantForest_Text_DresdenIntro, VerdantForest_Text_DresdenDefeat)
+	msgbox(VerdantForest_Text_DresdenPostBattle, MSGBOX_AUTOCLOSE)
+	call(VerdantForest_EventScript_TryDresdenRematch)
+	release
+	end
+}
+script VerdantForest_EventScript_TryDresdenRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DRESDEN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DRESDEN, VerdantForest_Text_DresdenDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text VerdantForest_Text_DresdenIntro {
+	"Sometimes, you get what's coming\n"
+    "around. Is today your day, or mine?"
+}
+text VerdantForest_Text_DresdenDefeat {
+	"If our battle set the forest on fire, it\n"
+    "wasn't my fault."
+}
+text VerdantForest_Text_DresdenPostBattle {
+	"Fairies are scary, sure. Tricky, too.\n"
+	"But even the most powerful manipulator\l"
+    "in the world can't change who you are."
+}
 
 script VerdantForest_EventScript_Chapman {
 	trainerbattle_single(TRAINER_CHAPMAN, VerdantForest_Text_ChapmanIntro, VerdantForest_Text_ChapmanDefeat)
 	msgbox(VerdantForest_Text_ChapmanPostBattle, MSGBOX_AUTOCLOSE)
+	call(VerdantForest_EventScript_TryChapmanRematch)
+	release
 	end
+}
+script VerdantForest_EventScript_TryChapmanRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CHAPMAN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CHAPMAN, VerdantForest_Text_ChapmanDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text VerdantForest_Text_ChapmanIntro {
 	"Light my fire, baby!"
@@ -579,7 +575,20 @@ text VerdantForest_Text_ChapmanPostBattle {
 script VerdantForest_EventScript_Carrie {
 	trainerbattle_single(TRAINER_CARRIE, VerdantForest_Text_Carrie, VerdantForest_Text_CarrieDefeat)
 	msgbox(VerdantForest_Text_Carrie, MSGBOX_AUTOCLOSE)
+	call(VerdantForest_EventScript_TryCarrieRematch)
+	release
 	end
+}
+script VerdantForest_EventScript_TryCarrieRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CARRIE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CARRIE, VerdantForest_Text_CarrieDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text VerdantForest_Text_Carrie {
 	"Am I a girl who dreamed I was a\n"

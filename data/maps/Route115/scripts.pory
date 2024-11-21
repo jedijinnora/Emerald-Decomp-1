@@ -7,6 +7,7 @@ mapscripts Route115_MapScripts {
 script Route115_OnTransition {
     call(Route115_EventScript_TryMoveStash)
 	call(Common_EventScript_SetWild_0)
+	call(Common_EventScript_DisableBPReward)
     end
 }
 
@@ -39,6 +40,237 @@ script Route115_EventScript_Woman {
 	end
 }
 
+script Route115_EventScript_Timothy {
+	trainerbattle_single(TRAINER_TIMOTHY, Route115_Text_TimothyIntro, Route115_Text_TimothyDefeat)
+	msgbox(Route115_Text_TimothyPostBattle, MSGBOX_DEFAULT)
+	call(Route115_EventScript_TryTimothyRematch)
+	release
+	end
+}
+script Route115_EventScript_TryTimothyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TIMOTHY)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_JAIDEN)) {
+		msgbox(format("Include Jaiden and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JAIDEN, 0, NULL, Route115_Text_JaidenDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_TIMOTHY, Route115_Text_TimothyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route115_EventScript_Koichi {
+	trainerbattle_single(TRAINER_KOICHI, Route115_Text_KoichiIntro, Route115_Text_KoichiDefeat)
+	msgbox(Route115_Text_KoichiPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route115_EventScript_TryKoichiRematch)
+	release
+	end
+}
+script Route115_EventScript_TryKoichiRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KOICHI)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KOICHI, Route115_Text_KoichiDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route115_EventScript_Nob {
+	trainerbattle_single(TRAINER_NOB, Route115_Text_NobIntro, Route115_Text_NobDefeat)
+	msgbox(Route115_Text_NobPostBattle, MSGBOX_DEFAULT)
+	call(Route115_EventScript_TryNobRematch)
+	release
+	end
+}
+script Route115_EventScript_TryNobRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_NOB)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_MARLENE)) {
+		msgbox(format("Include Marlene and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MARLENE, 0, NULL, Route115_Text_MarleneDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_NOB, Route115_Text_NobRematchDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route115_EventScript_Cyndy {
+	trainerbattle_single(TRAINER_CYNDY, Route115_Text_CyndyIntro, Route115_Text_CyndyDefeat)
+	msgbox(Route115_Text_CyndyPostBattle, MSGBOX_DEFAULT)
+	call(Route115_EventScript_TryCyndyRematch)
+	release
+	end
+}
+script Route115_EventScript_TryCyndyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CYNDY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CYNDY, Route115_Text_CyndyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route115_EventScript_Hector {
+	trainerbattle_single(TRAINER_HECTOR, Route115_Text_HectorIntro, Route115_Text_HectorDefeat)
+	msgbox(Route115_Text_HectorPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route115_EventScript_TryHectorRematch)
+	release
+	end
+}
+script Route115_EventScript_TryHectorRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HECTOR)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HECTOR, Route115_Text_HectorDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route115_EventScript_Kyra {
+	trainerbattle_single(TRAINER_KYRA, Route115_Text_KyraIntro, Route115_Text_KyraDefeat)
+	msgbox(Route115_Text_KyraPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route115_EventScript_TryKyraRematch)
+	release
+	end
+}
+script Route115_EventScript_TryKyraRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KYRA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KYRA, Route115_Text_KyraDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route115_EventScript_Jaiden {
+	trainerbattle_single(TRAINER_JAIDEN, Route115_Text_JaidenIntro, Route115_Text_JaidenDefeat)
+	msgbox(Route115_Text_JaidenPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route115_EventScript_TryJaidenRematch)
+	release
+	end
+}
+script Route115_EventScript_TryJaidenRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JAIDEN)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_TIMOTHY)) {
+		msgbox(format("Include Timothy and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_TIMOTHY, 0, NULL, Route115_Text_TimothyDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_JAIDEN, Route115_Text_JaidenDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route115_EventScript_Alix {
+	trainerbattle_single(TRAINER_ALIX, Route115_Text_AlixIntro, Route115_Text_AlixDefeat)
+	msgbox(Route115_Text_AlixPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route115_EventScript_TryAlixRematch)
+	release
+	end
+}
+script Route115_EventScript_TryAlixRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ALIX)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_HELENE)) {
+		msgbox(format("Include Helene and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_HELENE, 0, NULL, Route115_Text_HeleneDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_ALIX, Route115_Text_AlixDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route115_EventScript_Helene {
+	trainerbattle_single(TRAINER_HELENE, Route115_Text_HeleneIntro, Route115_Text_HeleneDefeat)
+	msgbox(Route115_Text_HelenePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route115_EventScript_TryHeleneRematch)
+	release
+	end
+}
+script Route115_EventScript_TryHeleneRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HELENE)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ALIX)) {
+		msgbox(format("Include Alix and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ALIX, 0, NULL, Route115_Text_AlixDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_HELENE, Route115_Text_HeleneDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route115_EventScript_Marlene {
+	trainerbattle_single(TRAINER_MARLENE, Route115_Text_MarleneIntro, Route115_Text_MarleneDefeat)
+	msgbox(Route115_Text_MarlenePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route115_EventScript_TryMarleneRematch)
+	release
+	end
+}
+script Route115_EventScript_TryMarleneRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MARLENE)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_NOB)) {
+		msgbox(format("Include Nob and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_NOB, 0, NULL, Route115_Text_NobRematchDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_MARLENE, Route115_Text_MarleneDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
 raw `
 Route115_EventScript_RouteSignRustboro::
@@ -47,104 +279,6 @@ Route115_EventScript_RouteSignRustboro::
 
 Route115_EventScript_MeteorFallsSign::
 	msgbox Route115_Text_MeteorFallsSign, MSGBOX_SIGN
-	end
-
-Route115_EventScript_Timothy::
-	trainerbattle_single TRAINER_TIMOTHY, Route115_Text_TimothyIntro, Route115_Text_TimothyDefeat, Route115_EventScript_RegisterTimothy
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route115_EventScript_RematchTimothy
-	msgbox Route115_Text_TimothyPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route115_EventScript_RegisterTimothy::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route115_Text_TimothyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_TIMOTHY
-	release
-	end
-
-Route115_EventScript_RematchTimothy::
-	trainerbattle_rematch TRAINER_TIMOTHY, Route115_Text_TimothyRematchIntro, Route115_Text_TimothyRematchDefeat
-	msgbox Route115_Text_TimothyPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route115_EventScript_Koichi::
-	trainerbattle_single TRAINER_KOICHI, Route115_Text_KoichiIntro, Route115_Text_KoichiDefeat
-	msgbox Route115_Text_KoichiPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route115_EventScript_Nob::
-	trainerbattle_single TRAINER_NOB, Route115_Text_NobIntro, Route115_Text_NobDefeat, Route115_EventScript_RegisterNob
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route115_EventScript_RematchNob
-	msgbox Route115_Text_NobPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route115_EventScript_RegisterNob::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route115_Text_NobRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_NOB
-	release
-	end
-
-Route115_EventScript_RematchNob::
-	trainerbattle_rematch TRAINER_NOB, Route115_Text_NobRematchIntro, Route115_Text_NobRematchDefeat
-	msgbox Route115_Text_NobPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route115_EventScript_Cyndy::
-	trainerbattle_single TRAINER_CYNDY, Route115_Text_CyndyIntro, Route115_Text_CyndyDefeat, Route115_EventScript_RegisterCyndy
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route115_EventScript_RematchCyndy
-	msgbox Route115_Text_CyndyPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route115_EventScript_RegisterCyndy::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route115_Text_CyndyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_CYNDY
-	release
-	end
-
-Route115_EventScript_RematchCyndy::
-	trainerbattle_rematch TRAINER_CYNDY, Route115_Text_CyndyRematchIntro, Route115_Text_CyndyRematchDefeat
-	msgbox Route115_Text_CyndyPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route115_EventScript_Hector::
-	trainerbattle_single TRAINER_HECTOR, Route115_Text_HectorIntro, Route115_Text_HectorDefeat
-	msgbox Route115_Text_HectorPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route115_EventScript_Kyra::
-	trainerbattle_single TRAINER_KYRA, Route115_Text_KyraIntro, Route115_Text_KyraDefeat
-	msgbox Route115_Text_KyraPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route115_EventScript_Jaiden::
-	trainerbattle_single TRAINER_JAIDEN, Route115_Text_JaidenIntro, Route115_Text_JaidenDefeat
-	msgbox Route115_Text_JaidenPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route115_EventScript_Alix::
-	trainerbattle_single TRAINER_ALIX, Route115_Text_AlixIntro, Route115_Text_AlixDefeat
-	msgbox Route115_Text_AlixPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route115_EventScript_Helene::
-	trainerbattle_single TRAINER_HELENE, Route115_Text_HeleneIntro, Route115_Text_HeleneDefeat
-	msgbox Route115_Text_HelenePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route115_EventScript_Marlene::
-	trainerbattle_single TRAINER_MARLENE, Route115_Text_MarleneIntro, Route115_Text_MarleneDefeat
-	msgbox Route115_Text_MarlenePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route115_Text_RouteSignRustboro:

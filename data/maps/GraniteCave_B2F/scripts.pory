@@ -1,19 +1,36 @@
-mapscripts GraniteCave_B2F_MapScripts {}
+mapscripts GraniteCave_B2F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : GraniteCave_B2F_OnTransition
+}
 
-script GraniteCave_B2F_EventScript_Kaylee {
-	trainerbattle_single(TRAINER_KAYLEE, GraniteCave_B2F_Text_KayleeIntro, GraniteCave_B2F_Text_KayleeDefeated)
-	msgbox(GraniteCave_B2F_Text_KayleePostBattle, MSGBOX_AUTOCLOSE)
+script GraniteCave_B2F_OnTransition {
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 
+script GraniteCave_B2F_EventScript_Kaylee {
+	trainerbattle_single(TRAINER_KAYLEE, GraniteCave_B2F_Text_KayleeIntro, GraniteCave_B2F_Text_KayleeDefeat)
+	msgbox(GraniteCave_B2F_Text_KayleePostBattle, MSGBOX_AUTOCLOSE)
+	call(GraniteCave_B2F_EventKaylee_TryKayleeRematch)
+	release
+	end
+}
+script GraniteCave_B2F_EventKaylee_TryKayleeRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KAYLEE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KAYLEE, GraniteCave_B2F_Text_KayleeDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 text GraniteCave_B2F_Text_KayleeIntro {
     format("Fufufufu…\nLet me show you why you should fear the darkness!")
 }
-
-text GraniteCave_B2F_Text_KayleeDefeated {
+text GraniteCave_B2F_Text_KayleeDefeat {
 	format("Aiee! You lit us up!")
 }
-
 text GraniteCave_B2F_Text_KayleePostBattle {
 	format("The darkness within this cave matches the black in my heart…")
 }

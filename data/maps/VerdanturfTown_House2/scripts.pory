@@ -9,7 +9,7 @@ script VerdanturfTown_House2_EventScript_Bellatrix {
 }
 
 script VerdanturfTown_House2_EventScript_FairySpecialistInfo {
-    msgbox("My name is…\n Hmm… \lCall me Bellatrix")
+    msgbox("My name is…\n Hmm… \pCall me Bellatrix.")
     msgbox(format("If you prove mastery over my Fairy-type Pokémon in battle, I will offer to teach you various Fairy-type moves."))
     msgbox(format("There are three battles available: a standard double battle, a double battle with inverse type matchups, and a challenge battle where you must bring only Fairy-type Pokémon."))
     setflag(FLAG_MET_FAIRY_TUTOR)

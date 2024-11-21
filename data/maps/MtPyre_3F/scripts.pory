@@ -1,38 +1,103 @@
+mapscripts MtPyre_3F_MapScripts {}
+
+const LOCALID_GABRIELLE = 3
+
+script MtPyre_3F_EventScript_Gabrielle_Left {
+	applymovement(LOCALID_GABRIELLE, Common_Movement_FaceLeft)
+	setvar(VAR_TEMP_1, 1)
+}
+
+script MtPyre_3F_EventScript_Gabrielle_Right {
+	applymovement(LOCALID_GABRIELLE, Common_Movement_FaceRight)
+	setvar(VAR_TEMP_1, 0)
+}
+
+script MtPyre_3F_EventScript_William {
+	trainerbattle_single(TRAINER_WILLIAM, MtPyre_3F_Text_WilliamIntro, MtPyre_3F_Text_WilliamDefeat)
+	msgbox(MtPyre_3F_Text_WilliamPostBattle, MSGBOX_AUTOCLOSE)
+	call(MtPyre_3F_EventScript_TryWilliamRematch)
+	release
+	end
+}
+script MtPyre_3F_EventScript_TryWilliamRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_WILLIAM)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_GABRIELLE)) {
+		msgbox(format("Include Gabrielle and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GABRIELLE, 0, NULL, MtPyre_3F_Text_GabrielleDefeat)
+			addvar(VAR_0x8004, 2)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_WILLIAM, MtPyre_3F_Text_WilliamDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script MtPyre_3F_EventScript_Kayla {
+	trainerbattle_single(TRAINER_KAYLA, MtPyre_3F_Text_KaylaIntro, MtPyre_3F_Text_KaylaDefeat)
+	msgbox(MtPyre_3F_Text_KaylaPostBattle, MSGBOX_AUTOCLOSE)
+	call(MtPyre_3F_EventScript_TryKaylaRematch)
+	release
+	end
+}
+script MtPyre_3F_EventScript_TryKaylaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KAYLA)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_GABRIELLE)) {
+		msgbox(format("Include Gabrielle and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GABRIELLE, 0, NULL, MtPyre_3F_Text_GabrielleDefeat)
+			addvar(VAR_0x8004, 2)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KAYLA, MtPyre_3F_Text_KaylaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script MtPyre_3F_EventScript_Gabrielle {
+	trainerbattle_single(TRAINER_GABRIELLE, MtPyre_3F_Text_GabrielleIntro, MtPyre_3F_Text_GabrielleDefeat)
+	msgbox(MtPyre_3F_Text_GabriellePostBattle, MSGBOX_DEFAULT)
+	call(MtPyre_3F_EventScript_TryGabrielleRematch)
+	release
+	end
+}
+script MtPyre_3F_EventScript_TryGabrielleRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_GABRIELLE)
+	setvar(VAR_0x8004, 2)
+	if (defeated(TRAINER_WILLIAM)) {
+		msgbox(format("Include William and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_WILLIAM, 0, NULL, MtPyre_3F_Text_WilliamDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	if (defeated(TRAINER_KAYLA) && (var(VAR_RESULT) == NO)) {
+		msgbox(format("Include Kayla and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_KAYLA, 0, NULL, MtPyre_3F_Text_KaylaDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_GABRIELLE, MtPyre_3F_Text_GabrielleDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
 raw `
-MtPyre_3F_MapScripts::
-	.byte 0
-
-MtPyre_3F_EventScript_William::
-	trainerbattle_single TRAINER_WILLIAM, MtPyre_3F_Text_WilliamIntro, MtPyre_3F_Text_WilliamDefeat
-	msgbox MtPyre_3F_Text_WilliamPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-MtPyre_3F_EventScript_Kayla::
-	trainerbattle_single TRAINER_KAYLA, MtPyre_3F_Text_KaylaIntro, MtPyre_3F_Text_KaylaDefeat
-	msgbox MtPyre_3F_Text_KaylaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-MtPyre_3F_EventScript_Gabrielle::
-	trainerbattle_single TRAINER_GABRIELLE, MtPyre_3F_Text_GabrielleIntro, MtPyre_3F_Text_GabrielleDefeat, MtPyre_3F_EventScript_RegisterGabrielle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, MtPyre_3F_EventScript_RematchGabrielle
-	msgbox MtPyre_3F_Text_GabriellePostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-MtPyre_3F_EventScript_RegisterGabrielle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox MtPyre_3F_Text_GabrielleRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_GABRIELLE
-	release
-	end
-
-MtPyre_3F_EventScript_RematchGabrielle::
-	trainerbattle_rematch TRAINER_GABRIELLE, MtPyre_3F_Text_GabrielleRematchIntro, MtPyre_3F_Text_GabrielleRematchDefeat
-	msgbox MtPyre_3F_Text_GabriellePostRematch, MSGBOX_AUTOCLOSE
-	end
-
 MtPyre_3F_Text_WilliamIntro:
 	.string "The rich atmosphere of the mountain\n"
 	.string "has elevated my psychic power!\p"

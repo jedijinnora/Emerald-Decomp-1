@@ -4,6 +4,7 @@ mapscripts SouthernIsland_MapScripts {
 
 script SouthernIsland_OnTransition {
     setflag(FLAG_LANDMARK_SOUTHERN_ISLAND)
+	call(Common_EventScript_DisableBPReward)
     end
 }
 
@@ -15,7 +16,20 @@ script SouthernIsland_EventScript_Sign {
 script SouthernIsland_EventScript_Naomi {
 	trainerbattle_single(TRAINER_NAOMI, SouthernIsland_Text_NaomiIntro, SouthernIsland_Text_NaomiDefeat)
 	msgbox(SouthernIsland_Text_NaomiPostBattle, MSGBOX_AUTOCLOSE)
+	call(SouthernIsland_EventScript_TryNaomiRematch)
+	release
 	end
+}
+script SouthernIsland_EventScript_TryNaomiRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_NAOMI)
+	setvar(VAR_0x8004, 2)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_NAOMI, SouthernIsland_Text_NaomiDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SouthernIsland_Text_NaomiIntro {
 	"This island is quite out of the way.\n"

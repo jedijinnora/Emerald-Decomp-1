@@ -4,6 +4,7 @@ mapscripts MeteorFalls_1F_1R_MapScripts {
 
 script MeteorFalls_1F_1R_OnTransition {
     call(MeteorFalls_1F_1R_EventScript_TryHideStash)
+    call(Common_EventScript_DisableBPReward)
     end
 }
 
@@ -28,18 +29,28 @@ script MeteorFalls_1F_1R_EventScript_HideStash_2 {
 script MeteorFalls_1F_1R_EventScript_Bill {
     trainerbattle_single(TRAINER_BILL, MeteorFalls_1F_1R_Text_BillIntro, MeteorFalls_1F_1R_Text_BillDefeat)
     msgbox(MeteorFalls_1F_1R_Text_BillPostBattle, MSGBOX_AUTOCLOSE)
-    end
+    call(MeteorFalls_1F_1R_EventScript_TryBillRematch)
+	release
+	end
 }
-
+script MeteorFalls_1F_1R_EventScript_TryBillRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_BILL)
+	setvar(VAR_0x8004, 2)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_BILL, MeteorFalls_1F_1R_Text_BillDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 text MeteorFalls_1F_1R_Text_BillIntro {
     "Hey, not so fast! Are you sure you're\n"
     "strong enough to handle those Pokémon?"
 }
-
 text MeteorFalls_1F_1R_Text_BillDefeat {
     "Okay then, off you go!"
 }
-
 text MeteorFalls_1F_1R_Text_BillPostBattle {
     "Best be ready to prove yourself if\n"
     "you plan to venture deeper. I'm far\l"

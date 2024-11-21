@@ -1,105 +1,288 @@
-mapscripts Route109_MapScripts {}
+mapscripts Route109_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route109_OnTransition
+}
 
-raw `
-Route109_EventScript_David::
-	trainerbattle_single TRAINER_DAVID, Route109_Text_DavidIntro, Route109_Text_DavidDefeated
-	msgbox Route109_Text_DavidPostBattle, MSGBOX_AUTOCLOSE
+script Route109_OnTransition {
+	call(Common_EventScript_DisableBPReward)
 	end
+}
 
-Route109_EventScript_Alice::
-	trainerbattle_single TRAINER_ALICE, Route109_Text_AliceIntro, Route109_Text_AliceDefeated
-	msgbox Route109_Text_AlicePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route109_EventScript_Huey::
-	trainerbattle_single TRAINER_HUEY, Route109_Text_HueyIntro, Route109_Text_HueyDefeated
-	msgbox Route109_Text_HueyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route109_EventScript_Edmond::
-	trainerbattle_single TRAINER_EDMOND, Route109_Text_EdmondIntro, Route109_Text_EdmondDefeated
-	msgbox Route109_Text_EdmondPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route109_EventScript_Ricky::
-	trainerbattle_single TRAINER_RICKY, Route109_Text_RickyIntro, Route109_Text_RickyDefeated, Route109_EventScript_RickyRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route109_EventScript_RickyRematch
-	msgbox Route109_Text_RickyPostBattle, MSGBOX_DEFAULT
+script Route109_EventScript_David {
+	trainerbattle_single(TRAINER_DAVID, Route109_Text_DavidIntro, Route109_Text_DavidDefeated)
+	msgbox(Route109_Text_DavidPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route109_EventScript_TryDavidRematch)
 	release
 	end
+}
+script Route109_EventScript_TryDavidRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DAVID)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DAVID, Route109_Text_DavidDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route109_EventScript_RickyRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route109_Text_RickyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_RICKY
+script Route109_EventScript_Alice {
+	trainerbattle_single(TRAINER_ALICE, Route109_Text_AliceIntro, Route109_Text_AliceDefeated)
+	msgbox(Route109_Text_AlicePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route109_EventScript_TryAliceRematch)
 	release
 	end
+}
+script Route109_EventScript_TryAliceRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ALICE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ALICE, Route109_Text_AliceDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route109_EventScript_RickyRematch::
-	trainerbattle_rematch TRAINER_RICKY, Route109_Text_RickyRematchIntro, Route109_Text_RickyRematchDefeated
-	msgbox Route109_Text_RickyRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route109_EventScript_Lola::
-	trainerbattle_single TRAINER_LOLA, Route109_Text_LolaIntro, Route109_Text_LolaDefeated, Route109_EventScript_LolaRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route109_EventScript_LolaRematch
-	msgbox Route109_Text_LolaPostBattle, MSGBOX_DEFAULT
+script Route109_EventScript_Huey {
+	trainerbattle_single(TRAINER_HUEY, Route109_Text_HueyIntro, Route109_Text_HueyDefeated)
+	msgbox(Route109_Text_HueyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route109_EventScript_TryHueyRematch)
 	release
 	end
+}
+script Route109_EventScript_TryHueyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HUEY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HUEY, Route109_Text_HueyDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route109_EventScript_LolaRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route109_Text_LolaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_LOLA
+script Route109_EventScript_Edmond {
+	trainerbattle_single(TRAINER_EDMOND, Route109_Text_EdmondIntro, Route109_Text_EdmondDefeated)
+	msgbox(Route109_Text_EdmondPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route109_EventScript_TryEdmondRematch)
 	release
 	end
+}
+script Route109_EventScript_TryEdmondRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_EDMOND)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ELIJAH)) {
+		msgbox(format("Include Elijah and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ELIJAH, 0, NULL, Route109_Text_ElijahDefeated)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_EDMOND, Route109_Text_EdmondDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route109_EventScript_LolaRematch::
-	trainerbattle_rematch TRAINER_LOLA, Route109_Text_LolaRematchIntro, Route109_Text_LolaRematchDefeated
-	msgbox Route109_Text_LolaRematchPostBattle, MSGBOX_AUTOCLOSE
+script Route109_EventScript_Ricky {
+	trainerbattle_single(TRAINER_RICKY, Route109_Text_RickyRematchIntro, Route109_Text_RickyRematchDefeated)
+	msgbox(Route109_Text_RickyRematchPostBattle, MSGBOX_DEFAULT)
+	call(Route109_EventScript_TryRickyRematch)
+	release
 	end
+}
+script Route109_EventScript_TryRickyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_RICKY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_RICKY, Route109_Text_RickyRematchDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route109_EventScript_Austina::
-	trainerbattle_single TRAINER_AUSTINA, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
-	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
+script Route109_EventScript_Lola {
+	trainerbattle_single(TRAINER_LOLA, Route109_Text_LolaRematchIntro, Route109_Text_LolaDefeated)
+	msgbox(Route109_Text_LolaRematchPostBattle, MSGBOX_DEFAULT)
+	call(Route109_EventScript_TryLolaRematch)
+	release
 	end
+}
+script Route109_EventScript_TryLolaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LOLA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LOLA, Route109_Text_LolaDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route109_EventScript_Gwen::
-	trainerbattle_single TRAINER_GWEN, Route109_Text_GwenIntro, Route109_Text_GwenDefeated
-	msgbox Route109_Text_GwenPostBattle, MSGBOX_AUTOCLOSE
+script Route109_EventScript_Austina {
+	trainerbattle_single(TRAINER_AUSTINA, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated)
+	msgbox(Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route109_EventScript_TryAustinaRematch)
+	release
 	end
+}
+script Route109_EventScript_TryAustinaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_AUSTINA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_AUSTINA, Route109_Text_AustinaDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route109_EventScript_Carter::
-	trainerbattle_single TRAINER_CARTER, Route109_Text_CarterIntro, Route109_Text_CarterDefeated
-	msgbox Route109_Text_CarterPostBattle, MSGBOX_AUTOCLOSE
+script Route109_EventScript_Gwen {
+	trainerbattle_single(TRAINER_GWEN, Route109_Text_GwenIntro, Route109_Text_GwenDefeated)
+	msgbox(Route109_Text_GwenPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route109_EventScript_TryGwenRematch)
+	release
 	end
+}
+script Route109_EventScript_TryGwenRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_GWEN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_GWEN, Route109_Text_GwenDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route109_EventScript_Paul::
-	trainerbattle_double TRAINER_MEL_AND_PAUL, Route109_Text_PaulIntro, Route109_Text_PaulDefeated, Route109_Text_PaulNotEnoughPokemon
-	msgbox Route109_Text_PaulPostBattle, MSGBOX_AUTOCLOSE
+script Route109_EventScript_Carter {
+	trainerbattle_single(TRAINER_CARTER, Route109_Text_CarterIntro, Route109_Text_CarterDefeated)
+	msgbox(Route109_Text_CarterPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route109_EventScript_TryCarterRematch)
+	release
 	end
+}
+script Route109_EventScript_TryCarterRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CARTER)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CARTER, Route109_Text_CarterDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route109_EventScript_Mel::
-	trainerbattle_double TRAINER_MEL_AND_PAUL, Route109_Text_MelIntro, Route109_Text_MelDefeated, Route109_Text_MelNotEnoughPokemon
-	msgbox Route109_Text_MelPostBattle, MSGBOX_AUTOCLOSE
+script Route109_EventScript_Paul {
+	trainerbattle_double(TRAINER_MEL_AND_PAUL, Route109_Text_PaulIntro, Route109_Text_PaulDefeated, Route109_Text_PaulNotEnoughPokemon)
+	msgbox(Route109_Text_PaulPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route109_EventScript_TryPaulRematch)
+	release
 	end
+}
+script Route109_EventScript_TryPaulRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MEL_AND_PAUL)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MEL_AND_PAUL, Route109_Text_PaulDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route109_EventScript_Chandler::
-	trainerbattle_single TRAINER_CHANDLER, Route109_Text_ChandlerIntro, Route109_Text_ChandlerDefeated
-	msgbox Route109_Text_ChandlerPostBattle, MSGBOX_AUTOCLOSE
+script Route109_EventScript_Mel {
+	trainerbattle_double(TRAINER_MEL_AND_PAUL, Route109_Text_MelIntro, Route109_Text_MelDefeated, Route109_Text_MelNotEnoughPokemon)
+	msgbox(Route109_Text_MelPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route109_EventScript_TryMelRematch)
+	release
 	end
+}
+script Route109_EventScript_TryMelRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MEL_AND_PAUL)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MEL_AND_PAUL, Route109_Text_MelDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route109_EventScript_Hailey::
-	trainerbattle_single TRAINER_HAILEY, Route109_Text_HaileyIntro, Route109_Text_HaileyDefeated
-	msgbox Route109_Text_HaileyPostBattle, MSGBOX_AUTOCLOSE
+script Route109_EventScript_Chandler {
+	trainerbattle_single(TRAINER_CHANDLER, Route109_Text_ChandlerIntro, Route109_Text_ChandlerDefeated)
+	msgbox(Route109_Text_ChandlerPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route109_EventScript_TryChandlerRematch)
+	release
 	end
+}
+script Route109_EventScript_TryChandlerRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CHANDLER)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CHANDLER, Route109_Text_ChandlerDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route109_EventScript_Elijah::
-	trainerbattle_single TRAINER_ELIJAH, Route109_Text_ElijahIntro, Route109_Text_ElijahDefeated
-	msgbox Route109_Text_ElijahPostBattle, MSGBOX_AUTOCLOSE
+script Route109_EventScript_Hailey {
+	trainerbattle_single(TRAINER_HAILEY, Route109_Text_HaileyIntro, Route109_Text_HaileyDefeated)
+	msgbox(Route109_Text_HaileyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route109_EventScript_TryHaileyRematch)
+	release
 	end
-`
+}
+script Route109_EventScript_TryHaileyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HAILEY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HAILEY, Route109_Text_HaileyDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route109_EventScript_Elijah {
+	trainerbattle_single(TRAINER_ELIJAH, Route109_Text_ElijahIntro, Route109_Text_ElijahDefeated)
+	msgbox(Route109_Text_ElijahPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route109_EventScript_TryElijahRematch)
+	release
+	end
+}
+script Route109_EventScript_TryElijahRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ELIJAH)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_EDMOND)) {
+		msgbox(format("Include Edmond and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_EDMOND, 0, NULL, Route109_Text_EdmondDefeated)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_ELIJAH, Route109_Text_ElijahDefeated)
+	special(UpdateRecentTrainers)
+	return
+}

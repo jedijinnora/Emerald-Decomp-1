@@ -1,4 +1,11 @@
-mapscripts Route124_MapScripts {}
+mapscripts Route124_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route124_OnTransition
+}
+
+script Route124_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	end
+}
 
 script Route124_EventScript_HuntersHouseSign {
 	msgbox("Shard Hunter's House\n“Evolution stones exchanged!”", MSGBOX_SIGN)
@@ -15,125 +22,259 @@ script Route124_EventScript_HouseSign {
 	end
 }
 
-script Route_124_EventScript_Garret {
-	trainerbattle_single(TRAINER_GARRET, Route_124_Text_GarretIntro, Route_124_Text_GarretDefeat)
-	msgbox(Route_124_Text_GarretPostBattle, MSGBOX_AUTOCLOSE)
+script Route124_EventScript_Spencer{
+	trainerbattle_single(TRAINER_SPENCER, Route124_Text_SpencerIntro, Route124_Text_SpencerDefeat)
+	msgbox(Route124_Text_SpencerPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route124_EventScript_TrySpencerRematch)
+	release
 	end
 }
-text Route_124_Text_GarretIntro {
+script Route124_EventScript_TrySpencerRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SPENCER)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SPENCER, Route124_Text_SpencerDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route124_EventScript_Roland{
+	trainerbattle_single(TRAINER_ROLAND, Route124_Text_RolandIntro, Route124_Text_RolandDefeat)
+	msgbox(Route124_Text_RolandPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route124_EventScript_TryRolandRematch)
+	release
+	end
+}
+script Route124_EventScript_TryRolandRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ROLAND)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ISABELLA)) {
+		msgbox(format("Include Isabella and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ISABELLA, 0, NULL, Route124_Text_IsabellaDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ROLAND, Route124_Text_RolandDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route124_EventScript_Jenny{
+	trainerbattle_single(TRAINER_JENNY, Route124_Text_JennyIntro, Route124_Text_JennyDefeat)
+	msgbox(Route124_Text_JennyPostBattle, MSGBOX_DEFAULT)
+	call(Route124_EventScript_TryJennyRematch)
+	release
+	end
+}
+script Route124_EventScript_TryJennyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JENNY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JENNY, Route124_Text_JennyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route124_EventScript_Rischel{
+	trainerbattle_single(TRAINER_RISCHEL, Route124_Text_RischelIntro, Route124_Text_RischelDefeat)
+	msgbox(Route124_Text_RischelPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route124_EventScript_TryRischelRematch)
+	release
+	end
+}
+script Route124_EventScript_TryRischelRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_RISCHEL)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_DECLAN)) {
+		msgbox(format("Include Declan and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DECLAN, 0, NULL, Route124_Text_DeclanDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_RISCHEL, Route124_Text_RischelDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route124_EventScript_Chad{
+	trainerbattle_single(TRAINER_CHAD, Route124_Text_ChadIntro, Route124_Text_ChadDefeat)
+	msgbox(Route124_Text_ChadPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route124_EventScript_TryChadRematch)
+	release
+	end
+}
+script Route124_EventScript_TryChadRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CHAD)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CHAD, Route124_Text_ChadDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route124_EventScript_Lila{
+	trainerbattle_double(TRAINER_LILA_AND_ROY, Route124_Text_LilaIntro, Route124_Text_LilaDefeat, Route124_Text_LilaNotEnoughMons)
+	msgbox(Route124_Text_LilaPostBattle, MSGBOX_DEFAULT)
+	call(Route124_EventScript_TryLilaRematch)
+	release
+	end
+}
+script Route124_EventScript_TryLilaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LILA_AND_ROY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LILA_AND_ROY, Route124_Text_LilaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route124_EventScript_Roy{
+	trainerbattle_double(TRAINER_LILA_AND_ROY, Route124_Text_RoyIntro, Route124_Text_RoyDefeat, Route124_Text_RoyNotEnoughMons)
+	msgbox(Route124_Text_RoyPostBattle, MSGBOX_DEFAULT)
+	call(Route124_EventScript_TryRoyRematch)
+	release
+	end
+}
+script Route124_EventScript_TryRoyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LILA_AND_ROY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LILA_AND_ROY, Route124_Text_RoyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route124_EventScript_Declan{
+	trainerbattle_single(TRAINER_DECLAN, Route124_Text_DeclanIntro, Route124_Text_DeclanDefeat)
+	msgbox(Route124_Text_DeclanPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route124_EventScript_TryDeclanRematch)
+	release
+	end
+}
+script Route124_EventScript_TryDeclanRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DECLAN)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_RISCHEL)) {
+		msgbox(format("Include Rischel and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_RISCHEL, 0, NULL, Route124_Text_RischelDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DECLAN, Route124_Text_DeclanDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route124_EventScript_Isabella{
+	trainerbattle_single(TRAINER_ISABELLA, Route124_Text_IsabellaIntro, Route124_Text_IsabellaDefeat)
+	msgbox(Route124_Text_IsabellaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route124_EventScript_TryIsabellaRematch)
+	release
+	end
+}
+script Route124_EventScript_TryIsabellaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ISABELLA)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ROLAND)) {
+		msgbox(format("Include Roland and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ROLAND, 0, NULL, Route124_Text_RolandDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ISABELLA, Route124_Text_IsabellaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route124_EventScript_Garret {
+	trainerbattle_single(TRAINER_GARRET, Route124_Text_GarretIntro, Route124_Text_GarretDefeat)
+	msgbox(Route124_Text_GarretPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route124_EventScript_TryGarretRematch)
+	release
+	end
+}
+script Route124_EventScript_TryGarretRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_GARRET)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_GARRET, Route124_Text_GarretDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route124_Text_GarretIntro {
 	"Fly high, my pretties!"
 }
-text Route_124_Text_GarretDefeat {
+text Route124_Text_GarretDefeat {
 	"Brought down!"
 }
-text Route_124_Text_GarretPostBattle {
+text Route124_Text_GarretPostBattle {
 	"Battles are nice, but soaring on a\n"
 	"bird Pokémon? That's the dream."
 }
 
-script Route_124_EventScript_Josie {
-	trainerbattle_single(TRAINER_JOSIE, Route_124_Text_JosieIntro, Route_124_Text_JosieDefeat)
-	msgbox(Route_124_Text_JosiePostBattle, MSGBOX_AUTOCLOSE)
+script Route124_EventScript_Josie {
+	trainerbattle_single(TRAINER_JOSIE, Route124_Text_JosieIntro, Route124_Text_JosieDefeat)
+	msgbox(Route124_Text_JosiePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route124_EventScript_TryJosieRematch)
+	release
 	end
 }
-text Route_124_Text_JosieIntro {
+script Route124_EventScript_TryJosieRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JOSIE)
+	setvar(VAR_0x8004, 2)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JOSIE, Route124_Text_JosieDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route124_Text_JosieIntro {
 	"Want to share my secret spot?"
 }
-text Route_124_Text_JosieDefeat {
+text Route124_Text_JosieDefeat {
 	"Ahaha! Well fought."
 }
-text Route_124_Text_JosiePostBattle {
+text Route124_Text_JosiePostBattle {
 	"I caught my rare Ghost types on\n"
 	"Route 122."
 }
-
-raw `
-Route124_EventScript_Spencer::
-	trainerbattle_single TRAINER_SPENCER, Route124_Text_SpencerIntro, Route124_Text_SpencerDefeat
-	msgbox Route124_Text_SpencerPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route124_EventScript_Roland::
-	trainerbattle_single TRAINER_ROLAND, Route124_Text_RolandIntro, Route124_Text_RolandDefeat
-	msgbox Route124_Text_RolandPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route124_EventScript_Jenny::
-	trainerbattle_single TRAINER_JENNY, Route124_Text_JennyIntro, Route124_Text_JennyDefeat, Route124_EventScript_RegisterJenny
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route124_EventScript_RematchJenny
-	msgbox Route124_Text_JennyPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route124_EventScript_RegisterJenny::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route124_Text_JennyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JENNY
-	release
-	end
-
-Route124_EventScript_RematchJenny::
-	trainerbattle_rematch TRAINER_JENNY, Route124_Text_JennyRematchIntro, Route124_Text_JennyRematchDefeat
-	msgbox Route124_Text_JennyPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route124_EventScript_Grace::
-	trainerbattle_single TRAINER_RISCHEL, Route124_Text_GraceIntro, Route124_Text_GraceDefeat
-	msgbox Route124_Text_GracePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route124_EventScript_Chad::
-	trainerbattle_single TRAINER_CHAD, Route124_Text_ChadIntro, Route124_Text_ChadDefeat
-	msgbox Route124_Text_ChadPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route124_EventScript_Lila::
-	trainerbattle_double TRAINER_LILA_AND_ROY, Route124_Text_LilaIntro, Route124_Text_LilaDefeat, Route124_Text_LilaNotEnoughMons, Route124_EventScript_RegisterLila
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route124_EventScript_RematchLila
-	msgbox Route124_Text_LilaPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route124_EventScript_RegisterLila::
-	msgbox Route124_Text_LilaRoyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_LILA_AND_ROY
-	release
-	end
-
-Route124_EventScript_RematchLila::
-	trainerbattle_rematch_double TRAINER_LILA_AND_ROY, Route124_Text_LilaRematchIntro, Route124_Text_LilaRematchDefeat, Route124_Text_LilaRematchNotEnoughMons
-	msgbox Route124_Text_LilaPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route124_EventScript_Roy::
-	trainerbattle_double TRAINER_LILA_AND_ROY, Route124_Text_RoyIntro, Route124_Text_RoyDefeat, Route124_Text_RoyNotEnoughMons, Route124_EventScript_RegisterRoy
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route124_EventScript_RematchRoy
-	msgbox Route124_Text_RoyPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route124_EventScript_RegisterRoy::
-	msgbox Route124_Text_LilaRoyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_LILA_AND_ROY
-	release
-	end
-
-Route124_EventScript_RematchRoy::
-	trainerbattle_rematch_double TRAINER_LILA_AND_ROY, Route124_Text_RoyRematchIntro, Route124_Text_RoyRematchDefeat, Route124_Text_RoyRematchNotEnoughMons
-	msgbox Route124_Text_RoyPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route124_EventScript_Declan::
-	trainerbattle_single TRAINER_DECLAN, Route124_Text_DeclanIntro, Route124_Text_DeclanDefeat
-	msgbox Route124_Text_DeclanPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route124_EventScript_Isabella::
-	trainerbattle_single TRAINER_ISABELLA, Route124_Text_IsabellaIntro, Route124_Text_IsabellaDefeat
-	msgbox Route124_Text_IsabellaPostBattle, MSGBOX_AUTOCLOSE
-	end
-`

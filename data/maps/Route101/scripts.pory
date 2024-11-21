@@ -1,4 +1,11 @@
-mapscripts Route101_MapScripts {}
+mapscripts Route101_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Route101_OnTransition
+}
+
+script Route101_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	end
+}
 
 script Route101_EventScript_RouteSign {
 	msgbox("Route 101\p{UP_ARROW} Oldale Town\n{DOWN_ARROW} Littleroot Town", MSGBOX_SIGN)
@@ -6,19 +13,20 @@ script Route101_EventScript_RouteSign {
 }
 
 script Route101_EventScript_Breyden {
-	trainerbattle_single(TRAINER_BREYDEN, Route101_Text_BreydenIntro, Route101_Text_BreydenDefeat)
+	trainerbattle_single(TRAINER_BREYDEN, Route101_Text_BreydenIntro, Route101_Text_BreydenDefeated)
 	msgbox(Route101_Text_BreydenPostBattle, MSGBOX_AUTOCLOSE)
 	call(Route101_EventScript_TryBreydenRematch)
 	release
 	end
 }
 script Route101_EventScript_TryBreydenRematch {
-	call(Common_EventScript_ShouldDoRematch)
+	lock
+    call(Common_EventScript_ShouldDoRematch)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
 	setvar(VAR_0x8003, TRAINER_BREYDEN)
 	setvar(VAR_0x8004, 1)
 	call(Common_EventScript_CheckRecentRematchesSetBP)
-	trainerbattle_no_intro(TRAINER_BREYDEN, Route101_Text_BreydenRematchDefeat)
+	trainerbattle_no_intro(TRAINER_BREYDEN, Route101_Text_BreydenRematchDefeated)
 	special(UpdateRecentTrainers)
 	return
 }
@@ -26,7 +34,7 @@ text Route101_Text_BreydenIntro {
 	"I'm gonna wipe you out and head back\n"
 	"home in time for dinner!"
 }
-text Route101_Text_BreydenDefeat {
+text Route101_Text_BreydenDefeated {
 	"Hard to win when you have to go home\n"
 	"for dinner instead of training all day."
 }
@@ -35,31 +43,32 @@ text Route101_Text_BreydenPostBattle {
 	"could walk straight from Oldale to\l"
 	"Littleroot."
 }
-text Route101_Text_BreydenRematchDefeat {
+text Route101_Text_BreydenRematchDefeated {
 	"Again?! How much do you train?"
 }
 
 script Route101_EventScript_Vance {
-	trainerbattle_single(TRAINER_VANCE, Route101_Text_VanceIntro, Route101_Text_VanceDefeat)
+	trainerbattle_single(TRAINER_VANCE, Route101_Text_VanceIntro, Route101_Text_VanceDefeated)
 	msgbox(Route101_Text_VancePostBattle, MSGBOX_AUTOCLOSE)
 	call(Route101_EventScript_TryVanceRematch)
 	release
 	end
 }
 script Route101_EventScript_TryVanceRematch {
-	call(Common_EventScript_ShouldDoRematch)
+	lock
+    call(Common_EventScript_ShouldDoRematch)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
 	setvar(VAR_0x8003, TRAINER_VANCE)
 	setvar(VAR_0x8004, 1)
 	call(Common_EventScript_CheckRecentRematchesSetBP)
-	trainerbattle_no_intro(TRAINER_VANCE, Route101_Text_VanceRematchDefeat)
+	trainerbattle_no_intro(TRAINER_VANCE, Route101_Text_VanceRematchDefeated)
 	special(UpdateRecentTrainers)
 	return
 }
 text Route101_Text_VanceIntro {
 	"Watch out! There's a bug on your head!"
 }
-text Route101_Text_VanceDefeat {
+text Route101_Text_VanceDefeated {
 	"I wear a hat so critters can't get in my\n"
 	"hair."
 }
@@ -67,25 +76,26 @@ text Route101_Text_VancePostBattle {
 	"I think I have a rip in my favorite\n"
 	"Butterfree net. Can you fix it for me?"
 }
-text Route101_Text_VanceRematchDefeat {
+text Route101_Text_VanceRematchDefeated {
 	"Ack! Cough! Something bit me,\n"
 	"so that doesnn't count!"
 }
 
 script Route101_EventScript_Stephanie {
-	trainerbattle_single(TRAINER_STEPHANIE, Route101_Text_StephanieIntro, Route101_Text_StephanieDefeat)
+	trainerbattle_single(TRAINER_STEPHANIE, Route101_Text_StephanieIntro, Route101_Text_StephanieDefeated)
 	msgbox(Route101_Text_StephaniePostBattle, MSGBOX_AUTOCLOSE)
 	call(Route101_EventScript_TryStephanieRematch)
 	release
 	end
 }
 script Route101_EventScript_TryStephanieRematch {
-	call(Common_EventScript_ShouldDoRematch)
+	lock
+    call(Common_EventScript_ShouldDoRematch)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
 	setvar(VAR_0x8003, TRAINER_STEPHANIE)
 	setvar(VAR_0x8004, 1)
 	call(Common_EventScript_CheckRecentRematchesSetBP)
-	trainerbattle_no_intro(TRAINER_STEPHANIE, Route101_Text_StephanieRematchDefeat)
+	trainerbattle_no_intro(TRAINER_STEPHANIE, Route101_Text_StephanieRematchDefeated)
 	special(UpdateRecentTrainers)
 	return
 }
@@ -93,7 +103,7 @@ text Route101_Text_StephanieIntro {
 	"Do you like my running outfit?\n"
 	"See how it's practical and cute!"
 }
-text Route101_Text_StephanieDefeat {
+text Route101_Text_StephanieDefeated {
 	"Nice battle! I'll remember this\n"
 	"one during my next race."
 }
@@ -101,25 +111,26 @@ text Route101_Text_StephaniePostBattle {
 	"Don't forget to bring the proper\n"
 	"clothes for your journey!"
 }
-text Route101_Text_StephanieRematchDefeat {
+text Route101_Text_StephanieRematchDefeated {
 	"Lost again? Oh well, I've still\n"
 	"got that race tomorrow to win."
 }
 
 script Route101_EventScript_Abraham {
-	trainerbattle_single(TRAINER_ABRAHAM, Route101_Text_AbrahamIntro, Route101_Text_AbrahamDefeat)
+	trainerbattle_single(TRAINER_ABRAHAM, Route101_Text_AbrahamIntro, Route101_Text_AbrahamDefeated)
 	msgbox(Route101_Text_AbrahamPostBattle, MSGBOX_AUTOCLOSE)
 	call(Route101_EventScript_TryAbrahamRematch)
 	release
 	end
 }
 script Route101_EventScript_TryAbrahamRematch {
-	call(Common_EventScript_ShouldDoRematch)
+	lock
+    call(Common_EventScript_ShouldDoRematch)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
 	setvar(VAR_0x8003, TRAINER_ABRAHAM)
 	setvar(VAR_0x8004, 1)
 	call(Common_EventScript_CheckRecentRematchesSetBP)
-	trainerbattle_no_intro(TRAINER_ABRAHAM, Route101_Text_AbrahamRematchDefeat)
+	trainerbattle_no_intro(TRAINER_ABRAHAM, Route101_Text_AbrahamRematchDefeated)
 	special(UpdateRecentTrainers)
 	return
 }
@@ -127,14 +138,14 @@ text Route101_Text_AbrahamIntro {
 	"How dare you step in front of me?\n"
 	"I'm doing important research!"
 }
-text Route101_Text_AbrahamDefeat {
+text Route101_Text_AbrahamDefeated {
 	"Oh no, my dig site!"
 }
 text Route101_Text_AbrahamPostBattle {
 	"Do you think these stones are\n"
 	"connected with the Oldale Ruins?"
 }
-text Route101_Text_AbrahamRematchDefeat {
+text Route101_Text_AbrahamRematchDefeated {
 	"I feel all busted up, like a vase\n"
 	"broken down to shards…"
 }

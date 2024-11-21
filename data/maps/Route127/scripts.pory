@@ -16,6 +16,7 @@ script Route127_OnTransition {
 	call_if_set(FLAG_ROUTE_127_PSYCHIC_ENCOUNTER, Route127_EventScript_HideStaticEncounter)
 	call_if_lt(VAR_NUM_BADGES, 1, Route127_EventScript_HideStaticEncounter)
 	call_if_ge(VAR_NUM_BADGES, 1, Route127_EventScript_ConfigureStaticEncounter)
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 
@@ -286,60 +287,182 @@ script Route127_EventScript_SeafoamCoveSign {
 	end
 }
 
-raw `
-Route127_EventScript_Camden::
-	trainerbattle_single TRAINER_CAMDEN, Route127_Text_CamdenIntro, Route127_Text_CamdenDefeat
-	msgbox Route127_Text_CamdenPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route127_EventScript_Donny::
-	trainerbattle_single TRAINER_DONNY, Route127_Text_DonnyIntro, Route127_Text_DonnyDefeat
-	msgbox Route127_Text_DonnyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route127_EventScript_Jonah::
-	trainerbattle_single TRAINER_JONAH, Route127_Text_JonahIntro, Route127_Text_JonahDefeat
-	msgbox Route127_Text_JonahPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route127_EventScript_Henry::
-	trainerbattle_single TRAINER_HENRY, Route127_Text_HenryIntro, Route127_Text_HenryDefeat
-	msgbox Route127_Text_HenryPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route127_EventScript_Roger::
-	trainerbattle_single TRAINER_ROGER, Route127_Text_RogerIntro, Route127_Text_RogerDefeat
-	msgbox Route127_Text_RogerPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route127_EventScript_Aidan::
-	trainerbattle_single TRAINER_AIDAN, Route127_Text_AidanIntro, Route127_Text_AidanDefeat
-	msgbox Route127_Text_AidanPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route127_EventScript_Athena::
-	trainerbattle_single TRAINER_ATHENA, Route127_Text_AthenaIntro, Route127_Text_AthenaDefeat
-	msgbox Route127_Text_AthenaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route127_EventScript_Koji::
-	trainerbattle_single TRAINER_KOJI, Route127_Text_KojiIntro, Route127_Text_KojiDefeat, Route127_EventScript_RegisterKoji
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route127_EventScript_RematchKoji
-	msgbox Route127_Text_KojiPostBattle, MSGBOX_DEFAULT
+script Route127_EventScript_Camden {
+	trainerbattle_single(TRAINER_CAMDEN, Route127_Text_CamdenIntro, Route127_Text_CamdenDefeat)
+	msgbox(Route127_Text_CamdenPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route127_EventScript_TryCamdenRematch)
 	release
 	end
+}
+script Route127_EventScript_TryCamdenRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CAMDEN)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_DONNY)) {
+		msgbox(format("Include Donny and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DONNY, 0, NULL, Route127_Text_DonnyDefeat)
+			addvar(VAR_0x8004, 2)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CAMDEN, Route127_Text_CamdenDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route127_EventScript_RegisterKoji::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route127_Text_KojiRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_KOJI
+script Route127_EventScript_Donny {
+	trainerbattle_single(TRAINER_DONNY, Route127_Text_DonnyIntro, Route127_Text_DonnyDefeat)
+	msgbox(Route127_Text_DonnyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route127_EventScript_TryDonnyRematch)
 	release
 	end
+}
+script Route127_EventScript_TryDonnyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DONNY)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_CAMDEN)) {
+		msgbox(format("Include Camden and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CAMDEN, 0, NULL, Route127_Text_CamdenDefeat)
+			addvar(VAR_0x8004, 2)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DONNY, Route127_Text_DonnyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route127_EventScript_RematchKoji::
-	trainerbattle_rematch TRAINER_KOJI, Route127_Text_KojiRematchIntro, Route127_Text_KojiRematchDefeat
-	msgbox Route127_Text_KojiPostRematch, MSGBOX_AUTOCLOSE
+script Route127_EventScript_Jonah {
+	trainerbattle_single(TRAINER_JONAH, Route127_Text_JonahIntro, Route127_Text_JonahDefeat)
+	msgbox(Route127_Text_JonahPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route127_EventScript_TryJonahRematch)
+	release
 	end
-`
+}
+script Route127_EventScript_TryJonahRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JONAH)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JONAH, Route127_Text_JonahDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route127_EventScript_Henry {
+	trainerbattle_single(TRAINER_HENRY, Route127_Text_HenryIntro, Route127_Text_HenryDefeat)
+	msgbox(Route127_Text_HenryPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route127_EventScript_TryHenryRematch)
+	release
+	end
+}
+script Route127_EventScript_TryHenryRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HENRY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HENRY, Route127_Text_HenryDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route127_EventScript_Roger {
+	trainerbattle_single(TRAINER_ROGER, Route127_Text_RogerIntro, Route127_Text_RogerDefeat)
+	msgbox(Route127_Text_RogerPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route127_EventScript_TryRogerRematch)
+	release
+	end
+}
+script Route127_EventScript_TryRogerRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ROGER)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ROGER, Route127_Text_RogerDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route127_EventScript_Aidan {
+	trainerbattle_single(TRAINER_AIDAN, Route127_Text_AidanIntro, Route127_Text_AidanDefeat)
+	msgbox(Route127_Text_AidanPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route127_EventScript_TryAidanRematch)
+	release
+	end
+}
+script Route127_EventScript_TryAidanRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_AIDAN)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ATHENA)) {
+		msgbox(format("Include Athena and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ATHENA, 0, NULL, Route127_Text_AthenaDefeat)
+			addvar(VAR_0x8004, 2)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_AIDAN, Route127_Text_AidanDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route127_EventScript_Athena {
+	trainerbattle_single(TRAINER_ATHENA, Route127_Text_AthenaIntro, Route127_Text_AthenaDefeat)
+	msgbox(Route127_Text_AthenaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route127_EventScript_TryAthenaRematch)
+	release
+	end
+}
+script Route127_EventScript_TryAthenaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ATHENA)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_AIDAN)) {
+		msgbox(format("Include Aidan and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_AIDAN, 0, NULL, Route127_Text_AidanDefeat)
+			addvar(VAR_0x8004, 2)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ATHENA, Route127_Text_AthenaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route127_EventScript_Koji {
+	trainerbattle_single(TRAINER_KOJI, Route127_Text_KojiIntro, Route127_Text_KojiDefeat)
+	msgbox(Route127_Text_KojiPostBattle, MSGBOX_DEFAULT)
+	call(Route127_EventScript_TryKojiRematch)
+	release
+	end
+}
+script Route127_EventScript_TryKojiRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KOJI)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KOJI, Route127_Text_KojiDefeat)
+	special(UpdateRecentTrainers)
+	return
+}

@@ -1,4 +1,6 @@
-mapscripts ValleyOfSteel_MapScripts {}
+mapscripts ValleyOfSteel_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Common_EventScript_DisableBPReward
+}
 
 script ValleyOfSteel_EventScript_NorthSign {
     msgbox("Valley of Steel\n{UP_ARROW} Route 112", MSGBOX_SIGN)
@@ -23,7 +25,20 @@ script ValleyOfSteel_EventScript_ContaminatedDustSign {
 script ValleyOfSteel_EventScript_Pepper {
 	trainerbattle_single(TRAINER_PEPPER, ValleyOfSteel_Text_PepperIntro, ValleyOfSteel_Text_PepperDefeat)
 	msgbox(ValleyOfSteel_Text_PepperPostBattle, MSGBOX_AUTOCLOSE)
+	call(ValleyOfSteel_EventScript_TryPepperRematch)
+	release
 	end
+}
+script ValleyOfSteel_EventScript_TryPepperRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_PEPPER)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_PEPPER, ValleyOfSteel_Text_PepperDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text ValleyOfSteel_Text_PepperIntro {
 	"Are you heading north or south?"
@@ -39,7 +54,27 @@ text ValleyOfSteel_Text_PepperPostBattle {
 script ValleyOfSteel_EventScript_Stark {
 	trainerbattle_single(TRAINER_STARK, ValleyOfSteel_Text_StarkIntro, ValleyOfSteel_Text_StarkDefeat)
 	msgbox(ValleyOfSteel_Text_StarkPostBattle, MSGBOX_AUTOCLOSE)
+	call(ValleyOfSteel_EventScript_TryStarkRematch)
+	release
 	end
+}
+script ValleyOfSteel_EventScript_TryStarkRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_STARK)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_YINSEN)) {
+		msgbox(format("Include Yinsen and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_YINSEN, 0, NULL, ValleyOfSteel_Text_YinsenDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_STARK, ValleyOfSteel_Text_StarkDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text ValleyOfSteel_Text_StarkIntro {
 	"Hah! I'm a titan of industry!"
@@ -55,7 +90,27 @@ text ValleyOfSteel_Text_StarkPostBattle {
 script ValleyOfSteel_EventScript_Yinsen {
 	trainerbattle_single(TRAINER_YINSEN, ValleyOfSteel_Text_YinsenIntro, ValleyOfSteel_Text_YinsenDefeat)
 	msgbox(ValleyOfSteel_Text_YinsenPostBattle, MSGBOX_AUTOCLOSE)
+	call(ValleyOfSteel_EventScript_TryYinsenRematch)
+	release
 	end
+}
+script ValleyOfSteel_EventScript_TryYinsenRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_YINSEN)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_STARK)) {
+		msgbox(format("Include Stark and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_STARK, 0, NULL, ValleyOfSteel_Text_StarkDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_YINSEN, ValleyOfSteel_Text_YinsenDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text ValleyOfSteel_Text_YinsenIntro {
 	"I'm going to buy my friend some time!"

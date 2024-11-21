@@ -5,6 +5,7 @@ mapscripts MtChimney_MapScripts {
 
 script MtChimney_OnTransition {
 	setvar(VAR_JAGGED_PASS_ASH_WEATHER, 1)
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 
@@ -40,6 +41,129 @@ script MtChimney_EventScript_GiveProtectivePads {
 	msgbox(format("Here you are dear, everyone should have a set."))
 	giveitem(ITEM_PROTECTIVE_PADS)
 	setflag(FLAG_RECEIVED_MT_CHIMNEY_PADS)
+	return
+}
+
+script MtChimney_EventScript_Shelby {
+	trainerbattle_single(TRAINER_SHELBY, MtChimney_Text_ShelbyIntro, MtChimney_Text_ShelbyDefeat)
+	msgbox(MtChimney_Text_ShelbyRematchIntro, MSGBOX_DEFAULT)
+	call(MtChimney_EventScript_TryShelbyRematch)
+	release
+	end
+}
+script MtChimney_EventScript_TryShelbyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SHELBY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SHELBY, MtChimney_Text_ShelbyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script MtChimney_EventScript_Melissa {
+	trainerbattle_single(TRAINER_MELISSA, MtChimney_Text_MelissaIntro, MtChimney_Text_MelissaDefeat)
+	msgbox(MtChimney_Text_MelissaPostBattle, MSGBOX_AUTOCLOSE)
+	call(MtChimney_EventScript_TryMelissaRematch)
+	release
+	end
+}
+script MtChimney_EventScript_TryMelissaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MELISSA)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_SAWYER)) {
+		msgbox(format("Include Sawyer and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SAWYER, 0, NULL, MtChimney_Text_SawyerDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MELISSA, MtChimney_Text_MelissaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script MtChimney_EventScript_Sheila {
+	trainerbattle_single(TRAINER_SHEILA, MtChimney_Text_SheilaIntro, MtChimney_Text_SheilaDefeat)
+	msgbox(MtChimney_Text_SheilaPostBattle, MSGBOX_AUTOCLOSE)
+	call(MtChimney_EventScript_TrySheilaRematch)
+	release
+	end
+}
+script MtChimney_EventScript_TrySheilaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SHEILA)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_SHIRLEY)) {
+		msgbox(format("Include Shirley and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SHIRLEY, 0, NULL, MtChimney_Text_ShirleyDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SHEILA, MtChimney_Text_SheilaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script MtChimney_EventScript_Shirley {
+	trainerbattle_single(TRAINER_SHIRLEY, MtChimney_Text_ShirleyIntro, MtChimney_Text_ShirleyDefeat)
+	msgbox(MtChimney_Text_ShirleyPostBattle, MSGBOX_AUTOCLOSE)
+	call(MtChimney_EventScript_TryShirleyRematch)
+	release
+	end
+}
+script MtChimney_EventScript_TryShirleyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SHIRLEY)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_SHEILA)) {
+		msgbox(format("Include Sheila and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SHEILA, 0, NULL, MtChimney_Text_SheilaDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SHIRLEY, MtChimney_Text_ShirleyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script MtChimney_EventScript_Sawyer {
+	trainerbattle_single(TRAINER_SAWYER, MtChimney_Text_SawyerIntro, MtChimney_Text_SawyerDefeat)
+	msgbox(MtChimney_Text_SawyerPostBattle, MSGBOX_DEFAULT)
+	call(MtChimney_EventScript_TrySawyerRematch)
+	release
+	end
+}
+script MtChimney_EventScript_TrySawyerRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SAWYER)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_MELISSA)) {
+		msgbox(format("Include Melissa and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MELISSA, 0, NULL, MtChimney_Text_MelissaDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SAWYER, MtChimney_Text_SawyerRematchDefeat)
+	special(UpdateRecentTrainers)
 	return
 }
 
@@ -86,63 +210,6 @@ MtChimney_EventScript_NotEnoughMoney::
 
 MtChimney_EventScript_RouteSign::
 	msgbox MtChimney_Text_RouteSign, MSGBOX_SIGN
-	end
-
-MtChimney_EventScript_Shelby::
-	trainerbattle_single TRAINER_SHELBY, MtChimney_Text_ShelbyIntro, MtChimney_Text_ShelbyDefeat, MtChimney_EventScript_DefeatedShelby
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, MtChimney_EventScript_RematchShelby
-	msgbox MtChimney_Text_ShelbyPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-MtChimney_EventScript_DefeatedShelby::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox MtChimney_Text_ShelbyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_SHELBY
-	release
-	end
-
-MtChimney_EventScript_RematchShelby::
-	trainerbattle_rematch TRAINER_SHELBY, MtChimney_Text_ShelbyRematchIntro, MtChimney_Text_ShelbyRematchDefeat
-	msgbox MtChimney_Text_ShelbyPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-MtChimney_EventScript_Melissa::
-	trainerbattle_single TRAINER_MELISSA, MtChimney_Text_MelissaIntro, MtChimney_Text_MelissaDefeat
-	msgbox MtChimney_Text_MelissaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-MtChimney_EventScript_Sheila::
-	trainerbattle_single TRAINER_SHEILA, MtChimney_Text_SheilaIntro, MtChimney_Text_SheilaDefeat
-	msgbox MtChimney_Text_SheilaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-MtChimney_EventScript_Shirley::
-	trainerbattle_single TRAINER_SHIRLEY, MtChimney_Text_ShirleyIntro, MtChimney_Text_ShirleyDefeat
-	msgbox MtChimney_Text_ShirleyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-MtChimney_EventScript_Sawyer::
-	trainerbattle_single TRAINER_SAWYER, MtChimney_Text_SawyerIntro, MtChimney_Text_SawyerDefeat, MtChimney_EventScript_SawyerDefeated
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, MtChimney_EventScript_SawyerRematch
-	msgbox MtChimney_Text_SawyerPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-MtChimney_EventScript_SawyerDefeated::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox MtChimney_Text_SawyerRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_SAWYER
-	release
-	end
-
-MtChimney_EventScript_SawyerRematch::
-	trainerbattle_rematch TRAINER_SAWYER, MtChimney_Text_SawyerRematchIntro, MtChimney_Text_SawyerRematchDefeat
-	msgbox MtChimney_Text_SawyerPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 MtChimney_Text_LavaCookiesJust200:

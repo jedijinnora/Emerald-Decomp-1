@@ -1,9 +1,24 @@
-mapscripts MossdeepCaverns_1F_MapScripts {}
+mapscripts MossdeepCaverns_1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : Common_EventScript_DisableBPReward
+}
 
 script MossdeepCaverns_1F_EventScript_Noran {
 	trainerbattle_single(TRAINER_NORAN, MossdeepCaverns_1F_Text_NoranIntro, MossdeepCaverns_1F_Text_NoranDefeat)
 	msgbox(MossdeepCaverns_1F_Text_NoranPostBattle, MSGBOX_AUTOCLOSE)
+	call(MossdeepCaverns_1F_EventScript_TryNoranRematch)
+	release
 	end
+}
+script MossdeepCaverns_1F_EventScript_TryNoranRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_NORAN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_NORAN, MossdeepCaverns_1F_Text_NoranDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text MossdeepCaverns_1F_Text_NoranIntro {
 	"Watch out, there's a rock!"

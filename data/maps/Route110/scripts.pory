@@ -31,6 +31,313 @@ script Route110_EventScript_MagmaGrunt {
 	end
 }
 
+script Route110_EventScript_Edward {
+	trainerbattle_single(TRAINER_EDWARD, Route110_Text_EdwardIntro, Route110_Text_EdwardDefeated)
+	msgbox(Route110_Text_EdwardPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route110_EventScript_TryEdwardRematch)
+	release
+	end
+}
+script Route110_EventScript_TryEdwardRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_EDWARD)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ALYSSA)) {
+		msgbox(format("Include Alyssa and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ALYSSA, 0, NULL, Route110_Text_AlyssaDefeated)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_EDWARD, Route110_Text_EdwardDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route110_EventScript_Jaclyn {
+	trainerbattle_single(TRAINER_JACLYN, Route110_Text_JaclynIntro, Route110_Text_JaclynDefeated)
+	msgbox(Route110_Text_JaclynPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route110_EventScript_TryJaclynRematch)
+	release
+	end
+}
+script Route110_EventScript_TryJaclynRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JACLYN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JACLYN, Route110_Text_JaclynDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route110_EventScript_Edwin {
+	trainerbattle_single(TRAINER_EDWIN, Route110_Text_EdwinIntro, Route110_Text_EdwinDefeated)
+	msgbox(Route110_Text_EdwinPostBattle, MSGBOX_DEFAULT)
+	call(Route110_EventScript_TryEdwinRematch)
+	release
+	end
+}
+script Route110_EventScript_TryEdwinRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_EDWIN)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_JOSEPH)) {
+		msgbox(format("Include Joseph and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JOSEPH, 0, NULL, Route110_Text_JosephDefeated)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_EDWIN, Route110_Text_EdwinRematchDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route110_EventScript_Dale {
+	trainerbattle_single(TRAINER_DALE, Route110_Text_DaleIntro, Route110_Text_DaleDefeated)
+	msgbox(Route110_Text_DalePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route110_EventScript_TryDaleRematch)
+	release
+	end
+}
+script Route110_EventScript_TryDaleRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DALE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DALE, Route110_Text_DaleDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route110_EventScript_Jacob {
+	trainerbattle_single(TRAINER_JACOB, Route110_Text_JacobIntro, Route110_Text_JacobDefeated)
+	msgbox(Route110_Text_JacobPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route110_EventScript_TryJacobRematch)
+	release
+	end
+}
+script Route110_EventScript_TryJacobRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JACOB)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JACOB, Route110_Text_JacobDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route110_EventScript_Anthony {
+	trainerbattle_single(TRAINER_ANTHONY, Route110_Text_AnthonyIntro, Route110_Text_AnthonyDefeated)
+	msgbox(Route110_Text_AnthonyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route110_EventScript_TryAnthonyRematch)
+	release
+	end
+}
+script Route110_EventScript_TryAnthonyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ANTHONY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ANTHONY, Route110_Text_AnthonyDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route110_EventScript_Benjamin {
+	trainerbattle_single(TRAINER_BENJAMIN, Route110_Text_BenjaminIntro, Route110_Text_BenjaminDefeated)
+	msgbox(Route110_Text_BenjaminPostBattle, MSGBOX_DEFAULT)
+	call(Route110_EventScript_TryBenjaminRematch)
+	release
+	end
+}
+script Route110_EventScript_TryBenjaminRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_BENJAMIN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_BENJAMIN, Route110_Text_BenjaminRematchDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route110_EventScript_Jasmine {
+	trainerbattle_single(TRAINER_JASMINE, Route110_Text_JasmineIntro, Route110_Text_JasmineDefeated)
+	msgbox(Route110_Text_JasminePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route110_EventScript_TryJasmineRematch)
+	release
+	end
+}
+script Route110_EventScript_TryJasmineRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JASMINE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JASMINE, Route110_Text_JasmineDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route110_EventScript_Abigail {
+	trainerbattle_single(TRAINER_ABIGAIL, Route110_Text_AbigailIntro, Route110_Text_AbigailDefeated)
+	msgbox(Route110_Text_AbigailRematchPostBattle, MSGBOX_DEFAULT)
+	call(Route110_EventScript_TryAbigailRematch)
+	release
+	end
+}
+script Route110_EventScript_TryAbigailRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ABIGAIL)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ABIGAIL, Route110_Text_AbigailRematchDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route110_EventScript_Isabel {
+	trainerbattle_single(TRAINER_ISABEL, Route110_Text_IsabelIntro, Route110_Text_IsabelDefeated)
+	msgbox(Route110_Text_IsabelRematchPostBattle, MSGBOX_DEFAULT)
+	call(Route110_EventScript_TryIsabelRematch)
+	release
+	end
+}
+script Route110_EventScript_TryIsabelRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ISABEL)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_KALEB)) {
+		msgbox(format("Include Kaleb and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_KALEB, 0, NULL, Route110_Text_KalebDefeated)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_ISABEL, Route110_Text_IsabelRematchDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route110_EventScript_Timmy {
+	trainerbattle_single(TRAINER_TIMMY, Route110_Text_TimmyIntro, Route110_Text_TimmyDefeated)
+	msgbox(Route110_Text_TimmyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route110_EventScript_TryTimmyRematch)
+	release
+	end
+}
+script Route110_EventScript_TryTimmyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TIMMY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TIMMY, Route110_Text_TimmyDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route110_EventScript_Kaleb {
+	trainerbattle_single(TRAINER_KALEB, Route110_Text_KalebIntro, Route110_Text_KalebDefeated)
+	msgbox(Route110_Text_KalebPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route110_EventScript_TryKalebRematch)
+	release
+	end
+}
+script Route110_EventScript_TryKalebRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KALEB)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_ISABEL)) {
+		msgbox(format("Include Isabel and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ISABEL, 0, NULL, Route110_Text_IsabelRematchDefeated)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_KALEB, Route110_Text_KalebDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route110_EventScript_Joseph {
+	trainerbattle_single(TRAINER_JOSEPH, Route110_Text_JosephIntro, Route110_Text_JosephDefeated)
+	msgbox(Route110_Text_JosephPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route110_EventScript_TryJosephRematch)
+	release
+	end
+}
+script Route110_EventScript_TryJosephRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JOSEPH)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_EDWIN)) {
+		msgbox(format("Include Edwin and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_EDWIN, 0, NULL, Route110_Text_EdwinRematchDefeated)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_JOSEPH, Route110_Text_JosephDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route110_EventScript_Alyssa {
+	trainerbattle_single(TRAINER_ALYSSA, Route110_Text_AlyssaIntro, Route110_Text_AlyssaDefeated)
+	msgbox(Route110_Text_AlyssaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route110_EventScript_TryAlyssaRematch)
+	release
+	end
+}
+script Route110_EventScript_TryAlyssaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ALYSSA)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_EDWARD)) {
+		msgbox(format("Include Edward and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_EDWARD, 0, NULL, Route110_Text_EdwardDefeated)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_ALYSSA, Route110_Text_AlyssaDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
 raw `
 .set LOCALID_CHALLENGE_BIKER, 19
@@ -48,6 +355,7 @@ Route110_OnResume:
 
 Route110_OnTransition:
 	call_if_eq VAR_CYCLING_CHALLENGE_STATE, 1, Route110_EventScript_SaveCyclingMusic
+	call Common_EventScript_DisableBPReward
 	end
 
 Route110_EventScript_SaveCyclingMusic::
@@ -146,143 +454,6 @@ Route110_EventScript_PlayerNotRidingBike::
 Route110_EventScript_PlayerRidingAcroBike::
 	msgbox Route110_Text_AcroBikesDoNotQualify, MSGBOX_DEFAULT
 	release
-	end
-
-Route110_EventScript_Edward::
-	trainerbattle_single TRAINER_EDWARD, Route110_Text_EdwardIntro, Route110_Text_EdwardDefeated
-	msgbox Route110_Text_EdwardPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Jaclyn::
-	trainerbattle_single TRAINER_JACLYN, Route110_Text_JaclynIntro, Route110_Text_JaclynDefeated
-	msgbox Route110_Text_JaclynPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Edwin::
-	trainerbattle_single TRAINER_EDWIN, Route110_Text_EdwinIntro, Route110_Text_EdwinDefeated, Route110_EventScript_EdwinRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route110_EventScript_EdwinRematch
-	msgbox Route110_Text_EdwinPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route110_EventScript_EdwinRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route110_Text_EdwinRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_EDWIN
-	release
-	end
-
-Route110_EventScript_EdwinRematch::
-	trainerbattle_rematch TRAINER_EDWIN, Route110_Text_EdwinRematchIntro, Route110_Text_EdwinRematchDefeated
-	msgbox Route110_Text_EdwinRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Dale::
-	trainerbattle_single TRAINER_DALE, Route110_Text_DaleIntro, Route110_Text_DaleDefeated
-	msgbox Route110_Text_DalePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Jacob::
-	trainerbattle_single TRAINER_JACOB, Route110_Text_JacobIntro, Route110_Text_JacobDefeated
-	msgbox Route110_Text_JacobPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Anthony::
-	trainerbattle_single TRAINER_ANTHONY, Route110_Text_AnthonyIntro, Route110_Text_AnthonyDefeated
-	msgbox Route110_Text_AnthonyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Benjamin::
-	trainerbattle_single TRAINER_BENJAMIN, Route110_Text_BenjaminIntro, Route110_Text_BenjaminDefeated, Route110_EventScript_BenjaminRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route110_EventScript_BenjaminRematch
-	msgbox Route110_Text_BenjaminPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route110_EventScript_BenjaminRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route110_Text_BenjaminRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_BENJAMIN
-	release
-	end
-
-Route110_EventScript_BenjaminRematch::
-	trainerbattle_rematch TRAINER_BENJAMIN, Route110_Text_BenjaminRematchIntro, Route110_Text_BenjaminRematchDefeated
-	msgbox Route110_Text_BenjaminRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Jasmine::
-	trainerbattle_single TRAINER_JASMINE, Route110_Text_JasmineIntro, Route110_Text_JasmineDefeated
-	msgbox Route110_Text_JasminePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Abigail::
-	trainerbattle_single TRAINER_ABIGAIL, Route110_Text_AbigailIntro, Route110_Text_AbigailDefeated, Route110_EventScript_AbigailRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route110_EventScript_AbigailRematch
-	msgbox Route110_Text_AbigailPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route110_EventScript_AbigailRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route110_Text_AbigailRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ABIGAIL
-	release
-	end
-
-Route110_EventScript_AbigailRematch::
-	trainerbattle_rematch TRAINER_ABIGAIL, Route110_Text_AbigailRematchIntro, Route110_Text_AbigailRematchDefeated
-	msgbox Route110_Text_AbigailRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Isabel::
-	trainerbattle_single TRAINER_ISABEL, Route110_Text_IsabelIntro, Route110_Text_IsabelDefeated, Route110_EventScript_IsabelRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route110_EventScript_IsabelRematch
-	msgbox Route110_Text_IsabelPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route110_EventScript_IsabelRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route110_Text_IsabelRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ISABEL
-	release
-	end
-
-Route110_EventScript_IsabelRematch::
-	trainerbattle_rematch TRAINER_ISABEL, Route110_Text_IsabelRematchIntro, Route110_Text_IsabelRematchDefeated
-	msgbox Route110_Text_IsabelRematchPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Timmy::
-	trainerbattle_single TRAINER_TIMMY, Route110_Text_TimmyIntro, Route110_Text_TimmyDefeated
-	msgbox Route110_Text_TimmyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Unused::
-	end
-
-Route110_EventScript_Kaleb::
-	trainerbattle_single TRAINER_KALEB, Route110_Text_KalebIntro, Route110_Text_KalebDefeated
-	msgbox Route110_Text_KalebPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Joseph::
-	trainerbattle_single TRAINER_JOSEPH, Route110_Text_JosephIntro, Route110_Text_JosephDefeated
-	msgbox Route110_Text_JosephPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route110_EventScript_Alyssa::
-	trainerbattle_single TRAINER_ALYSSA, Route110_Text_AlyssaIntro, Route110_Text_AlyssaDefeated
-	msgbox Route110_Text_AlyssaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route110_EventScript_CyclingChallengeEnd::

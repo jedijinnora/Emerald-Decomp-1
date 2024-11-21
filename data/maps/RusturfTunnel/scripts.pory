@@ -1,12 +1,32 @@
-mapscripts RusturfTunnel_MapScripts {}
+mapscripts RusturfTunnel_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : RusturfTunnel_OnTransition
+}
+
+script RusturfTunnel_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	end
+}
+
+script RusturfTunnel_EventScript_Mike {
+	trainerbattle_single(TRAINER_MIKE, RusturfTunnel_Text_MikeIntro, RusturfTunnel_Text_MikeDefeat)
+	msgbox(RusturfTunnel_Text_MikePostBattle, MSGBOX_AUTOCLOSE)
+	call(RusturfTunnel_EventScript_TryMikeRematch)
+	release
+	end
+}
+script RusturfTunnel_EventScript_TryMikeRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MIKE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MIKE, RusturfTunnel_Text_MikeDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
 raw `
-
-RusturfTunnel_EventScript_Mike::
-	trainerbattle_single TRAINER_MIKE, RusturfTunnel_Text_MikeIntro, RusturfTunnel_Text_MikeDefeat
-	msgbox RusturfTunnel_Text_MikePostBattle, MSGBOX_AUTOCLOSE
-	end
-
 RusturfTunnel_Text_MikeIntro:
 	.string "What do you call a wild man up in the\n"
 	.string "mountains? A mountain man, right?\p"
@@ -18,8 +38,6 @@ RusturfTunnel_Text_MikeDefeat:
 	.string "Ran out of power…$"
 
 RusturfTunnel_Text_MikePostBattle:
-	.string "They halted development here to\n"
-	.string "protect Pokémon, right?\l"
-	.string "There's a feel-good story!$"
-
+	.string "The development here is disruptive, but \n"
+	.string "cave Pokémon are tough!$"
 `

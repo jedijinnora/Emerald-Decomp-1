@@ -45,7 +45,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "4",
-      "script": "Route_122_EventScript_Julie",
+      "script": "Route122_EventScript_Julie",
       "flag": "0"
     },
     {
@@ -58,7 +58,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route_122_EventScript_Hiromichi",
+      "script": "Route122_EventScript_Hiromichi",
       "flag": "0"
     },
     {
@@ -71,7 +71,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "Route_122_EventScript_Mitchell",
+      "script": "Route122_EventScript_Mitchell",
       "flag": "0"
     },
     {
@@ -84,7 +84,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route_122_EventScript_Micah",
+      "script": "Route122_EventScript_Micah",
       "flag": "0"
     },
     {
@@ -97,7 +97,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "1",
-      "script": "Route_122_EventScript_Tsunao",
+      "script": "Route122_EventScript_Tsunao",
       "flag": "0"
     },
     {
@@ -175,7 +175,7 @@
       "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "Route_122_EventScript_Edgar",
+      "script": "Route122_EventScript_Edgar",
       "flag": "0"
     },
     {
@@ -235,7 +235,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_2",
       "var_value": "0",
-      "script": "Route_122_EventScript_MicahLeft"
+      "script": "Route122_EventScript_MicahLeft"
     },
     {
       "type": "trigger",
@@ -244,7 +244,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_2",
       "var_value": "1",
-      "script": "Route_122_EventScript_MicahRight"
+      "script": "Route122_EventScript_MicahRight"
     }
   ],
   "bg_events": [

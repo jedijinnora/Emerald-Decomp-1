@@ -1,103 +1,78 @@
-mapscripts PetalburgWoods_MapScripts {}
+mapscripts PetalburgWoods_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : PetalburgWoods_OnTransition
+}
+
+script PetalburgWoods_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	end
+}
 
 script PetalburgWoods_EventScript_ForestHeartSign {
 	msgbox(format("Entrance to Forest Heart"), MSGBOX_SIGN)
 	end
 }
 
+script PetalburgWoods_EventScript_Lyle {
+	trainerbattle_single(TRAINER_LYLE, PetalburgWoods_Text_LyleIntro, PetalburgWoods_Text_LyleDefeat)
+	msgbox(PetalburgWoods_Text_LylePostBattle, MSGBOX_AUTOCLOSE)
+	call(PetalburgWoods_EventScript_TryLyleRematch)
+	release
+	end
+}
+script PetalburgWoods_EventScript_TryLyleRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LYLE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LYLE, PetalburgWoods_Text_LyleDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script PetalburgWoods_EventScript_James {
+	trainerbattle_single(TRAINER_JAMES, PetalburgWoods_Text_JamesIntro, PetalburgWoods_Text_JamesDefeat)
+	msgbox(PetalburgWoods_Text_JamesPostBattle, MSGBOX_AUTOCLOSE)
+	call(PetalburgWoods_EventScript_TryJamesRematch)
+	release
+	end
+}
+script PetalburgWoods_EventScript_TryJamesRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JAMES)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JAMES, PetalburgWoods_Text_JamesDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
 raw `
-
-PetalburgWoods_EventScript_Lyle::
-	trainerbattle_single TRAINER_LYLE, PetalburgWoods_Text_GoBugPokemonTeam, PetalburgWoods_Text_ICouldntWin
-	msgbox PetalburgWoods_Text_ImOutOfPokeBalls, MSGBOX_AUTOCLOSE
-	end
-
-PetalburgWoods_EventScript_James::
-	trainerbattle_single TRAINER_JAMES, PetalburgWoods_Text_InstantlyPopularWithBugPokemon, PetalburgWoods_Text_CantBePopularIfILose, PetalburgWoods_EventScript_TryRegisterJames
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, PetalburgWoods_EventScript_JamesRematch
-	setvar VAR_0x8004, TRAINER_JAMES
-	specialvar VAR_RESULT, IsTrainerRegistered
-	goto_if_eq VAR_RESULT, FALSE, PetalburgWoods_EventScript_TryRegisterJames2
-	msgbox PetalburgWoods_Text_PeopleRespectYou, MSGBOX_DEFAULT
-	release
-	end
-
-PetalburgWoods_EventScript_TryRegisterJames::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	goto_if_set FLAG_HAS_MATCH_CALL, PetalburgWoods_EventScript_RegisterJames
-	release
-	end
-
-PetalburgWoods_EventScript_RegisterJames::
-	msgbox PetalburgWoods_Text_IWantRematch1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JAMES
-	release
-	end
-
-PetalburgWoods_EventScript_TryRegisterJames2::
-	goto_if_set FLAG_HAS_MATCH_CALL, PetalburgWoods_EventScript_RegisterJames2
-	msgbox PetalburgWoods_Text_PeopleRespectYou, MSGBOX_DEFAULT
-	release
-	end
-
-PetalburgWoods_EventScript_RegisterJames2::
-	msgbox PetalburgWoods_Text_IWantRematch2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_JAMES
-	release
-	end
-
-PetalburgWoods_EventScript_JamesRematch::
-	trainerbattle_rematch TRAINER_JAMES, PetalburgWoods_Text_MyPokemonHaveGrown, PetalburgWoods_Text_CantBePopularIfLose
-	msgbox PetalburgWoods_Text_IveBeenTrainingHard, MSGBOX_AUTOCLOSE
-	end
-
-PetalburgWoods_Text_GoBugPokemonTeam:
+PetalburgWoods_Text_LyleIntro:
 	.string "I caught a whole bunch of Pokémon!\p"
 	.string "Go, go, go!\n"
 	.string "My Bug Pokémon team!$"
 
-PetalburgWoods_Text_ICouldntWin:
+PetalburgWoods_Text_LyleDefeat:
 	.string "I have all these Pokémon,\n"
 	.string "but I couldn't win…$"
 
-PetalburgWoods_Text_ImOutOfPokeBalls:
+PetalburgWoods_Text_LylePostBattle:
 	.string "I caught a bunch of Pokémon.\n"
 	.string "Now I'm out of Poké Balls.$"
 
-PetalburgWoods_Text_InstantlyPopularWithBugPokemon:
+PetalburgWoods_Text_JamesIntro:
 	.string "If you take Bug Pokémon to school,\n"
 	.string "you get to be instantly popular!$"
 
-PetalburgWoods_Text_CantBePopularIfILose:
+PetalburgWoods_Text_JamesDefeat:
 	.string "I can't be popular if I lose.$"
 
-PetalburgWoods_Text_PeopleRespectYou:
-	.string "If you have a big Bug Pokémon,\n"
-	.string "people respect you for it.$"
-
-PetalburgWoods_Text_IWantRematch1:
-	.string "I want a rematch when my Bug\n"
-	.string "Pokémon grow up!\p"
-	.string "I'm registering you in my Pokénav!$"
-
-PetalburgWoods_Text_IWantRematch2:
-	.string "I want a rematch when my Bug \n"
-	.string "Pokémon grow up!\p"
-	.string "I'm registering you in my Pokénav!$"
-
-PetalburgWoods_Text_MyPokemonHaveGrown:
-	.string "My Bug Pokémon have grown.\n"
-	.string "I'll be popular again.$"
-
-PetalburgWoods_Text_CantBePopularIfLose:
-	.string "I can't be popular if I lose.$"
-
-PetalburgWoods_Text_IveBeenTrainingHard:
+PetalburgWoods_Text_JamesPostBattle:
 	.string "You get to be popular if you have\n"
 	.string "strong Pokémon, right?\l"
 	.string "So, I've been training hard.$"
-
 `

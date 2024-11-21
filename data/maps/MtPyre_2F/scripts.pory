@@ -1,48 +1,155 @@
+mapscripts MtPyre_2F_MapScripts {
+	MAP_SCRIPT_ON_FRAME_TABLE : CaveHole_CheckFallDownHole
+	MAP_SCRIPT_ON_TRANSITION : MtPyre_2F_OnTransition
+	MAP_SCRIPT_ON_RESUME : MtPyre_2F_SetHoleWarp
+}
+
+script MtPyre_2F_OnTransition {
+	call(CaveHole_FixCrackedGround)
+	call(Common_EventScript_DisableBPReward)
+	end
+}
+
+script MtPyre_2F_SetHoleWarp {
+	setstepcallback(STEP_CB_CRACKED_FLOOR)
+	setholewarp(MAP_MT_PYRE_1F)
+	end
+}
+
+script MtPyre_2F_EventScript_Woman {
+	msgbox(MtPyre_2F_Text_MemoriesOfSkitty, MSGBOX_NPC)
+	end
+}
+
+script MtPyre_2F_EventScript_PokefanM {
+	msgbox(MtPyre_2F_Text_TumbledFromFloorAbove, MSGBOX_NPC)
+	end
+}
+
+script MtPyre_2F_EventScript_Mark {
+	trainerbattle_single(TRAINER_MARK, MtPyre_2F_Text_MarkIntro, MtPyre_2F_Text_MarkDefeat)
+	msgbox(MtPyre_2F_Text_MarkPostBattle, MSGBOX_AUTOCLOSE)
+	call(MtPyre_2F_EventScript_TryMarkRematch)
+	release
+	end
+}
+script MtPyre_2F_EventScript_TryMarkRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MARK)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_LEAH)) {
+		msgbox(format("Include Leah and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_LEAH, 0, NULL, MtPyre_2F_Text_LeahDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MARK, MtPyre_2F_Text_MarkDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script MtPyre_2F_EventScript_Luke {
+	trainerbattle_double(TRAINER_DEZ_AND_LUKE, MtPyre_2F_Text_LukeIntro, MtPyre_2F_Text_LukeDefeat, MtPyre_2F_Text_LukeNotEnoughMons)
+	msgbox(MtPyre_2F_Text_LukePostBattle, MSGBOX_AUTOCLOSE)
+	call(MtPyre_2F_EventScript_TryLukeRematch)
+	release
+	end
+}
+script MtPyre_2F_EventScript_TryLukeRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DEZ_AND_LUKE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DEZ_AND_LUKE, MtPyre_2F_Text_LukeDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script MtPyre_2F_EventScript_Dez {
+	trainerbattle_double(TRAINER_DEZ_AND_LUKE, MtPyre_2F_Text_DezIntro, MtPyre_2F_Text_DezDefeat, MtPyre_2F_Text_DezNotEnoughMons)
+	msgbox(MtPyre_2F_Text_DezPostBattle, MSGBOX_AUTOCLOSE)
+	call(MtPyre_2F_EventScript_TryDezRematch)
+	release
+	end
+}
+script MtPyre_2F_EventScript_TryDezRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DEZ_AND_LUKE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DEZ_AND_LUKE, MtPyre_2F_Text_DezDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script MtPyre_2F_EventScript_Leah {
+	trainerbattle_single(TRAINER_LEAH, MtPyre_2F_Text_LeahIntro, MtPyre_2F_Text_LeahDefeat)
+	msgbox(MtPyre_2F_Text_LeahPostBattle, MSGBOX_AUTOCLOSE)
+	call(MtPyre_2F_EventScript_TryLeahRematch)
+	release
+	end
+}
+script MtPyre_2F_EventScript_TryLeahRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LEAH)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_MARK)) {
+		msgbox(format("Include Mark and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MARK, 0, NULL, MtPyre_2F_Text_MarkDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	if (defeated(TRAINER_ZANDER) && (var(VAR_RESULT) == NO)) {
+		msgbox(format("Include Zander and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ZANDER, 0, NULL, MtPyre_2F_Text_ZanderDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LEAH, MtPyre_2F_Text_LeahDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script MtPyre_2F_EventScript_Zander {
+	trainerbattle_single(TRAINER_ZANDER, MtPyre_2F_Text_ZanderIntro, MtPyre_2F_Text_ZanderDefeat)
+	msgbox(MtPyre_2F_Text_ZanderPostBattle, MSGBOX_AUTOCLOSE)
+	call(MtPyre_2F_EventScript_TryZanderRematch)
+	release
+	end
+}
+script MtPyre_2F_EventScript_TryZanderRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ZANDER)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_LEAH)) {
+		msgbox(format("Include Leah and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_LEAH, 0, NULL, MtPyre_2F_Text_LeahDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ZANDER, MtPyre_2F_Text_ZanderDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
 raw `
-MtPyre_2F_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, CaveHole_CheckFallDownHole
-	map_script MAP_SCRIPT_ON_TRANSITION, CaveHole_FixCrackedGround
-	map_script MAP_SCRIPT_ON_RESUME, MtPyre_2F_SetHoleWarp
-	.byte 0
-
-MtPyre_2F_SetHoleWarp:
-	setstepcallback STEP_CB_CRACKED_FLOOR
-	setholewarp MAP_MT_PYRE_1F
-	end
-
-MtPyre_2F_EventScript_Woman::
-	msgbox MtPyre_2F_Text_MemoriesOfSkitty, MSGBOX_NPC
-	end
-
-MtPyre_2F_EventScript_PokefanM::
-	msgbox MtPyre_2F_Text_TumbledFromFloorAbove, MSGBOX_NPC
-	end
-
-MtPyre_2F_EventScript_Mark::
-	trainerbattle_single TRAINER_MARK, MtPyre_2F_Text_MarkIntro, MtPyre_2F_Text_MarkDefeat
-	msgbox MtPyre_2F_Text_MarkPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-MtPyre_2F_EventScript_Luke::
-	trainerbattle_double TRAINER_DEZ_AND_LUKE, MtPyre_2F_Text_LukeIntro, MtPyre_2F_Text_LukeDefeat, MtPyre_2F_Text_LukeNotEnoughMons
-	msgbox MtPyre_2F_Text_LukePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-MtPyre_2F_EventScript_Dez::
-	trainerbattle_double TRAINER_DEZ_AND_LUKE, MtPyre_2F_Text_DezIntro, MtPyre_2F_Text_DezDefeat, MtPyre_2F_Text_DezNotEnoughMons
-	msgbox MtPyre_2F_Text_DezPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-MtPyre_2F_EventScript_Leah::
-	trainerbattle_single TRAINER_LEAH, MtPyre_2F_Text_LeahIntro, MtPyre_2F_Text_LeahDefeat
-	msgbox MtPyre_2F_Text_LeahPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-MtPyre_2F_EventScript_Zander::
-	trainerbattle_single TRAINER_ZANDER, MtPyre_2F_Text_ZanderIntro, MtPyre_2F_Text_ZanderDefeat
-	msgbox MtPyre_2F_Text_ZanderPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 MtPyre_2F_Text_MemoriesOfSkitty:
 	.string "Memories of my darling Skitty…\n"
 	.string "My eyes overflow thinking about it.$"

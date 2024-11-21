@@ -4,6 +4,7 @@ mapscripts Route107_MapScripts {
 
 script Route107_OnTransition {
 	call_if_unset(FLAG_SAND_FAMILY_MOVED, Route107_EventScript_HideNPCs)
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 
@@ -101,56 +102,150 @@ text Route107_Text_KennethPostBattle {
 	"I thought the Pokémon I caught here\nwould be special in some way…"
 }
 
-raw `
-Route107_EventScript_Darrin::
-	trainerbattle_single TRAINER_DARRIN, Route107_Text_DarrinIntro, Route107_Text_DarrinDefeated
-	msgbox Route107_Text_DarrinPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route107_EventScript_Tony::
-	trainerbattle_single TRAINER_TONY, Route107_Text_TonyIntro, Route107_Text_TonyDefeated, Route107_EventScript_TonyRegisterMatchCallAfterBattle
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route107_EventScript_TonyRematch
-	msgbox Route107_Text_TonyPostBattle, MSGBOX_DEFAULT
+script Route107_EventScript_Darrin {
+	trainerbattle_single(TRAINER_DARRIN, Route107_Text_DarrinIntro, Route107_Text_DarrinDefeated)
+	msgbox(Route107_Text_DarrinPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route107_EventScript_TryDarrinRematch)
 	release
 	end
+}
+script Route107_EventScript_TryDarrinRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DARRIN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DARRIN, Route107_Text_DarrinDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route107_EventScript_TonyRegisterMatchCallAfterBattle::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route107_Text_TonyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_TONY
+script Route107_EventScript_Tony {
+	trainerbattle_single(TRAINER_TONY, Route107_Text_TonyIntro, Route107_Text_TonyDefeated)
+	msgbox(Route107_Text_TonyPostBattle, MSGBOX_DEFAULT)
+	call(Route107_EventScript_TryTonyRematch)
 	release
 	end
+}
+script Route107_EventScript_TryTonyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TONY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TONY, Route107_Text_TonyDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route107_EventScript_TonyRematch::
-	trainerbattle_rematch TRAINER_TONY, Route107_Text_TonyRematchIntro, Route107_Text_TonyRematchDefeated
-	msgbox Route107_Text_TonyRematchPostBattle, MSGBOX_AUTOCLOSE
+
+script Route107_EventScript_Denise {
+	trainerbattle_single(TRAINER_DENISE, Route107_Text_DeniseIntro, Route107_Text_DeniseDefeated)
+	msgbox(Route107_Text_DenisePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route107_EventScript_TryDeniseRematch)
+	release
 	end
+}
+script Route107_EventScript_TryDeniseRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DENISE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DENISE, Route107_Text_DeniseDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route107_EventScript_Denise::
-	trainerbattle_single TRAINER_DENISE, Route107_Text_DeniseIntro, Route107_Text_DeniseDefeated
-	msgbox Route107_Text_DenisePostBattle, MSGBOX_AUTOCLOSE
+script Route107_EventScript_Beth {
+	trainerbattle_single(TRAINER_BETH, Route107_Text_BethIntro, Route107_Text_BethDefeated)
+	msgbox(Route107_Text_BethPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route107_EventScript_TryBethRematch)
+	release
 	end
+}
+script Route107_EventScript_TryBethRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_BETH)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_CAMRON)) {
+		msgbox(format("Include Camron and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CAMRON, 0, NULL, Route107_Text_CamronDefeated)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_BETH, Route107_Text_BethDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route107_EventScript_Beth::
-	trainerbattle_single TRAINER_BETH, Route107_Text_BethIntro, Route107_Text_BethDefeated
-	msgbox Route107_Text_BethPostBattle, MSGBOX_AUTOCLOSE
+script Route107_EventScript_Lisa {
+	trainerbattle_double(TRAINER_LISA_AND_RAY, Route107_Text_LisaIntro, Route107_Text_LisaDefeated, Route107_Text_LisaNotEnoughPokemon)
+	msgbox(Route107_Text_LisaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route107_EventScript_TryLisaRematch)
+	release
 	end
+}
+script Route107_EventScript_TryLisaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LISA_AND_RAY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LISA_AND_RAY, Route107_Text_LisaDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route107_EventScript_Lisa::
-	trainerbattle_double TRAINER_LISA_AND_RAY, Route107_Text_LisaIntro, Route107_Text_LisaDefeated, Route107_Text_LisaNotEnoughPokemon
-	msgbox Route107_Text_LisaPostBattle, MSGBOX_AUTOCLOSE
+script Route107_EventScript_Ray {
+	trainerbattle_double(TRAINER_LISA_AND_RAY, Route107_Text_RayIntro, Route107_Text_RayDefeated, Route107_Text_RayNotEnoughPokemon)
+	msgbox(Route107_Text_RayPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route107_EventScript_TryRayRematch)
+	release
 	end
+}
+script Route107_EventScript_TryRayRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LISA_AND_RAY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LISA_AND_RAY, Route107_Text_RayDefeated)
+	special(UpdateRecentTrainers)
+	return
+}
 
-Route107_EventScript_Ray::
-	trainerbattle_double TRAINER_LISA_AND_RAY, Route107_Text_RayIntro, Route107_Text_RayDefeated, Route107_Text_RayNotEnoughPokemon
-	msgbox Route107_Text_RayPostBattle, MSGBOX_AUTOCLOSE
+script Route107_EventScript_Camron {
+	trainerbattle_single(TRAINER_CAMRON, Route107_Text_CamronIntro, Route107_Text_CamronDefeated)
+	msgbox(Route107_Text_CamronPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route107_EventScript_TryCamronRematch)
+	release
 	end
-
-Route107_EventScript_Camron::
-	trainerbattle_single TRAINER_CAMRON, Route107_Text_CamronIntro, Route107_Text_CamronDefeated
-	msgbox Route107_Text_CamronPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-`
+}
+script Route107_EventScript_TryCamronRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CAMRON)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_BETH)) {
+		msgbox(format("Include Beth and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BETH, 0, NULL, Route107_Text_BethDefeated)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+    trainerbattle_no_intro(TRAINER_CAMRON, Route107_Text_CamronDefeated)
+	special(UpdateRecentTrainers)
+	return
+}

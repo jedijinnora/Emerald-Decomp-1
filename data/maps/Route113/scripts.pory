@@ -1,18 +1,282 @@
-script Route113_EventScript_Ike {
-	trainerbattle_single(TRAINER_IKE, Route113_Text_IkeIntro, Route113_Text_IkeDefeat)
-	msgbox(Route113_Text_IkePostBattle, MSGBOX_AUTOCLOSE)
+mapscripts Route113_MapScripts {
+	MAP_SCRIPT_ON_RESUME : Route113_OnResume
+	MAP_SCRIPT_ON_TRANSITION : Route113_OnTransition
+}
+
+script Route113_OnResume {
+	setstepcallback(STEP_CB_ASH)
 	end
 }
 
+script Route113_OnTransition {
+	clearflag(FLAG_FORCE_MIRAGE_TOWER_VISIBLE)
+	call(Route113_EventScript_CheckSetAshWeather)
+	call(Common_EventScript_DisableBPReward)
+	end
+}
+
+script Route113_EventScript_Jaylen {
+	trainerbattle_single(TRAINER_JAYLEN, Route113_Text_JaylenIntro, Route113_Text_JaylenDefeat)
+	msgbox(Route113_Text_JaylenPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route113_EventScript_TryJaylenRematch)
+	release
+	end
+}
+script Route113_EventScript_TryJaylenRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JAYLEN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JAYLEN, Route113_Text_JaylenDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route113_EventScript_Dillon {
+	trainerbattle_single(TRAINER_DILLON, Route113_Text_DillonIntro, Route113_Text_DillonDefeat)
+	msgbox(Route113_Text_DillonPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route113_EventScript_TryDillonRematch)
+	release
+	end
+}
+script Route113_EventScript_TryDillonRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DILLON)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DILLON, Route113_Text_DillonDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route113_EventScript_Madeline {
+	trainerbattle_single(TRAINER_MADELINE, Route113_Text_MadelineIntro, Route113_Text_MadelineDefeat)
+	msgbox(Route113_Text_MadelinePostBattle, MSGBOX_DEFAULT)
+	call(Route113_EventScript_TryMadelineRematch)
+	release
+	end
+}
+script Route113_EventScript_TryMadelineRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MADELINE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MADELINE, Route113_Text_MadelineRematchDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route113_EventScript_Lao {
+	trainerbattle_single(TRAINER_LAO, Route113_Text_LaoIntro, Route113_Text_LaoDefeat)
+	msgbox(Route113_Text_LaoPostBattle, MSGBOX_DEFAULT)
+	call(Route113_EventScript_TryLaoRematch)
+	release
+	end
+}
+script Route113_EventScript_TryLaoRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LAO)
+	setvar(VAR_0x8004, 2)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LAO, Route113_Text_LaoDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route113_EventScript_Lung {
+	trainerbattle_single(TRAINER_LUNG, Route113_Text_LungIntro, Route113_Text_LungDefeat)
+	msgbox(Route113_Text_LungPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route113_EventScript_TryLungRematch)
+	release
+	end
+}
+script Route113_EventScript_TryLungRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LUNG)
+	setvar(VAR_0x8004, 2)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LUNG, Route113_Text_LungDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route113_EventScript_Tori {
+	trainerbattle_double(TRAINER_TORI_AND_TIA, Route113_Text_ToriIntro, Route113_Text_ToriDefeat, Route113_Text_ToriNotEnoughMons)
+	msgbox(Route113_Text_ToriPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route113_EventScript_TryToriRematch)
+	release
+	end
+}
+script Route113_EventScript_TryToriRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TORI_AND_TIA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TORI_AND_TIA, Route113_Text_ToriDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route113_EventScript_Tia {
+	trainerbattle_double(TRAINER_TORI_AND_TIA, Route113_Text_TiaIntro, Route113_Text_TiaDefeat, Route113_Text_TiaNotEnoughMons)
+	msgbox(Route113_Text_TiaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route113_EventScript_TryTiaRematch)
+	release
+	end
+}
+script Route113_EventScript_TryTiaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TORI_AND_TIA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TORI_AND_TIA, Route113_Text_TiaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route113_EventScript_Sophie {
+	trainerbattle_single(TRAINER_SOPHIE, Route113_Text_SophieIntro, Route113_Text_SophieDefeat)
+	msgbox(Route113_Text_SophiePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route113_EventScript_TrySophieRematch)
+	release
+	end
+}
+script Route113_EventScript_TrySophieRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SOPHIE)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_COBY)) {
+		msgbox(format("Include Coby and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_COBY, 0, NULL, Route113_Text_CobyDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SOPHIE, Route113_Text_SophieDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route113_EventScript_Coby {
+	trainerbattle_single(TRAINER_COBY, Route113_Text_CobyIntro, Route113_Text_CobyDefeat)
+	msgbox(Route113_Text_CobyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route113_EventScript_TryCobyRematch)
+	release
+	end
+}
+script Route113_EventScript_TryCobyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_COBY)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_SOPHIE)) {
+		msgbox(format("Include Sophie and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SOPHIE, 0, NULL, Route113_Text_SophieDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_COBY, Route113_Text_CobyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route113_EventScript_Lawrence {
+	trainerbattle_single(TRAINER_LAWRENCE, Route113_Text_LawrenceIntro, Route113_Text_LawrenceDefeat)
+	msgbox(Route113_Text_LawrencePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route113_EventScript_TryLawrenceRematch)
+	release
+	end
+}
+script Route113_EventScript_TryLawrenceRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LAWRENCE)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_WYATT)) {
+		msgbox(format("Include Wyatt and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_WYATT, 0, NULL, Route113_Text_WyattDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LAWRENCE, Route113_Text_LawrenceDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route113_EventScript_Wyatt {
+	trainerbattle_single(TRAINER_WYATT, Route113_Text_WyattIntro, Route113_Text_WyattDefeat)
+	msgbox(Route113_Text_WyattPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route113_EventScript_TryWyattRematch)
+	release
+	end
+}
+script Route113_EventScript_TryWyattRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_WYATT)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_LAWRENCE)) {
+		msgbox(format("Include Lawrence and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_LAWRENCE, 0, NULL, Route113_Text_LawrenceDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_WYATT, Route113_Text_WyattDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route113_EventScript_Ike {
+	trainerbattle_single(TRAINER_IKE, Route113_Text_IkeIntro, Route113_Text_IkeDefeat)
+	msgbox(Route113_Text_IkePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route113_EventScript_TryIkeRematch)
+	release
+	end
+}
+script Route113_EventScript_TryIkeRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_IKE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_IKE, Route113_Text_IkeDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 text Route113_Text_IkeIntro {
 	"My bugs have adapted to these volcanic\n"
 	"conditions!"
 }
-
 text Route113_Text_IkeDefeat {
 	"Ack! Cough! Ash in my throat!"
 }
-
 text Route113_Text_IkePostBattle {
 	"I guess your Pokémon have adapted\n"
 	"to the volcanic ash as well."
@@ -20,20 +284,6 @@ text Route113_Text_IkePostBattle {
 
 
 raw `
-Route113_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, Route113_OnResume
-	map_script MAP_SCRIPT_ON_TRANSITION, Route113_OnTransition
-	.byte 0
-
-Route113_OnResume:
-	setstepcallback STEP_CB_ASH
-	end
-
-Route113_OnTransition:
-	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
-	call Route113_EventScript_CheckSetAshWeather
-	end
-
 Route113_EventScript_CheckSetAshWeather::
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	goto_if_lt VAR_TEMP_0, 19, Route113_EventScript_DontSetAshWeather
@@ -66,93 +316,6 @@ Route113_EventScript_GlassWorkshopSign::
 
 Route113_EventScript_TrainerTipsRegisterKeyItems::
 	msgbox Route113_Text_TrainerTipsRegisterKeyItems, MSGBOX_SIGN
-	end
-
-Route113_EventScript_Jaylen::
-	trainerbattle_single TRAINER_JAYLEN, Route113_Text_JaylenIntro, Route113_Text_JaylenDefeat
-	msgbox Route113_Text_JaylenPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route113_EventScript_Dillon::
-	trainerbattle_single TRAINER_DILLON, Route113_Text_DillonIntro, Route113_Text_DillonDefeat
-	msgbox Route113_Text_DillonPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route113_EventScript_Madeline::
-	trainerbattle_single TRAINER_MADELINE, Route113_Text_MadelineIntro, Route113_Text_MadelineDefeat, Route113_EventScript_RegisterMadeline
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route113_EventScript_RematchMadeline
-	msgbox Route113_Text_MadelinePostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route113_EventScript_RegisterMadeline::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route113_Text_MadelineRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_MADELINE
-	release
-	end
-
-Route113_EventScript_RematchMadeline::
-	trainerbattle_rematch TRAINER_MADELINE, Route113_Text_MadelineRematchIntro, Route113_Text_MadelineRematchDefeat
-	msgbox Route113_Text_MadelinePostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route113_EventScript_Lao::
-	trainerbattle_single TRAINER_LAO, Route113_Text_LaoIntro, Route113_Text_LaoDefeat, Route113_EventScript_RegisterLao
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route113_EventScript_RematchLao
-	msgbox Route113_Text_LaoPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route113_EventScript_RegisterLao::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route113_Text_LaoRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_LAO
-	release
-	end
-
-Route113_EventScript_RematchLao::
-	trainerbattle_rematch TRAINER_LAO, Route113_Text_LaoRematchIntro, Route113_Text_LaoRematchDefeat
-	msgbox Route113_Text_LaoPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route113_EventScript_Lung::
-	trainerbattle_single TRAINER_LUNG, Route113_Text_LungIntro, Route113_Text_LungDefeat
-	msgbox Route113_Text_LungPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route113_EventScript_Tori::
-	trainerbattle_double TRAINER_TORI_AND_TIA, Route113_Text_ToriIntro, Route113_Text_ToriDefeat, Route113_Text_ToriNotEnoughMons
-	msgbox Route113_Text_ToriPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route113_EventScript_Tia::
-	trainerbattle_double TRAINER_TORI_AND_TIA, Route113_Text_TiaIntro, Route113_Text_TiaDefeat, Route113_Text_TiaNotEnoughMons
-	msgbox Route113_Text_TiaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route113_EventScript_Sophie::
-	trainerbattle_single TRAINER_SOPHIE, Route113_Text_SophieIntro, Route113_Text_SophieDefeat
-	msgbox Route113_Text_SophiePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route113_EventScript_Coby::
-	trainerbattle_single TRAINER_COBY, Route113_Text_CobyIntro, Route113_Text_CobyDefeat
-	msgbox Route113_Text_CobyPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route113_EventScript_Lawrence::
-	trainerbattle_single TRAINER_LAWRENCE, Route113_Text_LawrenceIntro, Route113_Text_LawrenceDefeat
-	msgbox Route113_Text_LawrencePostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route113_EventScript_Wyatt::
-	trainerbattle_single TRAINER_WYATT, Route113_Text_WyattIntro, Route113_Text_WyattDefeat
-	msgbox Route113_Text_WyattPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route113_Text_AshCanBeFashionedIntoGlass:

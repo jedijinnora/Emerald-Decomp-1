@@ -13,6 +13,7 @@ script SandsweptDesert_OnLoad {
 script SandsweptDesert_OnTransition {
     call(SandsweptDesert_EventScript_CheckSetSandstorm)
     call(SandsweptDesert_EventScript_TryMoveStash)
+    call(Common_EventScript_DisableBPReward)
     end
 }
 
@@ -86,7 +87,27 @@ script SandsweptDesert_EventScript_LittleBoy {
 script SandsweptDesert_EventScript_Neal {
 	trainerbattle_single(TRAINER_NEAL, SandsweptDesert_Text_NealIntro, SandsweptDesert_Text_NealDefeat)
 	msgbox(SandsweptDesert_Text_NealPostBattle, MSGBOX_AUTOCLOSE)
+	call(SandsweptDesert_EventScript_TryNealRematch)
+	release
 	end
+}
+script SandsweptDesert_EventScript_TryNealRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_NEAL)
+	setvar(VAR_0x8004, 1)
+    if (defeated(TRAINER_RAOUL)) {
+		msgbox(format("Include Raoul and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_RAOUL, 0, NULL, SandsweptDesert_Text_RaoulDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_NEAL, SandsweptDesert_Text_NealDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SandsweptDesert_Text_NealIntro {
 	"Ho there, traveler!"
@@ -103,7 +124,27 @@ text SandsweptDesert_Text_NealPostBattle {
 script SandsweptDesert_EventScript_Raoul {
 	trainerbattle_single(TRAINER_RAOUL, SandsweptDesert_Text_RaoulIntro, SandsweptDesert_Text_RaoulDefeat)
 	msgbox(SandsweptDesert_Text_RaoulPostBattle, MSGBOX_AUTOCLOSE)
+	call(SandsweptDesert_EventScript_TryRaoulRematch)
+	release
 	end
+}
+script SandsweptDesert_EventScript_TryRaoulRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_RAOUL)
+	setvar(VAR_0x8004, 1)
+    if (defeated(TRAINER_NEAL)) {
+		msgbox(format("Include Neal and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_NEAL, 0, NULL, SandsweptDesert_Text_NealDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_RAOUL, SandsweptDesert_Text_RaoulDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SandsweptDesert_Text_RaoulIntro {
 	"My Pokémon trained with the dancers\n"
@@ -111,7 +152,7 @@ text SandsweptDesert_Text_RaoulIntro {
 }
 text SandsweptDesert_Text_RaoulDefeat {
 	"Maybe we should have trained in the\n"
-    "sandstorm instead."
+    "sandstorm instead of at the volcano."
 }
 text SandsweptDesert_Text_RaoulPostBattle {
 	"A Thick Club doubles the Attack stat of\n"
@@ -121,7 +162,20 @@ text SandsweptDesert_Text_RaoulPostBattle {
 script SandsweptDesert_EventScript_Cleo {
 	trainerbattle_single(TRAINER_CLEO, SandsweptDesert_Text_CleoIntro, SandsweptDesert_Text_CleoDefeat)
 	msgbox(SandsweptDesert_Text_CleoPostBattle, MSGBOX_AUTOCLOSE)
+	call(SandsweptDesert_EventScript_TryCleoRematch)
+	release
 	end
+}
+script SandsweptDesert_EventScript_TryCleoRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CLEO)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CLEO, SandsweptDesert_Text_CleoDefeat)
+	special(UpdateRecentTrainers)
+	return
 }
 text SandsweptDesert_Text_CleoIntro {
 	"A battle? Sure, but don't disturb the\n"

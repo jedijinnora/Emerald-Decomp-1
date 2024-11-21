@@ -9,6 +9,7 @@ script Route117_OnTransition {
 	call(Route117_EventScript_TryMoveDayCareMan)
 	call(Route117_EventScript_TryMoveFlowerGirl)
 	call(Common_EventScript_SetWild_0)
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 
@@ -38,6 +39,223 @@ script Route117_EventScript_EVZoneSign {
 	end
 }
 
+script Route117_EventScript_Isaac {
+	trainerbattle_single(TRAINER_ISAAC, Route117_Text_IsaacIntro, Route117_Text_IsaacDefeat)
+	msgbox(Route117_Text_IsaacPostBattle, MSGBOX_DEFAULT)
+	call(Route117_EventScript_TryIsaacRematch)
+	release
+	end
+}
+script Route117_EventScript_TryIsaacRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ISAAC)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ISAAC, Route117_Text_IsaacRematchDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route117_EventScript_Lydia {
+	trainerbattle_single(TRAINER_LYDIA, Route117_Text_LydiaIntro, Route117_Text_LydiaDefeat)
+	msgbox(Route117_Text_LydiaPostBattle, MSGBOX_DEFAULT)
+	call(Route117_EventScript_TryLydiaRematch)
+	release
+	end
+}
+script Route117_EventScript_TryLydiaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_LYDIA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_LYDIA, Route117_Text_LydiaRematchDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route117_EventScript_Dylan {
+	trainerbattle_single(TRAINER_DYLAN, Route117_Text_DylanIntro, Route117_Text_DylanDefeat)
+	msgbox(Route117_Text_DylanPostBattle, MSGBOX_DEFAULT)
+	call(Route117_EventScript_TryDylanRematch)
+	release
+	end
+}
+script Route117_EventScript_TryDylanRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DYLAN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DYLAN, Route117_Text_DylanRematchDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route117_EventScript_Maria {
+	trainerbattle_single(TRAINER_MARIA, Route117_Text_MariaIntro, Route117_Text_MariaDefeat)
+	msgbox(Route117_Text_MariaPostBattle, MSGBOX_DEFAULT)
+	call(Route117_EventScript_TryMariaRematch)
+	release
+	end
+}
+script Route117_EventScript_TryMariaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MARIA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MARIA, Route117_Text_MariaRematchDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route117_EventScript_Derek {
+	trainerbattle_single(TRAINER_DEREK, Route117_Text_DerekIntro, Route117_Text_DerekDefeat)
+	msgbox(Route117_Text_DerekPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route117_EventScript_TryDerekRematch)
+	release
+	end
+}
+script Route117_EventScript_TryDerekRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_DEREK)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_MELINA)) {
+		msgbox(format("Include Melina and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MELINA, 0, NULL, Route117_Text_MelinaDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_DEREK, Route117_Text_DerekDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route117_EventScript_Anna {
+	trainerbattle_double(TRAINER_ANNA_AND_MEG, Route117_Text_AnnaIntro, Route117_Text_AnnaDefeat, Route117_Text_AnnaNotEnoughMons)
+	msgbox(Route117_Text_AnnaPostBattle, MSGBOX_DEFAULT)
+	call(Route117_EventScript_TryAnnaRematch)
+	release
+	end
+}
+script Route117_EventScript_TryAnnaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ANNA_AND_MEG)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ANNA_AND_MEG, Route117_Text_AnnaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route117_EventScript_Meg {
+	trainerbattle_double(TRAINER_ANNA_AND_MEG, Route117_Text_MegIntro, Route117_Text_MegDefeat, Route117_Text_MegNotEnoughMons)
+	msgbox(Route117_Text_MegPostBattle, MSGBOX_DEFAULT)
+	call(Route117_EventScript_TryMegRematch)
+	release
+	end
+}
+script Route117_EventScript_TryMegRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ANNA_AND_MEG)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ANNA_AND_MEG, Route117_Text_MegDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route117_EventScript_Melina {
+	trainerbattle_single(TRAINER_MELINA, Route117_Text_MelinaIntro, Route117_Text_MelinaDefeat)
+	msgbox(Route117_Text_MelinaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route117_EventScript_TryMelinaRematch)
+	release
+	end
+}
+script Route117_EventScript_TryMelinaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MELINA)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_DEREK)) {
+		msgbox(format("Include Derek and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DEREK, 0, NULL, Route117_Text_DerekDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MELINA, Route117_Text_MelinaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route117_EventScript_Brandi {
+	trainerbattle_single(TRAINER_BRANDI, Route117_Text_BrandiIntro, Route117_Text_BrandiDefeat)
+	msgbox(Route117_Text_BrandiPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route117_EventScript_TryBrandiRematch)
+	release
+	end
+}
+script Route117_EventScript_TryBrandiRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_BRANDI)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_AISHA)) {
+		msgbox(format("Include Aisha and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_AISHA, 0, NULL, Route117_Text_AishaDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_BRANDI, Route117_Text_BrandiDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+
+script Route117_EventScript_Aisha {
+	trainerbattle_single(TRAINER_AISHA, Route117_Text_AishaIntro, Route117_Text_AishaDefeat)
+	msgbox(Route117_Text_AishaPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route117_EventScript_TryAishaRematch)
+	release
+	end
+}
+script Route117_EventScript_TryAishaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_AISHA)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_BRANDI)) {
+		msgbox(format("Include Brandi and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BRANDI, 0, NULL, Route117_Text_BrandiDefeat)
+			addvar(VAR_0x8004, 1)
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_AISHA, Route117_Text_AishaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
 
 raw `
 Route117_EventScript_Woman::
@@ -62,148 +280,6 @@ Route117_EventScript_RouteSignMauville::
 
 Route117_EventScript_DayCareSign::
 	msgbox Route117_Text_DayCareSign, MSGBOX_SIGN
-	end
-
-Route117_EventScript_Isaac::
-	trainerbattle_single TRAINER_ISAAC, Route117_Text_IsaacIntro, Route117_Text_IsaacDefeat, Route117_EventScript_RegisterIsaac
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchIsaac
-	msgbox Route117_Text_IsaacPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route117_EventScript_RegisterIsaac::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route117_Text_IsaacRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ISAAC
-	release
-	end
-
-Route117_EventScript_RematchIsaac::
-	trainerbattle_rematch TRAINER_ISAAC, Route117_Text_IsaacRematchIntro, Route117_Text_IsaacRematchDefeat
-	msgbox Route117_Text_IsaacPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route117_EventScript_Lydia::
-	trainerbattle_single TRAINER_LYDIA, Route117_Text_LydiaIntro, Route117_Text_LydiaDefeat, Route117_EventScript_RegisterLydia
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchLydia
-	msgbox Route117_Text_LydiaPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route117_EventScript_RegisterLydia::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route117_Text_LydiaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_LYDIA
-	release
-	end
-
-Route117_EventScript_RematchLydia::
-	trainerbattle_rematch TRAINER_LYDIA, Route117_Text_LydiaRematchIntro, Route117_Text_LydiaRematchDefeat
-	msgbox Route117_Text_LydiaPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route117_EventScript_Dylan::
-	trainerbattle_single TRAINER_DYLAN, Route117_Text_DylanIntro, Route117_Text_DylanDefeat, Route117_EventScript_RegisterDylan
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchDylan
-	msgbox Route117_Text_DylanPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route117_EventScript_RegisterDylan::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route117_Text_DylanRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_DYLAN
-	release
-	end
-
-Route117_EventScript_RematchDylan::
-	trainerbattle_rematch TRAINER_DYLAN, Route117_Text_DylanRematchIntro, Route117_Text_DylanRematchDefeat
-	msgbox Route117_Text_DylanPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route117_EventScript_Maria::
-	trainerbattle_single TRAINER_MARIA, Route117_Text_MariaIntro, Route117_Text_MariaDefeat, Route117_EventScript_RegisterMaria
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchMaria
-	msgbox Route117_Text_MariaPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route117_EventScript_RegisterMaria::
-	special PlayerFaceTrainerAfterBattle
-	waitmovement 0
-	msgbox Route117_Text_MariaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_MARIA
-	release
-	end
-
-Route117_EventScript_RematchMaria::
-	trainerbattle_rematch TRAINER_MARIA, Route117_Text_MariaRematchIntro, Route117_Text_MariaRematchDefeat
-	msgbox Route117_Text_MariaPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route117_EventScript_Derek::
-	trainerbattle_single TRAINER_DEREK, Route117_Text_DerekIntro, Route117_Text_DerekDefeat
-	msgbox Route117_Text_DerekPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route117_EventScript_Anna::
-	trainerbattle_double TRAINER_ANNA_AND_MEG, Route117_Text_AnnaIntro, Route117_Text_AnnaDefeat, Route117_Text_AnnaNotEnoughMons, Route117_EventScript_RegisterAnna
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchAnna
-	msgbox Route117_Text_AnnaPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route117_EventScript_RegisterAnna::
-	msgbox Route117_Text_AnnaAndMegRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ANNA_AND_MEG
-	release
-	end
-
-Route117_EventScript_RematchAnna::
-	trainerbattle_rematch_double TRAINER_ANNA_AND_MEG, Route117_Text_AnnaRematchIntro, Route117_Text_AnnaRematchDefeat, Route117_Text_AnnaRematchNotEnoughMons
-	msgbox Route117_Text_AnnaPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route117_EventScript_Meg::
-	trainerbattle_double TRAINER_ANNA_AND_MEG, Route117_Text_MegIntro, Route117_Text_MegDefeat, Route117_Text_MegNotEnoughMons, Route117_EventScript_RegisterMeg
-	specialvar VAR_RESULT, ShouldTryRematchBattle
-	goto_if_eq VAR_RESULT, TRUE, Route117_EventScript_RematchMeg
-	msgbox Route117_Text_MegPostBattle, MSGBOX_DEFAULT
-	release
-	end
-
-Route117_EventScript_RegisterMeg::
-	msgbox Route117_Text_AnnaAndMegRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_ANNA_AND_MEG
-	release
-	end
-
-Route117_EventScript_RematchMeg::
-	trainerbattle_rematch_double TRAINER_ANNA_AND_MEG, Route117_Text_MegRematchIntro, Route117_Text_MegRematchDefeat, Route117_Text_MegRematchNotEnoughMons
-	msgbox Route117_Text_MegPostRematch, MSGBOX_AUTOCLOSE
-	end
-
-Route117_EventScript_Melina::
-	trainerbattle_single TRAINER_MELINA, Route117_Text_MelinaIntro, Route117_Text_MelinaDefeat
-	msgbox Route117_Text_MelinaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route117_EventScript_Brandi::
-	trainerbattle_single TRAINER_BRANDI, Route117_Text_BrandiIntro, Route117_Text_BrandiDefeat
-	msgbox Route117_Text_BrandiPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route117_EventScript_Aisha::
-	trainerbattle_single TRAINER_AISHA, Route117_Text_AishaIntro, Route117_Text_AishaDefeat
-	msgbox Route117_Text_AishaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route117_Text_DayCarePokemonHadNewMove:
