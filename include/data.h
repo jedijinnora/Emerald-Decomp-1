@@ -74,6 +74,7 @@ struct TrainerMon
     u8 padding1:1;
     u8 dynamaxLevel:4;
     u8 padding2:4;
+    u32 tags;
 };
 
 #define TRAINER_PARTY(partyArray) partyArray, .partySize = ARRAY_COUNT(partyArray)
@@ -94,7 +95,7 @@ struct Trainer
     /*0x20*/ u8 partySize; // Jinnora: vanilla struct ends here
     /*0x21*/ u8 badgeThreshold; // Jinnora: if VAR_NUM_BADGES >= badgeThreshold use party, else easyParty 
     /*0x22*/ const struct TrainerMon *easyParty;
-    /*0x26*/ 
+    /*0x26*/ u8 poolSize;
 };
 
 struct TrainerClass
