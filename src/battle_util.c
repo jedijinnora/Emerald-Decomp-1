@@ -502,11 +502,6 @@ bool32 TryRunFromBattle(u32 battler)
         gBattleStruct->runTries++;
     }
 
-    if (FlagGet(FLAG_NO_ESCAPE))
-    {
-        effect = 0;
-    }
-
     if (effect != 0)
     {
         gCurrentTurnActionNumber = gBattlersCount;
