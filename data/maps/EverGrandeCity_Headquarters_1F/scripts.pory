@@ -338,6 +338,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_UpdateChallengesDifficulty {
         dynmultipush("Turn off Effort Values", 12)
     }
     dynmultipush("View Difficulty information", 20)
+    dynmultipush("Toggle followers on/off", 21)
 
     dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
     switch(var(VAR_RESULT)) {
@@ -353,6 +354,8 @@ script EverGrandeCity_Headquarters_1F_EventScript_UpdateChallengesDifficulty {
             call(EverGrandeCity_Headquarters_1F_EventScript_EVOff)
         case 20:
             call(EverGrandeCity_Headquarters_1F_EventScript_DifficultyRules)
+        case 21:
+            call(EverGrandeCity_Headquarters_1F_EventScript_ToggleFollowers)
         default:
             releaseall
             end

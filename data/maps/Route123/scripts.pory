@@ -105,28 +105,28 @@ script Route123_EventScript_SelectStaticMon {
 			setflag(FLAG_TEMP_1)
 			switch(var(VAR_NUM_BADGES)) {
 				case 0:
-					setwildbattle(SPECIES_VOLTORB_HISUIAN, 14)
-					playmoncry(SPECIES_VOLTORB_HISUIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_VOLTORB_HISUI, 14)
+					playmoncry(SPECIES_VOLTORB_HISUI, CRY_MODE_ENCOUNTER)
 				case 1:
-					setwildbattle(SPECIES_VOLTORB_HISUIAN, 23)
-					playmoncry(SPECIES_VOLTORB_HISUIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_VOLTORB_HISUI, 23)
+					playmoncry(SPECIES_VOLTORB_HISUI, CRY_MODE_ENCOUNTER)
 				case 2:
-					setwildbattle(SPECIES_VOLTORB_HISUIAN, 32)
-					playmoncry(SPECIES_VOLTORB_HISUIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_VOLTORB_HISUI, 32)
+					playmoncry(SPECIES_VOLTORB_HISUI, CRY_MODE_ENCOUNTER)
 				case 3:
-					setwildbattle(SPECIES_ELECTRODE_HISUIAN, 41)
-					playmoncry(SPECIES_ELECTRODE_HISUIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_ELECTRODE_HISUI, 41)
+					playmoncry(SPECIES_ELECTRODE_HISUI, CRY_MODE_ENCOUNTER)
 				case 4:
-					setwildbattle(SPECIES_ELECTRODE_HISUIAN, 50)
-					playmoncry(SPECIES_ELECTRODE_HISUIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_ELECTRODE_HISUI, 50)
+					playmoncry(SPECIES_ELECTRODE_HISUI, CRY_MODE_ENCOUNTER)
 				case 5:
-					setwildbattle(SPECIES_ELECTRODE_HISUIAN, 59)
-					playmoncry(SPECIES_ELECTRODE_HISUIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_ELECTRODE_HISUI, 59)
+					playmoncry(SPECIES_ELECTRODE_HISUI, CRY_MODE_ENCOUNTER)
 				case 6:
-					setwildbattle(SPECIES_ELECTRODE_HISUIAN, 68)
+					setwildbattle(SPECIES_ELECTRODE_HISUI, 68)
 				default:
-					setwildbattle(SPECIES_ELECTRODE_HISUIAN, 77)
-					playmoncry(SPECIES_ELECTRODE_HISUIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_ELECTRODE_HISUI, 77)
+					playmoncry(SPECIES_ELECTRODE_HISUI, CRY_MODE_ENCOUNTER)
 			}
 		case 2:
 			setflag(FLAG_TEMP_2)
@@ -160,29 +160,29 @@ script Route123_EventScript_SelectStaticMon {
 			setflag(FLAG_TEMP_3)
 			switch(var(VAR_NUM_BADGES)) {
 				case 0:
-					setwildbattle(SPECIES_STUNFISK_GALARIAN, 14)
-					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_STUNFISK_GALAR, 14)
+					playmoncry(SPECIES_STUNFISK_GALAR, CRY_MODE_ENCOUNTER)
 				case 1:
-					setwildbattle(SPECIES_STUNFISK_GALARIAN, 23)
-					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_STUNFISK_GALAR, 23)
+					playmoncry(SPECIES_STUNFISK_GALAR, CRY_MODE_ENCOUNTER)
 				case 2:
-					setwildbattle(SPECIES_STUNFISK_GALARIAN, 32)
-					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_STUNFISK_GALAR, 32)
+					playmoncry(SPECIES_STUNFISK_GALAR, CRY_MODE_ENCOUNTER)
 				case 3:
-					setwildbattle(SPECIES_STUNFISK_GALARIAN, 41)
-					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_STUNFISK_GALAR, 41)
+					playmoncry(SPECIES_STUNFISK_GALAR, CRY_MODE_ENCOUNTER)
 				case 4:
-					setwildbattle(SPECIES_STUNFISK_GALARIAN, 50)
-					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_STUNFISK_GALAR, 50)
+					playmoncry(SPECIES_STUNFISK_GALAR, CRY_MODE_ENCOUNTER)
 				case 5:
-					setwildbattle(SPECIES_STUNFISK_GALARIAN, 59)
-					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_STUNFISK_GALAR, 59)
+					playmoncry(SPECIES_STUNFISK_GALAR, CRY_MODE_ENCOUNTER)
 				case 6:
-					setwildbattle(SPECIES_STUNFISK_GALARIAN, 68)
-					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_STUNFISK_GALAR, 68)
+					playmoncry(SPECIES_STUNFISK_GALAR, CRY_MODE_ENCOUNTER)
 				default:
-					setwildbattle(SPECIES_STUNFISK_GALARIAN, 77)
-					playmoncry(SPECIES_STUNFISK_GALARIAN, CRY_MODE_ENCOUNTER)
+					setwildbattle(SPECIES_STUNFISK_GALAR, 77)
+					playmoncry(SPECIES_STUNFISK_GALAR, CRY_MODE_ENCOUNTER)
 			}
 		default:
 		//error handler?

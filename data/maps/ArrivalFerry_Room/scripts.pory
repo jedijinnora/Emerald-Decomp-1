@@ -387,7 +387,7 @@ script ArrivalFerry_Room_EventScript_Monotype {
             dynmultipush("Zubat", SPECIES_ZUBAT)
             dynmultipush("Grimer", SPECIES_GRIMER)
             dynmultipush("Koffing", SPECIES_KOFFING)
-            dynmultipush("Wooper-P", SPECIES_WOOPER_PALDEAN)
+            dynmultipush("Wooper-P", SPECIES_WOOPER_PALDEA)
             dynmultipush("Shroodle", SPECIES_SHROODLE)
         case 4:
             dynmultipush("Sandshrew", SPECIES_SANDSHREW)
@@ -398,7 +398,7 @@ script ArrivalFerry_Room_EventScript_Monotype {
             dynmultipush("Silicobra", SPECIES_SILICOBRA)
         case 5:
             dynmultipush("Geodude", SPECIES_GEODUDE)
-            dynmultipush("Geodude-A", SPECIES_GEODUDE_ALOLAN)
+            dynmultipush("Geodude-A", SPECIES_GEODUDE_ALOLA)
             dynmultipush("Larvitar", SPECIES_LARVITAR)
             dynmultipush("Roggenrola", SPECIES_ROGGENROLA)
             dynmultipush("Rockruff", SPECIES_ROCKRUFF)
@@ -421,7 +421,7 @@ script ArrivalFerry_Room_EventScript_Monotype {
             dynmultipush("Phantump", SPECIES_PHANTUMP)
             dynmultipush("Greavard", SPECIES_GREAVARD)
         case 8:
-            dynmultipush("Meowth-G", SPECIES_MEOWTH_GALARIAN)
+            dynmultipush("Meowth-G", SPECIES_MEOWTH_GALAR)
             dynmultipush("Aron", SPECIES_ARON)
             dynmultipush("Beldum", SPECIES_BELDUM)
             dynmultipush("Klink", SPECIES_KLINK)
@@ -430,7 +430,7 @@ script ArrivalFerry_Room_EventScript_Monotype {
         case 9:
             dynmultipush("Vulpix", SPECIES_VULPIX)
             dynmultipush("Growlithe", SPECIES_GROWLITHE)
-            dynmultipush("Growlithe-H", SPECIES_GROWLITHE_HISUIAN)
+            dynmultipush("Growlithe-H", SPECIES_GROWLITHE_HISUI)
             dynmultipush("Ponyta", SPECIES_PONYTA)
             dynmultipush("Magby", SPECIES_MAGBY)
             dynmultipush("Charcadet", SPECIES_CHARCADET)
@@ -459,14 +459,14 @@ script ArrivalFerry_Room_EventScript_Monotype {
             dynmultipush("Pawmi", SPECIES_PAWMI)
         case 13:
             dynmultipush("Abra", SPECIES_ABRA)
-            dynmultipush("Slowpoke-G", SPECIES_SLOWPOKE_GALARIAN)
+            dynmultipush("Slowpoke-G", SPECIES_SLOWPOKE_GALAR)
             dynmultipush("Ralts", SPECIES_RALTS)
             dynmultipush("Solosis", SPECIES_SOLOSIS)
             dynmultipush("Espurr", SPECIES_ESPURR)
             dynmultipush("Hatenna", SPECIES_HATENNA)
         case 14:
-            dynmultipush("Sandshrew-A", SPECIES_SANDSHREW_ALOLAN)
-            dynmultipush("Vulpix-A", SPECIES_VULPIX_ALOLAN)
+            dynmultipush("Sandshrew-A", SPECIES_SANDSHREW_ALOLA)
+            dynmultipush("Vulpix-A", SPECIES_VULPIX_ALOLA)
             dynmultipush("Swinub", SPECIES_SWINUB)
             dynmultipush("Snorunt", SPECIES_SNORUNT)
             dynmultipush("Vanillite", SPECIES_VANILLITE)
@@ -481,9 +481,9 @@ script ArrivalFerry_Room_EventScript_Monotype {
             dynmultipush("Noibat", SPECIES_NOIBAT)
             dynmultipush("Applin", SPECIES_APPLIN)
         case 16:
-            dynmultipush("Rattata-A", SPECIES_RATTATA_ALOLAN)
+            dynmultipush("Rattata-A", SPECIES_RATTATA_ALOLA)
             dynmultipush("Houndour", SPECIES_HOUNDOUR)
-            dynmultipush("Zigzagoon-G", SPECIES_ZIGZAGOON_GALARIAN)
+            dynmultipush("Zigzagoon-G", SPECIES_ZIGZAGOON_GALAR)
             dynmultipush("Purrloin", SPECIES_PURRLOIN)
             dynmultipush("Impidimp", SPECIES_IMPIDIMP)
             dynmultipush("Maschiff", SPECIES_MASCHIFF)

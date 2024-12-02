@@ -35,7 +35,7 @@ script LittlerootTown_House1_EventScript_Ziggy_3 {
 script LittlerootTown_House1_EventScript_Ziggy_4 {
     lock
     faceplayer
-    playmoncry(SPECIES_ZIGZAGOON_GALARIAN, CRY_MODE_WEAK)
+    playmoncry(SPECIES_ZIGZAGOON_GALAR, CRY_MODE_WEAK)
     msgbox(format("Ziggy 4: Zog!"))
     release
     end

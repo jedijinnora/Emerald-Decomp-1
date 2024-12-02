@@ -14,14 +14,14 @@ script PetalburgCity_House2_EventScript_SchoolKid {
 	faceplayer
 	goto_if_set(FLAG_GIVEN_FAIRY_FEATHER, PetalburgCity_House2_EventScript_OrangeBlossoms)
 	msgbox(format("Do you have any strong Pokémon with orange flowers?"))
-	checkforspecies(SPECIES_FLORGES_ORANGE_FLOWER, PetalburgCity_House2_EventScript_TryGiveReward)
+	checkforspecies(SPECIES_FLORGES_ORANGE, PetalburgCity_House2_EventScript_TryGiveReward)
 	msgbox(format("Orange is my favorite color."))
 	release
 	end
 }
 
 script PetalburgCity_House2_EventScript_TryGiveReward {
-	bufferspeciesname(STR_VAR_1, SPECIES_FLORGES_ORANGE_FLOWER)
+	bufferspeciesname(STR_VAR_1, SPECIES_FLORGES_ORANGE)
 	msgbox(format("Wow, look at that orange {STR_VAR_1}!"))
 	msgbox(format("A Pokémon so elegant deserves to have this!"))
 	giveitem(ITEM_FAIRY_FEATHER)

@@ -1323,7 +1323,7 @@ static const struct InGameTrade sIngameTrades[] =
     [INGAME_TRADE_CORSOLA] =
     {
         .nickname = _("Benthic"),
-        .species = SPECIES_CORSOLA_GALARIAN,
+        .species = SPECIES_CORSOLA_GALAR,
         .ivs = {15, 15, 15, 15, 15, 15},
         .abilityNum = 0,
         .otId = 11111,

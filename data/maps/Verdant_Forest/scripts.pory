@@ -28,7 +28,7 @@ script VerdantForest_OnTransition {
         case 4: //SHIINOTIC
             setvar(VAR_TEMP_4, SPECIES_SHIINOTIC)
         case 5: //RAPIDASH-G
-            setvar(VAR_TEMP_4, SPECIES_RAPIDASH_GALARIAN)
+            setvar(VAR_TEMP_4, SPECIES_RAPIDASH_GALAR)
         case 6: //AROMATISSE
             setvar(VAR_TEMP_4, SPECIES_AROMATISSE)
         case 7: //SLURPUFF
@@ -249,7 +249,7 @@ script VerdantForest_EventScript_FaeTree {
 }
 
 script VerdantForest_EventScript_Guardian {
-    playmoncry(SPECIES_FLOETTE_ETERNAL_FLOWER, CRY_MODE_ENCOUNTER)
+    playmoncry(SPECIES_FLOETTE_ETERNAL, CRY_MODE_ENCOUNTER)
     waitmoncry
     msgbox(format("The guardian of the forest emerges to punish you!"))
     call_if_unset(FLAG_DEFEATED_ETERNAL_FLOETTE, VerdantForest_EventScript_Eternal)    
@@ -310,10 +310,10 @@ script VerdantForest_EventScript_Eternal {
     delay(20)
     msgbox(format("An eldritch wind is blowing!"))
     waitmessage
-    playmoncry(SPECIES_FLOETTE_ETERNAL_FLOWER, CRY_MODE_ENCOUNTER)
+    playmoncry(SPECIES_FLOETTE_ETERNAL, CRY_MODE_ENCOUNTER)
     msgbox(format("Something emerged from another dimension!"))
     waitmoncry
-    setwildbattle(SPECIES_FLOETTE_ETERNAL_FLOWER, 85, ITEM_FAIRY_FEATHER)
+    setwildbattle(SPECIES_FLOETTE_ETERNAL, 85, ITEM_FAIRY_FEATHER)
     settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 1, 1, 1)
     setflag(FLAG_SMART_WILD_AI)
     dowildbattle
@@ -414,22 +414,22 @@ script VerdantForest_EventScript_SetupGuardianBattle {
                     setwildbattle(SPECIES_SHIINOTIC, 80, ITEM_KEBIA_BERRY)
             }
             settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 0, 1, 1)
-        case SPECIES_RAPIDASH_GALARIAN:
+        case SPECIES_RAPIDASH_GALAR:
             switch(var(VAR_NUM_BADGES)) {
                 case 0:
                 case 1:
                 case 2:
-                    setwildbattle(SPECIES_RAPIDASH_GALARIAN, 40, ITEM_LUM_BERRY)
+                    setwildbattle(SPECIES_RAPIDASH_GALAR, 40, ITEM_LUM_BERRY)
                 case 3:
-                    setwildbattle(SPECIES_RAPIDASH_GALARIAN, 50, ITEM_LUM_BERRY)
+                    setwildbattle(SPECIES_RAPIDASH_GALAR, 50, ITEM_LUM_BERRY)
                 case 4:
-                    setwildbattle(SPECIES_RAPIDASH_GALARIAN, 55, ITEM_LUM_BERRY)
+                    setwildbattle(SPECIES_RAPIDASH_GALAR, 55, ITEM_LUM_BERRY)
                 case 5:
-                    setwildbattle(SPECIES_RAPIDASH_GALARIAN, 60, ITEM_LUM_BERRY)
+                    setwildbattle(SPECIES_RAPIDASH_GALAR, 60, ITEM_LUM_BERRY)
                 case 6:
-                    setwildbattle(SPECIES_RAPIDASH_GALARIAN, 70, ITEM_LUM_BERRY)
+                    setwildbattle(SPECIES_RAPIDASH_GALAR, 70, ITEM_LUM_BERRY)
                 default:
-                    setwildbattle(SPECIES_RAPIDASH_GALARIAN, 80, ITEM_LUM_BERRY)
+                    setwildbattle(SPECIES_RAPIDASH_GALAR, 80, ITEM_LUM_BERRY)
             }
             settotemboost(B_POSITION_OPPONENT_LEFT, 2, 0, 2, 0, 0)
         case SPECIES_AROMATISSE:
