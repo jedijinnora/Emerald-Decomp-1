@@ -17,7 +17,8 @@ script MeteorVillage_CentralHall_EventScript_Lass {
 script MeteorVillage_CentralHall_EventScript_ExpertF {
     lock
     faceplayer
-    msgbox(format(""))
+    msgbox(format("Have you traveled far?"))
+    msgbox(format("You have the smell of the sea on you."))
     release
     end
 }
@@ -26,7 +27,7 @@ script MeteorVillage_CentralHall_EventScript_ExpertM {
     lock
     faceplayer
     msgbox(format("Some visitors say we are fools, to live traditionally and disdain the conveniences of modern Hoenn."))
-    msgbox(format("If I owned a personal computer would the smiles of my grandchildren glow more brighly?"))
+    msgbox(format("If I owned a personal computer would the smiles of my grandchildren glow more brightly?"))
     msgbox(format("If we grew our crops with industrial fertilizers and pesticides would the food I cook with my family taste any different?"))
     msgbox(format("Don't let yourself be overawed by the material promises of modernity and forget the important things in life."))
     release
@@ -37,13 +38,35 @@ script MeteorVillage_CentralHall_EventScript_Nurse {
     lock
     faceplayer
     msgbox(format("Shall I heal your Pokémon?"), MSGBOX_YESNO)
-    if(var(VAR_RESULT) == NO) {
-        msgbox(format("Come again."))
-        release
-        end
-    }
+    goto_if_eq(VAR_RESULT, NO, MeteorVillage_EventScript_StarsLight)
     call(Common_EventScript_OutOfCenterPartyHeal)
-    msgbox(format("May the stars light your way."))
+    goto(MeteorVillage_EventScript_StarsLight)
+    end
+}
+
+script MeteorVillage_CentralHall_EventScript_DragonTamer {
+    lock
+    faceplayer
+    msgbox(format("If you're interested in learning more about Dragon Pokémon you should go talk to our Lorekeeper."))
+    msgbox (format("She uses the training grounds at the top of the cliffs outside."))
+    release
+    end
+}
+
+script MeteorVillage_CentralHall_EventScript_Gible {
+    lock
+    faceplayer
+    playmoncry(SPECIES_GIBLE, CRY_MODE_ENCOUNTER)
+    msgbox(format("Gible: Ghiiii!"))
+    release
+    end
+}
+
+script MeteorVillage_CentralHall_EventScript_Hakamo_O {
+    lock
+    faceplayer
+    playmoncry(SPECIES_HAKAMO_O, CRY_MODE_ENCOUNTER)
+    msgbox(format("Hakamo'o: Khee-ro!"))
     release
     end
 }

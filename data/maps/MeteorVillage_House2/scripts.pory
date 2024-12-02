@@ -61,8 +61,8 @@ script MeteorVillage_House2_EventScript_Woman {
     lock
     faceplayer
     msgbox(format("We Draconids choose to pass down our stories face to face instead of writing them down."))
-    msgbox(format("It's only in the last century that the bulk of your society's knowledge has been moved outside the minds of its people."))
-    msgbox(format("What will the consequences of that be, do you think?"))
+    msgbox(format("But a story written in a book or a computer can last longer and go further than any storyteller could travel."))
+    msgbox(format("Either way, stories are meant to be shared and retold."))
     release
     end
 }

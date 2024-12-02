@@ -1,5 +1,11 @@
 mapscripts SlateportBeach_MapScripts {
-	MAP_SCRIPT_ON_TRANSITION : Common_EventScript_DisableBPReward
+	MAP_SCRIPT_ON_TRANSITION : SlateportBeach_OnTransition
+}
+
+script SlateportBeach_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	call(SlateportBeach_EventScript_SetupOpponentGfx)
+	end
 }
 
 script SlateportBeach_EventScript_SeashoreHouseSign {
@@ -11,19 +17,6 @@ script SlateportBeach_EventScript_SeashoreHouseGirl {
     msgbox("Yo, Trainer!\nWhether you're hot to trot,\l or cool cat not,\lchill at my papa's spot!", MSGBOX_NPC)
     end
 }
-
-script SlateportBeach_EventScript_Scott {
-    lock
-    faceplayer
-    msgbox(format("You lost the game!"))
-    release
-    end
-}
-
-
-
-
-
 
 script SlateportBeach_EventScript_Luther {
 	trainerbattle_single(TRAINER_LUTHER, SlateportBeach_Text_LutherIntro, SlateportBeach_Text_LutherDefeat)
@@ -302,4 +295,68 @@ text SlateportBeach_Text_KinsleyDefeat {
 text SlateportBeach_Text_KinsleyPostBattle {
 	"If you get caught in a rip current,\n"
 	"swim to the side until you escape."
+}
+
+
+//Begin Beach Battle scripts:
+
+script SlateportBeach_EventScript_SetupOpponentGfx {
+	switch(var(VAR_BEACH_BATTLE_STATE)) {
+		case 1:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_TUBER_M)
+			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_WOMAN_2)
+		case 2:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SAILOR)
+			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_HEX_MANIAC)
+		case 3:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_PICNICKER)
+			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_MAN_5)
+		case 4:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAN_3)
+			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_WOMAN_5)
+		default:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRAWLY)
+			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_PHOEBE)
+	}
+	return
+}
+
+script SlateportBeach_EventScript_Scott {
+    lock
+    faceplayer
+    msgbox(format("You lost the game!"))
+	call(SlateportBeach_EventScript_Round_1)
+    release
+    end
+}
+
+script SlateportBeach_EventScript_Round_1 {
+	setvar(VAR_0x8004, SPECIAL_BATTLE_BEACH)
+	trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_MISCHA, 0, NULL, SlateportBeach_Text_HankDefeat)
+	trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_MIRABELLE, 0, NULL, SlateportBeach_Text_HankDefeat)
+	special(DoSpecialTrainerBattle)
+	waitstate
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, SlateportBeach_EventScript_SetupRound_2)
+	return
+}
+
+script SlateportBeach_EventScript_SetupRound_2 {
+	
+}
+
+script SlateportBeach_EventScript_Round_2 {
+	
+}
+
+script SlateportBeach_EventScript_Round_3 {
+	
+}
+
+script SlateportBeach_EventScript_Round_4 {
+	
+}
+
+script SlateportBeach_EventScript_Round_5 {
+	
 }

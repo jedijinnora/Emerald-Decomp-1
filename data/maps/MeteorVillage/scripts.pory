@@ -18,6 +18,12 @@ script MeteorVillage_EventScript_VisitMeteor {
     return
 }
 
+script MeteorVillage_EventScript_StarsLight {
+    msgbox(format("May the stars light your way."))
+    release
+    end
+}
+
 script MeteorVillage_EventScript_ExpertF {
     lock
     faceplayer
@@ -77,7 +83,9 @@ script MeteorVillage_EventScript_BugCatcher {
 script MeteorVillage_EventScript_Girl3 {
     lock
     faceplayer
-    msgbox(format(""))
+    msgbox(format("Look, it's not like we hate all outsiders."))
+    msgbox(format("We just made the anthropologists stay outside the boundaries."))
+    msgbox(format("You know, where all the malign spirits roam freely."))
     release
     end
 }
@@ -88,6 +96,14 @@ script MeteorVillage_EventScript_Twin {
     msgbox(format("Zinnia: Have you met my big sister Aster? She's so cool!"))
     msgbox(format("Zinnia: No, you can't go in. Aster said no outsiders allowed!"))
     release
+    end
+}
+
+script MeteorVillage_EventScript_DragonGuard {
+    lock
+    faceplayer
+    msgbox(format("Be welcome, traveler, so long as you don't cause trouble."))
+    goto(MeteorVillage_EventScript_StarsLight)
     end
 }
 
@@ -148,8 +164,7 @@ script MeteorVillage_EventScript_DragonSpecialistMenu {
         case 2:
             call(MeteorVillage_EventScript_DragonSpecialistBattle)
         default:
-            msgbox("Farewell.", MSGBOX_AUTOCLOSE)
-            release
+            goto(MeteorVillage_EventScript_StarsLight)
             end
     }
     goto(MeteorVillage_EventScript_DragonSpecialistMenu)
