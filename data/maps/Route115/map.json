@@ -226,7 +226,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_F",
       "x": 10,
       "y": 8,
       "elevation": 3,
@@ -239,7 +239,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_F",
       "x": 28,
       "y": 54,
       "elevation": 3,

@@ -12,7 +12,7 @@
 #define LEVEL_CAP_CUSTOM                3 // Level cap is defined manually inside GetCurrentLevelCap
 
 // Level Cap Configs
-#define B_EXP_CAP_TYPE                  EXP_CAP_NONE   // [EXP_CAP_NONE, EXP_CAP_HARD, EXP_CAP_SOFT] choose the type of level cap to apply
+#define B_EXP_CAP_TYPE                  EXP_CAP_HARD   // [EXP_CAP_NONE, EXP_CAP_HARD, EXP_CAP_SOFT] choose the type of level cap to apply
 #define B_LEVEL_CAP_TYPE                LEVEL_CAP_CUSTOM // [LEVEL_CAP_NONE, LEVEL_CAP_FLAG_LIST, LEVEL_CAP_VARIABLE, LEVEL_CAP_CUSTOM] choose the method to derive the level cap
 #define B_LEVEL_CAP_VARIABLE            0 // event variable used to derive level cap if B_LEVEL_CAP_TYPE is set to LEVEL_CAP_VARIABLE
 

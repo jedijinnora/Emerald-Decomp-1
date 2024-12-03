@@ -1053,8 +1053,8 @@ static const struct PickupItem sPickupTable[] =
     { ITEM_MAX_REVIVE,      {   _,   3,   3,   4,   4,   9,   8,   8,  30,   _, } },
     { ITEM_HEART_SCALE,     {   _,   3,   3,   4,   4,   4,   4,   5,   9,  10, } },
     { ITEM_ELIXIR,          {   _,   3,   3,   4,   4,   4,   4,   5,   9,  10, } },
-    { ITEM_RARE_CANDY,      {   _,   1,   1,   1,   1,   4,   4,   5,   4,   5, } },
-    { ITEM_NUGGET,          {   _,   _,   3,   4,   4,   4,   4,   5,   4,   5, } },
+    { ITEM_NUGGET,          {   _,   1,   1,   1,   1,   4,   4,   5,   4,   5, } },
+    { ITEM_BIG_NUGGET,      {   _,   _,   3,   4,   4,   4,   4,   5,   4,   5, } },
     { ITEM_BOTTLE_CAP,      {   _,   _,   3,   4,   4,   4,   8,   8,   9,  30, } },
     { ITEM_MAX_ETHER,       {   _,   _,   1,   1,   4,   4,   4,   _,   _,   _, } },
     { ITEM_PP_UP,           {   _,   _,   1,   1,   1,   4,   4,   5,   4,   5, } },
@@ -1067,7 +1067,7 @@ static const struct PickupItem sPickupTable[] =
     { ITEM_MAX_ELIXIR,      {   _,   _,   1,   4,   4,   4,   4,   5,   4,   5, } },
     { ITEM_PP_MAX,          {   _,   _,   _,   4,   4,   4,   4,   7,   9,   9, } },
     { ITEM_COMET_SHARD,     {   _,   _,   _,   _,   1,   1,   4,   5,   4,   5, } },
-    { ITEM_BIG_NUGGET,      {   _,   _,   _,   _,   _,   _,   1,   1,   4,   5, } },
+    { ITEM_WISHING_PIECE,   {   _,   _,   _,   _,   _,   _,   1,   1,   4,   5, } },
     { ITEM_GOLD_BOTTLE_CAP, {   _,   _,   _,   _,   _,   _,   _,   1,   1,   1, } },
 };
 
