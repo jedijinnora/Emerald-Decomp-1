@@ -1959,7 +1959,7 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
 {
     u32 arrayIndex = 0;
     //  monIndex is set to 255 if nothing has been chosen yet, this gives an upper limit on pool size of 255
-    u32 monIndex = 255;
+    u32 monIndex = POOL_SLOT_DISABLED;
     if ((partyIndex == 0
       && poolRules.tagLead != POOL_TAG_DISABLED)
      || (partyIndex == 1
@@ -1969,7 +1969,7 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
     {
         //  Find a mon with a POOL_TAG_LEAD if it exists
         //  Need to look for combined lead and required flags
-        u32 tempMonIndex = 255;
+        u32 tempMonIndex = POOL_SLOT_DISABLED;
         for (u32 currIndex = 0; currIndex < trainer->poolSize; currIndex++)
         {
             bool32 foundRequired = FALSE;
@@ -2044,36 +2044,37 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
     {
         for (u32 i = 0; i < trainer->poolSize; i++)
         {
-             if (trainer->party[poolIndexArray[i]].tags & POOL_TAG_ACE)
+            if (trainer->party[poolIndexArray[i]].tags & POOL_TAG_ACE)
             {
                 arrayIndex = i;
+                monIndex = poolIndexArray[arrayIndex];
                 break;
             }
         }
-        monIndex = poolIndexArray[arrayIndex];
     }
     //  Find other required rules
 
     //  If no other rule is required, pick first available that's not an Ace
-    if (monIndex == 255)
+    if (monIndex == POOL_SLOT_DISABLED)
     {
         for (u32 i = 0; i < trainer->poolSize; i++)
         {
-            if (poolIndexArray[i] != 255
+            if (poolIndexArray[i] != POOL_SLOT_DISABLED
              && !(trainer->party[poolIndexArray[i]].tags & POOL_TAG_ACE))
             {
                 arrayIndex = i;
+                monIndex = poolIndexArray[arrayIndex];
                 break;
             }
         }
-        monIndex = poolIndexArray[arrayIndex];
     }
+    //  If monIndex is still POOL_SLOT_DISABLED, something has gone wrong
     //  Disable indices according to rules
     u32 chosenSpecies = trainer->party[monIndex].species;
     u32 chosenTags = trainer->party[monIndex].tags;
     for (u32 i = 0; i < trainer->poolSize; i++)
     {
-        if (poolIndexArray[i] == 255)
+        if (poolIndexArray[i] == POOL_SLOT_DISABLED)
             continue;
         u32 currSpecies = trainer->party[poolIndexArray[i]].species;
         //  Species rules
@@ -2082,12 +2083,12 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
             //  Are the same species + form
             if (currSpecies == chosenSpecies)
             {
-                poolIndexArray[i] = 255;
+                poolIndexArray[i] = POOL_SLOT_DISABLED;
                 continue;
             }
             if (!poolRules.excludeForms && gSpeciesInfo[chosenSpecies].natDexNum == gSpeciesInfo[currSpecies].natDexNum)
             {
-                poolIndexArray[i] = 255;
+                poolIndexArray[i] = POOL_SLOT_DISABLED;
                 continue;
             }
         }
@@ -2106,14 +2107,13 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
             {
                 if (chosenItem == trainer->party[poolIndexArray[i]].heldItem)
                 {
-                    poolIndexArray[i] = 255;
+                    poolIndexArray[i] = POOL_SLOT_DISABLED;
                     continue;
                 }
             }
         }
         //  Tag Rules
         u32 currTags = trainer->party[poolIndexArray[i]].tags;
-        //u32 poolTagRules = *((u32 *)&poolRules + 1);
         union PoolRuleAccess ruleAccess;
         ruleAccess.poolRules = poolRules;
         for (u32 currTag = 0; currTag < NUM_TAGS; currTag++)
@@ -2123,7 +2123,7 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
              && chosenTags >> currTag & 0x1
              && ruleTag & POOL_TAG_UNIQUE)
             {
-                poolIndexArray[i] = 255;
+                poolIndexArray[i] = POOL_SLOT_DISABLED;
             }
         }
     }
@@ -2241,7 +2241,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         }
 
         bool32 usingPool = FALSE;
-        u8 *poolIndexArray;
+        u8 *poolIndexArray = NULL;
         if (trainer->poolSize != 0 && IsPoolLegal(trainer, battleTypeFlags))
         {
             usingPool = TRUE;
