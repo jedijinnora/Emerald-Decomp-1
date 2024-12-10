@@ -2018,7 +2018,8 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
                 //  Start from index 2, since lead and ace has special handling
                 for (u32 currTag = 2; currTag < NUM_TAGS; currTag++)
                 {
-                    if (rules->tagRequired[currTag])
+                    if (rules->tagRequired[currTag]
+                     && trainer->party[poolIndexArray[currIndex]].tags & (1 << currTag))
                     {
                         arrayIndex = currIndex;
                         foundRequiredTag = TRUE;
@@ -2056,7 +2057,8 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
                 //  Start from index 2, since lead and ace has special handling
                 for (u32 currTag = 2; currTag < NUM_TAGS; currTag++)
                 {
-                    if (rules->tagRequired[currTag])
+                    if (rules->tagRequired[currTag]
+                     && trainer->party[poolIndexArray[currIndex]].tags & (1 << currTag))
                     {
                         arrayIndex = currIndex;
                         foundRequiredTag = TRUE;
