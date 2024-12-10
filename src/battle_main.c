@@ -2145,6 +2145,13 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
     return monIndex;
 }
 
+static u32 GetPoolSeed(const struct Trainer *trainer)
+{
+    u32 seed = gSaveBlock2Ptr->playerTrainerId[0] + (gSaveBlock2Ptr->playerTrainerId[1] << 8) + (gSaveBlock2Ptr->playerTrainerId[2] << 16) + (gSaveBlock2Ptr->playerTrainerId[3] << 24);
+    seed ^= (u32)trainer;
+    return seed;
+}
+
 static void RandomizePoolIndices(const struct Trainer *trainer, u8 *poolIndexArray)
 {
     //  Basically the modern (Durstenfield's) Fisher-Yates shuffle
@@ -2153,10 +2160,17 @@ static void RandomizePoolIndices(const struct Trainer *trainer, u8 *poolIndexArr
     for (u32 i = 0; i < poolSize; i++)
         poolIndexArray[i] = i;
     u32 rnd;
+    rng_value_t localRngState;
     if (B_POOL_SETTING_CONSISTENT_RNG)
-        rnd = Random32();
+    {
+        u32 seed = GetPoolSeed(trainer);
+        localRngState = LocalRandomSeed(seed);
+        rnd = LocalRandom(&localRngState) + (LocalRandom(&localRngState) << 16);
+    }
     else
+    {
         rnd = Random32();
+    }
     u32 usedBits = 0;
     for (u32 i = 0; i < poolSize - 1; i++)
     {
@@ -2178,7 +2192,7 @@ static void RandomizePoolIndices(const struct Trainer *trainer, u8 *poolIndexArr
         if (usedBits + numBits > 32)
         {
             if (B_POOL_SETTING_CONSISTENT_RNG)
-                rnd = Random32();
+                rnd = LocalRandom(&localRngState) + (LocalRandom(&localRngState) << 16);
             else
                 rnd = Random32();
             usedBits = 0;
