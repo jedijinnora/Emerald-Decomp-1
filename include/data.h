@@ -96,6 +96,8 @@ struct Trainer
     /*0x21*/ u8 badgeThreshold; // Jinnora: if VAR_NUM_BADGES >= badgeThreshold use party, else easyParty 
     /*0x22*/ const struct TrainerMon *easyParty;
     /*0x26*/ u8 poolSize;
+    /*0x27*/ u16 poolRuleIndex;
+    //  End of 32-bit alignment
 };
 
 struct TrainerClass
