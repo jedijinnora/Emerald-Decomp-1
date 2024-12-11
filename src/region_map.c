@@ -1898,6 +1898,7 @@ static void CreateFlyDestIcons(void)
                 canFlyFlag = FLAG_VISITED_POKEMON_LEAGUE;
                 break;
             default:
+                break;
         }
 
 
