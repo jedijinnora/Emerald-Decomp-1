@@ -4,6 +4,7 @@ mapscripts Route109_MapScripts {
 
 script Route109_OnTransition {
 	call(Common_EventScript_DisableBPReward)
+	call(BeachBattle_EventScript_LeftBeachBattleEarly)
 	end
 }
 

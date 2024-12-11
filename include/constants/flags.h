@@ -99,10 +99,9 @@
 #define FLAG_NO_ESCAPE              0x4B // prevents running from wild battle
 #define FLAG_NO_FOLLOWERS           0x4C // persistent hide follower flag
 
-//Jinnora: Beach Battle Flags
-#define FLAG_BEACH_BATTLE_VICTORY            0x4D // set after returning from special beach map
-#define FLAG_BEACH_BATTLE_STARTED            0x4E // set when warping to special beach map
-#define FLAG_BEACH_BATTLE_REPEAT             0x4F // set when doing additional beach battles
+#define FLAG_UNUSED_0x4D            0x4D
+#define FLAG_UNUSED_0x4E            0x4E
+#define FLAG_UNUSED_0x4F            0x4F
 
 // Given/Received item Flags
 #define FLAG_GIVEN_POWER_ITEMS               0x50
@@ -961,7 +960,7 @@
 #define FLAG_MONSU_ISLAND_PYRAMID_WARP_1_UNLOCKED                   0x373
 #define FLAG_MONSU_ISLAND_PYRAMID_WARP_2_UNLOCKED                   0x374
 #define FLAG_MONSU_ISLAND_PYRAMID_WARP_3_UNLOCKED                   0x375
-#define FLAG_UNUSED_0x376                                           0x376
+#define FLAG_BEACH_BATTLE_VICTORY                                   0x376 //player has won the initial, static tournament and gotten prize
 #define FLAG_UNUSED_0x377                                           0x377
 #define FLAG_UNUSED_0x378                                           0x378
 #define FLAG_UNUSED_0x379                                           0x379

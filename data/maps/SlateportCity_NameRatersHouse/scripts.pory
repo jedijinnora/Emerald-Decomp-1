@@ -6,16 +6,15 @@ script SlateportCity_NameRatersHouse_EventScript_Scott {
 	msgbox(format("I've bought up property in several places across Hoenn."))
 	msgbox(format("In just a few short years you'll be begging to participate at my awesome Battle Tents and Battle Frontier."))
 	msgbox(format("Care to donate several billion dollars? No? I'll name something after you!"))
+	call(SlateportCity_NameRatersHouse_EventScript_BeginBeachBattle)
 	release
 	end
 }
 
-script SlateportCity_NameRatersHouse_EventScript_ResetBeachBattle {
-	//TODO: reset event flags/opponents
-	clearflag(FLAG_BEACH_BATTLE_VICTORY)
-	clearflag(FLAG_BEACH_BATTLE_STARTED)
-	setvar(VAR_SCOTT_STATE, 0)
-	return
+script SlateportCity_NameRatersHouse_EventScript_BeginBeachBattle {
+	setvar(VAR_BEACH_BATTLE_STATE, 1)
+	warp(MAP_SLATEPORT_BEACH, 1)
+	end
 }
 
 raw `

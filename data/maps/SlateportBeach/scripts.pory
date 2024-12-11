@@ -1,10 +1,18 @@
+const LOCALID_SCOTT = 11
+const LOCALID_OPPONENT_A = 12
+const LOCALID_OPPONENT_B = 13
+const LOCALID_NURSE = 14
+
 mapscripts SlateportBeach_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : SlateportBeach_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_BEACH_BATTLE_STATE, 1: BeachBattle_EventScript_Init
+    ]
 }
 
 script SlateportBeach_OnTransition {
 	call(Common_EventScript_DisableBPReward)
-	call(SlateportBeach_EventScript_SetupOpponentGfx)
+	call(BeachBattle_EventScript_TryHideBeachBattle)
 	end
 }
 
@@ -300,63 +308,359 @@ text SlateportBeach_Text_KinsleyPostBattle {
 
 //Begin Beach Battle scripts:
 
-script SlateportBeach_EventScript_SetupOpponentGfx {
+//VAR_TEMP_1 opponent A assignment
+//VAR_TEMP_2 opponent B assignment
+
+script BeachBattle_EventScript_TryHideBeachBattle {
 	switch(var(VAR_BEACH_BATTLE_STATE)) {
-		case 1:
-			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_TUBER_M)
-			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_WOMAN_2)
-		case 2:
-			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SAILOR)
-			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_HEX_MANIAC)
-		case 3:
-			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_PICNICKER)
-			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_MAN_5)
-		case 4:
-			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAN_3)
-			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_WOMAN_5)
+		case 0:
+		case 100:
+			call(BeachBattle_EventScript_HideBeachBattle)
 		default:
-			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRAWLY)
-			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_PHOEBE)
+			//hide the opponent objects so they can be added manually
+			setflag(FLAG_TEMP_13)
+			setflag(FLAG_TEMP_14)
 	}
 	return
 }
 
-script SlateportBeach_EventScript_Scott {
+script BeachBattle_EventScript_HideBeachBattle {
+	setflag(FLAG_TEMP_11)
+	setflag(FLAG_TEMP_12)
+	setflag(FLAG_TEMP_13)
+	setflag(FLAG_TEMP_14)
+	setflag(FLAG_TEMP_15)
+	setflag(FLAG_TEMP_16)
+	setflag(FLAG_TEMP_17)
+	setflag(FLAG_TEMP_18)
+	setflag(FLAG_TEMP_19)
+	setflag(FLAG_TEMP_1A)
+	setflag(FLAG_TEMP_1B)
+	setflag(FLAG_TEMP_1C)
+	setflag(FLAG_TEMP_1D)
+	setflag(FLAG_TEMP_1E)
+	setflag(FLAG_TEMP_1F)
+	return
+}
+
+//used for the initial, static tournament
+script BeachBattle_EventScript_SetupOpponentGfxInitial {
+	switch(var(VAR_BEACH_BATTLE_STATE)) {
+		case 10:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_TUBER_M)
+			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_WOMAN_2)
+		case 20:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_SAILOR)
+			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_HEX_MANIAC)
+		case 30:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_PICNICKER)
+			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_MAN_5)
+		case 40:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAN_3)
+			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_WOMAN_5)
+		case 50:
+			setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRAWLY)
+			setvar(VAR_OBJ_GFX_ID_2, OBJ_EVENT_GFX_PHOEBE)
+		default:
+	}
+	return
+}
+
+script BeachBattle_EventScript_SetupOpponentTrainersInitial {
+	switch(var(VAR_BEACH_BATTLE_STATE)) {
+		case 10:
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_MISCHA, 0, NULL, SlateportBeach_Text_HankDefeat)
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_MIRABELLE, 0, NULL, SlateportBeach_Text_HankDefeat)
+		case 20:
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_ANTONIO, 0, NULL, SlateportBeach_Text_HankDefeat)
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_LUISA, 0, NULL, SlateportBeach_Text_HankDefeat)
+		case 30:
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_JULIETA, 0, NULL, SlateportBeach_Text_HankDefeat)
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_CAMILO, 0, NULL, SlateportBeach_Text_HankDefeat)
+		case 40:
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_PEDRO, 0, NULL, SlateportBeach_Text_HankDefeat)
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_ALMA, 0, NULL, SlateportBeach_Text_HankDefeat)
+		case 50:
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_BRAWLY, 0, NULL, SlateportBeach_Text_HankDefeat)
+			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_PHOEBE, 0, NULL, SlateportBeach_Text_HankDefeat)
+		default:
+	}
+	return
+}
+
+//used for the recurring, dynamic tournaments
+script BeachBattle_EventScript_SetupOpponentGfxDynamic {
+	switch(var(VAR_TEMP_1)) {
+		default:
+	}
+	switch(var(VAR_TEMP_2)) {
+		default:
+	}
+	return
+}
+
+script BeachBattle_EventScript_SetupOpponentTrainersDynamic {
+	switch(var(VAR_TEMP_1)) {
+		default:
+	}
+	switch(var(VAR_TEMP_2)) {
+		default:
+	}
+	return
+}
+
+movement BeachBattle_Movement_ScottToPodium {
+	walk_down * 6
+	walk_right * 5
+	walk_up * 3
+	step_end
+}
+
+movement BeachBattle_Movement_PlayerEnter {
+	walk_right * 4
+	step_end
+}
+
+movement BeachBattle_Movement_OpponentEnter {
+	walk_left * 7
+	step_end
+}
+
+movement BeachBattle_Movement_OpponentLeave {
+	walk_right * 7
+	step_end
+}
+
+script BeachBattle_EventScript_Init {
+	lock
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight)
+	applymovement(LOCALID_SCOTT, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	msgbox(format("Scott: Here we are! Ooh, I'm just jumping to get the show started."))
+	msgbox(format("Talk to the nurse when you're ready to go!"))
+	msgbox(format("And make sure to stick around until the end! If wander off the beach you'll be disqualified!"))
+	closemessage
+	applymovement(LOCALID_SCOTT, BeachBattle_Movement_ScottToPodium)
+	waitmovement(0)
+	setobjectxyperm(LOCALID_SCOTT, 33, 10)
+	setvar(VAR_BEACH_BATTLE_STATE, 2)
+	release 
+	end
+}
+
+script BeachBattle_EventScript_DoNextRound {
+	switch(var(VAR_BEACH_BATTLE_STATE)) {
+		case 0:
+		case 1:
+		case 2:
+			setvar(VAR_BEACH_BATTLE_STATE, 10)
+		case 10:
+			setvar(VAR_BEACH_BATTLE_STATE, 20)
+		case 20:
+			setvar(VAR_BEACH_BATTLE_STATE, 30)
+		case 30:
+			setvar(VAR_BEACH_BATTLE_STATE, 40)
+		case 40:
+			setvar(VAR_BEACH_BATTLE_STATE, 50)
+		default:
+			msgbox(format("You lost the game!"))
+			release
+			end
+	}
+	if(var(VAR_BEACH_BATTLE_STATE) < 100) {
+		call(BeachBattle_EventScript_SetupOpponentGfxInitial)
+		call(BeachBattle_EventScript_SetupOpponentTrainersInitial)
+	} else {
+		call(BeachBattle_EventScript_SetupOpponentGfxDynamic)
+		call(BeachBattle_EventScript_SetupOpponentTrainersDynamic)
+	}
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, BeachBattle_Movement_PlayerEnter)
+	waitmovement(0)
+	call(BeachBattle_EventScript_OpponentsEnter)
+	call(BeachBattle_EventScript_RoundIntro)
+	setvar(VAR_0x8004, SPECIAL_BATTLE_BEACH)
+	special(DoSpecialTrainerBattle)
+	waitstate
+	goto_if_eq(VAR_RESULT, B_OUTCOME_LOST, SlateportBeach_EventScript_PlayerEliminated)
+	switch(var(VAR_BEACH_BATTLE_STATE)) {
+		case 10:
+		case 20:
+		case 30:
+		case 40:
+			call(BeachBattle_EventScript_OpponentsLeave)
+		case 50:
+			goto(BeachBattle_EventScript_InitialVictory)
+		default:
+			msgbox(format("You lost the game!"))
+			release
+			end
+	}
+	release
+	end
+}
+
+script BeachBattle_EventScript_OpponentsEnter {
+	addobject(LOCALID_OPPONENT_A)
+	addobject(LOCALID_OPPONENT_B)
+	applymovement(LOCALID_OPPONENT_A, BeachBattle_Movement_OpponentEnter)
+	applymovement(LOCALID_OPPONENT_B, BeachBattle_Movement_OpponentEnter)
+	waitmovement(0)
+	return
+}
+
+script BeachBattle_EventScript_OpponentsLeave {
+	applymovement(LOCALID_OPPONENT_A, BeachBattle_Movement_OpponentLeave)
+	applymovement(LOCALID_OPPONENT_B, BeachBattle_Movement_OpponentLeave)
+	waitmovement(0)
+	removeobject(LOCALID_OPPONENT_A)
+	removeobject(LOCALID_OPPONENT_B)
+	return
+}
+
+script BeachBattle_EventScript_RoundIntro {
+	applymovement(LOCALID_SCOTT, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	//do scott message
+	switch(var(VAR_BEACH_BATTLE_STATE)) {
+		case 10:
+			msgbox(format("Scott: Welcome, one and all, to the Beach Battle!"))
+			msgbox(format("Finishing up the first round, we have {PLAYER} vs. Mischa and Mirabelle!"))
+		case 20:
+			msgbox(format("Scott: Things are heating up in the second round!"))
+			msgbox(format("Give your attention to the up-and-coming challenger, {PLAYER}!"))
+			msgbox(format("But can they triumph over the fantastic duo of Antonio and Luisa?"))
+		case 30:
+			msgbox(format("Scott: We've made it to the quarterfinals!"))
+			msgbox(format("Which of our eight remaining teams will make it to the top?"))
+			msgbox(format("Let's hear it for {PLAYER}, Julieto, and Camilo!"))
+		case 40:
+			msgbox(format("Scott: Semifinals!"))
+			msgbox(format("{PLAYER}!"))
+			msgbox(format("And…"))
+			msgbox(format("Pedro and Alma!"))
+		case 50:
+			msgbox(format("Scott: It's the final round!"))
+			msgbox(format("Give it up for the returning champions!"))
+			msgbox(format("It's the legendary surf and shadow combo…"))
+			msgbox(format("Brawly and Phoebe!"))
+		default:
+			msgbox(format("You lost the game!"))
+	}
+	closemessage
+	delay(16)
+
+	applymovement(LOCALID_OPPONENT_A, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	//do opponent a message
+	delay(16)
+
+	applymovement(LOCALID_OPPONENT_B, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	//do opponent b message
+	delay(16)
+
+	return
+}
+
+script SlateportBeach_EventScript_PlayerEliminated {
+	msgbox(format("Scott: {PLAYER} has been eliminated from the Beach Battle!"))
+	warp(MAP_SLATEPORT_CITY, 0)
+	special(HealPlayerParty)
+	call(BeachBattle_EventScript_LeftBeachBattleEarly)
+	release
+	end
+}
+
+script BeachBattle_EventScript_Scott {
     lock
     faceplayer
     msgbox(format("You lost the game!"))
-	call(SlateportBeach_EventScript_Round_1)
+	call(SlateportBeach_EventScript_PlayerEliminated)
     release
     end
 }
 
-script SlateportBeach_EventScript_Round_1 {
-	setvar(VAR_0x8004, SPECIAL_BATTLE_BEACH)
-	trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_MISCHA, 0, NULL, SlateportBeach_Text_HankDefeat)
-	trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_MIRABELLE, 0, NULL, SlateportBeach_Text_HankDefeat)
-	special(DoSpecialTrainerBattle)
-	waitstate
-	specialvar(VAR_RESULT, GetBattleOutcome)
-	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, SlateportBeach_EventScript_SetupRound_2)
-	return
+script BeachBattle_EventScript_Nurse {
+    lock
+    getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
+	switch(var(VAR_TEMP_4)) {
+		case 5:
+			applymovement(OBJ_EVENT_ID_PLAYER, BeachBattle_Movement_PlayerToNurse_5)
+			waitmovement(0)
+		case 6:
+			applymovement(OBJ_EVENT_ID_PLAYER, BeachBattle_Movement_PlayerToNurse_6)
+			waitmovement(0)
+		default:
+	}
+	BeachBattle_EventScript_NurseMenu:
+	dynmultipush("Cancel", 0)
+	dynmultipush("Heal party", 1)
+	dynmultipush("Continue to next round", 2)
+	dynmultipush("Forfeit", 3)
+	msgbox(format("What would you like to do?"))
+	dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			call(Common_EventScript_OutOfCenterPartyHeal)
+		case 2:
+			msgbox(format("Are you ready for the next round?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, YES, BeachBattle_EventScript_DoNextRound)
+		case 3:
+			msgbox(format("Are you sure you want to forfeit the Beach Battle?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, YES, SlateportBeach_EventScript_PlayerEliminated)
+		default:
+			release
+			end
+	}
+    goto(BeachBattle_EventScript_NurseMenu)
 }
 
-script SlateportBeach_EventScript_SetupRound_2 {
-	
+movement BeachBattle_Movement_PlayerToNurse_5 {
+	walk_right
+	walk_down * 2
+	walk_left
+	face_up
+	step_end
 }
 
-script SlateportBeach_EventScript_Round_2 {
-	
+movement BeachBattle_Movement_PlayerToNurse_6 {
+	walk_down
+	walk_left
+	face_up
+	step_end
 }
 
-script SlateportBeach_EventScript_Round_3 {
-	
+script BeachBattle_EventScript_Chansey {
+    lock
+    faceplayer
+	playmoncry(SPECIES_CHANSEY, CRY_MODE_ENCOUNTER)
+    msgbox(format("Chansey: Pree!"))
+    release
+    end
 }
 
-script SlateportBeach_EventScript_Round_4 {
-	
+script BeachBattle_EventScript_InitialVictory {
+	special(DoDomeConfetti)
+	playse(SE_M_ENCORE2)
+	msgbox(format("Scott: {PLAYER} is the Beach Battle Champion! Congratulations!"))
+	giveitem(ITEM_TM01_WORK_UP)
+
+	msgbox(format("Scott: We hope to see you all again for future tournaments!"))
+
+
+	setflag(FLAG_BEACH_BATTLE_VICTORY)
+	setvar(VAR_BEACH_BATTLE_STATE, 100)
+	release
+	end
 }
 
-script SlateportBeach_EventScript_Round_5 {
-	
+script BeachBattle_EventScript_LeftBeachBattleEarly {
+	goto_if_eq(VAR_BEACH_BATTLE_STATE, 0, Common_EventScript_NopReturn)
+	goto_if_eq(VAR_BEACH_BATTLE_STATE, 100, Common_EventScript_NopReturn)
+	if (var(VAR_BEACH_BATTLE_STATE) > 70) {
+		setvar(VAR_BEACH_BATTLE_STATE, 100)
+	} else {
+		setvar(VAR_BEACH_BATTLE_STATE, 0)
+	}
 }

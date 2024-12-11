@@ -314,7 +314,7 @@
 #define OBJ_EVENT_ID_FOLLOWER 0xFE
 
 // Object event local ids referenced in C files
-#define LOCALID_ROUTE111_PLAYER_FALLING 41 //Jinnora: was 45, I must have deleted some stuff
+#define LOCALID_ROUTE111_PLAYER_FALLING 39 //Jinnora: was 45, I must have deleted some stuff
 #define LOCALID_BIRTH_ISLAND_EXTERIOR_ROCK 1
 #define LOCALID_FARAWAY_ISLAND_MEW 1
 #define LOCALID_UNION_ROOM_PLAYER_4 2

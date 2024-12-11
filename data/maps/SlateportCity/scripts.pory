@@ -11,6 +11,7 @@ script SlateportCityOnTransition {
 	call_if_unset(FLAG_BEACH_BATTLE_VICTORY, SlateportCity_EventScript_HideMartsPreBeachBattle)
 	call_if_unset(FLAG_SLATEPORT_FURFROU_TRADE_COMPLETED, SlateportCity_EventScript_SetFurfrou)
 	call_if_set(FLAG_SLATEPORT_FURFROU_TRADE_COMPLETED, SlateportCity_EventScript_SetCinccino)
+	call(BeachBattle_EventScript_LeftBeachBattleEarly)
 	end
 }
 

@@ -234,7 +234,7 @@
 #define VAR_TRAINER_HILL_IS_ACTIVE                       0x40D6
 #define VAR_SKY_PILLAR_RAYQUAZA_CRY_DONE                 0x40D7
 #define VAR_GIFT_PICHU_SLOT                              0x40D8
-#define VAR_UNUSED_0x40D9                                0x40D9
+#define VAR_BEACH_BATTLE_PARTNER                         0x40D9 // partner selection if needed for future tournaments
 #define VAR_BEACH_BATTLE_STATE                           0x40DA // beach battle stuffs
 #define VAR_LAST_TRAINER_BATTLE_POINTER                  0x40DB // points to the last edited VAR_RECENT_TRAINER_X
 #define VAR_RECENT_TRAINER_1                             0x40DC

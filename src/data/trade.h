@@ -1228,7 +1228,7 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Panacea"),
         .species = SPECIES_CHANSEY,
-        .ivs = {15, 15, 15, 15, 15, 15},
+        .ivs = {15, 31, 5, 15, 31, 5},
         .abilityNum = 0,
         .otId = 62312,
         .conditions = {0, 0, 0, 0, 0},
@@ -1244,9 +1244,9 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Kahlo"),
         .species = SPECIES_SMEARGLE,
-        .ivs = {15, 15, 15, 15, 15, 15},
+        .ivs = {25, 25, 25, 30, 30, 30},
         .abilityNum = 0,
-        .otId = 11111,
+        .otId = 14355,
         .conditions = {0, 0, 0, 0, 0},
         .personality = 0xEF,//should be female, Naive nature
         .heldItem = ITEM_CHOICE_SCARF,
@@ -1260,14 +1260,14 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Waluigi"),
         .species = SPECIES_DURANT,
-        .ivs = {15, 15, 15, 15, 15, 15},
+        .ivs = {15, 20, 15, 20, 15, 15},
         .abilityNum = 0,
         .otId = 12192,
         .conditions = {0, 0, 0, 0, 0},
         .personality = 0x0D,//should be male, Jolly nature
         .heldItem = ITEM_QUICK_CLAW,
         .mailNum = -1,
-        .otName = _("Small"),
+        .otName = _("Smant"),
         .otGender = MALE, 
         .sheen = 0,
         .requestedSpecies = SPECIES_WOOPER
@@ -1276,7 +1276,7 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Nelson"),
         .species = SPECIES_SPHEAL,
-        .ivs = {15, 15, 15, 15, 15, 15},
+        .ivs = {18, 21, 18, 15, 21, 18},
         .abilityNum = 0,
         .otId = 00006,
         .conditions = {0, 0, 0, 0, 0},
@@ -1292,7 +1292,7 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Ratatoskr"),
         .species = SPECIES_PACHIRISU,
-        .ivs = {31, 15, 31, 15, 15, 15},
+        .ivs = {31, 15, 31, 15, 15, 31},
         .abilityNum = 0,
         .otId = 05655,
         .conditions = {0, 0, 0, 0, 0},

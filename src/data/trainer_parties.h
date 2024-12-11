@@ -11039,7 +11039,7 @@ static const struct TrainerMon sParty_BB_Julieta[] = {
     .heldItem = ITEM_BIG_ROOT,
     .ability = ABILITY_TRIAGE,
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ev = TRAINER_PARTY_EVS(4, 252, 0, 0, 252, 0),
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 4, 252, 0),
     .nature = NATURE_MODEST,
     .moves = {MOVE_DRAINING_KISS, MOVE_GIGA_DRAIN, MOVE_HEAL_PULSE, MOVE_AROMATHERAPY}
     },
@@ -11051,7 +11051,7 @@ static const struct TrainerMon sParty_BB_Julieta[] = {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 252, 0),
     .nature = NATURE_MODEST,
-    .moves = {MOVE_WEATHER_BALL, MOVE_SOLAR_BEAM, MOVE_SLUDGE_BOMB, MOVE_GIGA_DRAIN}
+    .moves = {MOVE_WEATHER_BALL, MOVE_SOLAR_BEAM, MOVE_SLUDGE_BOMB, MOVE_SLEEP_POWDER}
     }
 };
 //Round 3 Kindler Camilo
