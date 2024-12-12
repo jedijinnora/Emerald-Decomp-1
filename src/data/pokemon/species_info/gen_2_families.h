@@ -6257,7 +6257,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .baseHP        = 45,
         .baseAttack    = 20,
         .baseDefense   = 50,
-        .baseSpeed     = 50,
+        .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 70 : 50,
         .baseSpAttack  = 60,
         .baseSpDefense = 120,
         .types = MON_TYPES(TYPE_WATER, TYPE_FLYING),
