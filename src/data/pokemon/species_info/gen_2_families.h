@@ -1093,7 +1093,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .baseHP        = 40,
         .baseAttack    = 60,
         .baseDefense   = 40,
-        .baseSpeed     = 30,
+        .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 40 : 30,
         .baseSpAttack  = 40,
         .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_BUG, TYPE_POISON),
@@ -1156,7 +1156,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .baseHP        = 70,
         .baseAttack    = 90,
         .baseDefense   = 70,
-        .baseSpeed     = 40,
+        .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 70 : 40,
         .baseSpAttack  = 60,
         .baseSpDefense = P_UPDATED_STATS >= GEN_7 ? 70 : 60,
         .types = MON_TYPES(TYPE_BUG, TYPE_POISON),
@@ -1174,7 +1174,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
-        .abilities = { ABILITY_SWARM, ABILITY_INSOMNIA, ABILITY_SNIPER },
+        .abilities = { ABILITY_SWARM, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_NO_GUARD : ABILITY_INSOMNIA, ABILITY_SNIPER },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Ariados"),
         .cryId = CRY_ARIADOS,
@@ -1238,7 +1238,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_2),
-        .abilities = { ABILITY_VOLT_ABSORB, ABILITY_ILLUMINATE, ABILITY_WATER_ABSORB },
+        .abilities = { ABILITY_VOLT_ABSORB, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_WATER_ABSORB : ABILITY_ILLUMINATE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_DAZZLING : ABILITY_WATER_ABSORB },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Chinchou"),
         .cryId = CRY_CHINCHOU,
@@ -1302,7 +1302,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_2),
-        .abilities = { ABILITY_VOLT_ABSORB, ABILITY_ILLUMINATE, ABILITY_WATER_ABSORB },
+        .abilities = { ABILITY_VOLT_ABSORB, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_WATER_ABSORB : ABILITY_ILLUMINATE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_DAZZLING : ABILITY_WATER_ABSORB },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Lanturn"),
         .cryId = CRY_LANTURN,
@@ -4362,7 +4362,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .baseSpDefense = 40,
     #if P_UPDATED_TYPES >= GEN_CUSTOM
         .types = MON_TYPES(TYPE_FAIRY, TYPE_FIGHTING),
-    else if P_UPDATED_TYPES >= GEN_6
+    #elif P_UPDATED_TYPES >= GEN_6
         .types = MON_TYPES(TYPE_FAIRY),
     #else
         .types = MON_TYPES(TYPE_NORMAL),
@@ -4431,7 +4431,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .baseSpDefense = 60,
     #if P_UPDATED_TYPES >= GEN_CUSTOM
         .types = MON_TYPES(TYPE_FAIRY, TYPE_FIGHTING),
-    #else if P_UPDATED_TYPES >= GEN_6
+    #elif P_UPDATED_TYPES >= GEN_6
         .types = MON_TYPES(TYPE_FAIRY),
     #else
         .types = MON_TYPES(TYPE_NORMAL),
