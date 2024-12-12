@@ -5972,6 +5972,8 @@ u32 GetDynamicMoveType(struct Pokemon *mon, u32 move, u32 battler, u8 *ateBoost)
             moveType = ((NUMBER_OF_MON_TYPES - 6) * typeBits) / 63 + 2;
             if (moveType >= TYPE_MYSTERY)
                 moveType++;
+            if (moveType == TYPE_PSYCHIC) //Jinnora: use Fairy instead of Psychic so it fits better with Unown (who now has Mystical Power for Psychic stab)
+                moveType = TYPE_FAIRY;
             return ((moveType | F_DYNAMIC_TYPE_IGNORE_PHYSICALITY) & 0x3F);
         }
         break;
