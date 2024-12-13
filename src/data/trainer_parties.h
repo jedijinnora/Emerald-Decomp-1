@@ -695,6 +695,7 @@ static const struct TrainerMon sParty_Drake2[] = {
 //in Easy Difficulty, always chooses party 4
 
 //Champion Anabel has several teams with different Legendary/Mythicals as her ace(s)
+//Serene Grace doggos are crazy but have you considered it's funny as hell?
 static const struct TrainerMon sParty_Anabel1[] = {
     {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
