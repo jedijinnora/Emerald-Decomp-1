@@ -2757,7 +2757,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_SAND_SPIT, ABILITY_SHED_SKIN, ABILITY_SAND_VEIL },
+        .abilities = { ABILITY_SAND_SPIT, ABILITY_SHED_SKIN, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_SAND_FORCE : ABILITY_SAND_VEIL },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Silicobra"),
         .cryId = CRY_SILICOBRA,
@@ -2819,7 +2819,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_SAND_SPIT, ABILITY_SHED_SKIN, ABILITY_SAND_VEIL },
+        .abilities = { ABILITY_SAND_SPIT, ABILITY_SHED_SKIN, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_SAND_FORCE : ABILITY_SAND_VEIL },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Sandaconda"),
         .cryId = CRY_SANDACONDA,
@@ -5010,7 +5010,8 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSnomLevelUpLearnset,
         .teachableLearnset = sSnomTeachableLearnset,
         .eggMoveLearnset = sSnomEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_FRIENDSHIP_NIGHT, 0, SPECIES_FROSMOTH}),
+        .evolutions = EVOLUTION({EVO_FRIENDSHIP_NIGHT, 0, SPECIES_FROSMOTH},
+                                {EVO_ITEM, ITEM_ICE_STONE, SPECIES_FROSMOTH}),
     },
 
     [SPECIES_FROSMOTH] =
@@ -6200,7 +6201,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sDreepyLevelUpLearnset,
         .teachableLearnset = sDreepyTeachableLearnset,
         .eggMoveLearnset = sDreepyEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 50, SPECIES_DRAKLOAK}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_DRAKLOAK}),
     },
 
     [SPECIES_DRAKLOAK] =
@@ -6783,9 +6784,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sKubfuLevelUpLearnset,
         .teachableLearnset = sKubfuTeachableLearnset,
         .evolutions = EVOLUTION({EVO_DARK_SCROLL, 0, SPECIES_URSHIFU_SINGLE_STRIKE},
-                                {EVO_ITEM, ITEM_SCROLL_OF_DARKNESS, SPECIES_URSHIFU_SINGLE_STRIKE},
+                                {EVO_ITEM, ITEM_DUSK_STONE, SPECIES_URSHIFU_SINGLE_STRIKE},
                                 {EVO_WATER_SCROLL, 0, SPECIES_URSHIFU_RAPID_STRIKE},
-                                {EVO_ITEM, ITEM_SCROLL_OF_WATERS, SPECIES_URSHIFU_RAPID_STRIKE}),
+                                {EVO_ITEM, ITEM_WATER_STONE, SPECIES_URSHIFU_RAPID_STRIKE}),
     },
 
     [SPECIES_URSHIFU_SINGLE_STRIKE] =

@@ -1131,7 +1131,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         )
         .levelUpLearnset = sPawmoLevelUpLearnset,
         .teachableLearnset = sPawmoTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_OVERWORLD_STEPS, 1000, SPECIES_PAWMOT}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_PAWMOT}),
     },
 
     [SPECIES_PAWMOT] =
@@ -1572,7 +1572,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .levelUpLearnset = sSmolivLevelUpLearnset,
         .teachableLearnset = sSmolivTeachableLearnset,
         .eggMoveLearnset = sSmolivEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_DOLLIV}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_DOLLIV}),
     },
 
     [SPECIES_DOLLIV] =
@@ -2159,7 +2159,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_FLASH_FIRE, ABILITY_NONE, ABILITY_FLAME_BODY },
+        .abilities = { ABILITY_FLASH_FIRE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_STEADFAST : ABILITY_NONE, ABILITY_FLAME_BODY },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Charcadet"),
         .cryId = CRY_CHARCADET,
@@ -2202,8 +2202,8 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .levelUpLearnset = sCharcadetLevelUpLearnset,
         .teachableLearnset = sCharcadetTeachableLearnset,
         .eggMoveLearnset = sCharcadetEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_AUSPICIOUS_ARMOR, SPECIES_ARMAROUGE},
-                                {EVO_ITEM, ITEM_MALICIOUS_ARMOR, SPECIES_CERULEDGE}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_DAWN_STONE, SPECIES_ARMAROUGE},
+                                {EVO_ITEM, ITEM_DUSK_STONE, SPECIES_CERULEDGE}),
     },
 
     [SPECIES_ARMAROUGE] =
@@ -2223,7 +2223,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .friendship = 20,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_FLASH_FIRE, ABILITY_NONE, ABILITY_WEAK_ARMOR },
+        .abilities = { ABILITY_FLASH_FIRE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_WEAK_ARMOR : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_MEGA_LAUNCHER : ABILITY_WEAK_ARMOR },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Armarouge"),
         .cryId = CRY_ARMAROUGE,
@@ -2284,7 +2284,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .friendship = 20,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_FLASH_FIRE, ABILITY_NONE, ABILITY_WEAK_ARMOR },
+        .abilities = { ABILITY_FLASH_FIRE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_WEAK_ARMOR : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_SHARPNESS : ABILITY_WEAK_ARMOR },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Ceruledge"),
         .cryId = CRY_CERULEDGE,
@@ -2895,7 +2895,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .levelUpLearnset = sBramblinLevelUpLearnset,
         .teachableLearnset = sBramblinTeachableLearnset,
         .eggMoveLearnset = sBramblinEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_OVERWORLD_STEPS, 1000, SPECIES_BRAMBLEGHAST}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_DUSK_STONE, SPECIES_BRAMBLEGHAST}),
     },
 
     [SPECIES_BRAMBLEGHAST] =
@@ -3342,7 +3342,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .levelUpLearnset = sRellorLevelUpLearnset,
         .teachableLearnset = sRellorTeachableLearnset,
         .eggMoveLearnset = sRellorEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_OVERWORLD_STEPS, 1000, SPECIES_RABSCA}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_SUN_STONE, SPECIES_RABSCA}),
     },
 
     [SPECIES_RABSCA] =
@@ -3973,7 +3973,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .levelUpLearnset = sFinizenLevelUpLearnset,
         .teachableLearnset = sFinizenTeachableLearnset,
         .eggMoveLearnset = sFinizenEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_PALAFIN_ZERO}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 48, SPECIES_PALAFIN_ZERO}),
     },
 
     [SPECIES_PALAFIN_ZERO] =

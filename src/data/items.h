@@ -8761,8 +8761,9 @@ const struct Item gItemsInfo[] =
             "to switch out\n"
             "without fail."),
         .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .type = EVO_HELD_ITEM_TYPE,
+        .fieldUseFunc = EVO_HELD_ITEM_FIELD_FUNC,
+        .effect = gItemEffect_EvoItem,
         .flingPower = 10,
         .iconPic = gItemIcon_ShedShell,
         .iconPalette = gItemIconPalette_ShedShell,
