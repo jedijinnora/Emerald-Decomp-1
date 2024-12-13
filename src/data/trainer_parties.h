@@ -8123,7 +8123,7 @@ static const struct TrainerMon sParty_Flannery_inverse[] = {
     .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
     .ev = TRAINER_PARTY_EVS(4, 252, 0, 252, 0, 0),
     .nature = NATURE_JOLLY,
-    .moves = {MOVE_FACADE, MOVE_QUICK_ATTACK, MOVE_NONE, MOVE_NONE}
+    .moves = {MOVE_FACADE, MOVE_QUICK_ATTACK, MOVE_STOMPING_TANTRUM, MOVE_PYRO_BALL}
     },
     {
     .lvl = 15,
@@ -12250,7 +12250,7 @@ static const struct TrainerMon sParty_TPPDom[] = {
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .ev = TRAINER_PARTY_EVS(4, 252, 0, 252, 0, 0),
     .nature = 0,
-    .moves = {MOVE_SACRED_FIRE, MOVE_YAWN, MOVE_WISH, MOVE_FACADE}
+    .moves = {MOVE_PYRO_BALL, MOVE_YAWN, MOVE_WISH, MOVE_FACADE}
     },
     {
     .lvl = 16,
