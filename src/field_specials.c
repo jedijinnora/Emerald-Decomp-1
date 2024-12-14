@@ -4694,7 +4694,7 @@ u16 AddVars(void)
 
 bool8 GetVarBit(void)
 {
-    u8 i = gSpecialVar_0x8004;
+    u8 i = gSpecialVar_0x8004 % 16;
     u16 j = gSpecialVar_0x8005;
     j &= (1 << i);
     if (j) return TRUE;
@@ -4703,7 +4703,7 @@ bool8 GetVarBit(void)
 
 u16 SetVarBit(void)
 {
-    u8 i = gSpecialVar_0x8004;
+    u8 i = gSpecialVar_0x8004 % 16;
     u16 j = gSpecialVar_0x8005;
     j |= (1 << i);
     return j;
