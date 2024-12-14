@@ -25,6 +25,7 @@ script MonsuIsland_Pyramid_Summit_EventScript_HideKoraidon {
 script MonsuIsland_Pyramid_Summit_EventScript_Koraidon {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_KORAIDON, CRY_MODE_ENCOUNTER)
 	delay(40)
 	waitmoncry

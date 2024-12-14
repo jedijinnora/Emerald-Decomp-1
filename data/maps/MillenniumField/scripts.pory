@@ -501,6 +501,7 @@ script MillenniumField_EventScript_Mom {
 script MillenniumField_EventScript_Skitty {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_SKITTY, CRY_MODE_NORMAL)
     msgbox(format("Kitty!"))
     release

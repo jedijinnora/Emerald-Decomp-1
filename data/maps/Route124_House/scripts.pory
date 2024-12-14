@@ -35,6 +35,7 @@ script Route124_House_EventScript_Jinnora {
 script Route124_House_EventScript_Lex {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_LIEPARD, CRY_MODE_ENCOUNTER)
     msgbox(format("Lex: Prrrow?"))
     release

@@ -28,6 +28,7 @@ script SunriseShore_EventScript_SunshineLady {
 script SunriseShore_EventScript_Poochyena {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_POOCHYENA, CRY_MODE_ENCOUNTER)
     msgbox(format("Poochyena snarls at you. She seems frustrated with humans."))
     release

@@ -222,6 +222,7 @@ text SootopolisCity_House8_Text_WallaceDefeated {
 script SootopolisCity_House8_EventScript_Milotic {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_MILOTIC, CRY_MODE_ENCOUNTER)
     msgbox(format("Milotic: Preee!"))
     waitmoncry

@@ -8,6 +8,7 @@ script LittlerootTown_House1_EventScript_Youngster {
 script LittlerootTown_House1_EventScript_Ziggy_1 {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_WEAK)
     msgbox(format("Ziggy 1: Zig!"))
     release
@@ -17,6 +18,7 @@ script LittlerootTown_House1_EventScript_Ziggy_1 {
 script LittlerootTown_House1_EventScript_Ziggy_2 {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_ENCOUNTER)
     msgbox(format("Ziggy 2: Zag?"))
     release
@@ -26,6 +28,7 @@ script LittlerootTown_House1_EventScript_Ziggy_2 {
 script LittlerootTown_House1_EventScript_Ziggy_3 {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_ZIGZAGOON, CRY_MODE_WEAK)
     msgbox(format("Ziggy 3: Zug!"))
     release
@@ -35,6 +38,7 @@ script LittlerootTown_House1_EventScript_Ziggy_3 {
 script LittlerootTown_House1_EventScript_Ziggy_4 {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_ZIGZAGOON_GALAR, CRY_MODE_WEAK)
     msgbox(format("Ziggy 4: Zog!"))
     release
@@ -44,6 +48,7 @@ script LittlerootTown_House1_EventScript_Ziggy_4 {
 script LittlerootTown_House1_EventScript_Zorua {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_ZORUA, CRY_MODE_ENCOUNTER)
     msgbox(format("Ziggy 5: Roo ruh?"))
     release

@@ -39,6 +39,7 @@ script MonsuIsland_Pyramid_2F_EventScript_HideGougingFire {
 script MonsuIsland_Pyramid_2F_EventScript_WalkingWake {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_WALKING_WAKE, CRY_MODE_ENCOUNTER)
 	delay(40)
 	waitmoncry
@@ -74,6 +75,7 @@ script MonsuIsland_Pyramid_2F_EventScript_RanFromWalkingWake {
 script MonsuIsland_Pyramid_2F_EventScript_RagingBolt {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_RAGING_BOLT, CRY_MODE_ENCOUNTER)
 	delay(40)
 	waitmoncry
@@ -109,6 +111,7 @@ script MonsuIsland_Pyramid_2F_EventScript_RanFromRagingBolt {
 script MonsuIsland_Pyramid_2F_EventScript_GougingFire {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_GOUGING_FIRE, CRY_MODE_ENCOUNTER)
 	delay(40)
 	waitmoncry

@@ -93,6 +93,7 @@ script Dewford_Resort_EventScript_BlackBelt {
 script Dewford_Resort_EventScript_Azumarill {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_AZUMARILL, CRY_MODE_ENCOUNTER)
     msgbox(format("Azumarill examines you critically. Are you sure you're safe to swim? Don't you need a floatie, or maybe a life jacket? Perhaps a fashionable inner tube?"))
     release
@@ -102,6 +103,7 @@ script Dewford_Resort_EventScript_Azumarill {
 script Dewford_Resort_EventScript_Azurill {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_AZURILL, CRY_MODE_ENCOUNTER)
     msgbox(format("Azurill: Priiii!"))
     release

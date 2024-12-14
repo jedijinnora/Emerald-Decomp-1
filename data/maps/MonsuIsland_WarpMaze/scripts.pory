@@ -54,6 +54,7 @@ script MonsuIsland_WarpMaze_EndEncounter {
 script MonsuIsland_WarpMaze_GreatTusk {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_GREAT_TUSK, CRY_MODE_ENCOUNTER)
 	delay(10)
 	waitmoncry
@@ -92,6 +93,7 @@ script MonsuIsland_WarpMaze_GreatTusk {
 script MonsuIsland_WarpMaze_ScreamTail {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_SCREAM_TAIL, CRY_MODE_ENCOUNTER)
 	delay(10)
 	waitmoncry
@@ -130,6 +132,7 @@ script MonsuIsland_WarpMaze_ScreamTail {
 script MonsuIsland_WarpMaze_SlitherWing {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_SLITHER_WING, CRY_MODE_ENCOUNTER)
 	delay(10)
 	waitmoncry
@@ -168,6 +171,7 @@ script MonsuIsland_WarpMaze_SlitherWing {
 script MonsuIsland_WarpMaze_SandyShocks {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_SANDY_SHOCKS, CRY_MODE_ENCOUNTER)
 	delay(10)
 	waitmoncry
@@ -206,6 +210,7 @@ script MonsuIsland_WarpMaze_SandyShocks {
 script MonsuIsland_WarpMaze_RoaringMoon {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_ROARING_MOON, CRY_MODE_ENCOUNTER)
 	delay(10)
 	waitmoncry

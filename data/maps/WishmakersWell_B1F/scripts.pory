@@ -25,6 +25,7 @@ script WishmakersWell_B1F_OnResume {
 script WishmakersWell_B1F_Jirachi {
     lock
     faceplayer
+    waitse
     playmoncry(SPECIES_JIRACHI, CRY_MODE_ENCOUNTER)
 	delay(40)
 	waitmoncry

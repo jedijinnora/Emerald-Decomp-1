@@ -1013,13 +1013,13 @@
 #define FLAG_HIDE_RUSTURF_TUNNEL_ROCK_2                             0x3A4
 #define FLAG_UNUSED_0x3A5                                           0x3A5
 #define FLAG_UNUSED_0x3A6                                           0x3A6
+#define FLAG_UNUSED_0x3A7                                           0x3A7
+#define FLAG_UNUSED_0x3A8                                           0x3A8
 
 //hide legendary flags
-#define FLAG_HIDE_REGIROCK                                          0x3A7
-#define FLAG_HIDE_REGICE                                            0x3A8
-#define FLAG_HIDE_REGISTEEL                                         0x3A9
-#define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL                     0x3AA
-#define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA                           0x3AB
+#define FLAG_HIDE_REGIROCK                                          0x3A9
+#define FLAG_HIDE_REGICE                                            0x3AA
+#define FLAG_HIDE_REGISTEEL                                         0x3AB
 #define FLAG_HIDE_MARINE_CAVE_KYOGRE                                0x3AC
 #define FLAG_HIDE_SEAFLOOR_CAVERN_ROOM_9_KYOGRE_ASLEEP              0x3AD
 #define FLAG_HIDE_SEAFLOOR_CAVERN_ROOM_9_KYOGRE                     0x3AE
