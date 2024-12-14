@@ -593,6 +593,8 @@ gSpecials::
 
 	def_special MultiplyVars
 	def_special AddVars
+	def_special GetVarBit
+	def_special SetVarBit
 
 	def_special GetDayOfTheWeek
 

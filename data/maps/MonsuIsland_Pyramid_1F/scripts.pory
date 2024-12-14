@@ -26,6 +26,31 @@ script MonsuIsland_Pyramid_1F_OnTransition {
     call_if_set(FLAG_MONSU_ISLAND_PYRAMID_WARP_1_UNLOCKED, MonsuIsland_Pyramid_1F_EventScript_Unblock1)
     call_if_set(FLAG_MONSU_ISLAND_PYRAMID_WARP_2_UNLOCKED, MonsuIsland_Pyramid_1F_EventScript_Unblock2)
     call_if_set(FLAG_MONSU_ISLAND_PYRAMID_WARP_3_UNLOCKED, MonsuIsland_Pyramid_1F_EventScript_Unblock3)
+    copyvar(VAR_0x8005, VAR_MONSU_PYRAMID_MAZE_STATE)
+    setvar(VAR_0x8004, 0)
+    specialvar(VAR_RESULT, GetVarBit)
+    call_if_eq(VAR_RESULT, TRUE, MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_1)
+    setvar(VAR_0x8004, 1)
+    specialvar(VAR_RESULT, GetVarBit)
+    call_if_eq(VAR_RESULT, TRUE, MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_2)
+    setvar(VAR_0x8004, 2)
+    specialvar(VAR_RESULT, GetVarBit)
+    call_if_eq(VAR_RESULT, TRUE, MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_3)
+    setvar(VAR_0x8004, 3)
+    specialvar(VAR_RESULT, GetVarBit)
+    call_if_eq(VAR_RESULT, TRUE, MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_4)
+    setvar(VAR_0x8004, 4)
+    specialvar(VAR_RESULT, GetVarBit)
+    call_if_eq(VAR_RESULT, TRUE, MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_5)
+    setvar(VAR_0x8004, 5)
+    specialvar(VAR_RESULT, GetVarBit)
+    call_if_eq(VAR_RESULT, TRUE, MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_6)
+    setvar(VAR_0x8004, 6)
+    specialvar(VAR_RESULT, GetVarBit)
+    call_if_eq(VAR_RESULT, TRUE, MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_7)
+    setvar(VAR_0x8004, 7)
+    specialvar(VAR_RESULT, GetVarBit)
+    call_if_eq(VAR_RESULT, TRUE, MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_8)
     setflag(FLAG_TEMP_E)
     end
 }
@@ -41,6 +66,12 @@ script MonsuIsland_Pyramid_1F_OnLoad {
     end
 }
 
+script MonsuIsland_Pyramid_1F_EventScript_ResetFlutterManes {
+    setvar(VAR_MONSU_PYRAMID_MAZE_STATE, 0)
+    setvar(VAR_TEMP_D, 1)
+    end
+}
+
 script MonsuIsland_Pyramid_1F_EventScript_HideStatues {
     setflag(FLAG_TEMP_1)
     setflag(FLAG_TEMP_2)
@@ -53,28 +84,20 @@ script MonsuIsland_Pyramid_1F_EventScript_HideStatues {
 }
 
 script MonsuIsland_Pyramid_1F_EventScript_Unblock1 {
-    setflag(FLAG_TEMP_12)
-    clearflag(FLAG_TEMP_2)
-    setvar(VAR_TEMP_2, 1)
-    setflag(FLAG_TEMP_13)
-    clearflag(FLAG_TEMP_3)
-    setvar(VAR_TEMP_3, 1)
+    call(MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_2)
+    call(MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_3)
     setvar(VAR_TEMP_A, 1)
     return
 }
 
 script MonsuIsland_Pyramid_1F_EventScript_Unblock2 {
-    setflag(FLAG_TEMP_14)
-    clearflag(FLAG_TEMP_4)
-    setvar(VAR_TEMP_4, 1)
+    call(MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_4)
     setvar(VAR_TEMP_B, 1)
     return
 }
 
 script MonsuIsland_Pyramid_1F_EventScript_Unblock3 {
-    setflag(FLAG_TEMP_16)
-    clearflag(FLAG_TEMP_6)
-    setvar(VAR_TEMP_6, 1)
+    call(MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_6)
     setvar(VAR_TEMP_C, 1)
     return
 }
@@ -114,6 +137,86 @@ script MonsuIsland_Pyramid_1F_EventScript_WarpTrigger2 {
 script MonsuIsland_Pyramid_1F_EventScript_WarpTrigger3 {
     setflag(FLAG_MONSU_ISLAND_PYRAMID_WARP_3_UNLOCKED)
     setvar(VAR_TEMP_C, 1)
+    return
+}
+
+script MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_1 {
+    setflag(FLAG_TEMP_11)
+    clearflag(FLAG_TEMP_1)
+    setvar(VAR_TEMP_1, 1)
+    copyvar(VAR_0x8005, VAR_MONSU_PYRAMID_MAZE_STATE)
+    setvar(VAR_0x8004, 0)
+    specialvar(VAR_MONSU_PYRAMID_MAZE_STATE, SetVarBit)
+    return
+}
+
+script MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_2 {
+    setflag(FLAG_TEMP_12)
+    clearflag(FLAG_TEMP_2)
+    setvar(VAR_TEMP_2, 1)
+    copyvar(VAR_0x8005, VAR_MONSU_PYRAMID_MAZE_STATE)
+    setvar(VAR_0x8004, 1)
+    specialvar(VAR_MONSU_PYRAMID_MAZE_STATE, SetVarBit)
+    return
+}
+
+script MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_3 {
+    setflag(FLAG_TEMP_13)
+    clearflag(FLAG_TEMP_3)
+    setvar(VAR_TEMP_3, 1)
+    copyvar(VAR_0x8005, VAR_MONSU_PYRAMID_MAZE_STATE)
+    setvar(VAR_0x8004, 2)
+    specialvar(VAR_MONSU_PYRAMID_MAZE_STATE, SetVarBit)
+    return
+}
+
+script MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_4 {
+    setflag(FLAG_TEMP_14)
+    clearflag(FLAG_TEMP_4)
+    setvar(VAR_TEMP_4, 1)
+    copyvar(VAR_0x8005, VAR_MONSU_PYRAMID_MAZE_STATE)
+    setvar(VAR_0x8004, 3)
+    specialvar(VAR_MONSU_PYRAMID_MAZE_STATE, SetVarBit)
+    return
+}
+
+script MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_5 {
+    setflag(FLAG_TEMP_15)
+    clearflag(FLAG_TEMP_5)
+    setvar(VAR_TEMP_5, 1)
+    copyvar(VAR_0x8005, VAR_MONSU_PYRAMID_MAZE_STATE)
+    setvar(VAR_0x8004, 4)
+    specialvar(VAR_MONSU_PYRAMID_MAZE_STATE, SetVarBit)
+    return
+}
+
+script MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_6 {
+    setflag(FLAG_TEMP_16)
+    clearflag(FLAG_TEMP_6)
+    setvar(VAR_TEMP_6, 1)
+    copyvar(VAR_0x8005, VAR_MONSU_PYRAMID_MAZE_STATE)
+    setvar(VAR_0x8004, 5)
+    specialvar(VAR_MONSU_PYRAMID_MAZE_STATE, SetVarBit)
+    return
+}
+
+script MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_7 {
+    setflag(FLAG_TEMP_17)
+    clearflag(FLAG_TEMP_7)
+    setvar(VAR_TEMP_7, 1)
+    copyvar(VAR_0x8005, VAR_MONSU_PYRAMID_MAZE_STATE)
+    setvar(VAR_0x8004, 6)
+    specialvar(VAR_MONSU_PYRAMID_MAZE_STATE, SetVarBit)
+    return
+}
+
+script MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_8 {
+    setflag(FLAG_TEMP_18)
+    clearflag(FLAG_TEMP_8)
+    setvar(VAR_TEMP_8, 1)
+    copyvar(VAR_0x8005, VAR_MONSU_PYRAMID_MAZE_STATE)
+    setvar(VAR_0x8004, 7)
+    specialvar(VAR_MONSU_PYRAMID_MAZE_STATE, SetVarBit)
     return
 }
 
@@ -159,10 +262,8 @@ script MonsuIsland_Pyramid_1F_EventScript_FlutterMane_1 {
     lock
     faceplayer
     call(MonsuIsland_Pyramid_1F_EventScript_FlutterMane)
-    setflag(FLAG_TEMP_11)
-    setvar(VAR_TEMP_1, 1)
+    call(MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_1)
 	fadescreenswapbuffers(FADE_TO_BLACK)
-    clearflag(FLAG_TEMP_1)
     addobject(LOCALID_STATUE_1)
 	removeobject(LOCALID_FLUTTER_MANE_1)
 	fadescreenswapbuffers(FADE_FROM_BLACK)
@@ -174,10 +275,8 @@ script MonsuIsland_Pyramid_1F_EventScript_FlutterMane_2 {
     lock
     faceplayer
     call(MonsuIsland_Pyramid_1F_EventScript_FlutterMane)
-    setflag(FLAG_TEMP_12)
-    setvar(VAR_TEMP_2, 1)
+    call(MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_2)
 	fadescreenswapbuffers(FADE_TO_BLACK)
-    clearflag(FLAG_TEMP_2)
     addobject(LOCALID_STATUE_2)
 	removeobject(LOCALID_FLUTTER_MANE_2)
 	fadescreenswapbuffers(FADE_FROM_BLACK)
@@ -189,10 +288,8 @@ script MonsuIsland_Pyramid_1F_EventScript_FlutterMane_3 {
     lock
     faceplayer
     call(MonsuIsland_Pyramid_1F_EventScript_FlutterMane)
-    setflag(FLAG_TEMP_13)
-    setvar(VAR_TEMP_3, 1)
+    call(MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_3)
 	fadescreenswapbuffers(FADE_TO_BLACK)
-    clearflag(FLAG_TEMP_3)
     addobject(LOCALID_STATUE_3)
 	removeobject(LOCALID_FLUTTER_MANE_3)
 	fadescreenswapbuffers(FADE_FROM_BLACK)
@@ -204,10 +301,8 @@ script MonsuIsland_Pyramid_1F_EventScript_FlutterMane_4 {
     lock
     faceplayer
     call(MonsuIsland_Pyramid_1F_EventScript_FlutterMane)
-    setflag(FLAG_TEMP_14)
-    setvar(VAR_TEMP_4, 1)
+    call(MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_4)
 	fadescreenswapbuffers(FADE_TO_BLACK)
-    clearflag(FLAG_TEMP_4)
     addobject(LOCALID_STATUE_4)
 	removeobject(LOCALID_FLUTTER_MANE_4)
 	fadescreenswapbuffers(FADE_FROM_BLACK)
@@ -219,10 +314,8 @@ script MonsuIsland_Pyramid_1F_EventScript_FlutterMane_5 {
     lock
     faceplayer
     call(MonsuIsland_Pyramid_1F_EventScript_FlutterMane)
-    setflag(FLAG_TEMP_15)
-    setvar(VAR_TEMP_5, 1)
+    call(MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_5)
 	fadescreenswapbuffers(FADE_TO_BLACK)
-    clearflag(FLAG_TEMP_5)
     addobject(LOCALID_STATUE_5)
 	removeobject(LOCALID_FLUTTER_MANE_5)
 	fadescreenswapbuffers(FADE_FROM_BLACK)
@@ -234,10 +327,8 @@ script MonsuIsland_Pyramid_1F_EventScript_FlutterMane_6 {
     lock
     faceplayer
     call(MonsuIsland_Pyramid_1F_EventScript_FlutterMane)
-    setflag(FLAG_TEMP_16)
-    setvar(VAR_TEMP_6, 1)
+    call(MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_6)
 	fadescreenswapbuffers(FADE_TO_BLACK)
-    clearflag(FLAG_TEMP_6)
     addobject(LOCALID_STATUE_6)
 	removeobject(LOCALID_FLUTTER_MANE_6)
 	fadescreenswapbuffers(FADE_FROM_BLACK)
@@ -249,10 +340,8 @@ script MonsuIsland_Pyramid_1F_EventScript_FlutterMane_7 {
     lock
     faceplayer
     call(MonsuIsland_Pyramid_1F_EventScript_FlutterMane)
-    setflag(FLAG_TEMP_17)
-    setvar(VAR_TEMP_7, 1)
+    call(MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_7)
 	fadescreenswapbuffers(FADE_TO_BLACK)
-    clearflag(FLAG_TEMP_7)
     addobject(LOCALID_STATUE_7)
 	removeobject(LOCALID_FLUTTER_MANE_7)
 	fadescreenswapbuffers(FADE_FROM_BLACK)
@@ -264,10 +353,8 @@ script MonsuIsland_Pyramid_1F_EventScript_FlutterMane_8 {
     lock
     faceplayer
     call(MonsuIsland_Pyramid_1F_EventScript_FlutterMane)
-    setflag(FLAG_TEMP_18)
-    setvar(VAR_TEMP_8, 1)
+    call(MonsuIsland_Pyramid_1F_EventScript_ToggleFlutterMane_8)
 	fadescreenswapbuffers(FADE_TO_BLACK)
-    clearflag(FLAG_TEMP_8)
     addobject(LOCALID_STATUE_8)
 	removeobject(LOCALID_FLUTTER_MANE_8)
 	fadescreenswapbuffers(FADE_FROM_BLACK)

@@ -4676,20 +4676,37 @@ bool8 TryOverworldFreezeMon(void)
     return TRUE;
 }
 
-u8 MultiplyVars(void)
+u16 MultiplyVars(void)
 {
-    u8 i = gSpecialVar_0x8004;
-    u8 j = gSpecialVar_0x8005;
+    u16 i = gSpecialVar_0x8004;
+    u16 j = gSpecialVar_0x8005;
     i*=j;
     return i;
 }
 
-u8 AddVars(void)
+u16 AddVars(void)
 {
-    u8 i = gSpecialVar_0x8004;
-    u8 j = gSpecialVar_0x8005;
+    u16 i = gSpecialVar_0x8004;
+    u16 j = gSpecialVar_0x8005;
     i+=j;
     return i;
+}
+
+bool8 GetVarBit(void)
+{
+    u8 i = gSpecialVar_0x8004;
+    u16 j = gSpecialVar_0x8005;
+    j &= (1 << i);
+    if (j) return TRUE;
+    return FALSE;
+}
+
+u16 SetVarBit(void)
+{
+    u8 i = gSpecialVar_0x8004;
+    u16 j = gSpecialVar_0x8005;
+    j |= (1 << i);
+    return j;
 }
 
 u8 GetDayOfTheWeek(void)

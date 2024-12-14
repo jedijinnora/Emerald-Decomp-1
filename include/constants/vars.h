@@ -227,7 +227,7 @@
 #define VAR_FRONTIER_FACILITY                            0x40CF
 #define VAR_HAS_ENTERED_BATTLE_FRONTIER                  0x40D0 // Var is used like a flag.
 #define VAR_SCOTT_STATE                                  0x40D1
-#define VAR_UNUSED_0x40D2                                0x40D2 // was slateport outside museum state
+#define VAR_MONSU_PYRAMID_MAZE_STATE                     0x40D2 // was slateport outside museum state
 #define VAR_DEX_UPGRADE_JOHTO_STARTER_STATE              0x40D3
 #define VAR_SS_TIDAL_SCOTT_STATE                         0x40D4 // Always equal to FLAG_MET_SCOTT_ON_SS_TIDAL
 #define VAR_ROAMER_POKEMON                               0x40D5 // 0 = Latias, 1 = Latios
