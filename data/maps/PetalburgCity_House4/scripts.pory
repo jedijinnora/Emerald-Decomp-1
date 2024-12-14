@@ -91,6 +91,8 @@ script PetalburgCity_House4_EventScript_NormalSpecialistTutor {
             setvar(VAR_0x8005, MOVE_TAIL_SLAP)
         case 44:
             setvar(VAR_0x8005, MOVE_SWIFT)
+        case 45:
+            setvar(VAR_0x8005, MOVE_WEATHER_BALL)
         default:
             return
     }
@@ -150,6 +152,9 @@ script PetalburgCity_House4_EventScript_NormalSpecialistUnlockOtherTutor {
     }
     if(flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
         dynmultipush("Swift", 44)
+    }
+    if(flag(FLAG_TUTOR_WEATHER_BALL)) {
+        dynmultipush("Weather Ball", 45)
     }
     return
 }

@@ -34,6 +34,7 @@ script WishmakersWell_B1F_Jirachi {
 	special(BattleSetup_StartLegendaryBattle)
 	waitstate
     clearflag(FLAG_SMART_WILD_AI)
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
 	specialvar(VAR_RESULT, GetBattleOutcome)
 	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, WishmakersWell_B1F_EventScript_DefeatedJirachi)
 	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, WishmakersWell_B1F_EventScript_RanFromJirachi)

@@ -1,1 +1,58 @@
-mapscripts MonsuIsland_Pyramid_Summit_MapScripts {}
+mapscripts MonsuIsland_Pyramid_Summit_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : MonsuIsland_Pyramid_Summit_OnTransition
+    MAP_SCRIPT_ON_RESUME : MonsuIsland_Pyramid_Summit_OnResume
+}
+
+script MonsuIsland_Pyramid_Summit_OnTransition {
+    call_if_unset(FLAG_CAUGHT_KORAIDON, MonsuIsland_Pyramid_Summit_EventScript_HideKoraidon)
+    call_if_unset(FLAG_CAUGHT_RAGING_BOLT, MonsuIsland_Pyramid_Summit_EventScript_HideKoraidon)
+    call_if_unset(FLAG_CAUGHT_GOUGING_FIRE, MonsuIsland_Pyramid_Summit_EventScript_HideKoraidon)
+    call_if_set(FLAG_DEFEATED_KORAIDON, MonsuIsland_Pyramid_Summit_EventScript_HideKoraidon)
+    call_if_set(FLAG_CAUGHT_KORAIDON, MonsuIsland_Pyramid_Summit_EventScript_HideKoraidon)
+    end
+}
+
+script MonsuIsland_Pyramid_Summit_OnResume {
+    call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_TryRemoveCaughtEncounter)
+    end
+}
+
+script MonsuIsland_Pyramid_Summit_EventScript_HideKoraidon {
+    setflag(FLAG_TEMP_11)
+    end
+}
+
+script MonsuIsland_Pyramid_Summit_EventScript_Koraidon {
+    lock
+    faceplayer
+    playmoncry(SPECIES_KORAIDON, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+    setflag(FLAG_SMART_WILD_AI)
+	createmon(1, 0, SPECIES_KORAIDON, 90, ITEM_LUM_BERRY, move1=MOVE_COLLISION_COURSE, move2=MOVE_SCALE_SHOT, move3=MOVE_IRON_HEAD, move4=MOVE_SWORDS_DANCE)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	special(BattleSetup_StartLegendaryBattle)
+	waitstate
+    clearflag(FLAG_SMART_WILD_AI)
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, MonsuIsland_Pyramid_Summit_EventScript_DefeatedKoraidon)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, MonsuIsland_Pyramid_Summit_EventScript_RanFromKoraidon)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, MonsuIsland_Pyramid_Summit_EventScript_RanFromKoraidon)
+	setflag(FLAG_CAUGHT_KORAIDON)
+    release
+    end
+}
+
+script MonsuIsland_Pyramid_Summit_EventScript_DefeatedKoraidon {
+	setflag(FLAG_DEFEATED_KORAIDON)
+	goto(Common_EventScript_RemoveStaticPokemon)
+	end
+}
+
+script MonsuIsland_Pyramid_Summit_EventScript_RanFromKoraidon {
+	setflag(FLAG_DEFEATED_KORAIDON)
+	setvar(VAR_0x8004, SPECIES_KORAIDON)
+	goto(Common_EventScript_LegendaryFlewAway)
+	end
+}

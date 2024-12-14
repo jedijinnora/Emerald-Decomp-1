@@ -55,8 +55,10 @@ script Forina_EventScript_Man {
 script Forina_EventScript_Twin {
 	lock
 	faceplayer
-	random(4)
-	switch(var(VAR_RESULT)) {
+	if(var(VAR_TEMP_1) > 3) {
+		setvar(VAR_TEMP_1, 0)
+	}
+	switch(var(VAR_TEMP_1)) {
 		case 0:
 			msgbox(format("I love the pillars here. Did you know the rocks are really old?"))
 		case 1:
@@ -66,6 +68,7 @@ script Forina_EventScript_Twin {
 		default: 
 			msgbox(format("Ooh, ooh! Have you been to Millennium Field for the star festival?"))
 	}
+	addvar(VAR_TEMP_1, 1)
 	release
 	end
 }

@@ -13,6 +13,7 @@ const LOCALID_JINNORA = 25
 //FLAG_TEMP_1F Surf check
 
 //VAR_TEMP_1 store current mapsec during ferry script
+//VAR_TEMP_3 E4 Girl
 
 
 mapscripts EverGrandeCity_MapScripts {
@@ -190,8 +191,10 @@ script EverGrandeCity_EventScript_Lass {
 	lock
 	faceplayer
 	msgbox(format("Living in Ever Grande City means I get to catch a lot of glimpses of the Elite Four."))
-	random(5)
-	switch(var(VAR_RESULT)) {
+	if(var(VAR_TEMP_3) > 4) {
+		setvar(VAR_TEMP_1, 0)
+	}
+	switch(var(VAR_TEMP_3)) {
 		case 0:
 			msgbox(format("Brandon has a lot of strong Pokémon from all the ancient ruins he's explored."))
 		case 1:
@@ -203,6 +206,7 @@ script EverGrandeCity_EventScript_Lass {
 		default:
 			msgbox(format("I don't see Champion Anabel much at all. She usually looks bored."))
 	}
+	addvar(VAR_TEMP_3, 1)
 	release
 	end
 }

@@ -7,10 +7,9 @@ script Route119_WeatherInstitute_2F_EventScript_CastformScientist {
 	goto_if_set(FLAG_RECEIVED_CASTFORM, CastformInfo)
 	msgbox(format("Hello! I work with the Weather Institute's artificial Pokémon!"))
 	msgbox(format("We're giving out Castform to suitable Trainers so we can gather more data on its use in battle."))
+	goto_if_lt(VAR_NUM_BADGES, 1, CastformNeedBadge)
 	msgbox(format("Would you be willing to take a Castform with you on your journey?"), MSGBOX_YESNO)
-	if(var(VAR_RESULT) == YES) {
-		goto(CastformGift)
-	}
+	goto_if_eq(VAR_RESULT, YES, CastformGift)
 	msgbox(format("Come back if you change your mind."))
 	release
 	end
@@ -50,6 +49,11 @@ script Route119_WeatherInstitute_2F_EventScript_CastformScientist {
 	CastformInfo:
 	msgbox(format("Castform transforms into Sunny, Rainy, or Snowy Form depending on the weather."))
 	msgbox(format("I'm still trying to modify Castform so they will change form during a sandstorm."))
+	release
+	end
+
+	CastformNeedBadge:
+	msgbox(format("Once you've earned a Gym Badge, I'd be happy to give you one."))
 	release
 	end
 }

@@ -11,6 +11,7 @@ script Route119_WeatherInstitute_1F_EventScript_Bed {
 script Route119_WeatherInstitute_1F_EventScript_InstituteWorker1 {
 	lock
 	faceplayer
+	setflag(FLAG_TUTOR_WEATHER_BALL)
 	msgbox(format("I'm an expert on using weather conditions in battle."))
 	msgbox(format("I can teach your Pokémon the move Weather Ball if you'd like?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == NO) {
@@ -38,8 +39,7 @@ script Route119_WeatherInstitute_1F_EventScript_InstituteWorker2 {
 script Route119_WeatherInstitute_1F_EventScript_LittleBoy {
 	lock
 	faceplayer
-	random(4)
-	switch(var(VAR_RESULT)) {
+	switch(var(VAR_TEMP_1)) {
 		case 0:
 			msgbox(format("Did you know that two-thirds of all flowering plant species live in rainforests like this one?"))
 		case 1:
@@ -50,6 +50,10 @@ script Route119_WeatherInstitute_1F_EventScript_LittleBoy {
 			msgbox(format("But humans destroy tons of rainforest each year, so they might be gone by the time I'm old enough to go."))
 		case 3:
 			msgbox(format("The weather here changes on a four-day cycle. Why is it so predictable, do you think?"))
+	}
+	addvar(VAR_TEMP_1, 1)
+	if(var(VAR_TEMP_1) > 3) {
+		setvar(VAR_TEMP_1, 0)
 	}
 	release
 	end

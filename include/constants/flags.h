@@ -215,7 +215,7 @@
 #define FLAG_TUTOR_HIGH_CRIT_MOVES           0xB6 // cutter's house, rustboro
 #define FLAG_TUTOR_SHROOMISH_SPORE           0xB7 // rustboro city
 #define FLAG_RECEIVED_SECRET_POWER           0xB8 // r111
-#define FLAG_UNUSED_0xB9                     0xB9
+#define FLAG_TUTOR_WEATHER_BALL              0xB9 // weather institute
 #define FLAG_UNUSED_0xBA                     0xBA
 #define FLAG_UNUSED_0xBB                     0xBB
 #define FLAG_UNUSED_0xBC                     0xBC
@@ -299,18 +299,18 @@
 #define FLAG_CAUGHT_WALKING_WAKE             0x106
 #define FLAG_CAUGHT_GOUGING_FIRE             0x107
 #define FLAG_CAUGHT_RAGING_BOLT              0x108
-#define FLAG_ROUTE_127_PSYCHIC_ENCOUNTER     0x109
-#define FLAG_UNUSED_0x10A                    0x10A
-#define FLAG_UNUSED_0x10B                    0x10B
-#define FLAG_UNUSED_0x10C                    0x10C
-#define FLAG_UNUSED_0x10D                    0x10D
-#define FLAG_UNUSED_0x10E                    0x10E
-#define FLAG_UNUSED_0x10F                    0x10F
-#define FLAG_UNUSED_0x110                    0x110
-#define FLAG_UNUSED_0x111                    0x111
-#define FLAG_UNUSED_0x112                    0x112
-#define FLAG_UNUSED_0x113                    0x113
-#define FLAG_UNUSED_0x114                    0x114
+#define FLAG_DEFEATED_KORAIDON               0x109
+#define FLAG_CAUGHT_KORAIDON                 0x10A
+#define FLAG_DEFEATED_COBALION               0x10B
+#define FLAG_DEFEATED_TERRAKION              0x10C
+#define FLAG_DEFEATED_VIRIZION               0x10D
+#define FLAG_DEFEATED_KELDEO                 0x10E
+#define FLAG_CAUGHT_COBALION                 0x10F
+#define FLAG_CAUGHT_TERRAKION                0x110
+#define FLAG_CAUGHT_VIRIZION                 0x111
+#define FLAG_CAUGHT_KELDEO                   0x112
+#define FLAG_SWORDS_OF_JUSTICE_ACTIVE        0x113
+#define FLAG_ROUTE_127_PSYCHIC_ENCOUNTER     0x114
 #define FLAG_UNUSED_0x115                    0x115
 #define FLAG_UNUSED_0x116                    0x116
 #define FLAG_UNUSED_0x117                    0x117

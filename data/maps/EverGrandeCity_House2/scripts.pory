@@ -8,8 +8,10 @@ script EverGrandeCity_House2_EventScript_ExpertM {
     msgbox(format("I traveled all over the Hoenn region in my younger years."))
     msgbox(format("Did you know? In addition to the Gym Leaders, there are trainers who specialize in every type. They can offer you challenging battles and teach your Pokémon a variety of moves."))
     SpecialistHint:
-    random(18)
-    switch(var(VAR_RESULT)) {
+    if(var(VAR_TEMP_1) > 17) {
+		setvar(VAR_TEMP_1, 0)
+	}
+    switch(var(VAR_TEMP_1)) {
         case 0:
             msgbox(format("Gym Leader Moore of Lavaridge is getting a bit old for battles. His granddaughter Flannery is likely to take over when he retires."))
         case 1:
@@ -47,6 +49,7 @@ script EverGrandeCity_House2_EventScript_ExpertM {
         default:
             msgbox(format("Ellie is the local Ice-type specialist here in Ever Grande. She's Elite Four Glacia's niece!"))    
     }
+    addvar(VAR_TEMP_1, 1)
     release
     end
 }

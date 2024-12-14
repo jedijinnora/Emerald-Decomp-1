@@ -4,6 +4,7 @@ const LOCALID_RIVAL = 10
 
 //VAR_TEMP_1 : x coord
 //VAR_TEMP_2 : y coord
+//VAR_TEMP_3 : post-egg message
 //VAR_TEMP_A : north rival
 //VAR_TEMP_B : east rival
 //VAR_TEMP_C : south rival
@@ -323,8 +324,10 @@ script LavaridgeTown_EventScript_EggWoman {
 	end
 	
 	ReceivedEgg:
-	random(3)
-	switch(var(VAR_RESULT)) {
+	if(var(VAR_TEMP_3) > 2) {
+		setvar(VAR_TEMP_3, 0)
+	}
+	switch(var(VAR_TEMP_3)) {
 		case 0:
 			msgbox(format("A soak in the hot springs should do you good. Have you gone already today?"))
 		case 1:
@@ -332,6 +335,7 @@ script LavaridgeTown_EventScript_EggWoman {
 		default:
 			msgbox(format("Pokémon have such different biologies, but nearly every species reproduces by laying eggs. Why is that, do you think?"))
 	}
+	addvar(VAR_TEMP_3, 1)
 	release
 	end
 }
