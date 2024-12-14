@@ -80,6 +80,16 @@ script SlateportCity_PokemonFanClub_EventScript_Vaporeon {
 	end
 }
 
+script SlateportCity_PokemonFanClub_EventScript_Psyduck {
+	lock
+	faceplayer
+	playmoncry(SPECIES_PSYDUCK, CRY_MODE_ENCOUNTER)
+	msgbox(format("Psyduck: ?????"))
+	waitmoncry
+	release
+	end
+}
+
 script SlateportCity_PokemonFanClub_EventScript_Twin {
 	lock
 	faceplayer

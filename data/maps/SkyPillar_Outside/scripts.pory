@@ -1,38 +1,50 @@
+mapscripts SkyPillar_Outside_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : SkyPillar_Outside_OnTransition
+	MAP_SCRIPT_ON_LOAD : SkyPillar_Outside_OnLoad
+}
+
+script SkyPillar_Outside_OnTransition {
+
+}
+
+script SkyPillar_Outside_OnLoad {
+	call_if_set(FLAG_SKY_PILLAR_OPENED, SkyPillar_Outside_EventScript_OpenDoor)
+	end
+}
+
+script SkyPillar_Outside_EventScript_OpenDoor {
+	setmetatile(14, 4, METATILE_Pacifidlog_SkyPillar_DoorOpen_Top, FALSE)
+	setmetatile(14, 5, METATILE_Pacifidlog_SkyPillar_DoorOpen_Bottom, FALSE)
+	return
+}
+
+script SkyPillar_Outside_EventScript_UnlockDoor {
+	lock
+	playse(SE_PIN)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(0)
+	msgbox(format("The door is reacting to the presence of the Green Orb!"))
+	closemessage
+	delay(30)
+	setvar(VAR_0x8004, 1)  // vertical pan
+	setvar(VAR_0x8005, 1)  // horizontal pan
+	setvar(VAR_0x8006, 8)  // num shakes
+	setvar(VAR_0x8007, 3)  // shake delay
+	special(ShakeCamera)
+	waitstate
+	call(SkyPillar_Outside_EventScript_OpenDoor)
+	special(DrawWholeMapView)
+	playse(SE_TRUCK_DOOR)
+	setflag(FLAG_SKY_PILLAR_OPENED)
+	delay(40)
+	setvar(VAR_SKY_PILLAR_STATE, 20)
+	release
+	end
+}
+
 raw `
-.set LOCALID_WALLACE, 1
-
-SkyPillar_Outside_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SkyPillar_Outside_OnTransition
-	map_script MAP_SCRIPT_ON_LOAD, SkyPillar_Outside_OnLoad
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, SkyPillar_Outside_OnFrame
-	.byte 0
-
-SkyPillar_Outside_OnTransition:
-	call_if_eq VAR_SOOTOPOLIS_CITY_STATE, 3, SkyPillar_Outside_EventScript_HideMapNamePopup
-	call_if_ge VAR_SOOTOPOLIS_CITY_STATE, 4, SkyPillar_Outside_EventScript_CheckSetAbnormalWeather
-	end
-
-SkyPillar_Outside_EventScript_HideMapNamePopup::
-	setflag FLAG_HIDE_MAP_NAME_POPUP
-	return
-
-SkyPillar_Outside_EventScript_CheckSetAbnormalWeather::
-	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
-	return
-
-SkyPillar_Outside_OnLoad:
-	call_if_set FLAG_SKY_PILLAR_OPENED, SkyPillar_Outside_EventScript_OpenDoor
-	end
-
-SkyPillar_Outside_EventScript_OpenDoor::
-	setmetatile 14, 4, METATILE_Pacifidlog_SkyPillar_DoorOpen_Top, FALSE
-	setmetatile 14, 5, METATILE_Pacifidlog_SkyPillar_DoorOpen_Bottom, FALSE
-	return
-
-SkyPillar_Outside_OnFrame:
-	map_script_2 VAR_SOOTOPOLIS_CITY_STATE, 3, SkyPillar_Outside_EventScript_WallaceScene
-	.2byte 0
-
 SkyPillar_Outside_EventScript_WallaceScene::
 	lockall
 	applymovement LOCALID_WALLACE, SkyPillar_Outside_Movement_WallaceApproachPlayer

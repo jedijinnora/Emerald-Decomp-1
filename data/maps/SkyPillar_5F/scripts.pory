@@ -1,14 +1,38 @@
-raw `
-SkyPillar_5F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SkyPillar_5F_OnTransition
-	.byte 0
+mapscripts SkyPillar_5F_MapScripts {}
 
-SkyPillar_5F_OnTransition:
-	call_if_lt VAR_SKY_PILLAR_STATE, 2, SkyPillar_5F_EventScript_CleanFloor
+//was used to switch layout for easier climb during vanilla story
+script SkyPillar_5F_EventScript_CleanFloor {
+	setmaplayoutindex(LAYOUT_SKY_PILLAR_5F_CLEAN)
 	return
+}
 
-SkyPillar_5F_EventScript_CleanFloor::
-	setmaplayoutindex LAYOUT_SKY_PILLAR_5F_CLEAN
+script SkyPillar_5F_EventScript_Shigeru {
+	trainerbattle_single(TRAINER_SHIGERU, SkyPillar_5F_Text_ShigeruIntro, SkyPillar_5F_Text_ShigeruDefeat)
+	msgbox(SkyPillar_5F_Text_ShigeruPostBattle, MSGBOX_AUTOCLOSE)
+	call(SkyPillar_5F_EventScript_TryShigeruRematch)
+	release
+	end
+}
+script SkyPillar_5F_EventScript_TryShigeruRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SHIGERU)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SHIGERU, SkyPillar_5F_Text_ShigeruDefeat)
+	special(UpdateRecentTrainers)
 	return
-
-`
+}
+text SkyPillar_5F_Text_ShigeruIntro {
+	"I've trained for years to learn the\n"
+	"deepest secrets of Dragon Pokémon.\p"
+	"You won't pass without a fight!"
+}
+text SkyPillar_5F_Text_ShigeruDefeat {
+	"Rayquaza awaits!"
+}
+text SkyPillar_5F_Text_ShigeruPostBattle {
+	"Flying from the top of the Sky Pillar…\n"
+	"It's truly a marvel."
+}

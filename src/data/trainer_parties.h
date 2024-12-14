@@ -30963,6 +30963,119 @@ static const struct TrainerMon sParty_Dudley_easy[] = {
 };
 
 
+//SKY PILLAR TRAINERS
+
+//Dragon Tamer Ashe: threshold 0
+static const struct TrainerMon sParty_Ashe[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_DRAMPA,
+    .heldItem = ITEM_SITRUS_BERRY,
+    .ability = ABILITY_BERSERK,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_GLARE, MOVE_HYPER_VOICE, MOVE_GRASS_KNOT, MOVE_DRAGON_PULSE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_TURTONATOR,
+    .heldItem = ITEM_CUSTAP_BERRY,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_QUIET,
+    .moves = {MOVE_EXPLOSION, MOVE_FIRE_BLAST, MOVE_IRON_DEFENSE, MOVE_BODY_PRESS}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_DRUDDIGON,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_SHEER_FORCE,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_FIRE_PUNCH, MOVE_IRON_HEAD, MOVE_DRAGON_RUSH, MOVE_BULLDOZE}
+    }
+};
+
+//Dragon Tamer Kayano: threshold 0
+static const struct TrainerMon sParty_Kayano[] = {
+    {
+    .lvl = 15,
+    .species = SPECIES_GARCHOMP,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_ROUGH_SKIN,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_STEALTH_ROCK, MOVE_SWORDS_DANCE, MOVE_BULLDOZE, MOVE_BREAKING_SWIPE}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_DRAGALGE,
+    .heldItem = ITEM_BLACK_SLUDGE,
+    .ability = ABILITY_ADAPTABILITY,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_SLUDGE_WAVE, MOVE_DRACO_METEOR, MOVE_TOXIC_SPIKES, MOVE_FOCUS_BLAST}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_HYDREIGON,
+    .heldItem = ITEM_LIFE_ORB,
+    .ability = ABILITY_LEVITATE,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_DARK_PULSE, MOVE_FIRE_BLAST, MOVE_TAILWIND, MOVE_DRAGON_PULSE}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_AMPHAROS,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_STATIC,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_TAIL_GLOW, MOVE_POWER_GEM, MOVE_THUNDER, MOVE_FLASH_CANNON}
+    }
+};
+
+//Dragon Tamer Shigeru: threshold 0
+static const struct TrainerMon sParty_Shigeru[] = {
+    {
+    .lvl = 16,
+    .species = SPECIES_KINGDRA,
+    .heldItem = ITEM_DAMP_ROCK,
+    .ability = ABILITY_SWIFT_SWIM,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_RAIN_DANCE, MOVE_FLASH_CANNON, MOVE_HURRICANE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_SALAMENCE,
+    .heldItem = ITEM_EJECT_PACK,
+    .ability = ABILITY_AERILATE,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_MILD,
+    .moves = {MOVE_FIRE_BLAST, MOVE_DRACO_METEOR, MOVE_BODY_SLAM, MOVE_TAILWIND}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_TYRANTRUM,
+    .heldItem = ITEM_CHOICE_SCARF,
+    .ability = ABILITY_ROCK_HEAD,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_HEAD_SMASH, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_DRAGONITE,
+    .heldItem = ITEM_ASSAULT_VEST,
+    .ability = ABILITY_MULTISCALE,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_MILD,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_HURRICANE, MOVE_EXTREME_SPEED, MOVE_EARTHQUAKE}
+    }
+};
+
+
 //DEWFORD RESORT TRAINERS (done)
 
 //Swimming Tuber-M Phelps: threshold 0

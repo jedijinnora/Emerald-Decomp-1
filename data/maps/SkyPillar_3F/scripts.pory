@@ -1,14 +1,39 @@
-raw `
-SkyPillar_3F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SkyPillar_3F_OnTransition
-	.byte 0
+mapscripts SkyPillar_3F_MapScripts {}
 
-SkyPillar_3F_OnTransition:
-	call_if_lt VAR_SKY_PILLAR_STATE, 2, SkyPillar_3F_EventScript_CleanFloor
-	end
-
-SkyPillar_3F_EventScript_CleanFloor::
-	setmaplayoutindex LAYOUT_SKY_PILLAR_3F_CLEAN
+//was used to switch layout for easier climb during vanilla story
+script SkyPillar_3F_EventScript_CleanFloor {
+	setmaplayoutindex(LAYOUT_SKY_PILLAR_3F_CLEAN)
 	return
+}
 
-`
+script SkyPillar_3F_EventScript_Kayano {
+	trainerbattle_single(TRAINER_KAYANO, SkyPillar_3F_Text_KayanoIntro, SkyPillar_3F_Text_KayanoDefeat)
+	msgbox(SkyPillar_3F_Text_KayanoPostBattle, MSGBOX_AUTOCLOSE)
+	call(SkyPillar_3F_EventScript_TryKayanoRematch)
+	release
+	end
+}
+script SkyPillar_3F_EventScript_TryKayanoRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KAYANO)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KAYANO, SkyPillar_3F_Text_KayanoDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text SkyPillar_3F_Text_KayanoIntro {
+	"The ruins left by our ancestors are\n"
+	"sacred to Dragon Tamers.\p"
+	"Prove to me you deserve to be here!"
+}
+text SkyPillar_3F_Text_KayanoDefeat {
+	"Never met an outsider who could battle\n"
+	"like that!"
+}
+text SkyPillar_3F_Text_KayanoPostBattle {
+	"You're halfway to the top!\n"
+	"Push on, Trainer!"
+}

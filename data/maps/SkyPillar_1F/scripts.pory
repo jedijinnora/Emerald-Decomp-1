@@ -1,14 +1,39 @@
-raw `
-SkyPillar_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SkyPillar_1F_OnTransition
-	.byte 0
+mapscripts SkyPillar_1F_MapScripts {}
 
-SkyPillar_1F_OnTransition:
-	call_if_lt VAR_SKY_PILLAR_STATE, 2, SkyPillar_1F_EventScript_CleanFloor
-	end
-
-SkyPillar_1F_EventScript_CleanFloor::
-	setmaplayoutindex LAYOUT_SKY_PILLAR_1F_CLEAN
+//was used to switch layout for easier climb during vanilla story
+script SkyPillar_1F_EventScript_CleanFloor {
+	setmaplayoutindex(LAYOUT_SKY_PILLAR_1F_CLEAN)
 	return
+}
 
-`
+script SkyPillar_1F_EventScript_Ashe {
+	trainerbattle_single(TRAINER_ASHE, SkyPillar_1F_Text_AsheIntro, SkyPillar_1F_Text_AsheDefeat)
+	msgbox(SkyPillar_1F_Text_AshePostBattle, MSGBOX_AUTOCLOSE)
+	call(SkyPillar_1F_EventScript_TryAsheRematch)
+	release
+	end
+}
+script SkyPillar_1F_EventScript_TryAsheRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ASHE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ASHE, SkyPillar_1F_Text_AsheDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text SkyPillar_1F_Text_AsheIntro {
+	"You think you're worthy enough to climb\n"
+	"the Sky Pillar? Don't make me laugh."
+}
+text SkyPillar_1F_Text_AsheDefeat {
+	"Impressive! But you still have more to\n"
+	"prove…"
+}
+text SkyPillar_1F_Text_AshePostBattle {
+	"Can you feel it?\p"
+	"The call of Rayquaza urging us ever\n"
+	"upwards towards the sky?"
+}

@@ -7883,6 +7883,45 @@
     .easyParty = sParty_Dudley_easy,
 },
 
+[TRAINER_ASHE] =
+{
+    .trainerClass = TRAINER_CLASS_DRAGON_TAMER,
+    .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+    .trainerPic = TRAINER_PIC_DRAGON_TAMER,
+    .trainerName = _("Ashe"),
+    .items = {},
+    .doubleBattle = FALSE,
+    .aiFlags = OMNISCIENT_TRAINER_FLAGS,
+    .party = TRAINER_PARTY(sParty_Ashe),
+    .badgeThreshold = 0,
+},
+
+[TRAINER_KAYANO] =
+{
+    .trainerClass = TRAINER_CLASS_DRAGON_TAMER,
+    .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+    .trainerPic = TRAINER_PIC_DRAGON_TAMER,
+    .trainerName = _("Kayano"),
+    .items = {},
+    .doubleBattle = FALSE,
+    .aiFlags = OMNISCIENT_TRAINER_FLAGS,
+    .party = TRAINER_PARTY(sParty_Kayano),
+    .badgeThreshold = 0,
+},
+
+[TRAINER_SHIGERU] =
+{
+    .trainerClass = TRAINER_CLASS_DRAGON_TAMER,
+    .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
+    .trainerPic = TRAINER_PIC_DRAGON_TAMER,
+    .trainerName = _("Shigeru"),
+    .items = {},
+    .doubleBattle = FALSE,
+    .aiFlags = OMNISCIENT_TRAINER_FLAGS,
+    .party = TRAINER_PARTY(sParty_Shigeru),
+    .badgeThreshold = 0,
+},
+
 [TRAINER_PHELPS] =
 {
     .trainerClass = TRAINER_CLASS_TUBER_M,

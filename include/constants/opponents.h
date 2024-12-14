@@ -808,8 +808,15 @@
 #define TRAINER_DUDLEY                      (DEWDROP_GLEN_TRAINERS_START + 2)
 #define DEWDROP_GLEN_TRAINERS_END           TRAINER_DUDLEY
 
+//Sky Pillar
+#define SKY_PILLAR_TRAINERS_START           (DEWDROP_GLEN_TRAINERS_END + 1)
+#define TRAINER_ASHE                        (SKY_PILLAR_TRAINERS_START + 0)
+#define TRAINER_KAYANO                      (SKY_PILLAR_TRAINERS_START + 1)
+#define TRAINER_SHIGERU                     (SKY_PILLAR_TRAINERS_START + 2)
+#define SKY_PILLAR_TRAINERS_END             TRAINER_SHIGERU
+
 //Dewford Resort
-#define DEWFORD_RESORT_TRAINERS_START       (DEWDROP_GLEN_TRAINERS_END + 1)
+#define DEWFORD_RESORT_TRAINERS_START       (SKY_PILLAR_TRAINERS_END + 1)
 #define TRAINER_PHELPS                      (DEWFORD_RESORT_TRAINERS_START + 0)
 #define TRAINER_TATJANA                     (DEWFORD_RESORT_TRAINERS_START + 1)
 #define TRAINER_MAC                         (DEWFORD_RESORT_TRAINERS_START + 2)
@@ -959,7 +966,7 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 662 (661 + TRAINER_NONE)
+//I think it's currently 665 (664 + TRAINER_NONE)
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
