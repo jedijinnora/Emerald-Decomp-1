@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_FORINA",
-      "offset": -40,
+      "offset": -34,
       "direction": "down"
     }
   ],

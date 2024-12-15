@@ -193,6 +193,10 @@ script Common_EventScript_StatusNinja {
 	msgbox(format("Aha! You must be in need of my genius!\pWhich Pokémon should have a status condition inflicted upon it?"))
 	special(ChoosePartyMon)
 	waitstate
+	if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) {
+		release
+		end
+	}
 	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 	if(var(VAR_RESULT) == SPECIES_EGG) {
 		msgbox(format("That's an Egg, dummy! Why would I waste my genius on that?"))

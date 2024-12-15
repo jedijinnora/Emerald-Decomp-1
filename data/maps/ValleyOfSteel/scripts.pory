@@ -3,12 +3,12 @@ mapscripts ValleyOfSteel_MapScripts {
 }
 
 script ValleyOfSteel_EventScript_NorthSign {
-    msgbox("Valley of Steel\n{UP_ARROW} Route 112", MSGBOX_SIGN)
+    msgbox("Valley of Steel\n{UP_ARROW} Route 112\pDanger! Heavy metal exposure!\nLimit time spent in the valley!", MSGBOX_SIGN)
     end
 }
 
 script ValleyOfSteel_EventScript_SouthSign {
-    msgbox("Valley of Steel\n{DOWN_ARROW} Route 117", MSGBOX_SIGN)
+    msgbox("Valley of Steel\n{DOWN_ARROW} Route 117\pDanger! Heavy metal exposure!\nLimit time spent in the valley!", MSGBOX_SIGN)
     end
 }
 
@@ -20,6 +20,44 @@ script ValleyOfSteel_EventScript_ContaminatedWaterSign {
 script ValleyOfSteel_EventScript_ContaminatedDustSign {
     msgbox("Danger! Heavy metal exposure!\nLimit time spent in the valley!", MSGBOX_SIGN)
     end
+}
+
+script ValleyOfSteel_EventScript_Contamination_0 {
+	call(ValleyOfSteel_EventScript_ContaminatePartyPoison)
+	setvar(VAR_TEMP_2, 0)
+	end
+}
+
+script ValleyOfSteel_EventScript_Contamination_1 {
+	call(ValleyOfSteel_EventScript_ContaminatePartyPoison)
+	setvar(VAR_TEMP_2, 1)
+	end
+}
+
+script ValleyOfSteel_EventScript_Contamination_2 {
+	call(ValleyOfSteel_EventScript_ContaminatePartyPoison)
+	setvar(VAR_TEMP_2, 2)
+	end
+}
+
+script ValleyOfSteel_EventScript_ContaminatePartyPoison {
+	goto_if_gt(VAR_TEMP_1, 7, Common_EventScript_NopReturn)
+	specialvar(VAR_0x8005, CalculatePlayerPartyCount)
+	random(7)
+	goto_if_gt(VAR_RESULT, VAR_0x8005, ValleyOfSteel_EventScript_ContaminatePartyPoison)
+	copyvar(VAR_0x8004, VAR_RESULT)
+	setvar(VAR_RESULT, FALSE)
+	while (var(VAR_RESULT) == FALSE && var(VAR_0x8004) > 0) {
+		subvar(VAR_0x8004, 1)
+		specialvar(VAR_RESULT, TryOverworldPoisonMon)
+	}
+	call_if_eq(VAR_RESULT, TRUE, ValleyOfSteel_EventScript_StatusSucceeded)
+	return
+}
+
+script ValleyOfSteel_EventScript_StatusSucceeded {
+	addvar(VAR_TEMP_1, 1)
+	return
 }
 
 script ValleyOfSteel_EventScript_Pepper {
