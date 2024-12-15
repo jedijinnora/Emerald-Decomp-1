@@ -17,11 +17,6 @@ script ValleyOfSteel_EventScript_ContaminatedWaterSign {
     end
 }
 
-script ValleyOfSteel_EventScript_ContaminatedDustSign {
-    msgbox("Danger! Heavy metal exposure!\nLimit time spent in the valley!", MSGBOX_SIGN)
-    end
-}
-
 script ValleyOfSteel_EventScript_Contamination_0 {
 	call(ValleyOfSteel_EventScript_ContaminatePartyPoison)
 	setvar(VAR_TEMP_2, 0)
