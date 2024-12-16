@@ -155,3 +155,32 @@ text ValleyOfSteel_Text_YinsenPostBattle {
 	"Mr. Stark, I don't feel so good."
 	"Maybe it's all the toxic dust?"
 }
+
+script ValleyOfSteel_EventScript_Vanko {
+	trainerbattle_single(TRAINER_VANKO, ValleyOfSteel_Text_VankoIntro, ValleyOfSteel_Text_VankoDefeat)
+	msgbox(ValleyOfSteel_Text_YinsenPostBattle, MSGBOX_AUTOCLOSE)
+	call(ValleyOfSteel_EventScript_TryYinsenRematch)
+	release
+	end
+}
+script ValleyOfSteel_EventScript_TryVankoRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_VANKO)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_VANKO, ValleyOfSteel_Text_VankoDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text ValleyOfSteel_Text_VankoIntro {
+	"Iron may bend, but my resolve does not!"
+}
+text ValleyOfSteel_Text_VankoDefeat {
+	"Father, I failed you!"
+}
+text ValleyOfSteel_Text_VankoPostBattle {
+	"If Arceus is God, why can you make\n"
+	"Them faint?"
+}

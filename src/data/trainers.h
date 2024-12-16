@@ -8129,6 +8129,20 @@
     .easyParty = sParty_Yinsen_easy,
 },
 
+[TRAINER_VANKO] =
+{
+    .trainerClass = TRAINER_CLASS_NINJA_BOY,
+    .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
+    .trainerPic = TRAINER_PIC_NINJA_BOY,
+    .trainerName = _("Vanko"),
+    .items = {},
+    .doubleBattle = FALSE,
+    .aiFlags = RISKY_TRAINER_FLAGS,
+    .party = TRAINER_PARTY(sParty_Vanko),
+    .badgeThreshold = 3,
+    .easyParty = sParty_Vanko_easy,
+},
+
 [TRAINER_NEAL] =
 {
     .trainerClass = TRAINER_CLASS_HIKER,

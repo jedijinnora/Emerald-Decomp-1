@@ -844,7 +844,8 @@
 #define TRAINER_PEPPER                      (VALLEY_OF_STEEL_TRAINERS_START + 0)
 #define TRAINER_STARK                       (VALLEY_OF_STEEL_TRAINERS_START + 1)
 #define TRAINER_YINSEN                      (VALLEY_OF_STEEL_TRAINERS_START + 2)
-#define VALLEY_OF_STEEL_TRAINERS_END        TRAINER_YINSEN
+#define TRAINER_VANKO                       (VALLEY_OF_STEEL_TRAINERS_START + 3)
+#define VALLEY_OF_STEEL_TRAINERS_END        TRAINER_VANKO
 
 //Sandswept Oasis
 #define SANDSWEPT_OASIS_TRAINERS_START      (VALLEY_OF_STEEL_TRAINERS_END + 1)
@@ -966,7 +967,7 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 665 (664 + TRAINER_NONE)
+//I think it's currently 666 (665 + TRAINER_NONE)
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

@@ -4588,16 +4588,19 @@ bool8 TryOverworldPoisonMon(void)
     u32 status1;
     struct Pokemon *targetMon;
     u16 monAbility;
+    u32 species;
 
     status1 = STATUS1_POISON;
     targetMon = &gPlayerParty[gSpecialVar_0x8004];
     monAbility = GetMonAbility(targetMon);
+    species = GetMonData(targetMon, MON_DATA_SPECIES);
     
-    //do not need to check type immunity since Corrosion allows poisoning of Poison/Steel types
     if (monAbility == ABILITY_IMMUNITY
       || monAbility == ABILITY_COMATOSE
       || monAbility == ABILITY_PURIFYING_SALT
       || monAbility == ABILITY_PASTEL_VEIL
+      || (gSpeciesInfo[species].types[0] == TYPE_POISON || gSpeciesInfo[species].types[1] == TYPE_POISON)
+      || (gSpeciesInfo[species].types[0] == TYPE_STEEL || gSpeciesInfo[species].types[1] == TYPE_STEEL)
       || GetMonData(targetMon, MON_DATA_HP) == 0)
         return FALSE;
 

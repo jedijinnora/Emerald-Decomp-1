@@ -31464,11 +31464,11 @@ static const struct TrainerMon sParty_Edmund[] = {
 //Ranger-F Pepper: threshold 2
 static const struct TrainerMon sParty_Pepper[] = {
     {
-    .lvl = 14,
+    .lvl = 16,
     .species = SPECIES_SCOVILLAIN,
     .heldItem = ITEM_WISE_GLASSES,
     .ev = TRAINER_PARTY_EVS(0, 252, 0, 0, 252, 0),
-    .nature = NATURE_QUIET,
+    .nature = NATURE_LONELY,
     .moves = {MOVE_FLAMETHROWER, MOVE_GRASS_KNOT, MOVE_CRUNCH, MOVE_ZEN_HEADBUTT}
     }
 };
@@ -31476,7 +31476,7 @@ static const struct TrainerMon sParty_Pepper_easy[] = {
     {
     .lvl = 9,
     .species = SPECIES_SCOVILLAIN,
-    .nature = NATURE_QUIET,
+    .nature = NATURE_LONELY,
     .moves = {MOVE_OVERHEAT, MOVE_RAZOR_LEAF, MOVE_CRUNCH, MOVE_ZEN_HEADBUTT}
     }
 };
@@ -31577,6 +31577,66 @@ static const struct TrainerMon sParty_Yinsen_easy[] = {
     .ability = ABILITY_TELEPATHY,
     .nature = NATURE_MODEST,
     .moves = {MOVE_INSTRUCT, MOVE_KNOCK_OFF, MOVE_FOUL_PLAY, MOVE_FUTURE_SIGHT}
+    }
+};
+
+//Ninja Boy Vanko: threshold 3
+static const struct TrainerMon sParty_Vanko[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_GLIMMORA,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_TOXIC_DEBRIS,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_MORTAL_SPIN, MOVE_VENOSHOCK, MOVE_EARTH_POWER, MOVE_POWER_GEM}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_SALAZZLE,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_CORROSION,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_FIRE_BLAST, MOVE_VENOSHOCK, MOVE_FAKE_OUT, MOVE_ENDEAVOR}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_FERROTHORN,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_IRON_BARBS,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_POWER_WHIP, MOVE_LEECH_SEED, MOVE_KNOCK_OFF, MOVE_THUNDER_WAVE}
+    }
+};
+static const struct TrainerMon sParty_Vanko_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_GLIMMET,
+    .heldItem = ITEM_FOCUS_BAND,
+    .ability = ABILITY_TOXIC_DEBRIS,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_MORTAL_SPIN, MOVE_VENOSHOCK, MOVE_SAND_TOMB, MOVE_ANCIENT_POWER}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_SALANDIT,
+    .heldItem = ITEM_BRIGHT_POWDER,
+    .ability = ABILITY_CORROSION,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_INCINERATE, MOVE_VENOSHOCK, MOVE_FAKE_OUT, MOVE_ENDEAVOR}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_FERROSEED,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_IRON_BARBS,
+    .ev = TRAINER_PARTY_EVS(0, 170, 0, 170, 170, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_SEED_BOMB, MOVE_LEECH_SEED, MOVE_KNOCK_OFF, MOVE_THUNDER_WAVE}
     }
 };
 
