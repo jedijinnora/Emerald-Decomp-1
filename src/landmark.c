@@ -406,6 +406,7 @@ static const struct Landmark *const Landmarks_MtChimney_4[]  =
 static const struct Landmark *const Landmarks_MtChimney_5[]  =
 {
     &Landmark_FieryPath,
+    &Landmark_CableCar,
     NULL,
 };
 

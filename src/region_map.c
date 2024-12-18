@@ -1857,7 +1857,7 @@ static void CreateFlyDestIcons(void)
         x = (x + MAPCURSOR_X_MIN) * 8 + 4;
         y = (y + MAPCURSOR_Y_MIN) * 8 + 4;
 
-        if (width == 2)
+        if (width == 2 || mapSecId == MAPSEC_EVER_GRANDE_CITY)
             shape = SPRITE_SHAPE(16x8);
         else if (height == 2)
             shape = SPRITE_SHAPE(8x16);
