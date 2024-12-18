@@ -15,17 +15,22 @@
   "connections": [
     {
       "map": "MAP_ROUTE112",
-      "offset": -59,
+      "offset": 0,
       "direction": "right"
     },
     {
       "map": "MAP_FORINA",
-      "offset": 12,
+      "offset": 8,
       "direction": "left"
     },
     {
+      "map": "MAP_MT_CHIMNEY",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
       "map": "MAP_VALLEY_OF_STEEL",
-      "offset": 24,
+      "offset": 20,
       "direction": "right"
     }
   ],
@@ -33,7 +38,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
       "x": 17,
-      "y": 5,
+      "y": 0,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -46,7 +51,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
       "x": 17,
-      "y": 12,
+      "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -59,7 +64,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_TWIN",
       "x": 22,
-      "y": 17,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
       "movement_range_x": 0,
@@ -72,7 +77,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN",
       "x": 16,
-      "y": 8,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 0,
@@ -85,7 +90,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_HOT_SPRINGS_OLD_WOMAN",
       "x": 17,
-      "y": 8,
+      "y": 3,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
@@ -98,7 +103,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
       "x": 16,
-      "y": 11,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 1,
@@ -111,7 +116,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 10,
-      "y": 17,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -124,7 +129,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 11,
-      "y": 17,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -137,7 +142,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 12,
-      "y": 17,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -150,7 +155,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_1",
       "x": 20,
-      "y": 11,
+      "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -164,56 +169,56 @@
   "warp_events": [
     {
       "x": 24,
-      "y": 19,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_HERB_SHOP",
       "dest_warp_id": "0"
     },
     {
       "x": 17,
-      "y": 19,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_GYM_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 27,
-      "y": 9,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_MART",
       "dest_warp_id": "0"
     },
     {
       "x": 21,
-      "y": 10,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 28,
-      "y": 19,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_HOUSE",
       "dest_warp_id": "0"
     },
     {
       "x": 21,
-      "y": 6,
+      "y": 1,
       "elevation": 3,
       "dest_map": "MAP_LAVARIDGE_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "3"
     },
     {
       "x": 21,
-      "y": 26,
+      "y": 21,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_HOUSE2",
       "dest_warp_id": "0"
     },
     {
       "x": 9,
-      "y": 24,
+      "y": 19,
       "elevation": 0,
       "dest_map": "MAP_LAVARIDGE_TOWN_HOUSE3",
       "dest_warp_id": "0"
@@ -223,7 +228,7 @@
     {
       "type": "trigger",
       "x": 18,
-      "y": 7,
+      "y": 2,
       "elevation": 3,
       "var": "TRIGGER_RUN_IMMEDIATELY",
       "var_value": "0",
@@ -232,6 +237,51 @@
     {
       "type": "trigger",
       "x": 31,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "Common_EventScript_ClearRivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "Common_EventScript_ClearRivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "Common_EventScript_ClearRivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "Common_EventScript_ClearRivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "Common_EventScript_ClearRivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
       "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_B",
@@ -240,53 +290,8 @@
     },
     {
       "type": "trigger",
-      "x": 31,
-      "y": 12,
-      "elevation": 0,
-      "var": "VAR_TEMP_B",
-      "var_value": "1",
-      "script": "Common_EventScript_ClearRivalEast"
-    },
-    {
-      "type": "trigger",
-      "x": 31,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_B",
-      "var_value": "1",
-      "script": "Common_EventScript_ClearRivalEast"
-    },
-    {
-      "type": "trigger",
-      "x": 31,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_TEMP_B",
-      "var_value": "1",
-      "script": "Common_EventScript_ClearRivalEast"
-    },
-    {
-      "type": "trigger",
-      "x": 31,
-      "y": 15,
-      "elevation": 0,
-      "var": "VAR_TEMP_B",
-      "var_value": "1",
-      "script": "Common_EventScript_ClearRivalEast"
-    },
-    {
-      "type": "trigger",
-      "x": 31,
-      "y": 16,
-      "elevation": 0,
-      "var": "VAR_TEMP_B",
-      "var_value": "1",
-      "script": "Common_EventScript_ClearRivalEast"
-    },
-    {
-      "type": "trigger",
       "x": 3,
-      "y": 25,
+      "y": 21,
       "elevation": 0,
       "var": "VAR_TEMP_D",
       "var_value": "1",
@@ -295,7 +300,7 @@
     {
       "type": "trigger",
       "x": 3,
-      "y": 26,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_TEMP_D",
       "var_value": "1",
@@ -304,7 +309,7 @@
     {
       "type": "trigger",
       "x": 3,
-      "y": 27,
+      "y": 23,
       "elevation": 0,
       "var": "VAR_TEMP_D",
       "var_value": "1",
@@ -312,12 +317,48 @@
     },
     {
       "type": "trigger",
-      "x": 3,
-      "y": 28,
+      "x": 30,
+      "y": 6,
       "elevation": 0,
-      "var": "VAR_TEMP_D",
+      "var": "VAR_TEMP_B",
       "var_value": "1",
-      "script": "Common_EventScript_ClearRivalWest"
+      "script": "LavaridgeTown_EventScript_RivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "LavaridgeTown_EventScript_RivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "LavaridgeTown_EventScript_RivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "LavaridgeTown_EventScript_RivalEast"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_B",
+      "var_value": "1",
+      "script": "LavaridgeTown_EventScript_RivalEast"
     },
     {
       "type": "trigger",
@@ -330,53 +371,8 @@
     },
     {
       "type": "trigger",
-      "x": 30,
-      "y": 12,
-      "elevation": 0,
-      "var": "VAR_TEMP_B",
-      "var_value": "1",
-      "script": "LavaridgeTown_EventScript_RivalEast"
-    },
-    {
-      "type": "trigger",
-      "x": 30,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_B",
-      "var_value": "1",
-      "script": "LavaridgeTown_EventScript_RivalEast"
-    },
-    {
-      "type": "trigger",
-      "x": 30,
-      "y": 14,
-      "elevation": 0,
-      "var": "VAR_TEMP_B",
-      "var_value": "1",
-      "script": "LavaridgeTown_EventScript_RivalEast"
-    },
-    {
-      "type": "trigger",
-      "x": 30,
-      "y": 15,
-      "elevation": 0,
-      "var": "VAR_TEMP_B",
-      "var_value": "1",
-      "script": "LavaridgeTown_EventScript_RivalEast"
-    },
-    {
-      "type": "trigger",
-      "x": 30,
-      "y": 16,
-      "elevation": 0,
-      "var": "VAR_TEMP_B",
-      "var_value": "1",
-      "script": "LavaridgeTown_EventScript_RivalEast"
-    },
-    {
-      "type": "trigger",
       "x": 4,
-      "y": 25,
+      "y": 21,
       "elevation": 0,
       "var": "VAR_TEMP_D",
       "var_value": "1",
@@ -385,7 +381,7 @@
     {
       "type": "trigger",
       "x": 4,
-      "y": 26,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_TEMP_D",
       "var_value": "1",
@@ -394,7 +390,7 @@
     {
       "type": "trigger",
       "x": 4,
-      "y": 27,
+      "y": 23,
       "elevation": 0,
       "var": "VAR_TEMP_D",
       "var_value": "1",
@@ -403,18 +399,27 @@
     {
       "type": "trigger",
       "x": 4,
-      "y": 28,
+      "y": 7,
       "elevation": 0,
-      "var": "VAR_TEMP_D",
+      "var": "VAR_TEMP_A",
       "var_value": "1",
-      "script": "LavaridgeTown_EventScript_RivalWest"
+      "script": "Common_EventScript_ClearRivalNorth"
+    },
+    {
+      "type": "trigger",
+      "x": 3,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_A",
+      "var_value": "1",
+      "script": "LavaridgeTown_EventScript_RivalNorth"
     }
   ],
   "bg_events": [
     {
       "type": "sign",
       "x": 26,
-      "y": 20,
+      "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LavaridgeTown_EventScript_HerbShopSign"
@@ -422,7 +427,7 @@
     {
       "type": "sign",
       "x": 19,
-      "y": 19,
+      "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LavaridgeTown_EventScript_GymSign"
@@ -430,7 +435,7 @@
     {
       "type": "sign",
       "x": 29,
-      "y": 9,
+      "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
@@ -438,7 +443,7 @@
     {
       "type": "sign",
       "x": 25,
-      "y": 12,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LavaridgeTown_EventScript_TownSign"
@@ -446,7 +451,7 @@
     {
       "type": "sign",
       "x": 22,
-      "y": 10,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
@@ -454,7 +459,7 @@
     {
       "type": "sign",
       "x": 28,
-      "y": 9,
+      "y": 4,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
@@ -462,7 +467,7 @@
     {
       "type": "sign",
       "x": 23,
-      "y": 10,
+      "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
@@ -470,7 +475,7 @@
     {
       "type": "hidden_item",
       "x": 16,
-      "y": 9,
+      "y": 4,
       "elevation": 3,
       "item": "ITEM_FIRE_STONE",
       "flag": "FLAG_HIDDEN_ITEM_LAVARIDGE_TOWN_FIRE_STONE"

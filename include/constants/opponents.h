@@ -394,13 +394,10 @@
 
 //Route 112
 #define ROUTE_112_TRAINERS_START            (ROUTE_111_TRAINERS_END + 1)
-#define TRAINER_BRICE                       (ROUTE_112_TRAINERS_START + 0)
-#define TRAINER_LARRY                       (ROUTE_112_TRAINERS_START + 1)
-#define TRAINER_CAROL                       (ROUTE_112_TRAINERS_START + 2)
-#define TRAINER_TRENT                       (ROUTE_112_TRAINERS_START + 3)
-#define TRAINER_BRYANT                      (ROUTE_112_TRAINERS_START + 4)
-#define TRAINER_SHAYLA                      (ROUTE_112_TRAINERS_START + 5)
-#define ROUTE_112_TRAINERS_END              TRAINER_SHAYLA
+#define TRAINER_LARRY                       (ROUTE_112_TRAINERS_START + 0)
+#define TRAINER_CAROL                       (ROUTE_112_TRAINERS_START + 1)
+#define TRAINER_TRENT                       (ROUTE_112_TRAINERS_START + 2)
+#define ROUTE_112_TRAINERS_END              TRAINER_TRENT
 
 //Route 113
 #define ROUTE_113_TRAINERS_START            (ROUTE_112_TRAINERS_END + 1)
@@ -712,7 +709,10 @@
 #define TRAINER_SHEILA                      (MT_CHIMNEY_TRAINERS_START + 2)
 #define TRAINER_SHIRLEY                     (MT_CHIMNEY_TRAINERS_START + 3)
 #define TRAINER_SAWYER                      (MT_CHIMNEY_TRAINERS_START + 4)
-#define MT_CHIMNEY_TRAINERS_END             TRAINER_SAWYER
+#define TRAINER_BRICE                       (MT_CHIMNEY_TRAINERS_START + 5)
+#define TRAINER_BRYANT                      (MT_CHIMNEY_TRAINERS_START + 6)
+#define TRAINER_SHAYLA                      (MT_CHIMNEY_TRAINERS_START + 7)
+#define MT_CHIMNEY_TRAINERS_END             TRAINER_SHAYLA
 
 //Petalburg Woods
 #define PETALBURG_WOODS_TRAINERS_START      (MT_CHIMNEY_TRAINERS_END + 1)

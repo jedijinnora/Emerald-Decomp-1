@@ -121,7 +121,8 @@
     "SunriseShore",
     "Underwater_Route109",
     "SouthernIsland",
-    "SkyPillar_Outside"
+    "SkyPillar_Outside",
+    "MtChimney"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -410,7 +411,6 @@
     "GraniteCave_B2F",
     "GraniteCave_StevensRoom",
     "PetalburgWoods",
-    "MtChimney",
     "JaggedPass",
     "FieryPath",
     "MtPyre_1F",

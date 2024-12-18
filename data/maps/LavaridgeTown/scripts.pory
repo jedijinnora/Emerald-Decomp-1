@@ -40,6 +40,9 @@ script LavaridgeTown_EventScript_TrySpawnRival {
 	} elif (var(VAR_TEMP_1) > 31) { 
 		//east entry
 		setvar(VAR_0x8004, 1)
+	} elif (var(VAR_TEMP_2) > 200) { 
+		//north entry
+		setvar(VAR_0x8004, 0)
 	} else {
 		//warp entry
 		setvar(VAR_0x8004, 4)
@@ -120,39 +123,89 @@ script LavaridgeTown_EventScript_Rival {
 }
 
 script LavaridgeTown_EventScript_RivalLeaf {
-	msgbox(format("Leaf: "))
+	msgbox(format("Leaf: Some of the Tauros around here are Fire-type! Can you imagine?"))
 	return
 }
 
 script LavaridgeTown_EventScript_RivalKris {
-	msgbox(format("Kris: "))
+	msgbox(format("Kris: A place like this is the perfect environment for a Slugma or Houndour."))
 	return
 }
 
 script LavaridgeTown_EventScript_RivalDawn {
-	msgbox(format("Dawn: "))
+	msgbox(format("Dawn: I love the hot springs! The Resort Area near Mt. Stark doesn't have anything like this."))
 	return
 }
 
 script LavaridgeTown_EventScript_RivalRei {
-	msgbox(format("Rei: "))
+	msgbox(format("Rei: The Jagged Pass is interesting, but I think riding straight down the west side of the mountain is more intense."))
 	return
 }
 
 script LavaridgeTown_EventScript_RivalHilbert {
-	msgbox(format("Hilbert: "))
+	msgbox(format("Hilbert: There are so many Fire-type Pokémon around here! We don't have such a variety in Unova."))
 	return
 }
 
 script LavaridgeTown_EventScript_RivalCalem {
-	msgbox(format("Calem: "))
+	msgbox(format("Calem: I think Flannery and Malva are the same person. Have you ever seen them in a room together?"))
 	return
+}
+
+script LavaridgeTown_EventScript_RivalNorth {
+	lock
+	setobjectxyperm(LOCALID_RIVAL, 5, 14)
+	setobjectxy(LOCALID_RIVAL, 5, 14)
+	addobject(LOCALID_RIVAL)
+	applymovement(LOCALID_RIVAL, LavaridgeTown_Movement_RivalApproachNorth)
+	waitmovement(LOCALID_RIVAL)
+	playse(SE_PIN)
+	applymovement(LOCALID_RIVAL, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_RIVAL)
+	applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerNorth_1)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	copyvar(VAR_0x8004, VAR_LAVARIDGE_TOWN_STATE)
+	call(Common_EventScript_RivalBattle)
+	setvar(VAR_LAVARIDGE_TOWN_STATE, 100)
+	closemessage
+	applymovement(LOCALID_RIVAL, LavaridgeTown_Movement_RivalDepartNorth)
+	waitmovement(LOCALID_RIVAL)
+	removeobject(LOCALID_RIVAL)
+	call(Common_EventScript_ClearRivalAll)
+	release
+	end
+}
+movement LavaridgeTown_Movement_RivalApproachNorth {
+	walk_up * 2
+	walk_left * 3
+	walk_down
+	walk_left * 2
+	walk_up * 2
+	walk_right
+	walk_up * 2
+	walk_right
+	walk_up * 2
+	face_right
+}
+movement LavaridgeTown_Movement_RivalDepartNorth {
+	walk_down * 2
+	walk_left
+	walk_down * 2
+	walk_left
+	walk_down * 2
+	walk_right * 2
+	walk_up
+	walk_right * 3
+	walk_down * 2
+}
+movement LavaridgeTown_Movement_PlayerNorth_1 {
+	walk_in_place_faster_left
 }
 
 script LavaridgeTown_EventScript_RivalEast {
 	lock
-	setobjectxyperm(LOCALID_RIVAL, 22, 13)
-	setobjectxy(LOCALID_RIVAL, 22, 13)
+	setobjectxyperm(LOCALID_RIVAL, 22, 8)
+	setobjectxy(LOCALID_RIVAL, 22, 8)
 	addobject(LOCALID_RIVAL)
 	applymovement(LOCALID_RIVAL, LavaridgeTown_Movement_RivalApproachEast)
 	waitmovement(LOCALID_RIVAL)
@@ -161,17 +214,17 @@ script LavaridgeTown_EventScript_RivalEast {
 	waitmovement(LOCALID_RIVAL)
 	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
 	switch(var(VAR_TEMP_2)) {
-		case 11:
+		case 6:
 			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerEast_1)
-		case 12:
+		case 7:
 			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerEast_2)
-		case 13:
+		case 8:
 			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerEast_3)
-		case 14:
+		case 9:
 			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerEast_4)
-		case 15:
+		case 10:
 			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerEast_5)
-		case 16:
+		case 11:
 			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerEast_6)
 		default:
 	}
@@ -219,7 +272,7 @@ movement LavaridgeTown_Movement_PlayerEast_6 {
 
 script LavaridgeTown_EventScript_RivalWest {
 	lock
-	setobjectxyperm(LOCALID_RIVAL, 12, 26)
+	setobjectxyperm(LOCALID_RIVAL, 12, 21)
 	addobject(LOCALID_RIVAL)
 	applymovement(LOCALID_RIVAL, LavaridgeTown_Movement_RivalApproachWest)
 	waitmovement(LOCALID_RIVAL)
@@ -228,13 +281,13 @@ script LavaridgeTown_EventScript_RivalWest {
 	waitmovement(LOCALID_RIVAL)
 	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
 	switch(var(VAR_TEMP_2)) {
-		case 25:
+		case 20:
 			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerWest_1)
-		case 26:
+		case 21:
 			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerWest_2)
-		case 27:
+		case 22:
 			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerWest_3)
-		case 28:
+		case 23:
 			applymovement(OBJ_EVENT_ID_PLAYER, LavaridgeTown_Movement_PlayerWest_4)
 		default:
 	}

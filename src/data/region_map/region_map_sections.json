@@ -451,10 +451,10 @@
     {
       "map_section": "MAPSEC_MT_CHIMNEY",
       "name": "Mt. Chimney",
-      "x": 6,
-      "y": 2,
-      "width": 1,
-      "height": 1
+      "x": 5,
+      "y": 1,
+      "width": 3,
+      "height": 2
     },
     {
       "map_section": "MAPSEC_SAFARI_ZONE",

@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_VERDANTURF_TOWN",
-      "offset": 92,
+      "offset": 100,
       "direction": "down"
     },
     {
@@ -25,7 +25,7 @@
     },
     {
       "map": "MAP_FORINA",
-      "offset": 40,
+      "offset": 48,
       "direction": "up"
     }
   ],
@@ -318,7 +318,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 114,
+      "x": 112,
       "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",

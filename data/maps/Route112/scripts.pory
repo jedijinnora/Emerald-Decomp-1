@@ -14,25 +14,6 @@ script Route112_EventScript_Hiker {
 	end
 }
 
-script Route112_EventScript_Brice {
-	trainerbattle_single(TRAINER_BRICE, Route112_Text_BriceIntro, Route112_Text_BriceDefeat)
-	msgbox(Route112_Text_BricePostBattle, MSGBOX_AUTOCLOSE)
-	call(Route112_EventScript_TryBriceRematch)
-	release
-	end
-}
-script Route112_EventScript_TryBriceRematch {
-	lock
-    call(Common_EventScript_ShouldDoRematch)
-	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
-	setvar(VAR_0x8003, TRAINER_BRICE)
-	setvar(VAR_0x8004, 1)
-	call(Common_EventScript_CheckRecentRematchesSetBP)
-	trainerbattle_no_intro(TRAINER_BRICE, Route112_Text_BriceDefeat)
-	special(UpdateRecentTrainers)
-	return
-}
-
 script Route112_EventScript_Trent {
 	trainerbattle_single(TRAINER_TRENT, Route112_Text_TrentIntro, Route112_Text_TrentDefeat)
 	msgbox(Route112_Text_TrentPostBattle, MSGBOX_DEFAULT)
@@ -86,58 +67,6 @@ script Route112_EventScript_TryCarolRematch {
 	setvar(VAR_0x8004, 1)
 	call(Common_EventScript_CheckRecentRematchesSetBP)
 	trainerbattle_no_intro(TRAINER_CAROL, Route112_Text_CarolDefeat)
-	special(UpdateRecentTrainers)
-	return
-}
-
-script Route112_EventScript_Bryant {
-	trainerbattle_single(TRAINER_BRYANT, Route112_Text_BryantIntro, Route112_Text_BryantDefeat)
-	msgbox(Route112_Text_BryantPostBattle, MSGBOX_AUTOCLOSE)
-	call(Route112_EventScript_TryBryantRematch)
-	release
-	end
-}
-script Route112_EventScript_TryBryantRematch {
-	lock
-    call(Common_EventScript_ShouldDoRematch)
-	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
-	setvar(VAR_0x8003, TRAINER_BRYANT)
-	setvar(VAR_0x8004, 1)
-	if (defeated(TRAINER_SHAYLA)) {
-		msgbox(format("Include Shayla and make it a double battle?"), MSGBOX_YESNO)
-		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SHAYLA, 0, NULL, Route112_Text_ShaylaDefeat)
-			addvar(VAR_0x8004, 1)
-		}
-	}
-	call(Common_EventScript_CheckRecentRematchesSetBP)
-    trainerbattle_no_intro(TRAINER_BRYANT, Route112_Text_BryantDefeat)
-	special(UpdateRecentTrainers)
-	return
-}
-
-script Route112_EventScript_Shayla {
-	trainerbattle_single(TRAINER_SHAYLA, Route112_Text_ShaylaIntro, Route112_Text_ShaylaDefeat)
-	msgbox(Route112_Text_ShaylaPostBattle, MSGBOX_AUTOCLOSE)
-	call(Route112_EventScript_TryShaylaRematch)
-	release
-	end
-}
-script Route112_EventScript_TryShaylaRematch {
-	lock
-    call(Common_EventScript_ShouldDoRematch)
-	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
-	setvar(VAR_0x8003, TRAINER_SHAYLA)
-	setvar(VAR_0x8004, 1)
-	if (defeated(TRAINER_BRYANT)) {
-		msgbox(format("Include Bryant and make it a double battle?"), MSGBOX_YESNO)
-		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BRYANT, 0, NULL, Route112_Text_BryantDefeat)
-			addvar(VAR_0x8004, 1)
-		}
-	}
-	call(Common_EventScript_CheckRecentRematchesSetBP)
-	trainerbattle_no_intro(TRAINER_SHAYLA, Route112_Text_ShaylaDefeat)
 	special(UpdateRecentTrainers)
 	return
 }

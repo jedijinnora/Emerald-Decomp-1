@@ -4054,20 +4054,6 @@
     .easyParty = sParty_Branden_easy,
 },
 
-[TRAINER_BRICE] =
-{
-    .trainerClass = TRAINER_CLASS_HIKER,
-    .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-    .trainerPic = TRAINER_PIC_HIKER,
-    .trainerName = _("Brice"),
-    .items = {},
-    .doubleBattle = FALSE,
-    .aiFlags = RISKY_TRAINER_FLAGS,
-    .party = TRAINER_PARTY(sParty_Brice),
-    .badgeThreshold = 3,
-    .easyParty = sParty_Brice_easy,
-},
-
 [TRAINER_LARRY] =
 {
     .trainerClass = TRAINER_CLASS_CAMPER,
@@ -4108,34 +4094,6 @@
     .party = TRAINER_PARTY(sParty_Trent),
     .badgeThreshold = 3,
     .easyParty = sParty_Trent_easy,
-},
-
-[TRAINER_BRYANT] =
-{
-    .trainerClass = TRAINER_CLASS_KINDLER,
-    .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
-    .trainerPic = TRAINER_PIC_KINDLER,
-    .trainerName = _("Bryant"),
-    .items = {},
-    .doubleBattle = FALSE,
-    .aiFlags = BASIC_TRAINER_FLAGS,
-    .party = TRAINER_PARTY(sParty_Bryant),
-    .badgeThreshold = 2,
-    .easyParty = sParty_Bryant_easy,
-},
-
-[TRAINER_SHAYLA] =
-{
-    .trainerClass = TRAINER_CLASS_AROMA_LADY,
-    .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
-    .trainerPic = TRAINER_PIC_AROMA_LADY,
-    .trainerName = _("Shayla"),
-    .items = {},
-    .doubleBattle = FALSE,
-    .aiFlags = BASIC_TRAINER_FLAGS,
-    .party = TRAINER_PARTY(sParty_Shayla),
-    .badgeThreshold = 2,
-    .easyParty = sParty_Shayla_easy,
 },
 
 [TRAINER_JAYLEN] =
@@ -7142,6 +7100,48 @@
     .party = TRAINER_PARTY(sParty_Sawyer),
     .badgeThreshold = 4,
     .easyParty = sParty_Sawyer_easy,
+},
+
+[TRAINER_BRICE] =
+{
+    .trainerClass = TRAINER_CLASS_HIKER,
+    .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+    .trainerPic = TRAINER_PIC_HIKER,
+    .trainerName = _("Brice"),
+    .items = {},
+    .doubleBattle = FALSE,
+    .aiFlags = RISKY_TRAINER_FLAGS,
+    .party = TRAINER_PARTY(sParty_Brice),
+    .badgeThreshold = 3,
+    .easyParty = sParty_Brice_easy,
+},
+
+[TRAINER_BRYANT] =
+{
+    .trainerClass = TRAINER_CLASS_KINDLER,
+    .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
+    .trainerPic = TRAINER_PIC_KINDLER,
+    .trainerName = _("Bryant"),
+    .items = {},
+    .doubleBattle = FALSE,
+    .aiFlags = BASIC_TRAINER_FLAGS,
+    .party = TRAINER_PARTY(sParty_Bryant),
+    .badgeThreshold = 2,
+    .easyParty = sParty_Bryant_easy,
+},
+
+[TRAINER_SHAYLA] =
+{
+    .trainerClass = TRAINER_CLASS_AROMA_LADY,
+    .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
+    .trainerPic = TRAINER_PIC_AROMA_LADY,
+    .trainerName = _("Shayla"),
+    .items = {},
+    .doubleBattle = FALSE,
+    .aiFlags = BASIC_TRAINER_FLAGS,
+    .party = TRAINER_PARTY(sParty_Shayla),
+    .badgeThreshold = 2,
+    .easyParty = sParty_Shayla_easy,
 },
 
 [TRAINER_LYLE] =

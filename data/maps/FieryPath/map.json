@@ -124,15 +124,15 @@
       "x": 26,
       "y": 36,
       "elevation": 3,
-      "dest_map": "MAP_ROUTE112",
-      "dest_warp_id": "4"
+      "dest_map": "MAP_MT_CHIMNEY",
+      "dest_warp_id": "6"
     },
     {
       "x": 26,
       "y": 4,
       "elevation": 3,
-      "dest_map": "MAP_ROUTE112",
-      "dest_warp_id": "5"
+      "dest_map": "MAP_MT_CHIMNEY",
+      "dest_warp_id": "7"
     }
   ],
   "coord_events": [

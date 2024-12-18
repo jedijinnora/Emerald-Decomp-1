@@ -16820,62 +16820,6 @@ static const struct TrainerMon sParty_Wilton_easy[] = {
 
 //ROUTE 112 TRAINERS
 
-//Hiker Brice: threshold 3
-static const struct TrainerMon sParty_Brice[] = {
-    {
-    .lvl = 10,
-    .species = SPECIES_CAMERUPT,
-    .heldItem = ITEM_WHITE_HERB,
-    .ability = ABILITY_SOLID_ROCK,
-    .ev = TRAINER_PARTY_EVS(100, 100, 200, 0, 0, 0),
-    .nature = NATURE_NAUGHTY,
-    .moves = {MOVE_OVERHEAT, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_EXPLOSION}
-    },
-    {
-    .lvl = 9,
-    .species = SPECIES_TAUROS_PALDEA_AQUA,
-    .heldItem = ITEM_ADRENALINE_ORB,
-    .ability = ABILITY_INTIMIDATE,
-    .ev = TRAINER_PARTY_EVS(100, 100, 200, 0, 0, 0),
-    .nature = NATURE_JOLLY,
-    .moves = {MOVE_AQUA_JET, MOVE_RAGING_BULL, MOVE_BULK_UP, MOVE_CLOSE_COMBAT}
-    },
-    {
-    .lvl = 10,
-    .species = SPECIES_MACHOKE,
-    .heldItem = ITEM_EVIOLITE,
-    .ability = ABILITY_NO_GUARD,
-    .ev = TRAINER_PARTY_EVS(100, 100, 200, 0, 0, 0),
-    .nature = NATURE_ADAMANT,
-    .moves = {MOVE_DYNAMIC_PUNCH, MOVE_ICE_PUNCH, MOVE_THUNDER_PUNCH, MOVE_BULLET_PUNCH}
-    }
-};
-static const struct TrainerMon sParty_Brice_easy[] = {
-    {
-    .lvl = 10,
-    .species = SPECIES_NUMEL,
-    .heldItem = ITEM_WHITE_HERB,
-    .ability = ABILITY_SIMPLE,
-    .nature = NATURE_NAUGHTY,
-    .moves = {MOVE_LAVA_PLUME, MOVE_BULLDOZE, MOVE_ROCK_SLIDE, MOVE_CURSE}
-    },
-    {
-    .lvl = 9,
-    .species = SPECIES_TAUROS_PALDEA_AQUA,
-    .heldItem = ITEM_ADRENALINE_ORB,
-    .ability = ABILITY_INTIMIDATE,
-    .moves = {MOVE_AQUA_JET, MOVE_RAGING_BULL, MOVE_BULK_UP, MOVE_DOUBLE_KICK}
-    },
-    {
-    .lvl = 10,
-    .species = SPECIES_MACHOP,
-    .heldItem = ITEM_EVIOLITE,
-    .ability = ABILITY_GUTS,
-    .nature = NATURE_ADAMANT,
-    .moves = {MOVE_LOW_SWEEP, MOVE_ICE_PUNCH, MOVE_THUNDER_PUNCH, MOVE_BULLET_PUNCH}
-    }
-};
-
 //Camper Larry: threshold 2
 static const struct TrainerMon sParty_Larry[] = {
     {
@@ -17058,85 +17002,6 @@ static const struct TrainerMon sParty_Trent_easy[] = {
     .ability = ABILITY_STURDY,
     .nature = NATURE_ADAMANT,
     .moves = {MOVE_FIRE_PUNCH, MOVE_STOMPING_TANTRUM, MOVE_ROCK_SLIDE, MOVE_THUNDER_PUNCH}
-    }
-};
-
-//Kindler Bryant: threshold 2
-//may double with Shayla
-static const struct TrainerMon sParty_Bryant[] = {
-    {
-    .lvl = 14,
-    .species = SPECIES_ARMAROUGE,
-    .heldItem = ITEM_WEAKNESS_POLICY,
-    .ability = ABILITY_WEAK_ARMOR,
-    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
-    .nature = NATURE_MODEST,
-    .moves = {MOVE_PSYSHOCK, MOVE_ARMOR_CANNON, MOVE_CALM_MIND, MOVE_FOCUS_BLAST}
-    },
-    {
-    .lvl = 14,
-    .species = SPECIES_CERULEDGE,
-    .heldItem = ITEM_FOCUS_SASH,
-    .ability = ABILITY_WEAK_ARMOR,
-    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
-    .nature = NATURE_JOLLY,
-    .moves = {MOVE_SHADOW_CLAW, MOVE_BITTER_BLADE, MOVE_SWORDS_DANCE, MOVE_SHADOW_SNEAK}
-    }
-};
-static const struct TrainerMon sParty_Bryant_easy[] = {
-    {
-    .lvl = 10,
-    .species = SPECIES_ARMAROUGE,
-    .heldItem = ITEM_WEAKNESS_POLICY,
-    .ability = ABILITY_FLASH_FIRE,
-    .moves = {MOVE_PSYSHOCK, MOVE_MYSTICAL_FIRE, MOVE_CALM_MIND, MOVE_CLEAR_SMOG}
-    },
-    {
-    .lvl = 10,
-    .species = SPECIES_CERULEDGE,
-    .heldItem = ITEM_FOCUS_SASH,
-    .ability = ABILITY_FLASH_FIRE,
-    .moves = {MOVE_SHADOW_CLAW, MOVE_BITTER_BLADE, MOVE_SWORDS_DANCE, MOVE_SHADOW_SNEAK}
-    }
-};
-
-//Aroma Lady Shayla: threshold 2
-//may double with Bryant
-static const struct TrainerMon sParty_Shayla[] = {
-    {
-    .lvl = 14,
-    .species = SPECIES_JUMPLUFF,
-    .heldItem = ITEM_FOCUS_SASH,
-    .ability = ABILITY_INFILTRATOR,
-    .ev = TRAINER_PARTY_EVS(100, 0, 0, 0, 200, 200),
-    .nature = NATURE_TIMID,
-    .moves = {MOVE_TAILWIND, MOVE_AIR_CUTTER, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN}
-    },
-    {
-    .lvl = 14,
-    .species = SPECIES_FLAPPLE,
-    .heldItem = ITEM_WIDE_LENS,
-    .ability = ABILITY_HUSTLE,
-    .ev = TRAINER_PARTY_EVS(100, 0, 0, 0, 200, 200),
-    .nature = NATURE_ADAMANT,
-    .moves = {MOVE_GRAV_APPLE, MOVE_DRAGON_DANCE, MOVE_LEAF_STORM, MOVE_DRAGON_RUSH}
-    }
-};
-static const struct TrainerMon sParty_Shayla_easy[] = {
-    {
-    .lvl = 14,
-    .species = SPECIES_SKIPLOOM,
-    .heldItem = ITEM_FOCUS_SASH,
-    .ability = ABILITY_INFILTRATOR,
-    .nature = NATURE_TIMID,
-    .moves = {MOVE_TAILWIND, MOVE_AIR_CUTTER, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN}
-    },
-    {
-    .lvl = 14,
-    .species = SPECIES_FLAPPLE,
-    .heldItem = ITEM_WHITE_HERB,
-    .ability = ABILITY_HUSTLE,
-    .moves = {MOVE_GRAV_APPLE, MOVE_DRAGON_DANCE, MOVE_LEAF_STORM, MOVE_DRACO_METEOR}
     }
 };
 
@@ -27979,6 +27844,142 @@ static const struct TrainerMon sParty_Sawyer_easy[] = {
     .moves = {MOVE_ROCK_SLIDE, MOVE_BODY_SLAM, MOVE_ELECTROWEB, MOVE_HIGH_HORSEPOWER}
     }
 };
+
+//Hiker Brice: threshold 3
+static const struct TrainerMon sParty_Brice[] = {
+    {
+    .lvl = 10,
+    .species = SPECIES_CAMERUPT,
+    .heldItem = ITEM_WHITE_HERB,
+    .ability = ABILITY_SOLID_ROCK,
+    .ev = TRAINER_PARTY_EVS(100, 100, 200, 0, 0, 0),
+    .nature = NATURE_NAUGHTY,
+    .moves = {MOVE_OVERHEAT, MOVE_EARTHQUAKE, MOVE_ROCK_SLIDE, MOVE_EXPLOSION}
+    },
+    {
+    .lvl = 9,
+    .species = SPECIES_TAUROS_PALDEA_AQUA,
+    .heldItem = ITEM_ADRENALINE_ORB,
+    .ability = ABILITY_INTIMIDATE,
+    .ev = TRAINER_PARTY_EVS(100, 100, 200, 0, 0, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_AQUA_JET, MOVE_RAGING_BULL, MOVE_BULK_UP, MOVE_CLOSE_COMBAT}
+    },
+    {
+    .lvl = 10,
+    .species = SPECIES_MACHOKE,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_NO_GUARD,
+    .ev = TRAINER_PARTY_EVS(100, 100, 200, 0, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_DYNAMIC_PUNCH, MOVE_ICE_PUNCH, MOVE_THUNDER_PUNCH, MOVE_BULLET_PUNCH}
+    }
+};
+static const struct TrainerMon sParty_Brice_easy[] = {
+    {
+    .lvl = 10,
+    .species = SPECIES_NUMEL,
+    .heldItem = ITEM_WHITE_HERB,
+    .ability = ABILITY_SIMPLE,
+    .nature = NATURE_NAUGHTY,
+    .moves = {MOVE_LAVA_PLUME, MOVE_BULLDOZE, MOVE_ROCK_SLIDE, MOVE_CURSE}
+    },
+    {
+    .lvl = 9,
+    .species = SPECIES_TAUROS_PALDEA_AQUA,
+    .heldItem = ITEM_ADRENALINE_ORB,
+    .ability = ABILITY_INTIMIDATE,
+    .moves = {MOVE_AQUA_JET, MOVE_RAGING_BULL, MOVE_BULK_UP, MOVE_DOUBLE_KICK}
+    },
+    {
+    .lvl = 10,
+    .species = SPECIES_MACHOP,
+    .heldItem = ITEM_EVIOLITE,
+    .ability = ABILITY_GUTS,
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_LOW_SWEEP, MOVE_ICE_PUNCH, MOVE_THUNDER_PUNCH, MOVE_BULLET_PUNCH}
+    }
+};
+
+//Kindler Bryant: threshold 2
+//may double with Shayla
+static const struct TrainerMon sParty_Bryant[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_ARMAROUGE,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_WEAK_ARMOR,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_MODEST,
+    .moves = {MOVE_PSYSHOCK, MOVE_ARMOR_CANNON, MOVE_CALM_MIND, MOVE_FOCUS_BLAST}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_CERULEDGE,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_WEAK_ARMOR,
+    .ev = TRAINER_PARTY_EVS(0, 200, 0, 110, 200, 0),
+    .nature = NATURE_JOLLY,
+    .moves = {MOVE_SHADOW_CLAW, MOVE_BITTER_BLADE, MOVE_SWORDS_DANCE, MOVE_SHADOW_SNEAK}
+    }
+};
+static const struct TrainerMon sParty_Bryant_easy[] = {
+    {
+    .lvl = 10,
+    .species = SPECIES_ARMAROUGE,
+    .heldItem = ITEM_WEAKNESS_POLICY,
+    .ability = ABILITY_FLASH_FIRE,
+    .moves = {MOVE_PSYSHOCK, MOVE_MYSTICAL_FIRE, MOVE_CALM_MIND, MOVE_CLEAR_SMOG}
+    },
+    {
+    .lvl = 10,
+    .species = SPECIES_CERULEDGE,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_FLASH_FIRE,
+    .moves = {MOVE_SHADOW_CLAW, MOVE_BITTER_BLADE, MOVE_SWORDS_DANCE, MOVE_SHADOW_SNEAK}
+    }
+};
+
+//Aroma Lady Shayla: threshold 2
+//may double with Bryant
+static const struct TrainerMon sParty_Shayla[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_JUMPLUFF,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_INFILTRATOR,
+    .ev = TRAINER_PARTY_EVS(100, 0, 0, 0, 200, 200),
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_TAILWIND, MOVE_AIR_CUTTER, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_FLAPPLE,
+    .heldItem = ITEM_WIDE_LENS,
+    .ability = ABILITY_HUSTLE,
+    .ev = TRAINER_PARTY_EVS(100, 0, 0, 0, 200, 200),
+    .nature = NATURE_ADAMANT,
+    .moves = {MOVE_GRAV_APPLE, MOVE_DRAGON_DANCE, MOVE_LEAF_STORM, MOVE_DRAGON_RUSH}
+    }
+};
+static const struct TrainerMon sParty_Shayla_easy[] = {
+    {
+    .lvl = 14,
+    .species = SPECIES_SKIPLOOM,
+    .heldItem = ITEM_FOCUS_SASH,
+    .ability = ABILITY_INFILTRATOR,
+    .nature = NATURE_TIMID,
+    .moves = {MOVE_TAILWIND, MOVE_AIR_CUTTER, MOVE_LEECH_SEED, MOVE_GIGA_DRAIN}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_FLAPPLE,
+    .heldItem = ITEM_WHITE_HERB,
+    .ability = ABILITY_HUSTLE,
+    .moves = {MOVE_GRAV_APPLE, MOVE_DRAGON_DANCE, MOVE_LEAF_STORM, MOVE_DRACO_METEOR}
+    }
+};
+
 
 
 //PETALBURG WOODS TRAINERS (done)
