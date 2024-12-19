@@ -52,7 +52,7 @@ EverGrandeCity_HallOfFame_EventScript_EnterHallOfFame::
 	end
 
 EverGrandeCity_HallOfFame_EventScript_GameClearMale::
-	setrespawn HEAL_LOCATION_POKEMON_LEAGUE
+	setrespawn HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE
 	fadescreenspeed FADE_TO_BLACK, 24
 	special GameClear
 	waitstate
@@ -60,7 +60,7 @@ EverGrandeCity_HallOfFame_EventScript_GameClearMale::
 	end
 
 EverGrandeCity_HallOfFame_EventScript_GameClearFemale::
-	setrespawn HEAL_LOCATION_POKEMON_LEAGUE
+	setrespawn HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE
 	fadescreenspeed FADE_TO_BLACK, 24
 	special GameClear
 	waitstate

@@ -45,7 +45,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 67,
+      "x": 65,
       "y": 23,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",

@@ -146,7 +146,7 @@ static const u16 sRegionMap_SpecialPlaceLocations[][2] =
     {MAPSEC_UNDERWATER_SOOTOPOLIS,      MAPSEC_SOOTOPOLIS_CITY},
     {MAPSEC_UNDERWATER_SEAFLOOR_CAVERN, MAPSEC_ROUTE_128},
     {MAPSEC_MONSU_ISLAND,               MAPSEC_LILYCOVE_CITY},
-    {MAPSEC_MAGMA_CAVES,              MAPSEC_ROUTE_112},
+    {MAPSEC_MAGMA_CAVES,                MAPSEC_ROUTE_112},
     {MAPSEC_UNDERWATER_SEALED_CHAMBER,  MAPSEC_ROUTE_134},
     {MAPSEC_PETALBURG_WOODS,            MAPSEC_ROUTE_104},
     {MAPSEC_JAGGED_PASS,                MAPSEC_ROUTE_112},
@@ -298,7 +298,6 @@ static const u8 sMapHealLocations[][3] =
     [MAPSEC_SOOTOPOLIS_CITY] = {MAP_GROUP(SOOTOPOLIS_CITY), MAP_NUM(SOOTOPOLIS_CITY), HEAL_LOCATION_SOOTOPOLIS_CITY},
     [MAPSEC_METEOR_VILLAGE] = {MAP_GROUP(METEOR_VILLAGE), MAP_NUM(METEOR_VILLAGE), HEAL_LOCATION_METEOR_VILLAGE},
     [MAPSEC_EMERALD_CAPE] = {MAP_GROUP(EMERALD_CAPE), MAP_NUM(EMERALD_CAPE), HEAL_LOCATION_EMERALD_CAPE},
-    [MAPSEC_POKEMON_LEAGUE] = {MAP_GROUP(POKEMON_LEAGUE), MAP_NUM(POKEMON_LEAGUE), HEAL_LOCATION_POKEMON_LEAGUE},
     [MAPSEC_EVER_GRANDE_CITY] = {MAP_GROUP(EVER_GRANDE_CITY), MAP_NUM(EVER_GRANDE_CITY), HEAL_LOCATION_EVER_GRANDE_CITY},
     [MAPSEC_ROUTE_101] = {MAP_GROUP(ROUTE101), MAP_NUM(ROUTE101), HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE_102] = {MAP_GROUP(ROUTE102), MAP_NUM(ROUTE102), HEAL_LOCATION_NONE},
@@ -338,8 +337,8 @@ static const u8 sMapHealLocations[][3] =
 
 static const u8 *const sEverGrandeCityNames[] =
 {
-    gText_PokemonLeague,
-    gText_PokemonCenter
+    gText_PokemonCenter,
+    gText_PokemonLeague
 };
 
 static const struct MultiNameFlyDest sMultiNameFlyDestinations[] =
@@ -1108,6 +1107,17 @@ static void InitMapBasedOnPlayerLocation(void)
         if (xOnMap > 54)
             x++;
         break;
+    case MAPSEC_EVER_GRANDE_CITY:
+        x = 0;
+        if (gSaveBlock1Ptr->location.mapNum == 58)
+            x = 1;
+        if ((gSaveBlock1Ptr->location.mapGroup) == 17
+            && (gSaveBlock1Ptr->location.mapNum <= 11))
+            x = 1;
+        if ((gSaveBlock1Ptr->location.mapGroup) == 17
+            && (gSaveBlock1Ptr->location.mapNum == 14))
+            x = 1;
+        break;
     case MAPSEC_UNDERWATER_MARINE_CAVE:
         GetMarineCaveCoords(&sRegionMap->cursorPosX, &sRegionMap->cursorPosY);
         return;
@@ -1208,8 +1218,6 @@ static u8 GetMapsecType(u16 mapSecId)
         return FlagGet(FLAG_VISITED_METEOR_VILLAGE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_EMERALD_CAPE:
         return FlagGet(FLAG_VISITED_EMERALD_CAPE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_POKEMON_LEAGUE:
-        return FlagGet(FLAG_VISITED_POKEMON_LEAGUE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_EVER_GRANDE_CITY:
         return FlagGet(FLAG_VISITED_EVER_GRANDE_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_BATTLE_FRONTIER:
@@ -1750,18 +1758,14 @@ static void SetFlyMapCallback(void callback(void))
 
 static void DrawFlyDestTextWindow(void)
 {
-    //u16 i;
+    u16 i;
     bool32 namePrinted;
-    //const u8 *name;
+    const u8 *name;
 
     if (sFlyMap->regionMap.mapSecType > MAPSECTYPE_NONE && sFlyMap->regionMap.mapSecType < NUM_MAPSEC_TYPES)
     {
         namePrinted = FALSE;
-        /*
-        JINNORA: Commenting out the Ever Grande multi-name case since 
-                 I just split it into multiple maps (EGC, Emerald Cape,
-                 Pokemon League)
-        
+
         for (i = 0; i < ARRAY_COUNT(sMultiNameFlyDestinations); i++)
         {
             if (sFlyMap->regionMap.mapSecId == sMultiNameFlyDestinations[i].mapSecId)
@@ -1781,7 +1785,7 @@ static void DrawFlyDestTextWindow(void)
                 break;
             }
         }
-        */
+        
         if (!namePrinted)
         {
             if (sDrawFlyDestTextWindow == TRUE)
@@ -1833,11 +1837,6 @@ static void LoadFlyDestIcons(void)
 #define sIconMapSec   data[0]
 #define sFlickerTimer data[1]
 
-/*
-    Jinnora: Need to fix/mess with the Ever Grande part of the map, it looks
-    a little weird with the pink dots over the city. It's functional though 
-    and I'd rather not have to mess with the multi-name code
-*/
 static void CreateFlyDestIcons(void)
 {
     u16 canFlyFlag;
@@ -1857,7 +1856,7 @@ static void CreateFlyDestIcons(void)
         x = (x + MAPCURSOR_X_MIN) * 8 + 4;
         y = (y + MAPCURSOR_Y_MIN) * 8 + 4;
 
-        if (width == 2 || mapSecId == MAPSEC_EVER_GRANDE_CITY)
+        if (width == 2)
             shape = SPRITE_SHAPE(16x8);
         else if (height == 2)
             shape = SPRITE_SHAPE(8x16);
@@ -1881,7 +1880,7 @@ static void CreateFlyDestIcons(void)
     }
 
     //Jinnora: adding a second loop to handle additional locations
-    for (i = 0; i < 3; i++) {
+    for (i = 0; i < 2; i++) {
         switch(i) {
             case 0: //Meteor Village
                 mapSecId = MAPSEC_METEOR_VILLAGE;
@@ -1890,10 +1889,6 @@ static void CreateFlyDestIcons(void)
             case 1: //Emerald Cape
                 mapSecId = MAPSEC_EMERALD_CAPE;
                 canFlyFlag = FLAG_VISITED_EMERALD_CAPE;
-                break;
-            case 2: //Pokemon League
-                mapSecId = MAPSEC_POKEMON_LEAGUE;
-                canFlyFlag = FLAG_VISITED_POKEMON_LEAGUE;
                 break;
             default:
                 break;
@@ -2051,6 +2046,9 @@ static void CB_ExitFlyMap(void)
                     break;
                 case MAPSEC_LITTLEROOT_TOWN:
                     SetWarpDestinationToHealLocation(gSaveBlock2Ptr->playerGender == MALE ? HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE : HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE);
+                    break;
+                case MAPSEC_EVER_GRANDE_CITY:
+                    SetWarpDestinationToHealLocation(FlagGet(FLAG_LANDMARK_POKEMON_LEAGUE) && sFlyMap->regionMap.posWithinMapSec == 1 ? HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE : HEAL_LOCATION_EVER_GRANDE_CITY);
                     break;
                 default:
                     if (sMapHealLocations[sFlyMap->regionMap.mapSecId][2] != HEAL_LOCATION_NONE)
