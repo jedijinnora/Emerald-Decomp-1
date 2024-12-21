@@ -5088,7 +5088,7 @@ static const struct TrainerMon sParty_Ashley_easy[] = {
 };
 
 //Camper Flint: threshold 3
-//may double with Edwina
+//double with Edwina
 static const struct TrainerMon sParty_Flint[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -5112,24 +5112,24 @@ static const struct TrainerMon sParty_Flint[] = {
 static const struct TrainerMon sParty_Flint_easy[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
-    .lvl = 14,
+    .lvl = 12,
     .species = SPECIES_VOLTORB_HISUI,
     .heldItem = ITEM_EJECT_PACK,
-    .ability = ABILITY_AFTERMATH,
-    .moves = {MOVE_THUNDERBOLT, MOVE_LEAF_STORM, MOVE_VOLT_SWITCH, MOVE_FOUL_PLAY}
+    .ability = ABILITY_STATIC,
+    .moves = {MOVE_ELECTRO_BALL, MOVE_LEAF_STORM, MOVE_VOLT_SWITCH, MOVE_FOUL_PLAY}
     },
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
-    .lvl = 14,
+    .lvl = 12,
     .species = SPECIES_EXEGGUTOR,
     .heldItem = ITEM_SITRUS_BERRY,
     .ability = ABILITY_HARVEST,
-    .moves = {MOVE_MEGA_DRAIN, MOVE_PSYSHOCK, MOVE_HYPNOSIS, MOVE_LOW_KICK}
+    .moves = {MOVE_MEGA_DRAIN, MOVE_PSYSHOCK, MOVE_TAKE_DOWN, MOVE_LOW_KICK}
     }
 };
 
 //Aroma Lady Edwina: threshold 3
-//may double with Flint
+//double with Flint
 static const struct TrainerMon sParty_Edwina[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -5153,7 +5153,7 @@ static const struct TrainerMon sParty_Edwina[] = {
 static const struct TrainerMon sParty_Edwina_easy[] = {
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
-    .lvl = 14,
+    .lvl = 12,
     .species = SPECIES_COTTONEE,
     .heldItem = ITEM_FOCUS_SASH,
     .ability = ABILITY_PRANKSTER,
@@ -5161,7 +5161,7 @@ static const struct TrainerMon sParty_Edwina_easy[] = {
     },
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
-    .lvl = 14,
+    .lvl = 12,
     .species = SPECIES_TANGELA,
     .heldItem = ITEM_EVIOLITE,
     .ability = ABILITY_REGENERATOR,
@@ -5204,17 +5204,18 @@ static const struct TrainerMon sParty_Cecilia_easy[] = {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
     .lvl = 14,
     .species = SPECIES_SUNFLORA,
-    .heldItem = ITEM_LUM_BERRY,
+    .heldItem = ITEM_QUICK_CLAW,
     .ability = ABILITY_CHLOROPHYLL,
+    .nature = NATURE_TIMID,
     .moves = {MOVE_SOLAR_BEAM, MOVE_SUNNY_DAY, MOVE_MORNING_SUN, MOVE_FIRE_SPIN}
     },
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
-    .lvl = 14,
+    .lvl = 11,
     .species = SPECIES_LEAFEON,
     .heldItem = ITEM_LEFTOVERS,
     .ability = ABILITY_LEAF_GUARD,
-    .moves = {MOVE_LEAF_BLADE, MOVE_WISH, MOVE_PROTECT, MOVE_X_SCISSOR}
+    .moves = {MOVE_RAZOR_LEAF, MOVE_WISH, MOVE_PROTECT, MOVE_X_SCISSOR}
     },
     {
     .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
@@ -21068,20 +21069,20 @@ static const struct TrainerMon sParty_Yasu[] = {
 };
 static const struct TrainerMon sParty_Yasu_easy[] = {
     {
-    .lvl = 15,
+    .lvl = 13,
     .species = SPECIES_BLITZLE,
     .heldItem = ITEM_EVIOLITE,
     .ability = ABILITY_SAP_SIPPER,
     .nature = NATURE_JOLLY,
-    .moves = {MOVE_VOLT_TACKLE, MOVE_TRAILBLAZE, MOVE_FLAME_CHARGE, MOVE_SMART_STRIKE}
+    .moves = {MOVE_WILD_CHARGE, MOVE_TRAILBLAZE, MOVE_FLAME_CHARGE, MOVE_SMART_STRIKE}
     },
     {
-    .lvl = 15,
+    .lvl = 13,
     .species = SPECIES_STUNFISK_GALAR,
     .heldItem = ITEM_ASSAULT_VEST,
     .ability = ABILITY_STAKEOUT,
     .nature = NATURE_ADAMANT,
-    .moves = {MOVE_SNAP_TRAP, MOVE_EARTHQUAKE, MOVE_MUDDY_WATER, MOVE_ROCK_SLIDE}
+    .moves = {MOVE_SNAP_TRAP, MOVE_BULLDOZE, MOVE_MUDDY_WATER, MOVE_ROCK_SLIDE}
     }
 };
 
@@ -21147,18 +21148,18 @@ static const struct TrainerMon sParty_Hugh[] = {
 };
 static const struct TrainerMon sParty_Hugh_easy[] = {
     {
-    .lvl = 14,
+    .lvl = 11,
     .species = SPECIES_TROPIUS,
     .heldItem = ITEM_SITRUS_BERRY,
     .ability = ABILITY_HARVEST,
     .moves = {MOVE_LEAF_TORNADO, MOVE_AIR_SLASH, MOVE_U_TURN, MOVE_STOMPING_TANTRUM}
     },
     {
-    .lvl = 14,
+    .lvl = 11,
     .species = SPECIES_HAWLUCHA,
     .heldItem = ITEM_ELECTRIC_SEED,
     .ability = ABILITY_UNBURDEN,
-    .moves = {MOVE_ACROBATICS, MOVE_SWORDS_DANCE, MOVE_FLYING_PRESS, MOVE_THUNDER_PUNCH}
+    .moves = {MOVE_WING_ATTACK, MOVE_FEINT, MOVE_BRICK_BREAK, MOVE_THUNDER_PUNCH}
     }
 };
 
@@ -21570,7 +21571,7 @@ static const struct TrainerMon sParty_Colin[] = {
 };
 static const struct TrainerMon sParty_Colin_easy[] = {
     {
-    .lvl = 15,
+    .lvl = 13,
     .species = SPECIES_DUCKLETT,
     .heldItem = ITEM_WACAN_BERRY,
     .ability = ABILITY_NO_GUARD,
@@ -21578,12 +21579,12 @@ static const struct TrainerMon sParty_Colin_easy[] = {
     .moves = {MOVE_AIR_SLASH, MOVE_ICY_WIND, MOVE_BUBBLE_BEAM, MOVE_ROOST}
     },
     {
-    .lvl = 15,
+    .lvl = 12,
     .species = SPECIES_BOMBIRDIER,
     .heldItem = ITEM_LUM_BERRY,
     .ability = ABILITY_ROCKY_PAYLOAD,
     .nature = NATURE_JOLLY,
-    .moves = {MOVE_ROCK_TOMB, MOVE_KNOCK_OFF, MOVE_HONE_CLAWS, MOVE_DUAL_WINGBEAT}
+    .moves = {MOVE_ROCK_TOMB, MOVE_THIEF, MOVE_HONE_CLAWS, MOVE_WING_ATTACK}
     }
 };
 
@@ -21663,7 +21664,6 @@ static const struct TrainerMon sParty_Lorenzo_easy[] = {
     .species = SPECIES_NUZLEAF,
     .heldItem = ITEM_BRIGHT_POWDER,
     .ability = ABILITY_EARLY_BIRD,
-    .nature = NATURE_NAIVE,
     .moves = {MOVE_KNOCK_OFF, MOVE_LEAF_BLADE, MOVE_EXTRASENSORY, MOVE_SUCKER_PUNCH}
     },
     {
@@ -21671,16 +21671,14 @@ static const struct TrainerMon sParty_Lorenzo_easy[] = {
     .species = SPECIES_LOMBRE,
     .heldItem = ITEM_LEFTOVERS,
     .ability = ABILITY_RAIN_DISH,
-    .nature = NATURE_TIMID,
-    .moves = {MOVE_LEECH_SEED, MOVE_PROTECT, MOVE_GIGA_DRAIN, MOVE_CHILLING_WATER}
+    .moves = {MOVE_LEECH_SEED, MOVE_PROTECT, MOVE_MEGA_DRAIN, MOVE_CHILLING_WATER}
     },
     {
     .lvl = 14,
     .species = SPECIES_LUDICOLO,
     .heldItem = ITEM_COBA_BERRY,
     .ability = ABILITY_SWIFT_SWIM,
-    .nature = NATURE_MODEST,
-    .moves = {MOVE_BUBBLE_BEAM, MOVE_ICE_BEAM, MOVE_GRASS_KNOT, MOVE_TEETER_DANCE}
+    .moves = {MOVE_BUBBLE_BEAM, MOVE_ICE_PUNCH, MOVE_RAZOR_LEAF, MOVE_TEETER_DANCE}
     }
 };
 
@@ -21763,15 +21761,15 @@ static const struct TrainerMon sParty_Jeffrey[] = {
 };
 static const struct TrainerMon sParty_Jeffrey_easy[] = {
     {
-    .lvl = 15,
+    .lvl = 14,
     .species = SPECIES_SURSKIT,
     .heldItem = ITEM_FOCUS_BAND,
     .ability = ABILITY_SWIFT_SWIM,
     .nature = NATURE_TIMID,
-    .moves = {MOVE_STICKY_WEB, MOVE_HYDRO_PUMP, MOVE_GIGA_DRAIN, MOVE_ICY_WIND}
+    .moves = {MOVE_SOAK, MOVE_BUBBLE_BEAM, MOVE_GIGA_DRAIN, MOVE_ICY_WIND}
     },
     {
-    .lvl = 15,
+    .lvl = 13,
     .species = SPECIES_DUSTOX,
     .heldItem = ITEM_BRIGHT_POWDER,
     .ability = ABILITY_SHIELD_DUST,
@@ -21779,20 +21777,18 @@ static const struct TrainerMon sParty_Jeffrey_easy[] = {
     .moves = {MOVE_TOXIC, MOVE_VENOSHOCK, MOVE_SILVER_WIND, MOVE_INFESTATION}
     },
     {
-    .lvl = 13,
+    .lvl = 10,
     .species = SPECIES_HERACROSS,
     .heldItem = ITEM_SILVER_POWDER,
     .ability = ABILITY_SWARM,
-    .nature = NATURE_ADAMANT,
-    .moves = {MOVE_FACADE, MOVE_MEGAHORN, MOVE_BRICK_BREAK, MOVE_ROCK_SLIDE}
+    .moves = {MOVE_BULLET_SEED, MOVE_PIN_MISSILE, MOVE_BRICK_BREAK, MOVE_ROCK_TOMB}
     },
     {
-    .lvl = 13,
+    .lvl = 10,
     .species = SPECIES_RABSCA,
     .heldItem = ITEM_QUICK_CLAW,
     .ability = ABILITY_SYNCHRONIZE,
-    .nature = NATURE_QUIET,
-    .moves = {MOVE_EXTRASENSORY, MOVE_BUG_BUZZ, MOVE_WEATHER_BALL, MOVE_RECOVER}
+    .moves = {MOVE_PSYBEAM, MOVE_STRUGGLE_BUG, MOVE_ELECTRO_BALL, MOVE_SPEED_SWAP}
     }
 };
 
@@ -22167,12 +22163,11 @@ static const struct TrainerMon sParty_Callie[] = {
 };
 static const struct TrainerMon sParty_Callie_easy[] = {
     {
-    .lvl = 13,
+    .lvl = 12,
     .species = SPECIES_PASSIMIAN,
-    .heldItem = ITEM_ASSAULT_VEST,
+    .heldItem = ITEM_ADRENALINE_ORB,
     .ability = ABILITY_RECEIVER,
-    .nature = NATURE_ADAMANT,
-    .moves = {MOVE_DRAIN_PUNCH, MOVE_ROCK_SLIDE, MOVE_BEAT_UP, MOVE_TAKE_DOWN}
+    .moves = {MOVE_ROCK_SMASH, MOVE_ROCK_SLIDE, MOVE_BEAT_UP, MOVE_TAKE_DOWN}
     },
     {
     .lvl = 13,

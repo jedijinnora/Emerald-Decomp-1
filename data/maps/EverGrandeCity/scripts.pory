@@ -1,5 +1,6 @@
 //Object IDs
 const LOCALID_JINNORA = 25
+const LOCALID_AIPOM = 26
 
 //TEMPs used
 //FLAG_TEMP_1 Sailor intro
@@ -104,12 +105,14 @@ script EverGrandeCity_EventScript_OfferAllStartingItems {
 		additem(ITEM_OLD_ROD)
 	}
 	//why the heck not, save them some farming
-	additem(ITEM_POMEG_BERRY, 99)
-	additem(ITEM_KELPSY_BERRY, 99)
-	additem(ITEM_QUALOT_BERRY, 99)
-	additem(ITEM_HONDEW_BERRY, 99)
-	additem(ITEM_GREPA_BERRY, 99)
-	additem(ITEM_TAMATO_BERRY, 99)
+	additem(ITEM_CHERI_BERRY, 99)
+	additem(ITEM_CHESTO_BERRY, 99)
+	additem(ITEM_PECHA_BERRY, 99)
+	additem(ITEM_RAWST_BERRY, 99)
+	additem(ITEM_ASPEAR_BERRY, 99)
+	additem(ITEM_ORAN_BERRY, 99)
+	additem(ITEM_PERSIM_BERRY, 99)
+	setflag(FLAG_RECEIVED_EGC_BONUS_BERRIES)
 	return
 }
 
@@ -121,6 +124,26 @@ script EverGrandeCity_EventScript_JinnoraLeave {
 	setflag(FLAG_TEMP_14)
 	release
 	fadescreen(FADE_FROM_BLACK)
+	end
+}
+
+script EverGrandeCity_EventScript_Aipom {
+	lock
+	faceplayer
+	waitse
+	playmoncry(SPECIES_AIPOM, CRY_MODE_ENCOUNTER)
+	msgbox(format("Aipom: Pom pom!"))
+	giveitem(ITEM_CHERI_BERRY, 99)
+	giveitem(ITEM_CHESTO_BERRY, 99)
+	giveitem(ITEM_PECHA_BERRY, 99)
+	giveitem(ITEM_RAWST_BERRY, 99)
+	giveitem(ITEM_ASPEAR_BERRY, 99)
+	giveitem(ITEM_ORAN_BERRY, 99)
+	giveitem(ITEM_PERSIM_BERRY, 99)
+	setflag(FLAG_RECEIVED_EGC_BONUS_BERRIES)
+	applymovement(LOCALID_AIPOM, KecleonVanish)
+	waitmovement(0)
+	release
 	end
 }
 

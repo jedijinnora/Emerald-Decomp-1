@@ -1,7 +1,27 @@
+const LOCALID_JENNA = 14
+
 mapscripts Route120_MapScripts {
 	MAP_SCRIPT_ON_RESUME : Route120_OnResume
 	MAP_SCRIPT_ON_TRANSITION : Route120_OnTransition
 	MAP_SCRIPT_ON_LOAD : Route120_OnLoad
+}
+
+script Route120_EventScript_UpdateJennaTrigger {
+	goto_if_defeated(TRAINER_JENNA, Common_EventScript_NopReturn)
+	setvar(VAR_TEMP_2, 1)
+	return
+}
+
+script Route120_EventScript_JennaTrigger {
+	lock
+	applymovement(LOCALID_JENNA, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(LOCALID_JENNA, Common_Movement_WalkInPlaceRight)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	msgbox(format("Walking behind me like that? How rude!"))
+	goto(Route120_EventScript_Jenna)
+	end
 }
 
 script Route120_EventScript_Colin {
@@ -313,6 +333,7 @@ Route120_OnTransition:
 	call GabbyAndTy_EventScript_UpdateLocation
 	call Route120_EventScript_SetWeather
 	call Common_EventScript_DisableBPReward
+	call Route120_EventScript_UpdateJennaTrigger
 	end
 
 Route120_EventScript_SetWeather::

@@ -111,7 +111,7 @@
 #define FLAG_RECEIVED_SAFETY_GOGGLES         0x54 // desert oasis
 #define FLAG_RECEIVED_SPACE_CENTER_EJECT_PACK 0x55
 #define FLAG_RECEIVED_UTILITY_UMBRELLA       0x56
-#define FLAG_UNUSED_0x57                     0x57
+#define FLAG_RECEIVED_EGC_BONUS_BERRIES      0x57
 #define FLAG_RECEIVED_SITRUS_BERRY_ROUTE_104 0x58
 #define FLAG_RECEIVED_SPELON_BERRY           0x59 // Berry Master's wife
 #define FLAG_RECEIVED_PAMTRE_BERRY           0x5A // Berry Master's wife

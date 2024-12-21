@@ -160,7 +160,7 @@
       "x": 7,
       "y": 20,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -701,6 +701,15 @@
       "y": 75,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY_CLOUDS"
+    },
+    {
+      "type": "trigger",
+      "x": 37,
+      "y": 45,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "1",
+      "script": "Route120_EventScript_JennaTrigger"
     }
   ],
   "bg_events": [
