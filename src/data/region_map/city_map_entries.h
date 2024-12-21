@@ -110,4 +110,15 @@ static const struct CityMapEntry sPokenavCityMaps[NUM_CITY_MAPS] =
         .index = 1,
         .tilemap = gPokenavCityMap_EverGrande_1,
     },
+    {
+        .mapSecId = MAPSEC_METEOR_VILLAGE,
+        .index = 0,
+        .tilemap = gPokenavCityMap_Meteor_0,
+    },
+
+    {
+        .mapSecId = MAPSEC_EMERALD_CAPE,
+        .index = 0,
+        .tilemap = gPokenavCityMap_EmeraldCape_0,
+    },
 };
