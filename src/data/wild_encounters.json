@@ -19944,7 +19944,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NUMEL"
+                "species": "SPECIES_SLUGMA"
               },
               {
                 "min_level": 5,
@@ -19954,32 +19954,32 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_VULPIX"
+                "species": "SPECIES_DARUMAKA"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_GROWLITHE"
+                "species": "SPECIES_DARUMAKA"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_GROWLITHE_HISUI"
+                "species": "SPECIES_TORKOAL"
               },
               {
                 "min_level": 4,
                 "max_level": 5,
-                "species": "SPECIES_DARUMAKA"
+                "species": "SPECIES_TORKOAL"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_DARUMAKA"
+                "species": "SPECIES_TORKOAL"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_DARUMAKA"
+                "species": "SPECIES_TORKOAL"
               }
             ]
           },
