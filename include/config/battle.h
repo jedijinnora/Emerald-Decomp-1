@@ -296,5 +296,7 @@
 #define B_POOL_RULE_EXCLUDE_FORMS           TRUE  // Exclude different forms from the Species Clause
 #define B_POOL_RULE_ITEM_CLAUSE             TRUE  // Only allow each item to be picked once
 #define B_POOL_RULES_USE_ITEM_EXCLUSIONS    FALSE // Exclude items listed in poolItemClauseExclusions
+#define B_POOL_RULES_ALLOW_SOLO_LEAD        TRUE  // Lead selection does not prioritize other required tags
+#define B_POOL_RULES_ALLOW_SOLO_ACE         TRUE  // Ace selection does not prioritize other required tags
 
 #endif // GUARD_CONFIG_BATTLE_H

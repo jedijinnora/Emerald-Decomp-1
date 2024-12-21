@@ -18,7 +18,7 @@
 #define MAX_TRAINER_ITEMS 4
 #define PARTY_SIZE 255
 #define MAX_MON_MOVES 4
-#define MAX_MON_TAGS 8
+#define MAX_MON_TAGS 32
 
 struct String
 {

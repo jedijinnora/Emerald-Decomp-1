@@ -2178,30 +2178,30 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
     u32 monIndex = POOL_SLOT_DISABLED;
 
     //Jinnora: first, cycle through and eliminate mons tagged with invalid badge numbers
-    u32 badgeTagsToEliminate;
+    u32 badgeTagRequired;
     
     u8 currBadges = VarGet(VAR_NUM_BADGES);
     switch (currBadges)
     {
         default:
         case 0:
-            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_0);
+            badgeTagRequired = MON_POOL_TAG_BADGES_0;
         case 1:
-            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_1);
+            badgeTagRequired = MON_POOL_TAG_BADGES_1;
         case 2:
-            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_2);
+            badgeTagRequired = MON_POOL_TAG_BADGES_2;
         case 3:
-            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_3);
+            badgeTagRequired = MON_POOL_TAG_BADGES_3;
         case 4:
-            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_4);
+            badgeTagRequired = MON_POOL_TAG_BADGES_4;
         case 5:
-            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_5);
+            badgeTagRequired = MON_POOL_TAG_BADGES_5;
         case 6:
-            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_6);
+            badgeTagRequired = MON_POOL_TAG_BADGES_6;
         case 7:
-            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_7);
+            badgeTagRequired = MON_POOL_TAG_BADGES_7;
         case 8:
-            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_8);
+            badgeTagRequired = MON_POOL_TAG_BADGES_8;
     }
 
     for (u32 currIndex = 0; currIndex < trainer->poolSize; currIndex++)
@@ -2209,7 +2209,7 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
         if (poolIndexArray[currIndex] != POOL_SLOT_DISABLED)
         {
             u32 currentTags = trainer->party[poolIndexArray[currIndex]].tags;
-            if (currentTags & badgeTagsToEliminate)
+            if (!(currentTags & badgeTagRequired))
             {
                 poolIndexArray[currIndex] = POOL_SLOT_DISABLED;
             }
@@ -2235,7 +2235,8 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
                 for (u32 currTag = 2; currTag < POOL_NUM_TAGS; currTag++)
                 {
                     if (rules->tagRequired[currTag]
-                     && trainer->party[poolIndexArray[currIndex]].tags & (1u << currTag))
+                     && trainer->party[poolIndexArray[currIndex]].tags & (1u << currTag)
+                     && !rules->soloLead)
                     {
                         arrayIndex = currIndex;
                         foundRequiredTag = TRUE;
@@ -2279,7 +2280,8 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
                 for (u32 currTag = 2; currTag < POOL_NUM_TAGS; currTag++)
                 {
                     if (rules->tagRequired[currTag]
-                     && trainer->party[poolIndexArray[currIndex]].tags & (1u << currTag))
+                     && trainer->party[poolIndexArray[currIndex]].tags & (1u << currTag)
+                     && !rules->soloAce)
                     {
                         arrayIndex = currIndex;
                         foundRequiredTag = TRUE;
@@ -2524,15 +2526,6 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             u32 otIdType = OT_ID_RANDOM_NO_SHINY;
             u32 fixedOtId = 0;
             u32 ability = 0;
-
-            //Jinnora: use the easy party if the player has fewer than the threshold badges, or is playing on easy difficulty
-            if((trainer->badgeThreshold > 0) 
-                && ((VarGet(VAR_NUM_BADGES) < trainer->badgeThreshold) 
-                    || (VarGet(VAR_DIFFICULTY_SETTING) == 1))) 
-            {
-                partyData = trainer->easyParty;
-            }
-            
 
             if (trainer->doubleBattle == TRUE)
                 personalityValue = 0x80;
