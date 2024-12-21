@@ -2176,6 +2176,47 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
 {
     u32 arrayIndex = 0;
     u32 monIndex = POOL_SLOT_DISABLED;
+
+    //Jinnora: first, cycle through and eliminate mons tagged with invalid badge numbers
+    u32 badgeTagsToEliminate;
+    
+    u8 currBadges = VarGet(VAR_NUM_BADGES);
+    switch (currBadges)
+    {
+        default:
+        case 0:
+            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_0);
+        case 1:
+            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_1);
+        case 2:
+            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_2);
+        case 3:
+            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_3);
+        case 4:
+            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_4);
+        case 5:
+            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_5);
+        case 6:
+            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_6);
+        case 7:
+            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_7);
+        case 8:
+            badgeTagsToEliminate = (~MON_POOL_TAG_BADGES_8);
+    }
+
+    for (u32 currIndex = 0; currIndex < trainer->poolSize; currIndex++)
+    {
+        if (poolIndexArray[currIndex] != POOL_SLOT_DISABLED)
+        {
+            u32 currentTags = trainer->party[poolIndexArray[currIndex]].tags;
+            if (currentTags & badgeTagsToEliminate)
+            {
+                poolIndexArray[currIndex] = POOL_SLOT_DISABLED;
+            }
+        }
+    }
+    //Jinnora: end badge tag check
+
     //  monIndex is set to 255 if nothing has been chosen yet, this gives an upper limit on pool size of 255
     if ((partyIndex == 0)
      || (partyIndex == 1 && (battleTypeFlags & BATTLE_TYPE_DOUBLE)))
