@@ -2264,7 +2264,7 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
       || (partyIndex == monsCount - 2
        && battleTypeFlags & BATTLE_TYPE_DOUBLE))
        && (rules->tagMaxMembers[1] == POOL_MEMBER_COUNT_UNLIMITED
-        || rules->tagMaxMembers[1] > 1)))
+        || rules->tagMaxMembers[1] >= 1)))
     {
         //  Find required + ace tags
         bool32 foundRequiredTag = FALSE;
@@ -2292,7 +2292,7 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
             if (foundRequiredTag)
                 break;
         }
-        //  If a combination of required + ace wasn't found, apply the first found lead
+        //  If a combination of required + ace wasn't found, apply the first found ace
         if (foundRequiredTag)
         {
             monIndex = poolIndexArray[arrayIndex];
@@ -2431,7 +2431,7 @@ static void RandomizePoolIndices(const struct Trainer *trainer, u8 *poolIndexArr
         poolIndexArray[i] = i;
     u32 rnd;
     rng_value_t localRngState;
-    if (B_POOL_SETTING_CONSISTENT_RNG)
+    if (B_POOL_SETTING_CONSISTENT_RNG || (VarGet(VAR_DIFFICULTY_SETTING) == 1))
     {
         u32 seed = GetPoolSeed(trainer);
         localRngState = LocalRandomSeed(seed);
@@ -2572,7 +2572,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             {
                 SetMonData(&party[i], MON_DATA_IVS, &(partyData[monIndex].iv));
             }
-            if (partyData[monIndex].ev != NULL)
+            if ((partyData[monIndex].ev != NULL) && (VarGet(VAR_DIFFICULTY_SETTING) != 1))
             {
                 SetMonData(&party[i], MON_DATA_HP_EV, &(partyData[monIndex].ev[0]));
                 SetMonData(&party[i], MON_DATA_ATK_EV, &(partyData[monIndex].ev[1]));
