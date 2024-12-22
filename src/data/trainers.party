@@ -789,6 +789,7 @@ EVs: 252 Atk / 4 Def / 252 Spe
 Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
 - Retaliate
 - Last Resort
+- Crunch
 
 Stoutland @ Silk Scarf
 Adamant Nature
@@ -2063,15 +2064,148 @@ Mugshot: Pink
 Party Size: 6
 Pool Rules: Weather Singles
 
+Sandslash Alola @ Wide Lens
+Jolly Nature
+Level: 16
+Ability: Slush Rush
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead / Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Triple Axel
+- Iron Head
+- Knock Off
+- Swords Dance
+
+Sandslash Alola @ Muscle Band
+Adamant Nature
+Level: 16
+Ability: Slush Rush
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead / Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Triple Axel
+- Iron Head
+- Knock Off
+- Earthquake
+
+Cloyster @ White Herb
+Jolly Nature
+Level: 16
+Ability: Skill Link
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Shell Smash
+- Icicle Spear
+- Rock Blast
+- Liquidation
+
+Cloyster @ Focus Sash
+Jolly Nature
+Level: 16
+Ability: Skill Link
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Lead / Spikes / Hazard Removal / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Shell Smash
+- Icicle Spear
+- Spikes
+- Rapid Spin
+
+Glaceon @ Never Melt Ice
+Timid Nature
+Level: 16
+Ability: Slush Rush
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Lead / Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Freeze Dry
+- Blizzard
+- Thunderbolt
+- Flash Cannon
+
+Piloswine @ Eviolite
+Careful Nature
+Level: 16
+Ability: Oblivious
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 4 Def / 252 SpD
+Tags: Lead / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Stealth Rock
+- Earthquake
+- Rock Slide
+- Ice Shard
+
+Mamoswine @ Soft Sand
+Adamant Nature
+Level: 16
+Ability: Oblivious
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Icicle Crash
+- Earthquake
+- Knock Off
+- Ice Shard
+
+Mamoswine @ Loaded Dice
+Adamant Nature
+Level: 16
+Ability: Oblivious
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Icicle Spear
+- Earthquake
+- Knock Off
+- Ice Shard
+
+Glalie @ Weakness Policy
+Adamant Nature
+Level: 16
+Ability: Refrigerate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Lead / Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Spikes
+- Double Edge
+- Earthquake
+- Explosion
+
+Glalie @ Ice Gem
+Jolly Nature
+Level: 16
+Ability: Refrigerate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Super Fang
+- Body Slam
+- Earthquake
+- Explosion
+
 Froslass @ Focus Sash
 Timid Nature
 Level: 16
 Ability: Competitive
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
 - Freeze Dry
 - Shadow Ball
 - Pain Split
+- Destiny Bond
+
+Froslass @ Focus Sash
+Timid Nature
+Level: 16
+Ability: Cursed Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Lead / Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Taunt
+- Icy Wind
+- Spikes
 - Destiny Bond
 
 Rotom-Frost @ Weakness Policy
@@ -2080,21 +2214,143 @@ Level: 16
 Ability: Levitate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
 - Blizzard
 - Nasty Plot
 - Will O Wisp
 - Thunderbolt
 
-Mamoswine @ Life Orb
+Rotom-Frost @ Weakness Policy
+Calm Nature
+Level: 16
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 4 Def / 252 SpD
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Blizzard
+- Nasty Plot
+- Will O Wisp
+- Thunderbolt
+
+Rotom-Frost @ Choice Scarf
+Timid Nature
+Level: 16
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 SpA / 4 SpD / 252 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Blizzard
+- Volt Switch
+- Trick
+- Thunderbolt
+
+Darmanitan Galar @ Choice Band
 Adamant Nature
 Level: 16
-Ability: Oblivious
+Ability: Gorilla Tactics
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 Def / 252 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Rock Slide
+- Icicle Crash
+- U Turn
+- Flare Blitz
+
+Darmanitan Galar @ Choice Scarf
+Jolly Nature
+Level: 16
+Ability: Gorilla Tactics
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Rock Slide
+- Icicle Crash
+- U Turn
+- Flare Blitz
+
+Darmanitan Galar @ Salac Berry
+Jolly Nature
+Level: 16
+Ability: Zen Mode
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Substitute
+- Belly Drum
+- Earthquake
+- Fire Punch
+
+Darmanitan Galar @ Focus Sash
+Jolly Nature
+Level: 16
+Ability: Zen Mode
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Power Up Punch
 - Icicle Crash
 - Earthquake
-- Knock Off
+- Fire Punch
+
+Frosmoth @ Focus Sash
+Timid Nature
+Level: 16
+Ability: Ice Scales
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 SpA / 4 SpD / 252 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Quiver Dance
+- Blizzard
+- Bug Buzz
+- Freeze Dry
+
+Cetitan @ Sitrus Berry
+Jolly Nature
+Level: 16
+Ability: Slush Rush
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Lead / Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Belly Drum
+- Ice Spinner
+- Earthquake
 - Ice Shard
+
+Baxcalibur @ Loaded Dice
+Adamant Nature
+Level: 16
+Ability: Thermal Exchange
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Dragon Dance
+- Icicle Spear
+- Earthquake
+- Glaive Rush
+
+Sandslash Alola @ Wide Lens
+Jolly Nature
+Level: 16
+Ability: Slush Rush
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Triple Axel
+- Iron Head
+- Knock Off
+- Swords Dance
+
+Sandslash Alola @ Muscle Band
+Adamant Nature
+Level: 16
+Ability: Slush Rush
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Triple Axel
+- Iron Head
+- Knock Off
+- Earthquake
 
 Ninetales Alola @ Light Clay
 Timid Nature
@@ -2102,10 +2358,574 @@ Level: 16
 Ability: Snow Warning
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 4 SpA / 252 Spe
+Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
 - Aurora Veil
 - Moonblast
 - Freeze Dry
 - Pain Split
+
+Ninetales Alola @ Icy Rock
+Modest Nature
+Level: 16
+Ability: Snow Warning
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 4 SpA / 252 Spe
+Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Aurora Veil
+- Moonblast
+- Calm Mind
+- Hypnosis
+
+Dewgong @ Leftovers
+Calm Nature
+Level: 16
+Ability: Thick Fat
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 4 Def / 252 SpD
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Perish Song
+- Whirlpool
+- Dive
+- Flip Turn
+
+Dewgong @ Mystic Water
+Jolly Nature
+Level: 16
+Ability: Thick Fat
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 Def / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Fake Out
+- Aqua Jet
+- Liquidation
+- Knock Off
+
+Cloyster @ White Herb
+Jolly Nature
+Level: 16
+Ability: Skill Link
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Shell Smash
+- Icicle Spear
+- Rock Blast
+- Liquidation
+
+Cloyster @ Focus Sash
+Jolly Nature
+Level: 16
+Ability: Skill Link
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Spikes / Hazard Removal / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Shell Smash
+- Icicle Spear
+- Spikes
+- Rapid Spin
+
+Mr Mime Galar @ Eviolite
+Bold Nature
+Level: 16
+Ability: Ice Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 252 Def / 4 SpD
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Calm Mind
+- Tickle
+- Psyshock
+- Dazzling Gleam
+
+Mr Rime @ Heavy Duty Boots
+Modest Nature
+Level: 16
+Ability: Ice Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 240 HP / 252 SpA / 16 Spe
+Tags: Hazard Removal / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Rapid Spin
+- Slack Off
+- Freeze Dry
+- Future Sight
+
+Jynx @ Choice Specs
+Timid Nature
+Level: 16
+Ability: Dry Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 Def / 252 SpA / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Ice Beam
+- Focus Blast
+- Trick
+- Psyshock
+
+Jynx @ Choice Specs
+Timid Nature
+Level: 16
+Ability: Dry Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 Def / 252 SpA / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Ice Beam
+- Lovely Kiss
+- Nasty Plot
+- Psychic
+
+Lapras @ Weakness Policy
+Modest Nature
+Level: 16
+Ability: Dry Skin
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Thunder
+- Blizzard
+- Hydro Pump
+- Ancient Power
+
+Glaceon @ Never Melt Ice
+Timid Nature
+Level: 16
+Ability: Slush Rush
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Freeze Dry
+- Blizzard
+- Thunderbolt
+- Flash Cannon
+
+Piloswine @ Eviolite
+Careful Nature
+Level: 16
+Ability: Oblivious
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 4 Def / 252 SpD
+Tags: Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Stealth Rock
+- Earthquake
+- Rock Slide
+- Ice Shard
+
+Mamoswine @ Choice Band
+Adamant Nature
+Level: 16
+Ability: Oblivious
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Icicle Crash
+- Earthquake
+- Knock Off
+- Ice Shard
+
+Mamoswine @ Loaded Dice
+Adamant Nature
+Level: 16
+Ability: Oblivious
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Icicle Spear
+- Earthquake
+- Knock Off
+- Ice Shard
+
+Castform @ Icy Rock
+Modest Nature
+Level: 16
+Ability: Forecast
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Hail
+- Blizzard
+- Fire Blast
+- Hurricane
+
+Glalie @ Weakness Policy
+Adamant Nature
+Level: 16
+Ability: Refrigerate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Spikes
+- Double Edge
+- Earthquake
+- Explosion
+
+Glalie @ Ice Gem
+Jolly Nature
+Level: 16
+Ability: Refrigerate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Super Fang
+- Body Slam
+- Earthquake
+- Explosion
+
+Froslass @ Focus Sash
+Timid Nature
+Level: 16
+Ability: Competitive
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Freeze Dry
+- Shadow Ball
+- Pain Split
+- Destiny Bond
+
+Walrein @ Leftovers
+Bold Nature
+Level: 16
+Ability: Ice Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 232 HP / 252 Def / 24 SpD
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Protect
+- Substitute
+- Toxic
+- Super Fang
+
+Walrein @ Leftovers
+Bold Nature
+Level: 16
+Ability: Ice Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 232 HP / 252 Def / 24 SpD
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Protect
+- Substitute
+- Surf
+- Avalanche
+
+Abomasnow @ Expert Belt
+Adamant Nature
+Level: 16
+Ability: Snow Warning
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Wood Hammer
+- Ice Shard
+- Earthquake
+- Swords Dance
+
+Abomasnow @ Expert Belt
+Jolly Nature
+Level: 16
+Ability: Soundproof
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Wood Hammer
+- Ice Shard
+- Earthquake
+- Swords Dance
+
+Abomasnow @ Expert Belt
+Modest Nature
+Level: 16
+Ability: Snow Warning
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 SpA / 4 SpD / 252 Spe
+Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Blizzard
+- Giga Drain
+- Focus Blast
+- Ice Shard
+
+Rotom-Frost @ Leftovers
+Bold Nature
+Level: 16
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 252 Def / 4 SpD
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Blizzard
+- Nasty Plot
+- Will O Wisp
+- Thunderbolt
+
+Rotom-Frost @ Rocky Helmet
+Calm Nature
+Level: 16
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 4 Def / 252 SpD
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Blizzard
+- Nasty Plot
+- Will O Wisp
+- Thunderbolt
+
+Rotom-Frost @ Choice Scarf
+Timid Nature
+Level: 16
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 SpA / 4 SpD / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Blizzard
+- Volt Switch
+- Trick
+- Thunderbolt
+
+Darmanitan Galar @ Choice Band
+Adamant Nature
+Level: 16
+Ability: Gorilla Tactics
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 Def / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Rock Slide
+- Icicle Crash
+- U Turn
+- Flare Blitz
+
+Darmanitan Galar @ Choice Scarf
+Jolly Nature
+Level: 16
+Ability: Gorilla Tactics
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Rock Slide
+- Icicle Crash
+- U Turn
+- Flare Blitz
+
+Darmanitan Galar @ Salac Berry
+Jolly Nature
+Level: 16
+Ability: Zen Mode
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Substitute
+- Belly Drum
+- Earthquake
+- Fire Punch
+
+Darmanitan Galar @ Focus Sash
+Jolly Nature
+Level: 16
+Ability: Zen Mode
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Power Up Punch
+- Icicle Crash
+- Earthquake
+- Fire Punch
+
+Vanilluxe @ Icy Rock
+Naive Nature
+Level: 16
+Ability: Snow Warning
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 Atk / 252 SpA / 252 Spe
+Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Aurora Veil
+- Explosion
+- Flash Cannon
+- Blizzard
+
+Beartic @ Ice Gem
+Jolly Nature
+Level: 16
+Ability: Slush Rush
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Icicle Crash
+- Swords Dance
+- Superpower
+- Play Rough
+
+Beartic @ Lum Berry
+Jolly Nature
+Level: 16
+Ability: Slush Rush
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Icicle Crash
+- Bulk Up
+- Superpower
+- Throat Chop
+
+Cryogonal @ Custap Berry
+Timid Nature
+Level: 16
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 248 HP / 8 SpD / 252 Spe
+Tags: Hazard Removal / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Freeze Dry
+- Recover
+- Knock Off
+- Rapid Spin
+
+Aurorus @ Chople Berry
+Timid Nature
+Level: 16
+Ability: Refrigerate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 248 HP / 8 SpD / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Hyper Voice
+- Diamond Storm
+- Aurora Veil
+- Thunder Wave
+
+Aurorus @ Choice Specs
+Modest Nature
+Level: 16
+Ability: Snow Warning
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 SpA / 4 SpD / 252 Spe
+Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Blizzard
+- Diamond Storm
+- Earth Power
+- Freeze Dry
+
+Aurorus @ Choice Scarf
+Timid Nature
+Level: 16
+Ability: Snow Warning
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 SpA / 4 SpD / 252 Spe
+Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Blizzard
+- Diamond Storm
+- Earth Power
+- Freeze Dry
+
+Aurorus @ Power Herb
+Modest Nature
+Level: 16
+Ability: Refrigerate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 SpA / 4 SpD / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Hyper Beam
+- Meteor Beam
+- Diamond Storm
+- Blizzard
+
+Avalugg @ Custap Berry
+Impish Nature
+Level: 16
+Ability: Sturdy
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 4 Atk / 252 Def
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Body Press
+- Recover
+- Avalanche
+- Iron Defense
+
+Avalugg Hisui @ Hard Stone
+Adamant Nature
+Level: 16
+Ability: Strong Jaw
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 252 Atk / 4 Def
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Accelerock
+- Crunch
+- Mountain Gale
+- Stone Edge
+
+Avalugg Hisui @ Assault Vest
+Careful Nature
+Level: 16
+Ability: Strong Jaw
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 170 HP / 170 Atk / 170 SpD
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Accelerock
+- Crunch
+- Mountain Gale
+- Stone Edge
+
+Frosmoth @ Heavy Duty Boots
+Timid Nature
+Level: 16
+Ability: Ice Scales
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 SpA / 4 SpD / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Quiver Dance
+- Blizzard
+- Bug Buzz
+- Freeze Dry
+
+Cetitan @ Sitrus Berry
+Jolly Nature
+Level: 16
+Ability: Slush Rush
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Belly Drum
+- Ice Spinner
+- Earthquake
+- Ice Shard
+
+Baxcalibur @ Loaded Dice
+Adamant Nature
+Level: 16
+Ability: Thermal Exchange
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Dragon Dance
+- Icicle Spear
+- Earthquake
+- Glaive Rush
+
+Articuno @ Life Orb
+Timid Nature
+Level: 16
+Ability: Magic Guard
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Freeze Dry
+- Sheer Cold
+- Focus Blast
+- Roost
+
+Articuno @ Life Orb
+Modest Nature
+Level: 16
+Ability: Magic Guard
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Freeze Dry
+- Sheer Cold
+- Focus Blast
+- Roost
+
+/* unused */
+=== TRAINER_GLACIA_2 ===
+Name: Glacia
+Class: Elite Four
+Pic: Elite Four Glacia
+Gender: Female
+Music: Elite Four
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+Mugshot: Pink
 
 Sandslash Alola @ Wide Lens
 Jolly Nature
@@ -2117,93 +2937,6 @@ EVs: 4 HP / 252 Atk / 252 Spe
 - Iron Head
 - Knock Off
 - Swords Dance
-
-Articuno @ Life Orb
-Timid Nature
-Level: 16
-Ability: Magic Guard
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Freeze Dry
-- Sheer Cold
-- Focus Blast
-- Roost
-
-=== TRAINER_GLACIA_2 ===
-Name: Glacia
-Class: Elite Four
-Pic: Elite Four Glacia
-Gender: Female
-Music: Elite Four
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
-Mugshot: Pink
-
-Cloyster @ White Herb
-Adamant Nature
-Level: 16
-Ability: Skill Link
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Shell Smash
-- Icicle Spear
-- Rock Blast
-- Liquidation
-
-Abomasnow @ Expert Belt
-Adamant Nature
-Level: 16
-Ability: Snow Warning
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Def / 4 SpD
-- Wood Hammer
-- Ice Shard
-- Earthquake
-- Swords Dance
-
-Frosmoth @ Heavy Duty Boots
-Timid Nature
-Level: 16
-Ability: Ice Scales
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Quiver Dance
-- Blizzard
-- Bug Buzz
-- Freeze Dry
-
-Froslass @ Focus Sash
-Timid Nature
-Level: 16
-Ability: Competitive
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Freeze Dry
-- Shadow Ball
-- Pain Split
-- Destiny Bond
-
-Glaceon @ Never Melt Ice
-Timid Nature
-Level: 16
-Ability: Slush Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Freeze Dry
-- Blizzard
-- Ice Shard
-- Thunderbolt
-
-Articuno @ Life Orb
-Timid Nature
-Level: 16
-Ability: Magic Guard
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Freeze Dry
-- Sheer Cold
-- Focus Blast
-- Roost
 
 === TRAINER_DRAKE_1 ===
 Name: Drake
