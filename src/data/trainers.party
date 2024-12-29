@@ -16,7 +16,7 @@ Please review the following files when interpreting this document:
  - src/data/battle_pool_rules.h
 
 the pool randomization/selection functions are in src/battle_main.c
- - GetPoolSeed - IMPORTANT NOTE: on Easy Difficulty, Pool selections will be static for the same save file
+ - GetPoolSeed - IMPORTANT NOTE: on Easy Difficulty, Pool selections will be static within the same save file
  - RandomizePoolIndices
  - PickMonFromPool
  - CreateNPCTrainerPartyFromTrainer
@@ -50,6 +50,7 @@ IVs:
  - If IVs are not specified, they will be random
 
 EVs:
+ - if EVs are not specified, they will be 0
  - EVs are not included in stat calculations for all mons if the 'No EV Grinding' difficulty option has been selected
  - EVs are not included in stat calculations for opposing trainers on Easy Difficulty
 
@@ -86,8 +87,8 @@ GAME STATE    LEVEL CAP   TRAINER BOOST   State
 
  - Victory Road Trainer mons are level 85
  - E4 mons are level 87, Champion is level 90
- - the cap during boss fights is usually lifted, so you may gain experience and level up mid-battle
  - but in the hallways the cap remains 87, so Candy Jar will not work
+ - the cap during boss fights is usually lifted, so you may gain experience and level up mid-battle
 
 
 === HOW DO I USE THIS DOCUMENT? ===
@@ -98,7 +99,7 @@ Recommended workflow for players who want to try to calc things:
  - Copy the pool data to a blank notepad (or equivalent)
  - Remove Pokemon not of the correct badge level
  - Note 'AI', 'Party Size', and 'Pool Rules'
- - Check docs/tutorials/ai_flags.md for information on AI tags
+ - Check docs/tutorials/ai_flags.md for information on AI flags
  - Check src/data/battle_pool_rules.h if unsure which tags are mandatory/limited
     - (for example, Weather Singles pool rules will try to pick exactly one mon tagged 'Weather Setter')
     - (for example, Core Singles pool rules require exactly one each of 'Core 1', 'Core 2', 'Core 3')
@@ -227,6 +228,42 @@ Tags: Lead / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4
 - Stone Edge
 - Stealth Rock
 - Thunder Wave
+
+Tyranitar @ Black Glasses
+Adamant Nature
+Level: 16
+Ability: Unnerve
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 252 Atk / 4 SpD
+Tags: Lead / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Crunch
+- Stone Edge
+- Stealth Rock
+- Pursuit
+
+Metagross @ Choice Band
+Adamant Nature
+Level: 16
+Ability: Clear Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 40 HP / 252 Atk / 216 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Explosion
+- Earthquake
+- Meteor Mash
+- Pursuit
+
+Metagross @ Custap Berry
+Adamant Nature
+Level: 16
+Ability: Clear Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 76 HP / 252 Atk / 180 Spe
+Tags: Lead / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Explosion
+- Earthquake
+- Meteor Mash
+- Stealth Rock 
 
 Hippowdon @ Rocky Helmet
 Impish Nature
@@ -720,6 +757,30 @@ Tags: Screens / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 
 - Explosion
 - Teleport
 
+Metagross @ Leftovers
+Adamant Nature
+Level: 16
+Ability: Clear Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 160 Atk / 96 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Meteor Mash
+- Bullet Punch
+- Earthquake
+- Psychic Fangs
+
+Metagross @ Lum Berry
+Adamant Nature
+Level: 16
+Ability: Clear Body
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 160 Atk / 96 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Cosmic Power
+- Body Press
+- Meteor Mash
+- Rest
+
 Hippowdon @ Leftovers
 Impish Nature
 Level: 16
@@ -759,7 +820,7 @@ Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6
 Garchomp @ Leftovers
 Jolly Nature
 Level: 16
-Ability: Rough Skin
+Ability: Sand Force
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
 Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
@@ -947,6 +1008,30 @@ Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Ba
 - Surf
 - Hyper Voice
 
+Incineroar @ Safety Goggles
+Careful Nature
+Level: 16
+Ability: Intimidate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 248 HP / 212 SpD / 48 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Knock Off
+- Flare Blitz
+- U Turn
+- Will O Wisp
+
+Incineroar @ Safety Goggles
+Jolly Nature
+Level: 16
+Ability: Intimidate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 Atk / 4 SpD / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Knock Off
+- Flare Blitz
+- U Turn
+- Swords Dance
+
 Lycanroc Midday @ Hard Stone
 Adamant Nature
 Level: 16
@@ -1127,6 +1212,51 @@ Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6
 - Earthquake
 - Recover
 
+Beheeyem @ Twisted Spoon
+Quiet Nature
+Level: 16
+Ability: Analytic
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+EVs: 252 HP / 4 Def / 252 SpA
+Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Psystrike
+- Psychic
+- Dark Pulse
+- Recover
+
+Beheeyem @ Choice Specs
+Modest Nature
+Level: 16
+Ability: Minds Eye
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 4 Def / 252 SpA
+Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Psystrike
+- Psychic
+
+Beheeyem @ Safety Goggles
+Bold Nature
+Level: 16
+Ability: Analytic
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+EVs: 252 HP / 252 Def / 4 SpA
+Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Psystrike
+- Calm Mind
+- Dark Pulse
+- Recover
+
+Beheeyem @ Safety Goggles
+Modest Nature
+Level: 16
+Ability: Minds Eye
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+EVs: 252 HP / 4 Def / 252 SpA
+Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Psystrike
+- Calm Mind
+- Dark Pulse
+- Recover
 
 
 /* unused */
@@ -2100,6 +2230,18 @@ Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / B
 - Rock Blast
 - Liquidation
 
+Cloyster @ White Herb
+Hasty Nature
+Level: 16
+Ability: Shell Armor
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 Atk / 252 SpA / 252 Spe
+Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Hydro Pump
+- Blizzard
+- Shell Smash
+- Self Destruct
+
 Cloyster @ Focus Sash
 Jolly Nature
 Level: 16
@@ -2411,6 +2553,18 @@ Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6
 - Icicle Spear
 - Rock Blast
 - Liquidation
+
+Cloyster @ White Herb
+Hasty Nature
+Level: 16
+Ability: Shell Armor
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 Atk / 252 SpA / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Hydro Pump
+- Blizzard
+- Shell Smash
+- Self Destruct
 
 Cloyster @ Focus Sash
 Jolly Nature
@@ -2916,6 +3070,9 @@ Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Ba
 - Focus Blast
 - Roost
 
+
+
+
 /* unused */
 === TRAINER_GLACIA_2 ===
 Name: Glacia
@@ -2938,6 +3095,12 @@ EVs: 4 HP / 252 Atk / 252 Spe
 - Knock Off
 - Swords Dance
 
+
+
+
+
+
+
 === TRAINER_DRAKE_1 ===
 Name: Drake
 Class: Elite Four
@@ -2947,6 +3110,8 @@ Music: Elite Four
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
 Mugshot: Blue
+Party Size: 6
+Pool Rules: Basic
 
 Kommo-O @ Leftovers
 Careful Nature
@@ -2954,6 +3119,7 @@ Level: 16
 Ability: Bulletproof
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 4 Def / 252 SpD
+Tags: Stealth Rock / Phazing Move / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
 - Iron Defense
 - Body Press
 - Stealth Rock
@@ -2965,6 +3131,7 @@ Level: 16
 Ability: Infiltrator
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
 - Thunder Wave
 - Hex
 - U Turn
@@ -2976,6 +3143,7 @@ Level: 16
 Ability: Sniper
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
 - Draco Meteor
 - Snipe Shot
 - Ice Beam
@@ -2987,6 +3155,7 @@ Level: 16
 Ability: Overcoat
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 170 HP / 170 Atk / 170 Def
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
 - Poison Tail
 - Iron Tail
 - Curse
@@ -2998,6 +3167,7 @@ Level: 16
 Ability: Mold Breaker
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
 - Earthquake
 - Dragon Dance
 - Scale Shot
@@ -3009,10 +3179,85 @@ Level: 16
 Ability: Intimidate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
 - Dual Wingbeat
 - Outrage
 - Earthquake
 - Dragon Dance
+
+Kommo-O @ Throat Spray
+Timid Nature
+Level: 16
+Ability: Soundproof
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 170 HP / 170 SpA / 170 Spe
+Tags: Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Clangorous Soul
+- Aura Sphere
+- Boomburst
+- Stealth Rock
+
+Dragapult @ Lum Berry
+Timid Nature
+Level: 16
+Ability: Infiltrator
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Thunder Wave
+- Hex
+- U Turn
+- Draco Meteor
+
+Altaria @ Scope Lens
+Careful Nature
+Level: 16
+Ability: Pixilate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 170 HP / 170 Def / 170 SpD
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Body Slam
+- Earthquake
+- Roost
+- Dragon Dance
+
+Tyrantrum @ Lum Berry
+Jolly Nature
+Level: 16
+Ability: Rock Head
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 Atk / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Head Smash
+- Close Combat
+- Scale Shot
+- Dragon Dance
+
+Goodra @ Toxic Orb
+Relaxed Nature
+Level: 16
+Ability: Poison Heal
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 252 Atk / 4 SpD
+Tags: Phazing Move / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Acid Spray
+- Recover
+- Dragon Tail
+- Draco Meteor
+
+Hydreigon @ Life Orb
+Timid Nature
+Level: 16
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 SpA / 252 Spe
+Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+- Draco Meteor
+- Dark Pulse
+- Nasty Plot
+- Fire Blast
+
+
 
 === TRAINER_DRAKE_2 ===
 Name: Drake
@@ -3035,60 +3280,8 @@ EVs: 170 HP / 170 SpA / 170 Spe
 - Boomburst
 - Stealth Rock
 
-Dragapult @ Lum Berry
-Timid Nature
-Level: 16
-Ability: Infiltrator
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Thunder Wave
-- Hex
-- U Turn
-- Draco Meteor
 
-Altaria @ Scope Lens
-Careful Nature
-Level: 16
-Ability: Pixilate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Def / 170 SpD
-- Body Slam
-- Earthquake
-- Roost
-- Dragon Dance
 
-Tyrantrum @ Lum Berry
-Jolly Nature
-Level: 16
-Ability: Rock Head
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Head Smash
-- Close Combat
-- Scale Shot
-- Dragon Dance
-
-Goodra @ Toxic Orb
-Relaxed Nature
-Level: 16
-Ability: Poison Heal
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 SpD
-- Acid Spray
-- Recover
-- Dragon Tail
-- Draco Meteor
-
-Hydreigon @ Life Orb
-Timid Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Draco Meteor
-- Dark Pulse
-- Nasty Plot
-- Fire Blast
 
 === TRAINER_ANABEL_1 ===
 Name: Anabel

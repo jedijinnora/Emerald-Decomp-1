@@ -8688,7 +8688,11 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_ANALYTIC, ABILITY_SYNCHRONIZE, ABILITY_MINDS_EYE },
+    #else
         .abilities = { ABILITY_TELEPATHY, ABILITY_SYNCHRONIZE, ABILITY_ANALYTIC },
+    #endif
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Elgyem"),
         .cryId = CRY_ELGYEM,
@@ -8751,7 +8755,11 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
+     #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_ANALYTIC, ABILITY_SYNCHRONIZE, ABILITY_MINDS_EYE },
+    #else
         .abilities = { ABILITY_TELEPATHY, ABILITY_SYNCHRONIZE, ABILITY_ANALYTIC },
+    #endif
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Beheeyem"),
         .cryId = CRY_BEHEEYEM,
