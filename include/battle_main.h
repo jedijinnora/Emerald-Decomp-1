@@ -34,6 +34,17 @@ enum PoolRulesets {
     POOL_RULESET_CORE_SINGLES,
 };
 
+enum PoolPickFunctions {
+    POOL_PICK_DEFAULT,
+    POOL_PICK_LOWEST,
+};
+
+enum PoolPruneOptions {
+    POOL_PRUNE_NONE,
+    POOL_PRUNE_TEST,
+    POOL_PRUNE_BADGES,
+};
+
 enum PoolTags {
     //  Lead and Ace has special handling, leave them be
     POOL_TAG_LEAD = 0,
@@ -116,6 +127,13 @@ struct PoolRules
     bool8 soloAce;
     u8 tagMaxMembers[POOL_NUM_TAGS];
     bool8 tagRequired[POOL_NUM_TAGS];
+};
+
+struct PickFunctions
+{
+    u32 (*LeadFunction)(const struct Trainer *, u8 *, u32, u32, u32, struct PoolRules *);
+    u32 (*AceFunction)(const struct Trainer *, u8 *, u32, u32, u32, struct PoolRules *);
+    u32 (*OtherFunction)(const struct Trainer *, u8 *, u32, u32, u32, struct PoolRules *);
 };
 
 // defines for the 'DoBounceEffect' function
