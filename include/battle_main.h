@@ -42,6 +42,7 @@ enum PoolPickFunctions {
 enum PoolPruneOptions {
     POOL_PRUNE_NONE,
     POOL_PRUNE_TEST,
+    POOL_PRUNE_RANDOM_TAG,
     POOL_PRUNE_BADGES,
 };
 
