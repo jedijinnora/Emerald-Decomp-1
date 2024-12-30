@@ -18,12 +18,13 @@ Please review the following files when interpreting this document:
 the pool randomization/selection functions are in src/battle_main.c
  - GetPoolSeed - IMPORTANT NOTE: on Easy Difficulty, Pool selections will be static within the same save file
  - RandomizePoolIndices
+ - PrunePool
  - PickMonFromPool
  - CreateNPCTrainerPartyFromTrainer
  - (see also GetTrainerScalingState which handles level scaling)
 
 global pool configuration settings are in include/config/battle.h
- - you can search for B_POOL_SETTING_FAST_VERIFICATION which is the first pool-related config
+ - you can search for B_POOL_SETTING_CONSISTENT_RNG which is the first pool-related config
 
 trainer constants are listed in include/constants/opponents.h
  - they are organized by location/grouping
@@ -98,15 +99,16 @@ Recommended workflow for players who want to try to calc things:
     - If you don't know it look in include/constants/opponents.h, where trainers are organized by location/grouping
  - Copy the pool data to a blank notepad (or equivalent)
  - Remove Pokemon not of the correct badge level
- - Note 'AI', 'Party Size', and 'Pool Rules'
+ - Note 'AI', 'Party Size', 'Pool Rules', and 'Pool Prune'
  - Check docs/tutorials/ai_flags.md for information on AI flags
  - Check src/data/battle_pool_rules.h if unsure which tags are mandatory/limited
     - (for example, Weather Singles pool rules will try to pick exactly one mon tagged 'Weather Setter')
     - (for example, Core Singles pool rules require exactly one each of 'Core 1', 'Core 2', 'Core 3')
+ - Check the 'Pool Prune' function if one is specified (usually removes mons tagged with a different badge level)
  - Check your current level cap and adjust the level of all trainer mons accordingly
  - Copy all the remaining mon data into your calculator of choice
  - Make sure to check the documentation on Pokemon changes, move changes, etc. where necessary
- - Pray to RNGesus for mercy (if not on Easy Difficulty)
+ - Pray to RNGesus for mercy
 */
 
 
@@ -132,7 +134,6 @@ AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
 Mugshot: Green
 Party Size: 6
 Pool Rules: Weather Singles
-Pool Prune: Badges
 
 Dugtrio @ Focus Sash
 Adamant Nature
@@ -140,7 +141,7 @@ Level: 16
 Ability: Arena Trap
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Earthquake
 - Stone Edge
 - Sucker Punch
@@ -152,7 +153,7 @@ Level: 16
 Ability: Rock Head
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Atk / 4 SpD
-Tags : Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags : Lead
 - Head Smash
 - Earthquake
 - Iron Tail
@@ -164,7 +165,7 @@ Level: 16
 Ability: Guts
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Earthquake
 - Payback
 - Facade
@@ -176,7 +177,7 @@ Level: 16
 Ability: Guts
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Atk / 4 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Headlong Rush
 - Fire Punch
 - Facade
@@ -188,7 +189,7 @@ Level: 16
 Ability: Poison Heal
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 170 HP / 170 SpD / 170 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Earthquake
 - Roost
 - Facade
@@ -200,7 +201,7 @@ Level: 16
 Ability: Poison Heal
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 248 HP / 240 SpD / 20 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Earthquake
 - Roost
 - Ice Fang
@@ -212,7 +213,7 @@ Level: 16
 Ability: Sand Stream
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Atk / 4 SpD
-Tags: Lead / Weather Setter / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Weather Setter / Stealth Rock
 - Crunch
 - Rock Slide
 - Stealth Rock
@@ -224,7 +225,7 @@ Level: 16
 Ability: Unnerve
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 212 SpD / 44 Spe
-Tags: Lead / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Stealth Rock
 - Knock Off
 - Stone Edge
 - Stealth Rock
@@ -236,7 +237,7 @@ Level: 16
 Ability: Unnerve
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Atk / 4 SpD
-Tags: Lead / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Stealth Rock
 - Crunch
 - Stone Edge
 - Stealth Rock
@@ -248,7 +249,7 @@ Level: 16
 Ability: Clear Body
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 40 HP / 252 Atk / 216 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Explosion
 - Earthquake
 - Meteor Mash
@@ -260,7 +261,7 @@ Level: 16
 Ability: Clear Body
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 76 HP / 252 Atk / 180 Spe
-Tags: Lead / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Stealth Rock
 - Explosion
 - Earthquake
 - Meteor Mash
@@ -272,7 +273,7 @@ Level: 16
 Ability: Sand Stream
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 170 HP / 170 Def / 170 SpD
-Tags: Lead / Weather Setter / Phazing Move / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Weather Setter / Phazing Move / Stealth Rock
 - Earthquake
 - Slack Off
 - Whirlwind
@@ -284,7 +285,7 @@ Level: 16
 Ability: Mold Breaker
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead / Stealth Rock / Hazard Removal / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Stealth Rock / Hazard Removal
 - Earthquake
 - Stealth Rock
 - Rock Tomb
@@ -296,7 +297,7 @@ Level: 16
 Ability: Intimidate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Lead / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Stealth Rock
 - Earthquake
 - Knock Off
 - Pursuit
@@ -308,7 +309,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Lead / Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Weather Abuser
 - Volt Switch
 - Thunderbolt
 - Surf
@@ -320,7 +321,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Weather Abuser
 - Accelerock
 - Stone Edge
 - Endeavor
@@ -332,7 +333,7 @@ Level: 16
 Ability: Sand Spit
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 168 SpD / 88 Spe
-Tags: Lead / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Stealth Rock
 - Stealth Rock
 - Glare
 - Earthquake
@@ -392,7 +393,7 @@ Level: 16
 Ability: Sturdy
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 170 HP / 170 Atk / 170 Def
-Tags: Phazing Move / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Phazing Move
 - Gyro Ball
 - Body Press
 - Iron Defense
@@ -428,7 +429,7 @@ Level: 16
 Ability: Solid Rock
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 16 Atk / 240 SpD
-Tags: Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Stealth Rock
 - Earthquake
 - Stone Edge
 - Stealth Rock
@@ -572,7 +573,7 @@ Level: 16
 Ability: Sand Stream
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 170 HP / 170 Atk / 170 SpD
-Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Setter
 - Crunch
 - Stone Edge
 - Pursuit
@@ -584,7 +585,7 @@ Level: 16
 Ability: Sand Stream
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Atk / 4 SpD
-Tags: Weather Setter / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Setter / Stealth Rock
 - Crunch
 - Rock Slide
 - Stealth Rock
@@ -596,7 +597,7 @@ Level: 16
 Ability: Unnerve
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 212 SpD / 44 Spe
-Tags: Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Stealth Rock
 - Knock Off
 - Stone Edge
 - Stealth Rock
@@ -608,7 +609,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Bullet Seed
 - Pin Missile
 - Sucker Punch
@@ -620,7 +621,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Swords Dance
 - Needle Arm
 - Sucker Punch
@@ -632,7 +633,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Needle Arm
 - Thunder Punch
 - Sucker Punch
@@ -644,7 +645,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Grass Knot
 - Foul Play
 - Sucker Punch
@@ -656,7 +657,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 170 Atk / 170 SpA / 170 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Grass Knot
 - Foul Play
 - Sucker Punch
@@ -716,7 +717,7 @@ Level: 16
 Ability: Levitate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 170 HP / 170 Def / 170 SpD
-Tags: Trick Room Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Trick Room Setter
 - Toxic
 - Psychic
 - Trick Room
@@ -752,7 +753,7 @@ Level: 16
 Ability: Levitate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 170 HP / 170 Atk / 170 Def
-Tags: Screens / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Screens
 - Reflect
 - Light Screen
 - Explosion
@@ -788,7 +789,7 @@ Level: 16
 Ability: Sand Stream
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 170 HP / 170 Def / 170 SpD
-Tags: Weather Setter / Phazing Move / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Setter / Phazing Move
 - Earthquake
 - Slack Off
 - Whirlwind
@@ -800,7 +801,7 @@ Level: 16
 Ability: Sand Stream
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 170 HP / 170 Def / 170 SpD
-Tags: Weather Setter / Phazing Move / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Setter / Phazing Move / Stealth Rock
 - Earthquake
 - Slack Off
 - Whirlwind
@@ -848,7 +849,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Retaliate
 - Last Resort
 - Crunch
@@ -859,7 +860,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Retaliate
 - Body Slam
 - Pursuit
@@ -871,7 +872,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Retaliate
 - Crunch
 - Pursuit
@@ -895,7 +896,7 @@ Level: 16
 Ability: Sand Stream
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 170 HP / 170 Atk / 170 SpD
-Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Setter
 - Earthquake
 - Rock Blast
 - Toxic
@@ -907,7 +908,7 @@ Level: 16
 Ability: Sand Stream
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 4 Def / 252 SpD
-Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Setter
 - Earthquake
 - Stone Edge
 - Toxic
@@ -919,7 +920,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Weather Abuser / Hazard Removal / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser / Hazard Removal
 - Earthquake
 - Iron Head
 - Rapid Spin
@@ -931,7 +932,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Weather Abuser / Hazard Removal / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser / Hazard Removal
 - Earthquake
 - Iron Head
 - Rapid Spin
@@ -955,7 +956,7 @@ Level: 16
 Ability: Moxie
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Stealth Rock
 - Earthquake
 - Crunch
 - Pursuit
@@ -979,7 +980,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Volt Switch
 - Thunderbolt
 - Surf
@@ -991,7 +992,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Glare
 - Parabolic Charge
 - Surf
@@ -1003,7 +1004,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Volt Switch
 - Thunderbolt
 - Surf
@@ -1039,7 +1040,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Accelerock
 - Stone Edge
 - Psychic Fangs
@@ -1051,7 +1052,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Accelerock
 - Stone Edge
 - Drill Run
@@ -1063,7 +1064,7 @@ Level: 16
 Ability: Sand Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Accelerock
 - Stone Edge
 - Endeavor
@@ -1123,7 +1124,7 @@ Level: 16
 Ability: Tough Claws
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
-Tags: Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Stealth Rock
 - Stealth Rock
 - Earth Power
 - Shadow Ball
@@ -1183,7 +1184,7 @@ Level: 16
 Ability: Sand Spit
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 168 SpD / 88 Spe
-Tags: Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Stealth Rock
 - Stealth Rock
 - Glare
 - Earthquake
@@ -1195,7 +1196,7 @@ Level: 16
 Ability: Unaware
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 248 HP / 8 Def / 252 SpD
-Tags: Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Spikes
 - Spikes
 - Toxic
 - Earthquake
@@ -1219,7 +1220,7 @@ Level: 16
 Ability: Analytic
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
 EVs: 252 HP / 4 Def / 252 SpA
-Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Ace
 - Psystrike
 - Psychic
 - Dark Pulse
@@ -1231,7 +1232,7 @@ Level: 16
 Ability: Minds Eye
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 4 Def / 252 SpA
-Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Ace
 - Psystrike
 - Psychic
 
@@ -1241,7 +1242,7 @@ Level: 16
 Ability: Analytic
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
 EVs: 252 HP / 252 Def / 4 SpA
-Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Ace
 - Psystrike
 - Calm Mind
 - Dark Pulse
@@ -1253,7 +1254,7 @@ Level: 16
 Ability: Minds Eye
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
 EVs: 252 HP / 4 Def / 252 SpA
-Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Ace
 - Psystrike
 - Calm Mind
 - Dark Pulse
@@ -1302,7 +1303,7 @@ Level: 16
 Ability: Thick Fat
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Sleep Powder
 - Giga Drain
 - Sludge Wave
@@ -1314,7 +1315,7 @@ Level: 16
 Ability: Clear Body
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Hazard Removal / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Hazard Removal
 - Liquidation
 - Gunk Shot
 - Knock Off
@@ -1326,7 +1327,7 @@ Level: 16
 Ability: Clear Body
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Hydro Pump
 - Blizzard
 - Knock Off
@@ -1338,7 +1339,7 @@ Level: 16
 Ability: Poison Touch
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Knock Off
 - Gunk Shot
 - Fire Punch
@@ -1350,7 +1351,7 @@ Level: 16
 Ability: Poison Touch
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Knock Off
 - Gunk Shot
 - Fire Punch
@@ -1362,7 +1363,7 @@ Level: 16
 Ability: Quick Draw
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 16 SpA / 240 SpD
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Shell Side Arm
 - Flamethrower
 - Psyshock
@@ -1374,7 +1375,7 @@ Level: 16
 Ability: Regenerator
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Scald
 - Flamethrower
 - Calm Mind
@@ -1386,7 +1387,7 @@ Level: 16
 Ability: Regenerator
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 170 HP / 170 SpA / 170 SpD
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Sludge Bomb
 - Fire Blast
 - Psychic
@@ -1398,7 +1399,7 @@ Level: 16
 Ability: Regenerator
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 248 HP / 12 Def / 128 SpA / 44 SpD / 76 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Nasty Plot
 - Fire Blast
 - Psychic
@@ -1410,7 +1411,7 @@ Level: 16
 Ability: Levitate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Shadow Ball
 - Focus Blast
 - Substitute
@@ -1422,7 +1423,7 @@ Level: 16
 Ability: Unburden
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Swords Dance
 - Close Combat
 - Throat Chop
@@ -1434,7 +1435,7 @@ Level: 16
 Ability: Poison Touch
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Dire Claw
 - Close Combat
 - U Turn
@@ -1446,7 +1447,7 @@ Level: 16
 Ability: Poison Point
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Spikes
 - Toxic Spikes
 - Dazzling Gleam
 - Leaf Storm
@@ -1458,7 +1459,7 @@ Level: 16
 Ability: Sniper
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Toxic Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Toxic Spikes
 - Wicked Blow
 - Cross Poison
 - X Scissor
@@ -1470,7 +1471,7 @@ Level: 16
 Ability: Sniper
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Wicked Blow
 
 Drapion @ Choice Scarf
@@ -1479,7 +1480,7 @@ Level: 16
 Ability: Sniper
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Wicked Blow
 
 Scolipede @ Water Gem
@@ -1488,7 +1489,7 @@ Level: 16
 Ability: Speed Boost
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Swords Dance
 - Earthquake
 - Megahorn
@@ -1500,7 +1501,7 @@ Level: 16
 Ability: Speed Boost
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Substitute
 - Baton Pass
 - Megahorn
@@ -1512,7 +1513,7 @@ Level: 16
 Ability: Corrosion
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Sludge Wave
 - Toxic
 - Fire Blast
@@ -1524,7 +1525,7 @@ Level: 16
 Ability: Oblivious
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Foul Play
 - Taunt
 - Fire Blast
@@ -1536,7 +1537,7 @@ Level: 16
 Ability: Punk Rock
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Boomburst
 - Overdrive
 - Shift Gear
@@ -1548,7 +1549,7 @@ Level: 16
 Ability: Punk Rock
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Boomburst
 - Overdrive
 - Volt Switch
@@ -1560,7 +1561,7 @@ Level: 16
 Ability: Punk Rock
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Boomburst
 - Overdrive
 - Shift Gear
@@ -1572,7 +1573,7 @@ Level: 16
 Ability: Toxic Debris
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Lead / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Stealth Rock
 - Mortal Spin
 - Stealth Rock
 - Earth Power
@@ -1584,7 +1585,7 @@ Level: 16
 Ability: Toxic Debris
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Meteor Beam
 - Sludge Wave
 - Earth Power
@@ -1668,7 +1669,7 @@ Level: 16
 Ability: Intimidate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 Def / 252 Atk / 252 Spe
-Tags: Phazing Move / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Phazing Move
 - Dragon Rush
 - Coil
 - Glare
@@ -1716,7 +1717,7 @@ Level: 16
 Ability: Clear Body
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Hazard Removal / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Hazard Removal
 - Liquidation
 - Gunk Shot
 - Knock Off
@@ -1932,7 +1933,7 @@ Level: 16
 Ability: Natural Cure
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Spikes
 - Toxic
 - Venoshock
 - Giga Drain
@@ -1980,7 +1981,7 @@ Level: 16
 Ability: Adaptability
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 204 HP / 252 SpA / 52 Spe
-Tags: Toxic Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Toxic Spikes
 - Draco Meteor
 - Sludge Bomb
 - Flip Turn
@@ -1992,7 +1993,7 @@ Level: 16
 Ability: Adaptability
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 204 HP / 252 SpA / 52 Spe
-Tags: Toxic Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Toxic Spikes
 - Draco Meteor
 - Sludge Bomb
 - Flip Turn
@@ -2004,7 +2005,7 @@ Level: 16
 Ability: Adaptability
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 204 HP / 252 SpA / 52 Spe
-Tags: Toxic Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Toxic Spikes
 - Draco Meteor
 - Sludge Bomb
 - Focus Blast
@@ -2016,7 +2017,7 @@ Level: 16
 Ability: Regenerator
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 4 Def / 252 SpD
-Tags: Toxic Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Toxic Spikes
 - Scald
 - Recover
 - Haze
@@ -2088,7 +2089,7 @@ Level: 16
 Ability: Toxic Debris
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Stealth Rock
 - Mortal Spin
 - Stealth Rock
 - Earth Power
@@ -2136,7 +2137,7 @@ Level: 16
 Ability: Merciless
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Ace
 - Poison Tail
 - Iron Tail
 - Earthquake
@@ -2148,7 +2149,7 @@ Level: 16
 Ability: Shed Skin
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 4 Def / 252 SpD
-Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Ace
 - Poison Tail
 - Rest
 - Earthquake
@@ -2201,7 +2202,7 @@ Level: 16
 Ability: Slush Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Weather Abuser
 - Triple Axel
 - Iron Head
 - Knock Off
@@ -2213,7 +2214,7 @@ Level: 16
 Ability: Slush Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Weather Abuser
 - Triple Axel
 - Iron Head
 - Knock Off
@@ -2225,7 +2226,7 @@ Level: 16
 Ability: Skill Link
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Shell Smash
 - Icicle Spear
 - Rock Blast
@@ -2237,7 +2238,7 @@ Level: 16
 Ability: Shell Armor
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 Atk / 252 SpA / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Hydro Pump
 - Blizzard
 - Shell Smash
@@ -2249,7 +2250,7 @@ Level: 16
 Ability: Skill Link
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead / Spikes / Hazard Removal / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Spikes / Hazard Removal
 - Shell Smash
 - Icicle Spear
 - Spikes
@@ -2261,7 +2262,7 @@ Level: 16
 Ability: Slush Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead / Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Weather Abuser
 - Freeze Dry
 - Blizzard
 - Thunderbolt
@@ -2273,7 +2274,7 @@ Level: 16
 Ability: Oblivious
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 4 Def / 252 SpD
-Tags: Lead / Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Stealth Rock
 - Stealth Rock
 - Earthquake
 - Rock Slide
@@ -2285,7 +2286,7 @@ Level: 16
 Ability: Oblivious
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Icicle Crash
 - Earthquake
 - Knock Off
@@ -2297,7 +2298,7 @@ Level: 16
 Ability: Oblivious
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Icicle Spear
 - Earthquake
 - Knock Off
@@ -2309,7 +2310,7 @@ Level: 16
 Ability: Refrigerate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead / Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Spikes
 - Spikes
 - Double Edge
 - Earthquake
@@ -2321,7 +2322,7 @@ Level: 16
 Ability: Refrigerate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Super Fang
 - Body Slam
 - Earthquake
@@ -2333,7 +2334,7 @@ Level: 16
 Ability: Competitive
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Freeze Dry
 - Shadow Ball
 - Pain Split
@@ -2345,7 +2346,7 @@ Level: 16
 Ability: Cursed Body
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead / Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Spikes
 - Taunt
 - Icy Wind
 - Spikes
@@ -2357,7 +2358,7 @@ Level: 16
 Ability: Levitate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Def / 4 SpD
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Blizzard
 - Nasty Plot
 - Will O Wisp
@@ -2369,7 +2370,7 @@ Level: 16
 Ability: Levitate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 4 Def / 252 SpD
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Blizzard
 - Nasty Plot
 - Will O Wisp
@@ -2381,7 +2382,7 @@ Level: 16
 Ability: Levitate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Blizzard
 - Volt Switch
 - Trick
@@ -2393,7 +2394,7 @@ Level: 16
 Ability: Gorilla Tactics
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Rock Slide
 - Icicle Crash
 - U Turn
@@ -2405,7 +2406,7 @@ Level: 16
 Ability: Gorilla Tactics
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Rock Slide
 - Icicle Crash
 - U Turn
@@ -2417,7 +2418,7 @@ Level: 16
 Ability: Zen Mode
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Substitute
 - Belly Drum
 - Earthquake
@@ -2429,7 +2430,7 @@ Level: 16
 Ability: Zen Mode
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Power Up Punch
 - Icicle Crash
 - Earthquake
@@ -2441,7 +2442,7 @@ Level: 16
 Ability: Ice Scales
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Quiver Dance
 - Blizzard
 - Bug Buzz
@@ -2453,7 +2454,7 @@ Level: 16
 Ability: Slush Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead / Weather Abuser
 - Belly Drum
 - Ice Spinner
 - Earthquake
@@ -2465,7 +2466,7 @@ Level: 16
 Ability: Thermal Exchange
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Lead
 - Dragon Dance
 - Icicle Spear
 - Earthquake
@@ -2477,7 +2478,7 @@ Level: 16
 Ability: Slush Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Triple Axel
 - Iron Head
 - Knock Off
@@ -2489,7 +2490,7 @@ Level: 16
 Ability: Slush Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Triple Axel
 - Iron Head
 - Knock Off
@@ -2501,7 +2502,7 @@ Level: 16
 Ability: Snow Warning
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 4 SpA / 252 Spe
-Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Setter
 - Aurora Veil
 - Moonblast
 - Freeze Dry
@@ -2513,7 +2514,7 @@ Level: 16
 Ability: Snow Warning
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 4 SpA / 252 Spe
-Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Setter
 - Aurora Veil
 - Moonblast
 - Calm Mind
@@ -2573,7 +2574,7 @@ Level: 16
 Ability: Skill Link
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Spikes / Hazard Removal / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Spikes / Hazard Removal
 - Shell Smash
 - Icicle Spear
 - Spikes
@@ -2597,7 +2598,7 @@ Level: 16
 Ability: Ice Body
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 240 HP / 252 SpA / 16 Spe
-Tags: Hazard Removal / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Hazard Removal
 - Rapid Spin
 - Slack Off
 - Freeze Dry
@@ -2645,7 +2646,7 @@ Level: 16
 Ability: Slush Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Freeze Dry
 - Blizzard
 - Thunderbolt
@@ -2657,7 +2658,7 @@ Level: 16
 Ability: Oblivious
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 4 Def / 252 SpD
-Tags: Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Stealth Rock
 - Stealth Rock
 - Earthquake
 - Rock Slide
@@ -2705,7 +2706,7 @@ Level: 16
 Ability: Refrigerate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Spikes / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Spikes
 - Spikes
 - Double Edge
 - Earthquake
@@ -2765,7 +2766,7 @@ Level: 16
 Ability: Snow Warning
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Setter
 - Wood Hammer
 - Ice Shard
 - Earthquake
@@ -2789,7 +2790,7 @@ Level: 16
 Ability: Snow Warning
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Setter
 - Blizzard
 - Giga Drain
 - Focus Blast
@@ -2885,7 +2886,7 @@ Level: 16
 Ability: Snow Warning
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 Atk / 252 SpA / 252 Spe
-Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Setter
 - Aurora Veil
 - Explosion
 - Flash Cannon
@@ -2897,7 +2898,7 @@ Level: 16
 Ability: Slush Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Icicle Crash
 - Swords Dance
 - Superpower
@@ -2909,7 +2910,7 @@ Level: 16
 Ability: Slush Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Icicle Crash
 - Bulk Up
 - Superpower
@@ -2921,7 +2922,7 @@ Level: 16
 Ability: Levitate
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 248 HP / 8 SpD / 252 Spe
-Tags: Hazard Removal / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Hazard Removal
 - Freeze Dry
 - Recover
 - Knock Off
@@ -2945,7 +2946,7 @@ Level: 16
 Ability: Snow Warning
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Setter
 - Blizzard
 - Diamond Storm
 - Earth Power
@@ -2957,7 +2958,7 @@ Level: 16
 Ability: Snow Warning
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Weather Setter / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Setter
 - Blizzard
 - Diamond Storm
 - Earth Power
@@ -3029,7 +3030,7 @@ Level: 16
 Ability: Slush Rush
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Weather Abuser
 - Belly Drum
 - Ice Spinner
 - Earthquake
@@ -3053,7 +3054,7 @@ Level: 16
 Ability: Magic Guard
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Ace
 - Freeze Dry
 - Sheer Cold
 - Focus Blast
@@ -3065,7 +3066,7 @@ Level: 16
 Ability: Magic Guard
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Ace / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Ace
 - Freeze Dry
 - Sheer Cold
 - Focus Blast
@@ -3120,7 +3121,7 @@ Level: 16
 Ability: Bulletproof
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 4 Def / 252 SpD
-Tags: Stealth Rock / Phazing Move / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Stealth Rock / Phazing Move
 - Iron Defense
 - Body Press
 - Stealth Rock
@@ -3192,7 +3193,7 @@ Level: 16
 Ability: Soundproof
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 170 HP / 170 SpA / 170 Spe
-Tags: Stealth Rock / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Stealth Rock
 - Clangorous Soul
 - Aura Sphere
 - Boomburst
@@ -3240,7 +3241,7 @@ Level: 16
 Ability: Poison Heal
 IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 EVs: 252 HP / 252 Atk / 4 SpD
-Tags: Phazing Move / Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+Tags: Phazing Move
 - Acid Spray
 - Recover
 - Dragon Tail

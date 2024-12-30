@@ -2349,8 +2349,6 @@ static void PrunePool(const struct Trainer *trainer, u8 *poolIndexArray, const s
             break;
         case POOL_PRUNE_BADGES:
             BadgesPrune(trainer, poolIndexArray, rules);
-        case POOL_PRUNE_RANDOM_TAG:
-            RandomTagPrune(trainer, poolIndexArray, rules);
             break;
         default:
             break;
