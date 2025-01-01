@@ -13,9 +13,11 @@
 Please review the following files when interpreting this document:
  - docs/tutorials/how_to_trainer_party_pool.md
  - docs/tutorials/ai_flags.md
+ - include/trainer_pools.h
  - src/data/battle_pool_rules.h
+ - src/trainer_pools.c
 
-the pool randomization/selection functions are in src/battle_main.c
+the pool randomization/selection functions are in src/trainer_pools.c
  - GetPoolSeed - IMPORTANT NOTE: on Easy Difficulty, Pool selections will be static within the same save file
  - RandomizePoolIndices
  - PrunePool
@@ -23,7 +25,7 @@ the pool randomization/selection functions are in src/battle_main.c
  - CreateNPCTrainerPartyFromTrainer
  - (see also GetTrainerScalingState which handles level scaling)
 
-global pool configuration settings are in include/config/battle.h
+global pool configuration settings are in include/trainer_pools
  - you can search for B_POOL_SETTING_CONSISTENT_RNG which is the first pool-related config
 
 trainer constants are listed in include/constants/opponents.h
