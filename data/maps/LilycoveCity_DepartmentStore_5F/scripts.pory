@@ -42,9 +42,7 @@ LilycoveCity_DepartmentStore_5F_Pokemart_Dolls:
 	.2byte DECOR_SKITTY_DOLL
 	.2byte DECOR_SWABLU_DOLL
 	.2byte DECOR_GULPIN_DOLL
-	.2byte DECOR_NONE
-	release
-	end
+	pokemartlistend
 
 LilycoveCity_DepartmentStore_5F_EventScript_ClerkMidLeft::
 	lock
@@ -67,9 +65,7 @@ LilycoveCity_DepartmentStore_5F_Pokemart_Cushions:
 	.2byte DECOR_GRASS_CUSHION
 	.2byte DECOR_FIRE_CUSHION
 	.2byte DECOR_WATER_CUSHION
-	.2byte DECOR_NONE
-	release
-	end
+	pokemartlistend
 
 LilycoveCity_DepartmentStore_5F_EventScript_ClerkMidRight::
 	lock
@@ -92,9 +88,7 @@ LilycoveCity_DepartmentStore_5F_Pokemart_Posters:
 	.2byte DECOR_LONG_POSTER
 	.2byte DECOR_SEA_POSTER
 	.2byte DECOR_SKY_POSTER
-	.2byte DECOR_NONE
-	release
-	end
+	pokemartlistend
 
 LilycoveCity_DepartmentStore_5F_EventScript_ClerkFarRight::
 	lock
@@ -118,9 +112,7 @@ LilycoveCity_DepartmentStore_5F_Pokemart_Mats:
 	.2byte DECOR_GLITTER_MAT
 	.2byte DECOR_JUMP_MAT
 	.2byte DECOR_SPIN_MAT
-	.2byte DECOR_NONE
-	release
-	end
+	pokemartlistend
 
 LilycoveCity_DepartmentStore_5F_EventScript_PokefanF::
 	msgbox LilycoveCity_DepartmentStore_5F_Text_PlaceFullOfCuteDolls, MSGBOX_NPC
