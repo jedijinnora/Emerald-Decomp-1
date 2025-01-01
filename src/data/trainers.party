@@ -41,6 +41,7 @@ Tags should be listed in the following order:
 Pokemon ordering within a pool:
  - Lead Pokemon appear at the beginning of a pool
  - Ace Pokemon appear at the end of a pool
+ - Then organized by Core Tags (if used by that trainer)
  - Then organized by rough Dex order of families (i.e. Eeveelutions = gen 1, Gliscor = gen 2)
  - Then organized by Badge tags
 
@@ -3597,6 +3598,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Conservative
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Togedemaru @ Air Balloon
 Jolly Nature
@@ -3732,6 +3736,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Conservative
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Forretress @ Custap Berry
 Sassy Nature
@@ -3873,6 +3880,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Aggron @ Assault Vest
 Adamant Nature
@@ -3948,6 +3958,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Sandile @ Berry Juice
 Adamant Nature
@@ -4083,6 +4096,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Mightyena @ Sitrus Berry
 Adamant Nature
@@ -4224,6 +4240,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Krookodile @ Weakness Policy
 Jolly Nature
@@ -4299,6 +4318,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Magnemite @ Air Balloon
 Rash Nature
@@ -4434,6 +4456,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Magneton @ Air Balloon
 Rash Nature
@@ -4575,6 +4600,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Zapdos @ Rocky Helmet
 Bold Nature
@@ -4650,6 +4678,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Growlithe @ Muscle Band
 Lonely Nature
@@ -4785,6 +4816,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Arcanine @ Rocky Helmet
 Brave Nature
@@ -4926,6 +4960,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Darmanitan Galar @ Focus Sash
 Jolly Nature
@@ -5001,6 +5038,9 @@ Gender: Female
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Spinda @ Assault Vest
 Rash Nature
@@ -5136,6 +5176,9 @@ Gender: Female
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Linoone @ Sitrus Berry
 Adamant Nature
@@ -5277,6 +5320,9 @@ Gender: Female
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Meloetta Pirouette @ Assault Vest
 Adamant Nature
@@ -5352,6 +5398,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Lombre @ Berry Juice
 Modest Nature
@@ -5487,6 +5536,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Ludicolo @ Life Orb
 Timid Nature
@@ -5628,6 +5680,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Roserade @ Focus Sash
 Timid Nature
@@ -5703,6 +5758,9 @@ Gender: Female
 Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Ralts @ Pixie Plate
 Timid Nature
@@ -5841,6 +5899,9 @@ Gender: Female
 Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Bronzong @ Leftovers
 Relaxed Nature
@@ -5982,6 +6043,9 @@ Gender: Female
 Music: Female
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Bronzong @ Leftovers
 Relaxed Nature
@@ -6057,6 +6121,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Spheal @ Berry Juice
 Brave Nature
@@ -6195,6 +6262,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Crawdaunt @ Salac Berry
 Jolly Nature
@@ -6336,6 +6406,9 @@ Gender: Male
 Music: Male
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+Party Size: 6
+Pool Rules: Basic
+Pool Prune: Badges
 
 Kingdra @ Scope Lens
 Timid Nature
