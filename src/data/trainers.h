@@ -39294,12 +39294,12 @@ F_TRAINER_FEMALE |
 #line 17024
         .trainerName = _("Allen"),
 #line 17025
-        .trainerClass = TRAINER_CLASS_YOUNGSTER,
+        .trainerClass = TRAINER_CLASS_BIRD_KEEPER,
 #line 17026
-        .trainerPic = TRAINER_PIC_YOUNGSTER,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER,
         .encounterMusic_gender = 
 #line 17028
-            TRAINER_ENCOUNTER_MUSIC_MALE,
+            TRAINER_ENCOUNTER_MUSIC_COOL,
 #line 17029
         .doubleBattle = FALSE,
 #line 17030

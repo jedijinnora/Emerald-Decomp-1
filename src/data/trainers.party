@@ -17022,10 +17022,10 @@ Level: 14
 
 === TRAINER_ALLEN ===
 Name: Allen
-Class: Youngster
-Pic: Youngster
+Class: Bird Keeper
+Pic: Bird Keeper
 Gender: Male
-Music: Male
+Music: Cool
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -40942,7 +40942,7 @@ EVs: 252 Atk / 252 Spe
 
 === TRAINER_KELSEY ===
 Name: Kelsey
-Class: Rival
+Class: Battle Girl
 Pic: Battle Girl
 Gender: Female
 Music: Intense
