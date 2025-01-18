@@ -1,79 +1,26 @@
-raw `
-EverGrandeCity_GlaciasRoom_MapScripts::
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, EverGrandeCity_GlaciasRoom_OnFrame
-	map_script MAP_SCRIPT_ON_LOAD, EverGrandeCity_GlaciasRoom_OnLoad
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, EverGrandeCity_GlaciasRoom_OnWarp
-	.byte 0
+mapscripts EverGrandeCity_GlaciasRoom_MapScripts {
+	MAP_SCRIPT_ON_FRAME_TABLE[
+		VAR_ELITE_4_STATE, 0 : EverGrandeCity_GlaciasRoom_EventScript_WalkInCloseDoor
+	]
+	MAP_SCRIPT_ON_LOAD : EverGrandeCity_GlaciasRoom_OnLoad
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_TEMP_1, 0 : PokemonLeague_EliteFour_EventScript_PlayerTurnNorth
+    ]
+}
 
-EverGrandeCity_GlaciasRoom_OnWarp:
-	map_script_2 VAR_TEMP_1, 0, EverGrandeCity_GlaciasRoom_EventScript_PlayerTurnNorth
-	.2byte 0
-
-EverGrandeCity_GlaciasRoom_EventScript_PlayerTurnNorth::
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	end
-
-EverGrandeCity_GlaciasRoom_OnFrame:
-	map_script_2 VAR_ELITE_4_STATE, 2, EverGrandeCity_GlaciasRoom_EventScript_WalkInCloseDoor
-	.2byte 0
-
-EverGrandeCity_GlaciasRoom_EventScript_WalkInCloseDoor::
+script EverGrandeCity_GlaciasRoom_EventScript_WalkInCloseDoor {
 	lockall
-	call PokemonLeague_EliteFour_EventScript_WalkInCloseDoor
-	setvar VAR_ELITE_4_STATE, 3
+	call(PokemonLeague_EliteFour_EventScript_WalkInCloseDoor)
+	setvar(VAR_ELITE_4_STATE, 1)
 	releaseall
 	end
+}
 
-EverGrandeCity_GlaciasRoom_OnLoad:
-	call_if_set FLAG_DEFEATED_ELITE_4_GLACIA, EverGrandeCity_GlaciasRoom_EventScript_ResetAdvanceToNextRoom
-	call_if_eq VAR_ELITE_4_STATE, 3, EverGrandeCity_GlaciasRoom_EventScript_CloseDoor
+script EverGrandeCity_GlaciasRoom_OnLoad {
+	call_if_set(FLAG_DEFEATED_ELITE_4_GLACIA, PokemonLeague_EliteFour_EventScript_ResetAdvanceToNextRoom)
+	call_if_eq(VAR_ELITE_4_STATE, 1, PokemonLeague_EliteFour_EventScript_CloseDoor)
 	end
-
-EverGrandeCity_GlaciasRoom_EventScript_ResetAdvanceToNextRoom::
-	call PokemonLeague_EliteFour_EventScript_ResetAdvanceToNextRoom
-	return
-
-EverGrandeCity_GlaciasRoom_EventScript_CloseDoor::
-	call PokemonLeague_EliteFour_EventScript_CloseDoor
-	return
-
-EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech::
-	msgbox EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
-	release
-	end
-
-EverGrandeCity_GlaciasRoom_EventScript_Defeated::
-	setflag FLAG_DEFEATED_ELITE_4_GLACIA
-	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
-	msgbox EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT
-	release
-	end
-
-EverGrandeCity_GlaciasRoom_Text_IntroSpeech:
-	.string "Welcome, my name is Glacia\n"
-	.string "of the Elite Four.\p"
-	.string "I've traveled from afar to Hoenn\n"
-	.string "so that I may hone my ice skills.\p"
-	.string "But all I have seen are challenges by\n"
-	.string "weak Trainers and their Pokémon.\p"
-	.string "What about you?\p"
-	.string "It would please me to no end if I could\n"
-	.string "go all out against you!$"
-
-EverGrandeCity_GlaciasRoom_Text_Defeat:
-	.string "You and your Pokémon…\n"
-	.string "How hot your spirits burn!\p"
-	.string "The all-consuming heat overwhelms.\p"
-	.string "It's no surprise that my icy skills\n"
-	.string "failed to harm you.$"
-
-EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech:
-	.string "Advance to the next room.\p"
-	.string "And there, confirm the truly fearsome\n"
-	.string "side of the Pokémon League.$"
-
-`
-
+}
 
 script EverGrandeCity_GlaciasRoom_EventScript_Glacia {
 	lock
@@ -83,7 +30,38 @@ script EverGrandeCity_GlaciasRoom_EventScript_Glacia {
 	setflag(FLAG_USE_NEXT_LEVEL_CAP)
 	msgbox(EverGrandeCity_GlaciasRoom_Text_IntroSpeech, MSGBOX_DEFAULT)
 	trainerbattle_no_intro(TRAINER_GLACIA_1, EverGrandeCity_GlaciasRoom_Text_Defeat)
+	
 	clearflag(FLAG_USE_NEXT_LEVEL_CAP)
-	goto(EverGrandeCity_GlaciasRoom_EventScript_Defeated)
+	setflag(FLAG_DEFEATED_ELITE_4_GLACIA)
+	call(PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles)
+	EverGrandeCity_GlaciasRoom_EventScript_PostBattleSpeech:
+	msgbox(EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT)
+	release
 	end
+}
+
+text EverGrandeCity_GlaciasRoom_Text_IntroSpeech {
+	"Welcome, my name is Glacia\n"
+	"of the Elite Four.\p"
+	"I've traveled from afar to Hoenn\n"
+	"so that I may hone my icy skills.\p"
+	"But all I have seen are challenges by\n"
+	"weak Trainers and their Pokémon.\p"
+	"What about you?\p"
+	"It would please me to no end if I could\n"
+	"go all out against you!"
+}
+
+text EverGrandeCity_GlaciasRoom_Text_Defeat {
+	"You and your Pokémon…\n"
+	"How hot your spirits burn!\p"
+	"The all-consuming heat overwhelms.\p"
+	"It's no surprise that my icy skills\n"
+	"failed to harm you."
+}
+
+text EverGrandeCity_GlaciasRoom_Text_PostBattleSpeech {
+	"Advance to the next room.\p"
+	"And there, bring all your strength\n"
+	"if you hope to emerge victorious."
 }

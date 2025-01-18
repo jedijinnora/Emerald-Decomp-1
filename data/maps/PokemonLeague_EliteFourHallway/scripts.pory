@@ -1,7 +1,7 @@
 mapscripts PokemonLeague_EliteFourHallway_MapScripts {
     MAP_SCRIPT_ON_LOAD : PokemonLeague_EliteFourHallway_OnLoad
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
-        VAR_TEMP_1, 0 : PokemonLeague_EliteFourHallway_OnWarp
+        VAR_TEMP_1, 0 : PokemonLeague_EliteFour_EventScript_PlayerTurnNorth
     ]
     MAP_SCRIPT_ON_TRANSITION : PokemonLeague_EliteFourHallway_OnTransition
 }
@@ -12,11 +12,6 @@ script PokemonLeague_EliteFourHallway_OnLoad {
     call_if_unset(FLAG_DEFEATED_ELITE_4_GLACIA, PokemonLeague_EliteFourHallway_OpenDoor3)
     call_if_unset(FLAG_DEFEATED_ELITE_4_DRAKE, PokemonLeague_EliteFourHallway_OpenDoor4)
     call(PokemonLeague_EliteFourHallway_TryOpenChampionDoor)
-    end
-}
-
-script PokemonLeague_EliteFourHallway_OnWarp {
-    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
     end
 }
 

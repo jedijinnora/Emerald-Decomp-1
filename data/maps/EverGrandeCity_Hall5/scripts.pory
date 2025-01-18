@@ -1,14 +1,17 @@
-raw `
-EverGrandeCity_Hall5_MapScripts::
-	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, EverGrandeCity_Hall5_OnWarp
-	.byte 0
+mapscripts EverGrandeCity_Hall5_MapScripts {
+	MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_TEMP_1, 0 : EverGrandeCity_Hall5_OnWarp
+    ]
+    MAP_SCRIPT_ON_TRANSITION : EverGrandeCity_Hall5_OnTransition
+}
 
-EverGrandeCity_Hall5_OnWarp:
-	map_script_2 VAR_TEMP_1, 0, EverGrandeCity_Hall5_EventScript_TurnPlayerNorth
-	.2byte 0
+script EverGrandeCity_Hall5_OnWarp {
+    turnobject(OBJ_EVENT_ID_PLAYER, DIR_NORTH)
+    end
+}
 
-EverGrandeCity_Hall5_EventScript_TurnPlayerNorth::
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
-	end
-
-`
+script EverGrandeCity_Hall5_OnTransition {
+    setflag(FLAG_ENTERED_ELITE_FOUR)
+    call(Common_EventScript_CountBadges)
+    end
+}

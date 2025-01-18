@@ -7,23 +7,15 @@
 
 //Elite Four and Champion
 #define LEAGUE_TRAINERS_START               1
-
 #define TRAINER_BRANDON_1                   (LEAGUE_TRAINERS_START + 0)
-#define TRAINER_BRANDON_2                   (LEAGUE_TRAINERS_START + 1)
+#define TRAINER_LUCY_1                      (LEAGUE_TRAINERS_START + 1)
+#define TRAINER_GLACIA_1                    (LEAGUE_TRAINERS_START + 2)
+#define TRAINER_DRAKE_1                     (LEAGUE_TRAINERS_START + 3)
 
-#define TRAINER_LUCY_1                      (LEAGUE_TRAINERS_START + 2)
-#define TRAINER_LUCY_2                      (LEAGUE_TRAINERS_START + 3)
-
-#define TRAINER_GLACIA_1                    (LEAGUE_TRAINERS_START + 4)
-#define TRAINER_GLACIA_2                    (LEAGUE_TRAINERS_START + 5)
-
-#define TRAINER_DRAKE_1                     (LEAGUE_TRAINERS_START + 6)
-#define TRAINER_DRAKE_2                     (LEAGUE_TRAINERS_START + 7)
-
-#define TRAINER_ANABEL_1                    (LEAGUE_TRAINERS_START + 8)
-#define TRAINER_ANABEL_2                    (LEAGUE_TRAINERS_START + 9)
-#define TRAINER_ANABEL_3                    (LEAGUE_TRAINERS_START + 10)
-#define TRAINER_ANABEL_4                    (LEAGUE_TRAINERS_START + 11)
+#define TRAINER_ANABEL_1                    (LEAGUE_TRAINERS_START + 4)
+#define TRAINER_ANABEL_2                    (LEAGUE_TRAINERS_START + 5)
+#define TRAINER_ANABEL_3                    (LEAGUE_TRAINERS_START + 6)
+#define TRAINER_ANABEL_4                    (LEAGUE_TRAINERS_START + 7)
 #define LEAGUE_TRAINERS_END                 TRAINER_ANABEL_4
 
 
@@ -1004,9 +996,9 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 666 (665 + TRAINER_NONE)
+//I think it's currently 662 (661 + TRAINER_NONE)
 
-// NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
+// NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 863 trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
