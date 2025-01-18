@@ -649,6 +649,7 @@ static bool parse_section(struct Parser *p, struct Token *section)
     assert(p && section);
     struct Parser p_ = *p;
 
+    skip_whitespace(&p_); // Jinnora added
     if (!match_exact(&p_, "==="))
         return false;
 
@@ -675,6 +676,7 @@ static bool parse_pokemon_header(struct Parser *p, struct Token *nickname, struc
     struct Parser p_ = *p;
     struct Token first = {}, second = {}, third = {};
 
+    skip_whitespace(&p_); // Jinnora added
     if (!match_species_identifier(&p_, &first))
         return false;
 
@@ -747,6 +749,7 @@ static bool parse_pokemon_nature(struct Parser *p, struct Token *nature)
     assert(p && nature);
     struct Parser p_ = *p;
 
+    skip_whitespace(&p_); // Jinnora added
     if (!match_identifier(&p_, nature))
         return false;
 
@@ -767,6 +770,9 @@ static bool parse_attribute(struct Parser *p, struct Token *key, struct Token *v
 {
     assert(p && key && value);
 
+    struct Parser p_ = *p;
+
+    skip_whitespace(&p_); // Jinnora added
     if (parse_pokemon_nature(p, value))
     {
         static const struct Source nature_source = { .path=NULL, .buffer=(unsigned char *)"Nature", .buffer_n=6 };
@@ -777,8 +783,7 @@ static bool parse_attribute(struct Parser *p, struct Token *key, struct Token *v
         return true;
     }
 
-    struct Parser p_ = *p;
-
+    skip_whitespace(&p_); // Jinnora added
     if (!match_human_identifier(&p_, key))
         return false;
 
@@ -805,6 +810,7 @@ static bool parse_pokemon_move(struct Parser *p, struct Token *move)
     assert(p && move);
     struct Parser p_ = *p;
 
+    skip_whitespace(&p_); // Jinnora added
     if (!match_exact(&p_, "-"))
         return false;
     skip_whitespace(&p_);
