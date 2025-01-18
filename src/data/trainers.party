@@ -43,7 +43,6 @@ Tags should be listed in the following order:
 Pokemon ordering within a pool:
  - Lead Pokemon appear at the beginning of a pool
  - Ace Pokemon appear at the end of a pool
- - Then organized by Core Tags (if used by that trainer)
  - Then organized by rough Dex order of families (i.e. Eeveelutions = gen 1, Gliscor = gen 2)
  - Then organized by Badge tags
 
@@ -124,3168 +123,3276 @@ Music: Male
 Double Battle: No
 
 
-
 /* Brandon's room has sandstorm weather */
 === TRAINER_BRANDON_1 ===
-Name: Brandon
-Class: Elite Four
-Pic: Pyramid King Brandon
-Gender: Male
-Music: Elite Four
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
-Mugshot: Green
-Party Size: 6
-Pool Rules: Weather Singles
-
-Dugtrio @ Focus Sash
-Adamant Nature
-Level: 16
-Ability: Arena Trap
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Lead
-- Earthquake
-- Stone Edge
-- Sucker Punch
-- Pursuit
-
-Steelix @ Weakness Policy
-Adamant Nature
-Level: 16
-Ability: Rock Head
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 SpD
-Tags : Lead
-- Head Smash
-- Earthquake
-- Iron Tail
-- Explosion
-
-Ursaluna @ Flame Orb
-Adamant Nature
-Level: 16
-Ability: Guts
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Lead
-- Earthquake
-- Payback
-- Facade
-- Play Rough
-
-Ursaluna @ Flame Orb
-Jolly Nature
-Level: 16
-Ability: Guts
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 Spe
-Tags: Lead
-- Headlong Rush
-- Fire Punch
-- Facade
-- Ice Punch
-
-Gliscor @ Toxic Orb
-Jolly Nature
-Level: 16
-Ability: Poison Heal
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 SpD / 170 Spe
-Tags: Lead
-- Earthquake
-- Roost
-- Facade
-- Swords Dance
-
-Gliscor @ Toxic Orb
-Careful Nature
-Level: 16
-Ability: Poison Heal
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 248 HP / 240 SpD / 20 Spe
-Tags: Lead
-- Earthquake
-- Roost
-- Ice Fang
-- Swords Dance
-
-Tyranitar @ Weakness Policy
-Adamant Nature
-Level: 16
-Ability: Sand Stream
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 SpD
-Tags: Lead / Weather Setter / Stealth Rock
-- Crunch
-- Rock Slide
-- Stealth Rock
-- Ice Punch
-
-Tyranitar @ Leftovers
-Careful Nature
-Level: 16
-Ability: Unnerve
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 212 SpD / 44 Spe
-Tags: Lead / Stealth Rock
-- Knock Off
-- Stone Edge
-- Stealth Rock
-- Thunder Wave
-
-Tyranitar @ Black Glasses
-Adamant Nature
-Level: 16
-Ability: Unnerve
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 SpD
-Tags: Lead / Stealth Rock
-- Crunch
-- Stone Edge
-- Stealth Rock
-- Pursuit
-
-Metagross @ Choice Band
-Adamant Nature
-Level: 16
-Ability: Clear Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 40 HP / 252 Atk / 216 Spe
-Tags: Lead
-- Explosion
-- Earthquake
-- Meteor Mash
-- Pursuit
-
-Metagross @ Custap Berry
-Adamant Nature
-Level: 16
-Ability: Clear Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 76 HP / 252 Atk / 180 Spe
-Tags: Lead / Stealth Rock
-- Explosion
-- Earthquake
-- Meteor Mash
-- Stealth Rock 
-
-Hippowdon @ Rocky Helmet
-Impish Nature
-Level: 16
-Ability: Sand Stream
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Def / 170 SpD
-Tags: Lead / Weather Setter / Phazing Move / Stealth Rock
-- Earthquake
-- Slack Off
-- Whirlwind
-- Stealth Rock
-
-Excadrill @ Focus Sash
-Jolly Nature
-Level: 16
-Ability: Mold Breaker
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead / Stealth Rock / Hazard Removal
-- Earthquake
-- Stealth Rock
-- Rock Tomb
-- Rapid Spin
-
-Krookodile @ Focus Sash
-Adamant Nature
-Level: 16
-Ability: Intimidate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Lead / Stealth Rock
-- Earthquake
-- Knock Off
-- Pursuit
-- Stealth Rock
-
-Heliolisk @ Wise Glasses
-Modest Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Lead / Weather Abuser
-- Volt Switch
-- Thunderbolt
-- Surf
-- Hyper Voice
-
-Lycanroc Midday @ Focus Sash
-Adamant Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Weather Abuser
-- Accelerock
-- Stone Edge
-- Endeavor
-- Fire Fang
-
-Sandaconda @ Rocky Helmet
-Impish Nature
-Level: 16
-Ability: Sand Spit
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 168 SpD / 88 Spe
-Tags: Lead / Stealth Rock
-- Stealth Rock
-- Glare
-- Earthquake
-- Rest
-
-Dugtrio @ Focus Sash
-Adamant Nature
-Level: 16
-Ability: Arena Trap
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Stone Edge
-- Sucker Punch
-- Pursuit
-
-Dugtrio @ Life Orb
-Adamant Nature
-Level: 16
-Ability: Arena Trap
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Stone Edge
-- Sucker Punch
-- Pursuit
-
-Steelix @ Life Orb
-Jolly Nature
-Level: 16
-Ability: Sheer Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Atk / 170 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Bulldoze
-- Rock Slide
-- Iron Tail
-- Autotomize
-
-Steelix @ Assault Vest
-Jolly Nature
-Level: 16
-Ability: Sheer Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Atk / 170 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Bulldoze
-- Rock Slide
-- Iron Tail
-- Dragon Tail
-
-Steelix @ Leftovers
-Brave Nature
-Level: 16
-Ability: Sturdy
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Atk / 170 Def
-Tags: Phazing Move
-- Gyro Ball
-- Body Press
-- Iron Defense
-- Dragon Tail
-
-Steelix @ Weakness Policy
-Adamant Nature
-Level: 16
-Ability: Rock Head
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 SpD
-Tags : Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Head Smash
-- Earthquake
-- Iron Tail
-- Explosion
-
-Rhyperior @ Weakness Policy
-Adamant Nature
-Level: 16
-Ability: Solid Rock
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Stone Edge
-- Megahorn
-- Ice Punch
-
-Rhyperior @ Leftovers
-Adamant Nature
-Level: 16
-Ability: Solid Rock
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 16 Atk / 240 SpD
-Tags: Stealth Rock
-- Earthquake
-- Stone Edge
-- Stealth Rock
-- Megahorn
-
-Marowak @ Thick Club
-Adamant Nature
-Level: 16
-Ability: Technician
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 212 HP / 252 Atk / 44 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Bonemerang
-- Shadow Sneak
-- Stone Edge
-- Swords Dance
-
-Marowak @ Thick Club
-Adamant Nature
-Level: 16
-Ability: Technician
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 212 HP / 252 Atk / 44 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Bonemerang
-- Shadow Sneak
-- Rock Tomb
-- Swords Dance
-
-Marowak @ Thick Club
-Adamant Nature
-Level: 16
-Ability: Technician
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 212 HP / 252 Atk / 44 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Bulldoze
-- Retaliate
-- Rock Tomb
-- Facade
-
-Marowak @ Thick Club
-Adamant Nature
-Level: 16
-Ability: Technician
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 212 HP / 252 Atk / 44 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Bone Rush
-- Retaliate
-- Thief
-- Thunder Punch
-
-Marowak Alola @ Thick Club
-Adamant Nature
-Level: 16
-Ability: Rock Head
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 212 HP / 252 Atk / 44 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Shadow Bone
-- Retaliate
-- Flare Blitz
-- Thunder Punch
-
-Marowak Alola @ Thick Club
-Adamant Nature
-Level: 16
-Ability: Rock Head
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 212 HP / 252 Atk / 44 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Shadow Bone
-- Swords Dance
-- Flare Blitz
-- Low Kick
-
-Ursaluna @ Flame Orb
-Adamant Nature
-Level: 16
-Ability: Guts
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Payback
-- Facade
-- Play Rough
-
-Ursaluna @ Flame Orb
-Brave Nature
-Level: 16
-Ability: Guts
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 Def
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Headlong Rush
-- Fire Punch
-- Facade
-- Ice Punch
-
-Gliscor @ Toxic Orb
-Adamant Nature
-Level: 16
-Ability: Poison Heal
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 SpD / 170 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Roost
-- Facade
-- Crabhammer
-
-Gliscor @ Toxic Orb
-Jolly Nature
-Level: 16
-Ability: Poison Heal
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 SpD / 170 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Roost
-- Facade
-- Swords Dance
-
-Gliscor @ Toxic Orb
-Careful Nature
-Level: 16
-Ability: Poison Heal
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 248 HP / 240 SpD / 20 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Roost
-- Ice Fang
-- Swords Dance
-
-Tyranitar @ Assault Vest
-Adamant Nature
-Level: 16
-Ability: Sand Stream
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Atk / 170 SpD
-Tags: Weather Setter
-- Crunch
-- Stone Edge
-- Pursuit
-- Earthquake
-
-Tyranitar @ Weakness Policy
-Adamant Nature
-Level: 16
-Ability: Sand Stream
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 SpD
-Tags: Weather Setter / Stealth Rock
-- Crunch
-- Rock Slide
-- Stealth Rock
-- Ice Punch
-
-Tyranitar @ Leftovers
-Careful Nature
-Level: 16
-Ability: Unnerve
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 212 SpD / 44 Spe
-Tags: Stealth Rock
-- Knock Off
-- Stone Edge
-- Stealth Rock
-- Thunder Wave
-
-Cacturne @ Loaded Dice
-Jolly Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser
-- Bullet Seed
-- Pin Missile
-- Sucker Punch
-- Knock Off
-
-Cacturne @ Focus Sash
-Jolly Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser
-- Swords Dance
-- Needle Arm
-- Sucker Punch
-- Stomping Tantrum
-
-Cacturne @ Life Orb
-Jolly Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser
-- Needle Arm
-- Thunder Punch
-- Sucker Punch
-- Drain Punch
-
-Cacturne @ Life Orb
-Rash Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Weather Abuser
-- Grass Knot
-- Foul Play
-- Sucker Punch
-- Dark Pulse
-
-Cacturne @ Eject Pack
-Hasty Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 Atk / 170 SpA / 170 Spe
-Tags: Weather Abuser
-- Grass Knot
-- Foul Play
-- Sucker Punch
-- Leaf Storm
-
-Flygon @ Lum Berry
-Jolly Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Dragon Claw
-- Outrage
-- Dragon Dance
-
-Flygon @ Choice Band
-Jolly Nature
-Level: 16
-Ability: Tinted Lens
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Dragon Claw
-- Outrage
-- U Turn
-
-Flygon @ Leftovers
-Jolly Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 112 HP / 144 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Dragon Claw
-- Roost
-- U Turn
-
-Flygon @ Lum Berry
-Timid Nature
-Level: 16
-Ability: Tinted Lens
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earth Power
-- Bug Buzz
-- Quiver Dance
-- Boomburst
-
-Claydol @ Leftovers
-Relaxed Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Def / 170 SpD
-Tags: Trick Room Setter
-- Toxic
-- Psychic
-- Trick Room
-- Explosion
-
-Claydol @ Life Orb
-Modest Nature
-Level: 16
-Ability: Sheer Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Ice Beam
-- Psychic
-- Earth Power
-- Shadow Ball
-
-Claydol @ Leftovers
-Bold Nature
-Level: 16
-Ability: Sheer Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Def / 170 SpA
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Ice Beam
-- Psychic
-- Earth Power
-- Calm Mind
-
-Claydol @ Light Clay
-Impish Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Atk / 170 Def
-Tags: Screens
-- Reflect
-- Light Screen
-- Explosion
-- Teleport
-
-Metagross @ Leftovers
-Adamant Nature
-Level: 16
-Ability: Clear Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 160 Atk / 96 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Meteor Mash
-- Bullet Punch
-- Earthquake
-- Psychic Fangs
-
-Metagross @ Lum Berry
-Adamant Nature
-Level: 16
-Ability: Clear Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 160 Atk / 96 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Cosmic Power
-- Body Press
-- Meteor Mash
-- Rest
-
-Hippowdon @ Leftovers
-Impish Nature
-Level: 16
-Ability: Sand Stream
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Def / 170 SpD
-Tags: Weather Setter / Phazing Move
-- Earthquake
-- Slack Off
-- Whirlwind
-- Toxic
-
-Hippowdon @ Rocky Helmet
-Impish Nature
-Level: 16
-Ability: Sand Stream
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Def / 170 SpD
-Tags: Weather Setter / Phazing Move / Stealth Rock
-- Earthquake
-- Slack Off
-- Whirlwind
-- Stealth Rock
-
-Garchomp @ Life Orb
-Jolly Nature
-Level: 16
-Ability: Sand Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Rock Slide
-- Scale Shot
-- Swords Dance
-
-Garchomp @ Leftovers
-Jolly Nature
-Level: 16
-Ability: Sand Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Fire Fang
-- Scale Shot
-- Swords Dance
-
-Garchomp @ Rocky Helmet
-Hasty Nature
-Level: 16
-Ability: Rough Skin
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Fire Blast
-- Dragon Rush
-- Swords Dance
-
-Stoutland @ Silk Scarf
-Adamant Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Weather Abuser
-- Retaliate
-- Last Resort
-- Crunch
-
-Stoutland @ Silk Scarf
-Adamant Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Weather Abuser
-- Retaliate
-- Body Slam
-- Pursuit
-- Superpower
-
-Stoutland @ Eject Button
-Adamant Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Weather Abuser
-- Retaliate
-- Crunch
-- Pursuit
-- Superpower
-
-Seismitoad @ Leftovers
-Adamant Nature
-Level: 16
-Ability: Water Absorb
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 112 HP / 252 Atk / 144 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Power Whip
-- Liquidation
-- Ice Punch
-
-Gigalith @ Leftovers
-Careful Nature
-Level: 16
-Ability: Sand Stream
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Atk / 170 SpD
-Tags: Weather Setter
-- Earthquake
-- Rock Blast
-- Toxic
-- Explosion
-
-Gigalith @ Leftovers
-Careful Nature
-Level: 16
-Ability: Sand Stream
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 Def / 252 SpD
-Tags: Weather Setter
-- Earthquake
-- Stone Edge
-- Toxic
-- Earthquake
-
-Excadrill @ Leftovers
-Jolly Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Weather Abuser / Hazard Removal
-- Earthquake
-- Iron Head
-- Rapid Spin
-- Swords Dance
-
-Excadrill @ Steel Gem
-Adamant Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Weather Abuser / Hazard Removal
-- Earthquake
-- Iron Head
-- Rapid Spin
-- Swords Dance
-
-Krookodile @ Leftovers
-Adamant Nature
-Level: 16
-Ability: Moxie
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Crunch
-- Aqua Tail
-- Bulk Up
-
-Krookodile @ Black Glasses
-Adamant Nature
-Level: 16
-Ability: Moxie
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Stealth Rock
-- Earthquake
-- Crunch
-- Pursuit
-- Sand Tomb
-
-Krookodile @ Choice Scarf
-Adamant Nature
-Level: 16
-Ability: Moxie
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Crunch
-- Stone Edge
-- Superpower
-
-Heliolisk @ Choice Specs
-Modest Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Weather Abuser
-- Volt Switch
-- Thunderbolt
-- Surf
-- Hyper Voice
-
-Heliolisk @ Magnet
-Modest Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Weather Abuser
-- Glare
-- Parabolic Charge
-- Surf
-- Hyper Voice
-
-Heliolisk @ Wise Glasses
-Modest Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Weather Abuser
-- Volt Switch
-- Thunderbolt
-- Surf
-- Hyper Voice
-
-Incineroar @ Safety Goggles
-Careful Nature
-Level: 16
-Ability: Intimidate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 248 HP / 212 SpD / 48 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Knock Off
-- Flare Blitz
-- U Turn
-- Will O Wisp
-
-Incineroar @ Safety Goggles
-Jolly Nature
-Level: 16
-Ability: Intimidate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Knock Off
-- Flare Blitz
-- U Turn
-- Swords Dance
-
-Lycanroc Midday @ Hard Stone
-Adamant Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser
-- Accelerock
-- Stone Edge
-- Psychic Fangs
-- Stomping Tantrum
-
-Lycanroc Midday @ Scope Lens
-Adamant Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser
-- Accelerock
-- Stone Edge
-- Drill Run
-- Swords Dance
-
-Lycanroc Midday @ Focus Sash
-Adamant Nature
-Level: 16
-Ability: Sand Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser
-- Accelerock
-- Stone Edge
-- Endeavor
-- Fire Fang
-
-Lycanroc Midnight @ Lum Berry
-Adamant Nature
-Level: 16
-Ability: No Guard
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Accelerock
-- Stone Edge
-- Precipice Blades
-- Swords Dance
-
-Lycanroc Midnight @ Life Orb
-Adamant Nature
-Level: 16
-Ability: No Guard
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Accelerock
-- Stone Edge
-- Knock Off
-- Sucker Punch
-
-Lycanroc Dusk @ Life Orb
-Jolly Nature
-Level: 16
-Ability: Tough Claws
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Accelerock
-- Stone Edge
-- Brick Break
-- Fire Fang
-
-Lycanroc Dusk @ Life Orb
-Adamant Nature
-Level: 16
-Ability: Tough Claws
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Accelerock
-- Stone Edge
-- Trailblaze
-- Thunder Fang
-
-Palossand @ Colbur Berry
-Bold Nature
-Level: 16
-Ability: Tough Claws
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Def / 4 SpD
-Tags: Stealth Rock
-- Stealth Rock
-- Earth Power
-- Shadow Ball
-- Shore Up
-
-Diggersby @ Choice Scarf
-Adamant Nature
-Level: 16
-Ability: Huge Power
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Body Slam
-- Earthquake
-- U Turn
-- Fire Punch
-
-Diggersby @ Silk Scarf
-Adamant Nature
-Level: 16
-Ability: Huge Power
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Swords Dance
-- Earthquake
-- Quick Attack
-- Mega Kick
-
-Sandaconda @ Leftovers
-Careful Nature
-Level: 16
-Ability: Sand Spit
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 168 SpD / 88 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Coil
-- Glare
-- Earthquake
-- Stone Edge
-
-Sandaconda @ Leftovers
-Careful Nature
-Level: 16
-Ability: Shed Skin
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 168 SpD / 88 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Coil
-- Glare
-- Earthquake
-- Rest
-
-Sandaconda @ Rocky Helmet
-Impish Nature
-Level: 16
-Ability: Sand Spit
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 168 SpD / 88 Spe
-Tags: Stealth Rock
-- Stealth Rock
-- Glare
-- Earthquake
-- Rest
-
-Clodsire @ Black Sludge
-Careful Nature
-Level: 16
-Ability: Unaware
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 248 HP / 8 Def / 252 SpD
-Tags: Spikes
-- Spikes
-- Toxic
-- Earthquake
-- Recover
-
-Clodsire @ Black Sludge
-Careful Nature
-Level: 16
-Ability: Water Absorb
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 160 Def / 96 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Haze
-- Poison Jab
-- Earthquake
-- Recover
-
-Beheeyem @ Twisted Spoon
-Quiet Nature
-Level: 16
-Ability: Analytic
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-EVs: 252 HP / 4 Def / 252 SpA
-Tags: Ace
-- Psystrike
-- Psychic
-- Dark Pulse
-- Recover
-
-Beheeyem @ Choice Specs
-Modest Nature
-Level: 16
-Ability: Minds Eye
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 Def / 252 SpA
-Tags: Ace
-- Psystrike
-- Psychic
-
-Beheeyem @ Safety Goggles
-Bold Nature
-Level: 16
-Ability: Analytic
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-EVs: 252 HP / 252 Def / 4 SpA
-Tags: Ace
-- Psystrike
-- Calm Mind
-- Dark Pulse
-- Recover
-
-Beheeyem @ Safety Goggles
-Modest Nature
-Level: 16
-Ability: Minds Eye
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-EVs: 252 HP / 4 Def / 252 SpA
-Tags: Ace
-- Psystrike
-- Calm Mind
-- Dark Pulse
-- Recover
-
-
-/* unused */
-=== TRAINER_BRANDON_2 ===
-Name: Brandon
-Class: Elite Four
-Pic: Pyramid King Brandon
-Gender: Male
-Music: Elite Four
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
-Mugshot: Purple
-
-Dugtrio @ Focus Sash
-Adamant Nature
-Level: 16
-Ability: Arena Trap
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 SpD
-- Earthquake
-- Stone Edge
-- Sucker Punch
-- Pursuit
-
+   Name: Brandon
+   Class: Elite Four
+   Pic: Pyramid King Brandon
+   Gender: Male
+   Music: Elite Four
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Mugshot: Green
+   Party Size: 6
+   Pool Rules: E4 Brandon
+
+   Dugtrio @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Arena Trap
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead / Core 5
+      - Earthquake
+      - Stone Edge
+      - Sucker Punch
+      - Pursuit
+
+   Steelix @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      Tags : Lead / Core 2
+      - Head Smash
+      - Earthquake
+      - Iron Tail
+      - Explosion
+
+   Ursaluna @ Flame Orb
+      Adamant Nature
+      Level: 16
+      Ability: Guts
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 SpD
+      Tags: Lead / Core 1
+      - Earthquake
+      - Payback
+      - Facade
+      - Play Rough
+
+   Ursaluna @ Flame Orb
+      Jolly Nature
+      Level: 16
+      Ability: Guts
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      Tags: Lead / Core 1
+      - Headlong Rush
+      - Fire Punch
+      - Facade
+      - Ice Punch
+
+   Gliscor @ Toxic Orb
+      Jolly Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 SpD / 170 Spe
+      Tags: Lead / Core 5
+      - Earthquake
+      - Roost
+      - Facade
+      - Swords Dance
+
+   Gliscor @ Toxic Orb
+      Careful Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 240 SpD / 20 Spe
+      Tags: Lead / Core 5
+      - Earthquake
+      - Roost
+      - Ice Fang
+      - Swords Dance
+
+   Skarmory @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead / Spikes / Core 2
+      - Drill Peck
+      - Spikes
+      - Iron Head
+      - Swords Dance
+
+   Skarmory @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead / Core 2
+      - Aerial Ace
+      - Night Slash
+      - Cut
+      - Swords Dance
+
+   Skarmory @ Rocky Helmet
+      Bold Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Lead / Spikes / Core 2
+      - Body Press
+      - Spikes
+      - Roost
+      - Iron Defense
+
+   Tyranitar @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Sand Stream
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      Tags: Lead / Weather Setter / Stealth Rock / Core 5
+      - Crunch
+      - Rock Slide
+      - Stealth Rock
+      - Ice Punch
+
+   Tyranitar @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Unnerve
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 212 SpD / 44 Spe
+      Tags: Lead / Stealth Rock / Core 5
+      - Knock Off
+      - Stone Edge
+      - Stealth Rock
+      - Thunder Wave
+
+   Tyranitar @ Black Glasses
+      Adamant Nature
+      Level: 16
+      Ability: Unnerve
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      Tags: Lead / Stealth Rock / Core 5
+      - Crunch
+      - Stone Edge
+      - Stealth Rock
+      - Pursuit
+
+   Metagross @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 40 HP / 252 Atk / 216 Spe
+      Tags: Lead / Core 2
+      - Explosion
+      - Earthquake
+      - Meteor Mash
+      - Pursuit
+
+   Metagross @ Custap Berry
+      Adamant Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 76 HP / 252 Atk / 180 Spe
+      Tags: Lead / Stealth Rock / Core 2
+      - Explosion
+      - Earthquake
+      - Meteor Mash
+      - Stealth Rock 
+
+   Hippowdon @ Rocky Helmet
+      Impish Nature
+      Level: 16
+      Ability: Sand Stream
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpD
+      Tags: Lead / Weather Setter / Phazing Move / Stealth Rock
+      - Earthquake
+      - Slack Off
+      - Whirlwind
+      - Stealth Rock
+
+   Excadrill @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Mold Breaker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead / Stealth Rock / Hazard Removal / Core 2
+      - Earthquake
+      - Stealth Rock
+      - Rock Tomb
+      - Rapid Spin
+
+   Krookodile @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead / Stealth Rock / Core 5
+      - Earthquake
+      - Knock Off
+      - Pursuit
+      - Stealth Rock
+
+   Heliolisk @ Wise Glasses
+      Modest Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Lead / Weather Abuser
+      - Volt Switch
+      - Thunderbolt
+      - Surf
+      - Hyper Voice
+
+   Lycanroc Midday @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead / Weather Abuser
+      - Accelerock
+      - Stone Edge
+      - Endeavor
+      - Fire Fang
+
+   Minior @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Shields Down
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      Tags: Lead
+      - Shell Smash
+      - Stone Edge
+      - Acrobatics
+      - Explosion
+
+   Sandaconda @ Rocky Helmet
+      Impish Nature
+      Level: 16
+      Ability: Sand Spit
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 168 SpD / 88 Spe
+      Tags: Lead / Stealth Rock / Core 5
+      - Stealth Rock
+      - Glare
+      - Earthquake
+      - Rest
+
+   Clefable @ Life Orb
+      Bold Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Core 3
+      - Moonblast
+      - Soft Boiled
+      - Flamethrower
+      - Ice Beam
+
+   Clefable @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Core 3
+      - Moonblast
+      - Soft Boiled
+      - Wish
+      - Thunder Wave
+
+   Clefable @ Life Orb
+      Bold Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Stealth Rock / Core 3
+      - Moonblast
+      - Soft Boiled
+      - Knock Off
+      - Stealth Rock
+
+   Dugtrio @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Arena Trap
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 SpD
+      Tags: Core 5
+      - Earthquake
+      - Stone Edge
+      - Sucker Punch
+      - Pursuit
+
+   Dugtrio @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Arena Trap
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 SpD
+      Tags: Core 5
+      - Earthquake
+      - Stone Edge
+      - Sucker Punch
+      - Pursuit
+
+   Steelix @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 Spe
+      Tags: Core 2
+      - Bulldoze
+      - Rock Slide
+      - Iron Tail
+      - Autotomize
+
+   Steelix @ Assault Vest
+      Jolly Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      Tags: Core 2
+      - Bulldoze
+      - Rock Slide
+      - Iron Tail
+      - Dragon Tail
+
+   Steelix @ Leftovers
+      Brave Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 Def
+      Tags: Phazing Move / Core 2
+      - Gyro Ball
+      - Body Press
+      - Iron Defense
+      - Dragon Tail
+
+   Steelix @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      Tags: Core 2
+      - Head Smash
+      - Earthquake
+      - Iron Tail
+      - Explosion
+
+   Rhyperior @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Solid Rock
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 SpD
+      Tags: Core 1
+      - Earthquake
+      - Stone Edge
+      - Megahorn
+      - Ice Punch
+
+   Rhyperior @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Solid Rock
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 16 Atk / 240 SpD
+      Tags: Stealth Rock / Core 4
+      - Earthquake
+      - Stone Edge
+      - Stealth Rock
+      - Megahorn
+
+   Marowak @ Thick Club
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 212 HP / 252 Atk / 44 Spe
+      Tags: Core 1
+      - Bonemerang
+      - Shadow Sneak
+      - Stone Edge
+      - Swords Dance
+
+   Marowak @ Thick Club
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 212 HP / 252 Atk / 44 Spe
+      Tags: Core 1
+      - Bonemerang
+      - Shadow Sneak
+      - Rock Tomb
+      - Swords Dance
+
+   Marowak @ Thick Club
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 212 HP / 252 Atk / 44 Spe
+      Tags: Core 1
+      - Bulldoze
+      - Retaliate
+      - Rock Tomb
+      - Facade
+
+   Marowak @ Thick Club
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 212 HP / 252 Atk / 44 Spe
+      Tags: Core 1
+      - Bone Rush
+      - Retaliate
+      - Thief
+      - Thunder Punch
+
+   Marowak Alola @ Thick Club
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 212 HP / 252 Atk / 44 Spe
+      Tags: Core 1
+      - Shadow Bone
+      - Retaliate
+      - Flare Blitz
+      - Thunder Punch
+
+   Marowak Alola @ Thick Club
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 212 HP / 252 Atk / 44 Spe
+      Tags: Core 1
+      - Shadow Bone
+      - Swords Dance
+      - Flare Blitz
+      - Low Kick
+
+   Clodsire @ Black Sludge
+      Careful Nature
+      Level: 16
+      Ability: Unaware
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 8 Def / 252 SpD
+      Tags: Spikes / Core 4
+      - Spikes
+      - Toxic
+      - Earthquake
+      - Recover
+
+   Clodsire @ Black Sludge
+      Careful Nature
+      Level: 16
+      Ability: Water Absorb
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 160 Def / 96 SpD
+      Tags: Core 4
+      - Haze
+      - Poison Jab
+      - Earthquake
+      - Recover
+
+   Ursaluna @ Flame Orb
+      Adamant Nature
+      Level: 16
+      Ability: Guts
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 SpD
+      Tags: Core 1
+      - Earthquake
+      - Payback
+      - Facade
+      - Play Rough
+
+   Ursaluna @ Flame Orb
+      Brave Nature
+      Level: 16
+      Ability: Guts
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Def
+      Tags: Core 1
+      - Headlong Rush
+      - Fire Punch
+      - Facade
+      - Ice Punch
+
+   Gliscor @ Toxic Orb
+      Adamant Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 SpD / 170 Spe
+      Tags: Core 5
+      - Earthquake
+      - Roost
+      - Facade
+      - Crabhammer
+
+   Gliscor @ Toxic Orb
+      Jolly Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 SpD / 170 Spe
+      Tags: Core 5
+      - Earthquake
+      - Roost
+      - Facade
+      - Swords Dance
+
+   Gliscor @ Toxic Orb
+      Careful Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 240 SpD / 20 Spe
+      Tags: Core 5
+      - Earthquake
+      - Roost
+      - Ice Fang
+      - Swords Dance
+
+   Skarmory @ Adrenaline Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Aerial Ace
+      - Night Slash
+      - Cut
+      - Swords Dance
+
+   Tyranitar @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Sand Stream
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      Tags: Weather Setter
+      - Crunch
+      - Stone Edge
+      - Pursuit
+      - Earthquake
+
+   Tyranitar @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Sand Stream
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      Tags: Weather Setter / Stealth Rock
+      - Crunch
+      - Rock Slide
+      - Stealth Rock
+      - Ice Punch
+
+   Tyranitar @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Unnerve
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 212 SpD / 44 Spe
+      Tags: Stealth Rock / Core 5
+      - Knock Off
+      - Stone Edge
+      - Stealth Rock
+      - Thunder Wave
+
+   Cacturne @ Loaded Dice
+      Jolly Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Weather Abuser
+      - Bullet Seed
+      - Pin Missile
+      - Sucker Punch
+      - Knock Off
+
+   Cacturne @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Weather Abuser
+      - Swords Dance
+      - Needle Arm
+      - Sucker Punch
+      - Stomping Tantrum
+
+   Cacturne @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Weather Abuser
+      - Needle Arm
+      - Thunder Punch
+      - Sucker Punch
+      - Drain Punch
+
+   Cacturne @ Life Orb
+      Rash Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Weather Abuser
+      - Grass Knot
+      - Foul Play
+      - Sucker Punch
+      - Dark Pulse
+
+   Cacturne @ Eject Pack
+      Hasty Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 Atk / 170 SpA / 170 Spe
+      Tags: Weather Abuser
+      - Grass Knot
+      - Foul Play
+      - Sucker Punch
+      - Leaf Storm
+
+   Flygon @ Lum Berry
+      Jolly Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 4
+      - Earthquake
+      - Dragon Claw
+      - Outrage
+      - Dragon Dance
+
+   Flygon @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Tinted Lens
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 4
+      - Earthquake
+      - Dragon Claw
+      - Outrage
+      - U Turn
+
+   Flygon @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 112 HP / 144 Atk / 252 Spe
+      Tags: Core 4
+      - Earthquake
+      - Dragon Claw
+      - Roost
+      - U Turn
+
+   Flygon @ Lum Berry
+      Timid Nature
+      Level: 16
+      Ability: Tinted Lens
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 4
+      - Earth Power
+      - Bug Buzz
+      - Quiver Dance
+      - Boomburst
+
+   Claydol @ Leftovers
+      Relaxed Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpD
+      Tags: Trick Room Setter / Core 4
+      - Toxic
+      - Psychic
+      - Trick Room
+      - Explosion
+
+   Claydol @ Life Orb
+      Modest Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 1
+      - Ice Beam
+      - Psychic
+      - Earth Power
+      - Shadow Ball
+
+   Claydol @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpA
+      Tags: Core 1
+      - Ice Beam
+      - Psychic
+      - Earth Power
+      - Calm Mind
+
+   Claydol @ Light Clay
+      Impish Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 Def
+      Tags: Screens / Core 4
+      - Reflect
+      - Light Screen
+      - Explosion
+      - Teleport
+
+   Relicanth @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 5
+      - Head Smash
+      - Wave Crash
+      - Double Edge
+      - Body Press
+
+   Relicanth @ Leftovers
+      Impish Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Core 5
+      - Amnesia
+      - Wave Crash
+      - Iron Defense
+      - Body Press
+
+   Relicanth @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 5
+      - Head Smash
+      - Wave Crash
+      - Double Edge
+      - Body Press
+
+   Metagross @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 160 Atk / 96 Spe
+      Tags: Core 2
+      - Meteor Mash
+      - Bullet Punch
+      - Earthquake
+      - Psychic Fangs
+
+   Metagross @ Lum Berry
+      Adamant Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 160 Atk / 96 Spe
+      Tags: Core 2
+      - Cosmic Power
+      - Body Press
+      - Meteor Mash
+      - Rest
+
+   Torterra @ White Herb
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 1
+      - Shell Smash
+      - Wood Hammer
+      - Headlong Rush
+      - Double Edge
+
+   Torterra @ Leftovers
+      Impish Nature
+      Level: 16
+      Ability: Shell Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 Def
+      Tags: Core 5
+      - Leech Seed
+      - Body Press
+      - Iron Defense
+      - Heavy Slam
+
+   Empoleon @ Leftovers
+      Impish Nature
+      Level: 16
+      Ability: Competitive
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 SpA / 252 SpD
+      Tags: Core 2
+      - Air Slash
+      - Flash Cannon
+      - Hydro Pump
+      - Flip Turn
+
+   Empoleon @ Assault Vest
+      Careful Nature
+      Level: 16
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      Tags: Core 2
+      - Knock Off
+      - Ice Spinner
+      - Hydro Pump
+      - Flip Turn
+
+   Hippowdon @ Leftovers
+      Impish Nature
+      Level: 16
+      Ability: Sand Stream
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpD
+      Tags: Weather Setter / Phazing Move
+      - Earthquake
+      - Slack Off
+      - Whirlwind
+      - Toxic
+
+   Hippowdon @ Rocky Helmet
+      Impish Nature
+      Level: 16
+      Ability: Sand Stream
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpD
+      Tags: Weather Setter / Phazing Move / Stealth Rock
+      - Earthquake
+      - Slack Off
+      - Whirlwind
+      - Stealth Rock
+
+   Garchomp @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Sand Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Earthquake
+      - Rock Slide
+      - Scale Shot
+      - Swords Dance
+
+   Garchomp @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Sand Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 1
+      - Earthquake
+      - Fire Fang
+      - Scale Shot
+      - Swords Dance
+
+   Garchomp @ Rocky Helmet
+      Hasty Nature
+      Level: 16
+      Ability: Rough Skin
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      Tags: Core 1
+      - Earthquake
+      - Fire Blast
+      - Dragon Rush
+      - Swords Dance
+
+   Stoutland @ Dark Gem
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Weather Abuser
+      - Retaliate
+      - Last Resort
+      - Crunch
+
+   Stoutland @ Silk Scarf
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Weather Abuser
+      - Retaliate
+      - Body Slam
+      - Pursuit
+      - Superpower
+
+   Stoutland @ Eject Button
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Weather Abuser
+      - Retaliate
+      - Crunch
+      - Pursuit
+      - Superpower
+
+   Seismitoad @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Water Absorb
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 112 HP / 252 Atk / 144 Spe
+      Tags: Core 4
+      - Earthquake
+      - Power Whip
+      - Liquidation
+      - Ice Punch
+
+   Seismitoad @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Water Absorb
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 112 Def / 144 Spe
+      Tags: Stealth Rock / Core 4
+      - Stealth Rock
+      - Scald
+      - Refresh
+      - Toxic
+
+   Excadrill @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Weather Abuser / Hazard Removal
+      - Earthquake
+      - Iron Head
+      - Rapid Spin
+      - Swords Dance
+
+   Excadrill @ Steel Gem
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Weather Abuser / Hazard Removal
+      - Earthquake
+      - Iron Head
+      - Rapid Spin
+      - Swords Dance
+
+   Krookodile @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 5
+      - Earthquake
+      - Crunch
+      - Aqua Tail
+      - Bulk Up
+
+   Krookodile @ Black Glasses
+      Adamant Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Stealth Rock / Core 5
+      - Earthquake
+      - Crunch
+      - Pursuit
+      - Sand Tomb
+
+   Krookodile @ Choice Scarf
+      Adamant Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 5
+      - Earthquake
+      - Crunch
+      - Stone Edge
+      - Superpower
+
+   Sigilyph @ Flame Orb
+      Timid Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 16 SpA / 240 Spe
+      Tags: Core 3
+      - Psycho Shift
+      - Cosmic Power
+      - Stored Power
+      - Roost
+
+   Sigilyph @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 3
+      - Air Slash
+      - Heat Wave
+      - Energy Ball
+      - Roost
+
+   Beheeyem @ Twisted Spoon
+      Quiet Nature
+      Level: 16
+      Ability: Analytic
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Def / 252 SpA
+      Tags: Core 3
+      - Psystrike
+      - Psychic
+      - Dark Pulse
+      - Recover
+
+   Beheeyem @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Minds Eye
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpA
+      Tags: Core 3
+      - Psystrike
+      - Psychic
+
+   Beheeyem @ Safety Goggles
+      Bold Nature
+      Level: 16
+      Ability: Analytic
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 Def / 4 SpA
+      Tags: Core 3
+      - Psystrike
+      - Calm Mind
+      - Dark Pulse
+      - Recover
+
+   Beheeyem @ Safety Goggles
+      Modest Nature
+      Level: 16
+      Ability: Minds Eye
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Def / 252 SpA
+      Tags: Core 3
+      - Psystrike
+      - Calm Mind
+      - Dark Pulse
+      - Recover
+
+   Volcarona @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Flame Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 3
+      - Quiver Dance
+      - Giga Drain
+      - Fire Blast
+      - Bug Buzz
+
+   Volcarona @ Heavy Duty Boots
+      Modest Nature
+      Level: 16
+      Ability: Flame Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 Def / 252 Spe
+      Tags: Core 3
+      - Quiver Dance
+      - Psychic
+      - Heat Wave
+      - Bug Buzz
+
+   Volcarona @ Safety Goggles
+      Timid Nature
+      Level: 16
+      Ability: Flame Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 104 Def / 68 SpA / 88 Spe
+      Tags: Core 3
+      - Quiver Dance
+      - Roost
+      - Fiery Dance
+      - Bug Buzz
+
+   Heliolisk @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Weather Abuser
+      - Volt Switch
+      - Thunderbolt
+      - Surf
+      - Hyper Voice
+
+   Heliolisk @ Magnet
+      Modest Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Weather Abuser
+      - Glare
+      - Parabolic Charge
+      - Surf
+      - Hyper Voice
+
+   Heliolisk @ Wise Glasses
+      Modest Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Weather Abuser
+      - Volt Switch
+      - Thunderbolt
+      - Surf
+      - Hyper Voice
+
+   Incineroar @ Safety Goggles
+      Careful Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 212 SpD / 48 Spe
+      Tags: Core 3
+      - Knock Off
+      - Flare Blitz
+      - U Turn
+      - Will O Wisp
+
+   Incineroar @ Safety Goggles
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 3
+      - Knock Off
+      - Flare Blitz
+      - U Turn
+      - Swords Dance
+
+   Lycanroc Midday @ Hard Stone
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Weather Abuser
+      - Accelerock
+      - Stone Edge
+      - Psychic Fangs
+      - Stomping Tantrum
+
+   Lycanroc Midday @ Scope Lens
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Weather Abuser
+      - Accelerock
+      - Stone Edge
+      - Drill Run
+      - Swords Dance
+
+   Lycanroc Midday @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Weather Abuser
+      - Accelerock
+      - Stone Edge
+      - Endeavor
+      - Fire Fang
+
+   Lycanroc Midnight @ Lum Berry
+      Adamant Nature
+      Level: 16
+      Ability: No Guard
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 4
+      - Accelerock
+      - Stone Edge
+      - Precipice Blades
+      - Swords Dance
+
+   Lycanroc Midnight @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: No Guard
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 4
+      - Accelerock
+      - Stone Edge
+      - Knock Off
+      - Sucker Punch
+
+   Lycanroc Dusk @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 3
+      - Accelerock
+      - Stone Edge
+      - Brick Break
+      - Fire Fang
+
+   Lycanroc Dusk @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 3
+      - Accelerock
+      - Stone Edge
+      - Trailblaze
+      - Thunder Fang
+
+   Palossand @ Colbur Berry
+      Bold Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Stealth Rock / Core 4
+      - Stealth Rock
+      - Earth Power
+      - Shadow Ball
+      - Shore Up
+
+   Minior @ White Herb
+      Mild Nature
+      Level: 16
+      Ability: Shields Down
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 SpA / 252 Spe
+      Tags: Core 1
+      - Shell Smash
+      - Power Gem
+      - Acrobatics
+      - Earth Power
+
+   Minior @ Power Herb
+      Modest Nature
+      Level: 16
+      Ability: Shields Down
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 1
+      - Shell Smash
+      - Meteor Beam
+      - Ancient Power
+      - Earth Power
+
+   Minior @ Focus Sash
+      Mild Nature
+      Level: 16
+      Ability: Shields Down
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 SpA / 252 Spe
+      Tags: Core 1
+      - Shell Smash
+      - Power Gem
+      - Acrobatics
+      - Earth Power
+
+   Diggersby @ Choice Scarf
+      Adamant Nature
+      Level: 16
+      Ability: Huge Power
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Body Slam
+      - Earthquake
+      - U Turn
+      - Fire Punch
+
+   Diggersby @ Silk Scarf
+      Adamant Nature
+      Level: 16
+      Ability: Huge Power
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Swords Dance
+      - Earthquake
+      - Quick Attack
+      - Mega Kick
+
+   Sandaconda @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Sand Spit
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 168 SpD / 88 Spe
+      Tags: Core 5
+      - Coil
+      - Glare
+      - Earthquake
+      - Stone Edge
+
+   Sandaconda @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Shed Skin
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 168 SpD / 88 Spe
+      Tags: Core 5
+      - Coil
+      - Glare
+      - Earthquake
+      - Rest
+
+   Sandaconda @ Rocky Helmet
+      Impish Nature
+      Level: 16
+      Ability: Sand Spit
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 168 SpD / 88 Spe
+      Tags: Stealth Rock / Core 5
+      - Stealth Rock
+      - Glare
+      - Earthquake
+      - Rest
 
 
 === TRAINER_LUCY_1 ===
-Name: Lucy
-Class: Elite Four
-Pic: Pike Queen Lucy
-Gender: Female
-Music: Elite Four
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
-Mugshot: Purple
-Party Size: 6
-Pool Rules: Basic
-
-Venusaur @ Wide Lens
-Timid Nature
-Level: 16
-Ability: Thick Fat
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead
-- Sleep Powder
-- Giga Drain
-- Sludge Wave
-- Earth Power
-
-Tentacruel @ Weakness Policy
-Jolly Nature
-Level: 16
-Ability: Clear Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Hazard Removal
-- Liquidation
-- Gunk Shot
-- Knock Off
-- Rapid Spin
-
-Tentacruel @ Weakness Policy
-Timid Nature
-Level: 16
-Ability: Clear Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead
-- Hydro Pump
-- Blizzard
-- Knock Off
-- Flip Turn
-
-Muk Alola @ Assault Vest
-Adamant Nature
-Level: 16
-Ability: Poison Touch
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Lead
-- Knock Off
-- Gunk Shot
-- Fire Punch
-- Explosion
-
-Muk Alola @ Assault Vest
-Adamant Nature
-Level: 16
-Ability: Poison Touch
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Lead
-- Knock Off
-- Gunk Shot
-- Fire Punch
-- Pursuit
-
-Slowbro Galar @ Quick Claw
-Quiet Nature
-Level: 16
-Ability: Quick Draw
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 16 SpA / 240 SpD
-Tags: Lead
-- Shell Side Arm
-- Flamethrower
-- Psyshock
-- Ice Beam
-
-Slowbro Galar @ Black Sludge
-Bold Nature
-Level: 16
-Ability: Regenerator
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Def / 4 SpD
-Tags: Lead
-- Scald
-- Flamethrower
-- Calm Mind
-- Trick
-
-Slowking Galar @ Assault Vest
-Calm Nature
-Level: 16
-Ability: Regenerator
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 SpA / 170 SpD
-Tags: Lead
-- Sludge Bomb
-- Fire Blast
-- Psychic
-- Scald
-
-Slowking Galar @ Shuca Berry
-Modest Nature
-Level: 16
-Ability: Regenerator
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 248 HP / 12 Def / 128 SpA / 44 SpD / 76 Spe
-Tags: Lead
-- Nasty Plot
-- Fire Blast
-- Psychic
-- Scald
-
-Gengar @ Ghost Gem
-Timid Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead
-- Shadow Ball
-- Focus Blast
-- Substitute
-- Nasty Plot
-
-Sneasler @ Air Balloon
-Adamant Nature
-Level: 16
-Ability: Unburden
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead
-- Swords Dance
-- Close Combat
-- Throat Chop
-- Acrobatics
-
-Sneasler @ Choice Scarf
-Jolly Nature
-Level: 16
-Ability: Poison Touch
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead
-- Dire Claw
-- Close Combat
-- U Turn
-- Switcheroo
-
-Roserade @ Focus Sash
-Timid Nature
-Level: 16
-Ability: Poison Point
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Spikes
-- Toxic Spikes
-- Dazzling Gleam
-- Leaf Storm
-- Spikes
-
-Drapion @ Scope Lens
-Jolly Nature
-Level: 16
-Ability: Sniper
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Toxic Spikes
-- Wicked Blow
-- Cross Poison
-- X Scissor
-- Toxic Spikes
-
-Drapion @ Choice Band
-Adamant Nature
-Level: 16
-Ability: Sniper
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead
-- Wicked Blow
-
-Drapion @ Choice Scarf
-Jolly Nature
-Level: 16
-Ability: Sniper
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead
-- Wicked Blow
-
-Scolipede @ Water Gem
-Jolly Nature
-Level: 16
-Ability: Speed Boost
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Lead
-- Swords Dance
-- Earthquake
-- Megahorn
-- Aqua Tail
-
-Scolipede @ Mental Herb
-Jolly Nature
-Level: 16
-Ability: Speed Boost
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Lead
-- Substitute
-- Baton Pass
-- Megahorn
-- Aqua Tail
-
-Salazzle @ Air Balloon
-Timid Nature
-Level: 16
-Ability: Corrosion
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead
-- Sludge Wave
-- Toxic
-- Fire Blast
-- Nasty Plot
-
-Salazzle @ Focus Sash
-Timid Nature
-Level: 16
-Ability: Oblivious
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead
-- Foul Play
-- Taunt
-- Fire Blast
-- Fake Out
-
-Toxtricity @ Life Orb
-Naive Nature
-Level: 16
-Ability: Punk Rock
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead
-- Boomburst
-- Overdrive
-- Shift Gear
-- Drain Punch
-
-Toxtricity @ Choice Specs
-Naive Nature
-Level: 16
-Ability: Punk Rock
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead
-- Boomburst
-- Overdrive
-- Volt Switch
-- Snarl
-
-Toxtricity @ Air Balloon
-Naive Nature
-Level: 16
-Ability: Punk Rock
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead
-- Boomburst
-- Overdrive
-- Shift Gear
-- Volt Switch
-
-Glimmora @ Focus Sash
-Timid Nature
-Level: 16
-Ability: Toxic Debris
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Lead / Stealth Rock
-- Mortal Spin
-- Stealth Rock
-- Earth Power
-- Power Gem
-
-Glimmora @ Power Herb
-Timid Nature
-Level: 16
-Ability: Toxic Debris
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead
-- Meteor Beam
-- Sludge Wave
-- Earth Power
-- Dazzling Gleam
-
-Venusaur @ Wide Lens
-Timid Nature
-Level: 16
-Ability: Thick Fat
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Sleep Powder
-- Giga Drain
-- Sludge Wave
-- Earth Power
-
-Beedrill @ Silver Powder
-Jolly Nature
-Level: 16
-Ability: Adaptability
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- U Turn
-- Drill Run
-- Tailwind
-- Pursuit
-
-Nidoking @ Life Orb
-Modest Nature
-Level: 16
-Ability: Sheer Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Sludge Wave
-- Earth Power
-- Ice Beam
-- Thunderbolt
-
-Nidoqueen @ Life Orb
-Timid Nature
-Level: 16
-Ability: Sheer Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Sludge Wave
-- Earth Power
-- Ice Beam
-- Thunderbolt
-
-Nidoking @ Life Orb
-Jolly Nature
-Level: 16
-Ability: Sheer Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Def / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Poison Jab
-- Rock Slide
-- Megahorn
-- Fire Punch
-
-Nidoqueen @ Life Orb
-Adamant Nature
-Level: 16
-Ability: Sheer Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Def / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Poison Jab
-- Thunder Punch
-- Ice Punch
-- Sucker Punch
-
-Arbok @ Dragon Fang
-Adamant Nature
-Level: 16
-Ability: Intimidate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Def / 252 Atk / 252 Spe
-Tags: Phazing Move
-- Dragon Rush
-- Coil
-- Glare
-- Dragon Tail
-
-Crobat @ Heavy Duty Boots
-Jolly Nature
-Level: 16
-Ability: Inner Focus
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 56 Def / 100 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Brave Bird
-- U Turn
-- Roost
-- Super Fang
-
-Crobat @ Heavy Duty Boots
-Timid Nature
-Level: 16
-Ability: Inner Focus
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Hurricane
-- Heat Wave
-- Giga Drain
-- Nasty Plot
-
-Venomoth @ Focus Sash
-Timid Nature
-Level: 16
-Ability: Tinted Lens
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Quiver Dance
-- Psychic
-- Bug Buzz
-- Air Slash
-
-Tentacruel @ Weakness Policy
-Jolly Nature
-Level: 16
-Ability: Clear Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Hazard Removal
-- Liquidation
-- Gunk Shot
-- Knock Off
-- Rapid Spin
-
-Tentacruel @ Weakness Policy
-Timid Nature
-Level: 16
-Ability: Clear Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Hydro Pump
-- Blizzard
-- Knock Off
-- Flip Turn
-
-Muk Alola @ Assault Vest
-Adamant Nature
-Level: 16
-Ability: Poison Touch
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Knock Off
-- Gunk Shot
-- Fire Punch
-- Explosion
-
-Muk Alola @ Assault Vest
-Adamant Nature
-Level: 16
-Ability: Poison Touch
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Knock Off
-- Gunk Shot
-- Fire Punch
-- Pursuit
-
-Weezing Galar @ Black Sludge
-Bold Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Def / 4 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Strange Steam
-- Destiny Bond
-- Memento
-- Explosion
-
-Weezing Galar @ Leftovers
-Bold Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Def / 4 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Strange Steam
-- Thunderbolt
-- Pain Split
-- Heat Wave
-
-Slowbro Galar @ Quick Claw
-Quiet Nature
-Level: 16
-Ability: Quick Draw
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 16 SpA / 240 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Shell Side Arm
-- Flamethrower
-- Psyshock
-- Ice Beam
-
-Slowbro Galar @ Black Sludge
-Bold Nature
-Level: 16
-Ability: Regenerator
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Def / 4 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Scald
-- Flamethrower
-- Calm Mind
-- Trick
-
-Slowking Galar @ Assault Vest
-Calm Nature
-Level: 16
-Ability: Regenerator
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 SpA / 170 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Sludge Bomb
-- Fire Blast
-- Psychic
-- Scald
-
-Slowking Galar @ Shuca Berry
-Modest Nature
-Level: 16
-Ability: Regenerator
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 248 HP / 12 Def / 128 SpA / 44 SpD / 76 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Nasty Plot
-- Fire Blast
-- Psychic
-- Scald
-
-Gengar @ Choice Scarf
-Timid Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Shadow Ball
-- Sludge Wave
-- Trick
-- Destiny Bond
-
-Gengar @ Life Orb
-Timid Nature
-Level: 16
-Ability: Cursed Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Hex
-- Venoshock
-- Destiny Bond
-- Pain Split
-
-Gengar @ Ghost Gem
-Timid Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Shadow Ball
-- Focus Blast
-- Substitute
-- Nasty Plot
-
-Sneasler @ Air Balloon
-Adamant Nature
-Level: 16
-Ability: Unburden
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Swords Dance
-- Close Combat
-- Throat Chop
-- Acrobatics
-
-Sneasler @ Choice Scarf
-Jolly Nature
-Level: 16
-Ability: Poison Touch
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Dire Claw
-- Close Combat
-- U Turn
-- Switcheroo
-
-Overqwil @ Normal Gem
-Adamant Nature
-Level: 16
-Ability: Intimidate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Gunk Shot
-- Throat Chop
-- Haze
-- Explosion
-
-Overqwil @ Clear Amulet
-Jolly Nature
-Level: 16
-Ability: Intimidate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Swords Dance
-- Throat Chop
-- Scale Shot
-- Aqua Jet
-
-Roserade @ Focus Sash
-Timid Nature
-Level: 16
-Ability: Poison Point
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Giga Drain
-- Dazzling Gleam
-- Leaf Storm
-- Venoshock
-
-Roserade @ Life Orb
-Timid Nature
-Level: 16
-Ability: Natural Cure
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Spikes
-- Toxic
-- Venoshock
-- Giga Drain
-- Spikes
-
-Drapion @ Scope Lens
-Jolly Nature
-Level: 16
-Ability: Sniper
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Wicked Blow
-- Cross Poison
-- X Scissor
-- Drill Run
-
-Scolipede @ Water Gem
-Jolly Nature
-Level: 16
-Ability: Speed Boost
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Swords Dance
-- Earthquake
-- Megahorn
-- Aqua Tail
-
-Scolipede @ Leftovers
-Jolly Nature
-Level: 16
-Ability: Speed Boost
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Substitute
-- Baton Pass
-- Megahorn
-- Aqua Tail
-
-Dragalge @ Black Sludge
-Modest Nature
-Level: 16
-Ability: Adaptability
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 204 HP / 252 SpA / 52 Spe
-Tags: Toxic Spikes
-- Draco Meteor
-- Sludge Bomb
-- Flip Turn
-- Toxic Spikes
-
-Dragalge @ Leftovers
-Modest Nature
-Level: 16
-Ability: Adaptability
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 204 HP / 252 SpA / 52 Spe
-Tags: Toxic Spikes
-- Draco Meteor
-- Sludge Bomb
-- Flip Turn
-- Toxic Spikes
-
-Dragalge @ Dragon Gem
-Modest Nature
-Level: 16
-Ability: Adaptability
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 204 HP / 252 SpA / 52 Spe
-Tags: Toxic Spikes
-- Draco Meteor
-- Sludge Bomb
-- Focus Blast
-- Toxic Spikes
-
-Toxapex @ Black Sludge
-Calm Nature
-Level: 16
-Ability: Regenerator
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 Def / 252 SpD
-Tags: Toxic Spikes
-- Scald
-- Recover
-- Haze
-- Toxic Spikes
-
-Salazzle @ Air Balloon
-Timid Nature
-Level: 16
-Ability: Corrosion
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Sludge Wave
-- Toxic
-- Fire Blast
-- Nasty Plot
-
-Salazzle @ Focus Sash
-Timid Nature
-Level: 16
-Ability: Oblivious
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Foul Play
-- Taunt
-- Fire Blast
-- Fake Out
-
-Toxtricity @ Life Orb
-Naive Nature
-Level: 16
-Ability: Punk Rock
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Boomburst
-- Overdrive
-- Shift Gear
-- Drain Punch
-
-Toxtricity @ Choice Specs
-Naive Nature
-Level: 16
-Ability: Punk Rock
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Boomburst
-- Overdrive
-- Volt Switch
-- Snarl
-
-Toxtricity @ Air Balloon
-Naive Nature
-Level: 16
-Ability: Punk Rock
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Boomburst
-- Overdrive
-- Shift Gear
-- Volt Switch
-
-Glimmora @ Focus Sash
-Timid Nature
-Level: 16
-Ability: Toxic Debris
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Stealth Rock
-- Mortal Spin
-- Stealth Rock
-- Earth Power
-- Power Gem
-
-Glimmora @ Power Herb
-Timid Nature
-Level: 16
-Ability: Toxic Debris
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Meteor Beam
-- Sludge Wave
-- Earth Power
-- Dazzling Gleam
-
-Grafaiai @ Choice Scarf
-Jolly Nature
-Level: 16
-Ability: Poison Touch
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Switcheroo
-- Knock Off
-- Double Edge
-- U Turn
-
-Grafaiai @ Heavy Duty Boots
-Jolly Nature
-Level: 16
-Ability: Prankster
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Parting Shot
-- Knock Off
-- Encore
-- U Turn
-
-Seviper @ Weakness Policy
-Adamant Nature
-Level: 16
-Ability: Merciless
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Ace
-- Poison Tail
-- Iron Tail
-- Earthquake
-- Sucker Punch
-
-Seviper @ Leftovers
-Adamant Nature
-Level: 16
-Ability: Shed Skin
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 Def / 252 SpD
-Tags: Ace
-- Poison Tail
-- Rest
-- Earthquake
-- Coil
-
-
-
-/* unused */ 
-=== TRAINER_LUCY_2 ===
-Name: Lucy
-Class: Elite Four
-Pic: Pike Queen Lucy
-Gender: Female
-Music: Elite Four
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
-Mugshot: Green
-
-Seviper @ Weakness Policy
-Adamant Nature
-Level: 16
-Ability: Merciless
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Poison Tail
-- Iron Tail
-- Earthquake
-- Sucker Punch
-
-
+   Name: Lucy
+   Class: Elite Four
+   Pic: Pike Queen Lucy
+   Gender: Female
+   Music: Elite Four
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Mugshot: Purple
+   Party Size: 6
+   Pool Rules: Core 3 Singles
+
+   Venusaur @ Wide Lens
+      Timid Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead / Core 1
+      - Sleep Powder
+      - Giga Drain
+      - Sludge Wave
+      - Earth Power
+
+   Tentacruel @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead / Hazard Removal / Core 2
+      - Liquidation
+      - Gunk Shot
+      - Knock Off
+      - Rapid Spin
+
+   Tentacruel @ Weakness Policy
+      Timid Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead / Core 2
+      - Hydro Pump
+      - Blizzard
+      - Knock Off
+      - Flip Turn
+
+   Muk Alola @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Poison Touch
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 SpD
+      Tags: Lead
+      - Knock Off
+      - Gunk Shot
+      - Fire Punch
+      - Explosion
+
+   Muk Alola @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Poison Touch
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 SpD
+      Tags: Lead
+      - Knock Off
+      - Gunk Shot
+      - Fire Punch
+      - Pursuit
+
+   Slowbro Galar @ Quick Claw
+      Quiet Nature
+      Level: 16
+      Ability: Quick Draw
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 16 SpA / 240 SpD
+      Tags: Lead / Core 2
+      - Shell Side Arm
+      - Flamethrower
+      - Psyshock
+      - Ice Beam
+
+   Slowbro Galar @ Black Sludge
+      Bold Nature
+      Level: 16
+      Ability: Regenerator
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Lead / Core 2
+      - Scald
+      - Flamethrower
+      - Calm Mind
+      - Trick
+
+   Slowking Galar @ Assault Vest
+      Calm Nature
+      Level: 16
+      Ability: Regenerator
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 SpA / 170 SpD
+      Tags: Lead / Core 2
+      - Sludge Bomb
+      - Fire Blast
+      - Psychic
+      - Scald
+
+   Slowking Galar @ Shuca Berry
+      Modest Nature
+      Level: 16
+      Ability: Regenerator
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 12 Def / 128 SpA / 44 SpD / 76 Spe
+      Tags: Lead / Core 2
+      - Nasty Plot
+      - Fire Blast
+      - Psychic
+      - Scald
+
+   Gengar @ Ghost Gem
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead
+      - Shadow Ball
+      - Focus Blast
+      - Substitute
+      - Nasty Plot
+
+   Sneasler @ Air Balloon
+      Adamant Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead
+      - Swords Dance
+      - Close Combat
+      - Throat Chop
+      - Acrobatics
+
+   Sneasler @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Poison Touch
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead
+      - Dire Claw
+      - Close Combat
+      - U Turn
+      - Switcheroo
+
+   Roserade @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Poison Point
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead / Spikes / Core 1
+      - Toxic Spikes
+      - Dazzling Gleam
+      - Leaf Storm
+      - Spikes
+
+   Drapion @ Scope Lens
+      Jolly Nature
+      Level: 16
+      Ability: Sniper
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead / Toxic Spikes
+      - Wicked Blow
+      - Cross Poison
+      - X Scissor
+      - Toxic Spikes
+
+   Drapion @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Sniper
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead
+      - Wicked Blow
+
+   Drapion @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Sniper
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead
+      - Wicked Blow
+
+   Scolipede @ Water Gem
+      Jolly Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Swords Dance
+      - Earthquake
+      - Megahorn
+      - Aqua Tail
+
+   Scolipede @ Mental Herb
+      Jolly Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Substitute
+      - Baton Pass
+      - Megahorn
+      - Aqua Tail
+
+   Salazzle @ Air Balloon
+      Timid Nature
+      Level: 16
+      Ability: Corrosion
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead / Core 2
+      - Sludge Wave
+      - Toxic
+      - Fire Blast
+      - Nasty Plot
+
+   Salazzle @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Oblivious
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead / Core 2
+      - Foul Play
+      - Taunt
+      - Fire Blast
+      - Fake Out
+
+   Toxtricity @ Life Orb
+      Naive Nature
+      Level: 16
+      Ability: Punk Rock
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead
+      - Boomburst
+      - Overdrive
+      - Shift Gear
+      - Drain Punch
+
+   Toxtricity @ Choice Specs
+      Naive Nature
+      Level: 16
+      Ability: Punk Rock
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead
+      - Boomburst
+      - Overdrive
+      - Volt Switch
+      - Snarl
+
+   Toxtricity @ Air Balloon
+      Naive Nature
+      Level: 16
+      Ability: Punk Rock
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead
+      - Boomburst
+      - Overdrive
+      - Shift Gear
+      - Volt Switch
+
+   Glimmora @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Toxic Debris
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Lead / Stealth Rock
+      - Mortal Spin
+      - Stealth Rock
+      - Earth Power
+      - Power Gem
+
+   Glimmora @ Power Herb
+      Timid Nature
+      Level: 16
+      Ability: Toxic Debris
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead
+      - Meteor Beam
+      - Sludge Wave
+      - Earth Power
+      - Dazzling Gleam
+
+   Venusaur @ Wide Lens
+      Timid Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 1
+      - Sleep Powder
+      - Giga Drain
+      - Sludge Wave
+      - Earth Power
+
+   Beedrill @ Silver Powder
+      Jolly Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - U Turn
+      - Drill Run
+      - Tailwind
+      - Pursuit
+
+   Nidoking @ Life Orb
+      Modest Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Sludge Wave
+      - Earth Power
+      - Ice Beam
+      - Thunderbolt
+
+   Nidoqueen @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Sludge Wave
+      - Earth Power
+      - Ice Beam
+      - Thunderbolt
+
+   Nidoking @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Poison Jab
+      - Rock Slide
+      - Megahorn
+      - Fire Punch
+
+   Nidoqueen @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Poison Jab
+      - Thunder Punch
+      - Ice Punch
+      - Sucker Punch
+
+   Arbok @ Dragon Fang
+      Adamant Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      Tags: Phazing Move
+      - Dragon Rush
+      - Coil
+      - Glare
+      - Dragon Tail
+
+   Crobat @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Inner Focus
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 56 Def / 100 Spe
+      - Brave Bird
+      - U Turn
+      - Roost
+      - Super Fang
+
+   Crobat @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Inner Focus
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Hurricane
+      - Heat Wave
+      - Giga Drain
+      - Nasty Plot
+
+   Venomoth @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Tinted Lens
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Quiver Dance
+      - Psychic
+      - Bug Buzz
+      - Air Slash
+
+   Tentacruel @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Hazard Removal / Core 3
+      - Liquidation
+      - Gunk Shot
+      - Knock Off
+      - Rapid Spin
+
+   Tentacruel @ Weakness Policy
+      Timid Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 3
+      - Hydro Pump
+      - Blizzard
+      - Knock Off
+      - Flip Turn
+
+   Muk Alola @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Poison Touch
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 SpD
+      - Knock Off
+      - Gunk Shot
+      - Fire Punch
+      - Explosion
+
+   Muk Alola @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Poison Touch
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 SpD
+      - Knock Off
+      - Gunk Shot
+      - Fire Punch
+      - Pursuit
+
+   Weezing Galar @ Black Sludge
+      Bold Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      - Strange Steam
+      - Destiny Bond
+      - Memento
+      - Explosion
+
+   Weezing Galar @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      - Strange Steam
+      - Thunderbolt
+      - Pain Split
+      - Heat Wave
+
+   Slowbro Galar @ Quick Claw
+      Quiet Nature
+      Level: 16
+      Ability: Quick Draw
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 16 SpA / 240 SpD
+      - Shell Side Arm
+      - Flamethrower
+      - Psyshock
+      - Ice Beam
+
+   Slowbro Galar @ Black Sludge
+      Bold Nature
+      Level: 16
+      Ability: Regenerator
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Core 2
+      - Scald
+      - Flamethrower
+      - Calm Mind
+      - Trick
+
+   Slowking Galar @ Assault Vest
+      Calm Nature
+      Level: 16
+      Ability: Regenerator
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 SpA / 170 SpD
+      - Sludge Bomb
+      - Fire Blast
+      - Psychic
+      - Scald
+
+   Slowking Galar @ Shuca Berry
+      Modest Nature
+      Level: 16
+      Ability: Regenerator
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 12 Def / 128 SpA / 44 SpD / 76 Spe
+      Tags: Core 2
+      - Nasty Plot
+      - Fire Blast
+      - Psychic
+      - Scald
+
+   Gengar @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Shadow Ball
+      - Sludge Wave
+      - Trick
+      - Destiny Bond
+
+   Gengar @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Cursed Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Hex
+      - Venoshock
+      - Destiny Bond
+      - Pain Split
+
+   Gengar @ Ghost Gem
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Shadow Ball
+      - Focus Blast
+      - Substitute
+      - Nasty Plot
+
+   Sneasler @ Air Balloon
+      Adamant Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Close Combat
+      - Throat Chop
+      - Acrobatics
+
+   Sneasler @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Poison Touch
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Dire Claw
+      - Close Combat
+      - U Turn
+      - Switcheroo
+
+   Overqwil @ Normal Gem
+      Adamant Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Gunk Shot
+      - Throat Chop
+      - Haze
+      - Explosion
+
+   Overqwil @ Clear Amulet
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Throat Chop
+      - Scale Shot
+      - Aqua Jet
+
+   Roserade @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Poison Point
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 1
+      - Giga Drain
+      - Dazzling Gleam
+      - Leaf Storm
+      - Venoshock
+
+   Roserade @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Natural Cure
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Spikes / Core 1
+      - Toxic
+      - Venoshock
+      - Giga Drain
+      - Spikes
+
+   Drapion @ Scope Lens
+      Jolly Nature
+      Level: 16
+      Ability: Sniper
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Wicked Blow
+      - Cross Poison
+      - X Scissor
+      - Drill Run
+
+   Scolipede @ Water Gem
+      Jolly Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Swords Dance
+      - Earthquake
+      - Megahorn
+      - Aqua Tail
+
+   Scolipede @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Substitute
+      - Baton Pass
+      - Megahorn
+      - Aqua Tail
+
+   Dragalge @ Black Sludge
+      Modest Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 204 HP / 252 SpA / 52 Spe
+      Tags: Toxic Spikes
+      - Draco Meteor
+      - Sludge Bomb
+      - Flip Turn
+      - Toxic Spikes
+
+   Dragalge @ Leftovers
+      Modest Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 204 HP / 252 SpA / 52 Spe
+      Tags: Toxic Spikes
+      - Draco Meteor
+      - Sludge Bomb
+      - Flip Turn
+      - Toxic Spikes
+
+   Dragalge @ Dragon Gem
+      Modest Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 204 HP / 252 SpA / 52 Spe
+      Tags: Toxic Spikes
+      - Draco Meteor
+      - Sludge Bomb
+      - Focus Blast
+      - Toxic Spikes
+
+   Toxapex @ Black Sludge
+      Calm Nature
+      Level: 16
+      Ability: Regenerator
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Toxic Spikes / Core 3
+      - Scald
+      - Recover
+      - Haze
+      - Toxic Spikes
+
+   Salazzle @ Air Balloon
+      Timid Nature
+      Level: 16
+      Ability: Corrosion
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 2
+      - Sludge Wave
+      - Toxic
+      - Fire Blast
+      - Nasty Plot
+
+   Salazzle @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Oblivious
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 2
+      - Foul Play
+      - Taunt
+      - Fire Blast
+      - Fake Out
+
+   Toxtricity @ Life Orb
+      Naive Nature
+      Level: 16
+      Ability: Punk Rock
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Boomburst
+      - Overdrive
+      - Shift Gear
+      - Drain Punch
+
+   Toxtricity @ Choice Specs
+      Naive Nature
+      Level: 16
+      Ability: Punk Rock
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Boomburst
+      - Overdrive
+      - Volt Switch
+      - Snarl
+
+   Toxtricity @ Air Balloon
+      Naive Nature
+      Level: 16
+      Ability: Punk Rock
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Boomburst
+      - Overdrive
+      - Shift Gear
+      - Volt Switch
+
+   Glimmora @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Toxic Debris
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Stealth Rock
+      - Mortal Spin
+      - Stealth Rock
+      - Earth Power
+      - Power Gem
+
+   Glimmora @ Power Herb
+      Timid Nature
+      Level: 16
+      Ability: Toxic Debris
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Meteor Beam
+      - Sludge Wave
+      - Earth Power
+      - Dazzling Gleam
+
+   Grafaiai @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Poison Touch
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Switcheroo
+      - Knock Off
+      - Double Edge
+      - U Turn
+
+   Grafaiai @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Prankster
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Parting Shot
+      - Knock Off
+      - Encore
+      - U Turn
+
+   Seviper @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Merciless
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Ace
+      - Poison Tail
+      - Iron Tail
+      - Earthquake
+      - Sucker Punch
+
+   Seviper @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Shed Skin
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Ace
+      - Poison Tail
+      - Rest
+      - Earthquake
+      - Coil
 
 
 /* Glacia's room has hail weather */
 === TRAINER_GLACIA_1 ===
-Name: Glacia
-Class: Elite Four
-Pic: Elite Four Glacia
-Gender: Female
-Music: Elite Four
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
-Mugshot: Pink
-Party Size: 6
-Pool Rules: Weather Singles
-
-Sandslash Alola @ Wide Lens
-Jolly Nature
-Level: 16
-Ability: Slush Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Weather Abuser
-- Triple Axel
-- Iron Head
-- Knock Off
-- Swords Dance
-
-Sandslash Alola @ Muscle Band
-Adamant Nature
-Level: 16
-Ability: Slush Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Weather Abuser
-- Triple Axel
-- Iron Head
-- Knock Off
-- Earthquake
-
-Cloyster @ White Herb
-Jolly Nature
-Level: 16
-Ability: Skill Link
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead
-- Shell Smash
-- Icicle Spear
-- Rock Blast
-- Liquidation
-
-Cloyster @ White Herb
-Hasty Nature
-Level: 16
-Ability: Shell Armor
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Atk / 252 SpA / 252 Spe
-Tags: Lead
-- Hydro Pump
-- Blizzard
-- Shell Smash
-- Self Destruct
-
-Cloyster @ Focus Sash
-Jolly Nature
-Level: 16
-Ability: Skill Link
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead / Spikes / Hazard Removal
-- Shell Smash
-- Icicle Spear
-- Spikes
-- Rapid Spin
-
-Glaceon @ Never Melt Ice
-Timid Nature
-Level: 16
-Ability: Slush Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead / Weather Abuser
-- Freeze Dry
-- Blizzard
-- Thunderbolt
-- Flash Cannon
-
-Piloswine @ Eviolite
-Careful Nature
-Level: 16
-Ability: Oblivious
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 Def / 252 SpD
-Tags: Lead / Stealth Rock
-- Stealth Rock
-- Earthquake
-- Rock Slide
-- Ice Shard
-
-Mamoswine @ Soft Sand
-Adamant Nature
-Level: 16
-Ability: Oblivious
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead
-- Icicle Crash
-- Earthquake
-- Knock Off
-- Ice Shard
-
-Mamoswine @ Loaded Dice
-Adamant Nature
-Level: 16
-Ability: Oblivious
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead
-- Icicle Spear
-- Earthquake
-- Knock Off
-- Ice Shard
-
-Glalie @ Weakness Policy
-Adamant Nature
-Level: 16
-Ability: Refrigerate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead / Spikes
-- Spikes
-- Double Edge
-- Earthquake
-- Explosion
-
-Glalie @ Ice Gem
-Jolly Nature
-Level: 16
-Ability: Refrigerate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead
-- Super Fang
-- Body Slam
-- Earthquake
-- Explosion
-
-Froslass @ Focus Sash
-Timid Nature
-Level: 16
-Ability: Competitive
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead
-- Freeze Dry
-- Shadow Ball
-- Pain Split
-- Destiny Bond
-
-Froslass @ Focus Sash
-Timid Nature
-Level: 16
-Ability: Cursed Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Lead / Spikes
-- Taunt
-- Icy Wind
-- Spikes
-- Destiny Bond
-
-Rotom-Frost @ Weakness Policy
-Bold Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Def / 4 SpD
-Tags: Lead
-- Blizzard
-- Nasty Plot
-- Will O Wisp
-- Thunderbolt
-
-Rotom-Frost @ Weakness Policy
-Calm Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 Def / 252 SpD
-Tags: Lead
-- Blizzard
-- Nasty Plot
-- Will O Wisp
-- Thunderbolt
-
-Rotom-Frost @ Choice Scarf
-Timid Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead
-- Blizzard
-- Volt Switch
-- Trick
-- Thunderbolt
-
-Darmanitan Galar @ Choice Band
-Adamant Nature
-Level: 16
-Ability: Gorilla Tactics
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Lead
-- Rock Slide
-- Icicle Crash
-- U Turn
-- Flare Blitz
-
-Darmanitan Galar @ Choice Scarf
-Jolly Nature
-Level: 16
-Ability: Gorilla Tactics
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead
-- Rock Slide
-- Icicle Crash
-- U Turn
-- Flare Blitz
-
-Darmanitan Galar @ Salac Berry
-Jolly Nature
-Level: 16
-Ability: Zen Mode
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead
-- Substitute
-- Belly Drum
-- Earthquake
-- Fire Punch
-
-Darmanitan Galar @ Focus Sash
-Jolly Nature
-Level: 16
-Ability: Zen Mode
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead
-- Power Up Punch
-- Icicle Crash
-- Earthquake
-- Fire Punch
-
-Frosmoth @ Focus Sash
-Timid Nature
-Level: 16
-Ability: Ice Scales
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Lead
-- Quiver Dance
-- Blizzard
-- Bug Buzz
-- Freeze Dry
-
-Cetitan @ Sitrus Berry
-Jolly Nature
-Level: 16
-Ability: Slush Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Lead / Weather Abuser
-- Belly Drum
-- Ice Spinner
-- Earthquake
-- Ice Shard
-
-Baxcalibur @ Loaded Dice
-Adamant Nature
-Level: 16
-Ability: Thermal Exchange
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Lead
-- Dragon Dance
-- Icicle Spear
-- Earthquake
-- Glaive Rush
-
-Sandslash Alola @ Wide Lens
-Jolly Nature
-Level: 16
-Ability: Slush Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser
-- Triple Axel
-- Iron Head
-- Knock Off
-- Swords Dance
-
-Sandslash Alola @ Muscle Band
-Adamant Nature
-Level: 16
-Ability: Slush Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser
-- Triple Axel
-- Iron Head
-- Knock Off
-- Earthquake
-
-Ninetales Alola @ Light Clay
-Timid Nature
-Level: 16
-Ability: Snow Warning
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 SpA / 252 Spe
-Tags: Weather Setter
-- Aurora Veil
-- Moonblast
-- Freeze Dry
-- Pain Split
-
-Ninetales Alola @ Icy Rock
-Modest Nature
-Level: 16
-Ability: Snow Warning
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 SpA / 252 Spe
-Tags: Weather Setter
-- Aurora Veil
-- Moonblast
-- Calm Mind
-- Hypnosis
-
-Dewgong @ Leftovers
-Calm Nature
-Level: 16
-Ability: Thick Fat
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 Def / 252 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Perish Song
-- Whirlpool
-- Dive
-- Flip Turn
-
-Dewgong @ Mystic Water
-Jolly Nature
-Level: 16
-Ability: Thick Fat
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Fake Out
-- Aqua Jet
-- Liquidation
-- Knock Off
-
-Cloyster @ White Herb
-Jolly Nature
-Level: 16
-Ability: Skill Link
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Shell Smash
-- Icicle Spear
-- Rock Blast
-- Liquidation
-
-Cloyster @ White Herb
-Hasty Nature
-Level: 16
-Ability: Shell Armor
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Atk / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Hydro Pump
-- Blizzard
-- Shell Smash
-- Self Destruct
-
-Cloyster @ Focus Sash
-Jolly Nature
-Level: 16
-Ability: Skill Link
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Spikes / Hazard Removal
-- Shell Smash
-- Icicle Spear
-- Spikes
-- Rapid Spin
-
-Mr Mime Galar @ Eviolite
-Bold Nature
-Level: 16
-Ability: Ice Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Def / 4 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Calm Mind
-- Tickle
-- Psyshock
-- Dazzling Gleam
-
-Mr Rime @ Heavy Duty Boots
-Modest Nature
-Level: 16
-Ability: Ice Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 240 HP / 252 SpA / 16 Spe
-Tags: Hazard Removal
-- Rapid Spin
-- Slack Off
-- Freeze Dry
-- Future Sight
-
-Jynx @ Choice Specs
-Timid Nature
-Level: 16
-Ability: Dry Skin
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Ice Beam
-- Focus Blast
-- Trick
-- Psyshock
-
-Jynx @ Choice Specs
-Timid Nature
-Level: 16
-Ability: Dry Skin
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Def / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Ice Beam
-- Lovely Kiss
-- Nasty Plot
-- Psychic
-
-Lapras @ Weakness Policy
-Modest Nature
-Level: 16
-Ability: Dry Skin
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Thunder
-- Blizzard
-- Hydro Pump
-- Ancient Power
-
-Glaceon @ Never Melt Ice
-Timid Nature
-Level: 16
-Ability: Slush Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Weather Abuser
-- Freeze Dry
-- Blizzard
-- Thunderbolt
-- Flash Cannon
-
-Piloswine @ Eviolite
-Careful Nature
-Level: 16
-Ability: Oblivious
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 Def / 252 SpD
-Tags: Stealth Rock
-- Stealth Rock
-- Earthquake
-- Rock Slide
-- Ice Shard
-
-Mamoswine @ Choice Band
-Adamant Nature
-Level: 16
-Ability: Oblivious
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Icicle Crash
-- Earthquake
-- Knock Off
-- Ice Shard
-
-Mamoswine @ Loaded Dice
-Adamant Nature
-Level: 16
-Ability: Oblivious
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Icicle Spear
-- Earthquake
-- Knock Off
-- Ice Shard
-
-Castform @ Icy Rock
-Modest Nature
-Level: 16
-Ability: Forecast
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Hail
-- Blizzard
-- Fire Blast
-- Hurricane
-
-Glalie @ Weakness Policy
-Adamant Nature
-Level: 16
-Ability: Refrigerate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Spikes
-- Spikes
-- Double Edge
-- Earthquake
-- Explosion
-
-Glalie @ Ice Gem
-Jolly Nature
-Level: 16
-Ability: Refrigerate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Super Fang
-- Body Slam
-- Earthquake
-- Explosion
-
-Froslass @ Focus Sash
-Timid Nature
-Level: 16
-Ability: Competitive
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Freeze Dry
-- Shadow Ball
-- Pain Split
-- Destiny Bond
-
-Walrein @ Leftovers
-Bold Nature
-Level: 16
-Ability: Ice Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 232 HP / 252 Def / 24 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Protect
-- Substitute
-- Toxic
-- Super Fang
-
-Walrein @ Leftovers
-Bold Nature
-Level: 16
-Ability: Ice Body
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 232 HP / 252 Def / 24 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Protect
-- Substitute
-- Surf
-- Avalanche
-
-Abomasnow @ Expert Belt
-Adamant Nature
-Level: 16
-Ability: Snow Warning
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Weather Setter
-- Wood Hammer
-- Ice Shard
-- Earthquake
-- Swords Dance
-
-Abomasnow @ Expert Belt
-Jolly Nature
-Level: 16
-Ability: Soundproof
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Wood Hammer
-- Ice Shard
-- Earthquake
-- Swords Dance
-
-Abomasnow @ Expert Belt
-Modest Nature
-Level: 16
-Ability: Snow Warning
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Weather Setter
-- Blizzard
-- Giga Drain
-- Focus Blast
-- Ice Shard
-
-Rotom-Frost @ Leftovers
-Bold Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Def / 4 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Blizzard
-- Nasty Plot
-- Will O Wisp
-- Thunderbolt
-
-Rotom-Frost @ Rocky Helmet
-Calm Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 Def / 252 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Blizzard
-- Nasty Plot
-- Will O Wisp
-- Thunderbolt
-
-Rotom-Frost @ Choice Scarf
-Timid Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Blizzard
-- Volt Switch
-- Trick
-- Thunderbolt
-
-Darmanitan Galar @ Choice Band
-Adamant Nature
-Level: 16
-Ability: Gorilla Tactics
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Rock Slide
-- Icicle Crash
-- U Turn
-- Flare Blitz
-
-Darmanitan Galar @ Choice Scarf
-Jolly Nature
-Level: 16
-Ability: Gorilla Tactics
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Rock Slide
-- Icicle Crash
-- U Turn
-- Flare Blitz
-
-Darmanitan Galar @ Salac Berry
-Jolly Nature
-Level: 16
-Ability: Zen Mode
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Substitute
-- Belly Drum
-- Earthquake
-- Fire Punch
-
-Darmanitan Galar @ Focus Sash
-Jolly Nature
-Level: 16
-Ability: Zen Mode
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Power Up Punch
-- Icicle Crash
-- Earthquake
-- Fire Punch
-
-Vanilluxe @ Icy Rock
-Naive Nature
-Level: 16
-Ability: Snow Warning
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Atk / 252 SpA / 252 Spe
-Tags: Weather Setter
-- Aurora Veil
-- Explosion
-- Flash Cannon
-- Blizzard
-
-Beartic @ Ice Gem
-Jolly Nature
-Level: 16
-Ability: Slush Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Weather Abuser
-- Icicle Crash
-- Swords Dance
-- Superpower
-- Play Rough
-
-Beartic @ Lum Berry
-Jolly Nature
-Level: 16
-Ability: Slush Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Weather Abuser
-- Icicle Crash
-- Bulk Up
-- Superpower
-- Throat Chop
-
-Cryogonal @ Custap Berry
-Timid Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 248 HP / 8 SpD / 252 Spe
-Tags: Hazard Removal
-- Freeze Dry
-- Recover
-- Knock Off
-- Rapid Spin
-
-Aurorus @ Chople Berry
-Timid Nature
-Level: 16
-Ability: Refrigerate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 248 HP / 8 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Hyper Voice
-- Diamond Storm
-- Aurora Veil
-- Thunder Wave
-
-Aurorus @ Choice Specs
-Modest Nature
-Level: 16
-Ability: Snow Warning
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Weather Setter
-- Blizzard
-- Diamond Storm
-- Earth Power
-- Freeze Dry
-
-Aurorus @ Choice Scarf
-Timid Nature
-Level: 16
-Ability: Snow Warning
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Weather Setter
-- Blizzard
-- Diamond Storm
-- Earth Power
-- Freeze Dry
-
-Aurorus @ Power Herb
-Modest Nature
-Level: 16
-Ability: Refrigerate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Hyper Beam
-- Meteor Beam
-- Diamond Storm
-- Blizzard
-
-Avalugg @ Custap Berry
-Impish Nature
-Level: 16
-Ability: Sturdy
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 Atk / 252 Def
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Body Press
-- Recover
-- Avalanche
-- Iron Defense
-
-Avalugg Hisui @ Hard Stone
-Adamant Nature
-Level: 16
-Ability: Strong Jaw
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 Def
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Accelerock
-- Crunch
-- Mountain Gale
-- Stone Edge
-
-Avalugg Hisui @ Assault Vest
-Careful Nature
-Level: 16
-Ability: Strong Jaw
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Atk / 170 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Accelerock
-- Crunch
-- Mountain Gale
-- Stone Edge
-
-Frosmoth @ Heavy Duty Boots
-Timid Nature
-Level: 16
-Ability: Ice Scales
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Quiver Dance
-- Blizzard
-- Bug Buzz
-- Freeze Dry
-
-Cetitan @ Sitrus Berry
-Jolly Nature
-Level: 16
-Ability: Slush Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Weather Abuser
-- Belly Drum
-- Ice Spinner
-- Earthquake
-- Ice Shard
-
-Baxcalibur @ Loaded Dice
-Adamant Nature
-Level: 16
-Ability: Thermal Exchange
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 SpD / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Dragon Dance
-- Icicle Spear
-- Earthquake
-- Glaive Rush
-
-Articuno @ Life Orb
-Timid Nature
-Level: 16
-Ability: Magic Guard
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Ace
-- Freeze Dry
-- Sheer Cold
-- Focus Blast
-- Roost
-
-Articuno @ Life Orb
-Modest Nature
-Level: 16
-Ability: Magic Guard
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Ace
-- Freeze Dry
-- Sheer Cold
-- Focus Blast
-- Roost
-
-
-
-
-/* unused */
-=== TRAINER_GLACIA_2 ===
-Name: Glacia
-Class: Elite Four
-Pic: Elite Four Glacia
-Gender: Female
-Music: Elite Four
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
-Mugshot: Pink
-
-Sandslash Alola @ Wide Lens
-Jolly Nature
-Level: 16
-Ability: Slush Rush
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Triple Axel
-- Iron Head
-- Knock Off
-- Swords Dance
-
-
-
-
-
+   Name: Glacia
+   Class: Elite Four
+   Pic: Elite Four Glacia
+   Gender: Female
+   Music: Elite Four
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Mugshot: Pink
+   Party Size: 6
+   Pool Rules: Weather Singles
+
+   Sandslash Alola @ Wide Lens
+      Jolly Nature
+      Level: 16
+      Ability: Slush Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead / Weather Abuser
+      - Triple Axel
+      - Iron Head
+      - Knock Off
+      - Swords Dance
+
+   Sandslash Alola @ Muscle Band
+      Adamant Nature
+      Level: 16
+      Ability: Slush Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead / Weather Abuser
+      - Triple Axel
+      - Iron Head
+      - Knock Off
+      - Earthquake
+
+   Cloyster @ White Herb
+      Jolly Nature
+      Level: 16
+      Ability: Skill Link
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead
+      - Shell Smash
+      - Icicle Spear
+      - Rock Blast
+      - Liquidation
+
+   Cloyster @ White Herb
+      Hasty Nature
+      Level: 16
+      Ability: Shell Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 SpA / 252 Spe
+      Tags: Lead
+      - Hydro Pump
+      - Blizzard
+      - Shell Smash
+      - Self Destruct
+
+   Cloyster @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Skill Link
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead / Spikes / Hazard Removal
+      - Shell Smash
+      - Icicle Spear
+      - Spikes
+      - Rapid Spin
+
+   Glaceon @ Never Melt Ice
+      Timid Nature
+      Level: 16
+      Ability: Slush Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead / Weather Abuser
+      - Freeze Dry
+      - Blizzard
+      - Thunderbolt
+      - Flash Cannon
+
+   Piloswine @ Eviolite
+      Careful Nature
+      Level: 16
+      Ability: Oblivious
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Lead / Stealth Rock
+      - Stealth Rock
+      - Earthquake
+      - Rock Slide
+      - Ice Shard
+
+   Mamoswine @ Soft Sand
+      Adamant Nature
+      Level: 16
+      Ability: Oblivious
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead
+      - Icicle Crash
+      - Earthquake
+      - Knock Off
+      - Ice Shard
+
+   Mamoswine @ Loaded Dice
+      Adamant Nature
+      Level: 16
+      Ability: Oblivious
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead
+      - Icicle Spear
+      - Earthquake
+      - Knock Off
+      - Ice Shard
+
+   Glalie @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Refrigerate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead / Spikes
+      - Spikes
+      - Double Edge
+      - Earthquake
+      - Explosion
+
+   Glalie @ Ice Gem
+      Jolly Nature
+      Level: 16
+      Ability: Refrigerate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead
+      - Super Fang
+      - Body Slam
+      - Earthquake
+      - Explosion
+
+   Froslass @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Competitive
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Freeze Dry
+      - Shadow Ball
+      - Pain Split
+      - Destiny Bond
+
+   Froslass @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Cursed Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead / Spikes
+      - Taunt
+      - Icy Wind
+      - Spikes
+      - Destiny Bond
+
+   Rotom-Frost @ Weakness Policy
+      Bold Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Lead
+      - Blizzard
+      - Nasty Plot
+      - Will O Wisp
+      - Thunderbolt
+
+   Rotom-Frost @ Weakness Policy
+      Calm Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Lead
+      - Blizzard
+      - Nasty Plot
+      - Will O Wisp
+      - Thunderbolt
+
+   Rotom-Frost @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead
+      - Blizzard
+      - Volt Switch
+      - Trick
+      - Thunderbolt
+
+   Darmanitan Galar @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Gorilla Tactics
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Rock Slide
+      - Icicle Crash
+      - U Turn
+      - Flare Blitz
+
+   Darmanitan Galar @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Gorilla Tactics
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead
+      - Rock Slide
+      - Icicle Crash
+      - U Turn
+      - Flare Blitz
+
+   Darmanitan Galar @ Salac Berry
+      Jolly Nature
+      Level: 16
+      Ability: Zen Mode
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead
+      - Substitute
+      - Belly Drum
+      - Earthquake
+      - Fire Punch
+
+   Darmanitan Galar @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Zen Mode
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead
+      - Power Up Punch
+      - Icicle Crash
+      - Earthquake
+      - Fire Punch
+
+   Frosmoth @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Ice Scales
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead
+      - Quiver Dance
+      - Blizzard
+      - Bug Buzz
+      - Freeze Dry
+
+   Cetitan @ Sitrus Berry
+      Jolly Nature
+      Level: 16
+      Ability: Slush Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead / Weather Abuser
+      - Belly Drum
+      - Ice Spinner
+      - Earthquake
+      - Ice Shard
+
+   Baxcalibur @ Loaded Dice
+      Adamant Nature
+      Level: 16
+      Ability: Thermal Exchange
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead
+      - Dragon Dance
+      - Icicle Spear
+      - Earthquake
+      - Glaive Rush
+
+   Sandslash Alola @ Wide Lens
+      Jolly Nature
+      Level: 16
+      Ability: Slush Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Weather Abuser
+      - Triple Axel
+      - Iron Head
+      - Knock Off
+      - Swords Dance
+
+   Sandslash Alola @ Muscle Band
+      Adamant Nature
+      Level: 16
+      Ability: Slush Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Weather Abuser
+      - Triple Axel
+      - Iron Head
+      - Knock Off
+      - Earthquake
+
+   Ninetales Alola @ Light Clay
+      Timid Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 SpA / 252 Spe
+      Tags: Weather Setter
+      - Aurora Veil
+      - Moonblast
+      - Freeze Dry
+      - Pain Split
+
+   Ninetales Alola @ Icy Rock
+      Modest Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 SpA / 252 Spe
+      Tags: Weather Setter
+      - Aurora Veil
+      - Moonblast
+      - Calm Mind
+      - Hypnosis
+
+   Dewgong @ Leftovers
+      Calm Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      - Perish Song
+      - Whirlpool
+      - Dive
+      - Flip Turn
+
+   Dewgong @ Mystic Water
+      Jolly Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Fake Out
+      - Aqua Jet
+      - Liquidation
+      - Knock Off
+
+   Cloyster @ White Herb
+      Jolly Nature
+      Level: 16
+      Ability: Skill Link
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Shell Smash
+      - Icicle Spear
+      - Rock Blast
+      - Liquidation
+
+   Cloyster @ White Herb
+      Hasty Nature
+      Level: 16
+      Ability: Shell Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 SpA / 252 Spe
+      - Hydro Pump
+      - Blizzard
+      - Shell Smash
+      - Self Destruct
+
+   Cloyster @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Skill Link
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Spikes / Hazard Removal
+      - Shell Smash
+      - Icicle Spear
+      - Spikes
+      - Rapid Spin
+
+   Mr Mime Galar @ Eviolite
+      Bold Nature
+      Level: 16
+      Ability: Ice Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      - Calm Mind
+      - Tickle
+      - Psyshock
+      - Dazzling Gleam
+
+   Mr Rime @ Heavy Duty Boots
+      Modest Nature
+      Level: 16
+      Ability: Ice Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 240 HP / 252 SpA / 16 Spe
+      Tags: Hazard Removal
+      - Rapid Spin
+      - Slack Off
+      - Freeze Dry
+      - Future Sight
+
+   Jynx @ Choice Specs
+      Timid Nature
+      Level: 16
+      Ability: Dry Skin
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Ice Beam
+      - Focus Blast
+      - Trick
+      - Psyshock
+
+   Jynx @ Choice Specs
+      Timid Nature
+      Level: 16
+      Ability: Dry Skin
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Ice Beam
+      - Lovely Kiss
+      - Nasty Plot
+      - Psychic
+
+   Lapras @ Weakness Policy
+      Modest Nature
+      Level: 16
+      Ability: Dry Skin
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Thunder
+      - Blizzard
+      - Hydro Pump
+      - Ancient Power
+
+   Glaceon @ Never Melt Ice
+      Timid Nature
+      Level: 16
+      Ability: Slush Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Weather Abuser
+      - Freeze Dry
+      - Blizzard
+      - Thunderbolt
+      - Flash Cannon
+
+   Piloswine @ Eviolite
+      Careful Nature
+      Level: 16
+      Ability: Oblivious
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Stealth Rock
+      - Stealth Rock
+      - Earthquake
+      - Rock Slide
+      - Ice Shard
+
+   Mamoswine @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Oblivious
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Icicle Crash
+      - Earthquake
+      - Knock Off
+      - Ice Shard
+
+   Mamoswine @ Loaded Dice
+      Adamant Nature
+      Level: 16
+      Ability: Oblivious
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Icicle Spear
+      - Earthquake
+      - Knock Off
+      - Ice Shard
+
+   Castform @ Icy Rock
+      Modest Nature
+      Level: 16
+      Ability: Forecast
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 SpA / 4 Spe
+      - Hail
+      - Blizzard
+      - Fire Blast
+      - Hurricane
+   
+   Castform @ Icy Rock
+      Timid Nature
+      Level: 16
+      Ability: Forecast
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Hail
+      - Blizzard
+      - Fire Blast
+      - Hurricane
+
+   Glalie @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Refrigerate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Spikes
+      - Spikes
+      - Double Edge
+      - Earthquake
+      - Explosion
+
+   Glalie @ Ice Gem
+      Jolly Nature
+      Level: 16
+      Ability: Refrigerate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Super Fang
+      - Body Slam
+      - Earthquake
+      - Explosion
+
+   Froslass @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Competitive
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Freeze Dry
+      - Shadow Ball
+      - Pain Split
+      - Destiny Bond
+
+   Walrein @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Ice Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 232 HP / 252 Def / 24 SpD
+      - Protect
+      - Substitute
+      - Toxic
+      - Super Fang
+
+   Walrein @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Ice Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 232 HP / 252 Def / 24 SpD
+      - Protect
+      - Substitute
+      - Surf
+      - Avalanche
+
+   Abomasnow @ Expert Belt
+      Adamant Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Weather Setter
+      - Wood Hammer
+      - Ice Shard
+      - Earthquake
+      - Swords Dance
+
+   Abomasnow @ Expert Belt
+      Jolly Nature
+      Level: 16
+      Ability: Soundproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Wood Hammer
+      - Ice Shard
+      - Earthquake
+      - Swords Dance
+
+   Abomasnow @ Expert Belt
+      Modest Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Weather Setter
+      - Blizzard
+      - Giga Drain
+      - Focus Blast
+      - Ice Shard
+
+   Rotom-Frost @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      - Blizzard
+      - Nasty Plot
+      - Will O Wisp
+      - Thunderbolt
+
+   Rotom-Frost @ Rocky Helmet
+      Calm Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      - Blizzard
+      - Nasty Plot
+      - Will O Wisp
+      - Thunderbolt
+
+   Rotom-Frost @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Blizzard
+      - Volt Switch
+      - Trick
+      - Thunderbolt
+
+   Darmanitan Galar @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Gorilla Tactics
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Rock Slide
+      - Icicle Crash
+      - U Turn
+      - Flare Blitz
+
+   Darmanitan Galar @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Gorilla Tactics
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Rock Slide
+      - Icicle Crash
+      - U Turn
+      - Flare Blitz
+
+   Darmanitan Galar @ Salac Berry
+      Jolly Nature
+      Level: 16
+      Ability: Zen Mode
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Substitute
+      - Belly Drum
+      - Earthquake
+      - Fire Punch
+
+   Darmanitan Galar @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Zen Mode
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Power Up Punch
+      - Icicle Crash
+      - Earthquake
+      - Fire Punch
+
+   Vanilluxe @ Icy Rock
+      Naive Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 SpA / 252 Spe
+      Tags: Weather Setter
+      - Aurora Veil
+      - Explosion
+      - Flash Cannon
+      - Blizzard
+
+   Beartic @ Ice Gem
+      Jolly Nature
+      Level: 16
+      Ability: Slush Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Weather Abuser
+      - Icicle Crash
+      - Swords Dance
+      - Superpower
+      - Play Rough
+
+   Beartic @ Lum Berry
+      Jolly Nature
+      Level: 16
+      Ability: Slush Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Weather Abuser
+      - Icicle Crash
+      - Bulk Up
+      - Superpower
+      - Throat Chop
+
+   Cryogonal @ Custap Berry
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 8 SpD / 252 Spe
+      Tags: Hazard Removal
+      - Freeze Dry
+      - Recover
+      - Knock Off
+      - Rapid Spin
+
+   Aurorus @ Chople Berry
+      Timid Nature
+      Level: 16
+      Ability: Refrigerate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 8 SpD / 252 Spe
+      - Hyper Voice
+      - Diamond Storm
+      - Aurora Veil
+      - Thunder Wave
+
+   Aurorus @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Weather Setter
+      - Blizzard
+      - Diamond Storm
+      - Earth Power
+      - Freeze Dry
+
+   Aurorus @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Weather Setter
+      - Blizzard
+      - Diamond Storm
+      - Earth Power
+      - Freeze Dry
+
+   Aurorus @ Power Herb
+      Modest Nature
+      Level: 16
+      Ability: Refrigerate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Hyper Beam
+      - Meteor Beam
+      - Diamond Storm
+      - Blizzard
+
+   Avalugg @ Custap Berry
+      Impish Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 Def
+      - Body Press
+      - Recover
+      - Avalanche
+      - Iron Defense
+
+   Avalugg Hisui @ Hard Stone
+      Adamant Nature
+      Level: 16
+      Ability: Strong Jaw
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Def
+      - Accelerock
+      - Crunch
+      - Mountain Gale
+      - Stone Edge
+
+   Avalugg Hisui @ Assault Vest
+      Careful Nature
+      Level: 16
+      Ability: Strong Jaw
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      - Accelerock
+      - Crunch
+      - Mountain Gale
+      - Stone Edge
+
+   Frosmoth @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Ice Scales
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Quiver Dance
+      - Blizzard
+      - Bug Buzz
+      - Freeze Dry
+
+   Cetitan @ Sitrus Berry
+      Jolly Nature
+      Level: 16
+      Ability: Slush Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Weather Abuser
+      - Belly Drum
+      - Ice Spinner
+      - Earthquake
+      - Ice Shard
+
+   Baxcalibur @ Loaded Dice
+      Adamant Nature
+      Level: 16
+      Ability: Thermal Exchange
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Dragon Dance
+      - Icicle Spear
+      - Earthquake
+      - Glaive Rush
+
+   Articuno @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Ace
+      - Freeze Dry
+      - Sheer Cold
+      - Focus Blast
+      - Roost
+
+   Articuno @ Life Orb
+      Modest Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Ace
+      - Freeze Dry
+      - Sheer Cold
+      - Focus Blast
+      - Roost
 
 
 === TRAINER_DRAKE_1 ===
-Name: Drake
-Class: Elite Four
-Pic: Elite Four Drake
-Gender: Male
-Music: Elite Four
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
-Mugshot: Blue
-Party Size: 6
-Pool Rules: Basic
+   Name: Drake
+   Class: Elite Four
+   Pic: Elite Four Drake
+   Gender: Male
+   Music: Elite Four
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Mugshot: Blue
+   Party Size: 6
+   Pool Rules: Basic
 
-Kommo-O @ Leftovers
-Careful Nature
-Level: 16
-Ability: Bulletproof
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 Def / 252 SpD
-Tags: Stealth Rock / Phazing Move
-- Iron Defense
-- Body Press
-- Stealth Rock
-- Dragon Tail
+   Kommo-O @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Bulletproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Stealth Rock / Phazing Move
+      - Iron Defense
+      - Body Press
+      - Stealth Rock
+      - Dragon Tail
 
-Dragapult @ Lum Berry
-Timid Nature
-Level: 16
-Ability: Infiltrator
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Thunder Wave
-- Hex
-- U Turn
-- Draco Meteor
+   Dragapult @ Lum Berry
+      Timid Nature
+      Level: 16
+      Ability: Infiltrator
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+      - Thunder Wave
+      - Hex
+      - U Turn
+      - Draco Meteor
 
-Kingdra @ Scope Lens
-Modest Nature
-Level: 16
-Ability: Sniper
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Draco Meteor
-- Snipe Shot
-- Ice Beam
-- Focus Energy
+   Kingdra @ Scope Lens
+      Modest Nature
+      Level: 16
+      Ability: Sniper
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+      - Draco Meteor
+      - Snipe Shot
+      - Ice Beam
+      - Focus Energy
 
-Goodra Hisui @ Leftovers
-Relaxed Nature
-Level: 16
-Ability: Overcoat
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Atk / 170 Def
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Poison Tail
-- Iron Tail
-- Curse
-- Draco Meteor
+   Goodra Hisui @ Leftovers
+      Relaxed Nature
+      Level: 16
+      Ability: Overcoat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 Def
+      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+      - Poison Tail
+      - Iron Tail
+      - Curse
+      - Draco Meteor
 
-Haxorus @ Life Orb
-Jolly Nature
-Level: 16
-Ability: Mold Breaker
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Earthquake
-- Dragon Dance
-- Scale Shot
-- Swords Dance
+   Haxorus @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Mold Breaker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+      - Earthquake
+      - Dragon Dance
+      - Scale Shot
+      - Swords Dance
 
-Salamence @ Heavy Duty Boots
-Jolly Nature
-Level: 16
-Ability: Intimidate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Dual Wingbeat
-- Outrage
-- Earthquake
-- Dragon Dance
+   Salamence @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+      - Dual Wingbeat
+      - Outrage
+      - Earthquake
+      - Dragon Dance
 
-Kommo-O @ Throat Spray
-Timid Nature
-Level: 16
-Ability: Soundproof
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 SpA / 170 Spe
-Tags: Stealth Rock
-- Clangorous Soul
-- Aura Sphere
-- Boomburst
-- Stealth Rock
+   Kommo-O @ Throat Spray
+      Timid Nature
+      Level: 16
+      Ability: Soundproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 SpA / 170 Spe
+      Tags: Stealth Rock
+      - Clangorous Soul
+      - Aura Sphere
+      - Boomburst
+      - Stealth Rock
 
-Dragapult @ Lum Berry
-Timid Nature
-Level: 16
-Ability: Infiltrator
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Thunder Wave
-- Hex
-- U Turn
-- Draco Meteor
+   Dragapult @ Lum Berry
+      Timid Nature
+      Level: 16
+      Ability: Infiltrator
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+      - Thunder Wave
+      - Hex
+      - U Turn
+      - Draco Meteor
 
-Altaria @ Scope Lens
-Careful Nature
-Level: 16
-Ability: Pixilate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Def / 170 SpD
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Body Slam
-- Earthquake
-- Roost
-- Dragon Dance
+   Altaria @ Scope Lens
+      Careful Nature
+      Level: 16
+      Ability: Pixilate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpD
+      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+      - Body Slam
+      - Earthquake
+      - Roost
+      - Dragon Dance
 
-Tyrantrum @ Lum Berry
-Jolly Nature
-Level: 16
-Ability: Rock Head
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Head Smash
-- Close Combat
-- Scale Shot
-- Dragon Dance
+   Tyrantrum @ Lum Berry
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+      - Head Smash
+      - Close Combat
+      - Scale Shot
+      - Dragon Dance
 
-Goodra @ Toxic Orb
-Relaxed Nature
-Level: 16
-Ability: Poison Heal
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 SpD
-Tags: Phazing Move
-- Acid Spray
-- Recover
-- Dragon Tail
-- Draco Meteor
+   Goodra @ Toxic Orb
+      Relaxed Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      Tags: Phazing Move
+      - Acid Spray
+      - Recover
+      - Dragon Tail
+      - Draco Meteor
 
-Hydreigon @ Life Orb
-Timid Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-- Draco Meteor
-- Dark Pulse
-- Nasty Plot
-- Fire Blast
-
-
-
-=== TRAINER_DRAKE_2 ===
-Name: Drake
-Class: Elite Four
-Pic: Elite Four Drake
-Gender: Male
-Music: Elite Four
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
-Mugshot: Blue
-
-Kommo-O @ Throat Spray
-Timid Nature
-Level: 16
-Ability: Soundproof
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 SpA / 170 Spe
-- Clangorous Soul
-- Aura Sphere
-- Boomburst
-- Stealth Rock
-
-
+   Hydreigon @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+      - Draco Meteor
+      - Dark Pulse
+      - Nasty Plot
+      - Fire Blast
 
 
 === TRAINER_ANABEL_1 ===
