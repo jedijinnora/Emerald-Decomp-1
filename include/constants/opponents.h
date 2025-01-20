@@ -7,11 +7,16 @@
 
 //Elite Four and Champion
 #define LEAGUE_TRAINERS_START               1
+
+//Elite Four
+//E4 order is actually Glacia -> Lucy -> Brandon -> Drake
+//This just reflects the original order, since Brandon replaces Sidney and Lucy replaces Phoebe
 #define TRAINER_BRANDON_1                   (LEAGUE_TRAINERS_START + 0)
 #define TRAINER_LUCY_1                      (LEAGUE_TRAINERS_START + 1)
 #define TRAINER_GLACIA_1                    (LEAGUE_TRAINERS_START + 2)
 #define TRAINER_DRAKE_1                     (LEAGUE_TRAINERS_START + 3)
 
+//Champion
 #define TRAINER_ANABEL_1                    (LEAGUE_TRAINERS_START + 4)
 #define TRAINER_ANABEL_2                    (LEAGUE_TRAINERS_START + 5)
 #define TRAINER_ANABEL_3                    (LEAGUE_TRAINERS_START + 6)
@@ -258,7 +263,7 @@
 
 //Victory Road Rivals
 #define VICTORY_ROAD_RIVAL_TRAINERS_START   (BLOCKING_RIVAL_TRAINERS_END + 1)
-#define TRAINER_RIVAL_JINNORA               (VICTORY_ROAD_RIVAL_TRAINERS_START + 0)
+#define TRAINER_RIVAL_JINNORA               (VICTORY_ROAD_RIVAL_TRAINERS_START + 0) // May sprite
 #define TRAINER_RIVAL_1                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 1)
 #define TRAINER_RIVAL_2                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 2)
 #define TRAINER_RIVAL_3                     (VICTORY_ROAD_RIVAL_TRAINERS_START + 3)
@@ -272,9 +277,9 @@
 
 //TPP Trainers
 #define TPP_TRAINERS_START                  (VICTORY_ROAD_RIVAL_TRAINERS_END + 1)
-#define TRAINER_TPP_RED                     (TPP_TRAINERS_START + 0)
-#define TRAINER_TPP_AJ                      (TPP_TRAINERS_START + 1)
-#define TRAINER_TPP_DOM                     (TPP_TRAINERS_START + 2)
+#define TRAINER_TPP_RED                     (TPP_TRAINERS_START + 0) // "Helix" island
+#define TRAINER_TPP_AJ                      (TPP_TRAINERS_START + 1) // "Dome" island, starts near the bottom
+#define TRAINER_TPP_DOM                     (TPP_TRAINERS_START + 2) // "Dome" island, starts near the top
 #define TPP_TRAINERS_END                    TRAINER_TPP_DOM
 
 
@@ -936,35 +941,51 @@
 
 //Trick House
 #define TRICK_HOUSE_TRAINERS_START          (SUMMER_SEA_TRAINERS_END + 1)
-#define TRAINER_SALLY                       (TRICK_HOUSE_TRAINERS_START + 0) // Puzzle 1, Lass Sally (by the entrance)
-#define TRAINER_EDDIE                       (TRICK_HOUSE_TRAINERS_START + 1) // Puzzle 1, Youngster Eddie
-#define TRAINER_ROBIN                       (TRICK_HOUSE_TRAINERS_START + 2) // Puzzle 1, Lass Robin (by the scroll)
-#define TRAINER_TED                         (TRICK_HOUSE_TRAINERS_START + 3) // Puzzle 2, School Kid-M Ted (near the scroll)
-#define TRAINER_PAUL                        (TRICK_HOUSE_TRAINERS_START + 4) // Puzzle 2, School Kid-M Paul (in front of the item)
-#define TRAINER_GEORGIA                     (TRICK_HOUSE_TRAINERS_START + 5) // Puzzle 2, School Kid-F Georgia
-#define TRAINER_JUSTIN                      (TRICK_HOUSE_TRAINERS_START + 6) // Puzzle 3, Camper Justin
-#define TRAINER_MARTHA                      (TRICK_HOUSE_TRAINERS_START + 7) // Puzzle 3, Picnicker Martha
-#define TRAINER_ALAN                        (TRICK_HOUSE_TRAINERS_START + 8) // Puzzle 3, Hiker Alan
-#define TRAINER_CORA                        (TRICK_HOUSE_TRAINERS_START + 9) // Puzzle 4, Battle Girl Cora (against the north wall)
-#define TRAINER_PAULA                       (TRICK_HOUSE_TRAINERS_START + 10) // Puzzle 4, Battle Girl Paula (against the east wall)
-#define TRAINER_YUJI                        (TRICK_HOUSE_TRAINERS_START + 11) // Puzzle 4, Black Belt Yuji
-#define TRAINER_IRVIN                       (TRICK_HOUSE_TRAINERS_START + 12) // Puzzle 5, Bug Catcher Irvin
-#define TRAINER_KELSEY                      (TRICK_HOUSE_TRAINERS_START + 13) // Puzzle 5, Battle Girl Kelsey
-#define TRAINER_TOBY                        (TRICK_HOUSE_TRAINERS_START + 14) // Puzzle 5, Bird Keeper Toby
-#define TRAINER_ALICIA                      (TRICK_HOUSE_TRAINERS_START + 15) // Puzzle 5, Cooltrainer-F Alicia
-#define TRAINER_OLIVER                      (TRICK_HOUSE_TRAINERS_START + 16) // Puzzle 5, Cooltrainer-M Oliver
-#define TRAINER_SOPHIA                      (TRICK_HOUSE_TRAINERS_START + 17) // Puzzle 6, Ranger-F Sophia
-#define TRAINER_BENNY                       (TRICK_HOUSE_TRAINERS_START + 18) // Puzzle 6, Bird Keeper Benny
-#define TRAINER_SEBASTIAN                   (TRICK_HOUSE_TRAINERS_START + 19) // Puzzle 6, Ranger-M Sebastian
-#define TRAINER_JOSHUA                      (TRICK_HOUSE_TRAINERS_START + 20) // Puzzle 7, Psychic-M Joshua, may double with Patricia (yellow tiles)
-#define TRAINER_ALEXIS                      (TRICK_HOUSE_TRAINERS_START + 21) // Puzzle 7, Psychic-F Alexis, may double with Alvaro (pink tiles)
-#define TRAINER_PATRICIA                    (TRICK_HOUSE_TRAINERS_START + 22) // Puzzle 7, Hex Maniac Patricia, may double with Joshua (yellow tiles)
-#define TRAINER_MARIELA                     (TRICK_HOUSE_TRAINERS_START + 23) // Puzzle 7, Psychic-F Mariela, may double with Everett
-#define TRAINER_ALVARO                      (TRICK_HOUSE_TRAINERS_START + 24) // Puzzle 7, Psychic-M Alvaro, may double with Alexis
-#define TRAINER_EVERETT                     (TRICK_HOUSE_TRAINERS_START + 25) // Puzzle 7, Gentleman Everett, may double with Mariela
-#define TRAINER_VINCENT                     (TRICK_HOUSE_TRAINERS_START + 26) // Puzzle 8, Cooltrainer-M Vincent (in the jars, halfway through the north puzzle)
-#define TRAINER_LEROY                       (TRICK_HOUSE_TRAINERS_START + 27) // Puzzle 8, Cooltrainer-M Leroy (just before the exit)
-#define TRAINER_KEIRA                       (TRICK_HOUSE_TRAINERS_START + 28) // Puzzle 8, Cooltrainer-F Keira
+
+//Puzzle 1
+#define TRAINER_SALLY                       (TRICK_HOUSE_TRAINERS_START + 0) // Lass Sally (by the entrance)
+#define TRAINER_EDDIE                       (TRICK_HOUSE_TRAINERS_START + 1) // Youngster Eddie
+#define TRAINER_ROBIN                       (TRICK_HOUSE_TRAINERS_START + 2) // Lass Robin (by the scroll)
+
+//Puzzle 2
+#define TRAINER_TED                         (TRICK_HOUSE_TRAINERS_START + 3) // School Kid-M Ted (near the scroll)
+#define TRAINER_PAUL                        (TRICK_HOUSE_TRAINERS_START + 4) // School Kid-M Paul (in front of the item)
+#define TRAINER_GEORGIA                     (TRICK_HOUSE_TRAINERS_START + 5) // School Kid-F Georgia
+
+//Puzzle 3
+#define TRAINER_JUSTIN                      (TRICK_HOUSE_TRAINERS_START + 6) // Camper Justin
+#define TRAINER_MARTHA                      (TRICK_HOUSE_TRAINERS_START + 7) // Picnicker Martha
+#define TRAINER_ALAN                        (TRICK_HOUSE_TRAINERS_START + 8) // Hiker Alan
+
+//Puzzle 4
+#define TRAINER_CORA                        (TRICK_HOUSE_TRAINERS_START + 9) // Battle Girl Cora (against the north wall)
+#define TRAINER_PAULA                       (TRICK_HOUSE_TRAINERS_START + 10) // Battle Girl Paula (against the east wall)
+#define TRAINER_YUJI                        (TRICK_HOUSE_TRAINERS_START + 11) // Black Belt Yuji
+
+//Puzzle 5
+#define TRAINER_IRVIN                       (TRICK_HOUSE_TRAINERS_START + 12) // Bug Catcher Irvin
+#define TRAINER_KELSEY                      (TRICK_HOUSE_TRAINERS_START + 13) // Battle Girl Kelsey
+#define TRAINER_TOBY                        (TRICK_HOUSE_TRAINERS_START + 14) // Bird Keeper Toby
+#define TRAINER_ALICIA                      (TRICK_HOUSE_TRAINERS_START + 15) // Cooltrainer-F Alicia
+#define TRAINER_OLIVER                      (TRICK_HOUSE_TRAINERS_START + 16) // Cooltrainer-M Oliver
+
+//Puzzle 6
+#define TRAINER_SOPHIA                      (TRICK_HOUSE_TRAINERS_START + 17) // Ranger-F Sophia
+#define TRAINER_BENNY                       (TRICK_HOUSE_TRAINERS_START + 18) // Bird Keeper Benny
+#define TRAINER_SEBASTIAN                   (TRICK_HOUSE_TRAINERS_START + 19) // Ranger-M Sebastian
+
+//Puzzle 7
+#define TRAINER_JOSHUA                      (TRICK_HOUSE_TRAINERS_START + 20) // Psychic-M Joshua, may double with Patricia (yellow tiles)
+#define TRAINER_ALEXIS                      (TRICK_HOUSE_TRAINERS_START + 21) // Psychic-F Alexis, may double with Alvaro (pink tiles)
+#define TRAINER_PATRICIA                    (TRICK_HOUSE_TRAINERS_START + 22) // Hex Maniac Patricia, may double with Joshua (yellow tiles)
+#define TRAINER_MARIELA                     (TRICK_HOUSE_TRAINERS_START + 23) // Psychic-F Mariela, may double with Everett
+#define TRAINER_ALVARO                      (TRICK_HOUSE_TRAINERS_START + 24) // Psychic-M Alvaro, may double with Alexis
+#define TRAINER_EVERETT                     (TRICK_HOUSE_TRAINERS_START + 25) // Gentleman Everett, may double with Mariela
+
+//Puzzle 8
+#define TRAINER_VINCENT                     (TRICK_HOUSE_TRAINERS_START + 26) // Cooltrainer-M Vincent (in the jars, halfway through the north puzzle)
+#define TRAINER_LEROY                       (TRICK_HOUSE_TRAINERS_START + 27) // Cooltrainer-M Leroy (just before the exit)
+#define TRAINER_KEIRA                       (TRICK_HOUSE_TRAINERS_START + 28) // Cooltrainer-F Keira
 #define TRICK_HOUSE_TRAINERS_END            TRAINER_KEIRA
 
 #define REGULAR_TRAINERS_END                TRICK_HOUSE_TRAINERS_END

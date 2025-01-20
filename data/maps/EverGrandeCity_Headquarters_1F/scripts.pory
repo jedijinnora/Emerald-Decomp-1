@@ -357,8 +357,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_UpdateChallengesDifficulty {
         case 21:
             call(EverGrandeCity_Headquarters_1F_EventScript_ToggleFollowers)
         default:
-            releaseall
-            end
+            goto(EverGrandeCity_Headquarters_1F_EventScript_ScientistOut)
     }
     goto(EverGrandeCity_Headquarters_1F_EventScript_UpdateChallengesDifficulty)
 }

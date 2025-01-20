@@ -33,7 +33,13 @@ script EverGrandeCity_ChampionsRoom_EventScript_EnterRoom{
 	end
 }
 
-script EverGrandeCity_ChampionsRoom_EventScript_SetShayminTeam {
+script EverGrandeCity_ChampionsRoom_EventScript_SetEasyTeam {
+	goto_if_set(FLAG_SYS_GAME_CLEAR, Common_EventScript_NopReturn)
+	setvar(VAR_TEMP_2, 4)
+	return
+}
+
+script EverGrandeCity_ChampionsRoom_EventScript_TrySetShayminTeam {
 	goto_if_set(FLAG_RECEIVED_GRACIDEA, Common_EventScript_NopReturn)
 	setvar(VAR_TEMP_2, 3)
 	return
@@ -42,13 +48,13 @@ script EverGrandeCity_ChampionsRoom_EventScript_SetShayminTeam {
 script EverGrandeCity_ChampionsRoom_EventScript_Anabel {
 	playbgm(MUS_ENCOUNTER_CHAMPION, FALSE)
 	msgbox(EverGrandeCity_ChampionsRoom_Text_IntroSpeech, MSGBOX_DEFAULT)
-	random(4)
+	random(3)
 	copyvar(VAR_TEMP_2, VAR_RESULT)
-	call_if_eq(VAR_DIFFICULTY_SETTING, 1, EverGrandeCity_ChampionsRoom_EventScript_SetShayminTeam)
+	addvar(VAR_TEMP_2, 1)
+	call_if_eq(VAR_DIFFICULTY_SETTING, 1, EverGrandeCity_ChampionsRoom_EventScript_SetEasyTeam)
 	setvar(VAR_0x8004, SPECIES_SHAYMIN)
 	specialvar(VAR_RESULT, CheckPartyForMon)
-	call_if_eq(VAR_RESULT, TRUE, EverGrandeCity_ChampionsRoom_EventScript_SetShayminTeam)
-	addvar(VAR_TEMP_2, 1)
+	call_if_eq(VAR_RESULT, TRUE, EverGrandeCity_ChampionsRoom_EventScript_TrySetShayminTeam)
 	switch(var(VAR_TEMP_2)) {
 		case 1:
 			trainerbattle_no_intro(TRAINER_ANABEL_1, EverGrandeCity_ChampionsRoom_Text_Defeat)
@@ -70,8 +76,9 @@ script EverGrandeCity_ChampionsRoom_EventScript_Anabel {
 			clearflag(FLAG_DEFEATED_LATIAS_OR_LATIOS)
 		case 3:
 			clearflag(FLAG_DEFEATED_MANAPHY)
-		case 4:
 			clearflag(FLAG_DEFEATED_SHAYMIN)
+			clearflag(FLAG_DEFEATED_JIRACHI)
+		default:
 	}
 
 	EverGrandeCity_ChampionsRoom_EventScript_Defeated:

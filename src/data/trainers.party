@@ -30,6 +30,7 @@ global pool configuration settings are in include/trainer_pools
 
 trainer constants are listed in include/constants/opponents.h
  - they are organized by location/grouping
+ - where necessary labeled by location to help you find the correct trainer
 
 
 === ORGANIZATION RULES ===
@@ -43,7 +44,7 @@ Tags should be listed in the following order:
 Pokemon ordering within a pool:
  - Lead Pokemon appear at the beginning of a pool
  - Ace Pokemon appear at the end of a pool
- - Then organized by rough Dex order of families (i.e. Eeveelutions = gen 1, Gliscor = gen 2)
+ - Then organized by Dex order of families (i.e. Eeveelutions/Pichu = gen 1, Gliscor = gen 2)
  - Then organized by Badge tags
 
 
@@ -64,6 +65,7 @@ Abilities:
     - 1 = second regular ability
     - 2 = hidden ability
  - If an invalid ability is specified, the mon will have the first regular ability
+    - This is mostly important for people playing on the 'No Pokemon Changes' patch
 
 
 === LEVEL SCALING ===
@@ -1706,6 +1708,18 @@ Double Battle: No
       - X Scissor
       - Toxic Spikes
 
+   Drapion @ Covert Cloak
+      Jolly Nature
+      Level: 16
+      Ability: Sniper
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead
+      - Wicked Blow
+      - Cross Poison
+      - X Scissor
+      - Taunt
+
    Drapion @ Choice Band
       Adamant Nature
       Level: 16
@@ -1772,7 +1786,7 @@ Double Battle: No
       - Fire Blast
       - Fake Out
 
-   Toxtricity @ Life Orb
+   Toxtricity @ Throat Spray
       Naive Nature
       Level: 16
       Ability: Punk Rock
@@ -2091,7 +2105,29 @@ Double Battle: No
       - Substitute
       - Nasty Plot
 
+   Gengar @ Spell Tag
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Shadow Ball
+      - Focus Blast
+      - Substitute
+      - Destiny Bond
+
    Sneasler @ Air Balloon
+      Adamant Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Close Combat
+      - Throat Chop
+      - Acrobatics
+
+   Sneasler @ Flying Gem
       Adamant Nature
       Level: 16
       Ability: Unburden
@@ -2303,7 +2339,7 @@ Double Battle: No
       Ability: Toxic Debris
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 Def / 252 SpA / 252 Spe
-      Tags: Stealth Rock
+      Tags: Stealth Rock / Hazard Removal
       - Mortal Spin
       - Stealth Rock
       - Earth Power
@@ -2354,7 +2390,31 @@ Double Battle: No
       - Earthquake
       - Sucker Punch
 
+   Seviper @ Muscle Band
+      Jolly Nature
+      Level: 16
+      Ability: Merciless
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Ace
+      - Poison Tail
+      - Iron Tail
+      - Earthquake
+      - Crunch
+
    Seviper @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Shed Skin
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Ace
+      - Poison Tail
+      - Rest
+      - Earthquake
+      - Coil
+
+   Seviper @ Clear Amulet
       Adamant Nature
       Level: 16
       Ability: Shed Skin
@@ -2451,6 +2511,42 @@ Double Battle: No
       - Blizzard
       - Thunderbolt
       - Flash Cannon
+
+   Weavile @ Loaded Dice
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead
+      - Swords Dance
+      - Pursuit
+      - Icicle Spear
+      - Beat Up
+
+   Weavile @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead
+      - Knock Off
+      - Pursuit
+      - Ice Shard
+      - Triple Axel
+
+   Weavile @ Black Glasses
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead
+      - Knock Off
+      - Pursuit
+      - Fake Out
+      - Poison Jab
 
    Piloswine @ Eviolite
       Careful Nature
@@ -2828,6 +2924,74 @@ Double Battle: No
       - Thunderbolt
       - Flash Cannon
 
+   Forretress @ Leftovers
+      Relaxed Nature
+      Level: 16
+      Ability: Overcoat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Spikes
+      - Gyro Ball
+      - Volt Switch
+      - Spikes
+      - Toxic
+
+   Forretress @ Normal Gem
+      Relaxed Nature
+      Level: 16
+      Ability: Overcoat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Toxic Spikes
+      - Gyro Ball
+      - Volt Switch
+      - Explosion
+      - Toxic Spikes
+
+   Weavile @ Heavy Duty Boots
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Knock Off
+      - Triple Axel
+      - Swords Dance
+
+   Weavile @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Knock Off
+      - Triple Axel
+      - Swords Dance
+
+   Weavile @ Loaded Dice
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Pursuit
+      - Icicle Spear
+      - Beat Up
+
+   Weavile @ Dark Gem
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Pursuit
+      - Triple Axel
+      - Thief
+
    Piloswine @ Eviolite
       Careful Nature
       Level: 16
@@ -2861,6 +3025,30 @@ Double Battle: No
       - Earthquake
       - Knock Off
       - Ice Shard
+
+   Delibird @ Icy Rock
+      Timid Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 Spe
+      Tags: Weather Setter / Screens
+      - Aurora Veil
+      - U Turn
+      - Icy Wind
+      - Tailwind
+
+   Delibird @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 Spe
+      Tags: Weather Setter / Screens
+      - Aurora Veil
+      - U Turn
+      - Icy Wind
+      - Tailwind
 
    Castform @ Icy Rock
       Modest Nature
@@ -3051,6 +3239,50 @@ Double Battle: No
       - Icicle Crash
       - Earthquake
       - Fire Punch
+
+   Zoroark @ Safety Goggles
+      Timid Nature
+      Level: 16
+      Ability: Illusion
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Taunt
+      - Dark Pulse
+      - Sludge Bomb
+      - Flamethrower
+
+   Zoroark @ Safety Goggles
+      Jolly Nature
+      Level: 16
+      Ability: Illusion
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Knock Off
+      - Foul Play
+      - U Turn
+      - Low Kick
+
+   Zoroark Hisui @ Safety Goggles
+      Timid Nature
+      Level: 16
+      Ability: Illusion
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Taunt
+      - Hyper Voice
+      - Shadow Ball
+      - Flamethrower
+
+   Zoroark Hisui @ Safety Goggles
+      Timid Nature
+      Level: 16
+      Ability: Illusion
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Will O Wisp
+      - Hyper Voice
+      - Bitter Malice
+      - Extrasensory
 
    Vanilluxe @ Icy Rock
       Naive Nature
@@ -3248,31 +3480,185 @@ Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
    Mugshot: Blue
    Party Size: 6
-   Pool Rules: Basic
+   Pool Rules: Core 4 Singles
 
-   Kommo-O @ Leftovers
+   Aerodactyl @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead / Stealth Rock
+      - Stealth Rock
+      - Taunt
+      - Stone Edge
+      - Earthquake
+
+   Aerodactyl @ Dark Gem
+      Jolly Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead
+      - Pursuit
+      - Dual Wingbeat
+      - Stone Edge
+      - Aqua Tail
+
+   Serperior @ Mental Herb
+      Timid Nature
+      Level: 16
+      Ability: Contrary
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 56 HP / 200 SpA / 252 Spe
+      Tags: Lead / Core 3
+      - Leaf Storm
+      - Draco Meteor
+      - Leech Seed
+      - Substitute
+
+   Zygarde-10 Power Construct @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Power Construct
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead / Core 4
+      - Thousand Arrows
+      - Extreme Speed
+      - Outrage
+      - Superpower
+
+   Zygarde-10 Power Construct @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Power Construct
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead / Core 4
+      - Thousand Arrows
+      - Extreme Speed
+      - Dragon Claw
+      - Toxic
+
+   Kommo-O @ Throat Spray
+      Timid Nature
+      Level: 16
+      Ability: Soundproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Lead / Stealth Rock / Core 3
+      - Clangorous Soul
+      - Aura Sphere
+      - Boomburst
+      - Stealth Rock
+
+   Kommo-O @ Throat Spray
+      Timid Nature
+      Level: 16
+      Ability: Overcoat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Lead / Core 3
+      - Clangorous Soul
+      - Aura Sphere
+      - Clanging Scales
+      - Flash Cannon
+
+   Kommo-O @ Mental Herb
       Careful Nature
       Level: 16
       Ability: Bulletproof
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 4 Def / 252 SpD
-      Tags: Stealth Rock / Phazing Move
+      Tags: Lead / Stealth Rock / Phazing Move / Core 3
       - Iron Defense
       - Body Press
       - Stealth Rock
       - Dragon Tail
 
-   Dragapult @ Lum Berry
-      Timid Nature
+   Dragapult @ Haban Berry
+      Naive Nature
       Level: 16
-      Ability: Infiltrator
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 176 Atk / 252 SpA / 80 Spe
+      Tags: Lead
+      - Dragon Darts
+      - Shadow Ball
+      - Fire Blast
+      - Steel Wing
+
+   Dragapult @ Light Clay
+      Naive Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 176 Atk / 252 SpA / 80 Spe
+      Tags: Lead / Screens
+      - U Turn
+      - Shadow Ball
+      - Reflect
+      - Light Screen
+
+   Dragapult @ Colbur Berry
+      Naive Nature
+      Level: 16
+      Ability: Clear Body
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+      Tags: Lead
       - Thunder Wave
       - Hex
       - U Turn
       - Draco Meteor
+
+   Dragapult @ Kasib Berry
+      Hasty Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Will O Wisp
+      - Hex
+      - U Turn
+      - Draco Meteor
+
+   Charizard @ Choice Specs
+      Timid Nature
+      Level: 16
+      Ability: Desolate Land
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 4
+      - Weather Ball
+      - Fire Blast
+      - Air Slash
+      - Solar Beam
+
+   Charizard @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Desolate Land
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Air Slash
+      - Fire Blast
+      - Scorching Sands
+      - Will O Wisp
+
+   Charizard @ Sitrus Berry
+      Jolly Nature
+      Level: 16
+      Ability: Desolate Land
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Belly Drum
+      - Flame Charge
+      - Acrobatics
+      - Earthquake
 
    Kingdra @ Scope Lens
       Modest Nature
@@ -3280,23 +3666,364 @@ Double Battle: No
       Ability: Sniper
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+      Tags: Core 3
       - Draco Meteor
-      - Snipe Shot
+      - Hydro Pump
       - Ice Beam
       - Focus Energy
 
-   Goodra Hisui @ Leftovers
-      Relaxed Nature
+   Kingdra @ Scope Lens
+      Modest Nature
       Level: 16
-      Ability: Overcoat
+      Ability: Sniper
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 170 HP / 170 Atk / 170 Def
-      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-      - Poison Tail
-      - Iron Tail
-      - Curse
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 3
+      - Agility
+      - Hydro Pump
+      - Ice Beam
+      - Focus Energy
+
+   Gyarados @ Mystic Water
+      Adamant Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Dragon Dance
+      - Waterfall
+      - Ice Fang
+      - Power Whip
+
+   Gyarados @ Power Herb
+      Adamant Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Dragon Dance
+      - Waterfall
+      - Substitute
+      - Bounce
+
+   Gyarados @ Wacan Berry
+      Adamant Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Dragon Dance
+      - Waterfall
+      - Earthquake
+      - Power Whip
+
+   Aerodactyl @ Dark Gem
+      Jolly Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Pursuit
+      - Dual Wingbeat
+      - Stone Edge
+      - Aqua Tail
+
+   Aerodactyl @ Muscle Band
+      Jolly Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Earthquake
+      - Dual Wingbeat
+      - Stone Edge
+      - Aqua Tail
+
+   Dragonite @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      Tags: Core 2
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Dragonite @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      Tags: Core 2
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Dragonite @ Normal Gem
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      Tags: Core 2
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Ampharos @ Magnet
+      Modest Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 SpA / 4 SpD
+      Tags: Core 3
+      - Tail Glow
+      - Dazzling Gleam
+      - Parabolic Charge
+      - Thunderclap
+
+   Ampharos @ Dragon Fang
+      Modest Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 SpA / 4 SpD
+      Tags: Core 3
+      - Tail Glow
+      - Dragon Pulse
+      - Parabolic Charge
+      - Thunderclap
+
+   Ampharos @ Air Balloon
+      Calm Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 SpA / 252 SpD
+      Tags: Core 3
+      - Tail Glow
+      - Cotton Guard
+      - Thunderclap
+      - Dazzling Gleam
+
+   Yanmega @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Tinted Lens
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 4
+      - Bug Buzz
+      - Air Slash
+      - U Turn
+      - Giga Drain
+
+   Yanmega @ Focus Sash
+      Modest Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 3
+      - Air Slash
+      - Tailwind
+      - U Turn
+      - Hypnosis
+
+   Sceptile @ Loaded Dice
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Bullet Seed
+      - Rock Tomb
+      - Scale Shot
+      - Pursuit
+
+   Sceptile @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Acrobatics
+      - Leaf Blade
+      - Thunder Punch
+      - Swords Dance
+
+   Sceptile @ Flying Gem
+      Jolly Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Acrobatics
+      - Leaf Blade
+      - Thunder Punch
+      - Drain Punch
+
+   Sceptile @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Bulldoze
+      - Leaf Blade
+      - Swords Dance
+      - Trailblaze
+
+   Sceptile @ Focus Sash
+      Modest Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Mega Drain
+      - Dragon Breath
+      - Vacuum Wave
+      - Shed Tail
+
+   Altaria @ Adrenaline Orb
+      Careful Nature
+      Level: 16
+      Ability: Pixilate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpD
+      Tags: Core 2
+      - Body Slam
+      - Earthquake
+      - Roost
+      - Dragon Dance
+
+   Altaria @ Muscle Band
+      Adamant Nature
+      Level: 16
+      Ability: Pixilate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Facade
+      - Earthquake
+      - Roost
+      - Dragon Dance
+
+   Altaria @ Fire Gem
+      Adamant Nature
+      Level: 16
+      Ability: Pixilate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Return
+      - Fire Blast
+      - Roost
+      - Dragon Dance
+
+   Altaria @ Fairy Feather
+      Adamant Nature
+      Level: 16
+      Ability: Pixilate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Return
+      - Roost
+      - Heal Bell
+      - Dragon Dance
+
+   Salamence @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      Tags: Core 1 / Core 2
+      - Dual Wingbeat
+      - Outrage
+      - Earthquake
+      - Dragon Dance
+
+   Salamence @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 1
+      - Hurricane
+      - Fire Blast
+      - Earthquake
+      - Roost
+
+   Salamence @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 1
+      - Hurricane
+      - Fire Spin
+      - Hydro Pump
+      - Roost
+
+   Salamence @ Throat Spray
+      Naive Nature
+      Level: 16
+      Ability: Aerilate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      Tags: Core 1
+      - Double Edge
+      - Dragon Rush
+      - Hyper Voice
+      - Fire Blast
+
+   Salamence @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      Tags: Core 1 / Core 2
+      - Dual Wingbeat
+      - Fire Blast
+      - Earthquake
+      - Dragon Dance
+
+   Salamence @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 1 / Core 2
+      - Dual Wingbeat
+      - Earthquake
+      - Iron Head
+      - Dragon Dance
+
+   Serperior @ Yache Berry
+      Timid Nature
+      Level: 16
+      Ability: Contrary
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 56 HP / 200 SpA / 252 Spe
+      Tags: Core 3
+      - Leaf Storm
       - Draco Meteor
+      - Leech Seed
+      - Substitute
 
    Haxorus @ Life Orb
       Jolly Nature
@@ -3304,71 +4031,136 @@ Double Battle: No
       Ability: Mold Breaker
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 Atk / 252 Spe
-      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+      Tags: Core 2
       - Earthquake
       - Dragon Dance
       - Scale Shot
       - Swords Dance
 
-   Salamence @ Heavy Duty Boots
+   Haxorus @ Choice Band
       Jolly Nature
       Level: 16
-      Ability: Intimidate
+      Ability: Mold Breaker
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 4 HP / 252 Atk / 252 Spe
-      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-      - Dual Wingbeat
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Earthquake
+      - Poison Jab
+      - First Impression
+      - Close Combat
+
+   Haxorus @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Mold Breaker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Earthquake
+      - Poison Jab
+      - First Impression
       - Outrage
-      - Earthquake
-      - Dragon Dance
 
-   Kommo-O @ Throat Spray
+   Druddigon @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Retaliate
+      - Gunk Shot
+      - Iron Tail
+      - Glare
+
+   Hydreigon @ Life Orb
       Timid Nature
       Level: 16
-      Ability: Soundproof
+      Ability: Levitate
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 170 HP / 170 SpA / 170 Spe
-      Tags: Stealth Rock
-      - Clangorous Soul
-      - Aura Sphere
-      - Boomburst
-      - Stealth Rock
-
-   Dragapult @ Lum Berry
-      Timid Nature
-      Level: 16
-      Ability: Infiltrator
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-      - Thunder Wave
-      - Hex
-      - U Turn
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 3
       - Draco Meteor
+      - Dark Pulse
+      - Nasty Plot
+      - Fire Blast
 
-   Altaria @ Scope Lens
-      Careful Nature
+   Hydreigon @ Wise Glasses
+      Timid Nature
       Level: 16
-      Ability: Pixilate
+      Ability: Levitate
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 170 HP / 170 Def / 170 SpD
-      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-      - Body Slam
-      - Earthquake
-      - Roost
-      - Dragon Dance
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 3
+      - Flash Cannon
+      - Substitute
+      - Nasty Plot
+      - Fire Blast
 
-   Tyrantrum @ Lum Berry
+   Hydreigon @ Choice Scarf
+      Modest Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Draco Meteor
+      - Dark Pulse
+      - Flash Cannon
+      - Fire Blast
+
+   Clawitzer @ Choice Scarf
+      Modest Nature
+      Level: 16
+      Ability: Mega Launcher
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Dragon Pulse
+      - Dark Pulse
+      - Flash Cannon
+      - Water Pulse
+
+   Clawitzer @ Choice Scarf
+      Modest Nature
+      Level: 16
+      Ability: Mega Launcher
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Dragon Pulse
+      - Sludge Bomb
+      - Flash Cannon
+      - U Turn
+
+   Tyrantrum @ Hard Stone
       Jolly Nature
       Level: 16
       Ability: Rock Head
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 Atk / 252 Spe
-      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
+      Tags: Core 2
       - Head Smash
       - Close Combat
       - Scale Shot
       - Dragon Dance
+
+   Tyrantrum @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 4
+      - Head Smash
+
+   Tyrantrum @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 4
+      - Head Smash
 
    Goodra @ Toxic Orb
       Relaxed Nature
@@ -3382,322 +4174,5613 @@ Double Battle: No
       - Dragon Tail
       - Draco Meteor
 
-   Hydreigon @ Life Orb
+   Goodra @ Damp Rock
+      Relaxed Nature
+      Level: 16
+      Ability: Hydration
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Phazing Move
+      - Rest
+      - Rain Dance
+      - Dragon Tail
+      - Sludge Bomb
+
+   Goodra Hisui @ Air Balloon
+      Relaxed Nature
+      Level: 16
+      Ability: Overcoat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 Def
+      - Poison Tail
+      - Iron Tail
+      - Curse
+      - Draco Meteor
+
+   Goodra Hisui @ Assault Vest
+      Bold Nature
+      Level: 16
+      Ability: Gooey
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 252 SpD
+      - Thunder
+      - Flash Cannon
+      - Hydro Pump
+      - Knock Off
+
+   Goodra Hisui @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Gooey
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 40 HP / 252 SpA / 216 Spe
+      Tags: Core 4
+      - Thunderbolt
+      - Flash Cannon
+      - Flamethrower
+      - Dragon Pulse
+
+   Kommo-O @ Throat Spray
+      Timid Nature
+      Level: 16
+      Ability: Soundproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Clangorous Soul
+      - Aura Sphere
+      - Boomburst
+      - Vacuum Wave
+
+   Kommo-O @ Throat Spray
+      Timid Nature
+      Level: 16
+      Ability: Overcoat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Clangorous Soul
+      - Aura Sphere
+      - Clanging Scales
+      - Flash Cannon
+
+   Kommo-O @ Black Belt
+      Careful Nature
+      Level: 16
+      Ability: Bulletproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Phazing Move / Core 3
+      - Iron Defense
+      - Body Press
+      - Drain Punch
+      - Dragon Tail
+
+   Silvally @ Dragon Memory
+      Timid Nature
+      Level: 16
+      Ability: RKS System
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - U Turn
+      - Flamethrower
+      - Parting Shot
+      - Flash Cannon
+
+   Hydrapple @ Heavy Duty Boots
+      Modest Nature
+      Level: 16
+      Ability: Regenerator
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 92 Def / 164 SpA
+      - Nasty Plot
+      - Fickle Beam
+      - Giga Drain
+      - Earth Power
+
+   Hydrapple @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Regenerator
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 4
+      - Draco Meteor
+      - Leaf Storm
+      - Fickle Beam
+      - Earth Power
+
+   Dragapult @ Focus Sash
+      Naive Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 176 Atk / 252 SpA / 80 Spe
+      - Dragon Darts
+      - Shadow Ball
+      - Fire Blast
+      - Steel Wing
+
+   Dragapult @ Light Clay
+      Naive Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 176 Atk / 252 SpA / 80 Spe
+      Tags: Screens
+      - U Turn
+      - Shadow Ball
+      - Reflect
+      - Light Screen
+
+   Dragapult @ Eject Pack
+      Timid Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Thunder Wave
+      - Hex
+      - U Turn
+      - Draco Meteor
+
+   Dragapult @ Eject Pack
+      Timid Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Will O Wisp
+      - Hex
+      - U Turn
+      - Draco Meteor
+
+   Skeledirge @ Charcoal
+      Bold Nature
+      Level: 16
+      Ability: Unaware
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 92 Def / 164 SpD
+      - Torch Song
+      - Will O Wisp
+      - Hex
+      - Slack Off
+
+   Skeledirge @ Charcoal
+      Modest Nature
+      Level: 16
+      Ability: Unaware
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpA
+      - Torch Song
+      - Earth Power
+      - Shadow Ball
+      - Slack Off
+
+   Lugia @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 252 Def / 8 SpA
+      Tags: Ace
+      - Recover
+      - Earth Power
+      - Calm Mind
+      - Psychic Noise
+
+   Lugia @ Covert Cloak
+      Bold Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 252 Def / 8 SpA
+      Tags: Ace
+      - Recover
+      - Earth Power
+      - Calm Mind
+      - Air Slash
+
+   Lugia @ Heavy Duty Boots
+      Calm Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 4 Def / 252 SpD
+      Tags: Ace / Phazing Move
+      - Recover
+      - Air Slash
+      - Dragon Tail
+      - Psychic Noise
+
+   Lugia @ Leftovers
+      Calm Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 4 Def / 252 SpD
+      Tags: Ace
+      - Recover
+      - Earth Power
+      - Toxic
+      - Whirlpool
+
+   Zygarde-50 Power Construct @ Covert Cloak
+      Impish Nature
+      Level: 16
+      Ability: Power Construct
+      EVs: 16 HP / 224 Atk / 36 Def / 232 Spe
+      Tags: Ace
+      - Thousand Arrows
+      - Dragon Dance
+      - Substitute
+      - Glare
+
+   Zygarde-50 Power Construct @ Leftovers
+      Impish Nature
+      Level: 16
+      Ability: Power Construct
+      EVs: 208 HP / 244 Def / 56 Spe
+      Tags: Ace
+      - Thousand Arrows
+      - Coil
+      - Rest
+      - Glare
+
+   Zygarde-50 Power Construct @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Power Construct
+      EVs: 80 HP / 220 Atk / 112 Def / 96 Spe
+      Tags: Ace
+      - Thousand Waves
+      - Coil
+      - Rest
+      - Scale Shot
+
+   Zygarde-50 Power Construct @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Power Construct
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Ace
+      - Thousand Arrows
+      - Dragon Dance
+      - Outrage
+      - Stone Edge
+
+
+/* The Baton Pass Serene Grace Flinch team */
+=== TRAINER_ANABEL_1 ===
+   Name: Anabel
+   Class: Champion
+   Pic: Salon Maiden Anabel
+   Gender: Female
+   Music: Male
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Mugshot: Yellow
+   Party Size: 6
+   Pool Rules: Core 3 Singles
+
+   Annihilape @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 Spe
+      Tags: Lead
+      - Final Gambit
+      - Taunt
+      - Drain Punch
+      - Rage Fist
+
+   Annihilape @ Chesto Berry
+      Careful Nature
+      Level: 16
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 240 HP / 252 SpD / 16 Spe
+      Tags: Lead
+      - Lash Out
+      - Rest
+      - Drain Punch
+      - Rage Fist
+
+   Scyther @ Eviolite
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead
+      - Swords Dance
+      - Dual Wingbeat
+      - Trailblaze
+      - Baton Pass
+
+   Scizor @ Occa Berry
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 120 HP / 252 Atk / 136 Spe
+      Tags: Lead
+      - Swords Dance
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Scizor @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead
+      - Close Combat
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Espeon @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 200 HP / 236 SpD / 72 Spe
+      Tags: Lead
+      - Calm Mind
+      - Dazzling Gleam
+      - Psychic
+      - Baton Pass
+
+   Jolteon @ Magnet
+      Modest Nature
+      Level: 16
+      Ability: Quick Feet
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Agility
+      - Alluring Voice
+      - Thunder
+      - Baton Pass
+
+   Snorlax @ Figy Berry
+      Careful Nature
+      Level: 16
+      Ability: Gluttony
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 Def / 252 SpD
+      Tags: Lead
+      - Body Slam
+      - Curse
+      - Recycle
+      - Earthquake
+
+   Snorlax @ Figy Berry
+      Careful Nature
+      Level: 16
+      Ability: Gluttony
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 Def / 252 SpD
+      Tags: Lead
+      - Body Slam
+      - Belly Drum
+      - Crunch
+      - Earthquake
+
+   Snorlax @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 SpD
+      Tags: Lead
+      - Body Slam
+      - Crunch
+      - Fire Punch
+      - Earthquake
+
+   Snorlax @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 252 Def / 4 SpD
+      Tags: Lead
+      - Body Slam
+      - Crunch
+      - Self Destruct
+      - Earthquake
+
+   Furret @ Covert Cloak
+      Jolly Nature
+      Level: 16
+      Ability: Fluffy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 Spe
+      Tags: Lead
+      - Super Fang
+      - Knock Off
+      - Coil
+      - Baton Pass
+
+   Furret @ Covert Cloak
+      Jolly Nature
+      Level: 16
+      Ability: Fluffy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 Spe
+      Tags: Lead / Hazard Removal
+      - Super Fang
+      - Knock Off
+      - Tidy Up
+      - Baton Pass
+
+   Mismagius @ Life Orb
       Timid Nature
       Level: 16
       Ability: Levitate
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Badges 0 / Badges 1 / Badges 2 / Badges 3 / Badges 4 / Badges 5 / Badges 6 / Badges 7 / Badges 8
-      - Draco Meteor
-      - Dark Pulse
+      Tags: Lead
+      - Astral Barrage
+      - Moonblast
       - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Spell Tag
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Fairy Feather
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Staraptor @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Reckless
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Brave Bird
+      - Double Edge
+      - Close Combat
+      - U Turn
+
+   Staraptor @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Brave Bird
+      - Final Gambit
+      - Close Combat
+      - U Turn
+
+   Staraptor @ Flying Gem
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Acrobatics
+      - Final Gambit
+      - Close Combat
+      - U Turn
+
+   Staraptor @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Reckless
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Brave Bird
+      - Final Gambit
+      - Close Combat
+      - U Turn
+
+   Cinccino @ Loaded Dice
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead
+      - Tail Slap
+      - Bullet Seed
+      - Rock Blast
+      - Triple Axel
+
+   Cinccino @ Kings Rock
+      Jolly Nature
+      Level: 16
+      Ability: Skill Link
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead
+      - Tail Slap
+      - Bullet Seed
+      - Rock Blast
+      - Triple Axel
+
+   Cinccino @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Lead
+      - Tail Slap
+      - Bullet Seed
+      - Rock Blast
+      - Triple Axel
+
+   Ribombee @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Shield Dust
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead / Sticky Web
+      - Sticky Web
+      - Moonblast
+      - Quiver Dance
+      - Baton Pass
+
+   Ribombee @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Shield Dust
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead / Sticky Web
+      - Sticky Web
+      - Moonblast
+      - Tailwind
+      - U Turn
+
+   Ribombee @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Shield Dust
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead / Sticky Web
+      - Sticky Web
+      - Moonblast
+      - Stun Spore
+      - Psychic Noise
+
+   Ribombee @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Shield Dust
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead / Sticky Web
+      - Sticky Web
+      - Moonblast
+      - Stun Spore
+      - Skill Swap
+
+   Arcanine Hisui @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flare Blitz
+      - Head Smash
+      - Close Combat
+      - Extreme Speed
+
+   Arcanine Hisui @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flare Blitz
+      - Head Smash
+      - Morning Sun
+      - Extreme Speed
+
+   Alakazam @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Psychic
+      - Psystrike
+      - Focus Blast
+      - Nasty Plot
+
+   Alakazam @ Life Orb
+      Modest Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Dazzling Gleam
+      - Psystrike
+      - Focus Blast
+      - Nasty Plot
+
+   Alakazam @ Focus Sash
+      Modest Nature
+      Level: 16
+      Ability: Inner Focus
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Dazzling Gleam
+      - Psystrike
+      - Focus Blast
+      - Nasty Plot
+
+   Alakazam @ Choice Specs
+      Timid Nature
+      Level: 16
+      Ability: Inner Focus
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Trick
+      - Psystrike
+      - Focus Blast
+      - Dazzling Gleam
+
+   Espeon @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 200 HP / 236 SpD / 72 Spe
+      - Calm Mind
+      - Dazzling Gleam
+      - Stored Power
+      - Baton Pass
+
+   Dragonite @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Dragonite @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Dragonite @ Normal Gem
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Scizor @ Occa Berry
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 120 HP / 252 Atk / 136 Spe
+      - Swords Dance
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Scizor @ Steel Gem
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 120 HP / 252 Atk / 136 Spe
+      - Swords Dance
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Scizor @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Close Combat
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Sylveon @ Power Herb
+      Modest Nature
+      Level: 16
+      Ability: Pixilate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 SpA / 4 SpD
+      - Wish
+      - Hyper Beam
+      - Psyshock
+      - Fake Tears
+
+   Sylveon @ Fairy Feather
+      Modest Nature
+      Level: 16
+      Ability: Pixilate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 SpA / 4 SpD
+      - Wish
+      - Hyper Voice
+      - Psyshock
+      - Tickle
+
+   Togekiss @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 8 SpA / 252 Spe
+      - Thunder Wave
+      - Air Slash
+      - Moonblast
+      - Nasty Plot
+
+   Togekiss @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 216 Def / 44 Spe
+      - Thunder Wave
+      - Air Slash
+      - Roost
+      - Nasty Plot
+
+   Togekiss @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Thunder Wave
+      - Air Slash
+      - Trick
+      - Roost
+
+   Togekiss @ Scope Lens
+      Timid Nature
+      Level: 16
+      Ability: Super Luck
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 SpA / 252 Spe
+      - Thunder Wave
+      - Air Slash
+      - Moonblast
       - Fire Blast
 
+   Gliscor @ Toxic Orb
+      Jolly Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 SpD / 170 Spe
+      - Earthquake
+      - Roost
+      - Facade
+      - Swords Dance
 
-=== TRAINER_ANABEL_1 ===
-Name: Anabel
-Class: Champion
-Pic: Salon Maiden Anabel
-Gender: Female
-Music: Male
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
-Mugshot: Yellow
+   Gliscor @ Toxic Orb
+      Careful Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 244 HP / 36 Def / 228 SpD
+      - Earthquake
+      - Roost
+      - Ice Fang
+      - Swords Dance
 
-Snorlax @ Figy Berry
-Careful Nature
-Level: 16
-Ability: Gluttony
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Atk / 252 Def / 252 SpD
-- Body Slam
-- Curse
-- Recycle
-- Earthquake
+   Gliscor @ Toxic Orb
+      Impish Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 244 HP / 240 SpD / 16 SpD
+      Tags: Spikes
+      - Earthquake
+      - Spikes
+      - Protect
+      - Knock Off
 
-Lucario @ Life Orb
-Jolly Nature
-Level: 16
-Ability: Adaptability
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Bullet Punch
-- Meteor Mash
-- Close Combat
-- Swords Dance
+   Mismagius @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
 
-Mismagius @ Life Orb
-Timid Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Astral Barrage
-- Moonblast
-- Nasty Plot
-- Destiny Bond
+   Mismagius @ Spell Tag
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
 
-Raikou @ Lum Berry
-Timid Nature
-Level: 16
-Ability: Serene Grace
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Wildbolt Storm
-- Volt Switch
-- Aura Sphere
-- Extrasensory
+   Mismagius @ Fairy Feather
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
 
-Entei @ Leftovers
-Jolly Nature
-Level: 16
-Ability: Serene Grace
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Sacred Fire
-- Extreme Speed
-- Stone Edge
-- Iron Head
+   Mismagius @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Psyshock
+      - Mystical Fire
 
-Suicune @ Leftovers
-Timid Nature
-Level: 16
-Ability: Serene Grace
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Def / 170 SpD
-- Blizzard
-- Calm Mind
-- Air Slash
-- Hydro Pump
+   Sneasler @ Air Balloon
+      Adamant Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Close Combat
+      - Throat Chop
+      - Acrobatics
 
+   Sneasler @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Close Combat
+      - Throat Chop
+      - Dire Claw
+
+   Sneasler @ Flying Gem
+      Adamant Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Close Combat
+      - Throat Chop
+      - Acrobatics
+
+   Weavile @ Heavy Duty Boots
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Knock Off
+      - Triple Axel
+      - Swords Dance
+
+   Weavile @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Knock Off
+      - Triple Axel
+      - Swords Dance
+
+   Weavile @ Loaded Dice
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Pursuit
+      - Icicle Spear
+      - Beat Up
+
+   Weavile @ Dark Gem
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Pursuit
+      - Triple Axel
+      - Thief
+
+   Raikou @ Lum Berry
+      Modest Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 1
+      - Wildbolt Storm
+      - Volt Switch
+      - Aura Sphere
+      - Extrasensory
+
+   Raikou @ Air Balloon
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 1
+      - Wildbolt Storm
+      - Volt Switch
+      - Aura Sphere
+      - Extrasensory
+
+   Raikou @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 1
+      - Wildbolt Storm
+      - Volt Switch
+      - Aura Sphere
+      - Extrasensory
+
+   Entei @ Kings Rock
+      Jolly Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 2
+      - Sacred Fire
+      - Extreme Speed
+      - Stone Edge
+      - Iron Head
+
+   Entei @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Inner Focus
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 2
+      - Sacred Fire
+      - Extreme Speed
+      - Stone Edge
+      - Iron Head
+
+   Entei @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Sacred Fire
+      - Extreme Speed
+      - Overheat
+      - Extrasensory
+
+   Suicune @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 Spe
+      Tags: Core 3
+      - Blizzard
+      - Calm Mind
+      - Air Slash
+      - Hydro Pump
+
+   Suicune @ Chesto Berry
+      Bold Nature
+      Level: 16
+      Ability: Inner Focus
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Core 3
+      - Rest
+      - Calm Mind
+      - Air Slash
+      - Hydro Pump
+
+   Suicune @ Weakness Policy
+      Modest Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 SpA / 4 Spe
+      Tags: Core 3
+      - Blizzard
+      - Calm Mind
+      - Air Slash
+      - Hydro Pump
+
+   Blaziken @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Blaze Kick
+      - Sky Uppercut
+      - Thunder Punch
+      - Upper Hand
+
+   Blaziken @ Focus Sash
+      Naive Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Endure
+      - Reversal
+      - Overheat
+      - Substitute
+
+   Blaziken @ Bright Powder
+      Jolly Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Blaze Kick
+      - Sky Uppercut
+      - Swords Dance
+      - Baton Pass
+
+   Blaziken @ Weakness Policy
+      Naive Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      - Endure
+      - Vacuum Wave
+      - Reversal
+      - Baton Pass
+
+   Blaziken @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Flare Blitz
+      - Close Combat
+      - U Turn
+      - Knock Off
+
+   Huntail @ White Herb
+      Adamant Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Shell Smash
+      - Baton Pass
+      - Liquidation
+      - Crunch
+
+   Huntail @ Adrenaline Orb
+      Adamant Nature
+      Level: 16
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Shell Smash
+      - Baton Pass
+      - Liquidation
+      - Crunch
+
+   Huntail @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Shell Smash
+      - Baton Pass
+      - Liquidation
+      - Crunch
+
+   Gorebyss @ Weakness Policy
+      Modest Nature
+      Level: 16
+      Ability: Dazzling
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Shell Smash
+      - Baton Pass
+      - Scald
+      - Draining Kiss
+
+   Gorebyss @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Regenerator
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Shell Smash
+      - Baton Pass
+      - Scald
+      - Draining Kiss
+
+   Gorebyss @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Competitive
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Shell Smash
+      - Baton Pass
+      - Brine
+      - Draining Kiss
+
+   Salamence @ Throat Spray
+      Naive Nature
+      Level: 16
+      Ability: Aerilate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      - Double Edge
+      - Dragon Rush
+      - Hyper Voice
+      - Fire Blast
+
+   Salamence @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      - Dual Wingbeat
+      - Fire Blast
+      - Earthquake
+      - Dragon Dance
+
+   Salamence @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Dual Wingbeat
+      - Earthquake
+      - Iron Head
+      - Dragon Dance
+
+   Lucario @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bullet Punch
+      - Meteor Mash
+      - Close Combat
+      - Swords Dance
+
+   Lucario @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bullet Punch
+      - Meteor Mash
+      - Close Combat
+      - Extreme Speed
+
+   Lucario @ Assault Vest
+      Jolly Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Blaze Kick
+      - Meteor Mash
+      - Close Combat
+      - Extreme Speed
+
+   Lucario @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Vacuum Wave
+      - Flash Cannon
+      - Aura Sphere
+      - Nasty Plot
+
+   Lucario @ Weakness Policy
+      Naive Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 SpA / 252 Spe
+      - Vacuum Wave
+      - Flash Cannon
+      - Aura Sphere
+      - Extreme Speed
+
+   Primarina @ Assault Vest
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Surf
+      - Moonblast
+      - Psychic Noise
+      - Flip Turn
+
+   Primarina @ Leftovers
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Hydro Pump
+      - Moonblast
+      - Psychic Noise
+      - Calm Mind
+
+   Primarina @ Custap Berry
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Hydro Pump
+      - Moonblast
+      - Substitute
+      - Calm Mind
+
+   Primarina @ Throat Spray
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Sparkling Aria
+      - Psychic Noise
+      - Alluring Voice
+      - Ice Beam
+
+   Primarina @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Liquid Voice
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 248 Def / 8 SpD
+      - Psychic Noise
+      - Draining Kiss
+      - Substitute
+      - Calm Mind
+
+   Meowscarada @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flower Trick
+      - U Turn
+      - Knock Off
+      - Triple Axel
+
+   Meowscarada @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flower Trick
+      - U Turn
+      - Play Rough
+      - Triple Axel
+
+   Meowscarada @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flower Trick
+      - U Turn
+      - Knock Off
+      - Triple Axel
+
+   Meowscarada @ Miracle Seed
+      Jolly Nature
+      Level: 16
+      Ability: Overgrow
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flower Trick
+      - U Turn
+      - Knock Off
+      - Triple Axel
+
+   Meowscarada @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Toxic Spikes
+      - Flower Trick
+      - Toxic Spikes
+      - Throat Chop
+      - Sucker Punch
+
+   Maushold @ Wide Lens
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Hazard Removal
+      - Tidy Up
+      - Population Bomb
+      - Encore
+      - Bite
+
+   Maushold @ Wide Lens
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Hazard Removal
+      - Tidy Up
+      - Population Bomb
+      - Play Rough
+      - Bite
+
+   Maushold @ Loaded Dice
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Beat Up
+      - Population Bomb
+      - Low Kick
+      - Bullet Seed
+
+   Maushold @ Kings Rock
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Hazard Removal
+      - Tidy Up
+      - Population Bomb
+      - Encore
+      - Bite
+
+   Maushold @ Kings Rock
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Bullet Seed
+      - Population Bomb
+      - Beat Up
+      - Play Rough
+
+   Garganacl @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Purifying Salt
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 52 Def / 204 SpD
+      - Salt Cure
+      - Curse
+      - Recover
+      - Earthquake
+
+   Glimmora @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Toxic Debris
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Stealth Rock / Hazard Removal
+      - Mortal Spin
+      - Stealth Rock
+      - Earth Power
+      - Power Gem
+
+   Glimmora @ Power Herb
+      Timid Nature
+      Level: 16
+      Ability: Toxic Debris
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Meteor Beam
+      - Sludge Wave
+      - Earth Power
+      - Dazzling Gleam
+
+   Gholdengo @ Air Balloon
+      Timid Nature
+      Level: 16
+      Ability: Good as Gold
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Nasty Plot
+      - Shadow Ball
+      - Make it Rain
+      - Recover
+
+   Gholdengo @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Good as Gold
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Nasty Plot
+      - Shadow Ball
+      - Make it Rain
+      - Recover
+
+   Gholdengo @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Good as Gold
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Trick
+      - Shadow Ball
+      - Make it Rain
+      - Focus Blast
+
+   Gholdengo @ Rocky Helmet
+      Bold Nature
+      Level: 16
+      Ability: Good as Gold
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 196 Def / 60 Spe
+      - Nasty Plot
+      - Shadow Ball
+      - Make it Rain
+      - Recover
+
+   Gholdengo @ Air Balloon
+      Bold Nature
+      Level: 16
+      Ability: Good as Gold
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 196 Def / 60 Spe
+      - Nasty Plot
+      - Shadow Ball
+      - Dazzling Gleam
+      - Recover
+
+   Gholdengo @ Rocky Helmet
+      Bold Nature
+      Level: 16
+      Ability: Good as Gold
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 196 Def / 60 Spe
+      - Thunder Wave
+      - Hex
+      - Dazzling Gleam
+      - Recover
+
+
+/* The Fairy/Dragon/Steel & Lando team */
 === TRAINER_ANABEL_2 ===
-Name: Anabel
-Class: Champion
-Pic: Salon Maiden Anabel
-Gender: Female
-Music: Male
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
-Mugshot: Yellow
+   Name: Anabel
+   Class: Champion
+   Pic: Salon Maiden Anabel
+   Gender: Female
+   Music: Male
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Mugshot: Yellow
+   Party Size: 6
+   Pool Rules: Core 4 Singles
 
-Snorlax @ Leftovers
-Adamant Nature
-Level: 16
-Ability: Thick Fat
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 4 Def / 252 SpD
-- Body Slam
-- Crunch
-- Fire Punch
-- Earthquake
+   Annihilape @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 Spe
+      Tags: Lead
+      - Final Gambit
+      - Taunt
+      - Drain Punch
+      - Rage Fist
 
-Weavile @ Heavy Duty Boots
-Adamant Nature
-Level: 16
-Ability: Technician
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Ice Shard
-- Knock Off
-- Triple Axel
-- Swords Dance
+   Annihilape @ Chesto Berry
+      Careful Nature
+      Level: 16
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 240 HP / 252 SpD / 16 Spe
+      Tags: Lead
+      - Lash Out
+      - Rest
+      - Drain Punch
+      - Rage Fist
 
-Lucario @ Life Orb
-Jolly Nature
-Level: 16
-Ability: Adaptability
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Bullet Punch
-- Meteor Mash
-- Close Combat
-- Swords Dance
+   Scizor @ Occa Berry
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 120 HP / 252 Atk / 136 Spe
+      Tags: Lead
+      - Swords Dance
+      - Bullet Punch
+      - U Turn
+      - Knock Off
 
-Togekiss @ Leftovers
-Timid Nature
-Level: 16
-Ability: Serene Grace
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 SpA / 252 Spe
-- Thunder Wave
-- Air Slash
-- Moonblast
-- Nasty Plot
+   Scizor @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead
+      - Close Combat
+      - Bullet Punch
+      - U Turn
+      - Knock Off
 
-Latias @ Rocky Helmet
-Bold Nature
-Level: 16
-Ability: Multiscale
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Def / 4 SpA
-- Calm Mind
-- Mist Ball
-- Thunder
-- Recover
+   Espeon @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 200 HP / 236 SpD / 72 Spe
+      Tags: Lead
+      - Calm Mind
+      - Dazzling Gleam
+      - Psychic
+      - Baton Pass
 
-Latios @ Soul Dew
-Modest Nature
-Level: 16
-Ability: Adaptability
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Dragon Pulse
-- Luster Purge
-- Surf
-- Recover
+   Snorlax @ Figy Berry
+      Careful Nature
+      Level: 16
+      Ability: Gluttony
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 Def / 252 SpD
+      Tags: Lead
+      - Body Slam
+      - Curse
+      - Recycle
+      - Earthquake
 
+   Snorlax @ Figy Berry
+      Careful Nature
+      Level: 16
+      Ability: Gluttony
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 Def / 252 SpD
+      Tags: Lead
+      - Body Slam
+      - Belly Drum
+      - Crunch
+      - Earthquake
+
+   Snorlax @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 SpD
+      Tags: Lead
+      - Body Slam
+      - Crunch
+      - Fire Punch
+      - Earthquake
+
+   Snorlax @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 252 Def / 4 SpD
+      Tags: Lead
+      - Body Slam
+      - Crunch
+      - Self Destruct
+      - Earthquake
+
+   Mismagius @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Spell Tag
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Fairy Feather
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Staraptor @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Reckless
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Brave Bird
+      - Double Edge
+      - Close Combat
+      - U Turn
+
+   Staraptor @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Brave Bird
+      - Final Gambit
+      - Close Combat
+      - U Turn
+
+   Staraptor @ Flying Gem
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Acrobatics
+      - Final Gambit
+      - Close Combat
+      - U Turn
+
+   Staraptor @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Reckless
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Brave Bird
+      - Final Gambit
+      - Close Combat
+      - U Turn
+
+   Landorus @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead / Core 1
+      - Sandsear Storm
+      - Focus Blast
+      - Psychic
+      - Sludge Bomb
+
+   Landorus @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead / Stealth Rock / Core 1
+      - Sandsear Storm
+      - Focus Blast
+      - Nasty Plot
+      - Stealth Rock
+
+   Landorus @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Lead / Stealth Rock / Core 1
+      - Earth Power
+      - Focus Blast
+      - Psychic
+      - Stealth Rock
+
+   Landorus Therian @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead / Stealth Rock / Core 1
+      - Stealth Rock
+      - Earthquake
+      - Rock Tomb
+      - Explosion
+
+   Landorus Therian @ Yache Berry
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead / Stealth Rock / Core 1
+      - Stealth Rock
+      - Earthquake
+      - U Turn
+      - Explosion
+
+   Landorus Therian @ Yache Berry
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead / Stealth Rock / Core 1
+      - Stealth Rock
+      - Earthquake
+      - U Turn
+      - Imprison
+
+   Landorus Therian @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead / Stealth Rock / Core 1
+      - Stealth Rock
+      - Earthquake
+      - Rock Tomb
+      - Imprison
+
+   Alakazam @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Psychic
+      - Psystrike
+      - Focus Blast
+      - Nasty Plot
+
+   Alakazam @ Life Orb
+      Modest Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Dazzling Gleam
+      - Psystrike
+      - Focus Blast
+      - Nasty Plot
+
+   Alakazam @ Focus Sash
+      Modest Nature
+      Level: 16
+      Ability: Inner Focus
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Dazzling Gleam
+      - Psystrike
+      - Focus Blast
+      - Nasty Plot
+
+   Alakazam @ Choice Specs
+      Timid Nature
+      Level: 16
+      Ability: Inner Focus
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Trick
+      - Psystrike
+      - Focus Blast
+      - Dazzling Gleam
+
+   Dragonite @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Dragonite @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Dragonite @ Normal Gem
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Scizor @ Occa Berry
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 120 HP / 252 Atk / 136 Spe
+      - Swords Dance
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Scizor @ Steel Gem
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 120 HP / 252 Atk / 136 Spe
+      - Swords Dance
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Scizor @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Close Combat
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Espeon @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 200 HP / 236 SpD / 72 Spe
+      - Calm Mind
+      - Dazzling Gleam
+      - Stored Power
+      - Baton Pass
+
+   Togekiss @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 8 SpA / 252 Spe
+      - Thunder Wave
+      - Air Slash
+      - Moonblast
+      - Nasty Plot
+
+   Togekiss @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 216 Def / 44 Spe
+      - Thunder Wave
+      - Air Slash
+      - Roost
+      - Nasty Plot
+
+   Togekiss @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Thunder Wave
+      - Air Slash
+      - Trick
+      - Roost
+
+   Togekiss @ Scope Lens
+      Timid Nature
+      Level: 16
+      Ability: Super Luck
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 SpA / 252 Spe
+      - Thunder Wave
+      - Air Slash
+      - Moonblast
+      - Fire Blast
+
+   Mismagius @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Spell Tag
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Fairy Feather
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Psyshock
+      - Mystical Fire
+
+   Salamence @ Throat Spray
+      Naive Nature
+      Level: 16
+      Ability: Aerilate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      - Double Edge
+      - Dragon Rush
+      - Hyper Voice
+      - Fire Blast
+
+   Salamence @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      - Dual Wingbeat
+      - Fire Blast
+      - Earthquake
+      - Dragon Dance
+
+   Salamence @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Dual Wingbeat
+      - Earthquake
+      - Iron Head
+      - Dragon Dance
+
+   Latias @ Rocky Helmet
+      Bold Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpA
+      Tags: Core 4
+      - Calm Mind
+      - Mist Ball
+      - Thunder
+      - Recover
+
+   Latias @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 Spe
+      Tags: Core 4
+      - Calm Mind
+      - Stored Power
+      - Thunderbolt
+      - Recover
+
+   Latias @ Soul Dew
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 116 SpA / 140 Spe
+      Tags: Core 4
+      - Thunder
+      - Refresh
+      - Ice Beam
+      - Recover
+
+   Latias @ Soul Dew
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 Spe
+      Tags: Core 4
+      - Aura Sphere
+      - Mystical Fire
+      - Mist Ball
+      - Recover
+
+   Latias @ Weakness Policy
+      Timid Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 4
+      - Thunderbolt
+      - Psyshock
+      - Ice Beam
+      - Mist Ball
+
+   Latios @ Soul Dew
+      Modest Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Dragon Pulse
+      - Luster Purge
+      - Surf
+      - Recover
+
+   Latios @ Soul Dew
+      Timid Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Aura Sphere
+      - Luster Purge
+      - Ice Beam
+      - Recover
+
+   Latios @ Soul Dew
+      Timid Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Thunderbolt
+      - Luster Purge
+      - Ice Beam
+      - Recover
+
+   Latios @ Soul Dew
+      Modest Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Thunder
+      - Luster Purge
+      - Draco Meteor
+      - Recover
+
+   Latios @ Soul Dew
+      Naive Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Earthquake
+      - Luster Purge
+      - Draco Meteor
+      - Recover
+
+   Lucario @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bullet Punch
+      - Meteor Mash
+      - Close Combat
+      - Swords Dance
+
+   Lucario @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bullet Punch
+      - Meteor Mash
+      - Close Combat
+      - Extreme Speed
+
+   Lucario @ Assault Vest
+      Jolly Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Blaze Kick
+      - Meteor Mash
+      - Close Combat
+      - Extreme Speed
+
+   Lucario @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Vacuum Wave
+      - Flash Cannon
+      - Aura Sphere
+      - Nasty Plot
+
+   Lucario @ Weakness Policy
+      Naive Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 SpA / 252 Spe
+      - Vacuum Wave
+      - Flash Cannon
+      - Aura Sphere
+      - Extreme Speed
+
+   Landorus @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Earth Power
+      - Focus Blast
+      - Psychic
+      - Sludge Bomb
+
+   Landorus @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Sandsear Storm
+      - Focus Blast
+      - Nasty Plot
+      - Sludge Bomb
+
+   Landorus @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Earth Power
+      - Focus Blast
+      - Calm Mind
+      - Sludge Bomb
+
+   Landorus Therian @ Rocky Helmet
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 Spe
+      Tags: Stealth Rock / Core 1
+      - Stealth Rock
+      - Earthquake
+      - U Turn
+      - Taunt
+
+   Landorus Therian @ Soft Sand
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 8 HP / 240 Atk / 8 SpD / 252 Spe
+      Tags: Stealth Rock / Core 1
+      - Stealth Rock
+      - Earthquake
+      - U Turn
+      - Stone Edge
+
+   Landorus Therian @ Soft Sand
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 8 HP / 240 Atk / 8 SpD / 252 Spe
+      Tags: Stealth Rock / Core 1
+      - Stealth Rock
+      - Earthquake
+      - Taunt
+      - Stone Edge
+
+   Landorus Therian @ Soft Sand
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 8 HP / 240 Atk / 8 SpD / 252 Spe
+      Tags: Core 1
+      - Swords Dance
+      - Earthquake
+      - Taunt
+      - Stone Edge
+
+   Landorus Therian @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 8 HP / 240 Atk / 8 SpD / 252 Spe
+      Tags: Core 1
+      - Rock Slide
+      - Earthquake
+      - U Turn
+      - Explosion
+
+   Landorus Therian @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 232 Atk / 68 Def / 252 Spe
+      Tags: Core 1
+      - Rock Slide
+      - Earthquake
+      - U Turn
+      - Explosion
+
+   Doublade @ Eviolite
+      Adamant Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Swords Dance
+      - Shadow Claw
+      - Cut
+      - Sacred Sword
+
+   Doublade @ Eviolite
+      Impish Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      - Swords Dance
+      - Shadow Claw
+      - Cut
+      - Sacred Sword
+
+   Doublade @ Eviolite
+      Careful Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      - Swords Dance
+      - Shadow Claw
+      - Cut
+      - Sacred Sword
+
+   Aegislash @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Steel Beam
+      - Shadow Ball
+      - Close Combat
+      - Flash Cannon
+
+   Aegislash @ Leftovers
+      Modest Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Kings Shield
+      - Shadow Ball
+      - Close Combat
+      - Flash Cannon
+
+   Aegislash @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Kings Shield
+      - Shadow Claw
+      - Iron Head
+      - Sacred Sword
+
+   Aegislash @ Leftovers
+      Brave Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Kings Shield
+      - Shadow Claw
+      - Iron Head
+      - Sacred Sword
+
+   Aegislash @ Iron Ball
+      Brave Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Kings Shield
+      - Shadow Claw
+      - Iron Head
+      - Shadow Sneak
+
+   Aegislash @ Leftovers
+      Quiet Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 SpA / 4 SpD
+      - Kings Shield
+      - Shadow Ball
+      - Close Combat
+      - Flash Cannon
+
+   Aegislash @ Leftovers
+      Sassy Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 SpA / 252 SpD
+      - Kings Shield
+      - Shadow Ball
+      - Gyro Ball
+      - Toxic
+
+   Aegislash @ Iron Ball
+      Sassy Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 SpA / 252 SpD
+      - Kings Shield
+      - Shadow Ball
+      - Gyro Ball
+      - Toxic
+
+   Xerneas @ Power Herb
+      Modest Nature
+      Level: 16
+      Ability: Fairy Aura
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 168 Def / 252 SpA / 88 Spe
+      Tags: Core 3
+      - Geomancy
+      - Moonblast
+      - Thunder
+      - Ingrain
+
+   Xerneas @ Power Herb
+      Modest Nature
+      Level: 16
+      Ability: Fairy Aura
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 168 Def / 252 SpA / 88 Spe
+      Tags: Core 3
+      - Geomancy
+      - Moonblast
+      - Thunder
+      - Substitute
+
+   Xerneas @ Power Herb
+      Modest Nature
+      Level: 16
+      Ability: Fairy Aura
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 168 Def / 252 SpA / 88 Spe
+      Tags: Core 3
+      - Geomancy
+      - Moonblast
+      - Thunder
+      - Aromatherapy
+
+   Xerneas @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Fairy Aura
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Core 3
+      - Rest
+      - Moonblast
+      - Sleep Talk
+      - Thunder Wave
+
+   Xerneas @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Fairy Aura
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Core 3
+      - Rest
+      - Moonblast
+      - Sleep Talk
+      - Aromatherapy
+
+   Xerneas @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Fairy Aura
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 3
+      - Thunder
+      - Moonblast
+      - Focus Blast
+      - Psyshock
+
+   Xerneas @ Choice Scarf
+      Modest Nature
+      Level: 16
+      Ability: Fairy Aura
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 32 Def / 252 SpA / 224 Spe
+      Tags: Core 3
+      - Grass Knot
+      - Moonblast
+      - Focus Blast
+      - Psyshock
+
+   Xerneas @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Fairy Aura
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 3
+      - Grass Knot
+      - Moonblast
+      - Focus Blast
+      - Psyshock
+
+   Xerneas @ Choice Specs
+      Timid Nature
+      Level: 16
+      Ability: Fairy Aura
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 3
+      - Thunder
+      - Moonblast
+      - Focus Blast
+      - Psyshock
+
+   Primarina @ Assault Vest
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Surf
+      - Moonblast
+      - Psychic Noise
+      - Flip Turn
+
+   Primarina @ Leftovers
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Hydro Pump
+      - Moonblast
+      - Psychic Noise
+      - Calm Mind
+
+   Primarina @ Custap Berry
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Hydro Pump
+      - Moonblast
+      - Substitute
+      - Calm Mind
+
+   Primarina @ Throat Spray
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Sparkling Aria
+      - Psychic Noise
+      - Alluring Voice
+      - Ice Beam
+
+   Primarina @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Liquid Voice
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 248 Def / 8 SpD
+      - Psychic Noise
+      - Draining Kiss
+      - Substitute
+      - Calm Mind
+
+   Celesteela @ Leftovers
+      Sassy Nature
+      Level: 16
+      Ability: Beast Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Core 2
+      - Heavy Slam
+      - Leech Seed
+      - Flamethrower
+      - Toxic
+
+   Celesteela @ Leftovers
+      Sassy Nature
+      Level: 16
+      Ability: Beast Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Core 2
+      - Heavy Slam
+      - Leech Seed
+      - Flamethrower
+      - Protect
+
+   Celesteela @ Power Herb
+      Modest Nature
+      Level: 16
+      Ability: Beast Boost
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Autotomize
+      - Fire Blast
+      - Air Slash
+      - Meteor Beam
+
+   Celesteela @ Power Herb
+      Modest Nature
+      Level: 16
+      Ability: Beast Boost
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Autotomize
+      - Fire Blast
+      - Flash Cannon
+      - Meteor Beam
+
+   Kartana @ Protective Pads
+      Jolly Nature
+      Level: 16
+      Ability: Beast Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Leaf Blade
+      - Sacred Sword
+      - Knock Off
+      - Swords Dance
+
+   Kartana @ Adrenaline Orb
+      Jolly Nature
+      Level: 16
+      Ability: Beast Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Leaf Blade
+      - Sacred Sword
+      - Knock Off
+      - Swords Dance
+
+   Kartana @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Beast Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Leaf Blade
+      - Sacred Sword
+      - Knock Off
+      - Smart Strike
+
+   Kartana @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Beast Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Leaf Blade
+      - Sacred Sword
+      - Knock Off
+      - Smart Strike
+
+   Magearna @ Assault Vest
+      Calm Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 72 Def / 188 SpD
+      - Fleur Cannon
+      - Ice Beam
+      - Focus Blast
+      - Volt Switch
+
+   Magearna @ Assault Vest
+      Calm Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 72 Def / 188 SpD
+      - Fleur Cannon
+      - Energy Ball
+      - Iron Head
+      - Volt Switch
+
+   Magearna @ Assault Vest
+      Calm Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 72 Def / 188 SpD
+      - Fleur Cannon
+      - Ice Beam
+      - Iron Head
+      - Volt Switch
+
+   Magearna @ Assault Vest
+      Calm Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 72 Def / 188 SpD
+      - Fleur Cannon
+      - Focus Blast
+      - Iron Head
+      - Volt Switch
+
+   Magearna @ Assault Vest
+      Calm Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 72 Def / 188 SpD
+      - Fleur Cannon
+      - Focus Blast
+      - Energy Ball
+      - Volt Switch
+
+   Magearna @ Assault Vest
+      Calm Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 72 Def / 188 SpD
+      - Fleur Cannon
+      - Ice Beam
+      - Energy Ball
+      - Volt Switch
+
+   Magearna @ Fairy Gem
+      Modest Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 28 Def / 224 SpA / 8 SpD
+      - Fleur Cannon
+      - Pain Split
+      - Calm Mind
+      - Thunderbolt
+
+   Magearna @ Fairy Gem
+      Modest Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 28 Def / 224 SpA / 8 SpD
+      - Fleur Cannon
+      - Pain Split
+      - Calm Mind
+      - Thunderbolt
+
+   Magearna @ Fairy Gem
+      Calm Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 72 Def / 188 SpD
+      - Fleur Cannon
+      - Pain Split
+      - Heart Swap
+      - Volt Switch
+
+   Magearna @ Leftovers
+      Calm Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 72 Def / 188 SpD
+      - Ice Beam
+      - Pain Split
+      - Flash Cannon
+      - Volt Switch
+
+   Magearna @ Leftovers
+      Calm Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 72 Def / 188 SpD
+      - Fleur Cannon
+      - Pain Split
+      - Heart Swap
+      - Volt Switch
+
+   Magearna @ Fighting Gem
+      Timid Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Shift Gear
+      - Focus Blast
+      - Fleur Cannon
+      - Thunderbolt
+
+   Magearna @ Fairy Gem
+      Timid Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Shift Gear
+      - Focus Blast
+      - Fleur Cannon
+      - Thunderbolt
+
+   Magearna @ Fighting Gem
+      Timid Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Shift Gear
+      - Focus Blast
+      - Ice Beam
+      - Thunderbolt
+
+   Magearna @ Fairy Gem
+      Timid Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Shift Gear
+      - Ice Beam
+      - Fleur Cannon
+      - Thunderbolt
+
+   Magearna @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Shift Gear
+      - Focus Blast
+      - Fleur Cannon
+      - Calm Mind
+
+   Magearna @ Leftovers
+      Quiet Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Def / 252 SpA
+      Tags: Trick Room Setter
+      - Trick Room
+      - Focus Blast
+      - Fleur Cannon
+      - Thunderbolt
+
+   Magearna @ Leftovers
+      Quiet Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Def / 252 SpA
+      Tags: Trick Room Setter
+      - Trick Room
+      - Ice Beam
+      - Fleur Cannon
+      - Thunderbolt
+
+   Magearna @ Leftovers
+      Quiet Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Def / 252 SpA
+      Tags: Trick Room Setter
+      - Trick Room
+      - Ice Beam
+      - Fleur Cannon
+      - Flash Cannon
+
+   Magearna @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Soul Heart
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      - Volt Switch
+      - Pain Split
+      - Fleur Cannon
+      - Heal Bell
+
+   Stakataka @ Leftovers
+      Sassy Nature
+      Level: 16
+      Ability: Beast Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      Tags: Stealth Rock / Core 2
+      - Stealth Rock
+      - Gyro Ball
+      - Body Press
+      - Toxic
+
+   Stakataka @ Leftovers
+      Sassy Nature
+      Level: 16
+      Ability: Beast Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      Tags: Stealth Rock / Core 2
+      - Stealth Rock
+      - Gyro Ball
+      - Body Press
+      - Rock Blast
+
+   Stakataka @ Life Orb
+      Lonely Nature
+      Level: 16
+      Ability: Beast Boost
+      IVs: 31 HP / 31 Atk / 15 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      Tags: Trick Room Setter / Core 2
+      - Trick Room
+      - Gyro Ball
+      - Stone Edge
+      - Superpower
+
+   Stakataka @ Life Orb
+      Lonely Nature
+      Level: 16
+      Ability: Beast Boost
+      IVs: 31 HP / 31 Atk / 15 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      Tags: Trick Room Setter / Core 2
+      - Trick Room
+      - Gyro Ball
+      - Rock Blast
+      - Earthquake
+
+   Melmetal @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Iron Fist
+      IVs: 31 HP / 31 Atk / 15 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 20 HP / 252 Atk / 192 SpD / 44 Spe
+      - Double Iron Bash
+      - Earthquake
+      - Protect
+      - Thunder Punch
+
+   Melmetal @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Iron Fist
+      IVs: 31 HP / 31 Atk / 15 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 20 HP / 252 Atk / 192 SpD / 44 Spe
+      - Double Iron Bash
+      - Earthquake
+      - Protect
+      - Toxic
+
+   Melmetal @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Iron Fist
+      IVs: 31 HP / 31 Atk / 15 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 20 HP / 252 Atk / 192 SpD / 44 Spe
+      - Double Iron Bash
+      - Superpower
+      - Protect
+      - Toxic
+
+   Melmetal @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Iron Fist
+      IVs: 31 HP / 31 Atk / 15 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 176 HP / 92 Atk / 228 SpD / 12 Spe
+      - Double Iron Bash
+      - Earthquake
+      - Superpower
+      - Thunder Punch
+
+   Melmetal @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Iron Fist
+      IVs: 31 HP / 31 Atk / 15 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 176 HP / 92 Atk / 228 SpD / 12 Spe
+      - Double Iron Bash
+      - Earthquake
+      - Ice Punch
+      - Thunder Punch
+
+   Melmetal @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Iron Fist
+      IVs: 31 HP / 31 Atk / 15 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 176 HP / 92 Atk / 228 SpD / 12 Spe
+      - Double Iron Bash
+      - Superpower
+      - Ice Punch
+      - Thunder Punch
+
+   Hatterene @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 0 Atk / 15 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 204 Def / 52 Spe
+      - Calm Mind
+      - Draining Kiss
+      - Psyshock
+      - Mystical Fire
+
+   Hatterene @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 0 Atk / 15 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 204 Def / 52 Spe
+      - Calm Mind
+      - Draining Kiss
+      - Stored Power
+      - Mystical Fire
+
+   Hatterene @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 31 Atk / 15 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 204 Def / 52 Spe
+      - Calm Mind
+      - Draining Kiss
+      - Stored Power
+      - Nuzzle
+
+   Hatterene @ Assault Vest
+      Modest Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 0 Atk / 15 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 140 SpA / 104 SpD / 12 Spe
+      - Psyshock
+      - Draining Kiss
+      - Future Sight
+      - Mystical Fire
+
+   Hatterene @ Assault Vest
+      Modest Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 31 Atk / 15 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 140 SpA / 104 SpD / 12 Spe
+      - Psyshock
+      - Draining Kiss
+      - Nuzzle
+      - Mystical Fire
+
+   Hatterene @ Focus Sash
+      Quiet Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 0 Atk / 15 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 140 SpA / 104 SpD / 12 Spe
+      Tags: Trick Room Setter
+      - Trick Room
+      - Psychic Noise
+      - Dazzling Gleam
+      - Healing Wish
+
+   Gholdengo @ Air Balloon
+      Timid Nature
+      Level: 16
+      Ability: Good as Gold
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Nasty Plot
+      - Shadow Ball
+      - Make it Rain
+      - Recover
+
+   Gholdengo @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Good as Gold
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Nasty Plot
+      - Shadow Ball
+      - Make it Rain
+      - Recover
+
+   Gholdengo @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Good as Gold
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Trick
+      - Shadow Ball
+      - Make it Rain
+      - Focus Blast
+
+   Gholdengo @ Rocky Helmet
+      Bold Nature
+      Level: 16
+      Ability: Good as Gold
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 196 Def / 60 Spe
+      - Nasty Plot
+      - Shadow Ball
+      - Make it Rain
+      - Recover
+
+   Gholdengo @ Air Balloon
+      Bold Nature
+      Level: 16
+      Ability: Good as Gold
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 196 Def / 60 Spe
+      - Nasty Plot
+      - Shadow Ball
+      - Dazzling Gleam
+      - Recover
+
+   Gholdengo @ Rocky Helmet
+      Bold Nature
+      Level: 16
+      Ability: Good as Gold
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 196 Def / 60 Spe
+      - Thunder Wave
+      - Hex
+      - Dazzling Gleam
+      - Recover
+
+
+/* The Fire/Water/Grass & Jirachi team */
 === TRAINER_ANABEL_3 ===
-Name: Anabel
-Class: Champion
-Pic: Salon Maiden Anabel
-Gender: Female
-Music: Male
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
-Mugshot: Yellow
+   Name: Anabel
+   Class: Champion
+   Pic: Salon Maiden Anabel
+   Gender: Female
+   Music: Male
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Mugshot: Yellow
+   Party Size: 6
+   Pool Rules: Core 4 Singles
 
-Snorlax @ Assault Vest
-Adamant Nature
-Level: 16
-Ability: Thick Fat
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 252 Def / 4 SpD
-- Body Slam
-- Crunch
-- Self Destruct
-- Earthquake
+   Annihilape @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 Spe
+      Tags: Lead
+      - Final Gambit
+      - Taunt
+      - Drain Punch
+      - Rage Fist
 
-Mismagius @ Life Orb
-Timid Nature
-Level: 16
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Astral Barrage
-- Moonblast
-- Nasty Plot
-- Destiny Bond
+   Annihilape @ Chesto Berry
+      Careful Nature
+      Level: 16
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 240 HP / 252 SpD / 16 Spe
+      Tags: Lead
+      - Lash Out
+      - Rest
+      - Drain Punch
+      - Rage Fist
 
-Weavile @ Heavy Duty Boots
-Adamant Nature
-Level: 16
-Ability: Technician
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Ice Shard
-- Knock Off
-- Triple Axel
-- Swords Dance
+   Scizor @ Occa Berry
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 120 HP / 252 Atk / 136 Spe
+      Tags: Lead
+      - Swords Dance
+      - Bullet Punch
+      - U Turn
+      - Knock Off
 
-Dragonite @ Leftovers
-Adamant Nature
-Level: 16
-Ability: Thick Fat
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Dual Wingbeat
-- Extreme Speed
-- Earthquake
-- Dragon Dance
+   Scizor @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead
+      - Close Combat
+      - Bullet Punch
+      - U Turn
+      - Knock Off
 
-Manaphy @ Mystic Water
-Timid Nature
-Level: 16
-Ability: Hydration
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 SpA / 252 Spe
-- Surf
-- Ice Beam
-- Tail Glow
-- Recover
+   Espeon @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 200 HP / 236 SpD / 72 Spe
+      Tags: Lead
+      - Calm Mind
+      - Dazzling Gleam
+      - Psychic
+      - Baton Pass
 
-Alakazam @ Life Orb
-Modest Nature
-Level: 16
-Ability: Magic Guard
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Psychic
-- Psystrike
-- Focus Blast
-- Nasty Plot
+   Snorlax @ Figy Berry
+      Careful Nature
+      Level: 16
+      Ability: Gluttony
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 Def / 252 SpD
+      Tags: Lead
+      - Body Slam
+      - Curse
+      - Recycle
+      - Earthquake
 
+   Snorlax @ Figy Berry
+      Careful Nature
+      Level: 16
+      Ability: Gluttony
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 Def / 252 SpD
+      Tags: Lead
+      - Body Slam
+      - Belly Drum
+      - Crunch
+      - Earthquake
+
+   Snorlax @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 SpD
+      Tags: Lead
+      - Body Slam
+      - Crunch
+      - Fire Punch
+      - Earthquake
+
+   Snorlax @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 252 Def / 4 SpD
+      Tags: Lead
+      - Body Slam
+      - Crunch
+      - Self Destruct
+      - Earthquake
+
+   Mismagius @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Spell Tag
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Fairy Feather
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Jirachi @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 188 SpD / 72 Spe
+      Tags: Lead / Stealth Rock / Core 1
+      - Iron Head
+      - Stealth Rock
+      - U Turn
+      - Healing Wish
+
+   Staraptor @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Reckless
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Brave Bird
+      - Double Edge
+      - Close Combat
+      - U Turn
+
+   Staraptor @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Brave Bird
+      - Final Gambit
+      - Close Combat
+      - U Turn
+
+   Staraptor @ Flying Gem
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Acrobatics
+      - Final Gambit
+      - Close Combat
+      - U Turn
+
+   Staraptor @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Reckless
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Brave Bird
+      - Final Gambit
+      - Close Combat
+      - U Turn
+
+   Victini @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Victory Star
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 Spe
+      Tags: Lead / Core 2
+      - V Create
+      - U Turn
+      - Final Gambit
+      - Trick
+
+   Victini @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Victory Star
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 Spe
+      Tags: Lead / Core 2
+      - V Create
+      - U Turn
+      - Bolt Strike
+      - Trick
+
+   Victini @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Victory Star
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead / Core 2
+      - V Create
+      - U Turn
+      - Bolt Strike
+      - Zen Headbutt
+
+   Arcanine Hisui @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flare Blitz
+      - Head Smash
+      - Close Combat
+      - Extreme Speed
+
+   Arcanine Hisui @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flare Blitz
+      - Head Smash
+      - Morning Sun
+      - Extreme Speed
+
+   Alakazam @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Psychic
+      - Psystrike
+      - Focus Blast
+      - Nasty Plot
+
+   Alakazam @ Life Orb
+      Modest Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Dazzling Gleam
+      - Psystrike
+      - Focus Blast
+      - Nasty Plot
+
+   Alakazam @ Focus Sash
+      Modest Nature
+      Level: 16
+      Ability: Inner Focus
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Dazzling Gleam
+      - Psystrike
+      - Focus Blast
+      - Nasty Plot
+
+   Alakazam @ Choice Specs
+      Timid Nature
+      Level: 16
+      Ability: Inner Focus
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Trick
+      - Psystrike
+      - Focus Blast
+      - Dazzling Gleam
+
+   Espeon @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 200 HP / 236 SpD / 72 Spe
+      - Calm Mind
+      - Dazzling Gleam
+      - Stored Power
+      - Baton Pass
+
+   Dragonite @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Dragonite @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Dragonite @ Normal Gem
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Scizor @ Occa Berry
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 120 HP / 252 Atk / 136 Spe
+      - Swords Dance
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Scizor @ Steel Gem
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 120 HP / 252 Atk / 136 Spe
+      - Swords Dance
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Scizor @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Close Combat
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Togekiss @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 8 SpA / 252 Spe
+      - Thunder Wave
+      - Air Slash
+      - Moonblast
+      - Nasty Plot
+
+   Togekiss @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 216 Def / 44 Spe
+      - Thunder Wave
+      - Air Slash
+      - Roost
+      - Nasty Plot
+
+   Togekiss @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Thunder Wave
+      - Air Slash
+      - Trick
+      - Roost
+
+   Togekiss @ Scope Lens
+      Timid Nature
+      Level: 16
+      Ability: Super Luck
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 SpA / 252 Spe
+      - Thunder Wave
+      - Air Slash
+      - Moonblast
+      - Fire Blast
+
+   Gliscor @ Toxic Orb
+      Jolly Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 SpD / 170 Spe
+      - Earthquake
+      - Roost
+      - Facade
+      - Swords Dance
+
+   Gliscor @ Toxic Orb
+      Careful Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 244 HP / 36 Def / 228 SpD
+      - Earthquake
+      - Roost
+      - Ice Fang
+      - Swords Dance
+
+   Gliscor @ Toxic Orb
+      Impish Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 244 HP / 240 SpD / 16 SpD
+      Tags: Spikes
+      - Earthquake
+      - Spikes
+      - Protect
+      - Knock Off
+
+   Mismagius @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Spell Tag
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Fairy Feather
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Psyshock
+      - Mystical Fire
+
+   Sneasler @ Air Balloon
+      Adamant Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Close Combat
+      - Throat Chop
+      - Acrobatics
+
+   Sneasler @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Close Combat
+      - Throat Chop
+      - Dire Claw
+
+   Sneasler @ Flying Gem
+      Adamant Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Close Combat
+      - Throat Chop
+      - Acrobatics
+
+   Weavile @ Heavy Duty Boots
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Knock Off
+      - Triple Axel
+      - Swords Dance
+
+   Weavile @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Knock Off
+      - Triple Axel
+      - Swords Dance
+
+   Weavile @ Loaded Dice
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Pursuit
+      - Icicle Spear
+      - Beat Up
+
+   Weavile @ Dark Gem
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Pursuit
+      - Triple Axel
+      - Thief
+
+   Blaziken @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Blaze Kick
+      - Sky Uppercut
+      - Thunder Punch
+      - Upper Hand
+
+   Blaziken @ Focus Sash
+      Naive Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Endure
+      - Reversal
+      - Overheat
+      - Substitute
+
+   Blaziken @ Bright Powder
+      Jolly Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Blaze Kick
+      - Sky Uppercut
+      - Swords Dance
+      - Baton Pass
+
+   Blaziken @ Weakness Policy
+      Naive Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      - Endure
+      - Vacuum Wave
+      - Reversal
+      - Baton Pass
+
+   Blaziken @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Flare Blitz
+      - Close Combat
+      - U Turn
+      - Knock Off
+
+   Salamence @ Throat Spray
+      Naive Nature
+      Level: 16
+      Ability: Aerilate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      - Double Edge
+      - Dragon Rush
+      - Hyper Voice
+      - Fire Blast
+
+   Salamence @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      - Dual Wingbeat
+      - Fire Blast
+      - Earthquake
+      - Dragon Dance
+
+   Salamence @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Dual Wingbeat
+      - Earthquake
+      - Iron Head
+      - Dragon Dance
+
+   Jirachi @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Iron Head
+      - Thunder Punch
+      - Heart Stamp
+      - U Turn
+
+   Jirachi @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Iron Head
+      - Fire Punch
+      - Healing Wish
+      - U Turn
+
+   Jirachi @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Iron Head
+      - Trick
+      - Healing Wish
+      - U Turn
+
+   Jirachi @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 188 SpD / 72 Spe
+      Tags: Core 1
+      - Iron Head
+      - Body Slam
+      - Wish
+      - Protect
+
+   Jirachi @ Expert Belt
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 32 HP / 232 SpA / 224 Spe
+      Tags: Core 1
+      - Calm Mind
+      - Thunder
+      - Psychic Noise
+      - Grass Knot
+
+   Jirachi @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 32 HP / 232 SpA / 224 Spe
+      Tags: Core 1
+      - Calm Mind
+      - Aura Sphere
+      - Psychic Noise
+      - Grass Knot
+
+   Jirachi @ Expert Belt
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 32 HP / 232 SpA / 224 Spe
+      Tags: Core 1
+      - Calm Mind
+      - Shadow Ball
+      - Psychic Noise
+      - Grass Knot
+
+   Lucario @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bullet Punch
+      - Meteor Mash
+      - Close Combat
+      - Swords Dance
+
+   Lucario @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bullet Punch
+      - Meteor Mash
+      - Close Combat
+      - Extreme Speed
+
+   Lucario @ Assault Vest
+      Jolly Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Blaze Kick
+      - Meteor Mash
+      - Close Combat
+      - Extreme Speed
+
+   Lucario @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Vacuum Wave
+      - Flash Cannon
+      - Aura Sphere
+      - Nasty Plot
+
+   Lucario @ Weakness Policy
+      Naive Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 SpA / 252 Spe
+      - Vacuum Wave
+      - Flash Cannon
+      - Aura Sphere
+      - Extreme Speed
+
+   Manaphy @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Hydration
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 40 Def / 216 Spe
+      Tags: Core 3
+      - Take Heart
+      - Acid Armor
+      - Scald
+      - Stored Power
+
+   Manaphy @ Weakness Policy
+      Timid Nature
+      Level: 16
+      Ability: Hydration
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 40 Def / 216 Spe
+      Tags: Core 3
+      - Take Heart
+      - Acid Armor
+      - Scald
+      - Stored Power
+
+   Manaphy @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Hydration
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 3
+      - Tail Glow
+      - Ice Beam
+      - Surf
+      - Energy Ball
+
+   Manaphy @ Chesto Berry
+      Timid Nature
+      Level: 16
+      Ability: Hydration
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 3
+      - Tail Glow
+      - Ice Beam
+      - Surf
+      - Rest
+
+   Manaphy @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Hydration
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 3
+      - Tail Glow
+      - Ice Beam
+      - Surf
+      - Substitute
+
+   Shaymin Sky @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 4
+      - Seed Flare
+      - Air Slash
+      - Earth Power
+      - Healing Wish
+
+   Shaymin Sky @ Metronome
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 4
+      - Seed Flare
+      - Air Slash
+      - Earth Power
+      - Healing Wish
+
+   Shaymin Sky @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 4
+      - Seed Flare
+      - Air Slash
+      - Earth Power
+      - Healing Wish
+
+   Shaymin Sky @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 4
+      - Seed Flare
+      - Air Slash
+      - Leech Seed
+      - Substitute
+
+   Victini @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Victory Star
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 Spe
+      Tags: Core 2
+      - V Create
+      - U Turn
+      - Final Gambit
+      - Trick
+
+   Victini @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Victory Star
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 Spe
+      Tags: Core 2
+      - V Create
+      - U Turn
+      - Bolt Strike
+      - Trick
+
+   Victini @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Victory Star
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 2
+      - V Create
+      - U Turn
+      - Bolt Strike
+      - Zen Headbutt
+
+   Victini @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Victory Star
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      Tags: Core 2
+      - V Create
+      - U Turn
+      - Bolt Strike
+      - Glaciate
+
+   Doublade @ Eviolite
+      Adamant Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Swords Dance
+      - Shadow Claw
+      - Cut
+      - Sacred Sword
+
+   Doublade @ Eviolite
+      Impish Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      - Swords Dance
+      - Shadow Claw
+      - Cut
+      - Sacred Sword
+
+   Doublade @ Eviolite
+      Careful Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      - Swords Dance
+      - Shadow Claw
+      - Cut
+      - Sacred Sword
+
+   Aegislash @ Leftovers
+      Brave Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Kings Shield
+      - Shadow Claw
+      - Iron Head
+      - Sacred Sword
+
+   Aegislash @ Iron Ball
+      Brave Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Kings Shield
+      - Shadow Claw
+      - Iron Head
+      - Shadow Sneak
+
+   Aegislash @ Leftovers
+      Quiet Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 SpA / 4 SpD
+      - Kings Shield
+      - Shadow Ball
+      - Close Combat
+      - Flash Cannon
+
+   Aegislash @ Leftovers
+      Sassy Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 SpA / 252 SpD
+      - Kings Shield
+      - Shadow Ball
+      - Gyro Ball
+      - Toxic
+
+   Aegislash @ Iron Ball
+      Sassy Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 SpA / 252 SpD
+      - Kings Shield
+      - Shadow Ball
+      - Gyro Ball
+      - Toxic
+
+   Primarina @ Assault Vest
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Surf
+      - Moonblast
+      - Psychic Noise
+      - Flip Turn
+
+   Primarina @ Leftovers
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Hydro Pump
+      - Moonblast
+      - Psychic Noise
+      - Calm Mind
+
+   Primarina @ Custap Berry
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Hydro Pump
+      - Moonblast
+      - Substitute
+      - Calm Mind
+
+   Primarina @ Throat Spray
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Sparkling Aria
+      - Psychic Noise
+      - Alluring Voice
+      - Ice Beam
+
+   Primarina @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Liquid Voice
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 248 Def / 8 SpD
+      - Psychic Noise
+      - Draining Kiss
+      - Substitute
+      - Calm Mind
+
+   Meowscarada @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flower Trick
+      - U Turn
+      - Knock Off
+      - Triple Axel
+
+   Meowscarada @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flower Trick
+      - U Turn
+      - Play Rough
+      - Triple Axel
+
+   Meowscarada @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flower Trick
+      - U Turn
+      - Knock Off
+      - Triple Axel
+
+   Meowscarada @ Miracle Seed
+      Jolly Nature
+      Level: 16
+      Ability: Overgrow
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flower Trick
+      - U Turn
+      - Knock Off
+      - Triple Axel
+
+   Meowscarada @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Toxic Spikes
+      - Flower Trick
+      - Toxic Spikes
+      - Throat Chop
+      - Sucker Punch
+
+   Garganacl @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Purifying Salt
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 52 Def / 204 SpD
+      - Salt Cure
+      - Curse
+      - Recover
+      - Earthquake
+
+   Armarouge @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Armor Cannon
+      - Psyshock
+      - Energy Ball
+      - Calm Mind
+
+   Armarouge @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Flash Fire
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Armor Cannon
+      - Psyshock
+      - Energy Ball
+      - Focus Blast
+
+   Armarouge @ Power Herb
+      Timid Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Armor Cannon
+      - Psyshock
+      - Energy Ball
+      - Meteor Beam
+
+   Armarouge @ Weakness Policy
+      Timid Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Armor Cannon
+      - Stored Power
+      - Energy Ball
+      - Endure
+
+   Ceruledge @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Bitter Blade
+      - Shadow Sneak
+      - Close Combat
+
+   Ceruledge @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Bitter Blade
+      - Shadow Sneak
+      - Poltergeist
+
+   Ceruledge @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Bitter Blade
+      - Shadow Sneak
+      - Close Combat
+
+   Ceruledge @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Bitter Blade
+      - Shadow Sneak
+      - Poltergeist
+
+   Glimmora @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Toxic Debris
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Stealth Rock / Hazard Removal
+      - Mortal Spin
+      - Stealth Rock
+      - Earth Power
+      - Power Gem
+
+   Glimmora @ Power Herb
+      Timid Nature
+      Level: 16
+      Ability: Toxic Debris
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Meteor Beam
+      - Sludge Wave
+      - Earth Power
+      - Dazzling Gleam
+
+
+/* The Ogerpon team, always used for the initial battle on Easy difficulty */
 === TRAINER_ANABEL_4 ===
-Name: Anabel
-Class: Champion
-Pic: Salon Maiden Anabel
-Gender: Female
-Music: Male
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
-Mugshot: Yellow
+   Name: Anabel
+   Class: Champion
+   Pic: Salon Maiden Anabel
+   Gender: Female
+   Music: Male
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Mugshot: Yellow
+   Party Size: 6
+   Pool Rules: Basic
 
-Annihilape @ Leftovers
-Jolly Nature
-Level: 16
-Ability: Defiant
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Atk / 170 Spe
-- Final Gambit
-- Taunt
-- Drain Punch
-- Rage Fist
+   Annihilape @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 Spe
+      Tags: Lead
+      - Final Gambit
+      - Taunt
+      - Drain Punch
+      - Rage Fist
 
-Lucario @ Life Orb
-Jolly Nature
-Level: 16
-Ability: Adaptability
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Vacuum Wave
-- Flash Cannon
-- Aura Sphere
-- Nasty Plot
+   Annihilape @ Chesto Berry
+      Careful Nature
+      Level: 16
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 240 HP / 252 SpD / 16 Spe
+      Tags: Lead
+      - Lash Out
+      - Rest
+      - Drain Punch
+      - Rage Fist
 
-Togekiss @ Scope Lens
-Timid Nature
-Level: 16
-Ability: Super Luck
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 SpA / 252 Spe
-- Thunder Wave
-- Air Slash
-- Moonblast
-- Fire Blast
+   Scizor @ Occa Berry
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 120 HP / 252 Atk / 136 Spe
+      Tags: Lead
+      - Swords Dance
+      - Bullet Punch
+      - U Turn
+      - Knock Off
 
-Dragonite @ Leftovers
-Adamant Nature
-Level: 16
-Ability: Thick Fat
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Dual Wingbeat
-- Extreme Speed
-- Earthquake
-- Dragon Dance
+   Scizor @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead
+      - Close Combat
+      - Bullet Punch
+      - U Turn
+      - Knock Off
 
-Shaymin Sky @ Leftovers
-Timid Nature
-Level: 16
-Ability: Serene Grace
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 SpA / 4 SpD / 252 Spe
-- Seed Flare
-- Air Slash
-- Substitute
-- Leech Seed
+   Espeon @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 200 HP / 236 SpD / 72 Spe
+      Tags: Lead
+      - Calm Mind
+      - Dazzling Gleam
+      - Psychic
+      - Baton Pass
 
-Alakazam @ Life Orb
-Modest Nature
-Level: 16
-Ability: Magic Guard
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Dazzling Gleam
-- Psystrike
-- Focus Blast
-- Nasty Plot
+   Snorlax @ Figy Berry
+      Careful Nature
+      Level: 16
+      Ability: Gluttony
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 Def / 252 SpD
+      Tags: Lead
+      - Body Slam
+      - Curse
+      - Recycle
+      - Earthquake
+
+   Snorlax @ Figy Berry
+      Careful Nature
+      Level: 16
+      Ability: Gluttony
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 Def / 252 SpD
+      Tags: Lead
+      - Body Slam
+      - Belly Drum
+      - Crunch
+      - Earthquake
+
+   Snorlax @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 SpD
+      Tags: Lead
+      - Body Slam
+      - Crunch
+      - Fire Punch
+      - Earthquake
+
+   Snorlax @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 252 Def / 4 SpD
+      Tags: Lead
+      - Body Slam
+      - Crunch
+      - Self Destruct
+      - Earthquake
+
+   Mismagius @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Spell Tag
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Fairy Feather
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Staraptor @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Reckless
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Brave Bird
+      - Double Edge
+      - Close Combat
+      - U Turn
+
+   Staraptor @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Brave Bird
+      - Final Gambit
+      - Close Combat
+      - U Turn
+
+   Staraptor @ Flying Gem
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Acrobatics
+      - Final Gambit
+      - Close Combat
+      - U Turn
+
+   Staraptor @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Reckless
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Lead
+      - Brave Bird
+      - Final Gambit
+      - Close Combat
+      - U Turn
+
+   Arcanine Hisui @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flare Blitz
+      - Head Smash
+      - Close Combat
+      - Extreme Speed
+
+   Arcanine Hisui @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flare Blitz
+      - Head Smash
+      - Morning Sun
+      - Extreme Speed
+
+   Alakazam @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Psychic
+      - Psystrike
+      - Focus Blast
+      - Nasty Plot
+
+   Alakazam @ Life Orb
+      Modest Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Dazzling Gleam
+      - Psystrike
+      - Focus Blast
+      - Nasty Plot
+
+   Alakazam @ Focus Sash
+      Modest Nature
+      Level: 16
+      Ability: Inner Focus
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Dazzling Gleam
+      - Psystrike
+      - Focus Blast
+      - Nasty Plot
+
+   Alakazam @ Choice Specs
+      Timid Nature
+      Level: 16
+      Ability: Inner Focus
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Trick
+      - Psystrike
+      - Focus Blast
+      - Dazzling Gleam
+
+   Espeon @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Magic Bounce
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 200 HP / 236 SpD / 72 Spe
+      - Calm Mind
+      - Dazzling Gleam
+      - Stored Power
+      - Baton Pass
+
+   Dragonite @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Dragonite @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Dragonite @ Normal Gem
+      Jolly Nature
+      Level: 16
+      Ability: Multiscale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 Atk / 252 Spe
+      - Dual Wingbeat
+      - Extreme Speed
+      - Earthquake
+      - Dragon Dance
+
+   Scizor @ Occa Berry
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 120 HP / 252 Atk / 136 Spe
+      - Swords Dance
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Scizor @ Steel Gem
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 120 HP / 252 Atk / 136 Spe
+      - Swords Dance
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Scizor @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Close Combat
+      - Bullet Punch
+      - U Turn
+      - Knock Off
+
+   Togekiss @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 8 SpA / 252 Spe
+      - Thunder Wave
+      - Air Slash
+      - Moonblast
+      - Nasty Plot
+
+   Togekiss @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 216 Def / 44 Spe
+      - Thunder Wave
+      - Air Slash
+      - Roost
+      - Nasty Plot
+
+   Togekiss @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Thunder Wave
+      - Air Slash
+      - Trick
+      - Roost
+
+   Togekiss @ Scope Lens
+      Timid Nature
+      Level: 16
+      Ability: Super Luck
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 SpA / 252 Spe
+      - Thunder Wave
+      - Air Slash
+      - Moonblast
+      - Fire Blast
+
+   Gliscor @ Toxic Orb
+      Jolly Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 SpD / 170 Spe
+      - Earthquake
+      - Roost
+      - Facade
+      - Swords Dance
+
+   Gliscor @ Toxic Orb
+      Careful Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 244 HP / 36 Def / 228 SpD
+      - Earthquake
+      - Roost
+      - Ice Fang
+      - Swords Dance
+
+   Gliscor @ Toxic Orb
+      Impish Nature
+      Level: 16
+      Ability: Poison Heal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 244 HP / 240 SpD / 16 SpD
+      Tags: Spikes
+      - Earthquake
+      - Spikes
+      - Protect
+      - Knock Off
+
+   Mismagius @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Spell Tag
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Fairy Feather
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Nasty Plot
+      - Destiny Bond
+
+   Mismagius @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Astral Barrage
+      - Moonblast
+      - Psyshock
+      - Mystical Fire
+
+   Sneasler @ Air Balloon
+      Adamant Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Close Combat
+      - Throat Chop
+      - Acrobatics
+
+   Sneasler @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Close Combat
+      - Throat Chop
+      - Dire Claw
+
+   Sneasler @ Flying Gem
+      Adamant Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Close Combat
+      - Throat Chop
+      - Acrobatics
+
+   Weavile @ Heavy Duty Boots
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Knock Off
+      - Triple Axel
+      - Swords Dance
+
+   Weavile @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Knock Off
+      - Triple Axel
+      - Swords Dance
+
+   Weavile @ Loaded Dice
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Pursuit
+      - Icicle Spear
+      - Beat Up
+
+   Weavile @ Dark Gem
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Ice Shard
+      - Pursuit
+      - Triple Axel
+      - Thief
+
+   Blaziken @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Blaze Kick
+      - Sky Uppercut
+      - Thunder Punch
+      - Upper Hand
+
+   Blaziken @ Focus Sash
+      Naive Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Endure
+      - Reversal
+      - Overheat
+      - Substitute
+
+   Blaziken @ Bright Powder
+      Jolly Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Blaze Kick
+      - Sky Uppercut
+      - Swords Dance
+      - Baton Pass
+
+   Blaziken @ Weakness Policy
+      Naive Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      - Endure
+      - Vacuum Wave
+      - Reversal
+      - Baton Pass
+
+   Blaziken @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Flare Blitz
+      - Close Combat
+      - U Turn
+      - Knock Off
+
+   Salamence @ Throat Spray
+      Naive Nature
+      Level: 16
+      Ability: Aerilate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      - Double Edge
+      - Dragon Rush
+      - Hyper Voice
+      - Fire Blast
+
+   Salamence @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpA / 252 Spe
+      - Dual Wingbeat
+      - Fire Blast
+      - Earthquake
+      - Dragon Dance
+
+   Salamence @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Dual Wingbeat
+      - Earthquake
+      - Iron Head
+      - Dragon Dance
+
+   Lucario @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bullet Punch
+      - Meteor Mash
+      - Close Combat
+      - Swords Dance
+
+   Lucario @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bullet Punch
+      - Meteor Mash
+      - Close Combat
+      - Extreme Speed
+
+   Lucario @ Assault Vest
+      Jolly Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Blaze Kick
+      - Meteor Mash
+      - Close Combat
+      - Extreme Speed
+
+   Lucario @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Vacuum Wave
+      - Flash Cannon
+      - Aura Sphere
+      - Nasty Plot
+
+   Lucario @ Weakness Policy
+      Naive Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 SpA / 252 Spe
+      - Vacuum Wave
+      - Flash Cannon
+      - Aura Sphere
+      - Extreme Speed
+
+   Doublade @ Eviolite
+      Adamant Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Swords Dance
+      - Shadow Claw
+      - Cut
+      - Sacred Sword
+
+   Doublade @ Eviolite
+      Impish Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      - Swords Dance
+      - Shadow Claw
+      - Cut
+      - Sacred Sword
+
+   Doublade @ Eviolite
+      Careful Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      - Swords Dance
+      - Shadow Claw
+      - Cut
+      - Sacred Sword
+
+   Aegislash @ Leftovers
+      Brave Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Kings Shield
+      - Shadow Claw
+      - Iron Head
+      - Sacred Sword
+
+   Aegislash @ Iron Ball
+      Brave Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Kings Shield
+      - Shadow Claw
+      - Iron Head
+      - Shadow Sneak
+
+   Aegislash @ Leftovers
+      Quiet Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 252 SpA / 4 SpD
+      - Kings Shield
+      - Shadow Ball
+      - Close Combat
+      - Flash Cannon
+
+   Aegislash @ Leftovers
+      Sassy Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 SpA / 252 SpD
+      - Kings Shield
+      - Shadow Ball
+      - Gyro Ball
+      - Toxic
+
+   Aegislash @ Iron Ball
+      Sassy Nature
+      Level: 16
+      Ability: Stance Change
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 SpA / 252 SpD
+      - Kings Shield
+      - Shadow Ball
+      - Gyro Ball
+      - Toxic
+
+   Primarina @ Assault Vest
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Surf
+      - Moonblast
+      - Psychic Noise
+      - Flip Turn
+
+   Primarina @ Leftovers
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Hydro Pump
+      - Moonblast
+      - Psychic Noise
+      - Calm Mind
+
+   Primarina @ Custap Berry
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Hydro Pump
+      - Moonblast
+      - Substitute
+      - Calm Mind
+
+   Primarina @ Throat Spray
+      Modest Nature
+      Level: 16
+      Ability: Torrent
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 80 HP / 252 SpA / 176 Spe
+      - Sparkling Aria
+      - Psychic Noise
+      - Alluring Voice
+      - Ice Beam
+
+   Primarina @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Liquid Voice
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 248 Def / 8 SpD
+      - Psychic Noise
+      - Draining Kiss
+      - Substitute
+      - Calm Mind
+
+   Meowscarada @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flower Trick
+      - U Turn
+      - Knock Off
+      - Triple Axel
+
+   Meowscarada @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flower Trick
+      - U Turn
+      - Play Rough
+      - Triple Axel
+
+   Meowscarada @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flower Trick
+      - U Turn
+      - Knock Off
+      - Triple Axel
+
+   Meowscarada @ Miracle Seed
+      Jolly Nature
+      Level: 16
+      Ability: Overgrow
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Flower Trick
+      - U Turn
+      - Knock Off
+      - Triple Axel
+
+   Meowscarada @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Toxic Spikes
+      - Flower Trick
+      - Toxic Spikes
+      - Throat Chop
+      - Sucker Punch
+
+   Garganacl @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Purifying Salt
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 52 Def / 204 SpD
+      - Salt Cure
+      - Curse
+      - Recover
+      - Earthquake
+
+
+   Armarouge @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Armor Cannon
+      - Psyshock
+      - Energy Ball
+      - Calm Mind
+
+   Armarouge @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Flash Fire
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Armor Cannon
+      - Psyshock
+      - Energy Ball
+      - Focus Blast
+
+   Armarouge @ Power Herb
+      Timid Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Armor Cannon
+      - Psyshock
+      - Energy Ball
+      - Meteor Beam
+
+   Armarouge @ Weakness Policy
+      Timid Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      - Armor Cannon
+      - Stored Power
+      - Energy Ball
+      - Endure
+
+   Ceruledge @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Bitter Blade
+      - Shadow Sneak
+      - Close Combat
+
+   Ceruledge @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Bitter Blade
+      - Shadow Sneak
+      - Poltergeist
+
+   Ceruledge @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Bitter Blade
+      - Shadow Sneak
+      - Close Combat
+
+   Ceruledge @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Weak Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Bitter Blade
+      - Shadow Sneak
+      - Poltergeist
+
+   Glimmora @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Toxic Debris
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Stealth Rock / Hazard Removal
+      - Mortal Spin
+      - Stealth Rock
+      - Earth Power
+      - Power Gem
+
+   Glimmora @ Power Herb
+      Timid Nature
+      Level: 16
+      Ability: Toxic Debris
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      - Meteor Beam
+      - Sludge Wave
+      - Earth Power
+      - Dazzling Gleam
+
+   Ogerpon Cornerstone @ Cornerstone Mask
+      Jolly Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Ace
+      - Ivy Cudgel
+      - Swords Dance
+      - Horn Leech
+      - Stomping Tantrum
+
+   Ogerpon Cornerstone @ Cornerstone Mask
+      Jolly Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Ace
+      - Ivy Cudgel
+      - Swords Dance
+      - Power Whip
+      - Spiky Shield
+
+   Ogerpon Hearthflame @ Hearthflame Mask
+      Jolly Nature
+      Level: 16
+      Ability: Mold Breaker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Ace
+      - Ivy Cudgel
+      - Swords Dance
+      - Horn Leech
+      - Stomping Tantrum
+
+   Ogerpon Hearthflame @ Hearthflame Mask
+      Jolly Nature
+      Level: 16
+      Ability: Mold Breaker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Ace
+      - Ivy Cudgel
+      - Swords Dance
+      - Power Whip
+      - Play Rough
+
+   Ogerpon Wellspring @ Wellspring Mask
+      Jolly Nature
+      Level: 16
+      Ability: Water Absorb
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Ace
+      - Ivy Cudgel
+      - Swords Dance
+      - Horn Leech
+      - Play Rough
+
+   Ogerpon Wellspring @ Wellspring Mask
+      Jolly Nature
+      Level: 16
+      Ability: Water Absorb
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Ace
+      - Ivy Cudgel
+      - Swords Dance
+      - Power Whip
+      - Knock Off
+
 
 === TRAINER_NOLAND_1 ===
 Name: Noland
