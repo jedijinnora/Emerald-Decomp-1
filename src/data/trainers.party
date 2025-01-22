@@ -1193,7 +1193,7 @@ Double Battle: No
       - Energy Ball
       - Roost
 
-   Beheeyem @ Twisted Spoon
+   Beheeyem @ Wise Glasses
       Quiet Nature
       Level: 16
       Ability: Analytic
@@ -1201,7 +1201,7 @@ Double Battle: No
       EVs: 252 HP / 4 Def / 252 SpA
       Tags: Core 3
       - Psystrike
-      - Psychic
+      - Meteor Beam
       - Dark Pulse
       - Recover
 
@@ -9596,7 +9596,6 @@ Double Battle: No
       - Curse
       - Recover
       - Earthquake
-
 
    Armarouge @ Heavy Duty Boots
       Timid Nature
