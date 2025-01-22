@@ -315,6 +315,7 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
 
     u8 count = gPlayerPartyCount;
     u8 fixedLVL = 0;
+    u8 i;
 
     if (LURE_STEP_COUNT == 0)
     {
@@ -344,6 +345,15 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
         }   
 
         //Dynamically assign wild encounter level
+        //the older code has an overflow bug since party levels were summed into a u8 (600 > 255)
+        i = count;
+        while (i-- > 0)
+        {
+            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE) {
+                fixedLVL += ((GetMonData(&gPlayerParty[i], MON_DATA_LEVEL)) / count);
+            }
+        }
+        /*
         while (count-- > 0)
         {
             if (GetMonData(&gPlayerParty[count], MON_DATA_SPECIES) != SPECIES_NONE) {
@@ -351,6 +361,7 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
             }
         }
         fixedLVL = fixedLVL / gPlayerPartyCount;
+        */
 
         //place bounds on allowed levels
         if (fixedLVL < 7)
