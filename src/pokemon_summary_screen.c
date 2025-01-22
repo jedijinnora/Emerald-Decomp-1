@@ -3640,11 +3640,13 @@ static void BufferStat(u8 *dst, u8 statIndex, u32 stat, u32 strId, u32 n)
     static const u8 sTextNatureNeutral[] = _("{COLOR}{01}");
     u8 *txtPtr;
 
-    if (statIndex == 0 || !SUMMARY_SCREEN_NATURE_COLORS || gNaturesInfo[sMonSummaryScreen->summary.mintNature].statUp == gNaturesInfo[sMonSummaryScreen->summary.mintNature].statDown)
+    //Jinnora: I am modifying this to account for the (old) way I implemented mints
+    //just swapped mintNature for nature in the following if clauses
+    if (statIndex == 0 || !SUMMARY_SCREEN_NATURE_COLORS || gNaturesInfo[sMonSummaryScreen->summary.nature].statUp == gNaturesInfo[sMonSummaryScreen->summary.nature].statDown)
         txtPtr = StringCopy(dst, sTextNatureNeutral);
-    else if (statIndex == gNaturesInfo[sMonSummaryScreen->summary.mintNature].statUp)
+    else if (statIndex == gNaturesInfo[sMonSummaryScreen->summary.nature].statUp)
         txtPtr = StringCopy(dst, sTextNatureUp);
-    else if (statIndex == gNaturesInfo[sMonSummaryScreen->summary.mintNature].statDown)
+    else if (statIndex == gNaturesInfo[sMonSummaryScreen->summary.nature].statDown)
         txtPtr = StringCopy(dst, sTextNatureDown);
     else
         txtPtr = StringCopy(dst, sTextNatureNeutral);
