@@ -4724,11 +4724,11 @@ static void Cmd_getexp(void)
                     PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
                     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 6, gBattleMoveDamage);
 
-                    if (wasSentOut || holdEffect == HOLD_EFFECT_EXP_SHARE)
+                    if ((wasSentOut || holdEffect == HOLD_EFFECT_EXP_SHARE) && gBattleMoveDamage != 0)
                     {
                         PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
                     }
-                    else if (IsGen6ExpShareEnabled() && !gBattleStruct->teamGotExpMsgPrinted) // Print 'the rest of your team got exp' message once, when all of the sent-in mons were given experience
+                    else if (IsGen6ExpShareEnabled() && !gBattleStruct->teamGotExpMsgPrinted && gBattleMoveDamage != 0) // Print 'the rest of your team got exp' message once, when all of the sent-in mons were given experience
                     {
                         gLastUsedItem = ITEM_EXP_SHARE;
                         PrepareStringBattle(STRINGID_TEAMGAINEDEXP, gBattleStruct->expGetterBattlerId);
@@ -4757,7 +4757,10 @@ static void Cmd_getexp(void)
                 gBattleResources->beforeLvlUp->stats[STAT_SPATK] = GetMonData(&gPlayerParty[*expMonId], MON_DATA_SPATK);
                 gBattleResources->beforeLvlUp->stats[STAT_SPDEF] = GetMonData(&gPlayerParty[*expMonId], MON_DATA_SPDEF);
 
-                BtlController_EmitExpUpdate(gBattleStruct->expGetterBattlerId, BUFFER_A, *expMonId, gBattleMoveDamage);
+                if (gBattleMoveDamage != 0)
+                {
+                    BtlController_EmitExpUpdate(gBattleStruct->expGetterBattlerId, BUFFER_A, *expMonId, gBattleMoveDamage);
+                }
                 MarkBattlerForControllerExec(gBattleStruct->expGetterBattlerId);
             }
             gBattleScripting.getexpState++;
