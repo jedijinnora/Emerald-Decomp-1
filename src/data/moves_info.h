@@ -19132,21 +19132,34 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     [MOVE_BITTER_MALICE] =
     {
         .name = COMPOUND_STRING("Bitter Malice"),
-        .description = COMPOUND_STRING(
-            "A spine-chilling resentment.\n"
-            "Lowers the foe's Attack."),
-        .effect = EFFECT_HIT,
-        .power = B_UPDATED_MOVE_DATA >= GEN_9 ? 75 : 60,
+        #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+            .description = COMPOUND_STRING(
+                "Double damage to statused\n"
+                "foes. May inflict frostbite."),
+        #else
+            .description = COMPOUND_STRING(
+                "A spine-chilling resentment.\n"
+                "Lowers the foe's Attack."),
+        #endif
+        .effect = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? EFFECT_DOUBLE_POWER_ON_ARG_STATUS : EFFECT_HIT,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 60 : B_UPDATED_MOVE_DATA >= GEN_9 ? 75 : 60,
         .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
-        .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_ATK_MINUS_1,
-            .chance = 100,
-        }),
+        #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+            .additionalEffects = ADDITIONAL_EFFECTS({
+                .moveEffect = MOVE_EFFECT_FREEZE_OR_FROSTBITE,
+                .chance = 30,
+            }),
+        #else
+            .additionalEffects = ADDITIONAL_EFFECTS({
+                .moveEffect = MOVE_EFFECT_ATK_MINUS_1,
+                .chance = 100,
+            }),
+        #endif
         .battleAnimScript = gBattleAnimMove_BitterMalice,
     },
 
