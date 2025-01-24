@@ -15682,18 +15682,24 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
     [MOVE_SPARKLING_ARIA] =
     {
         .name = COMPOUND_STRING("Sparkling Aria"),
-        .description = COMPOUND_STRING(
-            "Sings with bubbles. Cures\n"
-            "burns on contact."),
-        .effect = EFFECT_HIT,
+        #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+            .description = COMPOUND_STRING(
+                "Powerful against statused\n"
+                "foes, but also heals them."),
+        #else
+            .description = COMPOUND_STRING(
+                "Sings with bubbles. Cures\n"
+                "burns on contact."),
+        #endif
+        .effect = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? EFFECT_DOUBLE_POWER_ON_ARG_STATUS : EFFECT_HIT,
         .power = 90,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 10,
-        .target = MOVE_TARGET_FOES_AND_ALLY,
+        .target = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? MOVE_TARGET_BOTH : MOVE_TARGET_FOES_AND_ALLY,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
-        .argument = STATUS1_BURN,
+        .argument = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? STATUS1_ANY : STATUS1_BURN,
         .ignoresSubstitute = B_UPDATED_MOVE_FLAGS >= GEN_6,
         .soundMove = TRUE,
         .additionalEffects = ADDITIONAL_EFFECTS({
