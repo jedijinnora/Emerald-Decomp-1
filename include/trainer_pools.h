@@ -85,9 +85,6 @@ enum PoolTags {
 #define MON_POOL_TAG_WEATHER_SETTER 1 << POOL_TAG_WEATHER_SETTER
 #define MON_POOL_TAG_WEATHER_ABUSER 1 << POOL_TAG_WEATHER_ABUSER
 #define MON_POOL_TAG_SUPPORT        1 << POOL_TAG_SUPPORT
-#define MON_POOL_TAG_6              1 << POOL_TAG_6
-#define MON_POOL_TAG_7              1 << POOL_TAG_7
-#define MON_POOL_TAG_8              1 << POOL_TAG_8
 #define MON_POOL_TAG_CORE_1         1 << POOL_TAG_CORE_1
 #define MON_POOL_TAG_CORE_2         1 << POOL_TAG_CORE_2
 #define MON_POOL_TAG_CORE_3         1 << POOL_TAG_CORE_3

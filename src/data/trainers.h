@@ -5649,7 +5649,7 @@ F_TRAINER_FEMALE |
             .moves = {
 #line 2618
                 MOVE_FREEZE_DRY,
-                MOVE_SHADOW_BALL,
+                MOVE_BITTER_MALICE,
                 MOVE_PAIN_SPLIT,
                 MOVE_DESTINY_BOND,
             },
@@ -6747,7 +6747,7 @@ F_TRAINER_FEMALE |
             .moves = {
 #line 3104
                 MOVE_FREEZE_DRY,
-                MOVE_SHADOW_BALL,
+                MOVE_BITTER_MALICE,
                 MOVE_PAIN_SPLIT,
                 MOVE_DESTINY_BOND,
             },

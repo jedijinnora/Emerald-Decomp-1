@@ -3050,6 +3050,18 @@ Double Battle: No
       - Icy Wind
       - Tailwind
 
+   Delibird @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 Spe
+      Tags: Weather Setter / Screens
+      - Aurora Veil
+      - Chilly Reception
+      - Icy Wind
+      - Tailwind
+
    Castform @ Icy Rock
       Modest Nature
       Level: 16
@@ -9782,364 +9794,559 @@ Double Battle: No
 
 
 === TRAINER_NOLAND_1 ===
-Name: Noland
-Class: Leader
-Pic: Factory Head Noland
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Conservative
-Party Size: 6
-Pool Rules: Basic
-Pool Prune: Badges
+   Name: Noland
+   Class: Leader
+   Pic: Factory Head Noland
+   Gender: Male
+   Music: Male
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Conservative
+   Party Size: 6
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-Togedemaru @ Air Balloon
-Jolly Nature
-Level: 15
-Ability: Iron Barbs
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Iron Head
-- Zing Zap
-- Fell Stinger
-- Nuzzle
+   Togedemaru @ Air Balloon
+      Jolly Nature
+      Level: 15
+      Ability: Iron Barbs
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 1
+      - Iron Head
+      - Zing Zap
+      - Fell Stinger
+      - Nuzzle
 
-Klink @ Berry Juice
-Jolly Nature
-Level: 14
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Gear Grind
-- Shift Gear
-- Wild Charge
-- Thunder Wave
+   Klink @ Berry Juice
+      Jolly Nature
+      Level: 14
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 1
+      - Gear Grind
+      - Shift Gear
+      - Wild Charge
+      - Thunder Wave
 
-Aron @ Leftovers
-Adamant Nature
-Level: 16
-Ability: Sturdy
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Metal Claw
-- Rock Tomb
-- Headbutt
-- Bulldoze
+   Aron @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 1
+      - Metal Claw
+      - Rock Tomb
+      - Headbutt
+      - Bulldoze
 
-Pineco @ Normal Gem
-Brave Nature
-Level: 15
-Ability: Sturdy
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-- Gyro Ball
-- Bug Bite
-- Counter
-- Self Destruct
+   Pineco @ Normal Gem
+      Brave Nature
+      Level: 15
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      Tags: Badge 1
+      - Gyro Ball
+      - Bug Bite
+      - Counter
+      - Self Destruct
 
-Meowth Galar @ Muscle Band
-Adamant Nature
-Level: 16
-Ability: Tough Claws
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Fake Out
-- Metal Claw
-- Hone Claws
-- Flail
+   Meowth Galar @ Muscle Band
+      Adamant Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 1
+      - Fake Out
+      - Metal Claw
+      - Hone Claws
+      - Flail
 
-Skarmory @ Liechi Berry
-Adamant Nature
-Level: 16
-Ability: Sturdy
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Drill Peck
-- Steel Wing
-- Roost
-- Body Press
+   Skarmory @ Liechi Berry
+      Adamant Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 1
+      - Drill Peck
+      - Steel Wing
+      - Roost
+      - Body Press
 
-Aron @ Eviolite
-Adamant Nature
-Level: 16
-Ability: Sturdy
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 100 HP / 100 Atk / 100 SpD
-- Iron Head
-- Rock Tomb
-- Stealth Rock
-- Bulldoze
+   Aron @ Eviolite
+      Adamant Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 100 HP / 100 Atk / 100 SpD
+      Tags: Badge 2
+      - Iron Head
+      - Rock Tomb
+      - Stealth Rock
+      - Bulldoze
 
-Klink @ Berry Juice
-Jolly Nature
-Level: 14
-Ability: Levitate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 150 Atk / 150 Spe
-- Gear Grind
-- Shift Gear
-- Wild Charge
-- Thunder Wave
+   Klink @ Berry Juice
+      Jolly Nature
+      Level: 14
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 Atk / 150 Spe
+      Tags: Badge 2
+      - Gear Grind
+      - Shift Gear
+      - Wild Charge
+      - Thunder Wave
 
-Pineco @ Normal Gem
-Brave Nature
-Level: 15
-Ability: Sturdy
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-EVs: 150 HP / 150 Atk
-- Gyro Ball
-- Bug Bite
-- Counter
-- Self Destruct
+   Pineco @ Normal Gem
+      Brave Nature
+      Level: 15
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 150 HP / 150 Atk
+      Tags: Badge 2
+      - Gyro Ball
+      - Bug Bite
+      - Counter
+      - Self Destruct
 
-Togedemaru @ Air Balloon
-Jolly Nature
-Level: 15
-Ability: Iron Barbs
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 100 HP / 100 Atk / 100 SpD
-- Iron Head
-- Zing Zap
-- Fell Stinger
-- Nuzzle
+   Togedemaru @ Air Balloon
+      Jolly Nature
+      Level: 15
+      Ability: Iron Barbs
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 100 HP / 100 Atk / 100 SpD
+      Tags: Badge 2
+      - Iron Head
+      - Zing Zap
+      - Fell Stinger
+      - Nuzzle
 
-Skarmory @ Liechi Berry
-Adamant Nature
-Level: 16
-Ability: Sturdy
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 100 HP / 100 Atk / 100 SpD
-- Drill Peck
-- Steel Wing
-- Roost
-- Body Press
+   Skarmory @ Liechi Berry
+      Adamant Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 100 HP / 100 Atk / 100 SpD
+      Tags: Badge 2
+      - Drill Peck
+      - Steel Wing
+      - Roost
+      - Body Press
 
-Cufant @ Life Orb
-Adamant Nature
-Level: 16
-Ability: Sheer Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 100 Atk / 100 Def / 100 SpD
-- Iron Head
-- Play Rough
-- Rock Slide
-- Zen Headbutt
+   Cufant @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 100 Atk / 100 Def / 100 SpD
+      Tags: Badge 2
+      - Iron Head
+      - Play Rough
+      - Rock Slide
+      - Zen Headbutt
 
 === TRAINER_NOLAND_2 ===
-Name: Noland
-Class: Leader
-Pic: Factory Head Noland
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Conservative
-Party Size: 6
-Pool Rules: Basic
-Pool Prune: Badges
+   Name: Noland
+   Class: Leader
+   Pic: Factory Head Noland
+   Gender: Male
+   Music: Male
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Conservative
+   Party Size: 6
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-Forretress @ Custap Berry
-Sassy Nature
-Level: 15
-Ability: Sturdy
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-EVs: 225 HP / 225 SpD
-- Gyro Ball
-- Stealth Rock
-- Spikes
-- Volt Switch
+   Forretress @ Custap Berry
+      Sassy Nature
+      Level: 15
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Badge 3 / Badge 4
+      - Gyro Ball
+      - Stealth Rock
+      - Spikes
+      - Volt Switch
 
-Skarmory @ Liechi Berry
-Adamant Nature
-Level: 16
-Ability: Sturdy
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 150 HP / 150 Atk / 150 SpD
-- Drill Peck
-- Steel Wing
-- Roost
-- Body Press
+   Skarmory @ Liechi Berry
+      Adamant Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 HP / 150 Atk / 150 SpD
+      Tags: Badge 3 / Badge 4
+      - Drill Peck
+      - Steel Wing
+      - Roost
+      - Body Press
 
-Cufant @ Life Orb
-Adamant Nature
-Level: 16
-Ability: Sheer Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 150 Atk / 150 Def / 150 SpD
-- Iron Head
-- Play Rough
-- Rock Slide
-- Zen Headbutt
+   Cufant @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 Atk / 150 Def / 150 SpD
+      Tags: Badge 3 / Badge 4
+      - Iron Head
+      - Play Rough
+      - Rock Slide
+      - Zen Headbutt
 
-Perrserker @ Metal Coat
-Adamant Nature
-Level: 15
-Ability: Steely Spirit
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 225 HP / 225 Atk
-- Iron Head
-- Play Rough
-- Close Combat
-- Aerial Ace
+   Perrserker @ Metal Coat
+      Adamant Nature
+      Level: 15
+      Ability: Steely Spirit
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 HP / 225 Atk
+      Tags: Badge 3 / Badge 4
+      - Iron Head
+      - Play Rough
+      - Close Combat
+      - Aerial Ace
 
-Excadrill @ Weakness Policy
-Adamant Nature
-Level: 16
-Ability: Mold Breaker
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 225 HP / 225 Atk
-- Earthquake
-- Iron Head
-- Rock Slide
-- Swords Dance
+   Excadrill @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Mold Breaker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 HP / 225 Atk
+      Tags: Badge 3 / Badge 4
+      - Earthquake
+      - Iron Head
+      - Rock Slide
+      - Swords Dance
 
-Lairon @ Muscle Band
-Adamant Nature
-Level: 16
-Ability: Rock Head
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 150 HP / 150 Atk / 150 SpD
-- Iron Head
-- Earthquake
-- Rock Slide
-- Double Edge
+   Lairon @ Muscle Band
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 HP / 150 Atk / 150 SpD
+      Tags: Badge 3 / Badge 4
+      - Iron Head
+      - Earthquake
+      - Rock Slide
+      - Double Edge
 
-Forretress @ Custap Berry
-Sassy Nature
-Level: 15
-Ability: Sturdy
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-EVs: 252 HP / 4 Atk / 252 SpD
-- Gyro Ball
-- Stealth Rock
-- Spikes
-- Explosion
+   Forretress @ Custap Berry
+      Sassy Nature
+      Level: 15
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      Tags: Lead / Badge 5 / Badge 6 / Badge 7
+      - Gyro Ball
+      - Stealth Rock
+      - Spikes
+      - Explosion
 
-Aggron @ Assault Vest
-Adamant Nature
-Level: 16
-Ability: Rock Head
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Atk / 170 SpD
-- Iron Tail
-- Earthquake
-- Double Edge
-- Head Smash
+   Aggron @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      Tags: Badge 5 / Badge 6 / Badge 7
+      - Iron Tail
+      - Earthquake
+      - Double Edge
+      - Head Smash
 
-Skarmory @ Leftovers
-Bold Nature
-Level: 16
-Ability: Sturdy
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 4 Def / 252 SpD
-- Spikes
-- Whirlwind
-- Roost
-- Toxic
+   Skarmory @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Badge 5 / Badge 6 / Badge 7
+      - Spikes
+      - Whirlwind
+      - Roost
+      - Toxic
 
-Klinklang @ Weakness Policy
-Jolly Nature
-Level: 14
-Ability: Steelworker
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Gear Grind
-- Shift Gear
-- Wild Charge
-- Thunder Wave
+   Klinklang @ Weakness Policy
+      Jolly Nature
+      Level: 14
+      Ability: Steelworker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Badge 5 / Badge 6 / Badge 7
+      - Gear Grind
+      - Shift Gear
+      - Wild Charge
+      - Thunder Wave
 
-Perrserker @ Metal Coat
-Adamant Nature
-Level: 15
-Ability: Steely Spirit
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 Spe
-- Iron Head
-- Play Rough
-- Close Combat
-- Aerial Ace
+   Perrserker @ Metal Coat
+      Adamant Nature
+      Level: 15
+      Ability: Steely Spirit
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      Tags: Badge 5 / Badge 6 / Badge 7
+      - Iron Head
+      - Play Rough
+      - Close Combat
+      - Aerial Ace
 
-Steelix @ Life Orb
-Adamant Nature
-Level: 16
-Ability: Sheer Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 SpD
-- Iron Tail
-- Rock Slide
-- Bulldoze
-- Thunder Fang
+   Steelix @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      Tags: Badge 5 / Badge 6 / Badge 7
+      - Iron Tail
+      - Rock Slide
+      - Bulldoze
+      - Thunder Fang
 
 === TRAINER_NOLAND_3 ===
-Name: Noland
-Class: Leader
-Pic: Factory Head Noland
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
-Party Size: 6
-Pool Rules: Basic
-Pool Prune: Badges
+   Name: Noland
+   Class: Leader
+   Pic: Factory Head Noland
+   Gender: Male
+   Music: Male
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+   Party Size: 6
+   Pool Rules: Basic
 
-Aggron @ Assault Vest
-Adamant Nature
-Level: 16
-Ability: Rock Head
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Atk / 170 SpD
-- Iron Tail
-- Earthquake
-- Double Edge
-- Head Smash
+   Perrserker @ Heavy Duty Boots
+      Adamant Nature
+      Level: 15
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 252 Atk / 8 Spe
+      Tags: Stealth Rock
+      - Iron Head
+      - Knock Off
+      - U Turn
+      - Stealth Rock
 
-Forretress @ Custap Berry
-Sassy Nature
-Level: 15
-Ability: Sturdy
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-EVs: 252 HP / 4 Atk / 252 SpD
-- Gyro Ball
-- Stealth Rock
-- Spikes
-- Explosion
+   Perrserker @ Leftovers
+      Adamant Nature
+      Level: 15
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 252 Atk / 8 Spe
+      Tags: Stealth Rock
+      - Iron Head
+      - Fake Out
+      - U Turn
+      - Stealth Rock
 
-Klinklang @ Weakness Policy
-Jolly Nature
-Level: 14
-Ability: Steelworker
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Gear Grind
-- Shift Gear
-- Wild Charge
-- Thunder Wave
+   Perrserker @ Metal Coat
+      Adamant Nature
+      Level: 15
+      Ability: Steely Spirit
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 252 Atk / 8 Spe
+      - Iron Head
+      - Play Rough
+      - Close Combat
+      - Aerial Ace
 
-Perrserker @ Metal Coat
-Adamant Nature
-Level: 15
-Ability: Steely Spirit
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 Spe
-- Iron Head
-- Play Rough
-- Close Combat
-- Aerial Ace
+   Steelix @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      Tags: Stealth Rock
+      - Stealth Rock
+      - Heavy Slam
+      - Earthquake
+      - Toxic
 
-Steelix @ Life Orb
-Adamant Nature
-Level: 16
-Ability: Sheer Force
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 SpD
-- Iron Tail
-- Rock Slide
-- Bulldoze
-- Thunder Fang
+   Steelix @ Leftovers
+      Brave Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 208 Atk / 48 SpD
+      Tags: Stealth Rock
+      - Curse
+      - Gyro Ball
+      - Earthquake
+      - Stealth Rock
 
-Melmetal @ Assault Vest
-Adamant Nature
-Level: 16
-Ability: Iron Fist
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 170 HP / 170 Atk / 170 SpD
-- Double Iron Bash
-- Earthquake
-- Superpower
-- Thunder Punch
+   Steelix @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Iron Tail
+      - Rock Slide
+      - Bulldoze
+      - Thunder Fang
+
+   Steelix @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Iron Tail
+      - Psychic Fangs
+      - Bulldoze
+      - Ice Fang
+
+   Forretress @ Custap Berry
+      Sassy Nature
+      Level: 15
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      Tags: Spikes / Stealth Rock
+      - Gyro Ball
+      - Stealth Rock
+      - Spikes
+      - Explosion
+
+   Forretress @ Leftovers
+      Relaxed Nature
+      Level: 15
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 164 Def / 92 SpD
+      Tags: Spikes
+      - Volt Switch
+      - Body Press
+      - Spikes
+      - Gyro Ball
+
+   Aggron @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      - Iron Tail
+      - Earthquake
+      - Double Edge
+      - Head Smash
+   
+   Aggron @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Filter
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 252 SpD
+      - Iron Tail
+      - Dragon Rush
+      - Rock Slide
+      - Thunder Punch
+
+   Aggron @ Leftovers
+      Jolly Nature
+      Level: 14
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Dragon Dance
+      - Dragon Rush
+      - Head Smash
+      - Iron Tail
+
+   Klinklang @ Weakness Policy
+      Jolly Nature
+      Level: 14
+      Ability: Steelworker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Gear Grind
+      - Shift Gear
+      - Wild Charge
+      - Thunder Wave
+
+   Klinklang @ Magnet
+      Naive Nature
+      Level: 14
+      Ability: Steelworker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 Atk / 170 SpA / Spe
+      - Gear Grind
+      - Steel Roller
+      - Rising Voltage
+      - Electric Terrain
+
+   Klinklang @ Lum Berry
+      Careful Nature
+      Level: 14
+      Ability: Steelworker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      - Rest
+      - Gear Grind
+      - Recycle
+      - Iron Defense
+
+   Copperajah @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      - Iron Head
+      - Play Rough
+      - Rock Slide
+      - Zen Headbutt
+
+   Copperajah @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Heavy Metal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 192 Atk / 192 SpD / 124 Spe
+      - Smack Down
+      - Earthquake
+      - Heavy Slam
+      - Knock Off
+
+   Archaludon @ Assault Vest
+      Modest Nature
+      Level: 16
+      Ability: Stamina
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpA
+      - Electro Shot
+      - Flash Cannon
+      - Body Press
+      - Draco Meteor
+
+   Archaludon @ Assault Vest
+      Modest Nature
+      Level: 16
+      Ability: Stamina
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 16 SpA / 240 SpD
+      - Electro Shot
+      - Flash Cannon
+      - Body Press
+      - Dragon Pulse
+
+   Archaludon @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Stamina
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 204 Def / 52 Spe
+      Tags: Stealth Rock
+      - Stealth Rock
+      - Thunder Wave
+      - Body Press
+      - Draco Meteor
+
+   Archaludon @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Stamina
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 204 Def / 52 Spe
+      - Foul Play
+      - Thunder Wave
+      - Body Press
+      - Draco Meteor
 
 === TRAINER_SIDNEY_1 ===
 Name: Sidney
