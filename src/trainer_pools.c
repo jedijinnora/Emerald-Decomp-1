@@ -372,24 +372,24 @@ static void BadgesPrune(const struct Trainer *trainer, u8 *poolIndexArray, const
     switch (currBadges)
     {
         case 0:
-            badgeTagRequired = MON_POOL_TAG_BADGES_0;
+            badgeTagRequired = MON_POOL_TAG_BADGE_0;
         case 1:
-            badgeTagRequired = MON_POOL_TAG_BADGES_1;
+            badgeTagRequired = MON_POOL_TAG_BADGE_1;
         case 2:
-            badgeTagRequired = MON_POOL_TAG_BADGES_2;
+            badgeTagRequired = MON_POOL_TAG_BADGE_2;
         case 3:
-            badgeTagRequired = MON_POOL_TAG_BADGES_3;
+            badgeTagRequired = MON_POOL_TAG_BADGE_3;
         case 4:
-            badgeTagRequired = MON_POOL_TAG_BADGES_4;
+            badgeTagRequired = MON_POOL_TAG_BADGE_4;
         case 5:
-            badgeTagRequired = MON_POOL_TAG_BADGES_5;
+            badgeTagRequired = MON_POOL_TAG_BADGE_5;
         case 6:
-            badgeTagRequired = MON_POOL_TAG_BADGES_6;
+            badgeTagRequired = MON_POOL_TAG_BADGE_6;
         case 7:
-            badgeTagRequired = MON_POOL_TAG_BADGES_7;
+            badgeTagRequired = MON_POOL_TAG_BADGE_7;
         case 8:
         default:
-            badgeTagRequired = MON_POOL_TAG_BADGES_8;
+            badgeTagRequired = MON_POOL_TAG_BADGE_8;
     }
 
     for (u32 currIndex = 0; currIndex < trainer->poolSize; currIndex++)

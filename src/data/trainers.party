@@ -102,13 +102,13 @@ Recommended workflow for players who want to try to calc things:
  - Search this file for the appropriate TRAINER_NAME constant
     - If you don't know it look in include/constants/opponents.h, where trainers are organized by location/grouping
  - Copy the pool data to a blank notepad (or equivalent)
- - Remove Pokemon not of the correct badge level
+ - Remove Pokemon not of the correct Badge level
  - Note 'AI', 'Party Size', 'Pool Rules', and 'Pool Prune'
  - Check docs/tutorials/ai_flags.md for information on AI flags
  - Check src/data/battle_pool_rules.h if unsure which tags are mandatory/limited
     - (for example, Weather Singles pool rules will try to pick exactly one mon tagged 'Weather Setter')
     - (for example, Core Singles pool rules require exactly one each of 'Core 1', 'Core 2', 'Core 3')
- - Check the 'Pool Prune' function if one is specified (usually removes mons tagged with a different badge level)
+ - Check the 'Pool Prune' function if one is specified (usually removes mons tagged with a different Badge level)
  - Check your current level cap and adjust the level of all trainer mons accordingly
  - Copy all the remaining mon data into your calculator of choice
  - Make sure to check the documentation on Pokemon changes, move changes, etc. where necessary
@@ -117,12 +117,12 @@ Recommended workflow for players who want to try to calc things:
 
 
 === TRAINER_NONE ===
-Name: 
-Class: Pkmn Trainer 1
-Pic: Hiker
-Gender: Male
-Music: Male
-Double Battle: No
+   Name: 
+   Class: Pkmn Trainer 1
+   Pic: Hiker
+   Gender: Male
+   Music: Male
+   Double Battle: No
 
 
 /* Brandon's room has sandstorm weather */
@@ -5747,7 +5747,6 @@ Double Battle: No
       - Dazzling Gleam
       - Recover
 
-
 /* The Fairy/Dragon/Steel & Lando team */
 === TRAINER_ANABEL_2 ===
    Name: Anabel
@@ -7408,7 +7407,6 @@ Double Battle: No
       - Dazzling Gleam
       - Recover
 
-
 /* The Fire/Water/Grass & Jirachi team */
 === TRAINER_ANABEL_3 ===
    Name: Anabel
@@ -8707,7 +8705,6 @@ Double Battle: No
       - Sludge Wave
       - Earth Power
       - Dazzling Gleam
-
 
 /* The Ogerpon team, always used for the initial battle on Easy difficulty */
 === TRAINER_ANABEL_4 ===
@@ -10264,7 +10261,7 @@ Double Battle: No
       Level: 14
       Ability: Steelworker
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 170 Atk / 170 SpA / Spe
+      EVs: 170 Atk / 170 SpA / 170 Spe
       - Gear Grind
       - Steel Roller
       - Rising Voltage
@@ -10348,365 +10345,367 @@ Double Battle: No
       - Body Press
       - Draco Meteor
 
+
 === TRAINER_SIDNEY_1 ===
-Name: Sidney
-Class: Leader
-Pic: Elite Four Sidney
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
-Party Size: 6
-Pool Rules: Basic
-Pool Prune: Badges
+   Name: Sidney
+   Class: Leader
+   Pic: Elite Four Sidney
+   Gender: Male
+   Music: Male
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
+   Party Size: 6
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-Sandile @ Berry Juice
-Adamant Nature
-Level: 15
-Ability: Intimidate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Bulldoze
-- Bite
-- Fire Fang
-- Thunder Fang
+   Sandile @ Berry Juice
+      Adamant Nature
+      Level: 15
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      - Bulldoze
+      - Bite
+      - Fire Fang
+      - Thunder Fang
 
-Nuzleaf @ Miracle Seed
-Jolly Nature
-Level: 14
-Ability: Chlorophyll
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Leaf Blade
-- Night Slash
-- Fake Out
-- Swords Dance
+   Nuzleaf @ Miracle Seed
+      Jolly Nature
+      Level: 14
+      Ability: Chlorophyll
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      - Leaf Blade
+      - Night Slash
+      - Fake Out
+      - Swords Dance
 
-Carvanha @ Rocky Helmet
-Adamant Nature
-Level: 16
-Ability: Rough Skin
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Bite
-- Aqua Jet
-- Ice Fang
-- Poison Fang
+   Carvanha @ Rocky Helmet
+      Adamant Nature
+      Level: 16
+      Ability: Rough Skin
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      - Bite
+      - Aqua Jet
+      - Ice Fang
+      - Poison Fang
 
-Stunky @ Black Sludge
-Naughty Nature
-Level: 15
-Ability: Stench
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Acid Spray
-- Snarl
-- Poison Gas
-- Fury Swipes
+   Stunky @ Black Sludge
+      Naughty Nature
+      Level: 15
+      Ability: Stench
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      - Acid Spray
+      - Snarl
+      - Poison Gas
+      - Fury Swipes
 
-Pawniard @ Eviolite
-Adamant Nature
-Level: 16
-Ability: Defiant
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Iron Head
-- Sucker Punch
-- Psycho Cut
-- Knock Off
+   Pawniard @ Eviolite
+      Adamant Nature
+      Level: 16
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      - Iron Head
+      - Sucker Punch
+      - Psycho Cut
+      - Knock Off
 
-Scraggy @ Leftovers
-Adamant Nature
-Level: 16
-Ability: Intimidate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-- Payback
-- Fake Out
-- Power Up Punch
-- Poison Jab
+   Scraggy @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      - Payback
+      - Fake Out
+      - Power Up Punch
+      - Poison Jab
 
-Mightyena @ Weakness Policy
-Adamant Nature
-Level: 16
-Ability: Intimidate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 150 HP / 150 Atk
-- Sucker Punch
-- Crunch
-- Play Rough
-- Iron Tail
+   Mightyena @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 HP / 150 Atk
+      - Sucker Punch
+      - Crunch
+      - Play Rough
+      - Iron Tail
 
-Carvanha @ Mystic Water
-Adamant Nature
-Level: 16
-Ability: Speed Boost
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 150 Atk / 150 Spe
-- Bite
-- Waterfall
-- Ice Fang
-- Protect
+   Carvanha @ Mystic Water
+      Adamant Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 Atk / 150 Spe
+      - Bite
+      - Waterfall
+      - Ice Fang
+      - Protect
 
-Pawniard @ Eviolite
-Adamant Nature
-Level: 15
-Ability: Defiant
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 150 HP / 150 Atk
-- Iron Head
-- Sucker Punch
-- Psycho Cut
-- Knock Off
+   Pawniard @ Eviolite
+      Adamant Nature
+      Level: 15
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 HP / 150 Atk
+      - Iron Head
+      - Sucker Punch
+      - Psycho Cut
+      - Knock Off
 
-Shiftry @ Miracle Seed
-Jolly Nature
-Level: 15
-Ability: Chlorophyll
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 150 Atk / 150 Spe
-- Leaf Blade
-- Night Slash
-- Fake Out
-- Swords Dance
+   Shiftry @ Miracle Seed
+      Jolly Nature
+      Level: 15
+      Ability: Chlorophyll
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 Atk / 150 Spe
+      - Leaf Blade
+      - Night Slash
+      - Fake Out
+      - Swords Dance
 
-Houndoom @ Charcoal
-Modest Nature
-Level: 16
-Ability: Flash Fire
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 150 SpA / 150 Spe
-- Flamethrower
-- Snarl
-- Nasty Plot
-- Taunt
+   Houndoom @ Charcoal
+      Modest Nature
+      Level: 16
+      Ability: Flash Fire
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 SpA / 150 Spe
+      - Flamethrower
+      - Snarl
+      - Nasty Plot
+      - Taunt
 
-Absol @ Black Glasses
-Adamant Nature
-Level: 16
-Ability: Justified
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 150 Atk / 150 Spe
-- Night Slash
-- Play Rough
-- Sucker Punch
-- Superpower
+   Absol @ Black Glasses
+      Adamant Nature
+      Level: 16
+      Ability: Justified
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 Atk / 150 Spe
+      - Night Slash
+      - Play Rough
+      - Sucker Punch
+      - Superpower
 
 === TRAINER_SIDNEY_2 ===
-Name: Sidney
-Class: Leader
-Pic: Elite Four Sidney
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
-Party Size: 6
-Pool Rules: Basic
-Pool Prune: Badges
+   Name: Sidney
+   Class: Leader
+   Pic: Elite Four Sidney
+   Gender: Male
+   Music: Male
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
+   Party Size: 6
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-Mightyena @ Sitrus Berry
-Adamant Nature
-Level: 16
-Ability: Intimidate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 225 HP / 225 Atk
-- Sucker Punch
-- Crunch
-- Play Rough
-- Iron Tail
+   Mightyena @ Sitrus Berry
+      Adamant Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 HP / 225 Atk
+      - Sucker Punch
+      - Crunch
+      - Play Rough
+      - Iron Tail
 
-Sharpedo @ Black Glasses
-Adamant Nature
-Level: 16
-Ability: Speed Boost
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 225 Atk / 225 Spe
-- Crunch
-- Waterfall
-- Ice Fang
-- Protect
+   Sharpedo @ Black Glasses
+      Adamant Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 Atk / 225 Spe
+      - Crunch
+      - Waterfall
+      - Ice Fang
+      - Protect
 
-Pangoro @ Life Orb
-Adamant Nature
-Level: 16
-Ability: Iron Fist
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 225 Atk / 225 Spe
-- Swords Dance
-- Knock Off
-- Drain Punch
-- Bullet Punch
+   Pangoro @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Iron Fist
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 Atk / 225 Spe
+      - Swords Dance
+      - Knock Off
+      - Drain Punch
+      - Bullet Punch
 
-Cacturne @ Expert Belt
-Mild Nature
-Level: 15
-Ability: Water Absorb
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 225 SpA / 225 Spe
-- Spikes
-- Giga Drain
-- Sucker Punch
-- Dark Pulse
+   Cacturne @ Expert Belt
+      Mild Nature
+      Level: 15
+      Ability: Water Absorb
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 SpA / 225 Spe
+      - Spikes
+      - Giga Drain
+      - Sucker Punch
+      - Dark Pulse
 
-Houndoom @ Charcoal
-Modest Nature
-Level: 16
-Ability: Flash Fire
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 225 SpA / 225 Spe
-- Flamethrower
-- Snarl
-- Nasty Plot
-- Taunt
+   Houndoom @ Charcoal
+      Modest Nature
+      Level: 16
+      Ability: Flash Fire
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 SpA / 225 Spe
+      - Flamethrower
+      - Snarl
+      - Nasty Plot
+      - Taunt
 
-Absol @ Liechi Berry
-Jolly Nature
-Level: 16
-Ability: Pressure
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 225 Atk / 225 Spe
-- Night Slash
-- Psycho Cut
-- Sucker Punch
-- Superpower
+   Absol @ Liechi Berry
+      Jolly Nature
+      Level: 16
+      Ability: Pressure
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 Atk / 225 Spe
+      - Night Slash
+      - Psycho Cut
+      - Sucker Punch
+      - Superpower
 
-Krookodile @ Weakness Policy
-Jolly Nature
-Level: 15
-Ability: Intimidate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 Spe
-- Earthquake
-- Stealth Rock
-- Crunch
-- Sucker Punch
+   Krookodile @ Weakness Policy
+      Jolly Nature
+      Level: 15
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      - Earthquake
+      - Stealth Rock
+      - Crunch
+      - Sucker Punch
 
-Sharpedo @ Life Orb
-Adamant Nature
-Level: 16
-Ability: Speed Boost
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Liquidation
-- Crunch
-- Ice Fang
-- Protect
+   Sharpedo @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Liquidation
+      - Crunch
+      - Ice Fang
+      - Protect
 
-Scrafty @ Lum Berry
-Jolly Nature
-Level: 16
-Ability: Moxie
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Drain Punch
-- Knock Off
-- Dragon Dance
-- High Jump Kick
+   Scrafty @ Lum Berry
+      Jolly Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Drain Punch
+      - Knock Off
+      - Dragon Dance
+      - High Jump Kick
 
-Skuntank @ Black Sludge
-Rash Nature
-Level: 14
-Ability: Stench
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 Atk / 252 SpA / 252 Spe
-- Acid Spray
-- Dark Pulse
-- Sludge Bomb
-- Explosion
+   Skuntank @ Black Sludge
+      Rash Nature
+      Level: 14
+      Ability: Stench
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Atk / 252 SpA / 252 Spe
+      - Acid Spray
+      - Dark Pulse
+      - Sludge Bomb
+      - Explosion
 
-Houndoom @ Charcoal
-Modest Nature
-Level: 16
-Ability: Flash Fire
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Fire Blast
-- Fiery Wrath
-- Nasty Plot
-- Taunt
+   Houndoom @ Charcoal
+      Modest Nature
+      Level: 16
+      Ability: Flash Fire
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Fire Blast
+      - Fiery Wrath
+      - Nasty Plot
+      - Taunt
 
-Absol @ Scope Lens
-Jolly Nature
-Level: 16
-Ability: Super Luck
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Night Slash
-- Psycho Cut
-- Sucker Punch
-- Superpower
+   Absol @ Scope Lens
+      Jolly Nature
+      Level: 16
+      Ability: Super Luck
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Night Slash
+      - Psycho Cut
+      - Sucker Punch
+      - Superpower
 
 === TRAINER_SIDNEY_3 ===
-Name: Sidney
-Class: Leader
-Pic: Elite Four Sidney
-Gender: Male
-Music: Male
-Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
-Party Size: 6
-Pool Rules: Basic
-Pool Prune: Badges
+   Name: Sidney
+   Class: Leader
+   Pic: Elite Four Sidney
+   Gender: Male
+   Music: Male
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
+   Party Size: 6
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-Krookodile @ Weakness Policy
-Jolly Nature
-Level: 15
-Ability: Intimidate
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 252 Atk / 4 Spe
-- Earthquake
-- Stealth Rock
-- Crunch
-- Sucker Punch
+   Krookodile @ Weakness Policy
+      Jolly Nature
+      Level: 15
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      - Earthquake
+      - Stealth Rock
+      - Crunch
+      - Sucker Punch
 
-Sharpedo @ Life Orb
-Adamant Nature
-Level: 16
-Ability: Speed Boost
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Liquidation
-- Crunch
-- Ice Fang
-- Protect
+   Sharpedo @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Liquidation
+      - Crunch
+      - Ice Fang
+      - Protect
 
-Scrafty @ Lum Berry
-Jolly Nature
-Level: 16
-Ability: Moxie
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Drain Punch
-- Knock Off
-- Dragon Dance
-- High Jump Kick
+   Scrafty @ Lum Berry
+      Jolly Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Drain Punch
+      - Knock Off
+      - Dragon Dance
+      - High Jump Kick
 
-Houndoom @ Charcoal
-Modest Nature
-Level: 16
-Ability: Flash Fire
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Fire Blast
-- Fiery Wrath
-- Nasty Plot
-- Taunt
+   Houndoom @ Charcoal
+      Modest Nature
+      Level: 16
+      Ability: Flash Fire
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Fire Blast
+      - Fiery Wrath
+      - Nasty Plot
+      - Taunt
 
-Absol @ Scope Lens
-Jolly Nature
-Level: 16
-Ability: Super Luck
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 Atk / 252 Spe
-- Night Slash
-- Psycho Cut
-- Sucker Punch
-- Superpower
+   Absol @ Scope Lens
+      Jolly Nature
+      Level: 16
+      Ability: Super Luck
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Night Slash
+      - Psycho Cut
+      - Sucker Punch
+      - Superpower
 
-Moltres Galar @ Life Orb
-Modest Nature
-Level: 16
-Ability: Berserk
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 4 HP / 252 SpA / 252 Spe
-- Fiery Wrath
-- Air Slash
-- Nasty Plot
-- Roost
+   Moltres Galar @ Life Orb
+      Modest Nature
+      Level: 16
+      Ability: Berserk
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Fiery Wrath
+      - Air Slash
+      - Nasty Plot
+      - Roost
+
 
 === TRAINER_WATTSON_1 ===
 Name: Wattson
