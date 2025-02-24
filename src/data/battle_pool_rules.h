@@ -3,6 +3,7 @@
 const u16 poolItemClauseExclusions[] =
 {
     ITEM_ORAN_BERRY,
+    ITEM_BERRY_JUICE,
     ITEM_SITRUS_BERRY,
 };
 

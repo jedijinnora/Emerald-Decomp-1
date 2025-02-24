@@ -125,6 +125,7 @@ Recommended workflow for players who want to try to calc things:
    Double Battle: No
 
 
+/* E4 Brandon */
 /* Brandon's room has sandstorm weather */
 === TRAINER_BRANDON_1 ===
    Name: Brandon
@@ -1528,6 +1529,7 @@ Recommended workflow for players who want to try to calc things:
       - Rest
 
 
+/* E4 Lucy */
 === TRAINER_LUCY_1 ===
    Name: Lucy
    Class: Elite Four
@@ -2427,6 +2429,7 @@ Recommended workflow for players who want to try to calc things:
       - Coil
 
 
+/* E4 Glacia */
 /* Glacia's room has hail weather */
 === TRAINER_GLACIA_1 ===
    Name: Glacia
@@ -3482,6 +3485,7 @@ Recommended workflow for players who want to try to calc things:
       - Roost
 
 
+/* E4 Drake */
 === TRAINER_DRAKE_1 ===
    Name: Drake
    Class: Elite Four
@@ -4459,6 +4463,11 @@ Recommended workflow for players who want to try to calc things:
       - Outrage
       - Stone Edge
 
+
+/* Champion Anabel */
+/* Team 1-3 is randomly selected */
+/* Team 4 is used only for the initial battle on Easy difficulty */
+/* Will always use Team 3 if you have a Shaymin in party and not yet received Gracidea */
 
 /* The Baton Pass Serene Grace Flinch team */
 === TRAINER_ANABEL_1 ===
@@ -7407,7 +7416,7 @@ Recommended workflow for players who want to try to calc things:
       - Dazzling Gleam
       - Recover
 
-/* The Fire/Water/Grass & Jirachi team */
+/* The Shaymin/Manaphy/Victini/Jirachi team */
 === TRAINER_ANABEL_3 ===
    Name: Anabel
    Class: Champion
@@ -8706,7 +8715,7 @@ Recommended workflow for players who want to try to calc things:
       - Earth Power
       - Dazzling Gleam
 
-/* The Ogerpon team, always used for the initial battle on Easy difficulty */
+/* The Ogerpon team */
 === TRAINER_ANABEL_4 ===
    Name: Anabel
    Class: Champion
@@ -9790,6 +9799,7 @@ Recommended workflow for players who want to try to calc things:
       - Knock Off
 
 
+/* Rustboro Gym Leader */
 === TRAINER_NOLAND_1 ===
    Name: Noland
    Class: Leader
@@ -9807,7 +9817,7 @@ Recommended workflow for players who want to try to calc things:
       Level: 15
       Ability: Iron Barbs
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 1
+      Tags: Badge 0
       - Iron Head
       - Zing Zap
       - Fell Stinger
@@ -9818,7 +9828,7 @@ Recommended workflow for players who want to try to calc things:
       Level: 14
       Ability: Levitate
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 1
+      Tags: Badge 0
       - Gear Grind
       - Shift Gear
       - Wild Charge
@@ -9829,7 +9839,7 @@ Recommended workflow for players who want to try to calc things:
       Level: 16
       Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 1
+      Tags: Badge 0
       - Metal Claw
       - Rock Tomb
       - Headbutt
@@ -9840,7 +9850,7 @@ Recommended workflow for players who want to try to calc things:
       Level: 15
       Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-      Tags: Badge 1
+      Tags: Badge 0
       - Gyro Ball
       - Bug Bite
       - Counter
@@ -9851,7 +9861,7 @@ Recommended workflow for players who want to try to calc things:
       Level: 16
       Ability: Tough Claws
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 1
+      Tags: Badge 0
       - Fake Out
       - Metal Claw
       - Hone Claws
@@ -9862,7 +9872,7 @@ Recommended workflow for players who want to try to calc things:
       Level: 16
       Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 1
+      Tags: Badge 0
       - Drill Peck
       - Steel Wing
       - Roost
@@ -9874,7 +9884,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 100 HP / 100 Atk / 100 SpD
-      Tags: Badge 2
+      Tags: Badge 1
       - Iron Head
       - Rock Tomb
       - Stealth Rock
@@ -9886,7 +9896,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Levitate
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 150 Atk / 150 Spe
-      Tags: Badge 2
+      Tags: Badge 1
       - Gear Grind
       - Shift Gear
       - Wild Charge
@@ -9898,7 +9908,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
       EVs: 150 HP / 150 Atk
-      Tags: Badge 2
+      Tags: Badge 1
       - Gyro Ball
       - Bug Bite
       - Counter
@@ -9910,7 +9920,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Iron Barbs
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 100 HP / 100 Atk / 100 SpD
-      Tags: Badge 2
+      Tags: Badge 1
       - Iron Head
       - Zing Zap
       - Fell Stinger
@@ -9922,7 +9932,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 100 HP / 100 Atk / 100 SpD
-      Tags: Badge 2
+      Tags: Badge 1
       - Drill Peck
       - Steel Wing
       - Roost
@@ -9934,7 +9944,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Sheer Force
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 100 Atk / 100 Def / 100 SpD
-      Tags: Badge 2
+      Tags: Badge 1
       - Iron Head
       - Play Rough
       - Rock Slide
@@ -9958,7 +9968,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
       EVs: 225 HP / 225 SpD
-      Tags: Badge 3 / Badge 4
+      Tags: Badge 2 / Badge 3
       - Gyro Ball
       - Stealth Rock
       - Spikes
@@ -9970,7 +9980,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 150 HP / 150 Atk / 150 SpD
-      Tags: Badge 3 / Badge 4
+      Tags: Badge 2 / Badge 3
       - Drill Peck
       - Steel Wing
       - Roost
@@ -9982,7 +9992,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Sheer Force
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 150 Atk / 150 Def / 150 SpD
-      Tags: Badge 3 / Badge 4
+      Tags: Badge 2 / Badge 3
       - Iron Head
       - Play Rough
       - Rock Slide
@@ -9994,7 +10004,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Steely Spirit
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 225 HP / 225 Atk
-      Tags: Badge 3 / Badge 4
+      Tags: Badge 2 / Badge 3
       - Iron Head
       - Play Rough
       - Close Combat
@@ -10006,7 +10016,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Mold Breaker
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 225 HP / 225 Atk
-      Tags: Badge 3 / Badge 4
+      Tags: Badge 2 / Badge 3
       - Earthquake
       - Iron Head
       - Rock Slide
@@ -10018,7 +10028,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Rock Head
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 150 HP / 150 Atk / 150 SpD
-      Tags: Badge 3 / Badge 4
+      Tags: Badge 2 / Badge 3
       - Iron Head
       - Earthquake
       - Rock Slide
@@ -10030,7 +10040,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
       EVs: 252 HP / 4 Atk / 252 SpD
-      Tags: Lead / Badge 5 / Badge 6 / Badge 7
+      Tags: Lead / Badge 4 / Badge 5 / Badge 6
       - Gyro Ball
       - Stealth Rock
       - Spikes
@@ -10042,7 +10052,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Rock Head
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 170 HP / 170 Atk / 170 SpD
-      Tags: Badge 5 / Badge 6 / Badge 7
+      Tags: Badge 4 / Badge 5 / Badge 6
       - Iron Tail
       - Earthquake
       - Double Edge
@@ -10054,7 +10064,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 4 Def / 252 SpD
-      Tags: Badge 5 / Badge 6 / Badge 7
+      Tags: Badge 4 / Badge 5 / Badge 6
       - Spikes
       - Whirlwind
       - Roost
@@ -10066,7 +10076,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Steelworker
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 Atk / 252 Spe
-      Tags: Badge 5 / Badge 6 / Badge 7
+      Tags: Badge 4 / Badge 5 / Badge 6
       - Gear Grind
       - Shift Gear
       - Wild Charge
@@ -10078,7 +10088,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Steely Spirit
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 252 Atk / 4 Spe
-      Tags: Badge 5 / Badge 6 / Badge 7
+      Tags: Badge 4 / Badge 5 / Badge 6
       - Iron Head
       - Play Rough
       - Close Combat
@@ -10090,7 +10100,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Sheer Force
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 252 Atk / 4 SpD
-      Tags: Badge 5 / Badge 6 / Badge 7
+      Tags: Badge 4 / Badge 5 / Badge 6
       - Iron Tail
       - Rock Slide
       - Bulldoze
@@ -10346,6 +10356,7 @@ Recommended workflow for players who want to try to calc things:
       - Draco Meteor
 
 
+/* Dewford Gym Leader */
 === TRAINER_SIDNEY_1 ===
    Name: Sidney
    Class: Leader
@@ -10707,6 +10718,7 @@ Recommended workflow for players who want to try to calc things:
       - Roost
 
 
+/* Mauville Gym Leader */
 === TRAINER_WATTSON_1 ===
    Name: Wattson
    Class: Leader
@@ -11068,6 +11080,7 @@ Recommended workflow for players who want to try to calc things:
    - Aurora Beam
 
 
+/* Lavaridge Gym Leader */
 === TRAINER_MOORE_1 ===
    Name: Moore
    Class: Leader
@@ -11429,6 +11442,7 @@ Recommended workflow for players who want to try to calc things:
    - Earth Power
 
 
+/* Petalburg Gym Leader */
 === TRAINER_GRETA_1 ===
    Name: Greta
    Class: Leader
@@ -11790,6 +11804,7 @@ Recommended workflow for players who want to try to calc things:
    - Glare
 
 
+/* Fortree Gym Leader */
 === TRAINER_SPENSER_1 ===
    Name: Spenser
    Class: Leader
@@ -12151,6 +12166,7 @@ Recommended workflow for players who want to try to calc things:
    - Earth Power
 
 
+/* Mossdeep Gym Leader */
 === TRAINER_SABITHA_1 ===
    Name: Sabitha
    Class: Leader
@@ -12515,6 +12531,7 @@ Recommended workflow for players who want to try to calc things:
    - Recover
 
 
+/* Sootopolis Gym Leader */
 === TRAINER_JUAN_1 ===
    Name: Juan
    Class: Leader
@@ -12879,6 +12896,7 @@ Recommended workflow for players who want to try to calc things:
    - Draining Kiss
 
 
+/* Rustboro Gym */
 === TRAINER_TOMMY ===
    Name: Tommy
    Class: School Kid
@@ -13067,6 +13085,8 @@ Recommended workflow for players who want to try to calc things:
    - Rock Slide
    - Hone Claws
 
+
+/* Dewford Gym */
 === TRAINER_LAURA ===
    Name: Laura
    Class: Battle Girl
@@ -13381,6 +13401,8 @@ Recommended workflow for players who want to try to calc things:
    - Night Shade
    - Will O Wisp
 
+
+/* Mauville Gym */
 === TRAINER_SHAWN ===
    Name: Shawn
    Class: Guitarist
@@ -13668,6 +13690,8 @@ Recommended workflow for players who want to try to calc things:
    - Sucker Punch
    - Giga Drain
 
+
+/* Lavaridge Gym */
 === TRAINER_JEFF ===
    Name: Jeff
    Class: Kindler
@@ -14151,6 +14175,8 @@ Recommended workflow for players who want to try to calc things:
    - Rock Slide
    - Overheat
 
+
+/* Petalburg Gym */
 === TRAINER_MARY ===
    Name: Mary
    Class: Cooltrainer
@@ -14595,6 +14621,8 @@ Recommended workflow for players who want to try to calc things:
    - Rock Slide
    - Wild Charge
 
+
+/* Fortree Gym */
 === TRAINER_HUMBERTO ===
    Name: Humberto
    Class: Ninja Boy
@@ -14935,6 +14963,8 @@ Recommended workflow for players who want to try to calc things:
    - Low Sweep
    - Acupressure
 
+
+/* Mossdeep Gym */
 === TRAINER_PRESTON ===
    Name: Preston
    Class: Psychic
@@ -15591,6 +15621,8 @@ Recommended workflow for players who want to try to calc things:
    - Counter
    - Mirror Coat
 
+
+/* Sootopolis Gym */
 === TRAINER_ANDREA ===
    Name: Andrea
    Class: Lass
@@ -16091,6 +16123,7 @@ Recommended workflow for players who want to try to calc things:
    - Drill Run
 
 
+/* Type Tutors */
 === TRAINER_NORMAN_INITIAL ===
    Name: Norman
    Class: Rival
@@ -20142,6 +20175,7 @@ Recommended workflow for players who want to try to calc things:
    - Body Slam
 
 
+/* Other Tutors */
 === TRAINER_WEATHER_TUTOR_RAIN ===
    Name: Weather
    Class: Rival
@@ -20732,6 +20766,7 @@ Recommended workflow for players who want to try to calc things:
    - Foul Play
 
 
+/* Winstrates */
 === TRAINER_VICTOR ===
    Name: Victor
    Class: Winstrate
@@ -21222,6 +21257,7 @@ Recommended workflow for players who want to try to calc things:
    - Flamethrower
 
 
+/* Gabby and Ty */
 === TRAINER_GABBY_AND_TY_111 ===
    Name: Gabby & Ty
    Class: Interviewer
@@ -21502,6 +21538,7 @@ Recommended workflow for players who want to try to calc things:
    - Tri Attack
 
 
+/* Beach Battle */
 === TRAINER_BB_MISCHA ===
    Name: Mischa
    Class: Tuber M
@@ -21922,6 +21959,7 @@ Recommended workflow for players who want to try to calc things:
    - Shadow Force
 
 
+/* Blocker Rivals */
 === TRAINER_RIVAL_LEAF ===
    Name: Leaf
    Class: Rival
@@ -22732,6 +22770,7 @@ Recommended workflow for players who want to try to calc things:
    - Rest
 
 
+/* Victory Road Rivals */
 === TRAINER_RIVAL_JINNORA ===
    Name: Jinnora
    Class: Rival
@@ -22911,6 +22950,7 @@ Recommended workflow for players who want to try to calc things:
    Level: 5
 
 
+/* TPP Islands */
 === TRAINER_TPP_RED ===
    Name: Red
    Class: Rival
@@ -23126,6 +23166,7 @@ Recommended workflow for players who want to try to calc things:
    - Scorching Sands
 
 
+/* Route 101 */
 === TRAINER_BREYDEN ===
    Name: Breyden
    Class: Youngster
@@ -23134,57 +23175,66 @@ Recommended workflow for players who want to try to calc things:
    Music: Male
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-   Mightyena @ Sitrus Berry
-   Level: 14
-   Ability: Intimidate
-   EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
-   - Crunch
-   - Play Rough
-   - Howl
-   - Sucker Punch
+   Mightyena @ Weakness Policy
+      Level: 14
+      Ability: Intimidate
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Crunch
+      - Play Rough
+      - Howl
+      - Sucker Punch
 
    Linoone @ Sitrus Berry
-   Level: 14
-   Ability: Pickup
-   EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
-   - Thunder Wave
-   - Covet
-   - Headbutt
-   - Seed Bomb
+      Level: 14
+      Ability: Pickup
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Thunder Wave
+      - Covet
+      - Headbutt
+      - Seed Bomb
 
    Ledian @ Assault Vest
-   Level: 14
-   Ability: Early Bird
-   EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
-   - Drain Punch
-   - Thunder Punch
-   - Mach Punch
-   - Aerial Ace
+      Level: 14
+      Ability: Early Bird
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Drain Punch
+      - Thunder Punch
+      - Mach Punch
+      - Aerial Ace
 
-   Poochyena @ Oran Berry
-   Level: 12
-   Ability: Quick Feet
-   - Tackle
-   - Bite
-   - Howl
-   - Sand Attack
+   Poochyena @ Muscle Band
+      Level: 12
+      Ability: Quick Feet
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Tackle
+      - Bite
+      - Howl
+      - Sand Attack
 
    Zigzagoon @ Oran Berry
-   Level: 12
-   Ability: Pickup
-   - Growl
-   - Covet
-   - Headbutt
-   - Pin Missile
+      Level: 12
+      Ability: Pickup
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Growl
+      - Covet
+      - Headbutt
+      - Pin Missile
 
    Ledyba @ Berry Juice
-   Level: 12
-   Ability: Early Bird
-   - Swift
-   - Struggle Bug
-   - Mach Punch
-   - Encore
+      Level: 12
+      Ability: Early Bird
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Swift
+      - Struggle Bug
+      - Mach Punch
+      - Encore
 
 === TRAINER_VANCE ===
    Name: Vance
@@ -23351,6 +23401,8 @@ Recommended workflow for players who want to try to calc things:
    - Flail
    - Ice Shard
 
+
+/* Route 102 */
 === TRAINER_CALVIN ===
    Name: Calvin
    Class: Youngster
@@ -23741,6 +23793,8 @@ Recommended workflow for players who want to try to calc things:
    - Fire Punch
    - Curse
 
+
+/* Route 103 */
 === TRAINER_DAISY ===
    Name: Daisy
    Class: Aroma Lady
@@ -24101,6 +24155,8 @@ Recommended workflow for players who want to try to calc things:
    - Shell Smash
    - Ice Beam
 
+
+/* Route 104 */
 === TRAINER_HALEY ===
    Name: Haley
    Class: Lass
@@ -24477,6 +24533,8 @@ Recommended workflow for players who want to try to calc things:
    - Spark
    - Icy Wind
 
+
+/* Route 105 */
 === TRAINER_LUIS ===
    Name: Luis
    Class: Swimmer M
@@ -24832,6 +24890,8 @@ Recommended workflow for players who want to try to calc things:
    - Rock Slide
    - Brick Break
 
+
+/* Route 106 */
 === TRAINER_DOUGLAS ===
    Name: Douglas
    Class: Swimmer M
@@ -25149,6 +25209,8 @@ Recommended workflow for players who want to try to calc things:
    - Extrasensory
    - Dark Pulse
 
+
+/* Route 107 */
 === TRAINER_DARRIN ===
    Name: Darrin
    Class: Swimmer M
@@ -25452,6 +25514,8 @@ Recommended workflow for players who want to try to calc things:
    - Destiny Bond
    - Will O Wisp
 
+
+/* Route 108 */
 === TRAINER_JEROME ===
    Name: Jerome
    Class: Swimmer M
@@ -25853,6 +25917,8 @@ Recommended workflow for players who want to try to calc things:
    - Low Sweep
    - Leaf Storm
 
+
+/* Route 109 */
 === TRAINER_DAVID ===
    Name: David
    Class: Swimmer M
@@ -26357,6 +26423,8 @@ Recommended workflow for players who want to try to calc things:
    - Poison Fang
    - Venoshock
 
+
+/* Route 110 */
 === TRAINER_JASMINE ===
    Name: Jasmine
    Class: Triathlete
@@ -27178,6 +27246,8 @@ Recommended workflow for players who want to try to calc things:
    - Ice Beam
    - Knock Off
 
+
+/* Route 111 */
 === TRAINER_HEIDI ===
    Name: Heidi
    Class: Picnicker
@@ -28310,6 +28380,8 @@ Recommended workflow for players who want to try to calc things:
    - Ancient Power
    - Scald
 
+
+/* Route 112 */
 === TRAINER_LARRY ===
    Name: Larry
    Class: Camper
@@ -28524,6 +28596,8 @@ Recommended workflow for players who want to try to calc things:
    - Rock Slide
    - Thunder Punch
 
+
+/* Route 113 */
 === TRAINER_JAYLEN ===
    Name: Jaylen
    Class: Youngster
@@ -29205,6 +29279,8 @@ Recommended workflow for players who want to try to calc things:
    - Fire Spin
    - Leech Life
 
+
+/* Route 114 */
 === TRAINER_LENNY ===
    Name: Lenny
    Class: Hiker
@@ -29975,6 +30051,8 @@ Recommended workflow for players who want to try to calc things:
    - Waterfall
    - Giga Impact
 
+
+/* Route 115 */
 === TRAINER_TIMOTHY ===
    Name: Timothy
    Class: Expert
@@ -30721,6 +30799,8 @@ Recommended workflow for players who want to try to calc things:
    - Dark Pulse
    - Psyshock
 
+
+/* Route 116 */
 === TRAINER_JOEY ===
    Name: Joey
    Class: Youngster
@@ -31405,6 +31485,8 @@ Recommended workflow for players who want to try to calc things:
    - Recover
    - Earthquake
 
+
+/* Route 117 */
 === TRAINER_DYLAN ===
    Name: Dylan
    Class: Triathlete
@@ -32091,6 +32173,8 @@ Recommended workflow for players who want to try to calc things:
    - Stockpile
    - Soak
 
+
+/* Route 118 */
 === TRAINER_PERRY ===
    Name: Perry
    Class: Bird Keeper
@@ -32528,6 +32612,8 @@ Recommended workflow for players who want to try to calc things:
    - Aurora Beam
    - Volt Switch
 
+
+/* Route 119 */
 === TRAINER_GREG ===
    Name: Greg
    Class: Bug Catcher
@@ -33648,6 +33734,8 @@ Recommended workflow for players who want to try to calc things:
    - Water Shuriken
    - Venoshock
 
+
+/* Route 120 */
 === TRAINER_COLIN ===
    Name: Colin
    Class: Bird Keeper
@@ -34427,6 +34515,8 @@ Recommended workflow for players who want to try to calc things:
    - Flamethrower
    - Zen Headbutt
 
+
+/* Route 121 */
 === TRAINER_KATE_AND_JOY ===
    Name: Kate & Joy
    Class: Sr And Jr
@@ -35150,6 +35240,8 @@ Recommended workflow for players who want to try to calc things:
    - Teeter Dance
    - Sucker Punch
 
+
+/* Route 122 */
 === TRAINER_MITCHELL ===
    Name: Mitchell
    Class: Triathlete
@@ -35508,6 +35600,8 @@ Recommended workflow for players who want to try to calc things:
    - Grass Knot
    - Vacuum Wave
 
+
+/* Route 123 */
 === TRAINER_WENDY ===
    Name: Wendy
    Class: Cooltrainer
@@ -36230,6 +36324,8 @@ Recommended workflow for players who want to try to calc things:
    - Brick Break
    - Bulk Up
 
+
+/* Route 124 */
 === TRAINER_SPENCER ===
    Name: Spencer
    Class: Swimmer M
@@ -36628,6 +36724,8 @@ Recommended workflow for players who want to try to calc things:
    - U Turn
    - Flamethrower
 
+
+/* Route 125 */
 === TRAINER_NOLEN ===
    Name: Nolen
    Class: Swimmer M
@@ -37131,6 +37229,8 @@ Recommended workflow for players who want to try to calc things:
    - Rest
    - Sleep Talk
 
+
+/* Route 126 */
 === TRAINER_BARRY ===
    Name: Barry
    Class: Swimmer M
@@ -37555,6 +37655,8 @@ Recommended workflow for players who want to try to calc things:
    - Overheat
    - Toxic
 
+
+/* Route 127 */
 === TRAINER_CAMDEN ===
    Name: Camden
    Class: Triathlete
@@ -38043,6 +38145,8 @@ Recommended workflow for players who want to try to calc things:
    - First Impression
    - Close Combat
 
+
+/* Route 128 */
 === TRAINER_ISAIAH ===
    Name: Isaiah
    Class: Triathlete
@@ -38397,6 +38501,8 @@ Recommended workflow for players who want to try to calc things:
    - Rock Blast
    - Heat Wave
 
+
+/* Route 129 */
 === TRAINER_CHASE ===
    Name: Chase
    Class: Triathlete
@@ -38723,6 +38829,8 @@ Recommended workflow for players who want to try to calc things:
    - Substitute
    - Giga Drain
 
+
+/* Route 130 */
 === TRAINER_RODNEY ===
    Name: Rodney
    Class: Swimmer M
@@ -38826,6 +38934,8 @@ Recommended workflow for players who want to try to calc things:
    - Fire Punch
    - Accelerock
 
+
+/* Route 131 */
 === TRAINER_RICHARD ===
    Name: Richard
    Class: Bird Keeper
@@ -39100,6 +39210,8 @@ Recommended workflow for players who want to try to calc things:
    - Ice Beam
    - Roost
 
+
+/* Route 132 */
 === TRAINER_PAXTON ===
    Name: Paxton
    Class: Expert
@@ -39574,6 +39686,8 @@ Recommended workflow for players who want to try to calc things:
    - Sucker Punch
    - Foul Play
 
+
+/* Route 133 */
 === TRAINER_FRANKLIN ===
    Name: Franklin
    Class: Swimmer M
@@ -40014,6 +40128,8 @@ Recommended workflow for players who want to try to calc things:
    - Earth Power
    - Ice Beam
 
+
+/* Route 134 */
 === TRAINER_JACK ===
    Name: Jack
    Class: Swimmer M
@@ -40449,6 +40565,8 @@ Recommended workflow for players who want to try to calc things:
    - Leaf Blade
    - Revenge
 
+
+/* Granite Cave */
 === TRAINER_THOMAS ===
    Name: Thomas
    Class: Camper
@@ -40580,6 +40698,8 @@ Recommended workflow for players who want to try to calc things:
    - Shadow Sneak
    - Wood Hammer
 
+
+/* Mt Chimney */
 === TRAINER_SHELBY ===
    Name: Shelby
    Class: Expert
@@ -40962,6 +41082,8 @@ Recommended workflow for players who want to try to calc things:
    - Leaf Storm
    - Draco Meteor
 
+
+/* Petalburg Woods */
 === TRAINER_LYLE ===
    Name: Lyle
    Class: Bug Catcher
@@ -41058,6 +41180,8 @@ Recommended workflow for players who want to try to calc things:
    - Giga Drain
    - Electroweb
 
+
+/* Rusturf Tunnel */
 === TRAINER_MIKE ===
    Name: Mike
    Class: Hiker
@@ -41119,6 +41243,8 @@ Recommended workflow for players who want to try to calc things:
    - Fake Tears
    - Stomping Tantrum
 
+
+/* Abandoned Ship */
 === TRAINER_CHARLIE ===
    Name: Charlie
    Class: Tuber M
@@ -41461,6 +41587,8 @@ Recommended workflow for players who want to try to calc things:
    - Aqua Jet
    - Bounce
 
+
+/* Meteor Falls */
 === TRAINER_BILL ===
    Name: Bill
    Class: Dragon Tamer
@@ -41837,6 +41965,8 @@ Recommended workflow for players who want to try to calc things:
    - Noble Roar
    - Earthquake
 
+
+/* Mt Pyre */
 === TRAINER_MARK ===
    Name: Mark
    Class: Pokemaniac
@@ -42540,6 +42670,8 @@ Recommended workflow for players who want to try to calc things:
    - Focus Blast
    - Dazzling Gleam
 
+
+/* Victory Road */
 === TRAINER_MANO ===
    Name: Mano
    Class: Cooltrainer
@@ -43663,6 +43795,8 @@ Recommended workflow for players who want to try to calc things:
    - Earthquake
    - Ice Punch
 
+
+/* Southern Island */
 === TRAINER_NAOMI ===
    Name: Naomi
    Class: Aroma Lady
@@ -43748,6 +43882,8 @@ Recommended workflow for players who want to try to calc things:
    - Fly
    - Solar Beam
 
+
+/* Littleroot Shore */
 === TRAINER_SAMUEL ===
    Name: Samuel
    Class: Psychic
@@ -43921,6 +44057,8 @@ Recommended workflow for players who want to try to calc things:
    - Water Spout
    - Recover
 
+
+/* Jagged Pass */
 === TRAINER_ERIC ===
    Name: Eric
    Class: Hiker
@@ -44154,6 +44292,8 @@ Recommended workflow for players who want to try to calc things:
    - Screech
    - Metal Sound
 
+
+/* Dewdrop Glen */
 === TRAINER_ALBERT ===
    Name: Albert
    Class: Pkmn Ranger
@@ -44310,6 +44450,8 @@ Recommended workflow for players who want to try to calc things:
    - Waterfall
    - Drill Run
 
+
+/* Sky Pillar */
 === TRAINER_ASHE ===
    Name: Ashe
    Class: Dragon Tamer
@@ -44443,6 +44585,8 @@ Recommended workflow for players who want to try to calc things:
    - Extreme Speed
    - Earthquake
 
+
+/* Dewford Resort */
 === TRAINER_PHELPS ===
    Name: Phelps
    Class: Tuber M
@@ -44674,6 +44818,8 @@ Recommended workflow for players who want to try to calc things:
    - Ancient Power
    - Recover
 
+
+/* Verdant Forest */
 === TRAINER_DRESDEN ===
    Name: Dresden
    Class: Pokemaniac
@@ -44804,6 +44950,8 @@ Recommended workflow for players who want to try to calc things:
    - Dream Eater
    - Roost
 
+
+/* Mossdeep Caverns */
 === TRAINER_NORAN ===
    Name: Noran
    Class: Hiker
@@ -44912,6 +45060,8 @@ Recommended workflow for players who want to try to calc things:
    - Ice Punch
    - Zen Headbutt
 
+
+/* Valley of Steel */
 === TRAINER_PEPPER ===
    Name: Pepper
    Class: Pkmn Ranger
@@ -45120,6 +45270,8 @@ Recommended workflow for players who want to try to calc things:
    - Knock Off
    - Thunder Wave
 
+
+/* Sandswept Oasis */
 === TRAINER_NEAL ===
    Name: Neal
    Class: Hiker
@@ -45259,6 +45411,8 @@ Recommended workflow for players who want to try to calc things:
    - Earth Power
    - Self Destruct
 
+
+/* Forina */
 === TRAINER_KEL ===
    Name: Kel
    Class: Pkmn Ranger
@@ -45929,6 +46083,8 @@ Recommended workflow for players who want to try to calc things:
    - Moonblast
    - Overheat
 
+
+/* Slateport Beach */
 === TRAINER_LUTHER ===
    Name: Luther
    Class: Sailor
@@ -46295,6 +46451,8 @@ Recommended workflow for players who want to try to calc things:
    - Fire Blast
    - Slack Off
 
+
+/* Seashore House */
 === TRAINER_SIMON ===
    Name: Simon
    Class: Tuber M
@@ -46443,6 +46601,8 @@ Recommended workflow for players who want to try to calc things:
    - Ice Beam
    - Giga Drain
 
+
+/* Power Plant */
 === TRAINER_ARIARNE ===
    Name: Ariarne
    Class: Swimmer F
@@ -46530,6 +46690,8 @@ Recommended workflow for players who want to try to calc things:
    - Quiver Dance
    - Strength Sap
 
+
+/* Summer Sea */
 === TRAINER_STANLY ===
    Name: Stanly
    Class: Sailor
@@ -46796,6 +46958,8 @@ Recommended workflow for players who want to try to calc things:
    - Crunch
    - Aqua Jet
 
+
+/* Trick House Puzzle 1 */
 === TRAINER_SALLY ===
    Name: Sally
    Class: Lass
@@ -46925,6 +47089,8 @@ Recommended workflow for players who want to try to calc things:
    - Pin Missile
    - Take Down
 
+
+/* Trick House Puzzle 2 */
 === TRAINER_TED ===
    Name: Ted
    Class: School Kid
@@ -47062,6 +47228,8 @@ Recommended workflow for players who want to try to calc things:
    - Air Slash
    - Morning Sun
 
+
+/* Trick House Puzzle 3 */
 === TRAINER_JUSTIN ===
    Name: Justin
    Class: Camper
@@ -47195,6 +47363,8 @@ Recommended workflow for players who want to try to calc things:
    - Power Gem
    - Rest
 
+
+/* Trick House Puzzle 4 */
 === TRAINER_CORA ===
    Name: Cora
    Class: Battle Girl
@@ -47292,6 +47462,8 @@ Recommended workflow for players who want to try to calc things:
    - Drain Punch
    - Bullet Punch
 
+
+/* Trick House Puzzle 5 */
 === TRAINER_IRVIN ===
    Name: Irvin
    Class: Bug Catcher
@@ -47667,6 +47839,8 @@ Recommended workflow for players who want to try to calc things:
    - Roost
    - Swords Dance
 
+
+/* Trick House Puzzle 6 */
 === TRAINER_SOPHIA ===
    Name: Sophia
    Class: Pkmn Ranger
@@ -47784,6 +47958,8 @@ Recommended workflow for players who want to try to calc things:
    - Quick Attack
    - Swords Dance
 
+
+/* Trick House Puzzle 7 */
 === TRAINER_JOSHUA ===
    Name: Joshua
    Class: Psychic
@@ -47962,6 +48138,8 @@ Recommended workflow for players who want to try to calc things:
    - Encore
    - Destiny Bond
 
+
+/* Trick House Puzzle 8 */
 === TRAINER_VINCENT ===
    Name: Vincent
    Class: Cooltrainer
@@ -48110,6 +48288,8 @@ Recommended workflow for players who want to try to calc things:
    - Hyper Voice
    - Moonlight
 
+
+/* Vanilla Safety Trainers */
 === TRAINER_ANABEL ===
    Name: Anabel
    Class: Salon Maiden
@@ -48238,6 +48418,8 @@ Recommended workflow for players who want to try to calc things:
    Kyogre
    Level: 5
 
+
+/* Meteor Falls Steven */
 === TRAINER_STEVEN ===
    Name: Steven
    Class: Rival

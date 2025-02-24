@@ -368,38 +368,41 @@ static void BadgesPrune(const struct Trainer *trainer, u8 *poolIndexArray, const
     //Jinnora: eliminate mons tagged with invalid badge numbers
     u32 badgeTagRequired;
     
-    u8 currBadges = VarGet(VAR_NUM_BADGES);
+    u32 currBadges = VarGet(VAR_NUM_BADGES);
     switch (currBadges)
     {
         case 0:
             badgeTagRequired = MON_POOL_TAG_BADGE_0;
+            break;
         case 1:
             badgeTagRequired = MON_POOL_TAG_BADGE_1;
+            break;
         case 2:
             badgeTagRequired = MON_POOL_TAG_BADGE_2;
+            break;
         case 3:
             badgeTagRequired = MON_POOL_TAG_BADGE_3;
+            break;
         case 4:
             badgeTagRequired = MON_POOL_TAG_BADGE_4;
+            break;
         case 5:
             badgeTagRequired = MON_POOL_TAG_BADGE_5;
+            break;
         case 6:
             badgeTagRequired = MON_POOL_TAG_BADGE_6;
+            break;
         case 7:
             badgeTagRequired = MON_POOL_TAG_BADGE_7;
-        case 8:
+            break;
         default:
             badgeTagRequired = MON_POOL_TAG_BADGE_8;
+            break;
     }
 
-    for (u32 currIndex = 0; currIndex < trainer->poolSize; currIndex++)
-    {
-        u32 currentTags = trainer->party[poolIndexArray[currIndex]].tags;
-        if (!(currentTags & badgeTagRequired))
-        {
-            poolIndexArray[currIndex] = POOL_SLOT_DISABLED;
-        }
-    }
+    for (u32 i = 0; i < trainer->poolSize; i++)
+        if (!(trainer->party[poolIndexArray[i]].tags & badgeTagRequired))
+            poolIndexArray[i] = POOL_SLOT_DISABLED;
 }
 
 static void PrunePool(const struct Trainer *trainer, u8 *poolIndexArray, const struct PoolRules *rules)
