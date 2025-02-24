@@ -1341,7 +1341,8 @@ static bool parse_trainer(struct Parser *p, const struct Parsed *parsed, struct 
                 if (pokemon->ivs_line)
                     any_error = !set_show_parse_error(p, key.location, "duplicate 'IVs'");
                 pokemon->ivs_line = value.location.line;
-                pokemon->ivs = parsed->default_ivs;
+                //Jinnora: I am asking you to NOT use your default bullshit
+                //pokemon->ivs = parsed->default_ivs;
                 if (!token_stats(p, &value, &pokemon->ivs, parsed->default_ivs_off))
                     any_error = !show_parse_error(p);
             }
@@ -1443,8 +1444,9 @@ static bool parse_trainer(struct Parser *p, const struct Parsed *parsed, struct 
         {
             if (!parsed->default_ivs_off)
             {
-                pokemon->ivs = parsed->default_ivs;
-                pokemon->ivs_line = p->location.line;
+                //Jinnora: I am asking you once again to NOT use your default bullshit
+                //pokemon->ivs = parsed->default_ivs;
+                //pokemon->ivs_line = p->location.line;
             }
             else
             {
@@ -1914,10 +1916,11 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
                 fprint_constant(f, "NATURE", pokemon->nature);
                 fprintf(f, ",\n");
             }
-            else
-            {
-                fprintf(f, "            .nature = NATURE_HARDY,\n");
-            }
+            //Jinnora: I don't WANT your goddamn Hardy default, fuck you
+            //else
+            //{
+            //    fprintf(f, "            .nature = NATURE_HARDY,\n");
+            //}
 
             if (pokemon->shiny_line)
             {
