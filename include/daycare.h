@@ -35,6 +35,7 @@ void ChooseSendDaycareMon(void);
 u8 GetEggMovesBySpecies(u16 species, u16 *eggMoves);
 bool8 SpeciesCanLearnEggMove(u16 species, u16 move);
 void StorePokemonInDaycare(struct Pokemon *mon, struct DaycareMon *daycareMon);
+u8 GetEggMoves(struct Pokemon *pokemon, u16 *eggMoves);
 
 //made visible for egg move tutor:
 u16 GetEggSpecies(u16 species);

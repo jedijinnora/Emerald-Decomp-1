@@ -9,12 +9,27 @@
 
 #include "data/battle_pool_rules.h"
 
+static void HasRequiredTag(const struct Trainer *trainer, u8* poolIndexArray, struct PoolRules *rules, u32 *arrayIndex, bool32 *foundRequiredTag, u32 currIndex)
+{
+    //  Start from index 2, since lead and ace has special handling
+    for (u32 currTag = 2; currTag < POOL_NUM_TAGS; currTag++)
+    {
+        if (rules->tagRequired[currTag]
+         && trainer->party[poolIndexArray[currIndex]].tags & (1u << currTag))
+        {
+            *arrayIndex = currIndex;
+            *foundRequiredTag = TRUE;
+            break;
+        }
+    }
+}
+
 static u32 DefaultLeadPickFunction(const struct Trainer *trainer, u8 *poolIndexArray, u32 partyIndex, u32 monsCount, u32 battleTypeFlags, struct PoolRules *rules)
 {
     u32 arrayIndex = 0;
     u32 monIndex = POOL_SLOT_DISABLED;
-
     //  monIndex is set to 255 if nothing has been chosen yet, this gives an upper limit on pool size of 255
+    
     if ((partyIndex == 0)
      || (partyIndex == 1 && (battleTypeFlags & BATTLE_TYPE_DOUBLE)))
     {
@@ -29,6 +44,7 @@ static u32 DefaultLeadPickFunction(const struct Trainer *trainer, u8 *poolIndexA
                 if (firstLeadIndex == POOL_SLOT_DISABLED)
                     firstLeadIndex = currIndex;
                 //  Start from index 2, since lead and ace has special handling
+                //  Jinnora: this for loop could be replaced by the commented function call below except that I have added soloLead and soloAce to the rules
                 for (u32 currTag = 2; currTag < POOL_NUM_TAGS; currTag++)
                 {
                     if (rules->tagRequired[currTag]
@@ -40,6 +56,7 @@ static u32 DefaultLeadPickFunction(const struct Trainer *trainer, u8 *poolIndexA
                         break;
                     }
                 }
+                //HasRequiredTag(trainer, poolIndexArray, rules, &arrayIndex, &foundRequiredTag, currIndex);
             }
             if (foundRequiredTag)
                 break;
@@ -64,12 +81,9 @@ static u32 DefaultAcePickFunction(const struct Trainer *trainer, u8 *poolIndexAr
     u32 arrayIndex = 0;
     u32 monIndex = POOL_SLOT_DISABLED;
     //  monIndex is set to 255 if nothing has been chosen yet, this gives an upper limit on pool size of 255
-    if (monIndex == POOL_SLOT_DISABLED
-    && (((partyIndex == monsCount - 1)
-      || (partyIndex == monsCount - 2
-       && battleTypeFlags & BATTLE_TYPE_DOUBLE))
-       && (rules->tagMaxMembers[1] == POOL_MEMBER_COUNT_UNLIMITED
-        || rules->tagMaxMembers[1] >= 1)))
+
+    if (((partyIndex == monsCount - 1) || (partyIndex == monsCount - 2 && battleTypeFlags & BATTLE_TYPE_DOUBLE))
+     && (rules->tagMaxMembers[1] == POOL_MEMBER_COUNT_UNLIMITED || rules->tagMaxMembers[1] >= 1))
     {
         //  Find required + ace tags
         bool32 foundRequiredTag = FALSE;
@@ -82,6 +96,7 @@ static u32 DefaultAcePickFunction(const struct Trainer *trainer, u8 *poolIndexAr
                 if (firstAceIndex == POOL_SLOT_DISABLED)
                     firstAceIndex = currIndex;
                 //  Start from index 2, since lead and ace has special handling
+                //  Jinnora: this for loop could be replaced by the commented function call below except that I have added soloLead and soloAce to the rules
                 for (u32 currTag = 2; currTag < POOL_NUM_TAGS; currTag++)
                 {
                     if (rules->tagRequired[currTag]
@@ -93,10 +108,12 @@ static u32 DefaultAcePickFunction(const struct Trainer *trainer, u8 *poolIndexAr
                         break;
                     }
                 }
+                //HasRequiredTag(trainer, poolIndexArray, rules, &arrayIndex, &foundRequiredTag, currIndex);
             }
             if (foundRequiredTag)
                 break;
         }
+        
         //  If a combination of required + ace wasn't found, apply the first found ace
         if (foundRequiredTag)
         {
@@ -117,45 +134,33 @@ static u32 DefaultOtherPickFunction(const struct Trainer *trainer, u8 *poolIndex
     u32 arrayIndex = 0;
     u32 monIndex = POOL_SLOT_DISABLED;
     //  monIndex is set to 255 if nothing has been chosen yet, this gives an upper limit on pool size of 255
-    if (monIndex == POOL_SLOT_DISABLED)
+
+    //  Find required tag
+    bool32 foundRequiredTag = FALSE;
+    u32 firstUnpickedIndex = POOL_SLOT_DISABLED;
+    for (u32 currIndex = 0; currIndex < trainer->poolSize; currIndex++)
     {
-        //  Find required tag
-        bool32 foundRequiredTag = FALSE;
-        u32 firstUnpickedIndex = POOL_SLOT_DISABLED;
-        for (u32 currIndex = 0; currIndex < trainer->poolSize; currIndex++)
+        if (poolIndexArray[currIndex] != POOL_SLOT_DISABLED
+         && !(trainer->party[poolIndexArray[currIndex]].tags & (1u << POOL_TAG_LEAD))
+         && !(trainer->party[poolIndexArray[currIndex]].tags & (1u << POOL_TAG_ACE)))
         {
-            if (poolIndexArray[currIndex] != POOL_SLOT_DISABLED
-             && !(trainer->party[poolIndexArray[currIndex]].tags & (1u << POOL_TAG_LEAD))
-             && !(trainer->party[poolIndexArray[currIndex]].tags & (1u << POOL_TAG_ACE)))
-            {
-                if (firstUnpickedIndex == POOL_SLOT_DISABLED)
-                    firstUnpickedIndex = currIndex;
-                //  Start from index 2, since lead and ace has special handling
-                for (u32 currTag = 2; currTag < POOL_NUM_TAGS; currTag++)
-                {
-                    if (rules->tagRequired[currTag]
-                     && trainer->party[poolIndexArray[currIndex]].tags & (1u << currTag))
-                    {
-                        arrayIndex = currIndex;
-                        foundRequiredTag = TRUE;
-                        break;
-                    }
-                }
-            }
-            if (foundRequiredTag)
-                break;
+            if (firstUnpickedIndex == POOL_SLOT_DISABLED)
+                firstUnpickedIndex = currIndex;
+            HasRequiredTag(trainer, poolIndexArray, rules, &arrayIndex, &foundRequiredTag, currIndex);
         }
-        //  If a combination of required + ace wasn't found, apply the first found lead
         if (foundRequiredTag)
-        {
-            monIndex = poolIndexArray[arrayIndex];
-            poolIndexArray[arrayIndex] = POOL_SLOT_DISABLED;
-        }
-        else if (firstUnpickedIndex != POOL_SLOT_DISABLED)
-        {
-            monIndex = poolIndexArray[firstUnpickedIndex];
-            poolIndexArray[firstUnpickedIndex] = POOL_SLOT_DISABLED;
-        }
+            break;
+    }
+    //  If a combination of required + ace wasn't found, apply the first found lead
+    if (foundRequiredTag)
+    {
+        monIndex = poolIndexArray[arrayIndex];
+        poolIndexArray[arrayIndex] = POOL_SLOT_DISABLED;
+    }
+    else if (firstUnpickedIndex != POOL_SLOT_DISABLED)
+    {
+        monIndex = poolIndexArray[firstUnpickedIndex];
+        poolIndexArray[firstUnpickedIndex] = POOL_SLOT_DISABLED;
     }
     return monIndex;
 }
@@ -281,7 +286,7 @@ static void RandomizePoolIndices(const struct Trainer *trainer, u8 *poolIndexArr
         u32 seed = GetPoolSeed(trainer);
         localRngState = LocalRandomSeed(seed);
         //  Replace the LocalRandom with LocalRandom32 when implemented
-        rnd = LocalRandom(&localRngState) + (LocalRandom(&localRngState) << 16);
+        rnd = LocalRandom32(&localRngState);
     }
     else
     {
@@ -308,7 +313,7 @@ static void RandomizePoolIndices(const struct Trainer *trainer, u8 *poolIndexArr
         if (usedBits + numBits > 32)
         {
             if (B_POOL_SETTING_CONSISTENT_RNG)
-                rnd = LocalRandom(&localRngState) + (LocalRandom(&localRngState) << 16);
+                rnd = LocalRandom32(&localRngState);
             else
                 rnd = Random32();
             usedBits = 0;
