@@ -18,8 +18,11 @@ script SummerSea_EventScript_TryStanlyRematch {
 	if (defeated(TRAINER_THEODORE)) {
 		msgbox(format("Include Theodore and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_THEODORE, 0, NULL, SummerSea_Text_TheodoreDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_STANLY, SummerSea_Text_StanlyDefeat, TRAINER_THEODORE, SummerSea_Text_TheodoreDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -208,8 +211,11 @@ script SummerSea_EventScript_TryTheodoreRematch {
 	if (defeated(TRAINER_STANLY)) {
 		msgbox(format("Include Stanly and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_STANLY, 0, NULL, SummerSea_Text_StanlyDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_THEODORE, SummerSea_Text_TheodoreDefeat, TRAINER_STANLY, SummerSea_Text_StanlyDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

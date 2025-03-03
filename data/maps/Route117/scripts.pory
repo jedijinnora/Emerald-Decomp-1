@@ -131,8 +131,11 @@ script Route117_EventScript_TryDerekRematch {
 	if (defeated(TRAINER_MELINA)) {
 		msgbox(format("Include Melina and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MELINA, 0, NULL, Route117_Text_MelinaDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_DEREK, Route117_Text_DerekDefeat, TRAINER_MELINA, Route117_Text_MelinaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -195,8 +198,11 @@ script Route117_EventScript_TryMelinaRematch {
 	if (defeated(TRAINER_DEREK)) {
 		msgbox(format("Include Derek and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DEREK, 0, NULL, Route117_Text_DerekDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_MELINA, Route117_Text_MelinaDefeat, TRAINER_DEREK, Route117_Text_DerekDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -221,8 +227,11 @@ script Route117_EventScript_TryBrandiRematch {
 	if (defeated(TRAINER_AISHA)) {
 		msgbox(format("Include Aisha and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_AISHA, 0, NULL, Route117_Text_AishaDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_BRANDI, Route117_Text_BrandiDefeat, TRAINER_AISHA, Route117_Text_AishaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -247,8 +256,11 @@ script Route117_EventScript_TryAishaRematch {
 	if (defeated(TRAINER_BRANDI)) {
 		msgbox(format("Include Brandi and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BRANDI, 0, NULL, Route117_Text_BrandiDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_AISHA, Route117_Text_AishaDefeat, TRAINER_BRANDI, Route117_Text_BrandiDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

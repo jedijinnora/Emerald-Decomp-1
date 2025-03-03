@@ -16,8 +16,11 @@ script MtPyre_6F_EventScript_TryValerieRematch {
 	if (defeated(TRAINER_CEDRIC)) {
 		msgbox(format("Include Cedric and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CEDRIC, 0, NULL, MtPyre_6F_Text_CedricDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_VALERIE, MtPyre_6F_Text_ValerieDefeat, TRAINER_CEDRIC, MtPyre_6F_Text_CedricDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -42,8 +45,11 @@ script MtPyre_6F_EventScript_TryCedricRematch {
 	if (defeated(TRAINER_VALERIE)) {
 		msgbox(format("Include Valerie and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_VALERIE, 0, NULL, MtPyre_6F_Text_ValerieDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_CEDRIC, MtPyre_6F_Text_CedricDefeat, TRAINER_VALERIE, MtPyre_6F_Text_ValerieDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

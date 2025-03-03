@@ -1168,7 +1168,7 @@ void BattleSetup_StartTrainerBattle(void)
 {
     //Jinnora: this is broken by default; Trainer B is not cleared after battle (either victory or white out)
     //and continues to cause double battles from then onwards. 
-    if (gNoOfApproachingTrainers == 2 || gTrainerBattleOpponent_B != 0)
+    if (gNoOfApproachingTrainers == 2)
         gBattleTypeFlags = (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TRAINER);
     else
         gBattleTypeFlags = (BATTLE_TYPE_TRAINER);
@@ -1283,11 +1283,6 @@ static void CB2_EndTrainerBattle(void)
             SetBattledTrainersFlags();
         }
     }
-    //Jinnora: the data for opponent B must be cleared, else it will continue to force double battles
-    //this is hacky but it works
-    //hopefully 1.9 comes with a better implementation that fixes this problem?
-    //TODO
-    gTrainerBattleOpponent_B = 0;
 }
 
 static void CB2_EndRematchBattle(void)

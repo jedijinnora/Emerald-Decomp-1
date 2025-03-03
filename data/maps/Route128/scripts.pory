@@ -126,8 +126,11 @@ script Route128_EventScript_TryHarrisonRematch {
 	if (defeated(TRAINER_CARLEE)) {
 		msgbox(format("Include Carlee and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CARLEE, 0, NULL, Route128_Text_CarleeDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_HARRISON, Route128_Text_HarrisonDefeat, TRAINER_CARLEE, Route128_Text_CarleeDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -152,8 +155,11 @@ script Route128_EventScript_TryCarleeRematch {
 	if (defeated(TRAINER_HARRISON)) {
 		msgbox(format("Include Harrison and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_HARRISON, 0, NULL, Route128_Text_HarrisonDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_CARLEE, Route128_Text_CarleeDefeat, TRAINER_HARRISON, Route128_Text_HarrisonDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

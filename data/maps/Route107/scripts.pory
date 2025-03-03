@@ -176,8 +176,11 @@ script Route107_EventScript_TryBethRematch {
 	if (defeated(TRAINER_CAMRON)) {
 		msgbox(format("Include Camron and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CAMRON, 0, NULL, Route107_Text_CamronDefeated)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_BETH, Route107_Text_BethDefeated, TRAINER_CAMRON, Route107_Text_CamronDefeated)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -240,8 +243,11 @@ script Route107_EventScript_TryCamronRematch {
 	if (defeated(TRAINER_BETH)) {
 		msgbox(format("Include Beth and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BETH, 0, NULL, Route107_Text_BethDefeated)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_CAMRON, Route107_Text_CamronDefeated, TRAINER_BETH, Route107_Text_BethDefeated)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

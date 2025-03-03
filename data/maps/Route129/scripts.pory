@@ -131,8 +131,11 @@ script Route129_EventScript_TryAllisonRematch {
 	if (defeated(TRAINER_ALLISON)) {
 		msgbox(format("Include Reed and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ALLISON, 0, NULL, Route129_Text_ReedDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_ALLISON, Route129_Text_AllisonDefeat, TRAINER_REED, Route129_Text_ReedDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -157,8 +160,11 @@ script Route129_EventScript_TryReedRematch {
 	if (defeated(TRAINER_ALLISON)) {
 		msgbox(format("Include Allison and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ALLISON, 0, NULL, Route129_Text_AllisonDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_REED, Route129_Text_ReedDefeat, TRAINER_ALLISON, Route129_Text_AllisonDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

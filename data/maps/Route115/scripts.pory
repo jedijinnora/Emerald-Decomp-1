@@ -56,8 +56,11 @@ script Route115_EventScript_TryTimothyRematch {
 	if (defeated(TRAINER_JAIDEN)) {
 		msgbox(format("Include Jaiden and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JAIDEN, 0, NULL, Route115_Text_JaidenDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_TIMOTHY, Route115_Text_TimothyDefeat, TRAINER_JAIDEN, Route115_Text_JaidenDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -101,8 +104,11 @@ script Route115_EventScript_TryNobRematch {
 	if (defeated(TRAINER_MARLENE)) {
 		msgbox(format("Include Marlene and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MARLENE, 0, NULL, Route115_Text_MarleneDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_NOB, Route115_Text_NobRematchDefeat, TRAINER_MARLENE, Route115_Text_MarleneDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -184,8 +190,11 @@ script Route115_EventScript_TryJaidenRematch {
 	if (defeated(TRAINER_TIMOTHY)) {
 		msgbox(format("Include Timothy and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_TIMOTHY, 0, NULL, Route115_Text_TimothyDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_JAIDEN, Route115_Text_JaidenDefeat, TRAINER_TIMOTHY, Route115_Text_TimothyDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -210,8 +219,11 @@ script Route115_EventScript_TryAlixRematch {
 	if (defeated(TRAINER_HELENE)) {
 		msgbox(format("Include Helene and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_HELENE, 0, NULL, Route115_Text_HeleneDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_ALIX, Route115_Text_AlixDefeat, TRAINER_HELENE, Route115_Text_HeleneDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -236,8 +248,11 @@ script Route115_EventScript_TryHeleneRematch {
 	if (defeated(TRAINER_ALIX)) {
 		msgbox(format("Include Alix and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ALIX, 0, NULL, Route115_Text_AlixDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_HELENE, Route115_Text_HeleneDefeat, TRAINER_ALIX, Route115_Text_AlixDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -262,8 +277,11 @@ script Route115_EventScript_TryMarleneRematch {
 	if (defeated(TRAINER_NOB)) {
 		msgbox(format("Include Nob and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_NOB, 0, NULL, Route115_Text_NobRematchDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_MARLENE, Route115_Text_MarleneDefeat, TRAINER_NOB, Route115_Text_NobRematchDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

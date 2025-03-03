@@ -303,8 +303,11 @@ script Route127_EventScript_TryCamdenRematch {
 	if (defeated(TRAINER_DONNY)) {
 		msgbox(format("Include Donny and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DONNY, 0, NULL, Route127_Text_DonnyDefeat)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_CAMDEN, Route127_Text_CamdenDefeat, TRAINER_DONNY, Route127_Text_DonnyDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -329,8 +332,11 @@ script Route127_EventScript_TryDonnyRematch {
 	if (defeated(TRAINER_CAMDEN)) {
 		msgbox(format("Include Camden and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CAMDEN, 0, NULL, Route127_Text_CamdenDefeat)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_DONNY, Route127_Text_DonnyDefeat, TRAINER_CAMDEN, Route127_Text_CamdenDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -412,8 +418,11 @@ script Route127_EventScript_TryAidanRematch {
 	if (defeated(TRAINER_ATHENA)) {
 		msgbox(format("Include Athena and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ATHENA, 0, NULL, Route127_Text_AthenaDefeat)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_AIDAN, Route127_Text_AidanDefeat, TRAINER_ATHENA, Route127_Text_AthenaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -438,8 +447,11 @@ script Route127_EventScript_TryAthenaRematch {
 	if (defeated(TRAINER_AIDAN)) {
 		msgbox(format("Include Aidan and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_AIDAN, 0, NULL, Route127_Text_AidanDefeat)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_ATHENA, Route127_Text_AthenaDefeat, TRAINER_AIDAN, Route127_Text_AidanDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

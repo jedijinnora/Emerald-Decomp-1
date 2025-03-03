@@ -89,8 +89,11 @@ script Forina_EventScript_TryKelRematch {
 	if (defeated(TRAINER_DOMITAN)) {
 		msgbox(format("Include Domitan and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DOMITAN, 0, NULL, Forina_Text_DomitanDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_KEL, Forina_Text_KelDefeat, TRAINER_DOMITAN, Forina_Text_DomitanDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -126,8 +129,11 @@ script Forina_EventScript_TryDomitanRematch {
 	if (defeated(TRAINER_KEL)) {
 		msgbox(format("Include Kel and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_KEL, 0, NULL, Forina_Text_KelDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_DOMITAN, Forina_Text_DomitanDefeat, TRAINER_KEL, Forina_Text_KelDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -192,8 +198,11 @@ script Forina_EventScript_TryFinleyRematch {
 	if (defeated(TRAINER_ARTEMIS)) {
 		msgbox(format("Include Artemis and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ARTEMIS, 0, NULL, Forina_Text_ArtemisDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_FINLEY, Forina_Text_FinleyDefeat, TRAINER_ARTEMIS, Forina_Text_ArtemisDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -316,8 +325,11 @@ script Forina_EventScript_TryArtemisRematch {
 	if (defeated(TRAINER_FINLEY)) {
 		msgbox(format("Include Finley and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_FINLEY, 0, NULL, Forina_Text_FinleyDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_ARTEMIS, Forina_Text_ArtemisDefeat, TRAINER_FINLEY, Forina_Text_FinleyDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

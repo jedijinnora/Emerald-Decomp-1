@@ -164,8 +164,11 @@ script Route113_EventScript_TrySophieRematch {
 	if (defeated(TRAINER_COBY)) {
 		msgbox(format("Include Coby and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_COBY, 0, NULL, Route113_Text_CobyDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_SOPHIE, Route113_Text_SophieDefeat, TRAINER_COBY, Route113_Text_CobyDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -190,8 +193,11 @@ script Route113_EventScript_TryCobyRematch {
 	if (defeated(TRAINER_SOPHIE)) {
 		msgbox(format("Include Sophie and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SOPHIE, 0, NULL, Route113_Text_SophieDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_COBY, Route113_Text_CobyDefeat, TRAINER_SOPHIE, Route113_Text_SophieDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -216,8 +222,11 @@ script Route113_EventScript_TryLawrenceRematch {
 	if (defeated(TRAINER_WYATT)) {
 		msgbox(format("Include Wyatt and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_WYATT, 0, NULL, Route113_Text_WyattDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_LAWRENCE, Route113_Text_LawrenceDefeat, TRAINER_WYATT, Route113_Text_WyattDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -242,8 +251,11 @@ script Route113_EventScript_TryWyattRematch {
 	if (defeated(TRAINER_LAWRENCE)) {
 		msgbox(format("Include Lawrence and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_LAWRENCE, 0, NULL, Route113_Text_LawrenceDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_WYATT, Route113_Text_WyattDefeat, TRAINER_LAWRENCE, Route113_Text_LawrenceDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

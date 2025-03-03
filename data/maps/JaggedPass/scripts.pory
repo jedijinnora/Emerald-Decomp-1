@@ -84,8 +84,11 @@ script JaggedPass_EventScript_TryJulioRematch {
 	if (defeated(TRAINER_AUTUMN)) {
 		msgbox(format("Include Autumn and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_AUTUMN, 0, NULL, JaggedPass_Text_AutumnDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_JULIO, JaggedPass_Text_JulioDefeat, TRAINER_AUTUMN, JaggedPass_Text_AutumnDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -110,8 +113,11 @@ script JaggedPass_EventScript_TryAutumnRematch {
 	if (defeated(TRAINER_JULIO)) {
 		msgbox(format("Include Julio and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JULIO, 0, NULL, JaggedPass_Text_JulioDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_AUTUMN, JaggedPass_Text_AutumnDefeat, TRAINER_JULIO, JaggedPass_Text_JulioDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

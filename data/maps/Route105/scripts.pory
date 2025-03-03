@@ -154,8 +154,11 @@ script Route105_EventScript_TryJosueRematch {
 	if (defeated(TRAINER_ANDRES)) {
 		msgbox(format("Include Andres and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ANDRES, 0, NULL, Route105_Text_AndresRematchDefeated)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_JOSUE, Route105_Text_JosueDefeated, TRAINER_ANDRES, Route105_Text_AndresRematchDefeated)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -180,8 +183,11 @@ script Route105_EventScript_TryAndresRematch {
 	if (defeated(TRAINER_JOSUE)) {
 		msgbox(format("Include Josue and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JOSUE, 0, NULL, Route105_Text_JosueDefeated)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_ANDRES, Route105_Text_AndresRematchDefeated, TRAINER_JOSUE, Route105_Text_JosueDefeated)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

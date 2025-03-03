@@ -54,8 +54,11 @@ script AbandonedShip_Rooms2_1F_EventScript_TryJaniRematch {
 	if (defeated(TRAINER_GARRISON)) {
 		msgbox(format("Include Garrison and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GARRISON, 0, NULL, AbandonedShip_Rooms2_1F_Text_GarrisonDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_JANI, AbandonedShip_Rooms2_1F_Text_JaniDefeat, TRAINER_GARRISON, AbandonedShip_Rooms2_1F_Text_GarrisonDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -80,8 +83,11 @@ script AbandonedShip_Rooms2_1F_EventScript_TryGarrisonRematch {
 	if (defeated(TRAINER_JANI)) {
 		msgbox(format("Include Jani and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JANI, 0, NULL, AbandonedShip_Rooms2_1F_Text_JaniDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_GARRISON, AbandonedShip_Rooms2_1F_Text_GarrisonDefeat, TRAINER_JANI, AbandonedShip_Rooms2_1F_Text_JaniDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

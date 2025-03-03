@@ -9,7 +9,7 @@
 #line 1 "src/data/trainers.party"
 
 #line 119
-    [TRAINER_NONE] =
+    [DIFFICULTY_NORMAL][TRAINER_NONE] =
     {
 #line 121
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
@@ -26,7 +26,7 @@
         },
     },
 #line 130
-    [TRAINER_BRANDON_1] =
+    [DIFFICULTY_NORMAL][TRAINER_BRANDON_1] =
     {
 #line 131
         .trainerName = _("Brandon"),
@@ -42,7 +42,6 @@
 #line 137
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_OMNISCIENT,
 #line 138
-        .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_GREEN,
 #line 140
         .poolRuleIndex = POOL_RULESET_E4_BRANDON,
@@ -3183,7 +3182,7 @@
         },
     },
 #line 1533
-    [TRAINER_LUCY_1] =
+    [DIFFICULTY_NORMAL][TRAINER_LUCY_1] =
     {
 #line 1534
         .trainerName = _("Lucy"),
@@ -3201,7 +3200,6 @@ F_TRAINER_FEMALE |
 #line 1540
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_OMNISCIENT,
 #line 1541
-        .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_PURPLE,
 #line 1543
         .poolRuleIndex = POOL_RULESET_CORE_3_SINGLES,
@@ -5222,7 +5220,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 2434
-    [TRAINER_GLACIA_1] =
+    [DIFFICULTY_NORMAL][TRAINER_GLACIA_1] =
     {
 #line 2435
         .trainerName = _("Glacia"),
@@ -5240,7 +5238,6 @@ F_TRAINER_FEMALE |
 #line 2441
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_OMNISCIENT,
 #line 2442
-        .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_PINK,
 #line 2444
         .poolRuleIndex = POOL_RULESET_WEATHER_SINGLES,
@@ -7604,7 +7601,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 3489
-    [TRAINER_DRAKE_1] =
+    [DIFFICULTY_NORMAL][TRAINER_DRAKE_1] =
     {
 #line 3490
         .trainerName = _("Drake"),
@@ -7620,7 +7617,6 @@ F_TRAINER_FEMALE |
 #line 3496
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_OMNISCIENT,
 #line 3497
-        .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_BLUE,
 #line 3499
         .poolRuleIndex = POOL_RULESET_CORE_4_SINGLES,
@@ -9817,7 +9813,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 4473
-    [TRAINER_ANABEL_1] =
+    [DIFFICULTY_NORMAL][TRAINER_ANABEL_1] =
     {
 #line 4474
         .trainerName = _("Anabel"),
@@ -9835,7 +9831,6 @@ F_TRAINER_FEMALE |
 #line 4480
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_OMNISCIENT,
 #line 4481
-        .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_YELLOW,
 #line 4483
         .poolRuleIndex = POOL_RULESET_CORE_3_SINGLES,
@@ -12731,7 +12726,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 5760
-    [TRAINER_ANABEL_2] =
+    [DIFFICULTY_NORMAL][TRAINER_ANABEL_2] =
     {
 #line 5761
         .trainerName = _("Anabel"),
@@ -12749,7 +12744,6 @@ F_TRAINER_FEMALE |
 #line 5767
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_OMNISCIENT,
 #line 5768
-        .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_YELLOW,
 #line 5770
         .poolRuleIndex = POOL_RULESET_CORE_4_SINGLES,
@@ -16487,7 +16481,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 7420
-    [TRAINER_ANABEL_3] =
+    [DIFFICULTY_NORMAL][TRAINER_ANABEL_3] =
     {
 #line 7421
         .trainerName = _("Anabel"),
@@ -16505,7 +16499,6 @@ F_TRAINER_FEMALE |
 #line 7427
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_OMNISCIENT,
 #line 7428
-        .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_YELLOW,
 #line 7430
         .poolRuleIndex = POOL_RULESET_CORE_4_SINGLES,
@@ -19428,7 +19421,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 8719
-    [TRAINER_ANABEL_4] =
+    [DIFFICULTY_NORMAL][TRAINER_ANABEL_4] =
     {
 #line 8720
         .trainerName = _("Anabel"),
@@ -19446,7 +19439,6 @@ F_TRAINER_FEMALE |
 #line 8726
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_HP_AWARE | AI_FLAG_OMNISCIENT,
 #line 8727
-        .mugshotEnabled = TRUE,
         .mugshotColor = MUGSHOT_COLOR_YELLOW,
 #line 8729
         .poolRuleIndex = POOL_RULESET_BASIC,
@@ -21883,7 +21875,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 9803
-    [TRAINER_NOLAND_1] =
+    [DIFFICULTY_NORMAL][TRAINER_NOLAND_1] =
     {
 #line 9804
         .trainerName = _("Noland"),
@@ -22222,7 +22214,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 9953
-    [TRAINER_NOLAND_2] =
+    [DIFFICULTY_NORMAL][TRAINER_NOLAND_2] =
     {
 #line 9954
         .trainerName = _("Noland"),
@@ -22573,7 +22565,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 10109
-    [TRAINER_NOLAND_3] =
+    [DIFFICULTY_NORMAL][TRAINER_NOLAND_3] =
     {
 #line 10110
         .trainerName = _("Noland"),
@@ -23137,7 +23129,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 10360
-    [TRAINER_SIDNEY_1] =
+    [DIFFICULTY_NORMAL][TRAINER_SIDNEY_1] =
     {
 #line 10361
         .trainerName = _("Sidney"),
@@ -23452,7 +23444,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 10498
-    [TRAINER_SIDNEY_2] =
+    [DIFFICULTY_NORMAL][TRAINER_SIDNEY_2] =
     {
 #line 10499
         .trainerName = _("Sidney"),
@@ -23779,7 +23771,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 10642
-    [TRAINER_SIDNEY_3] =
+    [DIFFICULTY_NORMAL][TRAINER_SIDNEY_3] =
     {
 #line 10643
         .trainerName = _("Sidney"),
@@ -23956,7 +23948,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 10722
-    [TRAINER_WATTSON_1] =
+    [DIFFICULTY_NORMAL][TRAINER_WATTSON_1] =
     {
 #line 10723
         .trainerName = _("Wattson"),
@@ -24271,7 +24263,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 10860
-    [TRAINER_WATTSON_2] =
+    [DIFFICULTY_NORMAL][TRAINER_WATTSON_2] =
     {
 #line 10861
         .trainerName = _("Wattson"),
@@ -24598,7 +24590,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11004
-    [TRAINER_WATTSON_3] =
+    [DIFFICULTY_NORMAL][TRAINER_WATTSON_3] =
     {
 #line 11005
         .trainerName = _("Wattson"),
@@ -24775,7 +24767,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11084
-    [TRAINER_MOORE_1] =
+    [DIFFICULTY_NORMAL][TRAINER_MOORE_1] =
     {
 #line 11085
         .trainerName = _("Moore"),
@@ -25090,7 +25082,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11222
-    [TRAINER_MOORE_2] =
+    [DIFFICULTY_NORMAL][TRAINER_MOORE_2] =
     {
 #line 11223
         .trainerName = _("Moore"),
@@ -25417,7 +25409,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11366
-    [TRAINER_MOORE_3] =
+    [DIFFICULTY_NORMAL][TRAINER_MOORE_3] =
     {
 #line 11367
         .trainerName = _("Moore"),
@@ -25594,7 +25586,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11446
-    [TRAINER_GRETA_1] =
+    [DIFFICULTY_NORMAL][TRAINER_GRETA_1] =
     {
 #line 11447
         .trainerName = _("Greta"),
@@ -25911,7 +25903,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11584
-    [TRAINER_GRETA_2] =
+    [DIFFICULTY_NORMAL][TRAINER_GRETA_2] =
     {
 #line 11585
         .trainerName = _("Greta"),
@@ -26240,7 +26232,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11728
-    [TRAINER_GRETA_3] =
+    [DIFFICULTY_NORMAL][TRAINER_GRETA_3] =
     {
 #line 11729
         .trainerName = _("Greta"),
@@ -26419,7 +26411,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11808
-    [TRAINER_SPENSER_1] =
+    [DIFFICULTY_NORMAL][TRAINER_SPENSER_1] =
     {
 #line 11809
         .trainerName = _("Spenser"),
@@ -26734,7 +26726,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 11946
-    [TRAINER_SPENSER_2] =
+    [DIFFICULTY_NORMAL][TRAINER_SPENSER_2] =
     {
 #line 11947
         .trainerName = _("Spenser"),
@@ -27061,7 +27053,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12090
-    [TRAINER_SPENSER_3] =
+    [DIFFICULTY_NORMAL][TRAINER_SPENSER_3] =
     {
 #line 12091
         .trainerName = _("Spenser"),
@@ -27238,7 +27230,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12170
-    [TRAINER_SABITHA_1] =
+    [DIFFICULTY_NORMAL][TRAINER_SABITHA_1] =
     {
 #line 12171
         .trainerName = _("Sabitha"),
@@ -27561,7 +27553,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12311
-    [TRAINER_SABITHA_2] =
+    [DIFFICULTY_NORMAL][TRAINER_SABITHA_2] =
     {
 #line 12312
         .trainerName = _("Sabitha"),
@@ -27890,7 +27882,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12455
-    [TRAINER_SABITHA_3] =
+    [DIFFICULTY_NORMAL][TRAINER_SABITHA_3] =
     {
 #line 12456
         .trainerName = _("Sabitha"),
@@ -28069,7 +28061,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12535
-    [TRAINER_JUAN_1] =
+    [DIFFICULTY_NORMAL][TRAINER_JUAN_1] =
     {
 #line 12536
         .trainerName = _("Juan"),
@@ -28390,7 +28382,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12676
-    [TRAINER_JUAN_2] =
+    [DIFFICULTY_NORMAL][TRAINER_JUAN_2] =
     {
 #line 12677
         .trainerName = _("Juan"),
@@ -28717,7 +28709,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12820
-    [TRAINER_JUAN_3] =
+    [DIFFICULTY_NORMAL][TRAINER_JUAN_3] =
     {
 #line 12821
         .trainerName = _("Juan"),
@@ -28894,7 +28886,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12900
-    [TRAINER_TOMMY] =
+    [DIFFICULTY_NORMAL][TRAINER_TOMMY] =
     {
 #line 12901
         .trainerName = _("Tommy"),
@@ -29035,7 +29027,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 12960
-    [TRAINER_MARC] =
+    [DIFFICULTY_NORMAL][TRAINER_MARC] =
     {
 #line 12961
         .trainerName = _("Marc"),
@@ -29188,7 +29180,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13026
-    [TRAINER_JOSH] =
+    [DIFFICULTY_NORMAL][TRAINER_JOSH] =
     {
 #line 13027
         .trainerName = _("Josh"),
@@ -29333,7 +29325,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13090
-    [TRAINER_LAURA] =
+    [DIFFICULTY_NORMAL][TRAINER_LAURA] =
     {
 #line 13091
         .trainerName = _("Laura"),
@@ -29488,7 +29480,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13156
-    [TRAINER_LILITH] =
+    [DIFFICULTY_NORMAL][TRAINER_LILITH] =
     {
 #line 13157
         .trainerName = _("Lilith"),
@@ -29599,7 +29591,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13203
-    [TRAINER_BRENDEN] =
+    [DIFFICULTY_NORMAL][TRAINER_BRENDEN] =
     {
 #line 13204
         .trainerName = _("Brenden"),
@@ -29708,7 +29700,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13250
-    [TRAINER_CRISTIAN] =
+    [DIFFICULTY_NORMAL][TRAINER_CRISTIAN] =
     {
 #line 13251
         .trainerName = _("Cristian"),
@@ -29813,7 +29805,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13295
-    [TRAINER_TAKAO] =
+    [DIFFICULTY_NORMAL][TRAINER_TAKAO] =
     {
 #line 13296
         .trainerName = _("Takao"),
@@ -29922,7 +29914,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13342
-    [TRAINER_JOCELYN] =
+    [DIFFICULTY_NORMAL][TRAINER_JOCELYN] =
     {
 #line 13343
         .trainerName = _("Jocelyn"),
@@ -30069,7 +30061,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13406
-    [TRAINER_SHAWN] =
+    [DIFFICULTY_NORMAL][TRAINER_SHAWN] =
     {
 #line 13407
         .trainerName = _("Shawn"),
@@ -30170,7 +30162,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13449
-    [TRAINER_VIVIAN] =
+    [DIFFICULTY_NORMAL][TRAINER_VIVIAN] =
     {
 #line 13450
         .trainerName = _("Vivian"),
@@ -30313,7 +30305,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13509
-    [TRAINER_KIRK] =
+    [DIFFICULTY_NORMAL][TRAINER_KIRK] =
     {
 #line 13510
         .trainerName = _("Kirk"),
@@ -30454,7 +30446,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13569
-    [TRAINER_BEN] =
+    [DIFFICULTY_NORMAL][TRAINER_BEN] =
     {
 #line 13570
         .trainerName = _("Ben"),
@@ -30595,7 +30587,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13629
-    [TRAINER_ANGELO] =
+    [DIFFICULTY_NORMAL][TRAINER_ANGELO] =
     {
 #line 13630
         .trainerName = _("Angelo"),
@@ -30744,7 +30736,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13695
-    [TRAINER_JEFF] =
+    [DIFFICULTY_NORMAL][TRAINER_JEFF] =
     {
 #line 13696
         .trainerName = _("Jeff"),
@@ -30897,7 +30889,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13761
-    [TRAINER_COLE] =
+    [DIFFICULTY_NORMAL][TRAINER_COLE] =
     {
 #line 13762
         .trainerName = _("Cole"),
@@ -31050,7 +31042,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13827
-    [TRAINER_GERALD] =
+    [DIFFICULTY_NORMAL][TRAINER_GERALD] =
     {
 #line 13828
         .trainerName = _("Gerald"),
@@ -31195,7 +31187,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13889
-    [TRAINER_AXLE] =
+    [DIFFICULTY_NORMAL][TRAINER_AXLE] =
     {
 #line 13890
         .trainerName = _("Axle"),
@@ -31348,7 +31340,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 13955
-    [TRAINER_DANIELLE] =
+    [DIFFICULTY_NORMAL][TRAINER_DANIELLE] =
     {
 #line 13956
         .trainerName = _("Danielle"),
@@ -31497,7 +31489,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14018
-    [TRAINER_KEEGAN] =
+    [DIFFICULTY_NORMAL][TRAINER_KEEGAN] =
     {
 #line 14019
         .trainerName = _("Keegan"),
@@ -31650,7 +31642,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14084
-    [TRAINER_JACE] =
+    [DIFFICULTY_NORMAL][TRAINER_JACE] =
     {
 #line 14085
         .trainerName = _("Jace"),
@@ -31759,7 +31751,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14131
-    [TRAINER_ELI] =
+    [DIFFICULTY_NORMAL][TRAINER_ELI] =
     {
 #line 14132
         .trainerName = _("Eli"),
@@ -31868,7 +31860,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14180
-    [TRAINER_MARY] =
+    [DIFFICULTY_NORMAL][TRAINER_MARY] =
     {
 #line 14181
         .trainerName = _("Mary"),
@@ -32029,7 +32021,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14249
-    [TRAINER_RANDALL] =
+    [DIFFICULTY_NORMAL][TRAINER_RANDALL] =
     {
 #line 14250
         .trainerName = _("Randall"),
@@ -32184,7 +32176,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14316
-    [TRAINER_PARKER] =
+    [DIFFICULTY_NORMAL][TRAINER_PARKER] =
     {
 #line 14317
         .trainerName = _("Parker"),
@@ -32297,7 +32289,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14365
-    [TRAINER_ALEXIA] =
+    [DIFFICULTY_NORMAL][TRAINER_ALEXIA] =
     {
 #line 14366
         .trainerName = _("Alexia"),
@@ -32458,7 +32450,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14434
-    [TRAINER_GEORGE] =
+    [DIFFICULTY_NORMAL][TRAINER_GEORGE] =
     {
 #line 14435
         .trainerName = _("George"),
@@ -32571,7 +32563,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14483
-    [TRAINER_JODY] =
+    [DIFFICULTY_NORMAL][TRAINER_JODY] =
     {
 #line 14484
         .trainerName = _("Jody"),
@@ -32732,7 +32724,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14552
-    [TRAINER_BERKE] =
+    [DIFFICULTY_NORMAL][TRAINER_BERKE] =
     {
 #line 14553
         .trainerName = _("Berke"),
@@ -32897,7 +32889,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14626
-    [TRAINER_HUMBERTO] =
+    [DIFFICULTY_NORMAL][TRAINER_HUMBERTO] =
     {
 #line 14627
         .trainerName = _("Humberto"),
@@ -33050,7 +33042,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14692
-    [TRAINER_JARED] =
+    [DIFFICULTY_NORMAL][TRAINER_JARED] =
     {
 #line 14693
         .trainerName = _("Jared"),
@@ -33203,7 +33195,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14758
-    [TRAINER_ASHLEY] =
+    [DIFFICULTY_NORMAL][TRAINER_ASHLEY] =
     {
 #line 14759
         .trainerName = _("Ashley"),
@@ -33314,7 +33306,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14805
-    [TRAINER_FLINT] =
+    [DIFFICULTY_NORMAL][TRAINER_FLINT] =
     {
 #line 14806
         .trainerName = _("Flint"),
@@ -33423,7 +33415,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14852
-    [TRAINER_EDWINA] =
+    [DIFFICULTY_NORMAL][TRAINER_EDWINA] =
     {
 #line 14853
         .trainerName = _("Edwina"),
@@ -33534,7 +33526,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14899
-    [TRAINER_CECILIA] =
+    [DIFFICULTY_NORMAL][TRAINER_CECILIA] =
     {
 #line 14900
         .trainerName = _("Cecilia"),
@@ -33691,7 +33683,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 14968
-    [TRAINER_PRESTON] =
+    [DIFFICULTY_NORMAL][TRAINER_PRESTON] =
     {
 #line 14969
         .trainerName = _("Preston"),
@@ -33844,7 +33836,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15034
-    [TRAINER_MAURA] =
+    [DIFFICULTY_NORMAL][TRAINER_MAURA] =
     {
 #line 15035
         .trainerName = _("Maura"),
@@ -33951,7 +33943,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15079
-    [TRAINER_BLAKE] =
+    [DIFFICULTY_NORMAL][TRAINER_BLAKE] =
     {
 #line 15080
         .trainerName = _("Blake"),
@@ -34056,7 +34048,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15126
-    [TRAINER_SAMANTHA] =
+    [DIFFICULTY_NORMAL][TRAINER_SAMANTHA] =
     {
 #line 15127
         .trainerName = _("Samantha"),
@@ -34169,7 +34161,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15174
-    [TRAINER_NATE] =
+    [DIFFICULTY_NORMAL][TRAINER_NATE] =
     {
 #line 15175
         .trainerName = _("Nate"),
@@ -34278,7 +34270,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15221
-    [TRAINER_VIRGIL] =
+    [DIFFICULTY_NORMAL][TRAINER_VIRGIL] =
     {
 #line 15222
         .trainerName = _("Virgil"),
@@ -34387,7 +34379,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15268
-    [TRAINER_SYLVIA] =
+    [DIFFICULTY_NORMAL][TRAINER_SYLVIA] =
     {
 #line 15269
         .trainerName = _("Sylvia"),
@@ -34498,7 +34490,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15315
-    [TRAINER_HANNAH] =
+    [DIFFICULTY_NORMAL][TRAINER_HANNAH] =
     {
 #line 15316
         .trainerName = _("Hannah"),
@@ -34607,7 +34599,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15361
-    [TRAINER_CLIFFORD] =
+    [DIFFICULTY_NORMAL][TRAINER_CLIFFORD] =
     {
 #line 15362
         .trainerName = _("Clifford"),
@@ -34756,7 +34748,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15426
-    [TRAINER_KATHLEEN] =
+    [DIFFICULTY_NORMAL][TRAINER_KATHLEEN] =
     {
 #line 15427
         .trainerName = _("Kathleen"),
@@ -34903,7 +34895,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15488
-    [TRAINER_NIKOLAI] =
+    [DIFFICULTY_NORMAL][TRAINER_NIKOLAI] =
     {
 #line 15489
         .trainerName = _("Nikolai"),
@@ -35012,7 +35004,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15535
-    [TRAINER_MACEY] =
+    [DIFFICULTY_NORMAL][TRAINER_MACEY] =
     {
 #line 15536
         .trainerName = _("Macey"),
@@ -35255,7 +35247,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15626
-    [TRAINER_ANDREA] =
+    [DIFFICULTY_NORMAL][TRAINER_ANDREA] =
     {
 #line 15627
         .trainerName = _("Andrea"),
@@ -35366,7 +35358,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15673
-    [TRAINER_CONNIE] =
+    [DIFFICULTY_NORMAL][TRAINER_CONNIE] =
     {
 #line 15674
         .trainerName = _("Connie"),
@@ -35473,7 +35465,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15718
-    [TRAINER_DAPHNE] =
+    [DIFFICULTY_NORMAL][TRAINER_DAPHNE] =
     {
 #line 15719
         .trainerName = _("Daphne"),
@@ -35579,7 +35571,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15761
-    [TRAINER_ANNIKA] =
+    [DIFFICULTY_NORMAL][TRAINER_ANNIKA] =
     {
 #line 15762
         .trainerName = _("Annika"),
@@ -35690,7 +35682,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15808
-    [TRAINER_CRISSY] =
+    [DIFFICULTY_NORMAL][TRAINER_CRISSY] =
     {
 #line 15809
         .trainerName = _("Crissy"),
@@ -35801,7 +35793,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15855
-    [TRAINER_TIFFANY] =
+    [DIFFICULTY_NORMAL][TRAINER_TIFFANY] =
     {
 #line 15856
         .trainerName = _("Tiffany"),
@@ -35912,7 +35904,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15902
-    [TRAINER_BETHANY] =
+    [DIFFICULTY_NORMAL][TRAINER_BETHANY] =
     {
 #line 15903
         .trainerName = _("Bethany"),
@@ -36070,7 +36062,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 15968
-    [TRAINER_OLIVIA] =
+    [DIFFICULTY_NORMAL][TRAINER_OLIVIA] =
     {
 #line 15969
         .trainerName = _("Olivia"),
@@ -36185,7 +36177,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16017
-    [TRAINER_BRIDGET] =
+    [DIFFICULTY_NORMAL][TRAINER_BRIDGET] =
     {
 #line 16018
         .trainerName = _("Bridget"),
@@ -36296,7 +36288,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16064
-    [TRAINER_BRIANNA] =
+    [DIFFICULTY_NORMAL][TRAINER_BRIANNA] =
     {
 #line 16065
         .trainerName = _("Brianna"),
@@ -36447,7 +36439,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16127
-    [TRAINER_NORMAN_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_NORMAN_INITIAL] =
     {
 #line 16128
         .trainerName = _("Norman"),
@@ -36618,7 +36610,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16202
-    [TRAINER_NORMAN_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_NORMAN_INVERSE] =
     {
 #line 16203
         .trainerName = _("Norman"),
@@ -36787,7 +36779,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16275
-    [TRAINER_NORMAN_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_NORMAN_CHALLENGE] =
     {
 #line 16276
         .trainerName = _("Norman"),
@@ -36958,7 +36950,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16351
-    [TRAINER_BRAWLY_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_BRAWLY_INITIAL] =
     {
 #line 16352
         .trainerName = _("Brawly"),
@@ -37129,7 +37121,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16426
-    [TRAINER_BRAWLY_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_BRAWLY_INVERSE] =
     {
 #line 16427
         .trainerName = _("Brawly"),
@@ -37300,7 +37292,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16501
-    [TRAINER_BRAWLY_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_BRAWLY_CHALLENGE] =
     {
 #line 16502
         .trainerName = _("Brawly"),
@@ -37471,7 +37463,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16577
-    [TRAINER_WINONA_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_WINONA_INITIAL] =
     {
 #line 16578
         .trainerName = _("Winona"),
@@ -37669,7 +37661,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16663
-    [TRAINER_WINONA_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_WINONA_INVERSE] =
     {
 #line 16664
         .trainerName = _("Winona"),
@@ -37842,7 +37834,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16738
-    [TRAINER_WINONA_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_WINONA_CHALLENGE] =
     {
 #line 16739
         .trainerName = _("Winona"),
@@ -38012,7 +38004,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16811
-    [TRAINER_CLAUDIUS_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_CLAUDIUS_INITIAL] =
     {
 #line 16812
         .trainerName = _("Claudius"),
@@ -38183,7 +38175,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16886
-    [TRAINER_CLAUDIUS_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_CLAUDIUS_INVERSE] =
     {
 #line 16887
         .trainerName = _("Claudius"),
@@ -38354,7 +38346,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 16961
-    [TRAINER_CLAUDIUS_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_CLAUDIUS_CHALLENGE] =
     {
 #line 16962
         .trainerName = _("Claudius"),
@@ -38525,7 +38517,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 17037
-    [TRAINER_ANTON_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_ANTON_INITIAL] =
     {
 #line 17038
         .trainerName = _("Anton"),
@@ -38696,7 +38688,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 17112
-    [TRAINER_ANTON_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_ANTON_INVERSE] =
     {
 #line 17113
         .trainerName = _("Anton"),
@@ -38864,7 +38856,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 17184
-    [TRAINER_ANTON_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_ANTON_CHALLENGE] =
     {
 #line 17185
         .trainerName = _("Anton"),
@@ -39035,7 +39027,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 17260
-    [TRAINER_ROXANNE_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_ROXANNE_INITIAL] =
     {
 #line 17261
         .trainerName = _("Roxanne"),
@@ -39208,7 +39200,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 17335
-    [TRAINER_ROXANNE_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_ROXANNE_INVERSE] =
     {
 #line 17336
         .trainerName = _("Roxanne"),
@@ -39381,7 +39373,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 17410
-    [TRAINER_ROXANNE_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_ROXANNE_CHALLENGE] =
     {
 #line 17411
         .trainerName = _("Roxanne"),
@@ -39554,7 +39546,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 17486
-    [TRAINER_HEBERT_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_HEBERT_INITIAL] =
     {
 #line 17487
         .trainerName = _("Hebert"),
@@ -39727,7 +39719,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 17561
-    [TRAINER_HEBERT_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_HEBERT_INVERSE] =
     {
 #line 17562
         .trainerName = _("Hebert"),
@@ -39900,7 +39892,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 17636
-    [TRAINER_HEBERT_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_HEBERT_CHALLENGE] =
     {
 #line 17637
         .trainerName = _("Hebert"),
@@ -40073,7 +40065,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 17712
-    [TRAINER_PHOEBE_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_PHOEBE_INITIAL] =
     {
 #line 17713
         .trainerName = _("Phoebe"),
@@ -40246,7 +40238,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 17787
-    [TRAINER_PHOEBE_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_PHOEBE_INVERSE] =
     {
 #line 17788
         .trainerName = _("Phoebe"),
@@ -40419,7 +40411,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 17862
-    [TRAINER_PHOEBE_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_PHOEBE_CHALLENGE] =
     {
 #line 17863
         .trainerName = _("Phoebe"),
@@ -40592,7 +40584,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 17938
-    [TRAINER_STEVEN_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_STEVEN_INITIAL] =
     {
 #line 17939
         .trainerName = _("Steven"),
@@ -40763,7 +40755,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18013
-    [TRAINER_STEVEN_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_STEVEN_INVERSE] =
     {
 #line 18014
         .trainerName = _("Steven"),
@@ -40934,7 +40926,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18088
-    [TRAINER_STEVEN_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_STEVEN_CHALLENGE] =
     {
 #line 18089
         .trainerName = _("Steven"),
@@ -41105,7 +41097,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18164
-    [TRAINER_FLANNERY_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_FLANNERY_INITIAL] =
     {
 #line 18165
         .trainerName = _("Flannery"),
@@ -41278,7 +41270,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18239
-    [TRAINER_FLANNERY_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_FLANNERY_INVERSE] =
     {
 #line 18240
         .trainerName = _("Flannery"),
@@ -41451,7 +41443,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18314
-    [TRAINER_FLANNERY_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_FLANNERY_CHALLENGE] =
     {
 #line 18315
         .trainerName = _("Flannery"),
@@ -41623,7 +41615,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18389
-    [TRAINER_WALLACE_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_WALLACE_INITIAL] =
     {
 #line 18390
         .trainerName = _("Wallace"),
@@ -41794,7 +41786,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18464
-    [TRAINER_WALLACE_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_WALLACE_INVERSE] =
     {
 #line 18465
         .trainerName = _("Wallace"),
@@ -41964,7 +41956,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18538
-    [TRAINER_WALLACE_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_WALLACE_CHALLENGE] =
     {
 #line 18539
         .trainerName = _("Wallace"),
@@ -42131,7 +42123,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18612
-    [TRAINER_QUINN_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_QUINN_INITIAL] =
     {
 #line 18613
         .trainerName = _("Quinn"),
@@ -42304,7 +42296,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18687
-    [TRAINER_QUINN_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_QUINN_INVERSE] =
     {
 #line 18688
         .trainerName = _("Quinn"),
@@ -42477,7 +42469,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18762
-    [TRAINER_QUINN_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_QUINN_CHALLENGE] =
     {
 #line 18763
         .trainerName = _("Quinn"),
@@ -42650,7 +42642,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18838
-    [TRAINER_SCOTTY_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_SCOTTY_INITIAL] =
     {
 #line 18839
         .trainerName = _("Scotty"),
@@ -42820,7 +42812,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18912
-    [TRAINER_SCOTTY_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_SCOTTY_INVERSE] =
     {
 #line 18913
         .trainerName = _("Scotty"),
@@ -42991,7 +42983,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 18987
-    [TRAINER_SCOTTY_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_SCOTTY_CHALLENGE] =
     {
 #line 18988
         .trainerName = _("Scotty"),
@@ -43162,7 +43154,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 19063
-    [TRAINER_TATE_AND_LIZA_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_TATE_AND_LIZA_INITIAL] =
     {
 #line 19064
         .trainerName = _("Tate&Liza"),
@@ -43333,7 +43325,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 19138
-    [TRAINER_TATE_AND_LIZA_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_TATE_AND_LIZA_INVERSE] =
     {
 #line 19139
         .trainerName = _("Tate&Liza"),
@@ -43504,7 +43496,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 19213
-    [TRAINER_TATE_AND_LIZA_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_TATE_AND_LIZA_CHALLENGE] =
     {
 #line 19214
         .trainerName = _("Tate&Liza"),
@@ -43675,7 +43667,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 19289
-    [TRAINER_ELLIE_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_ELLIE_INITIAL] =
     {
 #line 19290
         .trainerName = _("Ellie"),
@@ -43848,7 +43840,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 19364
-    [TRAINER_ELLIE_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_ELLIE_INVERSE] =
     {
 #line 19365
         .trainerName = _("Ellie"),
@@ -44021,7 +44013,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 19439
-    [TRAINER_ELLIE_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_ELLIE_CHALLENGE] =
     {
 #line 19440
         .trainerName = _("Ellie"),
@@ -44191,7 +44183,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 19512
-    [TRAINER_ASTER_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_ASTER_INITIAL] =
     {
 #line 19513
         .trainerName = _("Aster"),
@@ -44361,7 +44353,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 19584
-    [TRAINER_ASTER_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_ASTER_INVERSE] =
     {
 #line 19585
         .trainerName = _("Aster"),
@@ -44529,7 +44521,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 19656
-    [TRAINER_ASTER_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_ASTER_CHALLENGE] =
     {
 #line 19657
         .trainerName = _("Aster"),
@@ -44699,7 +44691,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 19729
-    [TRAINER_MEGAERA_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_MEGAERA_INITIAL] =
     {
 #line 19730
         .trainerName = _("Megaera"),
@@ -44872,7 +44864,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 19804
-    [TRAINER_MEGAERA_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_MEGAERA_INVERSE] =
     {
 #line 19805
         .trainerName = _("Megaera"),
@@ -45045,7 +45037,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 19879
-    [TRAINER_MEGAERA_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_MEGAERA_CHALLENGE] =
     {
 #line 19880
         .trainerName = _("Megaera"),
@@ -45218,7 +45210,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 19955
-    [TRAINER_BELLATRIX_INITIAL] =
+    [DIFFICULTY_NORMAL][TRAINER_BELLATRIX_INITIAL] =
     {
 #line 19956
         .trainerName = _("Bellatrix"),
@@ -45389,7 +45381,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20030
-    [TRAINER_BELLATRIX_INVERSE] =
+    [DIFFICULTY_NORMAL][TRAINER_BELLATRIX_INVERSE] =
     {
 #line 20031
         .trainerName = _("Bellatrix"),
@@ -45562,7 +45554,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20105
-    [TRAINER_BELLATRIX_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_BELLATRIX_CHALLENGE] =
     {
 #line 20106
         .trainerName = _("Bellatrix"),
@@ -45732,7 +45724,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20179
-    [TRAINER_WEATHER_TUTOR_RAIN] =
+    [DIFFICULTY_NORMAL][TRAINER_WEATHER_TUTOR_RAIN] =
     {
 #line 20180
         .trainerName = _("Weather"),
@@ -45778,7 +45770,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20199
-    [TRAINER_WEATHER_TUTOR_SUN] =
+    [DIFFICULTY_NORMAL][TRAINER_WEATHER_TUTOR_SUN] =
     {
 #line 20200
         .trainerName = _("Weather"),
@@ -45824,7 +45816,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20219
-    [TRAINER_WEATHER_TUTOR_HAIL] =
+    [DIFFICULTY_NORMAL][TRAINER_WEATHER_TUTOR_HAIL] =
     {
 #line 20220
         .trainerName = _("Weather"),
@@ -45870,7 +45862,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20239
-    [TRAINER_WEATHER_TUTOR_SAND] =
+    [DIFFICULTY_NORMAL][TRAINER_WEATHER_TUTOR_SAND] =
     {
 #line 20240
         .trainerName = _("Weather"),
@@ -45916,7 +45908,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20259
-    [TRAINER_TERRAIN_TUTOR_ELECTRIC] =
+    [DIFFICULTY_NORMAL][TRAINER_TERRAIN_TUTOR_ELECTRIC] =
     {
 #line 20260
         .trainerName = _("Terrain"),
@@ -45962,7 +45954,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20279
-    [TRAINER_TERRAIN_TUTOR_GRASSY] =
+    [DIFFICULTY_NORMAL][TRAINER_TERRAIN_TUTOR_GRASSY] =
     {
 #line 20280
         .trainerName = _("Terrain"),
@@ -46008,7 +46000,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20299
-    [TRAINER_TERRAIN_TUTOR_MISTY] =
+    [DIFFICULTY_NORMAL][TRAINER_TERRAIN_TUTOR_MISTY] =
     {
 #line 20300
         .trainerName = _("Terrain"),
@@ -46054,7 +46046,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20319
-    [TRAINER_TERRAIN_TUTOR_PSYCHIC] =
+    [DIFFICULTY_NORMAL][TRAINER_TERRAIN_TUTOR_PSYCHIC] =
     {
 #line 20320
         .trainerName = _("Terrain"),
@@ -46100,7 +46092,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20339
-    [TRAINER_CRITICAL_TUTOR] =
+    [DIFFICULTY_NORMAL][TRAINER_CRITICAL_TUTOR] =
     {
 #line 20340
         .trainerName = _("Cutter"),
@@ -46271,7 +46263,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20414
-    [TRAINER_BITE_TUTOR] =
+    [DIFFICULTY_NORMAL][TRAINER_BITE_TUTOR] =
     {
 #line 20415
         .trainerName = _("Fang"),
@@ -46442,7 +46434,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20489
-    [TRAINER_PUNCH_TUTOR] =
+    [DIFFICULTY_NORMAL][TRAINER_PUNCH_TUTOR] =
     {
 #line 20490
         .trainerName = _("Daniel"),
@@ -46613,7 +46605,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20564
-    [TRAINER_MULTI_HIT_TUTOR] =
+    [DIFFICULTY_NORMAL][TRAINER_MULTI_HIT_TUTOR] =
     {
 #line 20565
         .trainerName = _("MHit Tutor"),
@@ -46784,7 +46776,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20639
-    [TRAINER_KOBAYASHI] =
+    [DIFFICULTY_NORMAL][TRAINER_KOBAYASHI] =
     {
 #line 20640
         .trainerName = _("Kobayashi"),
@@ -47081,7 +47073,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20770
-    [TRAINER_VICTOR] =
+    [DIFFICULTY_NORMAL][TRAINER_VICTOR] =
     {
 #line 20771
         .trainerName = _("Victor"),
@@ -47246,7 +47238,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20842
-    [TRAINER_VICTORIA] =
+    [DIFFICULTY_NORMAL][TRAINER_VICTORIA] =
     {
 #line 20843
         .trainerName = _("Victoria"),
@@ -47365,7 +47357,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20893
-    [TRAINER_VIVI] =
+    [DIFFICULTY_NORMAL][TRAINER_VIVI] =
     {
 #line 20894
         .trainerName = _("Vivi"),
@@ -47532,7 +47524,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 20965
-    [TRAINER_VITO] =
+    [DIFFICULTY_NORMAL][TRAINER_VITO] =
     {
 #line 20966
         .trainerName = _("Vito"),
@@ -47697,7 +47689,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21037
-    [TRAINER_VICKY] =
+    [DIFFICULTY_NORMAL][TRAINER_VICKY] =
     {
 #line 21038
         .trainerName = _("Vicky"),
@@ -47864,7 +47856,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21109
-    [TRAINER_VIVI_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_VIVI_CHALLENGE] =
     {
 #line 21110
         .trainerName = _("Vivi"),
@@ -48037,7 +48029,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21184
-    [TRAINER_VITO_CHALLENGE] =
+    [DIFFICULTY_NORMAL][TRAINER_VITO_CHALLENGE] =
     {
 #line 21185
         .trainerName = _("Vito"),
@@ -48208,7 +48200,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21261
-    [TRAINER_GABBY_AND_TY_111] =
+    [DIFFICULTY_NORMAL][TRAINER_GABBY_AND_TY_111] =
     {
 #line 21262
         .trainerName = _("Gabby & Ty"),
@@ -48421,7 +48413,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21354
-    [TRAINER_GABBY_AND_TY_118] =
+    [DIFFICULTY_NORMAL][TRAINER_GABBY_AND_TY_118] =
     {
 #line 21355
         .trainerName = _("Gabby & Ty"),
@@ -48634,7 +48626,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21447
-    [TRAINER_GABBY_AND_TY_120] =
+    [DIFFICULTY_NORMAL][TRAINER_GABBY_AND_TY_120] =
     {
 #line 21448
         .trainerName = _("Gabby & Ty"),
@@ -48847,7 +48839,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21542
-    [TRAINER_BB_MISCHA] =
+    [DIFFICULTY_NORMAL][TRAINER_BB_MISCHA] =
     {
 #line 21543
         .trainerName = _("Mischa"),
@@ -48943,7 +48935,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21584
-    [TRAINER_BB_MIRABELLE] =
+    [DIFFICULTY_NORMAL][TRAINER_BB_MIRABELLE] =
     {
 #line 21585
         .trainerName = _("Mirabelle"),
@@ -49041,7 +49033,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21626
-    [TRAINER_BB_ANTONIO] =
+    [DIFFICULTY_NORMAL][TRAINER_BB_ANTONIO] =
     {
 #line 21627
         .trainerName = _("Antonio"),
@@ -49137,7 +49129,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21668
-    [TRAINER_BB_LUISA] =
+    [DIFFICULTY_NORMAL][TRAINER_BB_LUISA] =
     {
 #line 21669
         .trainerName = _("Luisa"),
@@ -49235,7 +49227,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21710
-    [TRAINER_BB_JULIETA] =
+    [DIFFICULTY_NORMAL][TRAINER_BB_JULIETA] =
     {
 #line 21711
         .trainerName = _("Julieta"),
@@ -49333,7 +49325,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21752
-    [TRAINER_BB_CAMILO] =
+    [DIFFICULTY_NORMAL][TRAINER_BB_CAMILO] =
     {
 #line 21753
         .trainerName = _("Camilo"),
@@ -49429,7 +49421,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21794
-    [TRAINER_BB_PEDRO] =
+    [DIFFICULTY_NORMAL][TRAINER_BB_PEDRO] =
     {
 #line 21795
         .trainerName = _("Pedro"),
@@ -49525,7 +49517,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21836
-    [TRAINER_BB_ALMA] =
+    [DIFFICULTY_NORMAL][TRAINER_BB_ALMA] =
     {
 #line 21837
         .trainerName = _("Alma"),
@@ -49621,7 +49613,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21877
-    [TRAINER_BB_BRAWLY] =
+    [DIFFICULTY_NORMAL][TRAINER_BB_BRAWLY] =
     {
 #line 21878
         .trainerName = _("Brawly"),
@@ -49717,7 +49709,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21919
-    [TRAINER_BB_PHOEBE] =
+    [DIFFICULTY_NORMAL][TRAINER_BB_PHOEBE] =
     {
 #line 21920
         .trainerName = _("Phoebe"),
@@ -49815,7 +49807,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 21963
-    [TRAINER_RIVAL_LEAF] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_LEAF] =
     {
 #line 21964
         .trainerName = _("Leaf"),
@@ -50126,7 +50118,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22098
-    [TRAINER_RIVAL_KRIS] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_KRIS] =
     {
 #line 22099
         .trainerName = _("Kris"),
@@ -50437,7 +50429,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22233
-    [TRAINER_RIVAL_DAWN] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_DAWN] =
     {
 #line 22234
         .trainerName = _("Dawn"),
@@ -50744,7 +50736,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22368
-    [TRAINER_RIVAL_REI] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_REI] =
     {
 #line 22369
         .trainerName = _("Rei"),
@@ -51053,7 +51045,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22503
-    [TRAINER_RIVAL_HILBERT] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_HILBERT] =
     {
 #line 22504
         .trainerName = _("Hilbert"),
@@ -51362,7 +51354,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22638
-    [TRAINER_RIVAL_CALEM] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_CALEM] =
     {
 #line 22639
         .trainerName = _("Calem"),
@@ -51669,7 +51661,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22774
-    [TRAINER_RIVAL_JINNORA] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_JINNORA] =
     {
 #line 22775
         .trainerName = _("Jinnora"),
@@ -51832,7 +51824,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22844
-    [TRAINER_RIVAL_1] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_1] =
     {
 #line 22845
         .trainerName = _("Jinnora"),
@@ -51863,7 +51855,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22856
-    [TRAINER_RIVAL_2] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_2] =
     {
 #line 22857
         .trainerName = _("Jinnora"),
@@ -51894,7 +51886,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22868
-    [TRAINER_RIVAL_3] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_3] =
     {
 #line 22869
         .trainerName = _("Jinnora"),
@@ -51925,7 +51917,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22880
-    [TRAINER_RIVAL_4] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_4] =
     {
 #line 22881
         .trainerName = _("Jinnora"),
@@ -51956,7 +51948,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22892
-    [TRAINER_RIVAL_5] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_5] =
     {
 #line 22893
         .trainerName = _("Jinnora"),
@@ -51987,7 +51979,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22904
-    [TRAINER_RIVAL_6] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_6] =
     {
 #line 22905
         .trainerName = _("Jinnora"),
@@ -52018,7 +52010,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22916
-    [TRAINER_RIVAL_7] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_7] =
     {
 #line 22917
         .trainerName = _("Jinnora"),
@@ -52049,7 +52041,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22928
-    [TRAINER_RIVAL_8] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_8] =
     {
 #line 22929
         .trainerName = _("Jinnora"),
@@ -52080,7 +52072,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22940
-    [TRAINER_RIVAL_9] =
+    [DIFFICULTY_NORMAL][TRAINER_RIVAL_9] =
     {
 #line 22941
         .trainerName = _("Jinnora"),
@@ -52111,7 +52103,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 22954
-    [TRAINER_TPP_RED] =
+    [DIFFICULTY_NORMAL][TRAINER_TPP_RED] =
     {
 #line 22955
         .trainerName = _("Red"),
@@ -52282,7 +52274,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23029
-    [TRAINER_TPP_AJ] =
+    [DIFFICULTY_NORMAL][TRAINER_TPP_AJ] =
     {
 #line 23030
         .trainerName = _("AJ"),
@@ -52428,7 +52420,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23093
-    [TRAINER_TPP_DOM] =
+    [DIFFICULTY_NORMAL][TRAINER_TPP_DOM] =
     {
 #line 23094
         .trainerName = _("Dom"),
@@ -52599,7 +52591,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23170
-    [TRAINER_BREYDEN] =
+    [DIFFICULTY_NORMAL][TRAINER_BREYDEN] =
     {
 #line 23171
         .trainerName = _("Breyden"),
@@ -52758,7 +52750,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23239
-    [TRAINER_VANCE] =
+    [DIFFICULTY_NORMAL][TRAINER_VANCE] =
     {
 #line 23240
         .trainerName = _("Vance"),
@@ -52891,7 +52883,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23295
-    [TRAINER_STEPHANIE] =
+    [DIFFICULTY_NORMAL][TRAINER_STEPHANIE] =
     {
 #line 23296
         .trainerName = _("Stephanie"),
@@ -53022,7 +53014,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23349
-    [TRAINER_ABRAHAM] =
+    [DIFFICULTY_NORMAL][TRAINER_ABRAHAM] =
     {
 #line 23350
         .trainerName = _("Abraham"),
@@ -53153,7 +53145,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23406
-    [TRAINER_CALVIN] =
+    [DIFFICULTY_NORMAL][TRAINER_CALVIN] =
     {
 #line 23407
         .trainerName = _("Calvin"),
@@ -53289,7 +53281,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23463
-    [TRAINER_RICK] =
+    [DIFFICULTY_NORMAL][TRAINER_RICK] =
     {
 #line 23464
         .trainerName = _("Rick"),
@@ -53382,7 +53374,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23502
-    [TRAINER_ALLEN] =
+    [DIFFICULTY_NORMAL][TRAINER_ALLEN] =
     {
 #line 23503
         .trainerName = _("Allen"),
@@ -53510,7 +53502,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23555
-    [TRAINER_TIANA] =
+    [DIFFICULTY_NORMAL][TRAINER_TIANA] =
     {
 #line 23556
         .trainerName = _("Tiana"),
@@ -53679,7 +53671,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23625
-    [TRAINER_EVA] =
+    [DIFFICULTY_NORMAL][TRAINER_EVA] =
     {
 #line 23626
         .trainerName = _("Eva"),
@@ -53882,7 +53874,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23709
-    [TRAINER_GLORIA] =
+    [DIFFICULTY_NORMAL][TRAINER_GLORIA] =
     {
 #line 23710
         .trainerName = _("Gloria"),
@@ -54091,7 +54083,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23798
-    [TRAINER_DAISY] =
+    [DIFFICULTY_NORMAL][TRAINER_DAISY] =
     {
 #line 23799
         .trainerName = _("Daisy"),
@@ -54202,7 +54194,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23845
-    [TRAINER_AMY_AND_LIV] =
+    [DIFFICULTY_NORMAL][TRAINER_AMY_AND_LIV] =
     {
 #line 23846
         .trainerName = _("Amy & Liv"),
@@ -54269,7 +54261,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23874
-    [TRAINER_ANDREW] =
+    [DIFFICULTY_NORMAL][TRAINER_ANDREW] =
     {
 #line 23875
         .trainerName = _("Andrew"),
@@ -54406,7 +54398,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23932
-    [TRAINER_MIGUEL] =
+    [DIFFICULTY_NORMAL][TRAINER_MIGUEL] =
     {
 #line 23933
         .trainerName = _("Miguel"),
@@ -54547,7 +54539,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 23990
-    [TRAINER_RHETT] =
+    [DIFFICULTY_NORMAL][TRAINER_RHETT] =
     {
 #line 23991
         .trainerName = _("Rhett"),
@@ -54637,7 +54629,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24029
-    [TRAINER_MARCOS] =
+    [DIFFICULTY_NORMAL][TRAINER_MARCOS] =
     {
 #line 24030
         .trainerName = _("Marcos"),
@@ -54727,7 +54719,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24068
-    [TRAINER_ISABELLE] =
+    [DIFFICULTY_NORMAL][TRAINER_ISABELLE] =
     {
 #line 24069
         .trainerName = _("Isabelle"),
@@ -54834,7 +54826,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24113
-    [TRAINER_PETE] =
+    [DIFFICULTY_NORMAL][TRAINER_PETE] =
     {
 #line 24114
         .trainerName = _("Pete"),
@@ -54939,7 +54931,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24160
-    [TRAINER_HALEY] =
+    [DIFFICULTY_NORMAL][TRAINER_HALEY] =
     {
 #line 24161
         .trainerName = _("Haley"),
@@ -55094,7 +55086,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24226
-    [TRAINER_IVAN] =
+    [DIFFICULTY_NORMAL][TRAINER_IVAN] =
     {
 #line 24227
         .trainerName = _("Ivan"),
@@ -55222,7 +55214,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24279
-    [TRAINER_GINA_AND_MIA] =
+    [DIFFICULTY_NORMAL][TRAINER_GINA_AND_MIA] =
     {
 #line 24280
         .trainerName = _("Gina & Mia"),
@@ -55331,7 +55323,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24326
-    [TRAINER_WINSTON] =
+    [DIFFICULTY_NORMAL][TRAINER_WINSTON] =
     {
 #line 24327
         .trainerName = _("Winston"),
@@ -55478,7 +55470,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24389
-    [TRAINER_CINDY] =
+    [DIFFICULTY_NORMAL][TRAINER_CINDY] =
     {
 #line 24390
         .trainerName = _("Cindy"),
@@ -55627,7 +55619,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24452
-    [TRAINER_BILLY] =
+    [DIFFICULTY_NORMAL][TRAINER_BILLY] =
     {
 #line 24453
         .trainerName = _("Billy"),
@@ -55724,7 +55716,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24493
-    [TRAINER_DARIAN] =
+    [DIFFICULTY_NORMAL][TRAINER_DARIAN] =
     {
 #line 24494
         .trainerName = _("Darian"),
@@ -55825,7 +55817,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24538
-    [TRAINER_LUIS] =
+    [DIFFICULTY_NORMAL][TRAINER_LUIS] =
     {
 #line 24539
         .trainerName = _("Luis"),
@@ -55926,7 +55918,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24581
-    [TRAINER_DOMINIK] =
+    [DIFFICULTY_NORMAL][TRAINER_DOMINIK] =
     {
 #line 24582
         .trainerName = _("Dominik"),
@@ -56029,7 +56021,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24625
-    [TRAINER_BEVERLY] =
+    [DIFFICULTY_NORMAL][TRAINER_BEVERLY] =
     {
 #line 24626
         .trainerName = _("Beverly"),
@@ -56176,7 +56168,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24687
-    [TRAINER_IMANI] =
+    [DIFFICULTY_NORMAL][TRAINER_IMANI] =
     {
 #line 24688
         .trainerName = _("Imani"),
@@ -56285,7 +56277,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24733
-    [TRAINER_FOSTER] =
+    [DIFFICULTY_NORMAL][TRAINER_FOSTER] =
     {
 #line 24734
         .trainerName = _("Foster"),
@@ -56394,7 +56386,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24780
-    [TRAINER_JOSUE] =
+    [DIFFICULTY_NORMAL][TRAINER_JOSUE] =
     {
 #line 24781
         .trainerName = _("Josue"),
@@ -56547,7 +56539,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24846
-    [TRAINER_ANDRES] =
+    [DIFFICULTY_NORMAL][TRAINER_ANDRES] =
     {
 #line 24847
         .trainerName = _("Andres"),
@@ -56656,7 +56648,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24895
-    [TRAINER_DOUGLAS] =
+    [DIFFICULTY_NORMAL][TRAINER_DOUGLAS] =
     {
 #line 24896
         .trainerName = _("Douglas"),
@@ -56803,7 +56795,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 24958
-    [TRAINER_KYLA] =
+    [DIFFICULTY_NORMAL][TRAINER_KYLA] =
     {
 #line 24959
         .trainerName = _("Kyla"),
@@ -56904,7 +56896,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25000
-    [TRAINER_ELLIOT] =
+    [DIFFICULTY_NORMAL][TRAINER_ELLIOT] =
     {
 #line 25001
         .trainerName = _("Elliot"),
@@ -57005,7 +56997,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25043
-    [TRAINER_NED] =
+    [DIFFICULTY_NORMAL][TRAINER_NED] =
     {
 #line 25044
         .trainerName = _("Ned"),
@@ -57104,7 +57096,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25085
-    [TRAINER_OWEN] =
+    [DIFFICULTY_NORMAL][TRAINER_OWEN] =
     {
 #line 25086
         .trainerName = _("Owen"),
@@ -57249,7 +57241,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25147
-    [TRAINER_MICHELLE] =
+    [DIFFICULTY_NORMAL][TRAINER_MICHELLE] =
     {
 #line 25148
         .trainerName = _("Michelle"),
@@ -57402,7 +57394,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25214
-    [TRAINER_DARRIN] =
+    [DIFFICULTY_NORMAL][TRAINER_DARRIN] =
     {
 #line 25215
         .trainerName = _("Darrin"),
@@ -57509,7 +57501,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25260
-    [TRAINER_TONY] =
+    [DIFFICULTY_NORMAL][TRAINER_TONY] =
     {
 #line 25261
         .trainerName = _("Tony"),
@@ -57650,7 +57642,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25320
-    [TRAINER_DENISE] =
+    [DIFFICULTY_NORMAL][TRAINER_DENISE] =
     {
 #line 25321
         .trainerName = _("Denise"),
@@ -57761,7 +57753,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25367
-    [TRAINER_BETH] =
+    [DIFFICULTY_NORMAL][TRAINER_BETH] =
     {
 #line 25368
         .trainerName = _("Beth"),
@@ -57828,7 +57820,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25395
-    [TRAINER_LISA_AND_RAY] =
+    [DIFFICULTY_NORMAL][TRAINER_LISA_AND_RAY] =
     {
 #line 25396
         .trainerName = _("Lisa & Ray"),
@@ -57937,7 +57929,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25442
-    [TRAINER_CAMRON] =
+    [DIFFICULTY_NORMAL][TRAINER_CAMRON] =
     {
 #line 25443
         .trainerName = _("Camron"),
@@ -58002,7 +57994,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25470
-    [TRAINER_KENNETH] =
+    [DIFFICULTY_NORMAL][TRAINER_KENNETH] =
     {
 #line 25471
         .trainerName = _("Kenneth"),
@@ -58111,7 +58103,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25519
-    [TRAINER_JEROME] =
+    [DIFFICULTY_NORMAL][TRAINER_JEROME] =
     {
 #line 25520
         .trainerName = _("Jerome"),
@@ -58212,7 +58204,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25562
-    [TRAINER_TARA] =
+    [DIFFICULTY_NORMAL][TRAINER_TARA] =
     {
 #line 25563
         .trainerName = _("Tara"),
@@ -58323,7 +58315,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25609
-    [TRAINER_MATTHEW] =
+    [DIFFICULTY_NORMAL][TRAINER_MATTHEW] =
     {
 #line 25610
         .trainerName = _("Matthew"),
@@ -58428,7 +58420,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25654
-    [TRAINER_MISSY] =
+    [DIFFICULTY_NORMAL][TRAINER_MISSY] =
     {
 #line 25655
         .trainerName = _("Missy"),
@@ -58539,7 +58531,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25701
-    [TRAINER_CAROLINA] =
+    [DIFFICULTY_NORMAL][TRAINER_CAROLINA] =
     {
 #line 25702
         .trainerName = _("Carolina"),
@@ -58698,7 +58690,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25769
-    [TRAINER_CORY] =
+    [DIFFICULTY_NORMAL][TRAINER_CORY] =
     {
 #line 25770
         .trainerName = _("Cory"),
@@ -58851,7 +58843,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25835
-    [TRAINER_FELIX] =
+    [DIFFICULTY_NORMAL][TRAINER_FELIX] =
     {
 #line 25836
         .trainerName = _("Felix"),
@@ -59048,7 +59040,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25922
-    [TRAINER_DAVID] =
+    [DIFFICULTY_NORMAL][TRAINER_DAVID] =
     {
 #line 25923
         .trainerName = _("David"),
@@ -59157,7 +59149,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25969
-    [TRAINER_ALICE] =
+    [DIFFICULTY_NORMAL][TRAINER_ALICE] =
     {
 #line 25970
         .trainerName = _("Alice"),
@@ -59203,7 +59195,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 25988
-    [TRAINER_HUEY] =
+    [DIFFICULTY_NORMAL][TRAINER_HUEY] =
     {
 #line 25989
         .trainerName = _("Huey"),
@@ -59304,7 +59296,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26031
-    [TRAINER_EDMOND] =
+    [DIFFICULTY_NORMAL][TRAINER_EDMOND] =
     {
 #line 26032
         .trainerName = _("Edmond"),
@@ -59405,7 +59397,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26074
-    [TRAINER_RICKY] =
+    [DIFFICULTY_NORMAL][TRAINER_RICKY] =
     {
 #line 26075
         .trainerName = _("Ricky"),
@@ -59468,7 +59460,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26101
-    [TRAINER_LOLA] =
+    [DIFFICULTY_NORMAL][TRAINER_LOLA] =
     {
 #line 26102
         .trainerName = _("Lola"),
@@ -59554,7 +59546,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26137
-    [TRAINER_GWEN] =
+    [DIFFICULTY_NORMAL][TRAINER_GWEN] =
     {
 #line 26138
         .trainerName = _("Gwen"),
@@ -59709,7 +59701,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26203
-    [TRAINER_AUSTINA] =
+    [DIFFICULTY_NORMAL][TRAINER_AUSTINA] =
     {
 #line 26204
         .trainerName = _("Austina"),
@@ -59820,7 +59812,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26250
-    [TRAINER_CARTER] =
+    [DIFFICULTY_NORMAL][TRAINER_CARTER] =
     {
 #line 26251
         .trainerName = _("Carter"),
@@ -59881,7 +59873,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26276
-    [TRAINER_MEL_AND_PAUL] =
+    [DIFFICULTY_NORMAL][TRAINER_MEL_AND_PAUL] =
     {
 #line 26277
         .trainerName = _("Mel & Paul"),
@@ -59944,7 +59936,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26303
-    [TRAINER_HAILEY] =
+    [DIFFICULTY_NORMAL][TRAINER_HAILEY] =
     {
 #line 26304
         .trainerName = _("Hailey"),
@@ -60013,7 +60005,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26332
-    [TRAINER_CHANDLER] =
+    [DIFFICULTY_NORMAL][TRAINER_CHANDLER] =
     {
 #line 26333
         .trainerName = _("Chandler"),
@@ -60122,7 +60114,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26379
-    [TRAINER_ELIJAH] =
+    [DIFFICULTY_NORMAL][TRAINER_ELIJAH] =
     {
 #line 26380
         .trainerName = _("Elijah"),
@@ -60231,7 +60223,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26428
-    [TRAINER_JASMINE] =
+    [DIFFICULTY_NORMAL][TRAINER_JASMINE] =
     {
 #line 26429
         .trainerName = _("Jasmine"),
@@ -60430,7 +60422,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26513
-    [TRAINER_ANTHONY] =
+    [DIFFICULTY_NORMAL][TRAINER_ANTHONY] =
     {
 #line 26514
         .trainerName = _("Anthony"),
@@ -60581,7 +60573,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26578
-    [TRAINER_ABIGAIL] =
+    [DIFFICULTY_NORMAL][TRAINER_ABIGAIL] =
     {
 #line 26579
         .trainerName = _("Abigail"),
@@ -60734,7 +60726,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26642
-    [TRAINER_BENJAMIN] =
+    [DIFFICULTY_NORMAL][TRAINER_BENJAMIN] =
     {
 #line 26643
         .trainerName = _("Benjamin"),
@@ -60881,7 +60873,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26703
-    [TRAINER_EDWARD] =
+    [DIFFICULTY_NORMAL][TRAINER_EDWARD] =
     {
 #line 26704
         .trainerName = _("Edward"),
@@ -60946,7 +60938,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26731
-    [TRAINER_JACLYN] =
+    [DIFFICULTY_NORMAL][TRAINER_JACLYN] =
     {
 #line 26732
         .trainerName = _("Jaclyn"),
@@ -61017,7 +61009,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26761
-    [TRAINER_EDWIN] =
+    [DIFFICULTY_NORMAL][TRAINER_EDWIN] =
     {
 #line 26762
         .trainerName = _("Edwin"),
@@ -61214,7 +61206,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26846
-    [TRAINER_DALE] =
+    [DIFFICULTY_NORMAL][TRAINER_DALE] =
     {
 #line 26847
         .trainerName = _("Dale"),
@@ -61411,7 +61403,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26931
-    [TRAINER_JACOB] =
+    [DIFFICULTY_NORMAL][TRAINER_JACOB] =
     {
 #line 26932
         .trainerName = _("Jacob"),
@@ -61564,7 +61556,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 26997
-    [TRAINER_TIMMY] =
+    [DIFFICULTY_NORMAL][TRAINER_TIMMY] =
     {
 #line 26998
         .trainerName = _("Timmy"),
@@ -61717,7 +61709,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27063
-    [TRAINER_ISABEL] =
+    [DIFFICULTY_NORMAL][TRAINER_ISABEL] =
     {
 #line 27064
         .trainerName = _("Isabel"),
@@ -61826,7 +61818,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27109
-    [TRAINER_KALEB] =
+    [DIFFICULTY_NORMAL][TRAINER_KALEB] =
     {
 #line 27110
         .trainerName = _("Kaleb"),
@@ -61935,7 +61927,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27156
-    [TRAINER_ALYSSA] =
+    [DIFFICULTY_NORMAL][TRAINER_ALYSSA] =
     {
 #line 27157
         .trainerName = _("Alyssa"),
@@ -62000,7 +61992,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27183
-    [TRAINER_JOSEPH] =
+    [DIFFICULTY_NORMAL][TRAINER_JOSEPH] =
     {
 #line 27184
         .trainerName = _("Joseph"),
@@ -62153,7 +62145,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27251
-    [TRAINER_HEIDI] =
+    [DIFFICULTY_NORMAL][TRAINER_HEIDI] =
     {
 #line 27252
         .trainerName = _("Heidi"),
@@ -62260,7 +62252,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27296
-    [TRAINER_DREW] =
+    [DIFFICULTY_NORMAL][TRAINER_DREW] =
     {
 #line 27297
         .trainerName = _("Drew"),
@@ -62365,7 +62357,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27341
-    [TRAINER_DUSTY] =
+    [DIFFICULTY_NORMAL][TRAINER_DUSTY] =
     {
 #line 27342
         .trainerName = _("Dusty"),
@@ -62518,7 +62510,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27407
-    [TRAINER_BEAU] =
+    [DIFFICULTY_NORMAL][TRAINER_BEAU] =
     {
 #line 27408
         .trainerName = _("Beau"),
@@ -62669,7 +62661,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27472
-    [TRAINER_BECKY] =
+    [DIFFICULTY_NORMAL][TRAINER_BECKY] =
     {
 #line 27473
         .trainerName = _("Becky"),
@@ -62824,7 +62816,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27538
-    [TRAINER_IRENE] =
+    [DIFFICULTY_NORMAL][TRAINER_IRENE] =
     {
 #line 27539
         .trainerName = _("Irene"),
@@ -62979,7 +62971,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27604
-    [TRAINER_TRAVIS] =
+    [DIFFICULTY_NORMAL][TRAINER_TRAVIS] =
     {
 #line 27605
         .trainerName = _("Travis"),
@@ -63084,7 +63076,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27649
-    [TRAINER_DAISUKE] =
+    [DIFFICULTY_NORMAL][TRAINER_DAISUKE] =
     {
 #line 27650
         .trainerName = _("Daisuke"),
@@ -63237,7 +63229,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27715
-    [TRAINER_BROOKE] =
+    [DIFFICULTY_NORMAL][TRAINER_BROOKE] =
     {
 #line 27716
         .trainerName = _("Brooke"),
@@ -63548,7 +63540,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27850
-    [TRAINER_WILTON] =
+    [DIFFICULTY_NORMAL][TRAINER_WILTON] =
     {
 #line 27851
         .trainerName = _("Wilton"),
@@ -63857,7 +63849,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 27985
-    [TRAINER_TYRON] =
+    [DIFFICULTY_NORMAL][TRAINER_TYRON] =
     {
 #line 27986
         .trainerName = _("Tyron"),
@@ -63966,7 +63958,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28032
-    [TRAINER_CELINA] =
+    [DIFFICULTY_NORMAL][TRAINER_CELINA] =
     {
 #line 28033
         .trainerName = _("Celina"),
@@ -64077,7 +64069,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28079
-    [TRAINER_BIANCA] =
+    [DIFFICULTY_NORMAL][TRAINER_BIANCA] =
     {
 #line 28080
         .trainerName = _("Bianca"),
@@ -64188,7 +64180,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28126
-    [TRAINER_HAYDEN] =
+    [DIFFICULTY_NORMAL][TRAINER_HAYDEN] =
     {
 #line 28127
         .trainerName = _("Hayden"),
@@ -64341,7 +64333,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28192
-    [TRAINER_BRYAN] =
+    [DIFFICULTY_NORMAL][TRAINER_BRYAN] =
     {
 #line 28193
         .trainerName = _("Bryan"),
@@ -64488,7 +64480,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28252
-    [TRAINER_CELIA] =
+    [DIFFICULTY_NORMAL][TRAINER_CELIA] =
     {
 #line 28253
         .trainerName = _("Celia"),
@@ -64641,7 +64633,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28317
-    [TRAINER_BRANDEN] =
+    [DIFFICULTY_NORMAL][TRAINER_BRANDEN] =
     {
 #line 28318
         .trainerName = _("Branden"),
@@ -64794,7 +64786,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28385
-    [TRAINER_LARRY] =
+    [DIFFICULTY_NORMAL][TRAINER_LARRY] =
     {
 #line 28386
         .trainerName = _("Larry"),
@@ -64947,7 +64939,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28451
-    [TRAINER_CAROL] =
+    [DIFFICULTY_NORMAL][TRAINER_CAROL] =
     {
 #line 28452
         .trainerName = _("Carol"),
@@ -65144,7 +65136,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28535
-    [TRAINER_TRENT] =
+    [DIFFICULTY_NORMAL][TRAINER_TRENT] =
     {
 #line 28536
         .trainerName = _("Trent"),
@@ -65293,7 +65285,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28601
-    [TRAINER_JAYLEN] =
+    [DIFFICULTY_NORMAL][TRAINER_JAYLEN] =
     {
 #line 28602
         .trainerName = _("Jaylen"),
@@ -65442,7 +65434,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28665
-    [TRAINER_DILLON] =
+    [DIFFICULTY_NORMAL][TRAINER_DILLON] =
     {
 #line 28666
         .trainerName = _("Dillon"),
@@ -65593,7 +65585,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28730
-    [TRAINER_MADELINE] =
+    [DIFFICULTY_NORMAL][TRAINER_MADELINE] =
     {
 #line 28731
         .trainerName = _("Madeline"),
@@ -65748,7 +65740,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28796
-    [TRAINER_LAO] =
+    [DIFFICULTY_NORMAL][TRAINER_LAO] =
     {
 #line 28797
         .trainerName = _("Lao"),
@@ -65945,7 +65937,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28881
-    [TRAINER_LUNG] =
+    [DIFFICULTY_NORMAL][TRAINER_LUNG] =
     {
 #line 28882
         .trainerName = _("Lung"),
@@ -66140,7 +66132,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 28965
-    [TRAINER_TORI_AND_TIA] =
+    [DIFFICULTY_NORMAL][TRAINER_TORI_AND_TIA] =
     {
 #line 28966
         .trainerName = _("Tori & Tia"),
@@ -66249,7 +66241,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29012
-    [TRAINER_WYATT] =
+    [DIFFICULTY_NORMAL][TRAINER_WYATT] =
     {
 #line 29013
         .trainerName = _("Wyatt"),
@@ -66358,7 +66350,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29059
-    [TRAINER_LAWRENCE] =
+    [DIFFICULTY_NORMAL][TRAINER_LAWRENCE] =
     {
 #line 29060
         .trainerName = _("Lawrence"),
@@ -66467,7 +66459,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29106
-    [TRAINER_SOPHIE] =
+    [DIFFICULTY_NORMAL][TRAINER_SOPHIE] =
     {
 #line 29107
         .trainerName = _("Sophie"),
@@ -66620,7 +66612,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29171
-    [TRAINER_COBY] =
+    [DIFFICULTY_NORMAL][TRAINER_COBY] =
     {
 #line 29172
         .trainerName = _("Coby"),
@@ -66727,7 +66719,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29217
-    [TRAINER_IKE] =
+    [DIFFICULTY_NORMAL][TRAINER_IKE] =
     {
 #line 29218
         .trainerName = _("Ike"),
@@ -66878,7 +66870,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29284
-    [TRAINER_LENNY] =
+    [DIFFICULTY_NORMAL][TRAINER_LENNY] =
     {
 #line 29285
         .trainerName = _("Lenny"),
@@ -67031,7 +67023,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29350
-    [TRAINER_LUCAS] =
+    [DIFFICULTY_NORMAL][TRAINER_LUCAS] =
     {
 #line 29351
         .trainerName = _("Lucas"),
@@ -67138,7 +67130,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29396
-    [TRAINER_SHANE] =
+    [DIFFICULTY_NORMAL][TRAINER_SHANE] =
     {
 #line 29397
         .trainerName = _("Shane"),
@@ -67291,7 +67283,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29462
-    [TRAINER_NANCY] =
+    [DIFFICULTY_NORMAL][TRAINER_NANCY] =
     {
 #line 29463
         .trainerName = _("Nancy"),
@@ -67490,7 +67482,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29547
-    [TRAINER_STEVE] =
+    [DIFFICULTY_NORMAL][TRAINER_STEVE] =
     {
 #line 29548
         .trainerName = _("Steve"),
@@ -67643,7 +67635,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29613
-    [TRAINER_NOLAN] =
+    [DIFFICULTY_NORMAL][TRAINER_NOLAN] =
     {
 #line 29614
         .trainerName = _("Nolan"),
@@ -67752,7 +67744,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29660
-    [TRAINER_CLAUDE] =
+    [DIFFICULTY_NORMAL][TRAINER_CLAUDE] =
     {
 #line 29661
         .trainerName = _("Claude"),
@@ -67911,7 +67903,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29729
-    [TRAINER_BERNIE] =
+    [DIFFICULTY_NORMAL][TRAINER_BERNIE] =
     {
 #line 29730
         .trainerName = _("Bernie"),
@@ -68064,7 +68056,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29795
-    [TRAINER_TYRA_AND_IVY] =
+    [DIFFICULTY_NORMAL][TRAINER_TYRA_AND_IVY] =
     {
 #line 29796
         .trainerName = _("Tyra & Ivy"),
@@ -68169,7 +68161,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29840
-    [TRAINER_CHARLOTTE] =
+    [DIFFICULTY_NORMAL][TRAINER_CHARLOTTE] =
     {
 #line 29841
         .trainerName = _("Charlotte"),
@@ -68407,7 +68399,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29941
-    [TRAINER_ANGELINA] =
+    [DIFFICULTY_NORMAL][TRAINER_ANGELINA] =
     {
 #line 29942
         .trainerName = _("Angelina"),
@@ -68518,7 +68510,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 29988
-    [TRAINER_KAI] =
+    [DIFFICULTY_NORMAL][TRAINER_KAI] =
     {
 #line 29989
         .trainerName = _("Kai"),
@@ -68671,7 +68663,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30056
-    [TRAINER_TIMOTHY] =
+    [DIFFICULTY_NORMAL][TRAINER_TIMOTHY] =
     {
 #line 30057
         .trainerName = _("Timothy"),
@@ -68884,7 +68876,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30149
-    [TRAINER_NOB] =
+    [DIFFICULTY_NORMAL][TRAINER_NOB] =
     {
 #line 30150
         .trainerName = _("Nob"),
@@ -69037,7 +69029,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30215
-    [TRAINER_CYNDY] =
+    [DIFFICULTY_NORMAL][TRAINER_CYNDY] =
     {
 #line 30216
         .trainerName = _("Cyndy"),
@@ -69232,7 +69224,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30298
-    [TRAINER_KOICHI] =
+    [DIFFICULTY_NORMAL][TRAINER_KOICHI] =
     {
 #line 30299
         .trainerName = _("Koichi"),
@@ -69368,7 +69360,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30357
-    [TRAINER_HECTOR] =
+    [DIFFICULTY_NORMAL][TRAINER_HECTOR] =
     {
 #line 30358
         .trainerName = _("Hector"),
@@ -69609,7 +69601,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30461
-    [TRAINER_KYRA] =
+    [DIFFICULTY_NORMAL][TRAINER_KYRA] =
     {
 #line 30462
         .trainerName = _("Kyra"),
@@ -69762,7 +69754,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30526
-    [TRAINER_JAIDEN] =
+    [DIFFICULTY_NORMAL][TRAINER_JAIDEN] =
     {
 #line 30527
         .trainerName = _("Jaiden"),
@@ -70003,7 +69995,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30630
-    [TRAINER_ALIX] =
+    [DIFFICULTY_NORMAL][TRAINER_ALIX] =
     {
 #line 30631
         .trainerName = _("Alix"),
@@ -70095,7 +70087,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30669
-    [TRAINER_HELENE] =
+    [DIFFICULTY_NORMAL][TRAINER_HELENE] =
     {
 #line 30670
         .trainerName = _("Helene"),
@@ -70252,7 +70244,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30736
-    [TRAINER_MARLENE] =
+    [DIFFICULTY_NORMAL][TRAINER_MARLENE] =
     {
 #line 30737
         .trainerName = _("Marlene"),
@@ -70407,7 +70399,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30804
-    [TRAINER_JOEY] =
+    [DIFFICULTY_NORMAL][TRAINER_JOEY] =
     {
 #line 30805
         .trainerName = _("Joey"),
@@ -70524,7 +70516,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30855
-    [TRAINER_JOSE] =
+    [DIFFICULTY_NORMAL][TRAINER_JOSE] =
     {
 #line 30856
         .trainerName = _("Jose"),
@@ -70677,7 +70669,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30921
-    [TRAINER_CLARK] =
+    [DIFFICULTY_NORMAL][TRAINER_CLARK] =
     {
 #line 30922
         .trainerName = _("Clark"),
@@ -70830,7 +70822,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 30987
-    [TRAINER_JANICE] =
+    [DIFFICULTY_NORMAL][TRAINER_JANICE] =
     {
 #line 30988
         .trainerName = _("Janice"),
@@ -70983,7 +70975,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 31052
-    [TRAINER_KAREN] =
+    [DIFFICULTY_NORMAL][TRAINER_KAREN] =
     {
 #line 31053
         .trainerName = _("Karen"),
@@ -71094,7 +71086,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 31099
-    [TRAINER_JERRY] =
+    [DIFFICULTY_NORMAL][TRAINER_JERRY] =
     {
 #line 31100
         .trainerName = _("Jerry"),
@@ -71247,7 +71239,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 31165
-    [TRAINER_SARAH] =
+    [DIFFICULTY_NORMAL][TRAINER_SARAH] =
     {
 #line 31166
         .trainerName = _("Sarah"),
@@ -71404,7 +71396,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 31232
-    [TRAINER_DAWSON] =
+    [DIFFICULTY_NORMAL][TRAINER_DAWSON] =
     {
 #line 31233
         .trainerName = _("Dawson"),
@@ -71551,7 +71543,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 31294
-    [TRAINER_JOHNSON] =
+    [DIFFICULTY_NORMAL][TRAINER_JOHNSON] =
     {
 #line 31295
         .trainerName = _("Johnson"),
@@ -71660,7 +71652,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 31341
-    [TRAINER_DEVAN] =
+    [DIFFICULTY_NORMAL][TRAINER_DEVAN] =
     {
 #line 31342
         .trainerName = _("Devan"),
@@ -71811,7 +71803,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 31406
-    [TRAINER_GIORGIO] =
+    [DIFFICULTY_NORMAL][TRAINER_GIORGIO] =
     {
 #line 31407
         .trainerName = _("Giorgio"),
@@ -72002,7 +71994,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 31490
-    [TRAINER_DYLAN] =
+    [DIFFICULTY_NORMAL][TRAINER_DYLAN] =
     {
 #line 31491
         .trainerName = _("Dylan"),
@@ -72155,7 +72147,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 31556
-    [TRAINER_MARIA] =
+    [DIFFICULTY_NORMAL][TRAINER_MARIA] =
     {
 #line 31557
         .trainerName = _("Maria"),
@@ -72310,7 +72302,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 31622
-    [TRAINER_LYDIA] =
+    [DIFFICULTY_NORMAL][TRAINER_LYDIA] =
     {
 #line 31623
         .trainerName = _("Lydia"),
@@ -72619,7 +72611,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 31754
-    [TRAINER_ISAAC] =
+    [DIFFICULTY_NORMAL][TRAINER_ISAAC] =
     {
 #line 31755
         .trainerName = _("Isaac"),
@@ -72918,7 +72910,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 31882
-    [TRAINER_DEREK] =
+    [DIFFICULTY_NORMAL][TRAINER_DEREK] =
     {
 #line 31883
         .trainerName = _("Derek"),
@@ -73073,7 +73065,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 31949
-    [TRAINER_ANNA_AND_MEG] =
+    [DIFFICULTY_NORMAL][TRAINER_ANNA_AND_MEG] =
     {
 #line 31950
         .trainerName = _("Anna & Meg"),
@@ -73270,7 +73262,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32034
-    [TRAINER_BRANDI] =
+    [DIFFICULTY_NORMAL][TRAINER_BRANDI] =
     {
 #line 32035
         .trainerName = _("Brandi"),
@@ -73383,7 +73375,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32082
-    [TRAINER_AISHA] =
+    [DIFFICULTY_NORMAL][TRAINER_AISHA] =
     {
 #line 32083
         .trainerName = _("Aisha"),
@@ -73494,7 +73486,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32129
-    [TRAINER_MELINA] =
+    [DIFFICULTY_NORMAL][TRAINER_MELINA] =
     {
 #line 32130
         .trainerName = _("Melina"),
@@ -73605,7 +73597,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32178
-    [TRAINER_PERRY] =
+    [DIFFICULTY_NORMAL][TRAINER_PERRY] =
     {
 #line 32179
         .trainerName = _("Perry"),
@@ -73758,7 +73750,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32244
-    [TRAINER_ROSE] =
+    [DIFFICULTY_NORMAL][TRAINER_ROSE] =
     {
 #line 32245
         .trainerName = _("Rose"),
@@ -73913,7 +73905,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32310
-    [TRAINER_WADE] =
+    [DIFFICULTY_NORMAL][TRAINER_WADE] =
     {
 #line 32311
         .trainerName = _("Wade"),
@@ -74066,7 +74058,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32376
-    [TRAINER_CHESTER] =
+    [DIFFICULTY_NORMAL][TRAINER_CHESTER] =
     {
 #line 32377
         .trainerName = _("Chester"),
@@ -74219,7 +74211,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32442
-    [TRAINER_BARNY] =
+    [DIFFICULTY_NORMAL][TRAINER_BARNY] =
     {
 #line 32443
         .trainerName = _("Barny"),
@@ -74328,7 +74320,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32489
-    [TRAINER_DALTON] =
+    [DIFFICULTY_NORMAL][TRAINER_DALTON] =
     {
 #line 32490
         .trainerName = _("Dalton"),
@@ -74475,7 +74467,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32549
-    [TRAINER_DEANDRE] =
+    [DIFFICULTY_NORMAL][TRAINER_DEANDRE] =
     {
 #line 32550
         .trainerName = _("Deandre"),
@@ -74628,7 +74620,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32617
-    [TRAINER_GREG] =
+    [DIFFICULTY_NORMAL][TRAINER_GREG] =
     {
 #line 32618
         .trainerName = _("Greg"),
@@ -74775,7 +74767,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32677
-    [TRAINER_TAYLOR] =
+    [DIFFICULTY_NORMAL][TRAINER_TAYLOR] =
     {
 #line 32678
         .trainerName = _("Taylor"),
@@ -74928,7 +74920,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32743
-    [TRAINER_DONALD] =
+    [DIFFICULTY_NORMAL][TRAINER_DONALD] =
     {
 #line 32744
         .trainerName = _("Donald"),
@@ -75081,7 +75073,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32809
-    [TRAINER_BRENT] =
+    [DIFFICULTY_NORMAL][TRAINER_BRENT] =
     {
 #line 32810
         .trainerName = _("Brent"),
@@ -75234,7 +75226,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32875
-    [TRAINER_DOUG] =
+    [DIFFICULTY_NORMAL][TRAINER_DOUG] =
     {
 #line 32876
         .trainerName = _("Doug"),
@@ -75381,7 +75373,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 32935
-    [TRAINER_KENT] =
+    [DIFFICULTY_NORMAL][TRAINER_KENT] =
     {
 #line 32936
         .trainerName = _("Kent"),
@@ -75534,7 +75526,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33001
-    [TRAINER_JACKSON] =
+    [DIFFICULTY_NORMAL][TRAINER_JACKSON] =
     {
 #line 33002
         .trainerName = _("Jackson"),
@@ -75731,7 +75723,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33086
-    [TRAINER_CATHERINE] =
+    [DIFFICULTY_NORMAL][TRAINER_CATHERINE] =
     {
 #line 33087
         .trainerName = _("Catherine"),
@@ -75918,7 +75910,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33169
-    [TRAINER_YASU] =
+    [DIFFICULTY_NORMAL][TRAINER_YASU] =
     {
 #line 33170
         .trainerName = _("Yasu"),
@@ -76027,7 +76019,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33216
-    [TRAINER_TAKASHI] =
+    [DIFFICULTY_NORMAL][TRAINER_TAKASHI] =
     {
 #line 33217
         .trainerName = _("Takashi"),
@@ -76134,7 +76126,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33262
-    [TRAINER_HUGH] =
+    [DIFFICULTY_NORMAL][TRAINER_HUGH] =
     {
 #line 33263
         .trainerName = _("Hugh"),
@@ -76235,7 +76227,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33305
-    [TRAINER_PHIL] =
+    [DIFFICULTY_NORMAL][TRAINER_PHIL] =
     {
 #line 33306
         .trainerName = _("Phil"),
@@ -76344,7 +76336,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33352
-    [TRAINER_HIDEO] =
+    [DIFFICULTY_NORMAL][TRAINER_HIDEO] =
     {
 #line 33353
         .trainerName = _("Hideo"),
@@ -76539,7 +76531,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33435
-    [TRAINER_CHRIS] =
+    [DIFFICULTY_NORMAL][TRAINER_CHRIS] =
     {
 #line 33436
         .trainerName = _("Chris"),
@@ -76692,7 +76684,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33501
-    [TRAINER_RACHEL] =
+    [DIFFICULTY_NORMAL][TRAINER_RACHEL] =
     {
 #line 33502
         .trainerName = _("Rachel"),
@@ -76847,7 +76839,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33567
-    [TRAINER_DAYTON] =
+    [DIFFICULTY_NORMAL][TRAINER_DAYTON] =
     {
 #line 33568
         .trainerName = _("Dayton"),
@@ -77000,7 +76992,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33633
-    [TRAINER_FABIAN] =
+    [DIFFICULTY_NORMAL][TRAINER_FABIAN] =
     {
 #line 33634
         .trainerName = _("Fabian"),
@@ -77241,7 +77233,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33739
-    [TRAINER_COLIN] =
+    [DIFFICULTY_NORMAL][TRAINER_COLIN] =
     {
 #line 33740
         .trainerName = _("Colin"),
@@ -77350,7 +77342,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33786
-    [TRAINER_ROBERT] =
+    [DIFFICULTY_NORMAL][TRAINER_ROBERT] =
     {
 #line 33787
         .trainerName = _("Robert"),
@@ -77459,7 +77451,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33833
-    [TRAINER_LORENZO] =
+    [DIFFICULTY_NORMAL][TRAINER_LORENZO] =
     {
 #line 33834
         .trainerName = _("Lorenzo"),
@@ -77606,7 +77598,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33896
-    [TRAINER_JENNA] =
+    [DIFFICULTY_NORMAL][TRAINER_JENNA] =
     {
 #line 33897
         .trainerName = _("Jenna"),
@@ -77713,7 +77705,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 33941
-    [TRAINER_JEFFREY] =
+    [DIFFICULTY_NORMAL][TRAINER_JEFFREY] =
     {
 #line 33942
         .trainerName = _("Jeffrey"),
@@ -77906,7 +77898,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34024
-    [TRAINER_JENNIFER] =
+    [DIFFICULTY_NORMAL][TRAINER_JENNIFER] =
     {
 #line 34025
         .trainerName = _("Jennifer"),
@@ -78169,7 +78161,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34138
-    [TRAINER_CHIP] =
+    [DIFFICULTY_NORMAL][TRAINER_CHIP] =
     {
 #line 34139
         .trainerName = _("Chip"),
@@ -78320,7 +78312,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34203
-    [TRAINER_CLARISSA] =
+    [DIFFICULTY_NORMAL][TRAINER_CLARISSA] =
     {
 #line 34204
         .trainerName = _("Clarissa"),
@@ -78472,7 +78464,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34267
-    [TRAINER_ANGELICA] =
+    [DIFFICULTY_NORMAL][TRAINER_ANGELICA] =
     {
 #line 34268
         .trainerName = _("Angelica"),
@@ -78578,7 +78570,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34311
-    [TRAINER_KEIGO] =
+    [DIFFICULTY_NORMAL][TRAINER_KEIGO] =
     {
 #line 34312
         .trainerName = _("Keigo"),
@@ -78681,7 +78673,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34355
-    [TRAINER_RILEY] =
+    [DIFFICULTY_NORMAL][TRAINER_RILEY] =
     {
 #line 34356
         .trainerName = _("Riley"),
@@ -78834,7 +78826,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34421
-    [TRAINER_CALLIE] =
+    [DIFFICULTY_NORMAL][TRAINER_CALLIE] =
     {
 #line 34422
         .trainerName = _("Callie"),
@@ -78943,7 +78935,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34467
-    [TRAINER_LEONEL] =
+    [DIFFICULTY_NORMAL][TRAINER_LEONEL] =
     {
 #line 34468
         .trainerName = _("Leonel"),
@@ -79060,7 +79052,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34520
-    [TRAINER_KATE_AND_JOY] =
+    [DIFFICULTY_NORMAL][TRAINER_KATE_AND_JOY] =
     {
 #line 34521
         .trainerName = _("Kate & Joy"),
@@ -79181,7 +79173,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34573
-    [TRAINER_VANESSA] =
+    [DIFFICULTY_NORMAL][TRAINER_VANESSA] =
     {
 #line 34574
         .trainerName = _("Vanessa"),
@@ -79356,7 +79348,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34646
-    [TRAINER_WALTER] =
+    [DIFFICULTY_NORMAL][TRAINER_WALTER] =
     {
 #line 34647
         .trainerName = _("Walter"),
@@ -79509,7 +79501,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34712
-    [TRAINER_TAMMY] =
+    [DIFFICULTY_NORMAL][TRAINER_TAMMY] =
     {
 #line 34713
         .trainerName = _("Tammy"),
@@ -79664,7 +79656,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34778
-    [TRAINER_JESSICA] =
+    [DIFFICULTY_NORMAL][TRAINER_JESSICA] =
     {
 #line 34779
         .trainerName = _("Jessica"),
@@ -79819,7 +79811,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34844
-    [TRAINER_CALE] =
+    [DIFFICULTY_NORMAL][TRAINER_CALE] =
     {
 #line 34845
         .trainerName = _("Cale"),
@@ -79923,7 +79915,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 34886
-    [TRAINER_MYLES] =
+    [DIFFICULTY_NORMAL][TRAINER_MYLES] =
     {
 #line 34887
         .trainerName = _("Myles"),
@@ -80227,7 +80219,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35016
-    [TRAINER_PAT] =
+    [DIFFICULTY_NORMAL][TRAINER_PAT] =
     {
 #line 35017
         .trainerName = _("Pat"),
@@ -80534,7 +80526,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35149
-    [TRAINER_MARCEL] =
+    [DIFFICULTY_NORMAL][TRAINER_MARCEL] =
     {
 #line 35150
         .trainerName = _("Marcel"),
@@ -80643,7 +80635,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35196
-    [TRAINER_CRISTIN] =
+    [DIFFICULTY_NORMAL][TRAINER_CRISTIN] =
     {
 #line 35197
         .trainerName = _("Cristin"),
@@ -80754,7 +80746,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35245
-    [TRAINER_MITCHELL] =
+    [DIFFICULTY_NORMAL][TRAINER_MITCHELL] =
     {
 #line 35246
         .trainerName = _("Mitchell"),
@@ -80907,7 +80899,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35311
-    [TRAINER_JULIE] =
+    [DIFFICULTY_NORMAL][TRAINER_JULIE] =
     {
 #line 35312
         .trainerName = _("Julie"),
@@ -81062,7 +81054,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35377
-    [TRAINER_HIROMICHI] =
+    [DIFFICULTY_NORMAL][TRAINER_HIROMICHI] =
     {
 #line 35378
         .trainerName = _("Hiromichi"),
@@ -81127,7 +81119,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35405
-    [TRAINER_TSUNAO] =
+    [DIFFICULTY_NORMAL][TRAINER_TSUNAO] =
     {
 #line 35406
         .trainerName = _("Tsunao"),
@@ -81280,7 +81272,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35471
-    [TRAINER_MICAH] =
+    [DIFFICULTY_NORMAL][TRAINER_MICAH] =
     {
 #line 35472
         .trainerName = _("Micah"),
@@ -81433,7 +81425,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35537
-    [TRAINER_EDGAR] =
+    [DIFFICULTY_NORMAL][TRAINER_EDGAR] =
     {
 #line 35538
         .trainerName = _("Edgar"),
@@ -81586,7 +81578,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35605
-    [TRAINER_WENDY] =
+    [DIFFICULTY_NORMAL][TRAINER_WENDY] =
     {
 #line 35606
         .trainerName = _("Wendy"),
@@ -81753,7 +81745,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35677
-    [TRAINER_BRAXTON] =
+    [DIFFICULTY_NORMAL][TRAINER_BRAXTON] =
     {
 #line 35678
         .trainerName = _("Braxton"),
@@ -81918,7 +81910,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35749
-    [TRAINER_VIOLET] =
+    [DIFFICULTY_NORMAL][TRAINER_VIOLET] =
     {
 #line 35750
         .trainerName = _("Violet"),
@@ -82029,7 +82021,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35796
-    [TRAINER_MIU_AND_YUKI] =
+    [DIFFICULTY_NORMAL][TRAINER_MIU_AND_YUKI] =
     {
 #line 35797
         .trainerName = _("Miu & Yuki"),
@@ -82138,7 +82130,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35843
-    [TRAINER_CAMERON] =
+    [DIFFICULTY_NORMAL][TRAINER_CAMERON] =
     {
 #line 35844
         .trainerName = _("Cameron"),
@@ -82247,7 +82239,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35890
-    [TRAINER_JACKI] =
+    [DIFFICULTY_NORMAL][TRAINER_JACKI] =
     {
 #line 35891
         .trainerName = _("Jacki"),
@@ -82358,7 +82350,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35937
-    [TRAINER_KINDRA] =
+    [DIFFICULTY_NORMAL][TRAINER_KINDRA] =
     {
 #line 35938
         .trainerName = _("Kindra"),
@@ -82469,7 +82461,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 35984
-    [TRAINER_JONAS] =
+    [DIFFICULTY_NORMAL][TRAINER_JONAS] =
     {
 #line 35985
         .trainerName = _("Jonas"),
@@ -82624,7 +82616,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36051
-    [TRAINER_KAYLEY] =
+    [DIFFICULTY_NORMAL][TRAINER_KAYLEY] =
     {
 #line 36052
         .trainerName = _("Kayley"),
@@ -82731,7 +82723,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36096
-    [TRAINER_ED] =
+    [DIFFICULTY_NORMAL][TRAINER_ED] =
     {
 #line 36097
         .trainerName = _("Ed"),
@@ -82840,7 +82832,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36143
-    [TRAINER_FERNANDO] =
+    [DIFFICULTY_NORMAL][TRAINER_FERNANDO] =
     {
 #line 36144
         .trainerName = _("Fernando"),
@@ -82905,7 +82897,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36171
-    [TRAINER_ALBERTO] =
+    [DIFFICULTY_NORMAL][TRAINER_ALBERTO] =
     {
 #line 36172
         .trainerName = _("Alberto"),
@@ -83014,7 +83006,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36218
-    [TRAINER_FREDERICK] =
+    [DIFFICULTY_NORMAL][TRAINER_FREDERICK] =
     {
 #line 36219
         .trainerName = _("Frederick"),
@@ -83083,7 +83075,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36248
-    [TRAINER_JAZMYN] =
+    [DIFFICULTY_NORMAL][TRAINER_JAZMYN] =
     {
 #line 36249
         .trainerName = _("Jazmyn"),
@@ -83202,7 +83194,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36299
-    [TRAINER_DAVIS] =
+    [DIFFICULTY_NORMAL][TRAINER_DAVIS] =
     {
 #line 36300
         .trainerName = _("Davis"),
@@ -83267,7 +83259,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36329
-    [TRAINER_SPENCER] =
+    [DIFFICULTY_NORMAL][TRAINER_SPENCER] =
     {
 #line 36330
         .trainerName = _("Spencer"),
@@ -83376,7 +83368,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36376
-    [TRAINER_ROLAND] =
+    [DIFFICULTY_NORMAL][TRAINER_ROLAND] =
     {
 #line 36377
         .trainerName = _("Roland"),
@@ -83420,7 +83412,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36395
-    [TRAINER_JENNY] =
+    [DIFFICULTY_NORMAL][TRAINER_JENNY] =
     {
 #line 36396
         .trainerName = _("Jenny"),
@@ -83531,7 +83523,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36442
-    [TRAINER_RISCHEL] =
+    [DIFFICULTY_NORMAL][TRAINER_RISCHEL] =
     {
 #line 36443
         .trainerName = _("Rischel"),
@@ -83577,7 +83569,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36461
-    [TRAINER_CHAD] =
+    [DIFFICULTY_NORMAL][TRAINER_CHAD] =
     {
 #line 36462
         .trainerName = _("Chad"),
@@ -83686,7 +83678,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36508
-    [TRAINER_LILA_AND_ROY] =
+    [DIFFICULTY_NORMAL][TRAINER_LILA_AND_ROY] =
     {
 #line 36509
         .trainerName = _("Lila & Roy"),
@@ -83791,7 +83783,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36553
-    [TRAINER_DECLAN] =
+    [DIFFICULTY_NORMAL][TRAINER_DECLAN] =
     {
 #line 36554
         .trainerName = _("Declan"),
@@ -83835,7 +83827,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36572
-    [TRAINER_ISABELLA] =
+    [DIFFICULTY_NORMAL][TRAINER_ISABELLA] =
     {
 #line 36573
         .trainerName = _("Isabella"),
@@ -83881,7 +83873,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36591
-    [TRAINER_GARRET] =
+    [DIFFICULTY_NORMAL][TRAINER_GARRET] =
     {
 #line 36592
         .trainerName = _("Garret"),
@@ -83986,7 +83978,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36634
-    [TRAINER_JOSIE] =
+    [DIFFICULTY_NORMAL][TRAINER_JOSIE] =
     {
 #line 36635
         .trainerName = _("Josie"),
@@ -84201,7 +84193,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36729
-    [TRAINER_NOLEN] =
+    [DIFFICULTY_NORMAL][TRAINER_NOLEN] =
     {
 #line 36730
         .trainerName = _("Nolen"),
@@ -84310,7 +84302,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36776
-    [TRAINER_STAN] =
+    [DIFFICULTY_NORMAL][TRAINER_STAN] =
     {
 #line 36777
         .trainerName = _("Stan"),
@@ -84507,7 +84499,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36861
-    [TRAINER_TANYA] =
+    [DIFFICULTY_NORMAL][TRAINER_TANYA] =
     {
 #line 36862
         .trainerName = _("Tanya"),
@@ -84614,7 +84606,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36904
-    [TRAINER_SHARON] =
+    [DIFFICULTY_NORMAL][TRAINER_SHARON] =
     {
 #line 36905
         .trainerName = _("Sharon"),
@@ -84725,7 +84717,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36951
-    [TRAINER_ERNEST] =
+    [DIFFICULTY_NORMAL][TRAINER_ERNEST] =
     {
 #line 36952
         .trainerName = _("Ernest"),
@@ -84834,7 +84826,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 36998
-    [TRAINER_KIM_AND_IRIS] =
+    [DIFFICULTY_NORMAL][TRAINER_KIM_AND_IRIS] =
     {
 #line 36999
         .trainerName = _("Kim & Iris"),
@@ -84982,7 +84974,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37059
-    [TRAINER_PRESLEY] =
+    [DIFFICULTY_NORMAL][TRAINER_PRESLEY] =
     {
 #line 37060
         .trainerName = _("Presley"),
@@ -85091,7 +85083,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37106
-    [TRAINER_AURON] =
+    [DIFFICULTY_NORMAL][TRAINER_AURON] =
     {
 #line 37107
         .trainerName = _("Auron"),
@@ -85208,7 +85200,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37157
-    [TRAINER_TERRY] =
+    [DIFFICULTY_NORMAL][TRAINER_TERRY] =
     {
 #line 37158
         .trainerName = _("Terry"),
@@ -85273,7 +85265,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37185
-    [TRAINER_HOLLY] =
+    [DIFFICULTY_NORMAL][TRAINER_HOLLY] =
     {
 #line 37186
         .trainerName = _("Holly"),
@@ -85340,7 +85332,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37213
-    [TRAINER_COLTON] =
+    [DIFFICULTY_NORMAL][TRAINER_COLTON] =
     {
 #line 37214
         .trainerName = _("Colton"),
@@ -85384,7 +85376,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37234
-    [TRAINER_BARRY] =
+    [DIFFICULTY_NORMAL][TRAINER_BARRY] =
     {
 #line 37235
         .trainerName = _("Barry"),
@@ -85581,7 +85573,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37319
-    [TRAINER_DEAN] =
+    [DIFFICULTY_NORMAL][TRAINER_DEAN] =
     {
 #line 37320
         .trainerName = _("Dean"),
@@ -85690,7 +85682,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37366
-    [TRAINER_NIKKI] =
+    [DIFFICULTY_NORMAL][TRAINER_NIKKI] =
     {
 #line 37367
         .trainerName = _("Nikki"),
@@ -85801,7 +85793,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37413
-    [TRAINER_BRENDA] =
+    [DIFFICULTY_NORMAL][TRAINER_BRENDA] =
     {
 #line 37414
         .trainerName = _("Brenda"),
@@ -85847,7 +85839,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37432
-    [TRAINER_SIENNA] =
+    [DIFFICULTY_NORMAL][TRAINER_SIENNA] =
     {
 #line 37433
         .trainerName = _("Sienna"),
@@ -85958,7 +85950,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37479
-    [TRAINER_PABLO] =
+    [DIFFICULTY_NORMAL][TRAINER_PABLO] =
     {
 #line 37480
         .trainerName = _("Pablo"),
@@ -86067,7 +86059,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37526
-    [TRAINER_ISOBEL] =
+    [DIFFICULTY_NORMAL][TRAINER_ISOBEL] =
     {
 #line 37527
         .trainerName = _("Isobel"),
@@ -86222,7 +86214,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37592
-    [TRAINER_LEONARDO] =
+    [DIFFICULTY_NORMAL][TRAINER_LEONARDO] =
     {
 #line 37593
         .trainerName = _("Leonardo"),
@@ -86375,7 +86367,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37660
-    [TRAINER_CAMDEN] =
+    [DIFFICULTY_NORMAL][TRAINER_CAMDEN] =
     {
 #line 37661
         .trainerName = _("Camden"),
@@ -86528,7 +86520,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37726
-    [TRAINER_DONNY] =
+    [DIFFICULTY_NORMAL][TRAINER_DONNY] =
     {
 #line 37727
         .trainerName = _("Donny"),
@@ -86683,7 +86675,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37792
-    [TRAINER_JONAH] =
+    [DIFFICULTY_NORMAL][TRAINER_JONAH] =
     {
 #line 37793
         .trainerName = _("Jonah"),
@@ -86836,7 +86828,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37858
-    [TRAINER_ROGER] =
+    [DIFFICULTY_NORMAL][TRAINER_ROGER] =
     {
 #line 37859
         .trainerName = _("Roger"),
@@ -86984,7 +86976,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37916
-    [TRAINER_HENRY] =
+    [DIFFICULTY_NORMAL][TRAINER_HENRY] =
     {
 #line 37917
         .trainerName = _("Henry"),
@@ -87093,7 +87085,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 37963
-    [TRAINER_AIDAN] =
+    [DIFFICULTY_NORMAL][TRAINER_AIDAN] =
     {
 #line 37964
         .trainerName = _("Aidan"),
@@ -87246,7 +87238,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38029
-    [TRAINER_KOJI] =
+    [DIFFICULTY_NORMAL][TRAINER_KOJI] =
     {
 #line 38030
         .trainerName = _("Koji"),
@@ -87355,7 +87347,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38076
-    [TRAINER_ATHENA] =
+    [DIFFICULTY_NORMAL][TRAINER_ATHENA] =
     {
 #line 38077
         .trainerName = _("Athena"),
@@ -87522,7 +87514,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38150
-    [TRAINER_ISAIAH] =
+    [DIFFICULTY_NORMAL][TRAINER_ISAIAH] =
     {
 #line 38151
         .trainerName = _("Isaiah"),
@@ -87675,7 +87667,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38216
-    [TRAINER_KATELYN] =
+    [DIFFICULTY_NORMAL][TRAINER_KATELYN] =
     {
 #line 38217
         .trainerName = _("Katelyn"),
@@ -87830,7 +87822,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38282
-    [TRAINER_WAYNE] =
+    [DIFFICULTY_NORMAL][TRAINER_WAYNE] =
     {
 #line 38283
         .trainerName = _("Wayne"),
@@ -87874,7 +87866,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38301
-    [TRAINER_RUBEN] =
+    [DIFFICULTY_NORMAL][TRAINER_RUBEN] =
     {
 #line 38302
         .trainerName = _("Ruben"),
@@ -87991,7 +87983,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38352
-    [TRAINER_ALEXA] =
+    [DIFFICULTY_NORMAL][TRAINER_ALEXA] =
     {
 #line 38353
         .trainerName = _("Alexa"),
@@ -88110,7 +88102,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38403
-    [TRAINER_CARLEE] =
+    [DIFFICULTY_NORMAL][TRAINER_CARLEE] =
     {
 #line 38404
         .trainerName = _("Carlee"),
@@ -88156,7 +88148,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38422
-    [TRAINER_HARRISON] =
+    [DIFFICULTY_NORMAL][TRAINER_HARRISON] =
     {
 #line 38423
         .trainerName = _("Harrison"),
@@ -88200,7 +88192,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38441
-    [TRAINER_LEONARD] =
+    [DIFFICULTY_NORMAL][TRAINER_LEONARD] =
     {
 #line 38442
         .trainerName = _("Leonard"),
@@ -88348,7 +88340,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38506
-    [TRAINER_CHASE] =
+    [DIFFICULTY_NORMAL][TRAINER_CHASE] =
     {
 #line 38507
         .trainerName = _("Chase"),
@@ -88449,7 +88441,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38553
-    [TRAINER_ALLISON] =
+    [DIFFICULTY_NORMAL][TRAINER_ALLISON] =
     {
 #line 38554
         .trainerName = _("Allison"),
@@ -88600,7 +88592,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38616
-    [TRAINER_TISHA] =
+    [DIFFICULTY_NORMAL][TRAINER_TISHA] =
     {
 #line 38617
         .trainerName = _("Tisha"),
@@ -88711,7 +88703,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38663
-    [TRAINER_REED] =
+    [DIFFICULTY_NORMAL][TRAINER_REED] =
     {
 #line 38664
         .trainerName = _("Reed"),
@@ -88819,7 +88811,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38709
-    [TRAINER_CLARENCE] =
+    [DIFFICULTY_NORMAL][TRAINER_CLARENCE] =
     {
 #line 38710
         .trainerName = _("Clarence"),
@@ -88928,7 +88920,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38756
-    [TRAINER_EMMA_AND_LIL] =
+    [DIFFICULTY_NORMAL][TRAINER_EMMA_AND_LIL] =
     {
 #line 38757
         .trainerName = _("Emma & Lil"),
@@ -89037,7 +89029,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38803
-    [TRAINER_SHANNON] =
+    [DIFFICULTY_NORMAL][TRAINER_SHANNON] =
     {
 #line 38804
         .trainerName = _("Shannon"),
@@ -89106,7 +89098,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38834
-    [TRAINER_RODNEY] =
+    [DIFFICULTY_NORMAL][TRAINER_RODNEY] =
     {
 #line 38835
         .trainerName = _("Rodney"),
@@ -89171,7 +89163,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38862
-    [TRAINER_KATIE] =
+    [DIFFICULTY_NORMAL][TRAINER_KATIE] =
     {
 #line 38863
         .trainerName = _("Katie"),
@@ -89238,7 +89230,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38890
-    [TRAINER_SANTIAGO] =
+    [DIFFICULTY_NORMAL][TRAINER_SANTIAGO] =
     {
 #line 38891
         .trainerName = _("Santiago"),
@@ -89347,7 +89339,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38939
-    [TRAINER_RICHARD] =
+    [DIFFICULTY_NORMAL][TRAINER_RICHARD] =
     {
 #line 38940
         .trainerName = _("Richard"),
@@ -89412,7 +89404,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 38967
-    [TRAINER_HERMAN] =
+    [DIFFICULTY_NORMAL][TRAINER_HERMAN] =
     {
 #line 38968
         .trainerName = _("Herman"),
@@ -89519,7 +89511,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39012
-    [TRAINER_SUSIE] =
+    [DIFFICULTY_NORMAL][TRAINER_SUSIE] =
     {
 #line 39013
         .trainerName = _("Susie"),
@@ -89630,7 +89622,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39059
-    [TRAINER_KARA] =
+    [DIFFICULTY_NORMAL][TRAINER_KARA] =
     {
 #line 39060
         .trainerName = _("Kara"),
@@ -89785,7 +89777,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39125
-    [TRAINER_RELI_AND_IAN] =
+    [DIFFICULTY_NORMAL][TRAINER_RELI_AND_IAN] =
     {
 #line 39126
         .trainerName = _("Reli & Ian"),
@@ -89888,7 +89880,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39166
-    [TRAINER_KEVIN] =
+    [DIFFICULTY_NORMAL][TRAINER_KEVIN] =
     {
 #line 39167
         .trainerName = _("Kevin"),
@@ -89953,7 +89945,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39194
-    [TRAINER_TALIA] =
+    [DIFFICULTY_NORMAL][TRAINER_TALIA] =
     {
 #line 39195
         .trainerName = _("Talia"),
@@ -89999,7 +89991,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39215
-    [TRAINER_PAXTON] =
+    [DIFFICULTY_NORMAL][TRAINER_PAXTON] =
     {
 #line 39216
         .trainerName = _("Paxton"),
@@ -90116,7 +90108,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39266
-    [TRAINER_MAKAYLA] =
+    [DIFFICULTY_NORMAL][TRAINER_MAKAYLA] =
     {
 #line 39267
         .trainerName = _("Makayla"),
@@ -90235,7 +90227,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39317
-    [TRAINER_DARCY] =
+    [DIFFICULTY_NORMAL][TRAINER_DARCY] =
     {
 #line 39318
         .trainerName = _("Darcy"),
@@ -90526,7 +90518,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39432
-    [TRAINER_GILBERT] =
+    [DIFFICULTY_NORMAL][TRAINER_GILBERT] =
     {
 #line 39433
         .trainerName = _("Gilbert"),
@@ -90635,7 +90627,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39479
-    [TRAINER_DANA] =
+    [DIFFICULTY_NORMAL][TRAINER_DANA] =
     {
 #line 39480
         .trainerName = _("Dana"),
@@ -90745,7 +90737,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39525
-    [TRAINER_KIYO] =
+    [DIFFICULTY_NORMAL][TRAINER_KIYO] =
     {
 #line 39526
         .trainerName = _("Kiyo"),
@@ -90854,7 +90846,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39572
-    [TRAINER_RONALD] =
+    [DIFFICULTY_NORMAL][TRAINER_RONALD] =
     {
 #line 39573
         .trainerName = _("Ronald"),
@@ -91007,7 +90999,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39638
-    [TRAINER_JONATHAN] =
+    [DIFFICULTY_NORMAL][TRAINER_JONATHAN] =
     {
 #line 39639
         .trainerName = _("Jonathan"),
@@ -91124,7 +91116,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39691
-    [TRAINER_FRANKLIN] =
+    [DIFFICULTY_NORMAL][TRAINER_FRANKLIN] =
     {
 #line 39692
         .trainerName = _("Franklin"),
@@ -91276,7 +91268,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39756
-    [TRAINER_LINDA] =
+    [DIFFICULTY_NORMAL][TRAINER_LINDA] =
     {
 #line 39757
         .trainerName = _("Linda"),
@@ -91320,7 +91312,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39774
-    [TRAINER_DEBRA] =
+    [DIFFICULTY_NORMAL][TRAINER_DEBRA] =
     {
 #line 39775
         .trainerName = _("Debra"),
@@ -91389,7 +91381,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39803
-    [TRAINER_BECK] =
+    [DIFFICULTY_NORMAL][TRAINER_BECK] =
     {
 #line 39804
         .trainerName = _("Beck"),
@@ -91495,7 +91487,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39848
-    [TRAINER_WARREN] =
+    [DIFFICULTY_NORMAL][TRAINER_WARREN] =
     {
 #line 39849
         .trainerName = _("Warren"),
@@ -91657,7 +91649,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39918
-    [TRAINER_MOLLIE] =
+    [DIFFICULTY_NORMAL][TRAINER_MOLLIE] =
     {
 #line 39919
         .trainerName = _("Mollie"),
@@ -91776,7 +91768,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 39969
-    [TRAINER_CONOR] =
+    [DIFFICULTY_NORMAL][TRAINER_CONOR] =
     {
 #line 39970
         .trainerName = _("Conor"),
@@ -91893,7 +91885,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40020
-    [TRAINER_DIANNE] =
+    [DIFFICULTY_NORMAL][TRAINER_DIANNE] =
     {
 #line 40021
         .trainerName = _("Dianne"),
@@ -92000,7 +91992,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40067
-    [TRAINER_CAROLINE] =
+    [DIFFICULTY_NORMAL][TRAINER_CAROLINE] =
     {
 #line 40068
         .trainerName = _("Caroline"),
@@ -92153,7 +92145,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40133
-    [TRAINER_JACK] =
+    [DIFFICULTY_NORMAL][TRAINER_JACK] =
     {
 #line 40134
         .trainerName = _("Jack"),
@@ -92262,7 +92254,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40180
-    [TRAINER_LAUREL] =
+    [DIFFICULTY_NORMAL][TRAINER_LAUREL] =
     {
 #line 40181
         .trainerName = _("Laurel"),
@@ -92417,7 +92409,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40246
-    [TRAINER_AARON] =
+    [DIFFICULTY_NORMAL][TRAINER_AARON] =
     {
 #line 40247
         .trainerName = _("Aaron"),
@@ -92526,7 +92518,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40293
-    [TRAINER_ALEX] =
+    [DIFFICULTY_NORMAL][TRAINER_ALEX] =
     {
 #line 40294
         .trainerName = _("Alex"),
@@ -92635,7 +92627,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40340
-    [TRAINER_HITOSHI] =
+    [DIFFICULTY_NORMAL][TRAINER_HITOSHI] =
     {
 #line 40341
         .trainerName = _("Hitoshi"),
@@ -92700,7 +92692,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40368
-    [TRAINER_MARLEY] =
+    [DIFFICULTY_NORMAL][TRAINER_MARLEY] =
     {
 #line 40369
         .trainerName = _("Marley"),
@@ -92867,7 +92859,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40440
-    [TRAINER_KELVIN] =
+    [DIFFICULTY_NORMAL][TRAINER_KELVIN] =
     {
 #line 40441
         .trainerName = _("Kelvin"),
@@ -93016,7 +93008,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40502
-    [TRAINER_REYNA] =
+    [DIFFICULTY_NORMAL][TRAINER_REYNA] =
     {
 #line 40503
         .trainerName = _("Reyna"),
@@ -93062,7 +93054,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40521
-    [TRAINER_HUDSON] =
+    [DIFFICULTY_NORMAL][TRAINER_HUDSON] =
     {
 #line 40522
         .trainerName = _("Hudson"),
@@ -93171,7 +93163,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40570
-    [TRAINER_THOMAS] =
+    [DIFFICULTY_NORMAL][TRAINER_THOMAS] =
     {
 #line 40571
         .trainerName = _("Thomas"),
@@ -93308,7 +93300,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40628
-    [TRAINER_KAYLEE] =
+    [DIFFICULTY_NORMAL][TRAINER_KAYLEE] =
     {
 #line 40629
         .trainerName = _("Kaylee"),
@@ -93477,7 +93469,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40703
-    [TRAINER_SHELBY] =
+    [DIFFICULTY_NORMAL][TRAINER_SHELBY] =
     {
 #line 40704
         .trainerName = _("Shelby"),
@@ -93596,7 +93588,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40754
-    [TRAINER_SHEILA] =
+    [DIFFICULTY_NORMAL][TRAINER_SHEILA] =
     {
 #line 40755
         .trainerName = _("Sheila"),
@@ -93707,7 +93699,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40801
-    [TRAINER_SHIRLEY] =
+    [DIFFICULTY_NORMAL][TRAINER_SHIRLEY] =
     {
 #line 40802
         .trainerName = _("Shirley"),
@@ -93818,7 +93810,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40848
-    [TRAINER_MELISSA] =
+    [DIFFICULTY_NORMAL][TRAINER_MELISSA] =
     {
 #line 40849
         .trainerName = _("Melissa"),
@@ -93916,7 +93908,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40888
-    [TRAINER_SAWYER] =
+    [DIFFICULTY_NORMAL][TRAINER_SAWYER] =
     {
 #line 40889
         .trainerName = _("Sawyer"),
@@ -94013,7 +94005,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40929
-    [TRAINER_BRICE] =
+    [DIFFICULTY_NORMAL][TRAINER_BRICE] =
     {
 #line 40930
         .trainerName = _("Brice"),
@@ -94164,7 +94156,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 40994
-    [TRAINER_BRYANT] =
+    [DIFFICULTY_NORMAL][TRAINER_BRYANT] =
     {
 #line 40995
         .trainerName = _("Bryant"),
@@ -94269,7 +94261,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41039
-    [TRAINER_SHAYLA] =
+    [DIFFICULTY_NORMAL][TRAINER_SHAYLA] =
     {
 #line 41040
         .trainerName = _("Shayla"),
@@ -94378,7 +94370,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41087
-    [TRAINER_LYLE] =
+    [DIFFICULTY_NORMAL][TRAINER_LYLE] =
     {
 #line 41088
         .trainerName = _("Lyle"),
@@ -94489,7 +94481,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41131
-    [TRAINER_JAMES] =
+    [DIFFICULTY_NORMAL][TRAINER_JAMES] =
     {
 #line 41132
         .trainerName = _("James"),
@@ -94616,7 +94608,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41185
-    [TRAINER_MIKE] =
+    [DIFFICULTY_NORMAL][TRAINER_MIKE] =
     {
 #line 41186
         .trainerName = _("Mike"),
@@ -94760,7 +94752,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41248
-    [TRAINER_CHARLIE] =
+    [DIFFICULTY_NORMAL][TRAINER_CHARLIE] =
     {
 #line 41249
         .trainerName = _("Charlie"),
@@ -94847,7 +94839,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41287
-    [TRAINER_THALIA] =
+    [DIFFICULTY_NORMAL][TRAINER_THALIA] =
     {
 #line 41288
         .trainerName = _("Thalia"),
@@ -94992,7 +94984,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41348
-    [TRAINER_DEMETRIUS] =
+    [DIFFICULTY_NORMAL][TRAINER_DEMETRIUS] =
     {
 #line 41349
         .trainerName = _("Demetrius"),
@@ -95133,7 +95125,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41408
-    [TRAINER_DUNCAN] =
+    [DIFFICULTY_NORMAL][TRAINER_DUNCAN] =
     {
 #line 41409
         .trainerName = _("Duncan"),
@@ -95282,7 +95274,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41472
-    [TRAINER_KIRA_AND_DAN] =
+    [DIFFICULTY_NORMAL][TRAINER_KIRA_AND_DAN] =
     {
 #line 41473
         .trainerName = _("Kira & Dan"),
@@ -95345,7 +95337,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41499
-    [TRAINER_GARRISON] =
+    [DIFFICULTY_NORMAL][TRAINER_GARRISON] =
     {
 #line 41500
         .trainerName = _("Garrison"),
@@ -95448,7 +95440,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41543
-    [TRAINER_JANI] =
+    [DIFFICULTY_NORMAL][TRAINER_JANI] =
     {
 #line 41544
         .trainerName = _("Jani"),
@@ -95559,7 +95551,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41592
-    [TRAINER_BILL] =
+    [DIFFICULTY_NORMAL][TRAINER_BILL] =
     {
 #line 41593
         .trainerName = _("Bill"),
@@ -95712,7 +95704,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41658
-    [TRAINER_NICOLAS] =
+    [DIFFICULTY_NORMAL][TRAINER_NICOLAS] =
     {
 #line 41659
         .trainerName = _("Nicolas"),
@@ -95865,7 +95857,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41724
-    [TRAINER_JOHN_AND_JAY] =
+    [DIFFICULTY_NORMAL][TRAINER_JOHN_AND_JAY] =
     {
 #line 41725
         .trainerName = _("John & Jay"),
@@ -96068,7 +96060,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41812
-    [TRAINER_GINNY] =
+    [DIFFICULTY_NORMAL][TRAINER_GINNY] =
     {
 #line 41813
         .trainerName = _("Ginny"),
@@ -96179,7 +96171,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41859
-    [TRAINER_CHARLES] =
+    [DIFFICULTY_NORMAL][TRAINER_CHARLES] =
     {
 #line 41860
         .trainerName = _("Charles"),
@@ -96326,7 +96318,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41921
-    [TRAINER_TESS] =
+    [DIFFICULTY_NORMAL][TRAINER_TESS] =
     {
 #line 41922
         .trainerName = _("Tess"),
@@ -96437,7 +96429,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 41970
-    [TRAINER_MARK] =
+    [DIFFICULTY_NORMAL][TRAINER_MARK] =
     {
 #line 41971
         .trainerName = _("Mark"),
@@ -96634,7 +96626,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42055
-    [TRAINER_DEZ_AND_LUKE] =
+    [DIFFICULTY_NORMAL][TRAINER_DEZ_AND_LUKE] =
     {
 #line 42056
         .trainerName = _("Dez & Luke"),
@@ -96725,7 +96717,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42087
-    [TRAINER_ZANDER] =
+    [DIFFICULTY_NORMAL][TRAINER_ZANDER] =
     {
 #line 42088
         .trainerName = _("Zander"),
@@ -96828,7 +96820,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42130
-    [TRAINER_LEAH] =
+    [DIFFICULTY_NORMAL][TRAINER_LEAH] =
     {
 #line 42131
         .trainerName = _("Leah"),
@@ -96939,7 +96931,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42177
-    [TRAINER_WILLIAM] =
+    [DIFFICULTY_NORMAL][TRAINER_WILLIAM] =
     {
 #line 42178
         .trainerName = _("William"),
@@ -97092,7 +97084,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42243
-    [TRAINER_KAYLA] =
+    [DIFFICULTY_NORMAL][TRAINER_KAYLA] =
     {
 #line 42244
         .trainerName = _("Kayla"),
@@ -97247,7 +97239,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42309
-    [TRAINER_GABRIELLE] =
+    [DIFFICULTY_NORMAL][TRAINER_GABRIELLE] =
     {
 #line 42310
         .trainerName = _("Gabrielle"),
@@ -97557,7 +97549,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42443
-    [TRAINER_TASHA] =
+    [DIFFICULTY_NORMAL][TRAINER_TASHA] =
     {
 #line 42444
         .trainerName = _("Tasha"),
@@ -97702,7 +97694,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42504
-    [TRAINER_ATSUSHI] =
+    [DIFFICULTY_NORMAL][TRAINER_ATSUSHI] =
     {
 #line 42505
         .trainerName = _("Atsushi"),
@@ -97811,7 +97803,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42551
-    [TRAINER_VALERIE] =
+    [DIFFICULTY_NORMAL][TRAINER_VALERIE] =
     {
 #line 42552
         .trainerName = _("Valerie"),
@@ -97918,7 +97910,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42596
-    [TRAINER_CEDRIC] =
+    [DIFFICULTY_NORMAL][TRAINER_CEDRIC] =
     {
 #line 42597
         .trainerName = _("Cedric"),
@@ -98099,7 +98091,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42675
-    [TRAINER_MANO] =
+    [DIFFICULTY_NORMAL][TRAINER_MANO] =
     {
 #line 42676
         .trainerName = _("Mano"),
@@ -98266,7 +98258,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42748
-    [TRAINER_TSUJI] =
+    [DIFFICULTY_NORMAL][TRAINER_TSUJI] =
     {
 #line 42749
         .trainerName = _("Tsuji"),
@@ -98435,7 +98427,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42823
-    [TRAINER_WOLFE] =
+    [DIFFICULTY_NORMAL][TRAINER_WOLFE] =
     {
 #line 42824
         .trainerName = _("Wolfe"),
@@ -98606,7 +98598,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42898
-    [TRAINER_RYOTA] =
+    [DIFFICULTY_NORMAL][TRAINER_RYOTA] =
     {
 #line 42899
         .trainerName = _("Ryota"),
@@ -98777,7 +98769,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 42973
-    [TRAINER_RUIZ] =
+    [DIFFICULTY_NORMAL][TRAINER_RUIZ] =
     {
 #line 42974
         .trainerName = _("Ruiz"),
@@ -98948,7 +98940,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 43048
-    [TRAINER_RIZZO] =
+    [DIFFICULTY_NORMAL][TRAINER_RIZZO] =
     {
 #line 43049
         .trainerName = _("Rizzo"),
@@ -99119,7 +99111,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 43123
-    [TRAINER_PARK] =
+    [DIFFICULTY_NORMAL][TRAINER_PARK] =
     {
 #line 43124
         .trainerName = _("Park"),
@@ -99290,7 +99282,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 43198
-    [TRAINER_SHOMA] =
+    [DIFFICULTY_NORMAL][TRAINER_SHOMA] =
     {
 #line 43199
         .trainerName = _("Shoma"),
@@ -99461,7 +99453,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 43273
-    [TRAINER_ARASH] =
+    [DIFFICULTY_NORMAL][TRAINER_ARASH] =
     {
 #line 43274
         .trainerName = _("Arash"),
@@ -99632,7 +99624,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 43348
-    [TRAINER_GLICK] =
+    [DIFFICULTY_NORMAL][TRAINER_GLICK] =
     {
 #line 43349
         .trainerName = _("Glick"),
@@ -99803,7 +99795,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 43423
-    [TRAINER_SHIRONA] =
+    [DIFFICULTY_NORMAL][TRAINER_SHIRONA] =
     {
 #line 43424
         .trainerName = _("Shirona"),
@@ -99976,7 +99968,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 43498
-    [TRAINER_KATELYNN] =
+    [DIFFICULTY_NORMAL][TRAINER_KATELYNN] =
     {
 #line 43499
         .trainerName = _("Katelynn"),
@@ -100149,7 +100141,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 43573
-    [TRAINER_EIFIE] =
+    [DIFFICULTY_NORMAL][TRAINER_EIFIE] =
     {
 #line 43574
         .trainerName = _("Eifie"),
@@ -100322,7 +100314,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 43648
-    [TRAINER_HOPE] =
+    [DIFFICULTY_NORMAL][TRAINER_HOPE] =
     {
 #line 43649
         .trainerName = _("Hope"),
@@ -100495,7 +100487,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 43723
-    [TRAINER_GRACE] =
+    [DIFFICULTY_NORMAL][TRAINER_GRACE] =
     {
 #line 43724
         .trainerName = _("Grace"),
@@ -100674,7 +100666,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 43800
-    [TRAINER_NAOMI] =
+    [DIFFICULTY_NORMAL][TRAINER_NAOMI] =
     {
 #line 43801
         .trainerName = _("Naomi"),
@@ -100869,7 +100861,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 43887
-    [TRAINER_SAMUEL] =
+    [DIFFICULTY_NORMAL][TRAINER_SAMUEL] =
     {
 #line 43888
         .trainerName = _("Samuel"),
@@ -101019,7 +101011,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 43952
-    [TRAINER_PHILLIP] =
+    [DIFFICULTY_NORMAL][TRAINER_PHILLIP] =
     {
 #line 43953
         .trainerName = _("Phillip"),
@@ -101170,7 +101162,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44017
-    [TRAINER_HILLARY] =
+    [DIFFICULTY_NORMAL][TRAINER_HILLARY] =
     {
 #line 44018
         .trainerName = _("Hillary"),
@@ -101271,7 +101263,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44062
-    [TRAINER_ERIC] =
+    [DIFFICULTY_NORMAL][TRAINER_ERIC] =
     {
 #line 44063
         .trainerName = _("Eric"),
@@ -101404,7 +101396,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44118
-    [TRAINER_ETHAN] =
+    [DIFFICULTY_NORMAL][TRAINER_ETHAN] =
     {
 #line 44119
         .trainerName = _("Ethan"),
@@ -101503,7 +101495,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44160
-    [TRAINER_DIANA] =
+    [DIFFICULTY_NORMAL][TRAINER_DIANA] =
     {
 #line 44161
         .trainerName = _("Diana"),
@@ -101634,7 +101626,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44214
-    [TRAINER_AUTUMN] =
+    [DIFFICULTY_NORMAL][TRAINER_AUTUMN] =
     {
 #line 44215
         .trainerName = _("Autumn"),
@@ -101731,7 +101723,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44254
-    [TRAINER_JULIO] =
+    [DIFFICULTY_NORMAL][TRAINER_JULIO] =
     {
 #line 44255
         .trainerName = _("Julio"),
@@ -101828,7 +101820,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44297
-    [TRAINER_ALBERT] =
+    [DIFFICULTY_NORMAL][TRAINER_ALBERT] =
     {
 #line 44298
         .trainerName = _("Albert"),
@@ -101965,7 +101957,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44355
-    [TRAINER_QUINCY] =
+    [DIFFICULTY_NORMAL][TRAINER_QUINCY] =
     {
 #line 44356
         .trainerName = _("Quincy"),
@@ -102065,7 +102057,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44397
-    [TRAINER_DUDLEY] =
+    [DIFFICULTY_NORMAL][TRAINER_DUDLEY] =
     {
 #line 44398
         .trainerName = _("Dudley"),
@@ -102198,7 +102190,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44455
-    [TRAINER_ASHE] =
+    [DIFFICULTY_NORMAL][TRAINER_ASHE] =
     {
 #line 44456
         .trainerName = _("Ashe"),
@@ -102286,7 +102278,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44493
-    [TRAINER_KAYANO] =
+    [DIFFICULTY_NORMAL][TRAINER_KAYANO] =
     {
 #line 44494
         .trainerName = _("Kayano"),
@@ -102399,7 +102391,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44542
-    [TRAINER_SHIGERU] =
+    [DIFFICULTY_NORMAL][TRAINER_SHIGERU] =
     {
 #line 44543
         .trainerName = _("Shigeru"),
@@ -102509,7 +102501,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44590
-    [TRAINER_PHELPS] =
+    [DIFFICULTY_NORMAL][TRAINER_PHELPS] =
     {
 #line 44591
         .trainerName = _("Phelps"),
@@ -102553,7 +102545,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44609
-    [TRAINER_TATJANA] =
+    [DIFFICULTY_NORMAL][TRAINER_TATJANA] =
     {
 #line 44610
         .trainerName = _("Tatjana"),
@@ -102616,7 +102608,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44635
-    [TRAINER_MAC] =
+    [DIFFICULTY_NORMAL][TRAINER_MAC] =
     {
 #line 44636
         .trainerName = _("Mac"),
@@ -102725,7 +102717,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44682
-    [TRAINER_KONDO] =
+    [DIFFICULTY_NORMAL][TRAINER_KONDO] =
     {
 #line 44683
         .trainerName = _("Kondo"),
@@ -102834,7 +102826,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44729
-    [TRAINER_LEDECKY] =
+    [DIFFICULTY_NORMAL][TRAINER_LEDECKY] =
     {
 #line 44730
         .trainerName = _("Ledecky"),
@@ -102941,7 +102933,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44774
-    [TRAINER_LEA_AND_JED] =
+    [DIFFICULTY_NORMAL][TRAINER_LEA_AND_JED] =
     {
 #line 44775
         .trainerName = _("Lea & Jed"),
@@ -103050,7 +103042,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44823
-    [TRAINER_DRESDEN] =
+    [DIFFICULTY_NORMAL][TRAINER_DRESDEN] =
     {
 #line 44824
         .trainerName = _("Dresden"),
@@ -103189,7 +103181,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44879
-    [TRAINER_CHAPMAN] =
+    [DIFFICULTY_NORMAL][TRAINER_CHAPMAN] =
     {
 #line 44880
         .trainerName = _("Chapman"),
@@ -103252,7 +103244,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44907
-    [TRAINER_CARRIE] =
+    [DIFFICULTY_NORMAL][TRAINER_CARRIE] =
     {
 #line 44908
         .trainerName = _("Carrie"),
@@ -103361,7 +103353,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44955
-    [TRAINER_NORAN] =
+    [DIFFICULTY_NORMAL][TRAINER_NORAN] =
     {
 #line 44956
         .trainerName = _("Noran"),
@@ -103462,7 +103454,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 44998
-    [TRAINER_COOPER] =
+    [DIFFICULTY_NORMAL][TRAINER_COOPER] =
     {
 #line 44999
         .trainerName = _("Cooper"),
@@ -103570,7 +103562,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45044
-    [TRAINER_EDMUND] =
+    [DIFFICULTY_NORMAL][TRAINER_EDMUND] =
     {
 #line 45045
         .trainerName = _("Edmund"),
@@ -103614,7 +103606,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45065
-    [TRAINER_PEPPER] =
+    [DIFFICULTY_NORMAL][TRAINER_PEPPER] =
     {
 #line 45066
         .trainerName = _("Pepper"),
@@ -103675,7 +103667,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45091
-    [TRAINER_STARK] =
+    [DIFFICULTY_NORMAL][TRAINER_STARK] =
     {
 #line 45092
         .trainerName = _("Stark"),
@@ -103828,7 +103820,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45157
-    [TRAINER_YINSEN] =
+    [DIFFICULTY_NORMAL][TRAINER_YINSEN] =
     {
 #line 45158
         .trainerName = _("Yinsen"),
@@ -103937,7 +103929,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45204
-    [TRAINER_VANKO] =
+    [DIFFICULTY_NORMAL][TRAINER_VANKO] =
     {
 #line 45205
         .trainerName = _("Vanko"),
@@ -104096,7 +104088,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45275
-    [TRAINER_NEAL] =
+    [DIFFICULTY_NORMAL][TRAINER_NEAL] =
     {
 #line 45276
         .trainerName = _("Neal"),
@@ -104201,7 +104193,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45320
-    [TRAINER_RAOUL] =
+    [DIFFICULTY_NORMAL][TRAINER_RAOUL] =
     {
 #line 45321
         .trainerName = _("Raoul"),
@@ -104266,7 +104258,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45348
-    [TRAINER_CLEO] =
+    [DIFFICULTY_NORMAL][TRAINER_CLEO] =
     {
 #line 45349
         .trainerName = _("Cleo"),
@@ -104421,7 +104413,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45416
-    [TRAINER_KEL] =
+    [DIFFICULTY_NORMAL][TRAINER_KEL] =
     {
 #line 45417
         .trainerName = _("Kel"),
@@ -104664,7 +104656,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45520
-    [TRAINER_DOMITAN] =
+    [DIFFICULTY_NORMAL][TRAINER_DOMITAN] =
     {
 #line 45521
         .trainerName = _("Domitan"),
@@ -104899,7 +104891,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45621
-    [TRAINER_DAVIDE] =
+    [DIFFICULTY_NORMAL][TRAINER_DAVIDE] =
     {
 #line 45622
         .trainerName = _("Davide"),
@@ -105058,7 +105050,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45690
-    [TRAINER_FINLEY] =
+    [DIFFICULTY_NORMAL][TRAINER_FINLEY] =
     {
 #line 45691
         .trainerName = _("Finely"),
@@ -105207,7 +105199,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45754
-    [TRAINER_SUMNER] =
+    [DIFFICULTY_NORMAL][TRAINER_SUMNER] =
     {
 #line 45755
         .trainerName = _("Sumner"),
@@ -105352,7 +105344,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45816
-    [TRAINER_ABNER] =
+    [DIFFICULTY_NORMAL][TRAINER_ABNER] =
     {
 #line 45817
         .trainerName = _("Abner"),
@@ -105457,7 +105449,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45861
-    [TRAINER_LANCE] =
+    [DIFFICULTY_NORMAL][TRAINER_LANCE] =
     {
 #line 45862
         .trainerName = _("Lance"),
@@ -105600,7 +105592,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45919
-    [TRAINER_ARTEMIS] =
+    [DIFFICULTY_NORMAL][TRAINER_ARTEMIS] =
     {
 #line 45920
         .trainerName = _("Artemis"),
@@ -105755,7 +105747,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 45985
-    [TRAINER_HALLIE] =
+    [DIFFICULTY_NORMAL][TRAINER_HALLIE] =
     {
 #line 45986
         .trainerName = _("Hallie"),
@@ -105992,7 +105984,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46088
-    [TRAINER_LUTHER] =
+    [DIFFICULTY_NORMAL][TRAINER_LUTHER] =
     {
 #line 46089
         .trainerName = _("Luther"),
@@ -106101,7 +106093,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46135
-    [TRAINER_HANK] =
+    [DIFFICULTY_NORMAL][TRAINER_HANK] =
     {
 #line 46136
         .trainerName = _("Hank"),
@@ -106166,7 +106158,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46163
-    [TRAINER_HALI] =
+    [DIFFICULTY_NORMAL][TRAINER_HALI] =
     {
 #line 46164
         .trainerName = _("Hali"),
@@ -106233,7 +106225,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46191
-    [TRAINER_HALLE] =
+    [DIFFICULTY_NORMAL][TRAINER_HALLE] =
     {
 #line 46192
         .trainerName = _("Halle"),
@@ -106352,7 +106344,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46242
-    [TRAINER_SHEAFFER] =
+    [DIFFICULTY_NORMAL][TRAINER_SHEAFFER] =
     {
 #line 46243
         .trainerName = _("Sheaffer"),
@@ -106461,7 +106453,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46289
-    [TRAINER_ASHLIN] =
+    [DIFFICULTY_NORMAL][TRAINER_ASHLIN] =
     {
 #line 46290
         .trainerName = _("Ashlin"),
@@ -106528,7 +106520,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46317
-    [TRAINER_SIMONE] =
+    [DIFFICULTY_NORMAL][TRAINER_SIMONE] =
     {
 #line 46318
         .trainerName = _("Simone"),
@@ -106639,7 +106631,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46364
-    [TRAINER_ELLIS] =
+    [DIFFICULTY_NORMAL][TRAINER_ELLIS] =
     {
 #line 46365
         .trainerName = _("Ellis"),
@@ -106744,7 +106736,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46407
-    [TRAINER_KINSLEY] =
+    [DIFFICULTY_NORMAL][TRAINER_KINSLEY] =
     {
 #line 46408
         .trainerName = _("Kinsley"),
@@ -106853,7 +106845,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46456
-    [TRAINER_SIMON] =
+    [DIFFICULTY_NORMAL][TRAINER_SIMON] =
     {
 #line 46457
         .trainerName = _("Simon"),
@@ -106994,7 +106986,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46510
-    [TRAINER_JOHANNA] =
+    [DIFFICULTY_NORMAL][TRAINER_JOHANNA] =
     {
 #line 46511
         .trainerName = _("Johanna"),
@@ -107061,7 +107053,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46538
-    [TRAINER_DWAYNE] =
+    [DIFFICULTY_NORMAL][TRAINER_DWAYNE] =
     {
 #line 46539
         .trainerName = _("Dwayne"),
@@ -107214,7 +107206,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46606
-    [TRAINER_ARIARNE] =
+    [DIFFICULTY_NORMAL][TRAINER_ARIARNE] =
     {
 #line 46607
         .trainerName = _("Ariarne"),
@@ -107283,7 +107275,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46635
-    [TRAINER_TIMIN] =
+    [DIFFICULTY_NORMAL][TRAINER_TIMIN] =
     {
 #line 46636
         .trainerName = _("Timin"),
@@ -107350,7 +107342,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46664
-    [TRAINER_BENITO] =
+    [DIFFICULTY_NORMAL][TRAINER_BENITO] =
     {
 #line 46665
         .trainerName = _("Benito"),
@@ -107417,7 +107409,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46695
-    [TRAINER_STANLY] =
+    [DIFFICULTY_NORMAL][TRAINER_STANLY] =
     {
 #line 46696
         .trainerName = _("Stanly"),
@@ -107526,7 +107518,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46742
-    [TRAINER_REGAN] =
+    [DIFFICULTY_NORMAL][TRAINER_REGAN] =
     {
 #line 46743
         .trainerName = _("Regan"),
@@ -107618,7 +107610,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46781
-    [TRAINER_TYA_AND_MADI] =
+    [DIFFICULTY_NORMAL][TRAINER_TYA_AND_MADI] =
     {
 #line 46782
         .trainerName = _("Tya & Madi"),
@@ -107723,7 +107715,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46826
-    [TRAINER_VERNON] =
+    [DIFFICULTY_NORMAL][TRAINER_VERNON] =
     {
 #line 46827
         .trainerName = _("Vernon"),
@@ -107788,7 +107780,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46854
-    [TRAINER_BORIS] =
+    [DIFFICULTY_NORMAL][TRAINER_BORIS] =
     {
 #line 46855
         .trainerName = _("Boris"),
@@ -107853,7 +107845,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46882
-    [TRAINER_THEODORE] =
+    [DIFFICULTY_NORMAL][TRAINER_THEODORE] =
     {
 #line 46883
         .trainerName = _("Theodore"),
@@ -107970,7 +107962,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46933
-    [TRAINER_HOWIE] =
+    [DIFFICULTY_NORMAL][TRAINER_HOWIE] =
     {
 #line 46934
         .trainerName = _("Howie"),
@@ -108035,7 +108027,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 46963
-    [TRAINER_SALLY] =
+    [DIFFICULTY_NORMAL][TRAINER_SALLY] =
     {
 #line 46964
         .trainerName = _("Sally"),
@@ -108138,7 +108130,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47006
-    [TRAINER_EDDIE] =
+    [DIFFICULTY_NORMAL][TRAINER_EDDIE] =
     {
 #line 47007
         .trainerName = _("Eddie"),
@@ -108239,7 +108231,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47049
-    [TRAINER_ROBIN] =
+    [DIFFICULTY_NORMAL][TRAINER_ROBIN] =
     {
 #line 47050
         .trainerName = _("Robin"),
@@ -108342,7 +108334,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47094
-    [TRAINER_TED] =
+    [DIFFICULTY_NORMAL][TRAINER_TED] =
     {
 #line 47095
         .trainerName = _("Ted"),
@@ -108447,7 +108439,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47139
-    [TRAINER_PAUL] =
+    [DIFFICULTY_NORMAL][TRAINER_PAUL] =
     {
 #line 47140
         .trainerName = _("Paul"),
@@ -108556,7 +108548,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47186
-    [TRAINER_GEORGIA] =
+    [DIFFICULTY_NORMAL][TRAINER_GEORGIA] =
     {
 #line 47187
         .trainerName = _("Georgia"),
@@ -108663,7 +108655,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47233
-    [TRAINER_JUSTIN] =
+    [DIFFICULTY_NORMAL][TRAINER_JUSTIN] =
     {
 #line 47234
         .trainerName = _("Justin"),
@@ -108728,7 +108720,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47261
-    [TRAINER_MARTHA] =
+    [DIFFICULTY_NORMAL][TRAINER_MARTHA] =
     {
 #line 47262
         .trainerName = _("Martha"),
@@ -108820,7 +108812,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47300
-    [TRAINER_ALAN] =
+    [DIFFICULTY_NORMAL][TRAINER_ALAN] =
     {
 #line 47301
         .trainerName = _("Alan"),
@@ -108973,7 +108965,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47368
-    [TRAINER_CORA] =
+    [DIFFICULTY_NORMAL][TRAINER_CORA] =
     {
 #line 47369
         .trainerName = _("Cora"),
@@ -109042,7 +109034,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47397
-    [TRAINER_PAULA] =
+    [DIFFICULTY_NORMAL][TRAINER_PAULA] =
     {
 #line 47398
         .trainerName = _("Paula"),
@@ -109111,7 +109103,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47426
-    [TRAINER_YUJI] =
+    [DIFFICULTY_NORMAL][TRAINER_YUJI] =
     {
 #line 47427
         .trainerName = _("Yuji"),
@@ -109201,7 +109193,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47467
-    [TRAINER_IRVIN] =
+    [DIFFICULTY_NORMAL][TRAINER_IRVIN] =
     {
 #line 47468
         .trainerName = _("Irvin"),
@@ -109372,7 +109364,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47542
-    [TRAINER_KELSEY] =
+    [DIFFICULTY_NORMAL][TRAINER_KELSEY] =
     {
 #line 47543
         .trainerName = _("Kelsey"),
@@ -109545,7 +109537,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47617
-    [TRAINER_TOBY] =
+    [DIFFICULTY_NORMAL][TRAINER_TOBY] =
     {
 #line 47618
         .trainerName = _("Toby"),
@@ -109716,7 +109708,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47692
-    [TRAINER_ALICIA] =
+    [DIFFICULTY_NORMAL][TRAINER_ALICIA] =
     {
 #line 47693
         .trainerName = _("Alicia"),
@@ -109889,7 +109881,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47767
-    [TRAINER_OLIVER] =
+    [DIFFICULTY_NORMAL][TRAINER_OLIVER] =
     {
 #line 47768
         .trainerName = _("Oliver"),
@@ -110060,7 +110052,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47844
-    [TRAINER_SOPHIA] =
+    [DIFFICULTY_NORMAL][TRAINER_SOPHIA] =
     {
 #line 47845
         .trainerName = _("Sophia"),
@@ -110152,7 +110144,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47883
-    [TRAINER_BENNY] =
+    [DIFFICULTY_NORMAL][TRAINER_BENNY] =
     {
 #line 47884
         .trainerName = _("Benny"),
@@ -110242,7 +110234,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47922
-    [TRAINER_SEBASTIAN] =
+    [DIFFICULTY_NORMAL][TRAINER_SEBASTIAN] =
     {
 #line 47923
         .trainerName = _("Sebastian"),
@@ -110332,7 +110324,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47963
-    [TRAINER_JOSHUA] =
+    [DIFFICULTY_NORMAL][TRAINER_JOSHUA] =
     {
 #line 47964
         .trainerName = _("Joshua"),
@@ -110403,7 +110395,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 47994
-    [TRAINER_ALEXIS] =
+    [DIFFICULTY_NORMAL][TRAINER_ALEXIS] =
     {
 #line 47995
         .trainerName = _("Alexis"),
@@ -110472,7 +110464,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48023
-    [TRAINER_PATRICIA] =
+    [DIFFICULTY_NORMAL][TRAINER_PATRICIA] =
     {
 #line 48024
         .trainerName = _("Patricia"),
@@ -110545,7 +110537,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48054
-    [TRAINER_MARIELA] =
+    [DIFFICULTY_NORMAL][TRAINER_MARIELA] =
     {
 #line 48055
         .trainerName = _("Mariela"),
@@ -110614,7 +110606,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48083
-    [TRAINER_ALVARO] =
+    [DIFFICULTY_NORMAL][TRAINER_ALVARO] =
     {
 #line 48084
         .trainerName = _("Alvaro"),
@@ -110681,7 +110673,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48112
-    [TRAINER_EVERETT] =
+    [DIFFICULTY_NORMAL][TRAINER_EVERETT] =
     {
 #line 48113
         .trainerName = _("Everett"),
@@ -110748,7 +110740,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48143
-    [TRAINER_VINCENT] =
+    [DIFFICULTY_NORMAL][TRAINER_VINCENT] =
     {
 #line 48144
         .trainerName = _("Vincent"),
@@ -110869,7 +110861,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48196
-    [TRAINER_LEROY] =
+    [DIFFICULTY_NORMAL][TRAINER_LEROY] =
     {
 #line 48197
         .trainerName = _("Leroy"),
@@ -110965,7 +110957,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48238
-    [TRAINER_KEIRA] =
+    [DIFFICULTY_NORMAL][TRAINER_KEIRA] =
     {
 #line 48239
         .trainerName = _("Keira"),
@@ -111088,7 +111080,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48293
-    [TRAINER_ANABEL] =
+    [DIFFICULTY_NORMAL][TRAINER_ANABEL] =
     {
 #line 48294
         .trainerName = _("Anabel"),
@@ -111119,7 +111111,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48305
-    [TRAINER_TUCKER] =
+    [DIFFICULTY_NORMAL][TRAINER_TUCKER] =
     {
 #line 48306
         .trainerName = _("Tucker"),
@@ -111148,7 +111140,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48317
-    [TRAINER_SPENSER] =
+    [DIFFICULTY_NORMAL][TRAINER_SPENSER] =
     {
 #line 48318
         .trainerName = _("Spenser"),
@@ -111177,7 +111169,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48329
-    [TRAINER_GRETA] =
+    [DIFFICULTY_NORMAL][TRAINER_GRETA] =
     {
 #line 48330
         .trainerName = _("Greta"),
@@ -111208,7 +111200,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48341
-    [TRAINER_NOLAND] =
+    [DIFFICULTY_NORMAL][TRAINER_NOLAND] =
     {
 #line 48342
         .trainerName = _("Noland"),
@@ -111237,7 +111229,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48353
-    [TRAINER_LUCY] =
+    [DIFFICULTY_NORMAL][TRAINER_LUCY] =
     {
 #line 48354
         .trainerName = _("Lucy"),
@@ -111268,7 +111260,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48365
-    [TRAINER_BRANDON] =
+    [DIFFICULTY_NORMAL][TRAINER_BRANDON] =
     {
 #line 48366
         .trainerName = _("Brandon"),
@@ -111297,7 +111289,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48377
-    [TRAINER_RED] =
+    [DIFFICULTY_NORMAL][TRAINER_RED] =
     {
 #line 48378
         .trainerName = _("Red"),
@@ -111324,7 +111316,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48388
-    [TRAINER_LEAF] =
+    [DIFFICULTY_NORMAL][TRAINER_LEAF] =
     {
 #line 48389
         .trainerName = _("Leaf"),
@@ -111353,7 +111345,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48399
-    [TRAINER_BRENDAN_PLACEHOLDER] =
+    [DIFFICULTY_NORMAL][TRAINER_BRENDAN_PLACEHOLDER] =
     {
 #line 48400
         .trainerName = _("Brendan"),
@@ -111380,7 +111372,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48410
-    [TRAINER_MAY_PLACEHOLDER] =
+    [DIFFICULTY_NORMAL][TRAINER_MAY_PLACEHOLDER] =
     {
 #line 48411
         .trainerName = _("May"),
@@ -111409,7 +111401,7 @@ F_TRAINER_FEMALE |
         },
     },
 #line 48423
-    [TRAINER_STEVEN] =
+    [DIFFICULTY_NORMAL][TRAINER_STEVEN] =
     {
 #line 48424
         .trainerName = _("Steven"),

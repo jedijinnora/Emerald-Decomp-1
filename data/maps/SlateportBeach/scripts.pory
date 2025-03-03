@@ -71,8 +71,11 @@ script SlateportBeach_EventScript_TryHaliRematch {
 	if (defeated(TRAINER_HANK)) {
 		msgbox(format("Include Hank and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_HANK, 0, NULL, SlateportBeach_Text_HankDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_HALI, SlateportBeach_Text_HaliDefeat, TRAINER_HANK, SlateportBeach_Text_HankDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -107,8 +110,11 @@ script SlateportBeach_EventScript_TryHankRematch {
 	if (defeated(TRAINER_HALI)) {
 		msgbox(format("Include Hali and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_HALI, 0, NULL, SlateportBeach_Text_HaliDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_HANK, SlateportBeach_Text_HankDefeat, TRAINER_HALI, SlateportBeach_Text_HaliDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -369,20 +375,20 @@ script BeachBattle_EventScript_SetupOpponentGfxInitial {
 script BeachBattle_EventScript_SetupOpponentTrainersInitial {
 	switch(var(VAR_BEACH_BATTLE_STATE)) {
 		case 10:
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_MISCHA, 0, NULL, SlateportBeach_Text_HankDefeat)
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_MIRABELLE, 0, NULL, SlateportBeach_Text_HankDefeat)
+			//trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_MISCHA, 0, NULL, SlateportBeach_Text_HankDefeat)
+			//trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_MIRABELLE, 0, NULL, SlateportBeach_Text_HankDefeat)
 		case 20:
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_ANTONIO, 0, NULL, SlateportBeach_Text_HankDefeat)
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_LUISA, 0, NULL, SlateportBeach_Text_HankDefeat)
+			//trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_ANTONIO, 0, NULL, SlateportBeach_Text_HankDefeat)
+			//trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_LUISA, 0, NULL, SlateportBeach_Text_HankDefeat)
 		case 30:
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_JULIETA, 0, NULL, SlateportBeach_Text_HankDefeat)
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_CAMILO, 0, NULL, SlateportBeach_Text_HankDefeat)
+			//trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_JULIETA, 0, NULL, SlateportBeach_Text_HankDefeat)
+			//trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_CAMILO, 0, NULL, SlateportBeach_Text_HankDefeat)
 		case 40:
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_PEDRO, 0, NULL, SlateportBeach_Text_HankDefeat)
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_ALMA, 0, NULL, SlateportBeach_Text_HankDefeat)
+			//trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_PEDRO, 0, NULL, SlateportBeach_Text_HankDefeat)
+			//trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_ALMA, 0, NULL, SlateportBeach_Text_HankDefeat)
 		case 50:
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_BRAWLY, 0, NULL, SlateportBeach_Text_HankDefeat)
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_PHOEBE, 0, NULL, SlateportBeach_Text_HankDefeat)
+			//trainerbattle(TRAINER_BATTLE_SET_TRAINER_A, TRAINER_BB_BRAWLY, 0, NULL, SlateportBeach_Text_HankDefeat)
+			//trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BB_PHOEBE, 0, NULL, SlateportBeach_Text_HankDefeat)
 		default:
 	}
 	return

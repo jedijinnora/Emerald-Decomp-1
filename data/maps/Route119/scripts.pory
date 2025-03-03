@@ -396,8 +396,11 @@ script Route119_EventScript_TryHughRematch {
 	if (defeated(TRAINER_YASU)) {
 		msgbox(format("Include Yasu and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_YASU, 0, NULL, Route119_Text_YasuDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_HUGH, Route119_Text_HughDefeat, TRAINER_YASU, Route119_Text_YasuDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -422,8 +425,11 @@ script Route119_EventScript_TryPhilRematch {
 	if (defeated(TRAINER_RACHEL)) {
 		msgbox(format("Include Rachel and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_RACHEL, 0, NULL, Route119_Text_RachelDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_PHIL, Route119_Text_PhilDefeat, TRAINER_RACHEL, Route119_Text_RachelDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -448,8 +454,11 @@ script Route119_EventScript_TryYasuRematch {
 	if (defeated(TRAINER_HUGH)) {
 		msgbox(format("Include Hugh and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_HUGH, 0, NULL, Route119_Text_HughDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_YASU, Route119_Text_YasuDefeat, TRAINER_HUGH, Route119_Text_HughDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -474,8 +483,11 @@ script Route119_EventScript_TryTakashiRematch {
 	if (defeated(TRAINER_DAYTON)) {
 		msgbox(format("Include Dayton and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DAYTON, 0, NULL, Route119_Text_DaytonDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_TAKASHI, Route119_Text_TakashiDefeat, TRAINER_DAYTON, Route119_Text_DaytonDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -557,8 +569,11 @@ script Route119_EventScript_TryDaytonRematch {
 	if (defeated(TRAINER_TAKASHI)) {
 		msgbox(format("Include Takashi and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_TAKASHI, 0, NULL, Route119_Text_TakashiDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_DAYTON, Route119_Text_DaytonDefeat, TRAINER_TAKASHI, Route119_Text_TakashiDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -583,8 +598,11 @@ script Route119_EventScript_TryRachelRematch {
 	if (defeated(TRAINER_PHIL)) {
 		msgbox(format("Include Phil and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_PHIL, 0, NULL, Route119_Text_PhilDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_RACHEL, Route119_Text_RachelDefeat, TRAINER_PHIL, Route119_Text_PhilDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

@@ -55,8 +55,11 @@ script Route118_EventScript_TryRoseRematch {
 	if (defeated(TRAINER_DEANDRE)) {
 		msgbox(format("Include Deandre and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DEANDRE, 0, NULL, Route118_Text_DeandreDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_ROSE, Route118_Text_RoseRematchDefeat, TRAINER_DEANDRE, Route118_Text_DeandreDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -176,8 +179,11 @@ script Route118_EventScript_TryDeandreRematch {
 	if (defeated(TRAINER_ROSE)) {
 		msgbox(format("Include Rose and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ROSE, 0, NULL, Route118_Text_RoseDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_DEANDRE, Route118_Text_DeandreDefeat, TRAINER_ROSE, Route118_Text_RoseRematchDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

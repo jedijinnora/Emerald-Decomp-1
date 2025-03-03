@@ -78,8 +78,11 @@ script Route121_EventScript_TryTammyRematch {
 	if (defeated(TRAINER_CALE)) {
 		msgbox(format("Include Cale and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CALE, 0, NULL, Route121_Text_CaleDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_TAMMY, Route121_Text_TammyDefeat, TRAINER_CALE, Route121_Text_CaleDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -161,8 +164,11 @@ script Route121_EventScript_TryCaleRematch {
 	if (defeated(TRAINER_TAMMY)) {
 		msgbox(format("Include Tammy and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_TAMMY, 0, NULL, Route121_Text_TammyDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_CALE, Route121_Text_CaleDefeat, TRAINER_TAMMY, Route121_Text_TammyDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -187,7 +193,10 @@ script Route121_EventScript_TryMylesRematch {
 	if (defeated(TRAINER_PAT)) {
 		msgbox(format("Include Pat and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_PAT, 0, NULL, Route121_Text_PatDefeat)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_MYLES, Route121_Text_MylesDefeat, TRAINER_PAT, Route121_Text_PatDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -212,7 +221,10 @@ script Route121_EventScript_TryPatRematch {
 	if (defeated(TRAINER_MYLES)) {
 		msgbox(format("Include Myles and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MYLES, 0, NULL, Route121_Text_MylesDefeat)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_PAT, Route121_Text_PatDefeat, TRAINER_MYLES, Route121_Text_MylesDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

@@ -88,8 +88,11 @@ script MtChimney_EventScript_TryMelissaRematch {
 	if (defeated(TRAINER_SAWYER)) {
 		msgbox(format("Include Sawyer and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SAWYER, 0, NULL, MtChimney_Text_SawyerDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_MELISSA, MtChimney_Text_MelissaDefeat, TRAINER_SAWYER, MtChimney_Text_SawyerDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -114,8 +117,11 @@ script MtChimney_EventScript_TrySheilaRematch {
 	if (defeated(TRAINER_SHIRLEY)) {
 		msgbox(format("Include Shirley and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SHIRLEY, 0, NULL, MtChimney_Text_ShirleyDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_SHEILA, MtChimney_Text_SheilaDefeat, TRAINER_SHIRLEY, MtChimney_Text_ShirleyDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -140,8 +146,11 @@ script MtChimney_EventScript_TryShirleyRematch {
 	if (defeated(TRAINER_SHEILA)) {
 		msgbox(format("Include Sheila and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SHEILA, 0, NULL, MtChimney_Text_SheilaDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_SHIRLEY, MtChimney_Text_ShirleyDefeat, TRAINER_SHEILA, MtChimney_Text_SheilaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -166,8 +175,11 @@ script MtChimney_EventScript_TrySawyerRematch {
 	if (defeated(TRAINER_MELISSA)) {
 		msgbox(format("Include Melissa and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MELISSA, 0, NULL, MtChimney_Text_MelissaDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_SAWYER, MtChimney_Text_SawyerRematchDefeat, TRAINER_MELISSA, MtChimney_Text_MelissaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -214,8 +226,11 @@ script Route112_EventScript_TryBryantRematch {
 	if (defeated(TRAINER_SHAYLA)) {
 		msgbox(format("Include Shayla and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SHAYLA, 0, NULL, Route112_Text_ShaylaDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_BRYANT, Route112_Text_BryantDefeat, TRAINER_SHAYLA, Route112_Text_ShaylaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -240,8 +255,11 @@ script Route112_EventScript_TryShaylaRematch {
 	if (defeated(TRAINER_BRYANT)) {
 		msgbox(format("Include Bryant and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BRYANT, 0, NULL, Route112_Text_BryantDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_SHAYLA, Route112_Text_ShaylaDefeat, TRAINER_BRYANT, Route112_Text_BryantDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

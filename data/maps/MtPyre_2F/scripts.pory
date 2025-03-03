@@ -42,8 +42,11 @@ script MtPyre_2F_EventScript_TryMarkRematch {
 	if (defeated(TRAINER_LEAH)) {
 		msgbox(format("Include Leah and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_LEAH, 0, NULL, MtPyre_2F_Text_LeahDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_MARK, MtPyre_2F_Text_MarkDefeat, TRAINER_LEAH, MtPyre_2F_Text_LeahDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -103,18 +106,25 @@ script MtPyre_2F_EventScript_TryLeahRematch {
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
 	setvar(VAR_0x8003, TRAINER_LEAH)
 	setvar(VAR_0x8004, 1)
+	setvar(VAR_RESULT, NO)
 	if (defeated(TRAINER_MARK)) {
 		msgbox(format("Include Mark and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MARK, 0, NULL, MtPyre_2F_Text_MarkDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_LEAH, MtPyre_2F_Text_LeahDefeat, TRAINER_MARK, MtPyre_2F_Text_MarkDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	if (defeated(TRAINER_ZANDER) && (var(VAR_RESULT) == NO)) {
 		msgbox(format("Include Zander and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ZANDER, 0, NULL, MtPyre_2F_Text_ZanderDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_LEAH, MtPyre_2F_Text_LeahDefeat, TRAINER_ZANDER, MtPyre_2F_Text_ZanderDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -139,8 +149,11 @@ script MtPyre_2F_EventScript_TryZanderRematch {
 	if (defeated(TRAINER_LEAH)) {
 		msgbox(format("Include Leah and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_LEAH, 0, NULL, MtPyre_2F_Text_LeahDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_ZANDER, MtPyre_2F_Text_ZanderDefeat, TRAINER_LEAH, MtPyre_2F_Text_LeahDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

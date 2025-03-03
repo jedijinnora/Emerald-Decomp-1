@@ -408,8 +408,11 @@ script Route111_EventScript_TryHaydenRematch {
 	if (defeated(TRAINER_BIANCA)) {
 		msgbox(format("Include Bianca and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BIANCA, 0, NULL, Route111_Text_BiancaDefeat)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_HAYDEN, Route111_Text_HaydenDefeat, TRAINER_BIANCA, Route111_Text_BiancaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -434,8 +437,11 @@ script Route111_EventScript_TryBiancaRematch {
 	if (defeated(TRAINER_HAYDEN)) {
 		msgbox(format("Include Hayden and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_HAYDEN, 0, NULL, Route111_Text_HaydenDefeat)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_BIANCA, Route111_Text_BiancaDefeat, TRAINER_HAYDEN, Route111_Text_HaydenDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -460,8 +466,11 @@ script Route111_EventScript_TryTyronRematch {
 	if (defeated(TRAINER_CELINA)) {
 		msgbox(format("Include Celina and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CELINA, 0, NULL, Route111_Text_CelinaDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_TYRON, Route111_Text_TyronDefeat, TRAINER_CELINA, Route111_Text_CelinaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -486,8 +495,11 @@ script Route111_EventScript_TryCelinaRematch {
 	if (defeated(TRAINER_TYRON)) {
 		msgbox(format("Include Tyron and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_TYRON, 0, NULL, Route111_Text_TyronDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_CELINA, Route111_Text_CelinaDefeat, TRAINER_TYRON, Route111_Text_TyronDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -512,8 +524,11 @@ script Route111_EventScript_TryCeliaRematch {
 	if (defeated(TRAINER_BRYAN)) {
 		msgbox(format("Include Bryan and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BRYAN, 0, NULL, Route111_Text_BryanDefeat)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_CELIA, Route111_Text_CeliaDefeat, TRAINER_BRYAN, Route111_Text_BryanDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -557,8 +572,11 @@ script Route111_EventScript_TryBrandenRematch {
 	if (defeated(TRAINER_BRYAN)) {
 		msgbox(format("Include Bryan and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_BRYAN, 0, NULL, Route111_Text_BryanDefeat)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_BRYAN, Route111_Text_BryanDefeat, TRAINER_CELIA, Route111_Text_CeliaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	trainerbattle_no_intro(TRAINER_BRANDEN, Route111_Text_BrandenDefeat)

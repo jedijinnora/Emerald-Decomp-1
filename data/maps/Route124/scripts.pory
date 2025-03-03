@@ -57,8 +57,11 @@ script Route124_EventScript_TryRolandRematch {
 	if (defeated(TRAINER_ISABELLA)) {
 		msgbox(format("Include Isabella and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ISABELLA, 0, NULL, Route124_Text_IsabellaDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_ROLAND, Route124_Text_RolandDefeat, TRAINER_ISABELLA, Route124_Text_IsabellaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -102,8 +105,11 @@ script Route124_EventScript_TryRischelRematch {
 	if (defeated(TRAINER_DECLAN)) {
 		msgbox(format("Include Declan and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DECLAN, 0, NULL, Route124_Text_DeclanDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_RISCHEL, Route124_Text_RischelDefeat, TRAINER_DECLAN, Route124_Text_DeclanDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -185,8 +191,11 @@ script Route124_EventScript_TryDeclanRematch {
 	if (defeated(TRAINER_RISCHEL)) {
 		msgbox(format("Include Rischel and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_RISCHEL, 0, NULL, Route124_Text_RischelDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_DECLAN, Route124_Text_DeclanDefeat, TRAINER_RISCHEL, Route124_Text_RischelDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -211,8 +220,11 @@ script Route124_EventScript_TryIsabellaRematch {
 	if (defeated(TRAINER_ROLAND)) {
 		msgbox(format("Include Roland and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ROLAND, 0, NULL, Route124_Text_RolandDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_ISABELLA, Route124_Text_IsabellaDefeat, TRAINER_ROLAND, Route124_Text_RolandDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

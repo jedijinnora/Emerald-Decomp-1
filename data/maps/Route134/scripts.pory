@@ -117,8 +117,11 @@ script Route134_EventScript_TryJackRematch {
 	if (defeated(TRAINER_LAUREL)) {
 		msgbox(format("Include Laurel and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_LAUREL, 0, NULL, Route134_Text_LaurelDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_JACK, Route134_Text_JackDefeat, TRAINER_LAUREL, Route134_Text_LaurelDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -143,8 +146,11 @@ script Route134_EventScript_TryLaurelRematch {
 	if (defeated(TRAINER_JACK)) {
 		msgbox(format("Include Jack and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_JACK, 0, NULL, Route134_Text_JackDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_LAUREL, Route134_Text_LaurelDefeat, TRAINER_JACK, Route134_Text_JackDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -169,8 +175,11 @@ script Route134_EventScript_TryAlexRematch {
 	if (defeated(TRAINER_HUDSON)) {
 		msgbox(format("Include Hudson and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_HUDSON, 0, NULL, Route134_Text_HudsonDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_ALEX, Route134_Text_AlexDefeat, TRAINER_HUDSON, Route134_Text_HudsonDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -214,8 +223,11 @@ script Route134_EventScript_TryHitoshiRematch {
 	if (defeated(TRAINER_REYNA)) {
 		msgbox(format("Include Reyna and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_REYNA, 0, NULL, Route134_Text_ReynaDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_HITOSHI, Route134_Text_HitoshiDefeat, TRAINER_REYNA, Route134_Text_ReynaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -240,8 +252,11 @@ script Route134_EventScript_TryHudsonRematch {
 	if (defeated(TRAINER_ALEX)) {
 		msgbox(format("Include Alex and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ALEX, 0, NULL, Route134_Text_AlexDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_HUDSON, Route134_Text_HudsonDefeat, TRAINER_ALEX, Route134_Text_AlexDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -266,8 +281,11 @@ script Route134_EventScript_TryReynaRematch {
 	if (defeated(TRAINER_HITOSHI)) {
 		msgbox(format("Include Hitoshi and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_HITOSHI, 0, NULL, Route134_Text_HitoshiDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_REYNA, Route134_Text_ReynaDefeat, TRAINER_HITOSHI, Route134_Text_HitoshiDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

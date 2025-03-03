@@ -108,8 +108,11 @@ script Route132_EventScript_TryGilbertRematch {
 	if (defeated(TRAINER_DANA)) {
 		msgbox(format("Include Dana and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_DANA, 0, NULL, Route132_Text_DanaDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_GILBERT, Route132_Text_GilbertDefeat, TRAINER_DANA, Route132_Text_DanaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -134,8 +137,11 @@ script Route132_EventScript_TryDanaRematch {
 	if (defeated(TRAINER_GILBERT)) {
 		msgbox(format("Include Gilbert and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_GILBERT, 0, NULL, Route132_Text_GilbertDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_DANA, Route132_Text_DanaDefeat, TRAINER_GILBERT, Route132_Text_GilbertDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -198,8 +204,11 @@ script Route132_EventScript_TryPaxtonRematch {
 	if (defeated(TRAINER_MAKAYLA)) {
 		msgbox(format("Include Makayla and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MAKAYLA, 0, NULL, Route132_Text_MakaylaDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_PAXTON, Route132_Text_PaxtonDefeat, TRAINER_MAKAYLA, Route132_Text_MakaylaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -262,8 +271,11 @@ script Route132_EventScript_TryMakaylaRematch {
 	if (defeated(TRAINER_PAXTON)) {
 		msgbox(format("Include Paxton and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_PAXTON, 0, NULL, Route132_Text_PaxtonDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_MAKAYLA, Route132_Text_MakaylaDefeat, TRAINER_PAXTON, Route132_Text_PaxtonDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

@@ -99,8 +99,11 @@ script Route108_EventScript_TryCarolinaRematch {
 	if (defeated(TRAINER_CORY)) {
 		msgbox(format("Include Cory and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CORY, 0, NULL, Route108_Text_CoryRematchDefeated)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_CAROLINA, Route108_Text_CarolinaDefeated, TRAINER_CORY, Route108_Text_CoryRematchDefeated)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -125,8 +128,11 @@ script Route108_EventScript_TryCoryRematch {
 	if (defeated(TRAINER_CORY)) {
 		msgbox(format("Include Carolina and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CAROLINA, 0, NULL, Route108_Text_CarolinaDefeated)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_CORY, Route108_Text_CoryRematchDefeated, TRAINER_CAROLINA, Route108_Text_CarolinaDefeated)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

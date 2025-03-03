@@ -155,8 +155,11 @@ script Route103_EventScript_TryMarcosRematch {
 	if (defeated(TRAINER_RHETT)) {
 		msgbox(format("Include Rhett and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_RHETT, 0, NULL, Route103_Text_RhettDefeated)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_MARCOS, Route103_Text_MarcosDefeated, TRAINER_RHETT, Route103_Text_RhettDefeated)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -181,8 +184,11 @@ script Route103_EventScript_TryRhettRematch {
 	if (defeated(TRAINER_MARCOS)) {
 		msgbox(format("Include Marcos and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_MARCOS, 0, NULL, Route103_Text_MarcosDefeated)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_RHETT, Route103_Text_RhettDefeated, TRAINER_MARCOS, Route103_Text_MarcosDefeated)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -207,8 +213,11 @@ script Route103_EventScript_TryPeteRematch {
 	if (defeated(TRAINER_ISABELLE)) {
 		msgbox(format("Include Isabelle and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ISABELLE, 0, NULL, Route103_Text_IsabelleDefeated)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_PETE, Route103_Text_PeteDefeated, TRAINER_ISABELLE, Route103_Text_IsabelleDefeated)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -233,8 +242,11 @@ script Route103_EventScript_TryIsabellaRematch {
 	if (defeated(TRAINER_PETE)) {
 		msgbox(format("Include Pete and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_PETE, 0, NULL, Route103_Text_PeteDefeated)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_ISABELLE, Route103_Text_IsabelleDefeated, TRAINER_PETE, Route103_Text_PeteDefeated)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

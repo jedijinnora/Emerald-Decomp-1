@@ -81,8 +81,11 @@ script Route109_EventScript_TryEdmondRematch {
 	if (defeated(TRAINER_ELIJAH)) {
 		msgbox(format("Include Elijah and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ELIJAH, 0, NULL, Route109_Text_ElijahDefeated)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_EDMOND, Route109_Text_EdmondDefeated, TRAINER_ELIJAH, Route109_Text_ElijahDefeated)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -278,8 +281,11 @@ script Route109_EventScript_TryElijahRematch {
 	if (defeated(TRAINER_EDMOND)) {
 		msgbox(format("Include Edmond and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_EDMOND, 0, NULL, Route109_Text_EdmondDefeated)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_ELIJAH, Route109_Text_ElijahDefeated, TRAINER_EDMOND, Route109_Text_EdmondDefeated)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

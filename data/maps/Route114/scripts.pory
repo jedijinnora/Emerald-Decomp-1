@@ -53,8 +53,11 @@ script Route114_EventScript_TryLucasRematch {
 	if (defeated(TRAINER_ANGELINA)) {
 		msgbox(format("Include Angelina and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_ANGELINA, 0, NULL, Route114_Text_AngelinaDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_LUCAS, Route114_Text_LucasDefeat, TRAINER_ANGELINA, Route114_Text_AngelinaDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -79,8 +82,11 @@ script Route114_EventScript_TryShaneRematch {
 	if (defeated(TRAINER_NOLAN)) {
 		msgbox(format("Include Nolan and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_NOLAN, 0, NULL, Route114_Text_NolanDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_SHANE, Route114_Text_ShaneDefeat, TRAINER_NOLAN, Route114_Text_NolanDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -105,8 +111,11 @@ script Route114_EventScript_TryNancyRematch {
 	if (defeated(TRAINER_STEVE)) {
 		msgbox(format("Include Steve and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_STEVE, 0, NULL, Route114_Text_SteveDefeat)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_NANCY, Route114_Text_NancyDefeat, TRAINER_STEVE, Route114_Text_SteveDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -131,8 +140,11 @@ script Route114_EventScript_TrySteveRematch {
 	if (defeated(TRAINER_NANCY)) {
 		msgbox(format("Include Nancy and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_NANCY, 0, NULL, Route114_Text_NancyDefeat)
 			addvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_STEVE, Route114_Text_SteveDefeat, TRAINER_NANCY, Route114_Text_NancyDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -195,8 +207,11 @@ script Route114_EventScript_TryNolanRematch {
 	if (defeated(TRAINER_SHANE)) {
 		msgbox(format("Include Shane and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SHANE, 0, NULL, Route114_Text_ShaneDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_NOLAN, Route114_Text_NolanDefeat, TRAINER_SHANE, Route114_Text_ShaneDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -259,8 +274,11 @@ script Route114_EventScript_TryAngelinaRematch {
 	if (defeated(TRAINER_LUCAS)) {
 		msgbox(format("Include Lucas and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_LUCAS, 0, NULL, Route114_Text_LucasDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_ANGELINA, Route114_Text_AngelinaDefeat, TRAINER_LUCAS, Route114_Text_LucasDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -285,8 +303,11 @@ script Route114_EventScript_TryCharlotteRematch {
 	if (defeated(TRAINER_KAI)) {
 		msgbox(format("Include Kai and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_KAI, 0, NULL, Route114_Text_KaiDefeat)
 			setvar(VAR_0x8004, 2)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_CHARLOTTE, Route114_Text_CharlotteDefeat, TRAINER_KAI, Route114_Text_KaiDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -311,8 +332,11 @@ script Route114_EventScript_TryKaiRematch {
 	if (defeated(TRAINER_CHARLOTTE)) {
 		msgbox(format("Include Charlotte and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_CHARLOTTE, 0, NULL, Route114_Text_CharlotteDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_KAI, Route114_Text_KaiDefeat, TRAINER_CHARLOTTE, Route114_Text_CharlotteDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)

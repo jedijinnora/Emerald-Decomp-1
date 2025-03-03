@@ -5204,11 +5204,11 @@ static void Cmd_getexp(void)
                     PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
                     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 6, gBattleStruct->battlerExpReward);
 
-                    if ((wasSentOut || holdEffect == HOLD_EFFECT_EXP_SHARE) && gBattleMoveDamage != 0)
+                    if ((wasSentOut || holdEffect == HOLD_EFFECT_EXP_SHARE) && gBattleStruct->battlerExpReward != 0)
                     {
                         PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
                     }
-                    else if (IsGen6ExpShareEnabled() && !gBattleStruct->teamGotExpMsgPrinted && gBattleMoveDamage != 0) // Print 'the rest of your team got exp' message once, when all of the sent-in mons were given experience
+                    else if (IsGen6ExpShareEnabled() && !gBattleStruct->teamGotExpMsgPrinted && gBattleStruct->battlerExpReward != 0) // Print 'the rest of your team got exp' message once, when all of the sent-in mons were given experience
                     {
                         gLastUsedItem = ITEM_EXP_SHARE;
                         PrepareStringBattle(STRINGID_TEAMGAINEDEXP, gBattleStruct->expGetterBattlerId);
@@ -5237,7 +5237,7 @@ static void Cmd_getexp(void)
                 gBattleResources->beforeLvlUp->stats[STAT_SPATK] = GetMonData(&gPlayerParty[*expMonId], MON_DATA_SPATK);
                 gBattleResources->beforeLvlUp->stats[STAT_SPDEF] = GetMonData(&gPlayerParty[*expMonId], MON_DATA_SPDEF);
 
-                if (gBattleMoveDamage != 0)
+                if (gBattleStruct->battlerExpReward != 0)
                 {
                     BtlController_EmitExpUpdate(gBattleStruct->expGetterBattlerId, BUFFER_A, *expMonId, gBattleStruct->battlerExpReward);
                 }
@@ -8620,9 +8620,9 @@ static void Cmd_getmoneyreward(void)
         }
         else
         {
-            money = GetTrainerMoneyToGive(gTrainerBattleOpponent_A);
+            money = GetTrainerMoneyToGive(TRAINER_BATTLE_PARAM.opponentA);
             if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-                money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
+                money += GetTrainerMoneyToGive(TRAINER_BATTLE_PARAM.opponentB);
             AddMoney(&gSaveBlock1Ptr->money, money);
             PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, money);
         }

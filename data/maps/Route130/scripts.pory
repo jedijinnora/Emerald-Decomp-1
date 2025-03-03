@@ -66,8 +66,11 @@ script Route130_EventScript_TryKatieRematch {
 	if (defeated(TRAINER_SANTIAGO)) {
 		msgbox(format("Include Santiago and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_SANTIAGO, 0, NULL, Route130_Text_SantiagoDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_KATIE, Route130_Text_KatieDefeat, TRAINER_SANTIAGO, Route130_Text_SantiagoDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
@@ -92,8 +95,11 @@ script Route130_EventScript_TrySantiagoRematch {
 	if (defeated(TRAINER_KATIE)) {
 		msgbox(format("Include Katie and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
-			trainerbattle(TRAINER_BATTLE_SET_TRAINER_B, TRAINER_KATIE, 0, NULL, Route130_Text_KatieDefeat)
 			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_SANTIAGO, Route130_Text_SantiagoDefeat, TRAINER_KATIE, Route130_Text_KatieDefeat)
+			special(UpdateRecentTrainers)
+			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
