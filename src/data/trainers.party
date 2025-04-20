@@ -27,8 +27,9 @@ the pool randomization/selection functions are in src/trainer_pools.c
 
 global pool configuration settings are in include/trainer_pools
  - you can search for B_POOL_SETTING_CONSISTENT_RNG which is the first pool-related config
+ - some pool rules override the global setting; for example 'Duplicates Allowed' can pick the same species multiple times
 
-trainer constants are listed in include/constants/opponents.h
+trainer constants (TRAINER_X) are listed in include/constants/opponents.h
  - they are organized by location/grouping
  - where necessary labeled by location to help you find the correct trainer
 
@@ -48,7 +49,7 @@ Pokemon ordering within a pool:
  - Then organized by Badge tags
 
 
-=== IVs, EVs, and Abilities ===
+=== IVs, EVs, Natures, and Abilities ===
 
 IVs:
  - If IVs are not specified, they will be random
@@ -56,7 +57,10 @@ IVs:
 EVs:
  - if EVs are not specified, they will be 0
  - EVs are not included in stat calculations for all mons if the 'No EV Grinding' difficulty option has been selected
- - EVs are not included in stat calculations for opposing trainers on Easy Difficulty
+ - EVs are not included in stat calculations for NPC trainers on Easy Difficulty
+
+Natures:
+ - If Nature is not specified, it will be random
 
 Abilities:
  - If no ability is specified, the mon will have the first regular ability
@@ -9812,27 +9816,177 @@ Recommended workflow for players who want to try to calc things:
    Pool Rules: Basic
    Pool Prune: Badges
 
-   Togedemaru @ Air Balloon
+   Meowth Galar @ Focus Band
+      Adamant Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Fake Out
+      - Metal Claw
+      - Hone Claws
+      - Flail
+
+   Meowth Galar @ Muscle Band
+      Adamant Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Fake Out
+      - Metal Claw
+      - Aerial Ace
+      - U Turn
+
+   Meowth Galar @ Berry Juice
+      Adamant Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Trailblaze
+      - Iron Head
+      - Lash Out
+      - Swords Dance
+
+   Pineco @ Custap Berry
+      Brave Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      Tags: Stealth Rock / Badge 0
+      - Gyro Ball
+      - Bug Bite
+      - Stealth Rock
+      - Self Destruct
+
+   Pineco @ Leftovers
+      Brave Nature
+      Level: 16
+      Ability: Overcoat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      Tags: Spikes / Badge 0
+      - Gyro Ball
+      - Bug Bite
+      - Curse
+      - Spikes
+
+   Pineco @ Eviolite
+      Brave Nature
+      Level: 16
+      Ability: Overcoat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 150 HP / 150 Atk
+      Tags: Toxic Spikes / Badge 1
+      - Toxic Spikes
+      - Ice Spinner
+      - Bug Bite
+      - Gyro Ball
+
+   Pineco @ Custap Berry
+      Brave Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 150 HP / 150 Atk
+      Tags: Stealth Rock / Badge 1
+      - Gyro Ball
+      - Bug Bite
+      - Stealth Rock
+      - Explosion
+
+   Pineco @ Leftovers
+      Brave Nature
+      Level: 16
+      Ability: Overcoat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 150 HP / 150 Atk
+      Tags: Spikes / Badge 1
+      - Gyro Ball
+      - Bug Bite
+      - Curse
+      - Spikes
+
+   Pineco @ Eviolite
+      Brave Nature
+      Level: 16
+      Ability: Overcoat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 150 HP / 150 Atk
+      Tags: Toxic Spikes / Badge 1
+      - Toxic Spikes
+      - Ice Spinner
+      - Bug Bite
+      - Gyro Ball
+
+   Skarmory @ Scope Lens
+      Adamant Nature
+      Level: 15
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Drill Peck
+      - Cut
+      - Roost
+      - Drill Run
+
+   Skarmory @ Assault Vest
       Jolly Nature
       Level: 15
-      Ability: Iron Barbs
+      Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       Tags: Badge 0
-      - Iron Head
-      - Zing Zap
-      - Fell Stinger
-      - Nuzzle
+      - Drill Peck
+      - Steel Wing
+      - Rock Slide
+      - Drill Run
 
-   Klink @ Berry Juice
-      Jolly Nature
-      Level: 14
-      Ability: Levitate
+   Skarmory @ Lum Berry
+      Impish Nature
+      Level: 15
+      Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       Tags: Badge 0
-      - Gear Grind
-      - Shift Gear
-      - Wild Charge
-      - Thunder Wave
+      - Roost
+      - Iron Defense
+      - Whirlwind
+      - Body Press
+
+   Skarmory @ Scope Lens
+      Adamant Nature
+      Level: 15
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 100 HP / 100 Atk / 100 SpD
+      Tags: Badge 1
+      - Drill Peck
+      - Cut
+      - Roost
+      - Drill Run
+
+   Skarmory @ Assault Vest
+      Jolly Nature
+      Level: 15
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 100 HP / 100 Atk / 100 SpD
+      Tags: Badge 1
+      - Drill Peck
+      - Steel Wing
+      - Rock Slide
+      - Drill Run
+
+   Skarmory @ Weakness Policy
+      Jolly Nature
+      Level: 15
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 100 HP / 100 Atk / 100 SpD
+      Tags: Badge 1
+      - Tailwind
+      - Roost
+      - Drill Run
+      - Rock Slide
 
    Aron @ Leftovers
       Adamant Nature
@@ -9845,55 +9999,128 @@ Recommended workflow for players who want to try to calc things:
       - Headbutt
       - Bulldoze
 
-   Pineco @ Normal Gem
-      Brave Nature
-      Level: 15
-      Ability: Sturdy
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-      Tags: Badge 0
-      - Gyro Ball
-      - Bug Bite
-      - Counter
-      - Self Destruct
-
-   Meowth Galar @ Muscle Band
+   Aron @ Choice Band
       Adamant Nature
       Level: 16
-      Ability: Tough Claws
+      Ability: Rock Head
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       Tags: Badge 0
-      - Fake Out
-      - Metal Claw
-      - Hone Claws
-      - Flail
+      - Head Smash
 
-   Skarmory @ Liechi Berry
+   Aron @ White Herb
       Adamant Nature
       Level: 16
       Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       Tags: Badge 0
-      - Drill Peck
-      - Steel Wing
-      - Roost
-      - Body Press
+      - Iron Head
+      - Dragon Rush
+      - Superpower
+      - Screech
 
-   Aron @ Eviolite
+   Lairon @ Eviolite
+      Adamant Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 100 HP / 100 Atk / 100 SpD
+      Tags: Stealth Rock / Badge 1
+      - Iron Head
+      - Rock Tomb
+      - Stealth Rock
+      - Bulldoze
+
+   Lairon @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 200 Atk / 100 Spe
+      Tags: Badge 1
+      - Head Smash
+
+   Lairon @ White Herb
       Adamant Nature
       Level: 16
       Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 100 HP / 100 Atk / 100 SpD
       Tags: Badge 1
-      - Iron Head
-      - Rock Tomb
-      - Stealth Rock
-      - Bulldoze
+      - Earthquake
+      - Smack Down
+      - Superpower
+      - Iron Tail
 
-   Klink @ Berry Juice
+   Bronzor @ Light Clay
+      Modest Nature
+      Level: 16
+      Ability: Heatproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Screens / Badge 0
+      - Light Screen
+      - Reflect
+      - Hypnosis
+      - Extrasensory
+
+   Bronzor @ Wise Glasses
+      Modest Nature
+      Level: 16
+      Ability: Heatproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Future Sight
+      - Hypnosis
+      - Hex
+      - Calm Mind
+
+   Bronzor @ Eviolite
+      Modest Nature
+      Level: 16
+      Ability: Heatproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Screens / Badge 0
+      - Stored Power
+      - Calm Mind
+      - Iron Defense
+      - Hypnosis
+
+   Klink @ Weakness Policy
       Jolly Nature
-      Level: 14
+      Level: 16
+      Ability: Steelworker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Gear Grind
+      - Shift Gear
+      - Wild Charge
+      - Thunder Wave
+
+   Klink @ Smooth Rock
+      Timid Nature
+      Level: 16
       Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Flash Cannon
+      - Sandstorm
+      - Volt Switch
+      - Thunder Wave
+
+   Klink @ Kings Rock
+      Hasty Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Gear Grind
+      - Shift Gear
+      - Bind
+      - Discharge
+
+   Klink @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Steelworker
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 150 Atk / 150 Spe
       Tags: Badge 1
@@ -9902,19 +10129,64 @@ Recommended workflow for players who want to try to calc things:
       - Wild Charge
       - Thunder Wave
 
-   Pineco @ Normal Gem
-      Brave Nature
-      Level: 15
-      Ability: Sturdy
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-      EVs: 150 HP / 150 Atk
+   Klink @ Smooth Rock
+      Timid Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 SpA / 150 Spe
       Tags: Badge 1
-      - Gyro Ball
-      - Bug Bite
-      - Counter
-      - Self Destruct
+      - Flash Cannon
+      - Sandstorm
+      - Volt Switch
+      - Thunder Wave
 
-   Togedemaru @ Air Balloon
+   Klink @ Kings Rock
+      Hasty Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 Atk / 150 Spe
+      Tags: Badge 1
+      - Gear Grind
+      - Shift Gear
+      - Bind
+      - Discharge
+
+   Togedemaru @ Shuca Berry
+      Jolly Nature
+      Level: 15
+      Ability: Iron Barbs
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Iron Head
+      - Zing Zap
+      - Fell Stinger
+      - Nuzzle
+
+   Togedemaru @ Eject Pack
+      Jolly Nature
+      Level: 15
+      Ability: Iron Barbs
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Fake Out
+      - U Turn
+      - Spiky Shield
+      - Super Fang
+
+   Togedemaru @ Loaded Dice
+      Jolly Nature
+      Level: 15
+      Ability: Iron Barbs
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Iron Head
+      - Zing Zap
+      - Pin Missile
+      - Zen Headbutt
+
+   Togedemaru @ Shuca Berry
       Jolly Nature
       Level: 15
       Ability: Iron Barbs
@@ -9926,17 +10198,29 @@ Recommended workflow for players who want to try to calc things:
       - Fell Stinger
       - Nuzzle
 
-   Skarmory @ Liechi Berry
-      Adamant Nature
-      Level: 16
-      Ability: Sturdy
+   Togedemaru @ Eject Pack
+      Jolly Nature
+      Level: 15
+      Ability: Iron Barbs
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 100 HP / 100 Atk / 100 SpD
       Tags: Badge 1
-      - Drill Peck
-      - Steel Wing
-      - Roost
-      - Body Press
+      - Fake Out
+      - U Turn
+      - Spiky Shield
+      - Super Fang
+
+   Togedemaru @ Loaded Dice
+      Jolly Nature
+      Level: 15
+      Ability: Iron Barbs
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 100 HP / 100 Atk / 100 SpD
+      Tags: Badge 1
+      - Iron Head
+      - Zing Zap
+      - Pin Missile
+      - Zen Headbutt
 
    Cufant @ Life Orb
       Adamant Nature
@@ -9948,7 +10232,31 @@ Recommended workflow for players who want to try to calc things:
       - Iron Head
       - Play Rough
       - Rock Slide
-      - Zen Headbutt
+      - Bulldoze
+
+   Cufant @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 HP / 150 Atk
+      Tags: Badge 1
+      - Iron Head
+      - Play Rough
+      - Rock Slide
+      - Bulldoze
+
+   Cufant @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 200 Atk / 100 Spe
+      Tags: Badge 1
+      - Iron Head
+      - Play Rough
+      - Rock Slide
+      - Bulldoze
 
 === TRAINER_NOLAND_2 ===
    Name: Noland
@@ -9962,46 +10270,10 @@ Recommended workflow for players who want to try to calc things:
    Pool Rules: Basic
    Pool Prune: Badges
 
-   Forretress @ Custap Berry
-      Sassy Nature
-      Level: 15
-      Ability: Sturdy
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-      EVs: 225 HP / 225 SpD
-      Tags: Badge 2 / Badge 3
-      - Gyro Ball
-      - Stealth Rock
-      - Spikes
-      - Volt Switch
-
-   Skarmory @ Liechi Berry
-      Adamant Nature
-      Level: 16
-      Ability: Sturdy
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 150 HP / 150 Atk / 150 SpD
-      Tags: Badge 2 / Badge 3
-      - Drill Peck
-      - Steel Wing
-      - Roost
-      - Body Press
-
-   Cufant @ Life Orb
-      Adamant Nature
-      Level: 16
-      Ability: Sheer Force
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 150 Atk / 150 Def / 150 SpD
-      Tags: Badge 2 / Badge 3
-      - Iron Head
-      - Play Rough
-      - Rock Slide
-      - Zen Headbutt
-
-   Perrserker @ Metal Coat
+   Perrserker @ Assault Vest
       Adamant Nature
       Level: 15
-      Ability: Steely Spirit
+      Ability: Tough Claws
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 225 HP / 225 Atk
       Tags: Badge 2 / Badge 3
@@ -10010,82 +10282,34 @@ Recommended workflow for players who want to try to calc things:
       - Close Combat
       - Aerial Ace
 
-   Excadrill @ Weakness Policy
-      Adamant Nature
-      Level: 16
-      Ability: Mold Breaker
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 225 HP / 225 Atk
-      Tags: Badge 2 / Badge 3
-      - Earthquake
-      - Iron Head
-      - Rock Slide
-      - Swords Dance
-
-   Lairon @ Muscle Band
-      Adamant Nature
-      Level: 16
-      Ability: Rock Head
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 150 HP / 150 Atk / 150 SpD
-      Tags: Badge 2 / Badge 3
-      - Iron Head
-      - Earthquake
-      - Rock Slide
-      - Double Edge
-
-   Forretress @ Custap Berry
-      Sassy Nature
-      Level: 15
-      Ability: Sturdy
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-      EVs: 252 HP / 4 Atk / 252 SpD
-      Tags: Lead / Badge 4 / Badge 5 / Badge 6
-      - Gyro Ball
-      - Stealth Rock
-      - Spikes
-      - Explosion
-
-   Aggron @ Assault Vest
-      Adamant Nature
-      Level: 16
-      Ability: Rock Head
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 170 HP / 170 Atk / 170 SpD
-      Tags: Badge 4 / Badge 5 / Badge 6
-      - Iron Tail
-      - Earthquake
-      - Double Edge
-      - Head Smash
-
-   Skarmory @ Leftovers
-      Bold Nature
-      Level: 16
-      Ability: Sturdy
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 252 HP / 4 Def / 252 SpD
-      Tags: Badge 4 / Badge 5 / Badge 6
-      - Spikes
-      - Whirlwind
-      - Roost
-      - Toxic
-
-   Klinklang @ Weakness Policy
-      Jolly Nature
-      Level: 14
-      Ability: Steelworker
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 4 HP / 252 Atk / 252 Spe
-      Tags: Badge 4 / Badge 5 / Badge 6
-      - Gear Grind
-      - Shift Gear
-      - Wild Charge
-      - Thunder Wave
-
    Perrserker @ Metal Coat
       Adamant Nature
       Level: 15
       Ability: Steely Spirit
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 HP / 225 Atk
+      Tags: Badge 2 / Badge 3
+      - Iron Head
+      - Swords Dance
+      - Fake Out
+      - Baton Pass
+
+   Perrserker @ Muscle Band
+      Adamant Nature
+      Level: 15
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 HP / 225 Atk
+      Tags: Badge 2 / Badge 3
+      - Iron Head
+      - U Turn
+      - Close Combat
+      - Aerial Ace
+
+   Perrserker @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Tough Claws
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 252 Atk / 4 Spe
       Tags: Badge 4 / Badge 5 / Badge 6
@@ -10093,6 +10317,66 @@ Recommended workflow for players who want to try to calc things:
       - Play Rough
       - Close Combat
       - Aerial Ace
+
+   Perrserker @ Metal Coat
+      Adamant Nature
+      Level: 16
+      Ability: Steely Spirit
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Iron Head
+      - Swords Dance
+      - Fake Out
+      - Baton Pass
+
+   Perrserker @ Muscle Band
+      Adamant Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Iron Head
+      - U Turn
+      - Close Combat
+      - Aerial Ace
+
+   Steelix @ Life Orb
+      Adamant Nature
+      Level: 15
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 HP / 225 Atk
+      Tags: Badge 2 / Badge 3
+      - Iron Tail
+      - Rock Slide
+      - Bulldoze
+      - Ice Fang
+
+   Steelix @ Assault Vest
+      Adamant Nature
+      Level: 15
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 HP / 225 Atk
+      Tags: Badge 2 / Badge 3
+      - Body Press
+      - Head Smash
+      - Earthquake
+      - Ice Fang
+
+   Steelix @ Leftovers
+      Brave Nature
+      Level: 15
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Badge 2 / Badge 3
+      - Curse
+      - Gyro Ball
+      - Earthquake
+      - Stone Edge
 
    Steelix @ Life Orb
       Adamant Nature
@@ -10104,7 +10388,718 @@ Recommended workflow for players who want to try to calc things:
       - Iron Tail
       - Rock Slide
       - Bulldoze
-      - Thunder Fang
+      - Ice Fang
+
+   Steelix @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Body Press
+      - Head Smash
+      - Earthquake
+      - Ice Fang
+
+   Steelix @ Leftovers
+      Brave Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Curse
+      - Gyro Ball
+      - Earthquake
+      - Stone Edge
+
+   Forretress @ Custap Berry
+      Sassy Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Stealth Rock / Spikes / Badge 2 / Badge 3
+      - Gyro Ball
+      - Stealth Rock
+      - Spikes
+      - Volt Switch
+
+   Forretress @ Custap Berry
+      Sassy Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Badge 2 / Badge 3
+      - Gyro Ball
+      - Curse
+      - Body Press
+      - Explosion
+
+   Forretress @ Assault Vest
+      Sassy Nature
+      Level: 16
+      Ability: Overcoat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Badge 2 / Badge 3
+      - Gyro Ball
+      - Ice Spinner
+      - Explosion
+      - Volt Switch
+
+   Forretress @ Occa Berry
+      Calm Nature
+      Level: 16
+      Ability: Bulletproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Hazard Removal / Spikes / Badge 2 / Badge 3
+      - Rapid Spin
+      - Toxic
+      - Spikes
+      - Volt Switch
+
+   Forretress @ Custap Berry
+      Sassy Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Stealth Rock / Spikes / Badge 4 / Badge 5 / Badge 6
+      - Gyro Ball
+      - Stealth Rock
+      - Spikes
+      - Volt Switch
+
+   Forretress @ Custap Berry
+      Sassy Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Gyro Ball
+      - Curse
+      - Body Press
+      - Explosion
+
+   Forretress @ Assault Vest
+      Sassy Nature
+      Level: 16
+      Ability: Overcoat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Gyro Ball
+      - Ice Spinner
+      - Explosion
+      - Volt Switch
+
+   Forretress @ Occa Berry
+      Calm Nature
+      Level: 16
+      Ability: Bulletproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Spikes / Hazard Removal / Badge 4 / Badge 5 / Badge 6
+      - Rapid Spin
+      - Toxic
+      - Spikes
+      - Volt Switch
+
+   Skarmory @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 HP / 150 Def / 150 SpD
+      Tags: Phazing Move / Badge 2 / Badge 3
+      - Whirlwind
+      - Toxic
+      - Roost
+      - Body Press
+
+   Skarmory @ Scope Lens
+      Adamant Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 HP / 150 Atk / 150 Spe
+      Tags: Badge 2 / Badge 3
+      - Drill Peck
+      - Cut
+      - Roost
+      - Drill Run
+
+   Skarmory @ Assault Vest
+      Jolly Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 HP / 150 Atk / 150 SpD
+      Tags: Badge 2 / Badge 3
+      - Aerial Ace
+      - Cut
+      - Rock Slide
+      - Drill Run
+
+   Skarmory @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 HP / 150 Atk / 150 SpD
+      Tags: Badge 2 / Badge 3
+      - Tailwind
+      - Roost
+      - Drill Run
+      - Rock Slide
+
+   Skarmory @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      Tags: Phazing Move / Badge 4 / Badge 5 / Badge 6
+      - Whirlwind
+      - Toxic
+      - Roost
+      - Body Press
+
+   Skarmory @ Scope Lens
+      Adamant Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Drill Peck
+      - Cut
+      - Roost
+      - Drill Run
+
+   Skarmory @ Assault Vest
+      Jolly Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Aerial Ace
+      - Cut
+      - Rock Slide
+      - Drill Run
+
+   Skarmory @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Tailwind
+      - Roost
+      - Drill Run
+      - Rock Slide
+
+   Lairon @ Eviolite
+      Adamant Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 HP / 150 Atk / 150 SpD
+      Tags: Stealth Rock / Badge 2 / Badge 3
+      - Iron Head
+      - Rock Tomb
+      - Stealth Rock
+      - Bulldoze
+
+   Lairon @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 200 Spe
+      Tags: Badge 2 / Badge 3
+      - Head Smash
+
+   Lairon @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 200 Spe
+      Tags: Badge 2 / Badge 3
+      - Head Smash
+
+   Lairon @ White Herb
+      Adamant Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 100 HP / 100 Atk / 100 SpD
+      Tags: Badge 2 / Badge 3
+      - Earthquake
+      - Smack Down
+      - Superpower
+      - Iron Tail
+
+   Aggron @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Iron Tail
+      - Head Smash
+      - Dragon Tail
+      - Earthquake
+
+   Aggron @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Head Smash
+
+   Aggron @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Filter
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Earthquake
+      - Stone Edge
+      - Dragon Rush
+      - Iron Tail
+
+   Metagross @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Meteor Mash
+      - Earthquake
+      - Agility
+      - Bullet Punch
+
+   Metagross @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Meteor Mash
+      - Earthquake
+      - Explosion
+      - Bullet Punch
+
+   Metagross @ Custap Berry
+      Adamant Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 96 Atk / 160 Spe
+      Tags: Stealth Rock / Badge 4 / Badge 5 / Badge 6
+      - Stealth Rock
+      - Pursuit
+      - Explosion
+      - Earthquake
+
+   Bronzong @ Light Clay
+      Calm Nature
+      Level: 16
+      Ability: Heatproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Screens / Badge 2 / Badge 3
+      - Light Screen
+      - Reflect
+      - Hypnosis
+      - Future Sight
+
+   Bronzong @ Leftovers
+      Brave Nature
+      Level: 16
+      Ability: Heatproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Badge 2 / Badge 3
+      - Curse
+      - Toxic
+      - Earthquake
+      - Gyro Ball
+
+   Bronzong @ Leftovers
+      Calm Nature
+      Level: 16
+      Ability: Heatproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Badge 2 / Badge 3
+      - Stored Power
+      - Calm Mind
+      - Iron Defense
+      - Hypnosis
+
+   Bronzong @ Light Clay
+      Calm Nature
+      Level: 16
+      Ability: Heatproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Screens / Badge 4 / Badge 5 / Badge 6
+      - Light Screen
+      - Reflect
+      - Hypnosis
+      - Future Sight
+
+   Bronzong @ Leftovers
+      Brave Nature
+      Level: 16
+      Ability: Heatproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Curse
+      - Toxic
+      - Earthquake
+      - Gyro Ball
+
+   Bronzong @ Leftovers
+      Calm Nature
+      Level: 16
+      Ability: Heatproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Stored Power
+      - Calm Mind
+      - Iron Defense
+      - Hypnosis
+
+   Lucario @ Black Belt
+      Timid Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 SpA / 225 Spe
+      Tags: Badge 3 / Badge 4
+      - Flash Cannon
+      - Aura Sphere
+      - Nasty Plot
+      - Vacuum Wave
+
+   Lucario @ Black Belt
+      Timid Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Flash Cannon
+      - Aura Sphere
+      - Nasty Plot
+      - Vacuum Wave
+
+   Excadrill @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Mold Breaker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Hazard Removal / Badge 2 / Badge 3
+      - Earthquake
+      - Iron Head
+      - Rapid Spin
+      - Swords Dance
+
+   Excadrill @ Smooth Rock
+      Jolly Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 2 / Badge 3
+      - Earthquake
+      - Iron Head
+      - Sandstorm
+      - Swords Dance
+
+   Excadrill @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Mold Breaker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Hazard Removal / Badge 2 / Badge 3
+      - Earthquake
+      - Iron Head
+      - Toxic
+      - Rapid Spin
+
+   Excadrill @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Mold Breaker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Hazard Removal / Badge 4 / Badge 5 / Badge 6
+      - Earthquake
+      - Iron Head
+      - Rapid Spin
+      - Swords Dance
+
+   Excadrill @ Smooth Rock
+      Jolly Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Earthquake
+      - Iron Head
+      - Sandstorm
+      - Swords Dance
+
+   Excadrill @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Mold Breaker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 180 SpD / 76 Spe
+      Tags: Hazard Removal / Badge 4 / Badge 5 / Badge 6
+      - Earthquake
+      - Iron Head
+      - Toxic
+      - Rapid Spin
+
+   Klinklang @ Weakness Policy
+      Jolly Nature
+      Level: 14
+      Ability: Steelworker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 2 / Badge 3
+      - Gear Grind
+      - Shift Gear
+      - Wild Charge
+      - Thunder Wave
+
+   Klinklang @ Metal Coat
+      Adamant Nature
+      Level: 14
+      Ability: Steelworker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 2 / Badge 3
+      - Gear Grind
+      - Shift Gear
+      - Wild Charge
+      - Thunder Wave
+
+   Klinklang @ Smooth Rock
+      Jolly Nature
+      Level: 14
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 2 / Badge 3
+      - Gear Grind
+      - Sandstorm
+      - Volt Switch
+      - Thunder Wave
+
+   Klinklang @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Steelworker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Gear Grind
+      - Shift Gear
+      - Wild Charge
+      - Thunder Wave
+
+   Klinklang @ Metal Coat
+      Adamant Nature
+      Level: 16
+      Ability: Steelworker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Gear Grind
+      - Shift Gear
+      - Wild Charge
+      - Thunder Wave
+
+   Klinklang @ Smooth Rock
+      Jolly Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Gear Grind
+      - Sandstorm
+      - Volt Switch
+      - Thunder Wave
+
+   Copperajah @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 Atk / 225 SpD
+      Tags: Badge 2 / Badge 3
+      - Iron Head
+      - Play Rough
+      - Earthquake
+      - Knock Off
+
+   Copperajah @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 150 Atk / 150 SpD / 150 Spe
+      Tags: Badge 2 / Badge 3
+      - Iron Head
+      - Play Rough
+      - Earthquake
+      - Knock Off
+
+   Copperajah @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 Atk / 225 SpD
+      Tags: Stealth Rock / Phazing Move / Badge 2 / Badge 3
+      - Iron Head
+      - Stealth Rock
+      - Whirlwind
+      - Knock Off
+
+   Copperajah @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 252 SpD / 4 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Iron Head
+      - Play Rough
+      - Earthquake
+      - Knock Off
+
+   Copperajah @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 192 Atk / 192 SpD / 124 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Iron Head
+      - Play Rough
+      - Earthquake
+      - Knock Off
+
+   Copperajah @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP /  8 Def / 252 SpD
+      Tags: Stealth Rock / Phazing Move / Badge 4 / Badge 5 / Badge 6
+      - Iron Head
+      - Stealth Rock
+      - Whirlwind
+      - Knock Off
+
+   Duraludon @ Expert Belt
+      Modest Nature
+      Level: 16
+      Ability: Light Metal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 SpA / 225 Spe
+      Tags: Badge 2 / Badge 3
+      - Draco Meteor
+      - Flash Cannon
+      - Body Press
+      - Thunderbolt
+
+   Duraludon @ Eject Pack
+      Timid Nature
+      Level: 16
+      Ability: Light Metal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 SpA / 225 Spe
+      Tags: Stealth Rock / Badge 2 / Badge 3
+      - Draco Meteor
+      - Flash Cannon
+      - Body Press
+      - Stealth Rock
+
+   Duraludon @ Assault Vest
+      Calm Nature
+      Level: 16
+      Ability: Light Metal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Badge 2 / Badge 3
+      - Breaking Swipe
+      - Flash Cannon
+      - Body Press
+      - Snarl
+
+   Archaludon @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Stamina
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Draco Meteor
+      - Flash Cannon
+      - Foul Play
+      - Thunderbolt
+
+   Archaludon @ Power Herb
+      Timid Nature
+      Level: 16
+      Ability: Stamina
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Electro Shot
+      - Flash Cannon
+      - Body Press
+      - Thunder Wave
+
+   Duraludon @ Eviolite
+      Calm Nature
+      Level: 16
+      Ability: Light Metal
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Breaking Swipe
+      - Flash Cannon
+      - Body Press
+      - Snarl
 
 === TRAINER_NOLAND_3 ===
    Name: Noland
@@ -10119,7 +11114,7 @@ Recommended workflow for players who want to try to calc things:
 
    Perrserker @ Heavy Duty Boots
       Adamant Nature
-      Level: 15
+      Level: 16
       Ability: Tough Claws
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 248 HP / 252 Atk / 8 Spe
@@ -10129,21 +11124,9 @@ Recommended workflow for players who want to try to calc things:
       - U Turn
       - Stealth Rock
 
-   Perrserker @ Leftovers
-      Adamant Nature
-      Level: 15
-      Ability: Tough Claws
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 248 HP / 252 Atk / 8 Spe
-      Tags: Stealth Rock
-      - Iron Head
-      - Fake Out
-      - U Turn
-      - Stealth Rock
-
    Perrserker @ Metal Coat
       Adamant Nature
-      Level: 15
+      Level: 16
       Ability: Steely Spirit
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 248 HP / 252 Atk / 8 Spe
@@ -10151,6 +11134,75 @@ Recommended workflow for players who want to try to calc things:
       - Play Rough
       - Close Combat
       - Aerial Ace
+
+   Perrserker @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 252 Atk / 8 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Iron Head
+      - Play Rough
+      - Close Combat
+      - Aerial Ace
+
+   Perrserker @ Metal Coat
+      Adamant Nature
+      Level: 16
+      Ability: Steely Spirit
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 252 Atk / 8 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Iron Head
+      - Swords Dance
+      - Fake Out
+      - Baton Pass
+
+   Perrserker @ Muscle Band
+      Adamant Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP / 252 Atk / 8 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Iron Head
+      - U Turn
+      - Close Combat
+      - Aerial Ace
+
+   Steelix @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Iron Tail
+      - Rock Slide
+      - Bulldoze
+      - Ice Fang
+
+   Steelix @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Body Press
+      - Head Smash
+      - Earthquake
+      - Ice Fang
+
+   Steelix @ Leftovers
+      Brave Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      - Curse
+      - Gyro Ball
+      - Earthquake
+      - Stone Edge
 
    Steelix @ Leftovers
       Careful Nature
@@ -10200,7 +11252,7 @@ Recommended workflow for players who want to try to calc things:
 
    Forretress @ Custap Berry
       Sassy Nature
-      Level: 15
+      Level: 16
       Ability: Sturdy
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
       EVs: 252 HP / 4 Atk / 252 SpD
@@ -10210,10 +11262,44 @@ Recommended workflow for players who want to try to calc things:
       - Spikes
       - Explosion
 
+   Forretress @ Custap Berry
+      Sassy Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      - Gyro Ball
+      - Curse
+      - Body Press
+      - Explosion
+
+   Forretress @ Assault Vest
+      Sassy Nature
+      Level: 16
+      Ability: Overcoat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      - Gyro Ball
+      - Ice Spinner
+      - Explosion
+      - Volt Switch
+
+   Forretress @ Occa Berry
+      Calm Nature
+      Level: 16
+      Ability: Bulletproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Spikes / Hazard Removal
+      - Rapid Spin
+      - Toxic
+      - Spikes
+      - Volt Switch
+
    Forretress @ Leftovers
       Relaxed Nature
-      Level: 15
-      Ability: Sturdy
+      Level: 16
+      Ability: Bulletproof
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
       EVs: 252 HP / 164 Def / 92 SpD
       Tags: Spikes
@@ -10221,6 +11307,51 @@ Recommended workflow for players who want to try to calc things:
       - Body Press
       - Spikes
       - Gyro Ball
+
+   Skarmory @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      Tags: Phazing Move
+      - Whirlwind
+      - Toxic
+      - Roost
+      - Body Press
+
+   Skarmory @ Scope Lens
+      Adamant Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Drill Peck
+      - Cut
+      - Roost
+      - Drill Run
+
+   Skarmory @ Assault Vest
+      Jolly Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      - Aerial Ace
+      - Cut
+      - Rock Slide
+      - Drill Run
+
+   Skarmory @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      - Tailwind
+      - Roost
+      - Drill Run
+      - Rock Slide
 
    Aggron @ Assault Vest
       Adamant Nature
@@ -10230,7 +11361,7 @@ Recommended workflow for players who want to try to calc things:
       EVs: 170 HP / 170 Atk / 170 SpD
       - Iron Tail
       - Earthquake
-      - Double Edge
+      - Dragon Tail
       - Head Smash
    
    Aggron @ Assault Vest
@@ -10246,7 +11377,7 @@ Recommended workflow for players who want to try to calc things:
 
    Aggron @ Leftovers
       Jolly Nature
-      Level: 14
+      Level: 16
       Ability: Rock Head
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 Atk / 4 SpD / 252 Spe
@@ -10255,9 +11386,158 @@ Recommended workflow for players who want to try to calc things:
       - Head Smash
       - Iron Tail
 
+   Aggron @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Head Smash
+
+   Aggron @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Filter
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Earthquake
+      - Stone Edge
+      - Dragon Rush
+      - Iron Tail
+
+   Metagross @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Meteor Mash
+      - Earthquake
+      - Agility
+      - Bullet Punch
+
+   Metagross @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      - Meteor Mash
+      - Earthquake
+      - Explosion
+      - Bullet Punch
+
+   Metagross @ Custap Berry
+      Adamant Nature
+      Level: 16
+      Ability: Tough Claws
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 96 Atk / 160 Spe
+      Tags: Stealth Rock
+      - Stealth Rock
+      - Pursuit
+      - Explosion
+      - Earthquake
+
+   Bronzong @ Light Clay
+      Calm Nature
+      Level: 16
+      Ability: Heatproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Screens / Badge 4 / Badge 5 / Badge 6
+      - Light Screen
+      - Reflect
+      - Hypnosis
+      - Future Sight
+
+   Bronzong @ Leftovers
+      Brave Nature
+      Level: 16
+      Ability: Heatproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Curse
+      - Toxic
+      - Earthquake
+      - Gyro Ball
+
+   Bronzong @ Leftovers
+      Calm Nature
+      Level: 16
+      Ability: Heatproof
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Stored Power
+      - Calm Mind
+      - Iron Defense
+      - Hypnosis
+
+   Lucario @ Black Belt
+      Timid Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 225 SpA / 225 Spe
+      Tags: Badge 3 / Badge 4
+      - Flash Cannon
+      - Aura Sphere
+      - Nasty Plot
+      - Vacuum Wave
+
+   Lucario @ Black Belt
+      Timid Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Flash Cannon
+      - Aura Sphere
+      - Nasty Plot
+      - Vacuum Wave
+
+   Excadrill @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Mold Breaker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Hazard Removal / Badge 4 / Badge 5 / Badge 6
+      - Earthquake
+      - Iron Head
+      - Rapid Spin
+      - Swords Dance
+
+   Excadrill @ Smooth Rock
+      Jolly Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6
+      - Earthquake
+      - Iron Head
+      - Sandstorm
+      - Swords Dance
+
+   Excadrill @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Mold Breaker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 180 SpD / 76 Spe
+      Tags: Hazard Removal / Badge 4 / Badge 5 / Badge 6
+      - Earthquake
+      - Iron Head
+      - Toxic
+      - Rapid Spin
+
    Klinklang @ Weakness Policy
       Jolly Nature
-      Level: 14
+      Level: 16
       Ability: Steelworker
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 Atk / 252 Spe
@@ -10266,48 +11546,60 @@ Recommended workflow for players who want to try to calc things:
       - Wild Charge
       - Thunder Wave
 
-   Klinklang @ Magnet
-      Naive Nature
-      Level: 14
+   Klinklang @ Metal Coat
+      Adamant Nature
+      Level: 16
       Ability: Steelworker
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 170 Atk / 170 SpA / 170 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
       - Gear Grind
-      - Steel Roller
-      - Rising Voltage
-      - Electric Terrain
+      - Shift Gear
+      - Wild Charge
+      - Thunder Wave
 
-   Klinklang @ Lum Berry
-      Careful Nature
-      Level: 14
-      Ability: Steelworker
+   Klinklang @ Smooth Rock
+      Jolly Nature
+      Level: 16
+      Ability: Levitate
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 252 HP / 4 Def / 252 SpD
-      - Rest
+      EVs: 4 HP / 252 Atk / 252 Spe
       - Gear Grind
-      - Recycle
-      - Iron Defense
+      - Sandstorm
+      - Volt Switch
+      - Thunder Wave
 
    Copperajah @ Life Orb
       Adamant Nature
       Level: 16
       Ability: Sheer Force
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 252 HP / 252 Atk / 4 Spe
+      EVs: 252 Atk / 252 SpD / 4 Spe
       - Iron Head
       - Play Rough
-      - Rock Slide
-      - Zen Headbutt
+      - Earthquake
+      - Knock Off
 
    Copperajah @ Assault Vest
       Adamant Nature
       Level: 16
-      Ability: Heavy Metal
+      Ability: Sheer Force
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 192 Atk / 192 SpD / 124 Spe
-      - Smack Down
+      - Iron Head
+      - Play Rough
       - Earthquake
-      - Heavy Slam
+      - Knock Off
+
+   Copperajah @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 248 HP /  8 Def / 252 SpD
+      Tags: Stealth Rock / Phazing Move
+      - Iron Head
+      - Stealth Rock
+      - Whirlwind
       - Knock Off
 
    Archaludon @ Assault Vest
@@ -10316,6 +11608,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Stamina
       IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 170 HP / 170 Def / 170 SpA
+      Tags: Ace
       - Electro Shot
       - Flash Cannon
       - Body Press
@@ -10327,6 +11620,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Stamina
       IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 16 SpA / 240 SpD
+      Tags: Ace
       - Electro Shot
       - Flash Cannon
       - Body Press
@@ -10338,7 +11632,7 @@ Recommended workflow for players who want to try to calc things:
       Ability: Stamina
       IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 204 Def / 52 Spe
-      Tags: Stealth Rock
+      Tags: Ace / Stealth Rock
       - Stealth Rock
       - Thunder Wave
       - Body Press
@@ -10350,11 +11644,35 @@ Recommended workflow for players who want to try to calc things:
       Ability: Stamina
       IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 204 Def / 52 Spe
+      Tags: Ace
       - Foul Play
       - Thunder Wave
       - Body Press
       - Draco Meteor
 
+   Archaludon @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Stamina
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Ace
+      - Draco Meteor
+      - Flash Cannon
+      - Foul Play
+      - Thunderbolt
+
+   Archaludon @ Power Herb
+      Timid Nature
+      Level: 16
+      Ability: Stamina
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Ace
+      - Electro Shot
+      - Flash Cannon
+      - Body Press
+      - Thunder Wave
 
 /* Dewford Gym Leader */
 === TRAINER_SIDNEY_1 ===
@@ -12905,57 +14223,66 @@ Recommended workflow for players who want to try to calc things:
    Music: Male
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Rules: Duplicates Allowed
+   Pool Prune: Badges
 
    Porygon2 @ Eviolite
-   Level: 14
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   EVs: 225 HP / 225 SpA
-   - Thunderbolt
-   - Ice Beam
-   - Recover
-   - Tri Attack
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 SpA
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Thunderbolt
+      - Ice Beam
+      - Recover
+      - Tri Attack
 
    Porygon2 @ Leftovers
-   Level: 14
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   EVs: 150 HP / 150 Def / 150 SpD
-   - Thunderbolt
-   - Toxic
-   - Recover
-   - Tri Attack
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 150 HP / 150 Def / 150 SpD
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Thunderbolt
+      - Toxic
+      - Recover
+      - Tri Attack
 
    Sandslash Alola @ Wide Lens
-   Level: 14
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   EVs: 225 Atk / 225 Spe
-   - Iron Head
-   - Triple Axel
-   - Ice Shard
-   - Brick Break
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Iron Head
+      - Triple Axel
+      - Ice Shard
+      - Brick Break
 
    Porygon @ Eviolite
-   Level: 14
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   - Thunderbolt
-   - Ice Beam
-   - Recover
-   - Tri Attack
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Thunderbolt
+      - Ice Beam
+      - Recover
+      - Tri Attack
 
-   Porygon2 @ Leftovers
-   Level: 14
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   - Thunderbolt
-   - Ice Beam
-   - Recover
-   - Tri Attack
+   Porygon @ Leftovers
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Thunderbolt
+      - Ice Beam
+      - Recover
+      - Tri Attack
 
    Sandshrew Alola @ Wide Lens
-   Level: 14
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   - Iron Head
-   - Triple Axel
-   - Ice Shard
-   - Brick Break
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Iron Head
+      - Triple Axel
+      - Ice Shard
+      - Brick Break
 
 === TRAINER_MARC ===
    Name: Marc
@@ -12965,63 +14292,65 @@ Recommended workflow for players who want to try to calc things:
    Music: Hiker
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Prune: Badges
 
    Bisharp @ Eviolite
-   Level: 14
-   Ability: Defiant
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   EVs: 225 HP / 225 Atk
-   - Iron Head
-   - Knock Off
-   - Swords Dance
-   - Sucker Punch
+      Level: 14
+      Ability: Defiant
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 Atk
+      - Iron Head
+      - Knock Off
+      - Swords Dance
+      - Sucker Punch
 
    Mawile @ Leftovers
-   Level: 14
-   Ability: Intimidate
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   EVs: 225 HP / 225 Atk
-   - Iron Head
-   - Crunch
-   - Play Rough
-   - Sucker Punch
+      Level: 14
+      Ability: Intimidate
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 Atk
+      - Iron Head
+      - Crunch
+      - Play Rough
+      - Sucker Punch
 
    Aggron @ Assault Vest
-   Level: 14
-   Ability: Sturdy
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   EVs: 225 HP / 225 SpD
-   - Iron Tail
-   - Rock Slide
-   - Dragon Claw
-   - Body Press
+      Level: 14
+      Ability: Sturdy
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 SpD
+      - Iron Tail
+      - Rock Slide
+      - Dragon Claw
+      - Body Press
 
    Pawniard @ Eviolite
-   Level: 14
-   Ability: Defiant
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   - Metal Claw
-   - Knock Off
-   - Swords Dance
-   - Stone Edge
+      Level: 14
+      Ability: Defiant
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      - Metal Claw
+      - Knock Off
+      - Swords Dance
+      - Stone Edge
 
    Mawile @ Leftovers
-   Level: 14
-   Ability: Intimidate
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   - Iron Head
-   - Crunch
-   - Play Rough
-   - Sucker Punch
+      Level: 14
+      Ability: Intimidate
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      - Iron Head
+      - Crunch
+      - Play Rough
+      - Sucker Punch
 
    Lairon @ Wide Lens
-   Level: 14
-   Ability: Sturdy
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   - Iron Tail
-   - Rock Tomb
-   - Bulldoze
-   - Brick Break
+      Level: 14
+      Ability: Sturdy
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      - Iron Tail
+      - Rock Tomb
+      - Bulldoze
+      - Brick Break
 
 === TRAINER_JOSH ===
    Name: Josh
@@ -13031,59 +14360,125 @@ Recommended workflow for players who want to try to calc things:
    Music: Male
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Prune: Badges
 
    Togedemaru @ Air Balloon
-   Level: 14
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   EVs: 225 Atk / 225 Spe
-   - Zing Zap
-   - Iron Head
-   - Nuzzle
-   - Spiky Shield
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      - Zing Zap
+      - Iron Head
+      - Nuzzle
+      - Spiky Shield
 
    Ferrothorn @ Leftovers
-   Level: 14
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
-   EVs: 150 HP / 150 Atk / 150 SpD
-   - Leech Seed
-   - Gyro Ball
-   - Power Whip
-   - Curse
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      EVs: 150 HP / 150 Atk / 150 SpD
+      - Leech Seed
+      - Gyro Ball
+      - Power Whip
+      - Curse
 
    Durant @ Wide Lens
-   Level: 14
-   Ability: Hustle
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   EVs: 225 Atk / 225 Spe
-   - Iron Head
-   - X Scissor
-   - Rock Slide
-   - Hone Claws
+      Level: 14
+      Ability: Hustle
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      - Iron Head
+      - X Scissor
+      - Rock Slide
+      - Hone Claws
 
    Togedemaru @ Air Balloon
-   Level: 14
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   - Zing Zap
-   - Iron Head
-   - Nuzzle
-   - Spiky Shield
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      - Zing Zap
+      - Iron Head
+      - Nuzzle
+      - Spiky Shield
 
    Ferroseed @ Eviolite
-   Level: 14
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
-   - Leech Seed
-   - Gyro Ball
-   - Seed Bomb
-   - Revenge
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      - Leech Seed
+      - Gyro Ball
+      - Seed Bomb
+      - Revenge
 
    Durant @ Wide Lens
-   Level: 14
-   Ability: Hustle
-   IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-   - Iron Head
-   - X Scissor
-   - Rock Slide
-   - Hone Claws
+      Level: 14
+      Ability: Hustle
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      - Iron Head
+      - X Scissor
+      - Rock Slide
+      - Hone Claws
+
+=== TRAINER_MILO ===
+   Name: Milo
+   Class: Bug Catcher
+   Pic: Bug Catcher
+   Gender: Male
+   Music: Male
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Prune: Badges
+
+   Togedemaru @ Air Balloon
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      - Zing Zap
+      - Iron Head
+      - Nuzzle
+      - Spiky Shield
+
+   Ferrothorn @ Leftovers
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      EVs: 150 HP / 150 Atk / 150 SpD
+      - Leech Seed
+      - Gyro Ball
+      - Power Whip
+      - Curse
+
+   Durant @ Wide Lens
+      Level: 14
+      Ability: Hustle
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      - Iron Head
+      - X Scissor
+      - Rock Slide
+      - Hone Claws
+
+   Togedemaru @ Air Balloon
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      - Zing Zap
+      - Iron Head
+      - Nuzzle
+      - Spiky Shield
+
+   Ferroseed @ Eviolite
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      - Leech Seed
+      - Gyro Ball
+      - Seed Bomb
+      - Revenge
+
+   Durant @ Wide Lens
+      Level: 14
+      Ability: Hustle
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      - Iron Head
+      - X Scissor
+      - Rock Slide
+      - Hone Claws
 
 
 /* Dewford Gym */
