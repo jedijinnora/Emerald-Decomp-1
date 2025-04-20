@@ -32135,7 +32135,7 @@ F_TRAINER_FEMALE |
 #line 14332
             .ability = ABILITY_INTIMIDATE,
 #line 14331
-            .lvl = 14,
+            .lvl = 12,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
 #line 14334
             .tags = MON_POOL_TAG_BADGE_0 | MON_POOL_TAG_BADGE_1,
@@ -32515,7 +32515,7 @@ F_TRAINER_FEMALE |
 #line 14500
             .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
 #line 14499
-            .ability = ABILITY_BULLETPROOF,
+            .ability = ABILITY_STURDY,
 #line 14498
             .lvl = 14,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -32540,7 +32540,7 @@ F_TRAINER_FEMALE |
 #line 14510
             .iv = TRAINER_PARTY_IVS(20, 20, 20, 20, 20, 20),
 #line 14509
-            .ability = ABILITY_BULLETPROOF,
+            .ability = ABILITY_STURDY,
 #line 14508
             .lvl = 14,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
