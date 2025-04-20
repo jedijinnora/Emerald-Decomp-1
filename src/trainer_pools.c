@@ -231,10 +231,14 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
             {
                 poolIndexArray[currIndex] = POOL_SLOT_DISABLED;
             }
-            if (rules->speciesClause && chosenSpecies == currentSpecies)
-                poolIndexArray[currIndex] = POOL_SLOT_DISABLED;
-            if (!rules->excludeForms && chosenNatDex == currentNatDex)
-                poolIndexArray[currIndex] = POOL_SLOT_DISABLED;
+            //Jinnora: must nest the exclude forms clause within species clause
+            if (rules->speciesClause)
+            {
+                if (chosenSpecies == currentSpecies)
+                    poolIndexArray[currIndex] = POOL_SLOT_DISABLED;
+                if (!rules->excludeForms && chosenNatDex == currentNatDex)
+                    poolIndexArray[currIndex] = POOL_SLOT_DISABLED;
+            }            
             if (rules->itemClause && currentItem != ITEM_NONE)
             {
                 if (rules->itemClauseExclusions)
