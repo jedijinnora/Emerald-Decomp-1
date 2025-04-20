@@ -247,6 +247,11 @@ RustboroCity_Gym_EventScript_Marc::
 	msgbox RustboroCity_Gym_Text_MarcPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+RustboroCity_Gym_EventScript_Milo::
+	trainerbattle_single TRAINER_MILO, RustboroCity_Gym_Text_MiloIntro, RustboroCity_Gym_Text_MiloDefeat
+	msgbox RustboroCity_Gym_Text_MiloPostBattle, MSGBOX_AUTOCLOSE
+	end
+
 RustboroCity_Gym_EventScript_LeftGymStatue::
 	lockall
 	goto_if_set FLAG_BADGE01_GET, RustboroCity_Gym_EventScript_GymStatueCertified
@@ -309,6 +314,17 @@ RustboroCity_Gym_Text_MarcPostBattle:
 	.string "I have to hand it to our Leader.\p"
 	.string "No one is better than him when it\n"
 	.string "comes to evaluating young Trainers!$"
+
+RustboroCity_Gym_Text_MiloIntro:
+	.string "The best Steel-types are Bugs! They\n"
+	.string "only have one weakness!$"
+
+RustboroCity_Gym_Text_MiloDefeat:
+	.string "What? That's not fair!$"
+
+RustboroCity_Gym_Text_MiloPostBattle:
+	.string "You may have won, but my Bugs are way\n"
+	.string "cooler than your lame Pokémon!$"
 
 RustboroCity_Gym_Text_ReceivedStoneBadge:
 	.string "{PLAYER} received the Stone Badge\n"
