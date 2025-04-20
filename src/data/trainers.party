@@ -14224,65 +14224,97 @@ Recommended workflow for players who want to try to calc things:
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
    Party Size: 3
-   Pool Rules: Duplicates Allowed
    Pool Prune: Badges
 
-   Porygon2 @ Eviolite
+   Sandshrew Alola @ Wide Lens
+      Brave Nature
       Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 HP / 225 SpA
+      Ability: Ice Scales
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Iron Head
+      - Triple Axel
+      - Ice Shard
+      - Brick Break
+
+   Sandslash Alola @ Wide Lens
+      Brave Nature
+      Level: 14
+      Ability: Ice Scales
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      EVs: 225 HP / 225 Atk
       Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Iron Head
+      - Triple Axel
+      - Ice Shard
+      - Brick Break
+
+   Porygon @ Leftovers
+      Quiet Nature
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      Tags: Badge 0 / Badge 1
       - Thunderbolt
       - Ice Beam
-      - Recover
+      - Trick Room
       - Tri Attack
 
    Porygon2 @ Leftovers
+      Quiet Nature
       Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Thunderbolt
-      - Toxic
-      - Recover
-      - Tri Attack
-
-   Sandslash Alola @ Wide Lens
-      Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 Atk / 225 Spe
-      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Iron Head
-      - Triple Axel
-      - Ice Shard
-      - Brick Break
-
-   Porygon @ Eviolite
-      Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      EVs: 225 HP / 225 SpA
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Thunderbolt
       - Ice Beam
+      - Trick Room
       - Recover
-      - Tri Attack
 
-   Porygon @ Leftovers
+   Bronzor @ Eviolite
+      Brave Nature
       Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Ability: Heatproof
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
       Tags: Badge 0 / Badge 1 / Badge 2
-      - Thunderbolt
-      - Ice Beam
-      - Recover
-      - Tri Attack
+      - Trick Room
+      - Gyro Ball
+      - Zen Headbutt
+      - Rock Slide
 
-   Sandshrew Alola @ Wide Lens
+   Bronzor @ Eviolite
+      Quiet Nature
       Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Ability: Heatproof
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
       Tags: Badge 0 / Badge 1 / Badge 2
-      - Iron Head
-      - Triple Axel
-      - Ice Shard
-      - Brick Break
+      - Trick Room
+      - Flash Cannon
+      - Future Sight
+      - Grass Knot
+
+   Bronzong @ Mental Herb
+      Brave Nature
+      Level: 14
+      Ability: Heatproof
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Trick Room
+      - Gyro Ball
+      - Zen Headbutt
+      - Rock Slide
+
+   Bronzong @ Mental Herb
+      Quiet Nature
+      Level: 14
+      Ability: Heatproof
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Trick Room
+      - Flash Cannon
+      - Future Sight
+      - Grass Knot
 
 === TRAINER_MARC ===
    Name: Marc
@@ -14295,62 +14327,79 @@ Recommended workflow for players who want to try to calc things:
    Party Size: 3
    Pool Prune: Badges
 
-   Bisharp @ Eviolite
-      Level: 14
-      Ability: Defiant
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 HP / 225 Atk
-      - Iron Head
-      - Knock Off
-      - Swords Dance
-      - Sucker Punch
-
    Mawile @ Leftovers
-      Level: 14
+      Level: 12
       Ability: Intimidate
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 HP / 225 Atk
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      Tags: Badge 0 / Badge 1
       - Iron Head
       - Crunch
       - Play Rough
       - Sucker Punch
 
+   Mawile @ Leftovers
+      Level: 14
+      Ability: Intimidate
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      EVs: 225 HP / 225 Atk
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Iron Head
+      - Crunch
+      - Play Rough
+      - Sucker Punch
+
+   Aron @ Assault Vest
+      Brave Nature
+      Level: 13
+      Ability: Sturdy
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      Tags: Badge 0
+      - Iron Tail
+      - Stealth Rock
+      - Body Press
+      - Brick Break
+
+   Lairon @ Assault Vest
+      Level: 13
+      Ability: Sturdy
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      Tags: Badge 1 / Badge 2 / Badge 3
+      - Iron Tail
+      - Stealth Rock
+      - Body Press
+      - Brick Break
+
    Aggron @ Assault Vest
       Level: 14
-      Ability: Sturdy
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Ability: Filter
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
       EVs: 225 HP / 225 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Iron Tail
-      - Rock Slide
       - Dragon Claw
       - Body Press
+      - Rock Slide
 
    Pawniard @ Eviolite
       Level: 14
       Ability: Defiant
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Metal Claw
       - Knock Off
       - Swords Dance
       - Stone Edge
 
-   Mawile @ Leftovers
+   Bisharp @ Eviolite
       Level: 14
-      Ability: Intimidate
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Ability: Defiant
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      EVs: 225 HP / 225 Atk
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Iron Head
-      - Crunch
-      - Play Rough
+      - Knock Off
+      - Swords Dance
       - Sucker Punch
-
-   Lairon @ Wide Lens
-      Level: 14
-      Ability: Sturdy
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      - Iron Tail
-      - Rock Tomb
-      - Bulldoze
-      - Brick Break
 
 === TRAINER_JOSH ===
    Name: Josh
@@ -14363,58 +14412,76 @@ Recommended workflow for players who want to try to calc things:
    Party Size: 3
    Pool Prune: Badges
 
+   Meowth Galar @ Muscle Band
+      Adamant Nature
+      Level: 14
+      Ability: Tough Claws
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1
+      - Fake Out
+      - Metal Claw
+      - Aerial Ace
+      - U Turn
+
+   Perrserker @ Muscle Band
+      Level: 14
+      Ability: Tough Claws
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 Atk
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Iron Head
+      - U Turn
+      - Close Combat
+      - Aerial Ace
+
+   Riolu @ Eviolite
+      Adamant Nature
+      Level: 13
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Drain Punch
+      - Thunder Punch
+      - Ice Punch
+      - Bullet Punch
+
+   Riolu @ Eviolite
+      Level: 13
+      Ability: Prankster
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Drain Punch
+      - Force Palm
+      - Bulk Up
+      - Crunch
+
+   Lucario @ Black Belt
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 SpA / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Flash Cannon
+      - Aura Sphere
+      - Nasty Plot
+      - Vacuum Wave
+
+   Togedemaru @ Air Balloon
+      Level: 12
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Zing Zap
+      - U Turn
+      - Thief
+      - Spiky Shield
+
    Togedemaru @ Air Balloon
       Level: 14
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 225 Atk / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Zing Zap
       - Iron Head
       - Nuzzle
       - Spiky Shield
-
-   Ferrothorn @ Leftovers
-      Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
-      EVs: 150 HP / 150 Atk / 150 SpD
-      - Leech Seed
-      - Gyro Ball
-      - Power Whip
-      - Curse
-
-   Durant @ Wide Lens
-      Level: 14
-      Ability: Hustle
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 Atk / 225 Spe
-      - Iron Head
-      - X Scissor
-      - Rock Slide
-      - Hone Claws
-
-   Togedemaru @ Air Balloon
-      Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      - Zing Zap
-      - Iron Head
-      - Nuzzle
-      - Spiky Shield
-
-   Ferroseed @ Eviolite
-      Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
-      - Leech Seed
-      - Gyro Ball
-      - Seed Bomb
-      - Revenge
-
-   Durant @ Wide Lens
-      Level: 14
-      Ability: Hustle
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      - Iron Head
-      - X Scissor
-      - Rock Slide
-      - Hone Claws
 
 === TRAINER_MILO ===
    Name: Milo
@@ -14427,59 +14494,100 @@ Recommended workflow for players who want to try to calc things:
    Party Size: 3
    Pool Prune: Badges
 
-   Togedemaru @ Air Balloon
+   Pineco @ Custap Berry
       Level: 14
+      Ability: Sturdy
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 Atk / 225 Spe
-      - Zing Zap
-      - Iron Head
-      - Nuzzle
-      - Spiky Shield
+      Tags: Stealth Rock / Badge 0 / Badge 1
+      - Stealth Rock
+      - Lunge
+      - Rock Tomb
+      - Bulldoze
 
-   Ferrothorn @ Leftovers
+   Forretress @ Custap Berry
       Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      Ability: Sturdy
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Stealth Rock / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Stealth Rock
+      - Rock Tomb
+      - Volt Switch
+      - Bulldoze
+
+   Forretress @ Custap Berry
+      Level: 14
+      Ability: Sturdy
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 SpD
+      Tags: Stealth Rock / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Stealth Rock
+      - Ice Spinner
+      - Volt Switch
+      - Explosion
+
+   Scizor @ Occa Berry
+      Level: 12
+      Ability: Technician
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Bullet Punch
+      - Bug Bite
+      - Roost
+      - Acrobatics
+
+   Scizor @ Occa Berry
+      Level: 14
+      Ability: Technician
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 150 HP / 150 Atk / 150 SpD
-      - Leech Seed
-      - Gyro Ball
-      - Power Whip
-      - Curse
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Bullet Punch
+      - Bug Bite
+      - Roost
+      - Swords Dance
 
-   Durant @ Wide Lens
+   Scizor @ Choice Band
+      Adamant Nature
+      Level: 14
+      Ability: Technician
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Bullet Punch
+      - U Turn
+
+   Durant @ Eject Button
+      Level: 12
+      Ability: Hustle
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - First Impression
+      - Hone Claws
+      - Thunder Fang
+      - Metal Claw
+
+   Durant @ Eject Button
       Level: 14
       Ability: Hustle
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 225 Atk / 225 Spe
-      - Iron Head
-      - X Scissor
-      - Rock Slide
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - First Impression
       - Hone Claws
-
-   Togedemaru @ Air Balloon
-      Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      - Zing Zap
       - Iron Head
-      - Nuzzle
-      - Spiky Shield
+      - Rock Slide
 
-   Ferroseed @ Eviolite
-      Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
-      - Leech Seed
-      - Gyro Ball
-      - Seed Bomb
-      - Revenge
-
-   Durant @ Wide Lens
+   Durant @ Assault Vest
       Level: 14
       Ability: Hustle
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - First Impression
+      - Superpower
       - Iron Head
-      - X Scissor
       - Rock Slide
-      - Hone Claws
-
 
 /* Dewford Gym */
 === TRAINER_LAURA ===
