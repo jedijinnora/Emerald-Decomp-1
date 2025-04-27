@@ -1759,7 +1759,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Attacks the foe with a\n"
             "jabbing beak, etc."),
         .effect = EFFECT_HIT,
-        .power = 35,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 40 : 35,
         .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 35,
@@ -8140,9 +8140,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Fires a meteor-like punch.\n"
             "May raise Attack."),
         .effect = EFFECT_HIT,
-        .power = B_UPDATED_MOVE_DATA >= GEN_6 ? 90 : 100,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : B_UPDATED_MOVE_DATA >= GEN_6 ? 90 : 100,
         .type = TYPE_STEEL,
-        .accuracy = B_UPDATED_MOVE_DATA >= GEN_6 ? 90 : 85,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 85 : B_UPDATED_MOVE_DATA >= GEN_6 ? 90 : 85,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -8606,7 +8606,6 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 85,
         .type = TYPE_FIGHTING,
         .accuracy = 90,
-        .criticalHitStage = 1,
         .pp = 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -8614,6 +8613,13 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .makesContact = TRUE,
         .punchingMove = TRUE,
         .damagesAirborne = TRUE,
+        #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+            .additionalEffects = ADDITIONAL_EFFECTS({
+                .moveEffect = MOVE_EFFECT_ATK_PLUS_1,
+                .self = TRUE,
+                .chance = 20,
+            }),
+        #endif
         .contestEffect = CONTEST_EFFECT_STARTLE_MONS_SAME_TYPE_APPEAL,
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
