@@ -2698,12 +2698,12 @@ gTVPokemonBattleUpdateText07::
 
 GabbyAndTy_Text_GabbyNotEnoughBadges:
 	.string "Gabby: Oh! You look like a new Trainer!\p"
-	.string "Once you have another badge or two\n"
+	.string "Once you have at least one Badge\n"
 	.string "we'll be happy to interview you!$"
 
 GabbyAndTy_Text_TyNotEnoughBadges:
 	.string "Ty: Hey, lookie here! A newbie!\p"
-	.string "Come back with another badge or two\n"
+	.string "Come back with at least one Badge\n"
 	.string "and I'll get the camera rolling!$"
 
 GabbyAndTy_Text_GabbyPreFirstBattle:

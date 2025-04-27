@@ -100,8 +100,8 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 12,
-      "y": 18,
+      "x": 25,
+      "y": 11,
       "elevation": 0,
       "item": "ITEM_WATER_STONE",
       "flag": "FLAG_HIDDEN_ITEM_DEWDROP_GLEN_WATER_STONE"

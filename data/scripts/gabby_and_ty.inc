@@ -64,7 +64,7 @@ GabbyAndTy_EventScript_ShowAtRoute111_Repeat::
 GabbyAndTy_EventScript_GabbyBattle1::
 	lock 
 	faceplayer
-	goto_if_lt VAR_NUM_BADGES, 2, GabbyAndTy_EventScript_GabbyNotEnoughBadges
+	goto_if_lt VAR_NUM_BADGES, 1, GabbyAndTy_EventScript_GabbyNotEnoughBadges
 	trainerbattle_double TRAINER_GABBY_AND_TY_111, GabbyAndTy_Text_GabbyPreFirstBattle, GabbyAndTy_Text_GabbyDefeatFirstTime, GabbyAndTy_Text_GabbyNotEnoughMons, GabbyAndTy_EventScript_FirstInterview
 	msgbox GabbyAndTy_Text_KeepingAnEyeOutForYou, MSGBOX_DEFAULT
 	release
@@ -73,7 +73,7 @@ GabbyAndTy_EventScript_GabbyBattle1::
 GabbyAndTy_EventScript_TyBattle1::
 	lock 
 	faceplayer
-	goto_if_lt VAR_NUM_BADGES, 2, GabbyAndTy_EventScript_TyNotEnoughBadges
+	goto_if_lt VAR_NUM_BADGES, 1, GabbyAndTy_EventScript_TyNotEnoughBadges
 	trainerbattle_double TRAINER_GABBY_AND_TY_111, GabbyAndTy_Text_TyPreFirstBattle, GabbyAndTy_Text_TyDefeatFirstTime, GabbyAndTy_Text_TyNotEnoughMons, GabbyAndTy_EventScript_FirstInterview
 	msgbox GabbyAndTy_Text_TyPostBattle, MSGBOX_DEFAULT
 	release

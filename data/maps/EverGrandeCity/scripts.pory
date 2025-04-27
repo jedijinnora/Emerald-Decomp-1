@@ -525,8 +525,15 @@ script Common_EventScript_Ferry {
 			end
 	}
 	setflag(FLAG_DEPARTED_EVER_GRANDE)
+	call_if_eq(VAR_DIFFICULTY_SETTING, 2, Common_EventScript_RandomizeBlockerRivalCounter)
 	release
 	end
+}
+
+script Common_EventScript_RandomizeBlockerRivalCounter {
+	random(2)
+	copyvar(VAR_CITIES_VISITED, VAR_RESULT)
+	return
 }
 
 script Common_EventScript_CheckFerryTicket {
