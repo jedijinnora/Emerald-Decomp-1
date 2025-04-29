@@ -176,7 +176,7 @@
 #define VAR_ELITE_4_STATE                                0x409C
 #define VAR_WILD_SET_ALTERING_CAVE                       0x409D // renamed from VAR_ALTERING_CAVE_WILD_SET
 #define VAR_OVERWORLD_WILD_SET                           0x409E // used for all other areas, keeping altering cave separate b/c mystery gift messes with it
-#define VAR_UNUSED_0x409F                                0x409F
+#define VAR_NUM_FERRY_TRIPS                              0x409F // counts the number of times the player has taken the ferry
 #define VAR_UNUSED_0x40A0                                0x40A0
 #define VAR_UNUSED_0x40A1                                0x40A1
 #define VAR_UNUSED_0x40A2                                0x40A2

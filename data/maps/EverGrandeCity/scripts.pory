@@ -143,6 +143,7 @@ script EverGrandeCity_EventScript_Aipom {
 	setflag(FLAG_RECEIVED_EGC_BONUS_BERRIES)
 	applymovement(LOCALID_AIPOM, KecleonVanish)
 	waitmovement(0)
+	removeobject(LOCALID_AIPOM)
 	release
 	end
 }
@@ -525,6 +526,7 @@ script Common_EventScript_Ferry {
 			end
 	}
 	setflag(FLAG_DEPARTED_EVER_GRANDE)
+	addvar(VAR_NUM_FERRY_TRIPS, 1)
 	call_if_eq(VAR_DIFFICULTY_SETTING, 2, Common_EventScript_RandomizeBlockerRivalCounter)
 	release
 	end
@@ -547,6 +549,7 @@ script Common_EventScript_CheckFerryTicket {
 
 script Common_EventScript_UseFerryTicket {
 	goto_if_ne(VAR_DIFFICULTY_SETTING, 2, Common_EventScript_NopReturn)
+	goto_if_set(FLAG_SYS_GAME_CLEAR, Common_EventScript_NopReturn)
 	removeitem(ITEM_SS_TICKET)
 	return
 }
