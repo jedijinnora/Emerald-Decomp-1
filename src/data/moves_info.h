@@ -1156,7 +1156,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Stingers on the forelegs\n"
             "jab the foe twice."),
         .effect = EFFECT_HIT,
-        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 40 : 25,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 45 : 25,
         .type = TYPE_BUG,
         .accuracy = 100,
         .pp = 20,
