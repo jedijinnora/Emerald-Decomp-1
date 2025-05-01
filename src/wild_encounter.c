@@ -554,6 +554,56 @@ void CreateWildMon(u16 species, u8 level)
 {
     bool32 checkCuteCharm = TRUE;
 
+    //Jinnora: if wild species can evolve by level, do so
+    bool8 evolvedSpecies = FALSE;
+    const struct Evolution *evolutions = GetSpeciesEvolutions(species);
+    u8 rand = Random() % 25;
+    u8 i;
+
+    if (evolutions != NULL)
+    {
+        for (i = 0; evolutions[i].method != EVOLUTIONS_END; i++)
+        {
+            if (SanitizeSpeciesId(evolutions[i].targetSpecies) == SPECIES_NONE)
+                continue;
+
+            if (evolutions[i].method == EVO_LEVEL)
+            {
+                if (evolutions[i].param <= level && (level - evolutions[i].param >= rand))
+                {
+                    species = evolutions[i].targetSpecies;
+                    evolvedSpecies = TRUE;
+                    break;
+                }
+            }
+        }
+    }
+
+    //if evolved, check again for second level evolution
+    if (evolvedSpecies)
+    {
+        evolutions = GetSpeciesEvolutions(species);
+        rand = Random() % 25;
+        if (evolutions != NULL)
+        {
+            for (i = 0; evolutions[i].method != EVOLUTIONS_END; i++)
+            {
+                if (SanitizeSpeciesId(evolutions[i].targetSpecies) == SPECIES_NONE)
+                    continue;
+
+                if (evolutions[i].method == EVO_LEVEL)
+                {
+                    if (evolutions[i].param <= level && (level - evolutions[i].param >= rand))
+                    {
+                        species = evolutions[i].targetSpecies;
+                        evolvedSpecies = TRUE;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
     ZeroEnemyPartyMons();
 
     switch (gSpeciesInfo[species].genderRatio)
