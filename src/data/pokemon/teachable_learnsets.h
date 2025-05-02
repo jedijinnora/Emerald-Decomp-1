@@ -373,14 +373,12 @@
 // Near-universal moves found in sUniversalMoves:      //
 // - MOVE_BIDE                                         //
 // - MOVE_FRUSTRATION                                  //
-// - MOVE_HIDDEN_POWER                                 //
 // - MOVE_MIMIC                                        //
 // - MOVE_NATURAL_GIFT                                 //
 // - MOVE_RAGE                                         //
 // - MOVE_RETURN                                       //
 // - MOVE_SECRET_POWER                                 //
 // - MOVE_SUBSTITUTE                                   //
-// - MOVE_TERA_BLAST                                   //
 // *************************************************** //
 
 static const u16 sNoneTeachableLearnset[] = {
