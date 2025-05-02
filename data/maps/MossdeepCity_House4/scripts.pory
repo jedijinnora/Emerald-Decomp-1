@@ -43,8 +43,7 @@ script MossdeepCity_House4_EventScript_FindStashes {
 
 script MossdeepCity_House4_EventScript_RenewStashes {
 	msgbox(format("Hey, you found them all! Nice work!"))
-	msgbox(format("I pickpocketed this off of a careless Silph employee. You should have it!"))
-	giveitem(ITEM_MASTER_BALL)
+	call(MossdeepCity_House4_EventScript_StashReward)
 	clearflag(FLAG_HIDE_SECRET_STASH_GRANITE_CAVE)
 	clearflag(FLAG_HIDE_SECRET_STASH_ROUTE_119)
 	clearflag(FLAG_HIDE_SECRET_STASH_MT_PYRE)
@@ -100,6 +99,42 @@ script MossdeepCity_House4_EventScript_RenewStashes {
 		//4 - 
 	msgbox(format("I'll go and hide more stashes for you to find!"))
 	msgbox(format("Have fun exploring all the nooks and crannies of the Hoenn region!"))
+	return
+}
+
+script MossdeepCity_House4_EventScript_StashReward {
+	goto_if_unset(FLAG_RECEIVED_GIMMIGHOUL, MossdeepCity_House4_EventScript_Gimmighoul)
+	msgbox(format("I pickpocketed this off of a careless Silph employee. You should have it!"))
+	giveitem(ITEM_MASTER_BALL)
+	return
+}
+
+script MossdeepCity_House4_EventScript_Gimmighoul {
+	msgbox(format("Take this Gimmighoul! It's the ultimate Pokémon for a treasure hunter!"))
+	setflag(FLAG_RECEIVED_GIMMIGHOUL)
+	givemon(SPECIES_GIMMIGHOUL_CHEST, 10)
+	playfanfare(MUS_OBTAIN_ITEM)
+	bufferspeciesname(STR_VAR_1, SPECIES_GIMMIGHOUL_CHEST)
+	msgbox("{PLAYER} received Gimmighoul!")
+	waitmessage
+	waitfanfare
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, GimmighoulToParty)
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, GimmighoulToPC)
+	GimmighoulToParty:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	}
+	goto(GimmighoulEnd)
+
+	GimmighoulToPC:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	call(Common_EventScript_TransferredToPC)
+	GimmighoulEnd:
 	return
 }
 

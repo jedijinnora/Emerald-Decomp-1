@@ -16,11 +16,14 @@ script Route120_EventScript_JennaTrigger {
 	lock
 	applymovement(LOCALID_JENNA, Common_Movement_ExclamationMark)
 	waitmovement(0)
+	playbgm(MUS_ENCOUNTER_COOL, FALSE)
 	applymovement(LOCALID_JENNA, Common_Movement_WalkInPlaceRight)
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceLeft)
-	waitmovement(0)
+	waitmovement(LOCALID_JENNA)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
 	msgbox(format("Walking behind me like that? How rude!"))
-	goto(Route120_EventScript_Jenna)
+	trainerbattle_no_intro(TRAINER_JENNA, Route120_Text_JennaDefeat)
+	release
 	end
 }
 

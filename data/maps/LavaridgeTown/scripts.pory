@@ -350,23 +350,7 @@ script LavaridgeTown_EventScript_EggWoman {
 		setflag(FLAG_RECEIVED_LAVARIDGE_EGG)
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("{PLAYER} received the Egg."))
-		random(12)
-		switch(var(VAR_RESULT)) {
-			case 0:
-				giveegg(SPECIES_LARVESTA)
-			case 1:
-			case 2:
-				giveegg(SPECIES_RIOLU)
-			case 3:
-			case 4:
-				giveegg(SPECIES_MUNCHLAX)
-			case 5:
-			case 6:
-			case 7:
-				giveegg(SPECIES_BONSLY)
-			default:
-				giveegg(SPECIES_CHINGLING)
-		}
+		giveegg(SPECIES_TOGEPI)
 		waitfanfare
 		release
 		end

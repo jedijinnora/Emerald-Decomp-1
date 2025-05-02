@@ -1,15 +1,157 @@
+mapscripts RustboroCity_Flat1_1F_MapScripts {}
+
+script RustboroCity_Flat1_1F_EventScript_GameBoyKid {
+	lock
+	faceplayer
+	msgbox(format("I'm using a special algorithm to try to make Walda laugh."))
+	msgbox(format("Hmm... you look smart, but I'm not sure you can handle the math required."))
+	msgbox(format("It's a lot to calculate. Want to give it a go?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, YES, RustboroCity_Flat1_1F_EventScript_GenerateWaldaPhrase)
+	release
+	end
+}
+
+script RustboroCity_Flat1_1F_EventScript_GenerateWaldaPhrase {
+	msgbox(format("Oh boy! I hope you like writing things down in binary!"))
+	WaldaPhraseMenu1:
+	msgbox(format("We're gonna need the following values:"))
+	dynmultipush("Trainer ID", 1)
+	dynmultipush("Colors", 2)
+	dynmultipush("Available Patterns", 3)
+	dynmultipush("Pattern", 4)
+	dynmultipush("Available Icons", 5)
+	dynmultipush("Icon", 6)
+	dynmultipush("I have everything. Next?", 7)
+	dynmultipush("I'm not doing this!", 8)
+	dynmultistack(0,0,TRUE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			msgbox(format("Your Trainer ID, converted to binary and written in two separate bytes."))
+			msgbox(format("I'm going to call the lowest byte “tid1” and the highest byte “tid2”, okay?"))
+		case 2:
+			msgbox(format("Next we're gonna need foreground and background colors."))
+			msgbox(format("These are RGB values - one byte for each color - but we need to encode them into two bytes."))
+			msgbox(format("So we're going to start with 0 and follow it with the 5 highest bits of each color."))
+			msgbox(format("That's two bytes each for the foreground and background colors."))
+			msgbox(format("I'm going to call the lowest bytes “fcolor1” and “bcolor1”."))
+			msgbox(format("The highest bytes are “fcolor2” and “bcolor2”. Okay?"))
+		case 3:
+			msgbox(format("The 16 available patterns are:"))
+			msgbox(format("0-Zigzagoon, 1-Screen, 2-Horizontal, 3-Diagonal, 4-Block, 5-Ribbon, 6-PokémonCenter, 7-Frame, 8-Symbol, 9-Circle, 10-Azumarill, 11-Pikachu, 12-Legendary, 13-Dusclops, 14-Ludicolo, 15-Whiscash."))
+		case 4:
+			msgbox(format("Write down the number of your pattern as an entire byte; for example 3-Diagonal would be 00000011."))
+			msgbox(format("I'm going to call this “pat” later on, okay?"))
+		case 5:
+			msgbox(format("There are 27 available icons. There would be 30, but 7-Cross, 16-Bolt, and 26-Plusle are only available in Japanese."))
+			msgbox(format("0-TeamAqua, 1-Heart, 2-5Star, 3-Bricks, 4-4Star, 5-Asterisk, 6-Dot, 8-LineCircle, 9-Pokeball, 10-Maze, 11-Footprint, 12-BigAsterisk, 13-Circle, 14-Koffing, 15-Ribbon, 17-FourCircles, 18-Lotad, 19-Crystal, 20-Pichu, 21-Diglett, 22-Luvdisc, 23-StarInCircle, 24-Spinda, 25-Lati, 27-Minun, 28-Togepi, 29-TeamMagma."))
+		case 6:
+			msgbox(format("Write down the number of your icon as an entire byte; for example 6-Dot would be 00000101."))
+			msgbox(format("I'm going to call this “ico” later on, okay?"))
+		case 7:
+			goto(WaldaPhraseMenu2)
+		default:
+			msgbox(format("You're going to leave Walda sad? How rude!"))
+			goto(WaldaPhraseEnd)
+	}
+	goto(WaldaPhraseMenu1)
+
+	WaldaPhraseMenu2:
+	msgbox(format("We're going to manipulate the bytes of your Trainer ID."))
+	dynmultipush("Exclusive OR", 1)
+	dynmultipush("X", 2)
+	dynmultipush("Y", 3)
+	dynmultipush("Easy. Next?", 4)
+	dynmultipush("Go back, I forgot a value!", 5)
+	dynmultipush("I'm not doing this!", 6)
+	dynmultistack(0,0,TRUE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			msgbox(format("Exclusive OR is a bitwise operation abbreviated as XOR. It returns 1 if and only if exactly one of the inputs is 1, otherwise it returns 0."))
+			msgbox(format("So 0 XOR 0 = 0, 1 XOR 0 = 1, 0 XOR 1 = 1, and 1 XOR 1 = 0."))
+			msgbox(format("To make it easy on yourself, write down the bytes on top of each other and just go column by column."))
+		case 2:
+			msgbox(format("X = bcolor1 XOR fcolor1 XOR ico XOR tid2."))
+		case 3:
+			msgbox(format("Y = bcolor2 XOR fcolor2 XOR pat XOR tid1."))
+		case 4:
+			goto(WaldaPhraseMenu3)
+		case 5:
+			goto(WaldaPhraseMenu1)
+		default:
+			msgbox(format("I guess you suck at math. Didn't you pay attention in school?"))
+			goto(WaldaPhraseEnd)
+	}
+	goto(WaldaPhraseMenu2)
+
+	WaldaPhraseMenu3:
+	msgbox(format("Now we put everything together into a giant 9-byte string."))
+	dynmultipush("Order", 1)
+	dynmultipush("How to shift bits", 2)
+	dynmultipush("Almost there! Let's finish!", 3)
+	dynmultipush("Go back!", 4)
+	dynmultipush("I don't care that we're close. I'm done!", 5)
+	dynmultistack(0,0,TRUE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			msgbox(format("The 9 bytes are as follows: bcolor1, bcolor2, fcolor1, fcolor2, ico, pat, x, y, and finally a byte of all 0s."))
+		case 2:
+			msgbox(format("Now we need to shift 21 bits to the right, wrapping around. For a simpler example, to shift 00001011 2 bits to the right would result in 11000010."))
+			msgbox(format("We end up with the bottom 5 bits of x, then y, 00000000, bcolor1, bcolor2, fcolor1, fcolor2, ico, pat, and finally the top 5 bits of x."))
+		case 3:
+			goto(WaldaPhraseMenu4)
+		case 4:
+			goto(WaldaPhraseMenu2)
+		default:
+			msgbox(format("Quitters lose. How are you gonna win Pokémon battles with that attitude?"))
+			goto(WaldaPhraseEnd)
+	}
+	goto(WaldaPhraseMenu3)
+
+	WaldaPhraseMenu4:
+	msgbox(format("We need to convert the 9-byte string into the 15 letters you'll tell Walda."))
+	dynmultipush("Letter encodings", 1)
+	dynmultipush("How to convert", 2)
+	dynmultipush("I'm ready to tell Walda!", 3)
+	dynmultipush("Go back!", 4)
+	dynmultipush("The finish line's in sight, but I give up!", 5)
+	dynmultistack(0,0,TRUE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			msgbox(format("Every five bits (which is a number between 0 and 31) corresponds to a letter."))
+			msgbox(format("The uppercase letters are: 0-B, 1-C, 2-D, 3-F, 4-G, 5-H, 6-J, 7-K, 8-L, 9-M, 10-N, 11-P, 12-Q, 13-R, 14-S, 15-T, 16-V, 17-W, and 18-Z."))
+			msgbox(format("The lowercase letters are: 19-b, 20-c, 21-d, 22-f, 23-g, 24-h, 25-j, 26-k, 27-m, 28-n, 29-p, 30-q, and 31-s."))
+			msgbox(format("Remember, these are case-sensitive!"))
+		case 2:
+			msgbox(format("Starting from the left, divide up your 9-byte string into the proper 5-bit chunks. You won't have enough bits to finish the last group of 5, so you wrap around and take the first 3 bits again!"))
+			msgbox(format("Convert to letters, and you're done! Go make Walda laugh!"))
+		case 3:
+			msgbox(format("Sure you didn't misplace a 1 somewhere? Checked all your work?"))
+			msgbox(format("Then go tell that girl some incomprehensible gibberish! Kids love it!"))
+			goto(WaldaPhraseEnd)
+		case 4:
+			goto(WaldaPhraseMenu3)
+		default:
+			msgbox(format("I'd call you a lazy Gulpin, but I won't insult Gulpin like that."))
+			goto(WaldaPhraseEnd)
+	}
+	goto(WaldaPhraseMenu4)
+
+	WaldaPhraseEnd:
+	release
+	end
+}
+
+script RustboroCity_Flat1_1F_EventScript_Man {
+	msgbox(RustboroCity_Flat1_1F_Text_EveryPokemonHasAbility, MSGBOX_NPC)
+	end
+}
+
+script RustboroCity_Flat1_1F_EventScript_Woman {
+	msgbox(RustboroCity_Flat1_1F_Text_PokemonStrange, MSGBOX_NPC)
+	end
+}
+
 raw `
-RustboroCity_Flat1_1F_MapScripts::
-	.byte 0
-
-RustboroCity_Flat1_1F_EventScript_Man::
-	msgbox RustboroCity_Flat1_1F_Text_EveryPokemonHasAbility, MSGBOX_NPC
-	end
-
-RustboroCity_Flat1_1F_EventScript_Woman::
-	msgbox RustboroCity_Flat1_1F_Text_PokemonStrange, MSGBOX_NPC
-	end
-
 RustboroCity_Flat1_1F_Text_EveryPokemonHasAbility:
 	.string "Every Pokémon has a special ability\n"
 	.string "that it can use.$"

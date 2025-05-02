@@ -200,7 +200,7 @@
 #define FLAG_RECEIVED_GRASS_STARTER          0xA9 // oldale
 #define FLAG_RECEIVED_FIRE_STARTER           0xAA // lavaridge
 #define FLAG_RECEIVED_WATER_STARTER          0xAB // pacifidlog
-#define FLAG_UNUSED_0xAC                     0xAC
+#define FLAG_RECEIVED_GIMMIGHOUL             0xAC // mossdeep
 #define FLAG_UNUSED_0xAD                     0xAD
 #define FLAG_UNUSED_0xAE                     0xAE
 #define FLAG_UNUSED_0xAF                     0xAF
