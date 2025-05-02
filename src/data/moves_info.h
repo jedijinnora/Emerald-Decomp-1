@@ -14625,14 +14625,18 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "Stirs up a violent storm\n"
             "of petals to attack."),
+    #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+        .effect = EFFECT_PHOTON_GEYSER,
+    #else
         .effect = EFFECT_HIT,
+    #endif
         .power = 90,
         .type = TYPE_GRASS,
         .accuracy = 100,
         .pp = 15,
         .target = MOVE_TARGET_FOES_AND_ALLY,
         .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .category = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? DAMAGE_CATEGORY_SPECIAL : DAMAGE_CATEGORY_PHYSICAL,
         .windMove = TRUE,
         .contestEffect = CONTEST_EFFECT_AFFECTED_BY_PREV_APPEAL,
         .contestCategory = CONTEST_CATEGORY_BEAUTY,
