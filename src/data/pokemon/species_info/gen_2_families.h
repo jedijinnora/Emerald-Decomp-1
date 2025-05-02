@@ -5990,7 +5990,11 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
-        .abilities = { P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_SIMPLE : ABILITY_MAGMA_ARMOR, ABILITY_FLAME_BODY, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_EARTH_EATER : ABILITY_WEAK_ARMOR },
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_EARTH_EATER, ABILITY_FLAME_BODY, ABILITY_SIMPLE },
+    #else
+        .abilities = { ABILITY_MAGMA_ARMOR, ABILITY_FLAME_BODY, ABILITY_WEAK_ARMOR },
+    #endif
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Slugma"),
         .cryId = CRY_SLUGMA,
@@ -6045,11 +6049,11 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 
     [SPECIES_MAGCARGO] =
     {
-        .baseHP        = P_UPDATED_STATS >= GEN_7 ? 60 : 50,
+        .baseHP        = P_UPDATED_STATS >= GEN_7 ? 70 : 50,
         .baseAttack    = 50,
         .baseDefense   = 120,
         .baseSpeed     = 30,
-        .baseSpAttack  = P_UPDATED_STATS >= GEN_7 ? 90 : 80,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_7 ? 110 : 80,
         .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_FIRE, TYPE_ROCK),
         .catchRate = 75,
@@ -6066,7 +6070,11 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
-        .abilities = { P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_SIMPLE : ABILITY_MAGMA_ARMOR, ABILITY_FLAME_BODY, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_EARTH_EATER : ABILITY_WEAK_ARMOR },
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_EARTH_EATER, ABILITY_STORM_DRAIN, ABILITY_SIMPLE },
+    #else
+        .abilities = { ABILITY_MAGMA_ARMOR, ABILITY_FLAME_BODY, ABILITY_WEAK_ARMOR },
+    #endif
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
         .speciesName = _("Magcargo"),
