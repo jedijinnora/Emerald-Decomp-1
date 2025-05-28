@@ -278,7 +278,6 @@ static const u16 sShopInventory_SevenBadges[] = {
     ITEM_POKE_BALL,
     ITEM_GREAT_BALL,
     ITEM_ULTRA_BALL,
-    ITEM_DREAM_BALL,
     ITEM_POTION,
     ITEM_SUPER_POTION,
     ITEM_HYPER_POTION,
@@ -299,6 +298,30 @@ static const u16 sShopInventory_SevenBadges[] = {
 };
 
 static const u16 sShopInventory_EightBadges[] = {
+    ITEM_POKE_BALL,
+    ITEM_GREAT_BALL,
+    ITEM_ULTRA_BALL,
+    ITEM_POTION,
+    ITEM_SUPER_POTION,
+    ITEM_HYPER_POTION,
+    ITEM_MAX_POTION,
+    ITEM_FULL_RESTORE,
+    ITEM_ANTIDOTE,
+    ITEM_BURN_HEAL,
+    ITEM_ICE_HEAL,
+    ITEM_AWAKENING,
+    ITEM_PARALYZE_HEAL,
+    ITEM_FULL_HEAL,
+    ITEM_REVIVE,
+    ITEM_ABILITY_CAPSULE,
+    ITEM_REPEL,
+    ITEM_SUPER_REPEL,
+    ITEM_MAX_REPEL,
+    ITEM_POKE_DOLL,
+    ITEM_NONE
+};
+
+static const u16 sShopInventory_Postgame[] = {
     ITEM_POKE_BALL,
     ITEM_GREAT_BALL,
     ITEM_ULTRA_BALL,
@@ -334,7 +357,8 @@ static const u16 *const sShopInventories[] =
     sShopInventory_FiveBadges,
     sShopInventory_SixBadges,
     sShopInventory_SevenBadges,
-    sShopInventory_EightBadges
+    sShopInventory_EightBadges,
+    sShopInventory_Postgame
 };
 
 //Jinnora: end badge count shops
@@ -561,27 +585,14 @@ static void SetShopMenuCallback(void (* callback)(void))
     sMartInfo.callback = callback;
 }
 
-//Jinnora: added for badge shops
-static u8 GetNumberOfBadges(void)
-{
-    u16 badgeFlag;
-    u8 count = 0;
-    
-    for (badgeFlag = FLAG_BADGE01_GET; badgeFlag < FLAG_BADGE01_GET + NUM_BADGES; badgeFlag++)
-    {
-        if (FlagGet(badgeFlag))
-            count++;
-    }
-    
-    return count;
-}
-
 static void SetShopItemsForSale(const u16 *items)
 {
     u16 i = 0;
 
     //Jinnora: here edited for badge shops
-    u8 badgeCount = GetNumberOfBadges();
+    u8 badgeCount = min(VarGet(VAR_NUM_BADGES), 8);
+    if (FlagGet(FLAG_SYS_GAME_CLEAR))
+        badgeCount = 9;
     if (items == NULL)
         sMartInfo.itemList = sShopInventories[badgeCount];
     else
