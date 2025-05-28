@@ -143,7 +143,7 @@ script MossdeepCity_House4_EventScript_SecretStash {
 	playfanfare(MUS_OBTAIN_TMHM)
 	msgbox(format("You looted a secret stash!"))
 	waitfanfare
-	finditem(ITEM_BOTTLE_CAP, 7)
+	finditem(ITEM_BOTTLE_CAP, 3)
 	release
 	end
 }
@@ -185,11 +185,12 @@ script Common_EventScript_SecretStash {
 	}
 	//give ability item
 	random(16)
-	switch(var(VAR_RESULT)) {
-		case 0:
-			finditem(ITEM_ABILITY_PATCH)
-		default:
-			finditem(ITEM_ABILITY_CAPSULE)
+	if (var(VAR_RESULT) < 7) {
+		finditem(ITEM_BOTTLE_CAP)
+	} elif (var(VAR_RESULT) < 14) {
+		finditem(ITEM_ABILITY_PATCH)
+	} else {
+		finditem(ITEM_ABILITY_CAPSULE)
 	}
 	//give bottle caps
 	random(16)
@@ -200,7 +201,7 @@ script Common_EventScript_SecretStash {
 			finditem(ITEM_BOTTLE_CAP)
 	}
 	//handles object removal and flag
-	finditem(ITEM_BOTTLE_CAP)
+	finditem(ITEM_HEART_SCALE)
 	release
 	return
 }

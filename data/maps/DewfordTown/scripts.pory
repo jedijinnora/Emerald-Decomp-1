@@ -65,7 +65,7 @@ script DewfordTown_EventScript_Fisherman {
 	}
 	checkitem(ITEM_GOOD_ROD)
 	if (!var(VAR_RESULT)) {
-		msgbox(format("The middle brother hands around the eastern side of Route 118."))
+		msgbox(format("The middle brother hangs around the eastern side of Route 118."))
 		release 
 		end
 	}

@@ -114,9 +114,9 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_FOCUS_SASH",
+      "trainer_sight_or_berry_tree_id": "ITEM_ABILITY_PATCH",
       "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_MOSSDEEP_CAVERNS_B1F_FOCUS_SASH"
+      "flag": "FLAG_ITEM_MOSSDEEP_CAVERNS_B1F_ABILITY_PATCH"
     }
   ],
   "warp_events": [

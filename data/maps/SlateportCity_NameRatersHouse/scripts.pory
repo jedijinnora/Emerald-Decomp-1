@@ -89,10 +89,10 @@ SlateportCity_NameRatersHouse_Text_CritiqueWhichMonNickname:
 	.string "I critique?$"
 
 SlateportCity_NameRatersHouse_Text_FineNameSuggestBetterOne:
-	.string "Hmmm… {STR_VAR_1}, is it? That is\n"
-	.string "quite a fine name you bestowed.\p"
-	.string "But! What say you, if I were to\n"
-	.string "suggest a slightly better name?$"
+	.string "{STR_VAR_1}? That certainly is\n"
+	.string "one of the nicknames of all time.\p"
+	.string "Surely you'll put some actual effort\n"
+	.string "into a new and improved nickname?$"
 
 SlateportCity_NameRatersHouse_Text_WhatShallNewNameBe:
 	.string "Ah, good. Then, what shall the new\n"
@@ -101,7 +101,7 @@ SlateportCity_NameRatersHouse_Text_WhatShallNewNameBe:
 SlateportCity_NameRatersHouse_Text_MonShallBeKnownAsName:
 	.string "Done! From now on, this Pokémon\n"
 	.string "shall be known as {STR_VAR_1}!\p"
-	.string "It is a better name than before!\n"
+	.string "It is a marginal improvement!\n"
 	.string "How fortunate for you!$"
 
 SlateportCity_NameRatersHouse_Text_DoVisitAgain:
@@ -112,13 +112,15 @@ SlateportCity_NameRatersHouse_Text_NameNoDifferentYetSuperior:
 	.string "Done! From now on, this Pokémon\n"
 	.string "shall be known as {STR_VAR_1}!\p"
 	.string "It looks no different from before,\n"
-	.string "and yet, this is vastly superior!\p"
-	.string "How fortunate for you!$"
+	.string "and yet, this is vastly inferior!\p"
+	.string "How unfortunate for you!$"
 
 SlateportCity_NameRatersHouse_Text_MagnificentName:
 	.string "Hmmm… {STR_VAR_1} it is!\p"
 	.string "This is a magnificent nickname!\n"
 	.string "It is impeccably beyond reproach!\p"
+	.string "For you see, this Pokémon was lucky\n"
+	.string "enough to not be named by you!\p"
 	.string "You'll do well to cherish your\n"
 	.string "{STR_VAR_1} now and beyond.$"
 

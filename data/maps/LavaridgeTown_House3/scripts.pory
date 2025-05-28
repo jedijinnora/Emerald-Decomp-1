@@ -6,12 +6,13 @@ script LavaridgeTown_House3_EventScript_Maniac {
 }
 
 script LavaridgeTown_House3_EventScript_FireStarterWoman {
-    lockall
+    lock
 	faceplayer
+	goto_if_lt(VAR_NUM_BADGES, 2, FireStarterInfo)
 	goto_if_unset(FLAG_RECEIVED_FIRE_STARTER, LavaridgeTown_House3_EventScript_FireStarterCheck)
 	FireStarterInfo:
 	msgbox(format("Grass and Bug Pokémon are common throughout the world, so Fire types make excellent starters."))
-	releaseall
+	release
 	end
 }
 
@@ -85,7 +86,7 @@ script LavaridgeTown_House3_EventScript_FireStarterCheck {
 		default:
 			FireStarterComeBack:
 			msgbox(format("Come back if you change your mind."))
-			releaseall
+			release
 			end
 	}
 }

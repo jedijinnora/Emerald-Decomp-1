@@ -55,7 +55,7 @@ script Route121_EventScript_TryWalterRematch {
     call(Common_EventScript_ShouldDoRematch)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
 	setvar(VAR_0x8003, TRAINER_WALTER)
-	setvar(VAR_0x8004, 1)
+	setvar(VAR_0x8004, 2)
 	call(Common_EventScript_CheckRecentRematchesSetBP)
 	trainerbattle_no_intro(TRAINER_WALTER, Route121_Text_WalterDefeat)
 	special(UpdateRecentTrainers)

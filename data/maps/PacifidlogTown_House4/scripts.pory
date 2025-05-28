@@ -1,12 +1,13 @@
 mapscripts PacifidlogTown_House4_MapScripts {}
 
 script PacifidlogTown_House4_EventScript_WaterStarterWoman {
-	lockall
+	lock
 	faceplayer
+	goto_if_lt(VAR_NUM_BADGES, 2, WaterStarterInfo)
 	goto_if_unset(FLAG_RECEIVED_WATER_STARTER, PacifidlogTown_House4_EventScript_WaterStarterCheck)
 	WaterStarterInfo:
 	msgbox(format("When I was a little girl, I started my journey through Kanto with a single Squirtle. It seems so long ago…"))
-	releaseall
+	release
 	end
 }
 
@@ -80,7 +81,7 @@ script PacifidlogTown_House4_EventScript_WaterStarterCheck {
 		default:
 			WaterStarterComeBack:
 			msgbox(format("Come back if you change your mind."))
-			releaseall
+			release
 			end
 	}
 }

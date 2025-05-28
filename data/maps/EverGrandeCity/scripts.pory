@@ -308,7 +308,7 @@ script EverGrandeCity_EventScript_SchoolKidM {
 	faceplayer
 	msgbox(format("They say it's good luck to catch a Pokémon here before challenging the Elite Four."))
 	msgbox(format("There's even a whole superstition around which Pokémon are lucky or unlucky!"))
-	msgbox(format("Finding an Absol means bad luck in your future, but I think that's ridiculous! Absol are cool! That's way better than any lame Xatu or Oricorio."))
+	msgbox(format("Finding an Absol means bad luck in your future, but I think that's ridiculous! Absol are cool! That's way better than any lame Zigzagoon or Pikachu."))
 	release
 	end
 }
@@ -525,15 +525,21 @@ script Common_EventScript_Ferry {
 			release
 			end
 	}
-	setflag(FLAG_DEPARTED_EVER_GRANDE)
+	call_if_unset(FLAG_DEPARTED_EVER_GRANDE, Common_EventScript_FirstFerryTripFunctions)
 	addvar(VAR_NUM_FERRY_TRIPS, 1)
-	call_if_eq(VAR_DIFFICULTY_SETTING, 2, Common_EventScript_RandomizeBlockerRivalCounter)
 	release
 	end
 }
 
-script Common_EventScript_RandomizeBlockerRivalCounter {
-	random(2)
+script Common_EventScript_FirstFerryTripFunctions {
+	setflag(FLAG_DEPARTED_EVER_GRANDE)
+
+	goto_if_eq(VAR_DIFFICULTY_SETTING, 2, Common_EventScript_NopReturn)
+	//randomize starting stash locations to make their items more annoying to obtain
+	random(5)
+	setvar(VAR_SECRET_STASH_STATE, VAR_RESULT)
+	//randomly initialize the blocker rival counter to make pathing around them more difficult
+	random(3)
 	copyvar(VAR_CITIES_VISITED, VAR_RESULT)
 	return
 }

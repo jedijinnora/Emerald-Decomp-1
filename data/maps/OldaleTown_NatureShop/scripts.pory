@@ -25,13 +25,14 @@ mart Oldale_NatureShop_Mart {
 }
 
 script OldaleTown_NatureShop_EventScript_GrassStarterLass {
-    lockall
+    lock
 	faceplayer
+	goto_if_lt(VAR_NUM_BADGES, 2, GrassStarterInfo)
 	goto_if_unset(FLAG_RECEIVED_GRASS_STARTER, OldaleTown_NatureShop_EventScript_GrassStarterCheck)
 	GrassStarterInfo:
 	msgbox(format("Every type of Pokémon has its strengths, but plants are what make the Earth liveable for people."))
 	msgbox(format("That's why I like Grass types the best."))
-	releaseall
+	release
 	end
 }
 
@@ -105,7 +106,7 @@ script OldaleTown_NatureShop_EventScript_GrassStarterCheck {
 		default:
 			GrassStarterComeBack:
 			msgbox(format("Come back if you change your mind."))
-			releaseall
+			release
 			end
 	}
 }
@@ -139,6 +140,6 @@ script OldaleTown_NatureShop_EventScript_GrassStarterGift {
 	call(Common_EventScript_TransferredToPC)
 	GrassStarterEnd:
 	msgbox(format("I hope you have grand adventures together!"))
-	releaseall
+	release
 	end
 }
