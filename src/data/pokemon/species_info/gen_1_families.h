@@ -497,11 +497,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_CHARIZARD] =
     {
         .baseHP        = 78,
-        .baseAttack    = 84,
-        .baseDefense   = 78,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 93 : 84,
+        .baseDefense   = P_UPDATED_STATS >= GEN_CUSTOM ? 75 : 78,
         .baseSpeed     = 100,
         .baseSpAttack  = 109,
-        .baseSpDefense = 85,
+        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 75 : 85,
         .types = MON_TYPES(TYPE_FIRE, TYPE_FLYING),
         .catchRate = 45,
     #if P_UPDATED_EXP_YIELDS >= GEN_8
@@ -779,7 +779,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_WATER_1),
-        .abilities = { ABILITY_TORRENT, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_RAIN_DISH : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_MEGA_LAUNCHER : ABILITY_RAIN_DISH },
+        .abilities = { ABILITY_TORRENT, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_RAIN_DISH : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_SHELL_ARMOR : ABILITY_RAIN_DISH },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Squirtle"),
         .cryId = CRY_SQUIRTLE,
@@ -849,7 +849,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_WATER_1),
-        .abilities = { ABILITY_TORRENT, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_RAIN_DISH : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_MEGA_LAUNCHER : ABILITY_RAIN_DISH },
+        .abilities = { ABILITY_TORRENT, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_RAIN_DISH : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_SHELL_ARMOR : ABILITY_RAIN_DISH },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Wartortle"),
         .cryId = CRY_WARTORTLE,
@@ -2977,7 +2977,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseSpeed     = 90,
         .baseSpAttack  = 50,
         .baseSpDefense = P_UPDATED_STATS >= GEN_6 ? 50 : 40,
+    #if P_UPDATED_TYPES >= GEN_CUSTOM
+        .types = MON_TYPES(TYPE_ELECTRIC, TYPE_STEEL),
+    #else
         .types = MON_TYPES(TYPE_ELECTRIC),
+    #endif
         .catchRate = 190,
         .expYield = PIKACHU_EXP_YIELD,
         .evYield_Speed = 2,
@@ -3028,7 +3032,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseSpeed     = 90,
         .baseSpAttack  = 50,
         .baseSpDefense = P_UPDATED_STATS >= GEN_6 ? 50 : 40,
+    #if P_UPDATED_TYPES >= GEN_CUSTOM
+        .types = MON_TYPES(TYPE_ELECTRIC, TYPE_ICE),
+    #else
         .types = MON_TYPES(TYPE_ELECTRIC),
+    #endif
         .catchRate = 190,
         .expYield = PIKACHU_EXP_YIELD,
         .evYield_Speed = 2,
@@ -3080,7 +3088,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseSpeed     = 90,
         .baseSpAttack  = 50,
         .baseSpDefense = P_UPDATED_STATS >= GEN_6 ? 50 : 40,
+    #if P_UPDATED_TYPES >= GEN_CUSTOM
+        .types = MON_TYPES(TYPE_ELECTRIC, TYPE_FAIRY),
+    #else
         .types = MON_TYPES(TYPE_ELECTRIC),
+    #endif
         .catchRate = 190,
         .expYield = PIKACHU_EXP_YIELD,
         .evYield_Speed = 2,
@@ -3132,7 +3144,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseSpeed     = 90,
         .baseSpAttack  = 50,
         .baseSpDefense = P_UPDATED_STATS >= GEN_6 ? 50 : 40,
+    #if P_UPDATED_TYPES >= GEN_CUSTOM
+        .types = MON_TYPES(TYPE_ELECTRIC, TYPE_PSYCHIC),
+    #else
         .types = MON_TYPES(TYPE_ELECTRIC),
+    #endif
         .catchRate = 190,
         .expYield = PIKACHU_EXP_YIELD,
         .evYield_Speed = 2,
@@ -3183,7 +3199,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseSpeed     = 90,
         .baseSpAttack  = 50,
         .baseSpDefense = P_UPDATED_STATS >= GEN_6 ? 50 : 40,
+    #if P_UPDATED_TYPES >= GEN_CUSTOM
+        .types = MON_TYPES(TYPE_ELECTRIC, TYPE_FIGHTING),
+    #else
         .types = MON_TYPES(TYPE_ELECTRIC),
+    #endif
         .catchRate = 190,
         .expYield = PIKACHU_EXP_YIELD,
         .evYield_Speed = 2,
