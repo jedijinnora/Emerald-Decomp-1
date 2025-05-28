@@ -554,6 +554,30 @@ void CreateWildMon(u16 species, u8 level)
 {
     bool32 checkCuteCharm = TRUE;
 
+    //Jinnora: randomize wild Scatterbug pattern
+    if (species == SPECIES_SCATTERBUG) {
+        u8 rand = Random() % 20;
+        switch(rand) {
+            case 19: 
+                //default Scatterbug pattern is Icy Snow
+                break;
+            default:
+                species = SPECIES_SCATTERBUG_POLAR + rand;
+        }
+    }
+
+    //Jinnora: randomize wild Minior color
+    if (species == SPECIES_MINIOR) {
+        u8 rand = Random() % 7;
+        switch(rand) {
+            case 6: 
+                //default Minior color is Red
+                break;
+            default:
+                species = SPECIES_MINIOR_ORANGE + rand;
+        }
+    }
+
     //Jinnora: if wild species can evolve by level, do so
     bool8 evolvedSpecies = FALSE;
     const struct Evolution *evolutions = GetSpeciesEvolutions(species);
