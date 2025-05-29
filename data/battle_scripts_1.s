@@ -5567,7 +5567,7 @@ BattleScript_LocalBattleWonBP::
 	getmoneyreward
 	printstring STRINGID_PLAYERGOTBP
 	waitmessage B_WAIT_TIME_LONG
-	end2
+	goto BattleScript_PayDayMoneyAndPickUpItems
 BattleScript_LocalBattleWonReward::
 	jumpifbyte CMP_NOT_EQUAL, gSpecialVar_0x800B, 0, BattleScript_LocalBattleWonBP
 	getmoneyreward
