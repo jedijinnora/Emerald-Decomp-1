@@ -940,8 +940,17 @@
 #define TRAINER_HOWIE                       (SUMMER_SEA_TRAINERS_START + 6) // Swimmer-M Howie
 #define SUMMER_SEA_TRAINERS_END             TRAINER_HOWIE
 
+//Sunrise Shore
+#define SUNRISE_SHORE_TRAINERS_START        (SUMMER_SEA_TRAINERS_END + 1)
+#define TRAINER_CAILE                       (SUNRISE_SHORE_TRAINERS_START + 0) // Picnicker Caile
+#define TRAINER_WARNER                      (SUNRISE_SHORE_TRAINERS_START + 1) // Rich Boy Warner
+#define TRAINER_CALLAHAN                    (SUNRISE_SHORE_TRAINERS_START + 2) // Kindler Callahan, by the grassy path
+#define TRAINER_JENKINS                     (SUNRISE_SHORE_TRAINERS_START + 3) // School Kid-M Jenkins
+#define TRAINER_TREVOR                      (SUNRISE_SHORE_TRAINERS_START + 4) // Guitarist Trevor, south of the overlook
+#define SUNRISE_SHORE_TRAINERS_END          TRAINER_TREVOR
+
 //Trick House
-#define TRICK_HOUSE_TRAINERS_START          (SUMMER_SEA_TRAINERS_END + 1)
+#define TRICK_HOUSE_TRAINERS_START          (SUNRISE_SHORE_TRAINERS_END + 1)
 
 //Puzzle 1
 #define TRAINER_SALLY                       (TRICK_HOUSE_TRAINERS_START + 0) // Lass Sally (by the entrance)
@@ -1018,7 +1027,7 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 663 (662 + TRAINER_NONE)
+//I think it's currently 668 (667 + TRAINER_NONE)
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 863 trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

@@ -48,6 +48,10 @@ Pokemon ordering within a pool:
  - Then organized by Dex order of families (i.e. Eeveelutions/Pichu = gen 1, Gliscor = gen 2)
  - Then organized by Badge tags
 
+Trainer-specific notes:
+ - Will be listed above the trainer data
+ - Used by Jinnora mostly for organizing Core tags
+ - No guarantees anything here is up-to-date with their actual pokemon
 
 === IVs, EVs, Natures, and Abilities ===
 
@@ -134,6 +138,12 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
 
 /* E4 Brandon */
 /* Brandon's room has sandstorm weather */
+/* Core 1 (1-2) "big offense": Ursaluna, Marowak, Marowak-A, Rhyperior-offensive, Claydol-offensive, Torterra-smash, Garchomp, Diggersby, Minior */
+/* Core 2 (1) "steels": Steelix, Skarmory, Metagross, Excadrill, Magnezone, Empoleon */
+/* Core 3 (1) "non-sand": Clefable, Dodrio, Sigilyph, Beheeyem, Volcarona, Lycanroc-dusk */
+/* Core 4 (0-1) "bulky": Rhyperior-bulky, Clodsire, Flygon, Claydol-bulky, Seismitoad, Lycanroc-midnight, Palossand */
+/* Core 5 (0-1) "tricky": Dugtrio, Kleavor, Gliscor, Tyranitar, Krookodile, Sandaconda, Relicanth, Torterra-bulky, Sandaconda */
+/* No-Core (2-3) "weather": Hippowdon, Heliolisk, Lycanroc-midday, Tyranitar, Cacturne, Stoutland */
 === TRAINER_BRANDON_1 ===
    Name: Brandon
    Class: Elite Four
@@ -158,6 +168,18 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Sucker Punch
       - Pursuit
 
+   Arcanine Hisui @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead
+      - Head Smash
+      - Flare Blitz
+      - Close Combat
+      - Extreme Speed
+
    Steelix @ Weakness Policy
       Adamant Nature
       Level: 16
@@ -169,6 +191,30 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Earthquake
       - Iron Tail
       - Explosion
+
+   Kleavor @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags : Lead / Stealth Rock / Core 5
+      - Stone Axe
+      - X Scissor
+      - Close Combat
+      - Tailwind
+
+   Kleavor @ Focus Sash
+      Jolly Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags : Lead / Stealth Rock / Core 5
+      - Stone Axe
+      - X Scissor
+      - Swords Dance
+      - Trailblaze
 
    Ursaluna @ Flame Orb
       Adamant Nature
@@ -260,7 +306,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Sand Stream
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 252 Atk / 4 SpD
-      Tags: Lead / Weather Setter / Stealth Rock / Core 5
+      Tags: Lead / Weather Setter / Stealth Rock
       - Crunch
       - Rock Slide
       - Stealth Rock
@@ -380,7 +426,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Shields Down
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 Def / 252 Atk / 252 Spe
-      Tags: Lead
+      Tags: Lead / Core 5
       - Shell Smash
       - Stone Edge
       - Acrobatics
@@ -458,6 +504,114 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Sucker Punch
       - Pursuit
 
+   Arcanine Hisui @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 5
+      - Head Smash
+      - Flare Blitz
+      - Close Combat
+      - Extreme Speed
+
+   Arcanine Hisui @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 5
+      - Head Smash
+      - Flare Blitz
+      - Close Combat
+      - Extreme Speed
+
+   Arcanine Hisui @ Heavy Duty Boots
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 3
+      - Head Smash
+      - Flare Blitz
+      - Close Combat
+      - Extreme Speed
+
+   Arcanine Hisui @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 3
+      - Head Smash
+      - Flare Blitz
+      - Close Combat
+      - Extreme Speed
+
+   Magnezone @ Magnet
+      Timid Nature
+      Level: 16
+      Ability: Magnet Pull
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 2
+      - Thunderbolt
+      - Flash Cannon
+      - Substitute
+      - Volt Switch
+
+   Magnezone @ Leftovers
+      Modest Nature
+      Level: 16
+      Ability: Magnet Pull
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 2
+      - Thunderbolt
+      - Flash Cannon
+      - Substitute
+      - Toxic
+
+   Magnezone @ Leftovers
+      Quiet Nature
+      Level: 16
+      Ability: Analytic
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 2
+      - Thunderbolt
+      - Flash Cannon
+      - Volt Switch
+      - Explosion
+
+   Dodrio @ Scope Lens
+      Jolly Nature
+      Level: 16
+      Ability: Early Bird
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 3
+      - Drill Run
+      - Drill Peck
+      - Jump Kick
+      - Swords Dance
+
+   Dodrio @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Reckless
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 3
+      - Brave Bird
+      - Pursuit
+      - Stomping Tantrum
+      - Endeavor
+
    Steelix @ Life Orb
       Jolly Nature
       Level: 16
@@ -505,30 +659,6 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Earthquake
       - Iron Tail
       - Explosion
-
-   Rhyperior @ Weakness Policy
-      Adamant Nature
-      Level: 16
-      Ability: Solid Rock
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 4 HP / 252 Atk / 252 SpD
-      Tags: Core 1
-      - Earthquake
-      - Stone Edge
-      - Megahorn
-      - Ice Punch
-
-   Rhyperior @ Leftovers
-      Adamant Nature
-      Level: 16
-      Ability: Solid Rock
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 252 HP / 16 Atk / 240 SpD
-      Tags: Stealth Rock / Core 4
-      - Earthquake
-      - Stone Edge
-      - Stealth Rock
-      - Megahorn
 
    Marowak @ Thick Club
       Adamant Nature
@@ -601,6 +731,54 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Swords Dance
       - Flare Blitz
       - Low Kick
+
+   Rhyperior @ Weakness Policy
+      Adamant Nature
+      Level: 16
+      Ability: Solid Rock
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 SpD
+      Tags: Core 1
+      - Earthquake
+      - Stone Edge
+      - Megahorn
+      - Ice Punch
+
+   Rhyperior @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Solid Rock
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 16 Atk / 240 SpD
+      Tags: Stealth Rock / Core 4
+      - Earthquake
+      - Stone Edge
+      - Stealth Rock
+      - Megahorn
+
+   Kleavor @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags : Stealth Rock / Core 5
+      - Stone Axe
+      - X Scissor
+      - U Turn
+      - Close Combat
+
+   Kleavor @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags : Stealth Rock / Core 5
+      - Stone Axe
+      - Swords Dance
+      - U Turn
+      - Close Combat
 
    Clodsire @ Black Sludge
       Careful Nature
@@ -908,7 +1086,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Rock Head
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 252 Def / 4 SpD
-      Tags: Core 5
+      Tags: Core 4
       - Amnesia
       - Wave Crash
       - Iron Defense
@@ -968,7 +1146,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Shell Armor
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 4 Atk / 252 Def
-      Tags: Core 5
+      Tags: Core 4
       - Leech Seed
       - Body Press
       - Iron Defense
@@ -1129,8 +1307,32 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Rapid Spin
       - Swords Dance
 
+   Excadrill @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Weather Abuser
+      - Earthquake
+      - Iron Head
+      - Toxic
+      - Swords Dance
+
    Excadrill @ Steel Gem
       Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Weather Abuser / Hazard Removal
+      - Earthquake
+      - Iron Head
+      - Rapid Spin
+      - Swords Dance
+
+   Excadrill @ Metal Coat
+      Jolly Nature
       Level: 16
       Ability: Sand Rush
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
@@ -1319,30 +1521,6 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Surf
       - Hyper Voice
 
-   Incineroar @ Safety Goggles
-      Careful Nature
-      Level: 16
-      Ability: Intimidate
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 248 HP / 212 SpD / 48 Spe
-      Tags: Core 3
-      - Knock Off
-      - Flare Blitz
-      - U Turn
-      - Will O Wisp
-
-   Incineroar @ Safety Goggles
-      Jolly Nature
-      Level: 16
-      Ability: Intimidate
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 252 Atk / 4 SpD / 252 Spe
-      Tags: Core 3
-      - Knock Off
-      - Flare Blitz
-      - U Turn
-      - Swords Dance
-
    Lycanroc Midday @ Hard Stone
       Adamant Nature
       Level: 16
@@ -1378,6 +1556,18 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Stone Edge
       - Endeavor
       - Fire Fang
+
+   Lycanroc Midday @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Weather Abuser
+      - Accelerock
+      - Stone Edge
+      - Swords Dance
+      - Close Combat
 
    Lycanroc Midnight @ Lum Berry
       Adamant Nature
@@ -1537,6 +1727,10 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
 
 
 /* E4 Lucy */
+/* Core 1: Arbok, Steelix, Gyarados, Dudunsparce, Shuckle, Milotic, Eelektross, Centiskorch, Orthworm */
+/* Core 2: Gardevoir, Breloom, Grimmsnarl, Okidogi, Munkidori, Fezandipiti, Pecharunt */
+/* Core 3: Nidoking, Nidoqueen, Slowbro-G, Slowking-G */
+/* Ace: Seviper */
 === TRAINER_LUCY_1 ===
    Name: Lucy
    Class: Elite Four
@@ -1555,7 +1749,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Thick Fat
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Lead / Core 1
+      Tags: Lead
       - Sleep Powder
       - Giga Drain
       - Sludge Wave
@@ -1567,7 +1761,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Clear Body
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 Atk / 252 Spe
-      Tags: Lead / Hazard Removal / Core 2
+      Tags: Lead / Hazard Removal
       - Liquidation
       - Gunk Shot
       - Knock Off
@@ -1579,7 +1773,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Clear Body
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Lead / Core 2
+      Tags: Lead
       - Hydro Pump
       - Blizzard
       - Knock Off
@@ -1615,7 +1809,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Quick Draw
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 16 SpA / 240 SpD
-      Tags: Lead / Core 2
+      Tags: Lead / Core 3
       - Shell Side Arm
       - Flamethrower
       - Psyshock
@@ -1627,7 +1821,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Regenerator
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 252 Def / 4 SpD
-      Tags: Lead / Core 2
+      Tags: Lead / Core 3
       - Scald
       - Flamethrower
       - Calm Mind
@@ -1639,7 +1833,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Regenerator
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 170 HP / 170 SpA / 170 SpD
-      Tags: Lead / Core 2
+      Tags: Lead / Core 3
       - Sludge Bomb
       - Fire Blast
       - Psychic
@@ -1651,7 +1845,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Regenerator
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 248 HP / 12 Def / 128 SpA / 44 SpD / 76 Spe
-      Tags: Lead / Core 2
+      Tags: Lead / Core 3
       - Nasty Plot
       - Fire Blast
       - Psychic
@@ -1668,6 +1862,18 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Focus Blast
       - Substitute
       - Nasty Plot
+
+   Shuckle @ Mental Herb
+      Bold Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Lead / Stealth Rock / Sticky Web / Core 1
+      - Stealth Rock
+      - Sticky Web
+      - Encore
+      - Final Gambit
 
    Sneasler @ Air Balloon
       Adamant Nature
@@ -1699,7 +1905,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Poison Point
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Lead / Spikes / Core 1
+      Tags: Lead / Spikes
       - Toxic Spikes
       - Dazzling Gleam
       - Leaf Storm
@@ -1777,7 +1983,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Corrosion
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Lead / Core 2
+      Tags: Lead
       - Sludge Wave
       - Toxic
       - Fire Blast
@@ -1789,7 +1995,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Oblivious
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Lead / Core 2
+      Tags: Lead
       - Foul Play
       - Taunt
       - Fire Blast
@@ -1861,7 +2067,6 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Thick Fat
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Core 1
       - Sleep Powder
       - Giga Drain
       - Sludge Wave
@@ -1884,6 +2089,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Sheer Force
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 3
       - Sludge Wave
       - Earth Power
       - Ice Beam
@@ -1895,6 +2101,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Sheer Force
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 3
       - Sludge Wave
       - Earth Power
       - Ice Beam
@@ -1906,6 +2113,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Sheer Force
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 Def / 252 Atk / 252 Spe
+      Tags: Core 3
       - Poison Jab
       - Rock Slide
       - Megahorn
@@ -1917,6 +2125,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Sheer Force
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 Def / 252 Atk / 252 Spe
+      Tags: Core 3
       - Poison Jab
       - Thunder Punch
       - Ice Punch
@@ -1928,7 +2137,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Intimidate
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 Def / 252 Atk / 252 Spe
-      Tags: Phazing Move
+      Tags: Core 1 / Phazing Move
       - Dragon Rush
       - Coil
       - Glare
@@ -1973,7 +2182,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Clear Body
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 Atk / 252 Spe
-      Tags: Hazard Removal / Core 3
+      Tags: Hazard Removal
       - Liquidation
       - Gunk Shot
       - Knock Off
@@ -1985,7 +2194,6 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Clear Body
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Core 3
       - Hydro Pump
       - Blizzard
       - Knock Off
@@ -2041,6 +2249,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Quick Draw
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 16 SpA / 240 SpD
+      Tags: Core 3
       - Shell Side Arm
       - Flamethrower
       - Psyshock
@@ -2052,7 +2261,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Regenerator
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 252 Def / 4 SpD
-      Tags: Core 2
+      Tags: Core 3
       - Scald
       - Flamethrower
       - Calm Mind
@@ -2064,6 +2273,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Regenerator
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 170 HP / 170 SpA / 170 SpD
+      Tags: Core 3
       - Sludge Bomb
       - Fire Blast
       - Psychic
@@ -2075,7 +2285,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Regenerator
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 248 HP / 12 Def / 128 SpA / 44 SpD / 76 Spe
-      Tags: Core 2
+      Tags: Core 3
       - Nasty Plot
       - Fire Blast
       - Psychic
@@ -2124,6 +2334,150 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Focus Blast
       - Substitute
       - Destiny Bond
+
+   Steelix @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      Tags: Core 1
+      - Coil
+      - Ice Fang
+      - Iron Tail
+      - Thunder Fang
+
+   Steelix @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sheer Force
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      Tags: Core 1
+      - Coil
+      - Ice Fang
+      - Iron Tail
+      - Thunder Fang
+
+   Gyarados @ Assault Vest
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpD
+      Tags: Phazing Move / Core 1
+      - Liquidation
+      - Avalanche
+      - Lash Out
+      - Dragon Tail
+
+   Gyarados @ Heavy Duty Boots
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 1
+      - Waterfall
+      - Dragon Dance
+      - Earthquake
+      - Thunder Wave
+
+   Gyarados @ Covert Cloak
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 1
+      - Waterfall
+      - Dragon Dance
+      - Earthquake
+      - Taunt
+
+   Gyarados @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 1
+      - Waterfall
+      - Dragon Dance
+      - Earthquake
+      - Substitute
+
+   Gyarados @ Lum Berry
+      Jolly Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 1
+      - Waterfall
+      - Dragon Dance
+      - Earthquake
+      - Stone Edge
+
+   Dudunsparce @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Core 1
+      - Calm Mind
+      - Boomburst
+      - Shadow Ball
+      - Roost
+
+   Dudunsparce @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      Tags: Phazing Move / Core 1
+      - Coil
+      - Body Slam
+      - Dragon Tail
+      - Roost
+
+   Dudunsparce @ Heavy Duty Boots
+      Careful Nature
+      Level: 16
+      Ability: Serene Grace
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      Tags: Phazing Move / Core 1
+      - Coil
+      - Body Slam
+      - Dragon Tail
+      - Roost
+
+   Shuckle @ Mental Herb
+      Bold Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Stealth Rock / Sticky Web / Core 1
+      - Stealth Rock
+      - Sticky Web
+      - Encore
+      - Final Gambit
+
+   Shuckle @ Leftovers
+      Impish Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Stealth Rock / Core 1
+      - Stealth Rock
+      - Toxic
+      - Encore
+      - Knock Off
 
    Sneasler @ Air Balloon
       Adamant Nature
@@ -2180,13 +2534,96 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Scale Shot
       - Aqua Jet
 
+   Gardevoir @ Choice Scarf
+      Modest Nature
+      Level: 16
+      Ability: Trace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 2
+      - Psychic
+      - Moonblast
+      - Focus Blast
+      - Mystical Fire
+
+   Gardevoir @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Trace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Psychic
+      - Moonblast
+      - Trick
+      - Healing Wish
+
+   Gardevoir @ Sitrus Berry
+      Bold Nature
+      Level: 16
+      Ability: Trace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpA
+      Tags: Core 2
+      - Will O Wisp
+      - Moonblast
+      - Calm Mind
+      - Mystical Fire
+
+   Gardevoir @ Heavy Duty Boots
+      Bold Nature
+      Level: 16
+      Ability: Trace
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpA
+      Tags: Core 2
+      - Hypnosis
+      - Teleport
+      - Psyshock
+      - Wish
+
+   Breloom @ Miracle Seed
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 2
+      - Mach Punch
+      - Bullet Seed
+      - Trailblaze
+      - Spore
+
+   Breloom @ Bright Powder
+      Adamant Nature
+      Level: 16
+      Ability: Effect Spore
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 2
+      - Focus Punch
+      - Leech Seed
+      - Substitute
+      - Spore
+
+   Breloom @ Loaded Dice
+      Jolly Nature
+      Level: 16
+      Ability: Effect Spore
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 2
+      - Sky Uppercut
+      - Bullet Seed
+      - Trailblaze
+      - Spore
+
    Roserade @ Focus Sash
       Timid Nature
       Level: 16
       Ability: Poison Point
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Core 1
       - Giga Drain
       - Dazzling Gleam
       - Leaf Storm
@@ -2198,11 +2635,46 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Natural Cure
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Spikes / Core 1
+      Tags: Spikes
       - Toxic
       - Venoshock
       - Giga Drain
       - Spikes
+
+   Milotic @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Competitive
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 Spe
+      Tags: Core 1
+      - Scald
+      - Ice Beam
+      - Recover
+      - Haze
+
+   Milotic @ Leftovers
+      Calm Nature
+      Level: 16
+      Ability: Competitive
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Core 1
+      - Scald
+      - Toxic
+      - Recover
+      - Refresh
+
+   Milotic @ Flame Orb
+      Bold Nature
+      Level: 16
+      Ability: Marvel Scale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 Spe
+      - Scald
+      - Ice Beam
+      - Recover
+      - Haze
 
    Drapion @ Scope Lens
       Jolly Nature
@@ -2236,6 +2708,76 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Baton Pass
       - Megahorn
       - Aqua Tail
+
+   Eelektross @ Assault Vest
+      Modest Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 SpA / 4 SpD
+      Tags: Core 1
+      - Volt Switch
+      - Giga Drain
+      - Flamethrower
+      - Acid Spray
+
+   Eelektross @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      Tags: Core 1
+      - Thunder Punch
+      - Drain Punch
+      - U Turn
+      - Knock Off
+
+   Eelektross @ Assault Vest
+      Sassy Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Core 1
+      - Discharge
+      - Acid Spray
+      - Giga Drain
+      - Knock Off
+
+   Eelektross @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 SpD / 4 Spe
+      Tags: Core 1
+      - Coil
+      - Drain Punch
+      - Supercell Slam
+      - Knock Off
+
+   Eelektross @ Expert Belt
+      Rash Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 140 Atk / 244 SpA / 124 Spe
+      - Thunderbolt
+      - Superpower
+      - Flamethrower
+      - Giga Drain
+
+   Eelektross @ Choice Specs
+      Modest Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 172 HP / 252 SpA / 84 Spe
+      - Thunderbolt
+      - Volt Switch
+      - Flamethrower
+      - Giga Drain
 
    Dragalge @ Black Sludge
       Modest Nature
@@ -2279,7 +2821,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Regenerator
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 252 HP / 4 Def / 252 SpD
-      Tags: Toxic Spikes / Core 3
+      Tags: Toxic Spikes
       - Scald
       - Recover
       - Haze
@@ -2291,7 +2833,6 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Corrosion
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Core 2
       - Sludge Wave
       - Toxic
       - Fire Blast
@@ -2303,7 +2844,6 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Oblivious
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Core 2
       - Foul Play
       - Taunt
       - Fire Blast
@@ -2341,6 +2881,114 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Overdrive
       - Shift Gear
       - Volt Switch
+
+   Centiskorch @ Heavy Duty Boots
+      Adamant Nature
+      Level: 16
+      Ability: Flash Fire
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Fire Lash
+      - Leech Life
+      - Power Whip
+      - Knock Off
+
+   Centiskorch @ Expert Belt
+      Adamant Nature
+      Level: 16
+      Ability: Flash Fire
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Fire Lash
+      - Leech Life
+      - Power Whip
+      - Knock Off
+
+   Centiskorch @ Assault Vest
+      Jolly Nature
+      Level: 16
+      Ability: Flash Fire
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Fire Lash
+      - Leech Life
+      - Power Whip
+      - Knock Off
+
+   Grimmsnarl @ Light Clay
+      Impish Nature
+      Level: 16
+      Ability: Prankster
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpD
+      Tags: Screens / Core 2
+      - Light Screen
+      - Reflect
+      - Taunt
+      - Play Rough
+
+   Grimmsnarl @ Light Clay
+      Impish Nature
+      Level: 16
+      Ability: Prankster
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpD
+      Tags: Screens / Core 2
+      - Light Screen
+      - Reflect
+      - Taunt
+      - Foul Play
+
+   Grimmsnarl @ Light Clay
+      Careful Nature
+      Level: 16
+      Ability: Prankster
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Screens / Core 2
+      - Light Screen
+      - Reflect
+      - Spirit Break
+      - Parting Shot
+
+   Grimmsnarl @ Light Clay
+      Impish Nature
+      Level: 16
+      Ability: Prankster
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Screens / Core 2
+      - Light Screen
+      - Reflect
+      - Spirit Break
+      - Parting Shot
+
+   Orthworm @ Sitrus Berry
+      Impish Nature
+      Level: 16
+      Ability: Earth Eater
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Stealth Rock / Core 1
+      - Shed Tail
+      - Body Press
+      - Iron Head
+      - Stealth Rock
+
+   Orthworm @ Sitrus Berry
+      Impish Nature
+      Level: 16
+      Ability: Earth Eater
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Spikes / Core 1
+      - Shed Tail
+      - Body Press
+      - Iron Head
+      - Spikes
 
    Glimmora @ Focus Sash
       Timid Nature
@@ -2386,6 +3034,121 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Knock Off
       - Encore
       - U Turn
+
+   Okidogi @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Toxic Chain
+      EVs: 240 HP / 252 Atk / 16 Spe
+      Tags: Core 2
+      - Drain Punch
+      - Gunk Shot
+      - Knock Off
+      - Ice Punch
+
+   Okidogi @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Guard Dog
+      EVs: 252 HP / 160 SpD / 96 Spe
+      Tags: Core 2
+      - Drain Punch
+      - Bulk Up
+      - Knock Off
+      - Ice Punch
+
+   Munkidori @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Toxic Chain
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Sludge Wave
+      - Psychic
+      - U Turn
+      - Trick
+
+   Munkidori @ Wise Glasses
+      Timid Nature
+      Level: 16
+      Ability: Toxic Chain
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Sludge Wave
+      - Psychic
+      - Nasty Plot
+      - Focus Blast
+
+   Munkidori @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Toxic Chain
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Sludge Wave
+      - Psychic Noise
+      - Fake Out
+      - Focus Blast
+
+   Fezandipiti @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Toxic Chain
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 56 Def / 200 Spe
+      Tags: Core 2
+      - Calm Mind
+      - Moonblast
+      - Roost
+      - U Turn
+
+   Fezandipiti @ Covert Cloak
+      Timid Nature
+      Level: 16
+      Ability: Toxic Chain
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 56 Def / 200 Spe
+      Tags: Core 2
+      - Calm Mind
+      - Moonblast
+      - Roost
+      - U Turn
+
+   Pecharunt @ Covert Cloak
+      Timid Nature
+      Level: 16
+      Ability: Poison Puppeteer
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 56 Def / 200 Spe
+      Tags: Core 2
+      - Malignant Chain
+      - Hex
+      - Recover
+      - Parting Shot
+
+   Pecharunt @ Heavy Duty Boots
+      Timid Nature
+      Level: 16
+      Ability: Poison Puppeteer
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 2
+      - Malignant Chain
+      - Hex
+      - Recover
+      - Nasty Plot
+
+   Pecharunt @ Weakness Policy
+      Bold Nature
+      Level: 16
+      Ability: Poison Puppeteer
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 228 Def / 28 Spe
+      Tags: Core 2
+      - Malignant Chain
+      - Hex
+      - Recover
+      - Nasty Plot
 
    Seviper @ Weakness Policy
       Adamant Nature
@@ -3482,7 +4245,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Timid Nature
       Level: 16
       Ability: Magic Guard
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
       Tags: Ace
       - Freeze Dry
@@ -3494,7 +4257,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Modest Nature
       Level: 16
       Ability: Magic Guard
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
       Tags: Ace
       - Freeze Dry
@@ -39510,27 +40273,15 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Pool Rules: Basic
    Pool Prune: Badges
 
-   Toxicroak @ Muscle Band
-      Adamant Nature
-      Level: 13
-      Ability: Poison Touch
+   Slugma @ Eviolite
+      Modest Nature
+      Level: 11
+      Ability: Flame Body
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Poison Jab
-      - Drain Punch
-      - Swords Dance
-      - Throat Chop
-
-   Maushold @ Wide Lens
-      Adamant Nature
-      Level: 13
-      Ability: Technician
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Tidy Up
-      - Population Bomb
+      Tags: Badge 0 / Badge 1
+      - Flame Burst
+      - Ancient Power
+      - Rock Slide
 
    Magcargo @ Assault Vest
       Modest Nature
@@ -39538,35 +40289,43 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Flame Body
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Flamethrower
       - Ancient Power
       - Rock Slide
       - Scald
 
-   Maractus @ Rocky Helmet
-      Rash Nature
-      Level: 13
-      Ability: Storm Drain
+   Croagunk @ Muscle Band
+      Level: 10
+      Ability: Poison Touch
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Giga Drain
-      - Spiky Shield
-      - Pin Missile
-      - Sucker Punch
+      Tags: Badge 0 / Badge 1
+      - Poison Jab
+      - Drain Punch
+      - Swords Dance
+      - Throat Chop
 
-   Sawk @ Punching Glove
+   Toxicroak @ Muscle Band
       Adamant Nature
       Level: 13
-      Ability: Inner Focus
+      Ability: Poison Touch
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Close Combat
-      - Ice Punch
-      - Thunder Punch
-      - Fire Punch
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Poison Jab
+      - Drain Punch
+      - Swords Dance
+      - Throat Chop
+
+   Munna @ Leftovers
+      Level: 11
+      Ability: Synchronize
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1
+      - Moonblast
+      - Hypnosis
+      - Dream Eater
+      - Shadow Ball
 
    Musharna @ Leftovers
       Modest Nature
@@ -39574,74 +40333,73 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Synchronize
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Moonblast
       - Hypnosis
       - Dream Eater
       - Shadow Ball
 
-   Croagunk @ Muscle Band
-      Adamant Nature
-      Level: 11
-      Ability: Poison Touch
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Poison Jab
-      - Drain Punch
-      - Swords Dance
-      - Throat Chop
-
-   Tandemaus @ Wide Lens
-      Adamant Nature
-      Level: 11
-      Ability: Own Tempo
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Tickle
-      - Population Bomb
-
-   Slugma @ Eviolite
-      Modest Nature
-      Level: 11
-      Ability: Flame Body
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Flame Burst
-      - Ancient Power
-      - Rock Slide
-
-   Maractus @ Rocky Helmet
-      Rash Nature
-      Level: 11
-      Ability: Storm Drain
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Giga Drain
-      - Spiky Shield
-      - Pin Missile
-      - Sucker Punch
-
    Sawk @ Punching Glove
-      Adamant Nature
-      Level: 11
+      Level: 10
       Ability: Inner Focus
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Brick Break
       - Ice Punch
       - Thunder Punch
       - Fire Punch
 
-   Munna @ Leftovers
-      Modest Nature
-      Level: 11
-      Ability: Synchronize
+   Sawk @ Punching Glove
+      Adamant Nature
+      Level: 13
+      Ability: Inner Focus
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Moonblast
-      - Hypnosis
-      - Dream Eater
-      - Shadow Ball
+      EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Close Combat
+      - Ice Punch
+      - Thunder Punch
+      - Fire Punch
+
+   Maractus @ Rocky Helmet
+      Level: 10
+      Ability: Storm Drain
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Giga Drain
+      - Spiky Shield
+      - Pin Missile
+      - Sucker Punch
+
+   Maractus @ Rocky Helmet
+      Rash Nature
+      Level: 13
+      Ability: Storm Drain
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Giga Drain
+      - Spiky Shield
+      - Pin Missile
+      - Sucker Punch
+
+   Tandemaus @ Wide Lens
+      Level: 10
+      Ability: Own Tempo
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1
+      - Tickle
+      - Population Bomb
+
+   Maushold @ Wide Lens
+      Adamant Nature
+      Level: 13
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Tidy Up
+      - Population Bomb
 
 === TRAINER_PAT ===
    Name: Pat
@@ -39655,28 +40413,15 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Pool Rules: Basic
    Pool Prune: Badges
 
-   Bruxish @ Twisted Spoon
-      Adamant Nature
-      Level: 13
-      Ability: Strong Jaw
+   Sunflora @ Leftovers
+      Level: 10
+      Ability: Solar Power
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Psychic Fangs
-      - Wave Crash
-      - Aqua Jet
-      - Ice Fang
-
-   Pachirisu @ Sitrus Berry
-      Level: 13
-      Ability: Volt Absorb
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Nuzzle
-      - Super Fang
-      - Volt Switch
-      - Electroweb
+      Tags: Badge 0 / Badge 1
+      - Mega Drain
+      - Fire Spin
+      - Ingrain
+      - Sunny Day
 
    Sunflora @ Miracle Seed
       Modest Nature
@@ -39684,11 +40429,41 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Chlorophyll
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Energy Ball
       - Flamethrower
       - Synthesis
       - Dazzling Gleam
+
+   Pachirisu @ Berry Juice
+      Level: 11
+      Ability: Volt Absorb
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1
+      - Nuzzle
+      - Super Fang
+      - Volt Switch
+      - Electroweb
+
+   Pachirisu @ Sitrus Berry
+      Level: 13
+      Ability: Volt Absorb
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Nuzzle
+      - Super Fang
+      - Volt Switch
+      - Electroweb
+
+   Throh @ Salac Berry
+      Level: 10
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Revenge
+      - Bulk Up
+      - Facade
+      - Payback
 
    Throh @ Salac Berry
       Adamant Nature
@@ -39696,23 +40471,44 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Guts
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Revenge
       - Bulk Up
       - Facade
       - Payback
 
-   Squawkabilly Green @ Adrenaline Orb
-      Hasty Nature
+   Bruxish @ Adrenaline Orb
+      Level: 10
+      Ability: Dazzling
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Psyshock
+      - Waterfall
+      - Aqua Jet
+      - Ice Fang
+
+   Bruxish @ Twisted Spoon
+      Adamant Nature
       Level: 13
-      Ability: Intimidate
+      Ability: Strong Jaw
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Taunt
-      - Roost
-      - Brave Bird
-      - Hyper Voice
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Psychic Fangs
+      - Wave Crash
+      - Aqua Jet
+      - Ice Fang
+
+   Frosmoth @ Charti Berry
+      Timid Nature
+      Level: 11
+      Ability: Shield Dust
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1
+      - Stun Spore
+      - Icy Wind
+      - Struggle Bug
+      - Fairy Wind
 
    Frosmoth @ Focus Sash
       Timid Nature
@@ -39720,76 +40516,34 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Ice Scales
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Quiver Dance
       - Ice Beam
       - Bug Buzz
       - Giga Drain
 
-   Bruxish @ Adrenaline Orb
-      Adamant Nature
-      Level: 11
-      Ability: Dazzling
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Psyshock
-      - Waterfall
-      - Aqua Jet
-      - Ice Fang
-
-   Pachirisu @ Berry Juice
-      Level: 11
-      Ability: Volt Absorb
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Nuzzle
-      - Super Fang
-      - Volt Switch
-      - Electroweb
-
-   Sunflora @ Miracle Seed
-      Modest Nature
-      Level: 11
-      Ability: Chlorophyll
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Energy Ball
-      - Flamethrower
-      - Synthesis
-      - Dazzling Gleam
-
-   Throh @ Salac Berry
-      Adamant Nature
-      Level: 11
-      Ability: Guts
-      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Revenge
-      - Bulk Up
-      - Facade
-      - Payback
-
    Squawkabilly Green @ Berry Juice
       Hasty Nature
-      Level: 11
+      Level: 10
       Ability: Intimidate
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Taunt
       - Roost
       - Aerial Ace
       - Uproar
 
-   Frosmoth @ Charti Berry
-      Timid Nature
-      Level: 11
-      Ability: Shield Dust
+   Squawkabilly Green @ Adrenaline Orb
+      Hasty Nature
+      Level: 13
+      Ability: Intimidate
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Stun Spore
-      - Icy Wind
-      - Struggle Bug
-      - Fairy Wind
+      EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Taunt
+      - Roost
+      - Brave Bird
+      - Hyper Voice
 
 === TRAINER_MARCEL ===
    Name: Marcel
@@ -39924,68 +40678,87 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Pool Rules: Basic
    Pool Prune: Badges
 
-   Unfezant @ Scope Lens
-      Adamant Nature
-      Level: 14
-      Ability: Super Luck
-      EVs: 128 Atk / 128 SpA / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Roost
-      - Tailwind
-      - Brave Bird
-      - Facade
-
-   Electrode @ Magnet
-      Modest Nature
-      Level: 14
-      Ability: Static
-      EVs: 128 Atk / 128 SpA / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Thunderbolt
-      - Volt Switch
-      - Explosion
-      - Screech
+   Krabby @ Life Orb
+      Level: 15
+      Ability: Sheer Force
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Agility
+      - Crabhammer
+      - Metal Claw
+      - Rock Tomb
 
    Kingler @ Life Orb
       Jolly Nature
       Level: 14
       Ability: Sheer Force
       EVs: 128 Atk / 128 SpA / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Agility
       - Liquidation
       - Iron Head
       - Rock Slide
 
-   Tranquill @ Scope Lens
-      Adamant Nature
-      Level: 14
-      Ability: Super Luck
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Roost
-      - Tailwind
-      - Brave Bird
-      - Facade
-
    Voltorb @ Magnet
       Modest Nature
       Level: 14
       Ability: Static
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Charge Beam
       - Volt Switch
       - Self Destruct
       - Screech
 
-   Krabby @ Life Orb
+   Electrode @ Magnet
+      Modest Nature
+      Level: 14
+      Ability: Static
+      EVs: 128 Atk / 128 SpA / 252 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Thunderbolt
+      - Volt Switch
+      - Explosion
+      - Screech
+
+   Grovyle @ Loaded Dice
+      Level: 14
+      Ability: Technician
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Bullet Seed
+      - Fury Cutter
+      - Rock Tomb
+      - Screech
+
+   Sceptile @ Loaded Dice
       Jolly Nature
       Level: 14
-      Ability: Sheer Force
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Agility
-      - Crabhammer
-      - Metal Claw
+      Ability: Technician
+      EVs: 128 Atk / 128 SpA / 252 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Bullet Seed
+      - Scale Shot
       - Rock Tomb
+      - Screech
+
+   Tranquill @ Scope Lens
+      Adamant Nature
+      Level: 14
+      Ability: Super Luck
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Roost
+      - Tailwind
+      - Brave Bird
+      - Slash
+
+   Unfezant @ Scope Lens
+      Adamant Nature
+      Level: 14
+      Ability: Super Luck
+      EVs: 128 Atk / 128 SpA / 252 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Roost
+      - Tailwind
+      - Brave Bird
+      - Slash
 
 === TRAINER_JULIE ===
    Name: Julie
@@ -39996,71 +40769,79 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
    Party Size: 3
-   Pool Rules: Basic
+   Pool Rules: Duplicates Allowed
    Pool Prune: Badges
 
-   Yanmega @ Bright Powder
-      Modest Nature
-      Level: 14
-      Ability: Speed Boost
-      EVs: 128 Atk / 128 SpA / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Ancient Power
-      - Silver Wind
-      - Double Team
-      - Air Slash
-
-   Electabuzz @ Eviolite
-      Naive Nature
-      Level: 14
-      Ability: Static
-      EVs: 128 Atk / 128 SpA / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Discharge
-      - Ice Punch
-      - Knock Off
-      - Low Kick
+   Poliwhirl @ Sitrus Berry
+      Jolly Nature
+      Level: 13
+      Ability: Swift Swim
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Belly Drum
+      - Brick Break
+      - Waterfall
+      - Hypnosis
 
    Poliwrath @ Sitrus Berry
       Jolly Nature
       Level: 14
       Ability: Swift Swim
       EVs: 128 Atk / 128 SpA / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Belly Drum
       - Drain Punch
       - Liquidation
       - Hypnosis
 
-   Yanma @ Bright Powder
-      Modest Nature
-      Level: 14
-      Ability: Speed Boost
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Ancient Power
-      - Silver Wind
-      - Double Team
-      - Air Slash
-
-   Electabuzz @ Eviolite
-      Naive Nature
+   Elekid @ Eviolite
       Level: 14
       Ability: Static
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1
       - Discharge
       - Ice Punch
       - Knock Off
       - Low Kick
 
-   Poliwhirl @ Sitrus Berry
-      Jolly Nature
+   Electabuzz @ Eviolite
+      Naive Nature
+      Level: 13
+      Ability: Static
+      Tags: Badge 2 / Badge 3
+      - Discharge
+      - Ice Punch
+      - Knock Off
+      - Low Kick
+
+   Electivire @ Assault Vest
+      Naive Nature
       Level: 14
-      Ability: Swift Swim
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Belly Drum
-      - Brick Break
-      - Waterfall
-      - Hypnosis
+      Ability: Motor Drive
+      EVs: 128 Atk / 128 SpA / 252 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Discharge
+      - Ice Punch
+      - Knock Off
+      - Low Kick
+
+   Yanma @ Bright Powder
+      Level: 14
+      Ability: Speed Boost
+      Tags: Badge 0 / Badge 1
+      - Ancient Power
+      - Silver Wind
+      - Double Team
+      - Air Slash
+
+   Yanmega @ Bright Powder
+      Modest Nature
+      Level: 14
+      Ability: Speed Boost
+      EVs: 128 Atk / 128 SpA / 252 Spe
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Ancient Power
+      - Silver Wind
+      - Double Team
+      - Air Slash
 
 === TRAINER_HIROMICHI ===
    Name: Hiromichi
@@ -40070,20 +40851,73 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Suspicious
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
-   Party Size: 1
+   Party Size: 2
    Pool Rules: Basic
    Pool Prune: Badges
 
-   Kleavor @ Life Orb
+   Scyther @ Eviolite
+      Jolly Nature
+      Level: 14
+      Ability: Technician
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Dual Wingbeat
+      - U Turn
+      - Bug Bite
+      - Quick Attack
+
+   Scyther @ Heavy Duty Boots
       Jolly Nature
       Level: 16
-      Ability: Sharpness
+      Ability: Technician
       EVs: 170 Atk / 170 SpA / 170 Spe
       Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Stone Axe
-      - X Scissor
-      - Aerial Ace
-      - Night Slash
+      - Dual Wingbeat
+      - U Turn
+      - Close Combat
+      - Roost
+
+   Scyther @ Eviolite
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      EVs: 170 Atk / 170 SpA / 170 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Dual Wingbeat
+      - Close Combat
+      - Swords Dance
+      - Trailblaze
+
+   Scizor @ Leftovers
+      Jolly Nature
+      Level: 14
+      Ability: Technician
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Swords Dance
+      - Bullet Punch
+      - Bug Bite
+      - Roost
+
+   Scizor @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      EVs: 170 Atk / 170 SpA / 170 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Swords Dance
+      - Bullet Punch
+      - Bug Bite
+      - Roost
+
+   Scizor @ Occa Berry
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      EVs: 170 Atk / 170 SpA / 170 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Swords Dance
+      - Bullet Punch
+      - Bug Bite
+      - Roost
 
    Kleavor @ Life Orb
       Jolly Nature
@@ -40094,6 +40928,28 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - X Scissor
       - Aerial Ace
       - Night Slash
+
+   Kleavor @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Sharpness
+      EVs: 170 Atk / 170 SpA / 170 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Stone Axe
+      - X Scissor
+      - Aerial Ace
+      - Trailblaze
+
+   Kleavor @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Sharpness
+      EVs: 170 Atk / 170 SpA / 170 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Stone Axe
+      - X Scissor
+      - U Turn
+      - Close Combat
 
 === TRAINER_TSUNAO ===
    Name: Tsunao
@@ -40107,68 +40963,98 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Pool Rules: Basic
    Pool Prune: Badges
 
-   Ribombee @ Bright Powder
-      Modest Nature
-      Level: 14
-      Ability: Shield Dust
-      EVs: 170 Atk / 170 SpA / 170 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Sticky Web
-      - Pollen Puff
-      - Quiver Dance
-      - Moonblast
+   Nidoqueen @ Wise Glasses
+      Level: 13
+      Ability: Sheer Force
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Ice Beam
+      - Thunderbolt
+      - Earth Power
+      - Sludge Wave
 
    Nidoqueen @ Life Orb
       Modest Nature
-      Level: 14
+      Level: 16
       Ability: Sheer Force
       EVs: 170 Atk / 170 SpA / 170 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Ice Beam
       - Thunderbolt
       - Earth Power
       - Sludge Wave
 
-   Togekiss @ Leftovers
+   Togetic @ Leftovers
       Timid Nature
-      Level: 14
+      Level: 16
       Ability: Serene Grace
-      EVs: 170 Atk / 170 SpA / 170 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Air Slash
       - Thunder Wave
       - Roost
       - Fire Blast
+
+   Togekiss @ Leftovers
+      Timid Nature
+      Level: 16
+      Ability: Serene Grace
+      EVs: 170 Atk / 170 SpA / 170 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Air Slash
+      - Thunder Wave
+      - Roost
+      - Fire Blast
+
+   Monferno @ Focus Band
+      Level: 14
+      Ability: Blaze
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Flamethrower
+      - Vacuum Wave
+      - Focus Blast
+      - Grass Knot
+
+   Infernape @ Expert Belt
+      Modest Nature
+      Level: 14
+      Ability: Blaze
+      EVs: 170 Atk / 170 SpA / 170 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Fire Blast
+      - Nasty Plot
+      - Vacuum Wave
+      - Aura Sphere
+
+   Infernape @ Punching Glove
+      Adamant Nature
+      Level: 14
+      Ability: Iron Fist
+      EVs: 170 Atk / 170 SpA / 170 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Flare Blitz
+      - Drain Punch
+      - Thunder Punch
+      - Close Combat
 
    Ribombee @ Bright Powder
       Modest Nature
       Level: 13
       Ability: Shield Dust
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Sticky Web
       - Pollen Puff
       - Quiver Dance
       - Moonblast
 
-   Nidoqueen @ Wise Glasses
+   Ribombee @ Bright Powder
       Modest Nature
-      Level: 13
-      Ability: Sheer Force
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Ice Beam
-      - Thunderbolt
-      - Earth Power
-      - Sludge Wave
-
-   Togekiss @ Leftovers
-      Timid Nature
-      Level: 13
-      Ability: Serene Grace
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Air Slash
-      - Thunder Wave
-      - Roost
-      - Fire Blast
+      Level: 14
+      Ability: Shield Dust
+      EVs: 170 Atk / 170 SpA / 170 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Sticky Web
+      - Pollen Puff
+      - Quiver Dance
+      - Moonblast
 
 === TRAINER_MICAH ===
    Name: Micah
@@ -40179,71 +41065,87 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
    Party Size: 3
-   Pool Rules: Duplicates Allowed
+   Pool Rules: Basic
    Pool Prune: Badges
 
-   Parasect @ Focus Band
-      Jolly Nature
+   Parasect @ Bright Powder
       Level: 14
       Ability: Effect Spore
-      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1
       - Sappy Seed
       - Spore
       - Leech Life
       - Swords Dance
+
+   Parasect @ Bright Powder
+      Jolly Nature
+      Level: 14
+      Ability: Effect Spore
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Sappy Seed
+      - Spore
+      - Leech Life
+      - Swords Dance
+
+   Volbeat @ Scope Lens
+      Modest Nature
+      Level: 14
+      Ability: Prankster
+      Tags: Badge 0 / Badge 1
+      - Thunderbolt
+      - Tail Glow
+      - Bug Buzz
+      - Air Cutter
+
+   Volbeat @ Scope Lens
+      Modest Nature
+      Level: 14
+      Ability: Prankster
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Thunderbolt
+      - Tail Glow
+      - Bug Buzz
+      - Air Cutter
+
+   Illumise @ Choice Band
+      Adamant Nature
+      Level: 14
+      Ability: Tinted Lens
+      Tags: Badge 0 / Badge 1
+      - U Turn
+      - Play Rough
+
+   Illumise @ Choice Band
+      Adamant Nature
+      Level: 14
+      Ability: Tinted Lens
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - U Turn
+      - Play Rough
+
+   Spidops @ Focus Band
+      Jolly Nature
+      Level: 14
+      Ability: Stakeout
+      Tags: Badge 0 / Badge 1
+      - First Impression
+      - Silk Trap
+      - Leech Life
+      - U Turn
 
    Spidops @ Focus Band
       Jolly Nature
       Level: 14
       Ability: Stakeout
       EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - First Impression
       - Silk Trap
       - Leech Life
       - U Turn
-
-   Volbeat @ Focus Band
-      Modest Nature
-      Level: 14
-      Ability: Prankster
-      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Thunderbolt
-      - Tail Glow
-      - Bug Buzz
-      - Air Cutter
-
-   Parasect @ Focus Band
-      Jolly Nature
-      Level: 14
-      Ability: Effect Spore
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Sappy Seed
-      - Spore
-      - Leech Life
-      - Swords Dance
-
-   Spidops @ Focus Band
-      Jolly Nature
-      Level: 14
-      Ability: Stakeout
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - First Impression
-      - Silk Trap
-      - Leech Life
-      - U Turn
-
-   Volbeat @ Focus Band
-      Modest Nature
-      Level: 14
-      Ability: Prankster
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Thunderbolt
-      - Tail Glow
-      - Bug Buzz
-      - Air Cutter
 
 === TRAINER_EDGAR ===
    Name: Edgar
@@ -40252,17 +41154,47 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Gender: Male
    Music: Swimmer
    Double Battle: No
-   AI: Check Bad Move / Try To Faint / Check Viability
+   AI: Check Bad Move / Try To Faint / Check Viability / Risky
    Party Size: 3
    Pool Rules: Duplicates Allowed
    Pool Prune: Badges
+
+   Dewott @ Eviolite
+      Adamant Nature
+      Level: 13
+      Ability: Torrent
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Air Slash
+      - Knock Off
+      - Aqua Jet
+      - Liquidation
+
+   Dewott @ Eviolite
+      Adamant Nature
+      Level: 13
+      Ability: Shell Armor
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Razor Shell
+      - Sacred Sword
+      - Night Slash
+      - X Scissor
+
+   Dewott @ Eviolite
+      Modest Nature
+      Level: 13
+      Ability: Shell Armor
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Hydro Pump
+      - Ice Beam
+      - Grass Knot
+      - Vacuum Wave
 
    Samurott Hisui @ Assault Vest
       Adamant Nature
       Level: 16
       Ability: Torrent
       EVs: 120 HP / 120 Atk / 120 SpA / 120 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Ceaseless Edge
       - Sucker Punch
       - Aqua Jet
@@ -40273,7 +41205,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Level: 16
       Ability: Shell Armor
       EVs: 120 HP / 120 Atk / 120 SpA / 120 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Razor Shell
       - Iron Head
       - Megahorn
@@ -40284,37 +41216,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Level: 16
       Ability: Shell Armor
       EVs: 120 HP / 120 Atk / 120 SpA / 120 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Hydro Pump
-      - Ice Beam
-      - Grass Knot
-      - Vacuum Wave
-
-   Dewott @ Eviolite
-      Adamant Nature
-      Level: 13
-      Ability: Torrent
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Air Slash
-      - Knock Off
-      - Aqua Jet
-      - Liquidation
-
-   Dewott @ Eviolite
-      Adamant Nature
-      Level: 13
-      Ability: Shell Armor
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Razor Shell
-      - Sacred Sword
-      - Night Slash
-      - X Scissor
-
-   Dewott @ Eviolite
-      Modest Nature
-      Level: 13
-      Ability: Shell Armor
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Hydro Pump
       - Ice Beam
       - Grass Knot
@@ -53098,6 +54000,461 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Close Combat
       - Crunch
       - Aqua Jet
+
+
+/* Sunrise Shore */
+=== TRAINER_CAILE ===
+   Name: Caile
+   Class: Picnicker
+   Pic: Picnicker
+   Gender: Female
+   Music: Girl
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Buizel @ Mystic Water
+      Level: 12
+      Ability: Water Bubble
+      Tags: Badge 0 / Badge 1
+      - Surf
+      - Ice Fang
+      - Bite
+      - Aqua Jet
+
+   Floatzel @ Mystic Water
+      Jolly Nature
+      Level: 14
+      Ability: Water Bubble
+      EVs: 120 HP / 120 Atk / 120 SpA / 120 Spe
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Liquidation
+      - Ice Punch
+      - Crunch
+      - Aqua Jet
+
+   Floatzel @ Mystic Water
+      Jolly Nature
+      Level: 14
+      Ability: Technician
+      EVs: 120 HP / 120 Atk / 120 SpA / 120 Spe
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Surging Strikes
+      - Fury Cutter
+      - Bite
+      - Aqua Jet
+
+   Audino @ Sitrus Berry
+      Level: 13
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Draining Kiss
+      - Calm Mind
+      - Thunder Wave
+      - Wish
+
+   Audino @ Sitrus Berry
+      Modest Nature
+      Level: 14
+      Ability: Regenerator
+      EVs: 120 HP / 120 Atk / 120 SpA / 120 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Draining Kiss
+      - Calm Mind
+      - Thunder Wave
+      - Wish
+
+   Mudbray @ Eviolite
+      Adamant Nature
+      Level: 12
+      Ability: Inner Focus
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Smack Down
+      - Bulldoze
+      - Iron Head
+      - Low Kick
+
+   Mudsdale @ Assault Vest
+      Jolly Nature
+      Level: 14
+      Ability: Stamina
+      EVs: 120 HP / 120 Atk / 120 SpA / 120 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - High Horsepower
+      - Body Press
+      - Heavy Slam
+      - Stone Edge
+
+   Grookey @ Grassy Seed
+      Level: 13
+      Ability: Grassy Surge
+      Tags: Badge 0
+      - Protect
+      - Grassy Glide
+      - Acrobatics
+      - Leech Seed
+
+   Thwackey @ Grassy Seed
+      Adamant Nature
+      Level: 14
+      Ability: Grassy Surge
+      Tags: Badge 1 / Badge 2
+      - Drain Punch
+      - Grassy Glide
+      - Acrobatics
+      - Seed Bomb
+
+   Rillaboom @ Grassy Seed
+      Adamant Nature
+      Level: 14
+      Ability: Grassy Surge
+      EVs: 120 HP / 120 Atk / 120 SpA / 120 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Drain Punch
+      - Grassy Glide
+      - Acrobatics
+      - Drum Beating
+
+=== TRAINER_WARNER ===
+   Name: Warner
+   Class: Rich Boy
+   Pic: Rich Boy
+   Gender: Male
+   Music: Rich
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 1
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Teddiursa @ Toxic Orb
+      Level: 15
+      Ability: Quick Feet
+      Tags: Badge 0
+      - Low Kick
+      - Trailblaze
+      - Payback
+      - Slash
+
+   Teddiursa @ Toxic Orb
+      Jolly Nature
+      Level: 15
+      Ability: Quick Feet
+      Tags: Badge 1
+      - Low Kick
+      - Trailblaze
+      - Crunch
+      - Facade
+
+   Ursaring @ Toxic Orb
+      Jolly Nature
+      Level: 15
+      Ability: Guts
+      EVs: 100 HP / 100 Atk / 100 Def / 100 SpA / 100 SpD
+      Tags: Badge 2 / Badge 3 / Badge 4
+      - Cross Chop
+      - Trailblaze
+      - Crunch
+      - Facade
+
+   Ursaluna @ Toxic Orb
+      Jolly Nature
+      Level: 16
+      Ability: Guts
+      EVs: 100 HP / 100 Atk / 100 Def / 100 SpA / 100 SpD
+      Tags: Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Cross Chop
+      - Earthquake
+      - Crunch
+      - Facade
+
+   Slakoth @ Life Orb
+      Level: 16
+      Tags: Badge 0
+      - Body Slam
+      - Hammer Arm
+      - Slack Off
+      - Throat Chop
+
+   Vigoroth @ Scope Lens
+      Jolly Nature
+      Level: 16
+      Tags: Badge 1 / Badge 2
+      - Slash
+      - Drain Punch
+      - Focus Energy
+      - Night Slash
+
+   Slaking @ Life Orb
+      Adamant Nature
+      Level: 16
+      EVs: 100 HP / 100 Atk / 100 Def / 100 SpA / 100 SpD
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Giga Impact
+      - Drain Punch
+      - Rest
+      - Throat Chop
+
+=== TRAINER_CALLAHAN ===
+   Name: Callahan
+   Class: Kindler
+   Pic: Kindler
+   Gender: Male
+   Music: Hiker
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Risky
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Poliwag @ Eviolite
+      Level: 13
+      Ability: Water Absorb
+      Tags: Badge 0
+      - Hypnosis
+      - Take Down
+      - Bubble Beam
+      - Icy Wind
+
+   Poliwhirl @ Eviolite
+      Level: 16
+      Ability: Water Absorb
+      Tags: Badge 1 / Badge 2
+      - Hypnosis
+      - Body Slam
+      - Waterfall
+      - Ice Beam
+
+   Politoed @ Binding Band
+      Timid Nature
+      Level: 15
+      Ability: Water Absorb
+      EVs: 200 Def / 200 SpA / 110 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Slack Off
+      - Perish Song
+      - Whirlpool
+      - Toxic
+
+   Politoed @ Throat Spray
+      Modest Nature
+      Level: 15
+      Ability: Water Absorb
+      EVs: 200 Def / 200 SpA / 110 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Slack Off
+      - Scald
+      - Hyper Voice
+      - Ice Beam
+
+   Nosepass @ Weakness Policy
+      Level: 13
+      Ability: Levitate
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Discharge
+      - Flash Cannon
+      - Dazzling Gleam
+      - Earth Power
+
+   Probopass @ Weakness Policy
+      Modest Nature
+      Level: 15
+      Ability: Levitate
+      EVs: 200 Atk / 200 SpA / 110 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Discharge
+      - Flash Cannon
+      - Dazzling Gleam
+      - Earth Power
+
+   Rolycoly @ Air Balloon
+      Level: 15
+      Ability: Steam Engine
+      Tags: Badge 0
+      - Heat Wave
+      - Rock Blast
+      - Bulldoze
+      - Will O Wisp
+
+   Carkol @ Air Balloon
+      Level: 14
+      Ability: Steam Engine
+      Tags: Badge 1 / Badge 2
+      - Heat Wave
+      - Rock Blast
+      - Bulldoze
+      - Will O Wisp
+
+   Coalossal @ Air Balloon
+      Adamant Nature
+      Level: 14
+      Ability: Steam Engine
+      EVs: 200 Atk / 200 SpA / 110 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Earthquake
+      - Heat Crash
+      - Rock Blast
+      - Body Press
+
+   Coalossal @ Air Balloon
+      Modest Nature
+      Level: 14
+      Ability: Steam Engine
+      EVs: 200 Atk / 200 SpA / 110 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Scorching Sands
+      - Heat Wave
+      - Ancient Power
+      - Scald
+
+=== TRAINER_JENKINS ===
+   Name: Jenkins
+   Class: School Kid
+   Pic: School Kid M
+   Gender: Male
+   Music: Male
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Venonat @ Life Orb
+      Level: 14
+      Ability: Tinted Lens
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Leech Life
+      - Zen Headbutt
+      - Poison Fang
+      - Screech
+
+   Venomoth @ Life Orb
+      Timid Nature
+      Level: 15
+      Ability: Tinted Lens
+      EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Bug Buzz
+      - Sludge Bomb
+      - Psychic
+      - QUiver Dance
+
+   Patrat @ Focus Sash
+      Level: 15
+      Ability: Analytic
+      Tags: Badge 0
+      - Retaliate
+      - Hypnosis
+      - Crunch
+      - Revenge
+
+   Watchog @ Focus Sash
+      Adamant Nature
+      Level: 14
+      EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
+      Tags: Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Retaliate
+      - Hypnosis
+      - Crunch
+      - Revenge
+
+   Archen @ Eviolite
+      Level: 13
+      Tags: Badge 0 / Badge 1
+      - Rock Slide
+      - Pluck
+      - Crunch
+      - Agility
+
+   Archen @ Eviolite
+      Adamant Nature
+      Level: 16
+      Tags: Badge 2 / Badge 3
+      - Rock Slide
+      - Pluck
+      - Crunch
+      - Agility
+
+   Archeops @ Sitrus Berry
+      Adamant Nature
+      Level: 14
+      EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Rock Slide
+      - Pluck
+      - Crunch
+      - Tailwind
+
+=== TRAINER_TREVOR ===
+   Name: Trevor
+   Class: Guitarist
+   Pic: Guitarist
+   Gender: Male
+   Music: Cool
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Risky
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Porygon @ Eviolite
+      Level: 12
+      Ability: Download
+      Tags: Badge 0 / Badge 1
+      - Tri Attack
+      - Thunderbolt
+      - Ice Beam
+      - Recover
+
+   Porygon Z @ Silk Scarf
+      Modest Nature
+      Level: 14
+      Ability: Adaptability
+      EVs: 120 HP / 120 Atk / 120 SpA / 120 Spe
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Tri Attack
+      - Hyper Beam
+      - Dark Pulse
+      - Nasty Plot
+
+   Remoraid @ Loaded Dice
+      Level: 15
+      Ability: Mega Launcher
+      Tags: Badge 0 / Badge 1
+      - Water Pulse
+      - Fire Blast
+      - Ice Beam
+      - Bullet Seed
+
+   Octillery @ Scope Lens
+      Modest Nature
+      Level: 14
+      Ability: Sniper
+      EVs: 120 HP / 120 Atk / 120 SpA / 120 Spe
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Octazooka
+      - Fire Blast
+      - Ice Beam
+      - Focus Energy
+
+   Oricorio Pom Pom @ Weakness Policy
+      Level: 12
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Revelation Dance
+      - Air Cutter
+      - Quiver Dance
+      - Roost
+
+   Oricorio Pom Pom @ Weakness Policy
+      Timid Nature
+      Level: 14
+      EVs: 120 HP / 120 Atk / 120 SpA / 120 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Revelation Dance
+      - Air Slash
+      - Quiver Dance
+      - Roost
 
 
 /* Trick House Puzzle 1 */
