@@ -537,7 +537,7 @@ script Common_EventScript_FirstFerryTripFunctions {
 	goto_if_eq(VAR_DIFFICULTY_SETTING, 2, Common_EventScript_NopReturn)
 	//randomize starting stash locations to make their items more annoying to obtain
 	random(5)
-	setvar(VAR_SECRET_STASH_STATE, VAR_RESULT)
+	copyvar(VAR_SECRET_STASH_STATE, VAR_RESULT)
 	//randomly initialize the blocker rival counter to make pathing around them more difficult
 	random(3)
 	copyvar(VAR_CITIES_VISITED, VAR_RESULT)
