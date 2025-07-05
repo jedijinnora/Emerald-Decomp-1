@@ -568,14 +568,8 @@ void CreateWildMon(u16 species, u8 level)
 
     //Jinnora: randomize wild Minior color
     if (species == SPECIES_MINIOR) {
-        u8 rand = Random() % 7;
-        switch(rand) {
-            case 6: 
-                //default Minior color is Red
-                break;
-            default:
-                species = SPECIES_MINIOR_ORANGE + rand;
-        }
+        u8 rand = Random() % 7;   
+        species = SPECIES_MINIOR_CORE_RED + rand; //use the core forms so player can see the color
     }
 
     //Jinnora: if wild species can evolve by level, do so
