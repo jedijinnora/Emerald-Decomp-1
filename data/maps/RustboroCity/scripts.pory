@@ -371,11 +371,22 @@ movement RustboroCity_Movement_PlayerSouth_8 {
 
 script RustboroCity_EventScript_MovePlayerForGymScene {
 	lock
+	setvar(VAR_TEMP_0, 1)
 	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
-	goto_if_eq(VAR_TEMP_2, 20, RustboroCity_EventScript_GymScene)
-	applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUp)
+	switch(var(VAR_TEMP_2)) {
+		case 21:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUp)
+		case 22:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUp2)
+		case 23:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUp3)
+		case 24:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUp4)
+		default:
+			goto(RustboroCity_EventScript_GymScene)
+	}
 	waitmovement(OBJ_EVENT_ID_PLAYER)
-	goto(RustboroCity_EventScript_MovePlayerForGymScene)
+	goto(RustboroCity_EventScript_GymScene)
 }
 
 script RustboroCity_EventScript_GymScene {
@@ -462,6 +473,18 @@ script RustboroCity_EventScript_GymScene {
 
 movement RustboroCity_Movement_StepUp {
 	walk_up
+}
+
+movement RustboroCity_Movement_StepUp2 {
+	walk_up * 2
+}
+
+movement RustboroCity_Movement_StepUp3 {
+	walk_up * 3
+}
+
+movement RustboroCity_Movement_StepUp4 {
+	walk_up * 4
 }
 
 movement RustboroCity_Movement_StepLeft {
