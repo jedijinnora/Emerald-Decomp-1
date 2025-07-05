@@ -241,23 +241,26 @@ static u32 PickMonFromPool(const struct Trainer *trainer, u8 *poolIndexArray, u3
             }            
             if (rules->itemClause && currentItem != ITEM_NONE)
             {
-                if (rules->itemClauseExclusions)
+                if (chosenItem == currentItem)
                 {
-                    bool32 isExcluded = FALSE;
-                    for (u32 i = 0; i < ARRAY_COUNT(poolItemClauseExclusions); i++)
+                    if (rules->itemClauseExclusions)
                     {
-                        if (chosenItem == poolItemClauseExclusions[i])
+                        bool32 isExcluded = FALSE;
+                        for (u32 i = 0; i < ARRAY_COUNT(poolItemClauseExclusions); i++)
                         {
-                            isExcluded = TRUE;
-                            break;
+                            if (chosenItem == poolItemClauseExclusions[i])
+                            {
+                                isExcluded = TRUE;
+                                break;
+                            }
                         }
+                        if (!isExcluded)
+                            poolIndexArray[currIndex] = POOL_SLOT_DISABLED;
                     }
-                    if (!isExcluded)
+                    else
+                    {
                         poolIndexArray[currIndex] = POOL_SLOT_DISABLED;
-                }
-                else if (chosenItem == currentItem)
-                {
-                    poolIndexArray[currIndex] = POOL_SLOT_DISABLED;
+                    }
                 }
             }
         }
