@@ -52,3 +52,155 @@ script SunriseShore_EventScript_AquaGuy {
     release
     end
 }
+
+script SunriseShore_EventScript_Caile {
+	trainerbattle_single(TRAINER_CAILE, SunriseShore_Text_CaileIntro, SunriseShore_Text_CaileDefeat)
+	msgbox(SunriseShore_Text_CailePostBattle, MSGBOX_AUTOCLOSE)
+	call(SunriseShore_EventScript_TryCaileRematch)
+	release
+	end
+}
+script SunriseShore_EventScript_TryCaileRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CAILE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CAILE, SunriseShore_Text_CaileDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text SunriseShore_Text_CaileIntro {
+	"So much to do, so many Trainers to\n"
+	"battle…"
+}
+text SunriseShore_Text_CaileDefeat {
+	"So many steps to walk back to Lilycove…"
+}
+text SunriseShore_Text_CailePostBattle {
+	"I fill my days with walks all around the\n"
+	"region. How about you?"
+}
+
+script SunriseShore_EventScript_Warner {
+	trainerbattle_single(TRAINER_WARNER, SunriseShore_Text_WarnerIntro, SunriseShore_Text_WarnerDefeat)
+	msgbox(SunriseShore_Text_WarnerPostBattle, MSGBOX_AUTOCLOSE)
+	call(SunriseShore_EventScript_TryWarnerRematch)
+	release
+	end
+}
+script SunriseShore_EventScript_TryWarnerRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_WARNER)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_WARNER, SunriseShore_Text_WarnerDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text SunriseShore_Text_WarnerIntro {
+	"You've come to meet your demise at the\n"
+    "hands of Warner Huntington the third!"
+}
+text SunriseShore_Text_WarnerDefeat {
+	"My family has lots of money! Whatever!"
+}
+text SunriseShore_Text_WarnerPostBattle {
+	"You're even more annoying than my ex's\n"
+	"dumb Furfrou!"
+}
+
+script SunriseShore_EventScript_Callahan {
+	trainerbattle_single(TRAINER_CALLAHAN, SunriseShore_Text_CallahanIntro, SunriseShore_Text_CallahanDefeat)
+	msgbox(SunriseShore_Text_CallahanPostBattle, MSGBOX_AUTOCLOSE)
+	call(SunriseShore_EventScript_TryCallahanRematch)
+	release
+	end
+}
+script SunriseShore_EventScript_TryCallahanRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_CALLAHAN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_CALLAHAN, SunriseShore_Text_CallahanDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text SunriseShore_Text_CallahanIntro {
+	"My lessons are on fire! All of my\n"
+    "student reviews admit it!"
+}
+text SunriseShore_Text_CallahanDefeat {
+	"Someone brought a wet blanket to\n"
+    "class…"
+}
+text SunriseShore_Text_CallahanPostBattle {
+	"Teaching kids to start fires is much\n"
+	"more fun than teaching them how to\l"
+    "extinguish them."
+}
+
+script SunriseShore_EventScript_Jenkins {
+	trainerbattle_single(TRAINER_JENKINS, SunriseShore_Text_JenkinsIntro, SunriseShore_Text_JenkinsDefeat)
+	msgbox(SunriseShore_Text_JenkinsPostBattle, MSGBOX_AUTOCLOSE)
+	call(SunriseShore_EventScript_TryJenkinsRematch)
+	release
+	end
+}
+script SunriseShore_EventScript_TryJenkinsRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_JENKINS)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_JENKINS, SunriseShore_Text_JenkinsDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text SunriseShore_Text_JenkinsIntro {
+	"Please help me prep for my internship!"
+}
+text SunriseShore_Text_JenkinsDefeat {
+	"That was a bit much, don't you think?"
+}
+text SunriseShore_Text_JenkinsPostBattle {
+	"Next summer I've got a sweet tech\n"
+	"internship at Devon!"
+}
+
+script SunriseShore_EventScript_Trevor {
+	trainerbattle_single(TRAINER_TREVOR, SunriseShore_Text_TrevorIntro, SunriseShore_Text_TrevorDefeat)
+	msgbox(SunriseShore_Text_TrevorPostBattle, MSGBOX_AUTOCLOSE)
+	call(SunriseShore_EventScript_TryTrevorRematch)
+	release
+	end
+}
+script SunriseShore_EventScript_TryTrevorRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_TREVOR)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_TREVOR, SunriseShore_Text_TrevorDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text SunriseShore_Text_TrevorIntro {
+	"It's illegal to say “I want to kill the\n"
+    "Champion of the Hoenn region”.\p"
+    "Super, super illegal!"
+}
+text SunriseShore_Text_TrevorDefeat {
+    "We have a group that meets Fridays.\n"
+	"Want an invite?"
+}
+text SunriseShore_Text_TrevorPostBattle {
+	"Sic semper tyrannis!"
+}
