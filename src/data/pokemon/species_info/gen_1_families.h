@@ -12121,10 +12121,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_DROWZEE] =
     {
         .baseHP        = 60,
-        .baseAttack    = 48,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 55 : 48,
         .baseDefense   = 45,
         .baseSpeed     = 42,
-        .baseSpAttack  = 43,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 55 : 43,
         .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_PSYCHIC),
         .catchRate = 190,
@@ -12197,10 +12197,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_HYPNO] =
     {
         .baseHP        = 85,
-        .baseAttack    = 73,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 87 : 73,
         .baseDefense   = 70,
         .baseSpeed     = 67,
-        .baseSpAttack  = 73,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 87 : 73,
         .baseSpDefense = 115,
         .types = MON_TYPES(TYPE_PSYCHIC),
         .catchRate = 75,
