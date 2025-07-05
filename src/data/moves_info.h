@@ -600,7 +600,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_SEMI_INVULNERABLE,
         .power = B_UPDATED_MOVE_DATA >= GEN_4 ? 90 : 70,
         .type = TYPE_FLYING,
-        .accuracy = 95,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 95,
         .pp = 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -2447,7 +2447,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Digs underground the first\n"
             "turn and strikes next turn."),
         .effect = EFFECT_SEMI_INVULNERABLE,
-        .power = B_UPDATED_MOVE_DATA >= GEN_4 ? 80 : 60,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 90 : B_UPDATED_MOVE_DATA >= GEN_4 ? 80 : 60,
         .type = TYPE_GROUND,
         .accuracy = 100,
         .pp = 10,
@@ -5015,22 +5015,36 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_OCTAZOOKA] =
     {
         .name = COMPOUND_STRING("Octazooka"),
+    #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+        .description = COMPOUND_STRING(
+            "Fires a rocket of ink.\n"
+            "May raise Sp. Atk."),
+    #else
         .description = COMPOUND_STRING(
             "Fires a lump of ink to\n"
             "damage and cut accuracy."),
+    #endif
         .effect = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? EFFECT_PSYSHOCK : EFFECT_HIT,
         .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 90 : 65,
         .type = TYPE_WATER,
-        .accuracy = 85,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 85,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .ballisticMove = TRUE,
+    #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_SP_ATK_PLUS_1,
+            .self = TRUE,
+            .chance = 70,
+        }),
+    #else
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_ACC_MINUS_1,
             .chance = 50,
         }),
+    #endif
         .contestEffect = CONTEST_EFFECT_STARTLE_MON_WITH_JUDGES_ATTENTION,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
         .contestComboStarterId = 0,
@@ -7647,7 +7661,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Dives underwater the first\n"
             "turn and strikes next turn."),
         .effect = EFFECT_SEMI_INVULNERABLE,
-        .power = B_UPDATED_MOVE_DATA >= GEN_4 ? 80 : 60,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 90 : B_UPDATED_MOVE_DATA >= GEN_4 ? 80 : 60,
         .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 10,
@@ -7766,7 +7780,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             .additionalEffects = ADDITIONAL_EFFECTS({
                 .moveEffect = MOVE_EFFECT_SP_ATK_PLUS_1,
                 .self = TRUE,
-                .chance = 50,
+                .chance = 70,
             }),
         #else
             .additionalEffects = ADDITIONAL_EFFECTS({
@@ -7807,7 +7821,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             .additionalEffects = ADDITIONAL_EFFECTS({
                 .moveEffect = MOVE_EFFECT_DEF_PLUS_1,
                 .self = TRUE,
-                .chance = 50,
+                .chance = 70,
             }),
         #else
             .additionalEffects = ADDITIONAL_EFFECTS({
@@ -14686,7 +14700,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Lets out a charming cry\n"
             "that cannot be evaded."),
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 60 : 40,
         .type = TYPE_FAIRY,
         .accuracy = 0,
         .pp = 15,
