@@ -20774,7 +20774,7 @@ static const struct TrainerMon sParty_Keigo[] = {
     }
 };
 
-static const struct TrainerMon sParty_Riley[] = {
+static const struct TrainerMon sParty_Raphael[] = {
     {
     .lvl = 13,
     .species = SPECIES_HOUNDSTONE,
@@ -25638,7 +25638,7 @@ static const struct TrainerMon sParty_Hitoshi[] = {
     }
 };
 
-static const struct TrainerMon sParty_Marley[] = {
+static const struct TrainerMon sParty_Miriam[] = {
     {
     .lvl = 14,
     .species = SPECIES_MIMIKYU,
