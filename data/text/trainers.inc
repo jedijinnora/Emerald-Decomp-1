@@ -3103,16 +3103,16 @@ Route120_Text_KeigoPostBattle:
 	.string "Perhaps I ought to apprentice under\n"
 	.string "a ninja sensei.$"
 
-Route120_Text_RileyIntro:
+Route120_Text_RaphaelIntro:
 	.string "We ninja conceal ourselves under our\n"
 	.string "camouflage cloaks.\l"
 	.string "I bet you didn't know where I was!$"
 
-Route120_Text_RileyDefeat:
+Route120_Text_RaphaelDefeat:
 	.string "I lost!\n"
 	.string "I should camouflage my shame!$"
 
-Route120_Text_RileyPostBattle:
+Route120_Text_RaphaelPostBattle:
 	.string "Our camouflage cloaks are all\n"
 	.string "handmade.$"
 
@@ -4743,15 +4743,15 @@ Route134_Text_KelvinPostBattle:
 	.string "Actually, I know a fainted Pokémon\n"
 	.string "can still Surf, but it feels wrong.$"
 
-Route134_Text_MarleyIntro:
+Route134_Text_MiriamIntro:
 	.string "Can your Pokémon dodge our\n"
 	.string "lightning-quick attacks?$"
 
-Route134_Text_MarleyDefeat:
+Route134_Text_MiriamDefeat:
 	.string "I never knew such a technique existed!\n"
 	.string "You've defeated us thoroughly.$"
 
-Route134_Text_MarleyPostBattle:
+Route134_Text_MiriamPostBattle:
 	.string "I haven't lost my passion for speed.\n"
 	.string "I will try harder.$"
 
