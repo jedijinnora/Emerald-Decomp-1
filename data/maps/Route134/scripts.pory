@@ -294,21 +294,21 @@ script Route134_EventScript_TryReynaRematch {
 	return
 }
 
-script Route134_EventScript_Marley {
-	trainerbattle_single(TRAINER_MARLEY, Route134_Text_MarleyIntro, Route134_Text_MarleyDefeat)
-	msgbox(Route134_Text_MarleyPostBattle, MSGBOX_AUTOCLOSE)
-	call(Route134_EventScript_TryMarleyRematch)
+script Route134_EventScript_Miriam {
+	trainerbattle_single(TRAINER_MIRIAM, Route134_Text_MiriamIntro, Route134_Text_MiriamDefeat)
+	msgbox(Route134_Text_MiriamPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route134_EventScript_TryMiriamRematch)
 	release
 	end
 }
-script Route134_EventScript_TryMarleyRematch {
+script Route134_EventScript_TryMiriamRematch {
 	lock
     call(Common_EventScript_ShouldDoRematch)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
-	setvar(VAR_0x8003, TRAINER_MARLEY)
+	setvar(VAR_0x8003, TRAINER_MIRIAM)
 	setvar(VAR_0x8004, 1)
 	call(Common_EventScript_CheckRecentRematchesSetBP)
-	trainerbattle_no_intro(TRAINER_MARLEY, Route134_Text_MarleyDefeat)
+	trainerbattle_no_intro(TRAINER_MIRIAM, Route134_Text_MiriamDefeat)
 	special(UpdateRecentTrainers)
 	return
 }

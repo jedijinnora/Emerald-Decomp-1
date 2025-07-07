@@ -227,31 +227,31 @@ script Route120_EventScript_TryKeigoRematch {
 	return
 }
 
-script Route120_EventScript_Riley {
-	trainerbattle_single(TRAINER_RILEY, Route120_Text_RileyIntro, Route120_Text_RileyDefeat)
-	msgbox(Route120_Text_RileyPostBattle, MSGBOX_AUTOCLOSE)
-	call(Route120_EventScript_TryRileyRematch)
+script Route120_EventScript_Raphael {
+	trainerbattle_single(TRAINER_RAPHAEL, Route120_Text_RaphaelIntro, Route120_Text_RaphaelDefeat)
+	msgbox(Route120_Text_RaphaelPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route120_EventScript_TryRaphaelRematch)
 	release
 	end
 }
-script Route120_EventScript_TryRileyRematch {
+script Route120_EventScript_TryRaphaelRematch {
 	lock
     call(Common_EventScript_ShouldDoRematch)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
-	setvar(VAR_0x8003, TRAINER_RILEY)
+	setvar(VAR_0x8003, TRAINER_RAPHAEL)
 	setvar(VAR_0x8004, 1)
 	if (defeated(TRAINER_CALLIE)) {
 		msgbox(format("Include Callie and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
 			addvar(VAR_0x8004, 1)
 			call(Common_EventScript_CheckRecentRematchesSetBP)
-			trainerbattle_two_trainers(TRAINER_RILEY, Route120_Text_RileyDefeat, TRAINER_CALLIE, Route120_Text_CallieDefeat)
+			trainerbattle_two_trainers(TRAINER_RAPHAEL, Route120_Text_RaphaelDefeat, TRAINER_CALLIE, Route120_Text_CallieDefeat)
 			special(UpdateRecentTrainers)
 			return
 		}
 	}
 	call(Common_EventScript_CheckRecentRematchesSetBP)
-	trainerbattle_no_intro(TRAINER_RILEY, Route120_Text_RileyDefeat)
+	trainerbattle_no_intro(TRAINER_RAPHAEL, Route120_Text_RaphaelDefeat)
 	special(UpdateRecentTrainers)
 	return
 }
@@ -298,12 +298,12 @@ script Route120_EventScript_TryCallieRematch {
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
 	setvar(VAR_0x8003, TRAINER_CALLIE)
 	setvar(VAR_0x8004, 1)
-	if (defeated(TRAINER_RILEY)) {
-		msgbox(format("Include Riley and make it a double battle?"), MSGBOX_YESNO)
+	if (defeated(TRAINER_RAPHAEL)) {
+		msgbox(format("Include Raphael and make it a double battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT) == YES) {
 			addvar(VAR_0x8004, 1)
 			call(Common_EventScript_CheckRecentRematchesSetBP)
-			trainerbattle_two_trainers(TRAINER_CALLIE, Route120_Text_CallieDefeat, TRAINER_RILEY, Route120_Text_RileyDefeat)
+			trainerbattle_two_trainers(TRAINER_CALLIE, Route120_Text_CallieDefeat, TRAINER_RAPHAEL, Route120_Text_RaphaelDefeat)
 			special(UpdateRecentTrainers)
 			return
 		}
