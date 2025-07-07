@@ -220,8 +220,21 @@
 #define TRAINER_KOBAYASHI                   (OTHER_TUTORS_START + 12)
 #define OTHER_TUTORS_END                    TRAINER_KOBAYASHI
 
+//EV Grinding/Exp. Candy Trainers
+//These are the five stat trainer NPCs from Gen IV, with Buck switched to Def only and Dagan introduced for Sp.Def
+//Teams give only one type of EV and prioritize high exp yield
+//Todo: custom graphics
+#define GRINDING_TRAINERS_START             (OTHER_TUTORS_END + 1)
+#define TRAINER_CHERYL                      (GRINDING_TRAINERS_START + 0) // Cheryl, HP
+#define TRAINER_RILEY                       (GRINDING_TRAINERS_START + 1) // Riley, Atk
+#define TRAINER_BUCK                        (GRINDING_TRAINERS_START + 2) // Buck, Def
+#define TRAINER_MIRA                        (GRINDING_TRAINERS_START + 3) // Mira, Sp.Atk
+#define TRAINER_DAGAN                       (GRINDING_TRAINERS_START + 4) // Dagan, Sp.Def
+#define TRAINER_MARLEY                      (GRINDING_TRAINERS_START + 5) // Marley, Spe
+#define GRINDING_TRAINERS_END               TRAINER_MARLEY
+
 //Winstrates
-#define WINSTRATE_TRAINERS_START            (OTHER_TUTORS_END + 1)
+#define WINSTRATE_TRAINERS_START            (GRINDING_TRAINERS_END + 1)
 #define TRAINER_VICTOR                      (WINSTRATE_TRAINERS_START + 0)
 #define TRAINER_VICTORIA                    (WINSTRATE_TRAINERS_START + 1)
 #define TRAINER_VIVI                        (WINSTRATE_TRAINERS_START + 2)
@@ -551,8 +564,8 @@
 #define TRAINER_CLARISSA                    (ROUTE_120_TRAINERS_START + 7) // Parasol Lady Clarissa
 #define TRAINER_ANGELICA                    (ROUTE_120_TRAINERS_START + 8) // Parasol Lady Angelica, may double with Leonel
 #define TRAINER_KEIGO                       (ROUTE_120_TRAINERS_START + 9) // Ninja Boy Keigo (near Ancient Tomb)
-#define TRAINER_RILEY                       (ROUTE_120_TRAINERS_START + 10) // Ninja Boy Riley, may double with Callie
-#define TRAINER_CALLIE                      (ROUTE_120_TRAINERS_START + 11) // Battle Girl Callie, may double with Riley
+#define TRAINER_RAPHAEL                       (ROUTE_120_TRAINERS_START + 10) // Ninja Boy Raphael, may double with Callie
+#define TRAINER_CALLIE                      (ROUTE_120_TRAINERS_START + 11) // Battle Girl Callie, may double with Raphael
 #define TRAINER_LEONEL                      (ROUTE_120_TRAINERS_START + 12) // Cooltrainer-M Leonel, may double with Angelica
 #define ROUTE_120_TRAINERS_END              TRAINER_LEONEL
 
@@ -725,7 +738,7 @@
 #define TRAINER_AARON                       (ROUTE_134_TRAINERS_START + 2) // Dragon Tamer Aaron
 #define TRAINER_ALEX                        (ROUTE_134_TRAINERS_START + 3) // Bird Keeper Alex, may double with Hudson
 #define TRAINER_HITOSHI                     (ROUTE_134_TRAINERS_START + 4) // Black Belt Hitoshi, may double with Reyna
-#define TRAINER_MARLEY                      (ROUTE_134_TRAINERS_START + 5) // Cooltrainer-F Marley
+#define TRAINER_MIRIAM                      (ROUTE_134_TRAINERS_START + 5) // Cooltrainer-F Miriam
 #define TRAINER_KELVIN                      (ROUTE_134_TRAINERS_START + 6) // Sailor Kelvin (east side)
 #define TRAINER_REYNA                       (ROUTE_134_TRAINERS_START + 7) // Battle Girl Reyna, may double with Hitoshi
 #define TRAINER_HUDSON                      (ROUTE_134_TRAINERS_START + 8) // Sailor Hudson, may double with Alex
@@ -1027,7 +1040,7 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 668 (667 + TRAINER_NONE)
+//I think it's currently 674 (673 + TRAINER_NONE)
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 863 trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
