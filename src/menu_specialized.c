@@ -1034,7 +1034,7 @@ void GetConditionMenuMonNameAndLocString(u8 *locationDst, u8 *nameDst, u16 boxId
 
 void GetConditionMenuMonConditions(struct ConditionGraph *graph, u8 *numSparkles, u16 boxId, u16 monId, u16 partyId, u16 id, u16 numMons, bool8 excludesCancel)
 {
-    u16 i;
+    u16 i, jinnoraSheen;
 
     if (!excludesCancel)
         numMons--;
@@ -1047,7 +1047,15 @@ void GetConditionMenuMonConditions(struct ConditionGraph *graph, u8 *numSparkles
         graph->conditions[id][CONDITION_CUTE] = GetBoxOrPartyMonData(boxId, monId, MON_DATA_CUTE, NULL);
         graph->conditions[id][CONDITION_BEAUTY] = GetBoxOrPartyMonData(boxId, monId, MON_DATA_BEAUTY, NULL);
 
-        numSparkles[id] = GET_NUM_CONDITION_SPARKLES(GetBoxOrPartyMonData(boxId, monId, MON_DATA_SHEEN, NULL));
+        jinnoraSheen = graph->conditions[id][CONDITION_COOL];
+        jinnoraSheen += graph->conditions[id][CONDITION_TOUGH];
+        jinnoraSheen += graph->conditions[id][CONDITION_SMART];
+        jinnoraSheen += graph->conditions[id][CONDITION_CUTE];
+        jinnoraSheen += graph->conditions[id][CONDITION_BEAUTY];
+        jinnoraSheen = (jinnoraSheen / 5);
+
+        //numSparkles[id] = GET_NUM_CONDITION_SPARKLES(GetBoxOrPartyMonData(boxId, monId, MON_DATA_SHEEN, NULL));
+        numSparkles[id] = GET_NUM_CONDITION_SPARKLES((u8) jinnoraSheen);
 
         ConditionGraph_CalcPositions(graph->conditions[id], graph->savedPositions[id]);
     }

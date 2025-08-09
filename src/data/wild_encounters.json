@@ -6020,12 +6020,12 @@
               {
                 "min_level": 28,
                 "max_level": 28,
-                "species": "SPECIES_VULPIX"
+                "species": "SPECIES_GROWLITHE"
               },
               {
                 "min_level": 29,
                 "max_level": 29,
-                "species": "SPECIES_VULPIX_ALOLA"
+                "species": "SPECIES_GROWLITHE_HISUI"
               },
               {
                 "min_level": 29,
@@ -6040,17 +6040,17 @@
               {
                 "min_level": 29,
                 "max_level": 29,
-                "species": "SPECIES_GROWLITHE"
+                "species": "SPECIES_ORICORIO_SENSU"
               },
               {
                 "min_level": 25,
                 "max_level": 25,
-                "species": "SPECIES_GROWLITHE_HISUI"
+                "species": "SPECIES_CHINGLING"
               },
               {
                 "min_level": 27,
                 "max_level": 27,
-                "species": "SPECIES_VULLABY"
+                "species": "SPECIES_IMPIDIMP"
               },
               {
                 "min_level": 27,
@@ -6060,12 +6060,12 @@
               {
                 "min_level": 26,
                 "max_level": 26,
-                "species": "SPECIES_CHINGLING"
+                "species": "SPECIES_IMPIDIMP"
               },
               {
                 "min_level": 28,
                 "max_level": 28,
-                "species": "SPECIES_CHINGLING"
+                "species": "SPECIES_VULLABY"
               }
             ]
           }

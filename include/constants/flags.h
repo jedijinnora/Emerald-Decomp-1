@@ -78,7 +78,7 @@
 #define FLAG_NO_ENCOUNTER       0x3B 
 #define FLAG_NO_TRAINER_SEE     0x3C
 #define FLAG_NO_COLLISION       0x3D
-#define FLAG_FORCE_SHINY        0x3E
+#define FLAG_FORCE_SHINY        0x3E // flag is cleared after generating a wild mon in wild_encounter.c
 #define FLAG_FORCE_NO_SHINY     0x3F
 
 #define FLAG_BP_FROM_REMATCHES  0x40 // if set, trainer rematches give BP instead of money

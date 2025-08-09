@@ -72,14 +72,14 @@
     {
       "type": "weather",
       "x": 8,
-      "y": 45,
+      "y": 46,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SUNNY_CLOUDS"
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
       "x": 9,
-      "y": 45,
+      "y": 46,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },

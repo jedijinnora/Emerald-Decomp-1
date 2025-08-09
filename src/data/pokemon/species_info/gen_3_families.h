@@ -9054,14 +9054,16 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #endif //P_FAMILY_FEEBAS
 
 #if P_FAMILY_CASTFORM
+#define CASTFORM_BASE_STAT P_UPDATED_STATS >= GEN_CUSTOM ? 80 : 70
+#define CASTFORM_SPECIAL_STAT P_UPDATED_STATS >= GEN_CUSTOM ? 90 : 70
     [SPECIES_CASTFORM_NORMAL] =
     {
-        .baseHP        = 70,
-        .baseAttack    = 70,
-        .baseDefense   = 70,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 70,
-        .baseSpDefense = 70,
+        .baseHP        = CASTFORM_BASE_STAT,
+        .baseAttack    = CASTFORM_BASE_STAT,
+        .baseDefense   = CASTFORM_BASE_STAT,
+        .baseSpeed     = CASTFORM_BASE_STAT,
+        .baseSpAttack  = CASTFORM_BASE_STAT,
+        .baseSpDefense = CASTFORM_BASE_STAT,
         .types = MON_TYPES(TYPE_NORMAL),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 147 : 145,
@@ -9130,12 +9132,12 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 
     [SPECIES_CASTFORM_SUNNY] =
     {
-        .baseHP        = 70,
-        .baseAttack    = 70,
-        .baseDefense   = 70,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 70,
-        .baseSpDefense = 70,
+        .baseHP        = CASTFORM_BASE_STAT,
+        .baseAttack    = CASTFORM_BASE_STAT,
+        .baseDefense   = CASTFORM_BASE_STAT,
+        .baseSpeed     = CASTFORM_BASE_STAT,
+        .baseSpAttack  = CASTFORM_SPECIAL_STAT,
+        .baseSpDefense = CASTFORM_SPECIAL_STAT,
         .types = MON_TYPES(TYPE_FIRE),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 147 : 145,
@@ -9206,12 +9208,12 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 
     [SPECIES_CASTFORM_RAINY] =
     {
-        .baseHP        = 70,
-        .baseAttack    = 70,
-        .baseDefense   = 70,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 70,
-        .baseSpDefense = 70,
+        .baseHP        = CASTFORM_BASE_STAT,
+        .baseAttack    = CASTFORM_BASE_STAT,
+        .baseDefense   = CASTFORM_BASE_STAT,
+        .baseSpeed     = CASTFORM_BASE_STAT,
+        .baseSpAttack  = CASTFORM_SPECIAL_STAT,
+        .baseSpDefense = CASTFORM_SPECIAL_STAT,
         .types = MON_TYPES(TYPE_WATER),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 147 : 145,
@@ -9280,12 +9282,12 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 
     [SPECIES_CASTFORM_SNOWY] =
     {
-        .baseHP        = 70,
-        .baseAttack    = 70,
-        .baseDefense   = 70,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 70,
-        .baseSpDefense = 70,
+        .baseHP        = CASTFORM_BASE_STAT,
+        .baseAttack    = CASTFORM_BASE_STAT,
+        .baseDefense   = CASTFORM_BASE_STAT,
+        .baseSpeed     = CASTFORM_BASE_STAT,
+        .baseSpAttack  = CASTFORM_SPECIAL_STAT,
+        .baseSpDefense = CASTFORM_SPECIAL_STAT,
         .types = MON_TYPES(TYPE_ICE),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 147 : 145,
@@ -9992,13 +9994,17 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #if P_GEN_4_CROSS_EVOS
     [SPECIES_CHINGLING] =
     {
-        .baseHP        = 45,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 55 : 45,
         .baseAttack    = 30,
         .baseDefense   = 50,
-        .baseSpeed     = 45,
+        .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 50 : 45,
         .baseSpAttack  = 65,
-        .baseSpDefense = 50,
+        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 65 : 50,
+    #if P_UPDATED_TYPES >= GEN_CUSTOM
+        .types = MON_TYPES(TYPE_PSYCHIC, TYPE_STEEL),
+    #else
         .types = MON_TYPES(TYPE_PSYCHIC),
+    #endif
         .catchRate = 120,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 57 : 74,
         .evYield_SpAttack = 1,
@@ -10067,13 +10073,17 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 
     [SPECIES_CHIMECHO] =
     {
-        .baseHP        = P_UPDATED_STATS >= GEN_7 ? 75 : 65,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 90 : P_UPDATED_STATS >= GEN_7 ? 75 : 65,
         .baseAttack    = 50,
         .baseDefense   = P_UPDATED_STATS >= GEN_7 ? 80 : 70,
-        .baseSpeed     = 65,
-        .baseSpAttack  = 95,
-        .baseSpDefense = P_UPDATED_STATS >= GEN_7 ? 90 : 80,
+        .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 80 : 65,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 100 : 95,
+        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 100 : P_UPDATED_STATS >= GEN_7 ? 90 : 80,
+    #if P_UPDATED_TYPES >= GEN_CUSTOM
+        .types = MON_TYPES(TYPE_PSYCHIC, TYPE_STEEL),
+    #else
         .types = MON_TYPES(TYPE_PSYCHIC),
+    #endif
         .catchRate = 45,
     #if P_UPDATED_EXP_YIELDS >= GEN_7
         .expYield = 159,

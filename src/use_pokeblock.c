@@ -1602,8 +1602,17 @@ static void SpriteCB_SelectionIconCancel(struct Sprite *sprite)
 // is the total number of sparkles that appear
 static void CalculateNumAdditionalSparkles(u8 monIndex)
 {
-    u8 sheen = GetMonData(&gPlayerParty[monIndex], MON_DATA_SHEEN);
-    sMenu->numSparkles[sMenu->curLoadId] = GET_NUM_CONDITION_SPARKLES(sheen);
+    //u8 sheen = GetMonData(&gPlayerParty[monIndex], MON_DATA_SHEEN);
+    //sMenu->numSparkles[sMenu->curLoadId] = GET_NUM_CONDITION_SPARKLES(sheen);
+
+    u16 jinnoraSheen = GetMonData(&gPlayerParty[monIndex], MON_DATA_COOL);
+    jinnoraSheen += GetMonData(&gPlayerParty[monIndex], MON_DATA_TOUGH);
+    jinnoraSheen += GetMonData(&gPlayerParty[monIndex], MON_DATA_SMART);
+    jinnoraSheen += GetMonData(&gPlayerParty[monIndex], MON_DATA_CUTE);
+    jinnoraSheen += GetMonData(&gPlayerParty[monIndex], MON_DATA_BEAUTY);
+    jinnoraSheen = (jinnoraSheen / 5);
+
+    sMenu->numSparkles[sMenu->curLoadId] = GET_NUM_CONDITION_SPARKLES((u8) jinnoraSheen);
 }
 
 static void LoadConditionGfx(void)

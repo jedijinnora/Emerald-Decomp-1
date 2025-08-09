@@ -386,7 +386,6 @@ script PetalburgCity_EventScript_Boy{
 script PetalburgCity_EventScript_Gentleman {
 	lock
 	faceplayer
-	//check if player has a shiny ducklett and reward somehow?
 	msgbox(format("Petalburg is somewhat of an odd Ducklett when it comes to Hoenn's western cities."))
 	msgbox(format("We don't have industry like Rustboro or Mauville, and no marketplace like Slateport."))
 	msgbox(format("That's not necessarily a bad thing."))
@@ -396,18 +395,121 @@ script PetalburgCity_EventScript_Gentleman {
 	end
 }
 
+//This used to require Ducklett specifically, but I've decided to be generous with his definition of "duck"
 script PetalburgCity_EventScript_TryGiveShinyDucklettReward {
-	specialvar(VAR_RESULT, CheckPartyForShinyDucklett)
+	call(PetalburgCity_EventScript_DoesPartyHaveDuck)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	msgbox(format("Oh?\nDo you have an odd duck to show me?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	special(ChoosePartyMon)
+	waitstate
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, PetalburgCity_EventScript_NoShinyDucklett)
+	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	switch(var(VAR_RESULT)) {
+		case SPECIES_PSYDUCK:
+		case SPECIES_GOLDUCK:
+		case SPECIES_FARFETCHD:
+		case SPECIES_FARFETCHD_GALAR:
+		case SPECIES_SIRFETCHD:
+		case SPECIES_PORYGON:
+		case SPECIES_PORYGON2:
+		case SPECIES_PORYGON_Z:
+		case SPECIES_LOTAD:
+		case SPECIES_LOMBRE:
+		case SPECIES_LUDICOLO:
+		case SPECIES_DUCKLETT:
+		case SPECIES_QUAXLY:
+		case SPECIES_QUAXWELL:
+		case SPECIES_QUAQUAVAL:
+			msgbox(format("Let's have a look!"))
+		default: goto(PetalburgCity_EventScript_NotDucklett)
+	}
+	specialvar(VAR_RESULT, CheckPartyForShinyIndex)
+	goto_if_eq(VAR_RESULT, FALSE, PetalburgCity_EventScript_RegularDucklett)
 	playse(SE_PIN)
 	applymovement(LOCALID_GENTLEMAN, Common_Movement_ExclamationMark)
 	waitmovement(0)
-	msgbox(format("Well I'll be! That's a very odd Ducklett indeed!"))
+	msgbox(format("Well I'll be! That's a very odd duck indeed!"))
 	giveitem(ITEM_BIG_NUGGET, 8)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
 	setflag(FLAG_GIVEN_SHINY_DUCKLETT_REWARD)
 	msgbox(format("You've made my decade! What a fantastic sight!"))
 	return
+}
+
+script PetalburgCity_EventScript_DoesPartyHaveDuck {
+	setvar(VAR_RESULT, FALSE)
+
+	setvar(VAR_0x8004, SPECIES_PSYDUCK)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_GOLDUCK)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+
+	setvar(VAR_0x8004, SPECIES_FARFETCHD)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_FARFETCHD_GALAR)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_SIRFETCHD)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+
+	setvar(VAR_0x8004, SPECIES_PORYGON)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_PORYGON2)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_PORYGON_Z)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+
+	setvar(VAR_0x8004, SPECIES_LOTAD)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_LOMBRE)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_LUDICOLO)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+
+	setvar(VAR_0x8004, SPECIES_DUCKLETT)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+
+	setvar(VAR_0x8004, SPECIES_QUAXLY)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_QUAXWELL)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_QUAQUAVAL)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+
+	return
+}
+
+script PetalburgCity_EventScript_NoShinyDucklett {
+	msgbox(format("Fair enough."), MSGBOX_NPC)
+	release
+	end
+}
+
+script PetalburgCity_EventScript_RegularDucklett {
+	msgbox(format("That is indeed a duck, but it's not particularly odd."), MSGBOX_NPC)
+	release
+	end
+}
+
+script PetalburgCity_EventScript_NotDucklett {
+	msgbox(format("That Pokémon might be odd, but it's no duck."), MSGBOX_NPC)
+	release
+	end
 }
 
 script PetalburgCity_EventScript_GymSign {

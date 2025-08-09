@@ -200,7 +200,7 @@ script ArrivalFerry_Room_EventScript_UnderBed {
         release
         end
     }
-    msgbox(format("Hey! Your collector's edition Pikachu plushie is down here!"))
+    msgbox(format("Hey! Your collector's edition Clefairy plushie is down here!"))
     giveitem(ITEM_POKE_DOLL, 1)
     msgbox(format("You knock some dirt off your shoes and put them on."))
     playfanfare(MUS_OBTAIN_ITEM)

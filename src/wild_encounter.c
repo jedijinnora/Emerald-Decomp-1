@@ -33,9 +33,10 @@ extern const u8 EventScript_SprayWoreOff[];
 
 // Number of accessible fishing spots in each section of Route 119
 // Each section is an area of the route between the y coordinates in sRoute119WaterTileData
-#define NUM_FISHING_SPOTS_1 131
-#define NUM_FISHING_SPOTS_2 167
-#define NUM_FISHING_SPOTS_3 149
+// Jinnora: this has changed a lot given the map edits to Route 119. 
+#define NUM_FISHING_SPOTS_1 166 // was 131
+#define NUM_FISHING_SPOTS_2 179 // was 167
+#define NUM_FISHING_SPOTS_3 149 // was 149
 #define NUM_FISHING_SPOTS (NUM_FISHING_SPOTS_1 + NUM_FISHING_SPOTS_2 + NUM_FISHING_SPOTS_3)
 
 enum {
@@ -77,9 +78,9 @@ static const struct WildPokemon sWildFeebas = {20, 25, SPECIES_FEEBAS};
 static const u16 sRoute119WaterTileData[] =
 {
 //yMin, yMax, numSpots in previous sections
-     0,  45,  0,
-    46,  91,  NUM_FISHING_SPOTS_1,
-    92, 139,  NUM_FISHING_SPOTS_1 + NUM_FISHING_SPOTS_2,
+     0,  49,  0,                                            // was 0, 45
+    50,  93,  NUM_FISHING_SPOTS_1,                          // was 46, 91
+    94, 139,  NUM_FISHING_SPOTS_1 + NUM_FISHING_SPOTS_2,    // was 92, 139
 };
 
 void DisableWildEncounters(bool8 disabled)
@@ -142,7 +143,8 @@ static bool8 CheckFeebas(void)
             route119Section = 2;
 
         // 50% chance of encountering Feebas (assuming this is a Feebas spot)
-        if (Random() % 100 > 49)
+        // Jinnora: have a buff to 66%
+        if (Random() % 100 > 65)
             return FALSE;
 
         FeebasSeedRng(gSaveBlock1Ptr->dewfordTrends[0].rand);
@@ -159,7 +161,8 @@ static bool8 CheckFeebas(void)
             // >= 4 to skip fishing spots 1-3, because these are inaccessible
             // spots at the top of the map, at (9,7), (7,13), and (15,16).
             // The first accessible fishing spot is spot 4 at (18,18).
-            if (feebasSpots[i] < 1 || feebasSpots[i] >= 4)
+            // Jinnora: all potential spots are accessible, changed >= 4 to >= 1
+            if (feebasSpots[i] < 1 || feebasSpots[i] >= 1)
                 i++;
         }
 
@@ -649,10 +652,12 @@ void CreateWildMon(u16 species, u8 level)
             gender = MON_FEMALE;
 
         CreateMonWithGenderNatureLetter(&gEnemyParty[0], species, level, USE_RANDOM_IVS, gender, PickWildMonNature(), 0);
+        FlagClear(P_FLAG_FORCE_SHINY);
         return;
     }
 
     CreateMonWithNature(&gEnemyParty[0], species, level, USE_RANDOM_IVS, PickWildMonNature());
+    FlagClear(P_FLAG_FORCE_SHINY);
 }
 #ifdef BUGFIX
 #define TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildPokemon, type, ability, ptr, count) TryGetAbilityInfluencedWildMonIndex(wildPokemon, type, ability, ptr, count)
@@ -1093,9 +1098,15 @@ void FishingWildEncounter(u8 rod)
     if (CheckFeebas() == TRUE)
     {
         u8 level = ChooseWildMonLevel(&sWildFeebas, 0, WILD_AREA_FISHING);
+        bool8 shinyFeebas = Random() % 10 == 0;
+        bool8 shinyForce = FlagGet(FLAG_FORCE_SHINY);
 
         species = sWildFeebas.species;
+        if (shinyFeebas)
+            FlagSet(FLAG_FORCE_SHINY);
         CreateWildMon(species, level);
+        if (!shinyFeebas && shinyForce)
+            FlagClear(FLAG_FORCE_SHINY);
     }
     else
     {

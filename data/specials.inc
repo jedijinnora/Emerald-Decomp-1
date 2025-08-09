@@ -592,7 +592,7 @@ gSpecials::
 	def_special CheckPartyMonotype
 
 	def_special CheckPartyForShiny
-	def_special CheckPartyForShinyDucklett
+	def_special CheckPartyForShinyIndex
 
 	def_special TryOverworldSleepMon
 	def_special TryOverworldPoisonMon

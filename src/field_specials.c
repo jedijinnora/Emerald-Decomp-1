@@ -4533,49 +4533,32 @@ bool8 CheckPartyMonotype(void)
     return TRUE;
 }
 
-//TODO: rework this to return party index, allowing for easier use in scripts
-//      without having a new special for mons e.g. Ducklett
+//Checks the player's party for any shiny mon
 bool8 CheckPartyForShiny(void)
 {
     u8 i;
-    u32 otId, personality, shinyValue;
     struct Pokemon *pokemon;
     for (i = 0; i < PARTY_SIZE; i++)
     {
         pokemon = &gPlayerParty[i];
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
         {
-            otId = GetMonData(pokemon, MON_DATA_OT_ID);
-            personality = GetMonData(pokemon, MON_DATA_PERSONALITY);
-            shinyValue = GET_SHINY_VALUE(otId, personality);
-            if (shinyValue < SHINY_ODDS)
-            {
-                return TRUE;
-            }
+            return(GetMonData(pokemon, MON_DATA_IS_SHINY));
         }
     }
     return FALSE;
 }
 
-bool8 CheckPartyForShinyDucklett(void)
+//Checks the mon in the player's party with index stored in VAR_0x8004 for shinyness
+bool8 CheckPartyForShinyIndex(void)
 {
-    u8 i;
-    u16 species;
-    u32 otId, personality, shinyValue;
     struct Pokemon *pokemon;
-    for (i = 0; i < PARTY_SIZE; i++)
+    if (gSpecialVar_0x8004 < PARTY_SIZE)
     {
-        pokemon = &gPlayerParty[i];
+        pokemon = &gPlayerParty[gSpecialVar_0x8004];
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
         {
-            otId = GetMonData(pokemon, MON_DATA_OT_ID);
-            personality = GetMonData(pokemon, MON_DATA_PERSONALITY);
-            species = GetMonData(pokemon, MON_DATA_SPECIES);
-            shinyValue = GET_SHINY_VALUE(otId, personality);
-            if ((species == SPECIES_DUCKLETT || species == SPECIES_SWANNA) && shinyValue < SHINY_ODDS)
-            {
-                return TRUE;
-            }
+            return(GetMonData(pokemon, MON_DATA_IS_SHINY));
         }
     }
     return FALSE;

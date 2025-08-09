@@ -492,7 +492,7 @@ static void InitSearchResultsConditionList(void)
 
 static void GetMonConditionGraphData(s16 listId, u8 loadId)
 {
-    u16 boxId, monId, i;
+    u16 boxId, monId, i, jinnoraSheen;
     struct Pokenav_ConditionMenu *menu = GetSubstructPtr(POKENAV_SUBSTRUCT_CONDITION_GRAPH_MENU);
     struct PokenavMonList *monListPtr = GetSubstructPtr(POKENAV_SUBSTRUCT_MON_LIST);
 
@@ -505,7 +505,14 @@ static void GetMonConditionGraphData(s16 listId, u8 loadId)
         menu->graph.conditions[loadId][CONDITION_SMART] = GetBoxOrPartyMonData(boxId, monId, MON_DATA_SMART, NULL);
         menu->graph.conditions[loadId][CONDITION_CUTE] = GetBoxOrPartyMonData(boxId, monId, MON_DATA_CUTE, NULL);
         menu->graph.conditions[loadId][CONDITION_BEAUTY] = GetBoxOrPartyMonData(boxId, monId, MON_DATA_BEAUTY, NULL);
-        menu->numSparkles[loadId] = GET_NUM_CONDITION_SPARKLES(GetBoxOrPartyMonData(boxId, monId, MON_DATA_SHEEN, NULL));
+        jinnoraSheen = menu->graph.conditions[loadId][CONDITION_COOL];
+        jinnoraSheen += menu->graph.conditions[loadId][CONDITION_TOUGH];
+        jinnoraSheen += menu->graph.conditions[loadId][CONDITION_SMART];
+        jinnoraSheen += menu->graph.conditions[loadId][CONDITION_CUTE];
+        jinnoraSheen += menu->graph.conditions[loadId][CONDITION_BEAUTY];
+        jinnoraSheen = (jinnoraSheen / 5);
+        //menu->numSparkles[loadId] = GET_NUM_CONDITION_SPARKLES(GetBoxOrPartyMonData(boxId, monId, MON_DATA_SHEEN, NULL));
+        menu->numSparkles[loadId] = GET_NUM_CONDITION_SPARKLES((u8) jinnoraSheen);
         menu->monMarks[loadId] = GetBoxOrPartyMonData(boxId, monId, MON_DATA_MARKINGS, NULL);
         ConditionGraph_CalcPositions(menu->graph.conditions[loadId], menu->graph.savedPositions[loadId]);
     }

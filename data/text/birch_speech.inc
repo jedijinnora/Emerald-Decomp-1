@@ -2,6 +2,9 @@ gText_Birch_Welcome::
 	.string "Welcome to Pokémon Emerald Beryl!\p"
 	.string "$"
 
+gText_BerylVersion::
+	.string "Current version is pre-release.{PAUSE 48}\p"
+
 gText_Birch_MainSpeech::
 	.string "Please check the game's documentation\n"
 	.string "to view Pokémon changes and other\l"

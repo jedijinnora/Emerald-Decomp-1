@@ -534,7 +534,7 @@ script Common_EventScript_Ferry {
 script Common_EventScript_FirstFerryTripFunctions {
 	setflag(FLAG_DEPARTED_EVER_GRANDE)
 
-	goto_if_eq(VAR_DIFFICULTY_SETTING, 2, Common_EventScript_NopReturn)
+	goto_if_ne(VAR_DIFFICULTY_SETTING, 2, Common_EventScript_NopReturn)
 	//randomize starting stash locations to make their items more annoying to obtain
 	random(5)
 	copyvar(VAR_SECRET_STASH_STATE, VAR_RESULT)
