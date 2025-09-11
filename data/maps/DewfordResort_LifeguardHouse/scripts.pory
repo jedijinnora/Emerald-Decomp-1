@@ -60,12 +60,17 @@ script DewfordResort_LifeguardHouse_EventScript_RefusedStone {
 }
 
 script DewfordResort_LifeguardHouse_EventScript_CheckTrainers {
+    //Dewford Resort trainers (land only)
     goto_if_not_defeated(TRAINER_PHELPS, Common_EventScript_NopReturn)
-    goto_if_not_defeated(TRAINER_THOMAS, Common_EventScript_NopReturn)
     goto_if_not_defeated(TRAINER_MAC, Common_EventScript_NopReturn)
     goto_if_not_defeated(TRAINER_KONDO, Common_EventScript_NopReturn)
-    goto_if_not_defeated(TRAINER_KAYLEE, Common_EventScript_NopReturn)
     goto_if_not_defeated(TRAINER_LEA_AND_JED, Common_EventScript_NopReturn)
+
+    //Granite Cave trainers
+    goto_if_not_defeated(TRAINER_IGOR, Common_EventScript_NopReturn)
+    goto_if_not_defeated(TRAINER_SULLY, Common_EventScript_NopReturn)
+    goto_if_not_defeated(TRAINER_THOMAS, Common_EventScript_NopReturn)
+    goto_if_not_defeated(TRAINER_KAYLEE, Common_EventScript_NopReturn)
     setflag(FLAG_TEMP_11)
     return
 }

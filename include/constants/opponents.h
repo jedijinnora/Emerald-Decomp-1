@@ -746,8 +746,10 @@
 
 //Granite Cave
 #define GRANITE_CAVE_TRAINERS_START         (ROUTE_134_TRAINERS_END + 1)
-#define TRAINER_THOMAS                      (GRANITE_CAVE_TRAINERS_START + 0) // Camper Thomas, B1F
-#define TRAINER_KAYLEE                      (GRANITE_CAVE_TRAINERS_START + 1) // Hex Maniac Kaylee, B2F
+#define TRAINER_IGOR                        (GRANITE_CAVE_TRAINERS_START + 0) // Pokemaniac Igor, 1F, may double with Sully
+#define TRAINER_SULLY                       (GRANITE_CAVE_TRAINERS_START + 1) // Black Belt Sully, 1F, may double with Igor
+#define TRAINER_THOMAS                      (GRANITE_CAVE_TRAINERS_START + 2) // Camper Thomas, B1F
+#define TRAINER_KAYLEE                      (GRANITE_CAVE_TRAINERS_START + 3) // Hex Maniac Kaylee, B2F
 #define GRANITE_CAVE_TRAINERS_END           TRAINER_KAYLEE
 
 //Mt. Chimney
@@ -1040,7 +1042,7 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 674 (673 + TRAINER_NONE)
+//I think it's currently 676 (675 + TRAINER_NONE)
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 863 trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

@@ -1,7 +1,90 @@
-mapscripts GraniteCave_1F_MapScripts {}
+mapscripts GraniteCave_1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION :  GraniteCave_1F_OnTransition
+}
+
+script GraniteCave_1F_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	end
+}
 
 script GraniteCave_1F_EventScript_Hiker {
-	msgbox(format("Did you know that Flash activates automatically if you have the HM and a Pokémon that could learn it in your party?"), MSGBOX_NPC)
+	msgbox(format("Did you know? Flash will activate automatically if you have the HM and a Pokémon that could learn it in your party!"), MSGBOX_NPC)
 	release
 	end
+}
+
+script GraniteCave_1F_EventScript_Igor {
+	trainerbattle_single(TRAINER_IGOR, GraniteCave_1F_Text_IgorIntro, GraniteCave_1F_Text_IgorDefeat)
+	msgbox(GraniteCave_1F_Text_IgorPostBattle, MSGBOX_AUTOCLOSE)
+	call(GraniteCave_1F_EventScript_TryIgorRematch)
+	release
+	end
+}
+script GraniteCave_1F_EventScript_TryIgorRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_IGOR)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_SULLY)) {
+		msgbox(format("Include Sully and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_IGOR, GraniteCave_1F_Text_IgorDefeat, TRAINER_SULLY, GraniteCave_1F_Text_SullyDefeat)
+			special(UpdateRecentTrainers)
+			return
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_IGOR, GraniteCave_1F_Text_IgorDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text GraniteCave_1F_Text_IgorIntro {
+	format("Fufufufu… \nMy Pokémon will combo you into a jelly!")
+}
+text GraniteCave_1F_Text_IgorDefeat {
+	format("Urk! Who said you could be so strong?")
+}
+text GraniteCave_1F_Text_IgorPostBattle {
+	format("Fufufufu… \nWe're training our combinations for the next kid to wander in here!")
+}
+
+script GraniteCave_1F_EventScript_Sully {
+	trainerbattle_single(TRAINER_SULLY, GraniteCave_1F_Text_SullyIntro, GraniteCave_1F_Text_SullyDefeat)
+	msgbox(GraniteCave_1F_Text_SullyPostBattle, MSGBOX_AUTOCLOSE)
+	call(GraniteCave_1F_EventScript_TrySullyRematch)
+	release
+	end
+}
+script GraniteCave_1F_EventScript_TrySullyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_SULLY)
+	setvar(VAR_0x8004, 1)
+	if (defeated(TRAINER_IGOR)) {
+		msgbox(format("Include Igor and make it a double battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == YES) {
+			addvar(VAR_0x8004, 1)
+			call(Common_EventScript_CheckRecentRematchesSetBP)
+			trainerbattle_two_trainers(TRAINER_SULLY, GraniteCave_1F_Text_SullyDefeat, TRAINER_IGOR, GraniteCave_1F_Text_IgorDefeat)
+			special(UpdateRecentTrainers)
+			return
+		}
+	}
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_SULLY, GraniteCave_1F_Text_SullyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text GraniteCave_1F_Text_SullyIntro {
+	format("Hoh! Let's get ready to rumble!")
+}
+text GraniteCave_1F_Text_SullyDefeat {
+	format("Whoah there! What happened to my footing?")
+}
+text GraniteCave_1F_Text_SullyPostBattle {
+	format("Is it a stalactite or a stalagmite if the rock is growing from the wall?")
 }
