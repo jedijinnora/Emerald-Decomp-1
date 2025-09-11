@@ -513,7 +513,7 @@ const struct Item gItemsInfo[] =
     [ITEM_HEAVY_BALL] =
     {
         .name = _("Heavy Ball"),
-        .price = (I_PRICE >= GEN_7) ? 0 : 300,
+        .price = 1000,
         .description = COMPOUND_STRING(
             "Works well on\n"
             "very heavy\n"
