@@ -1987,10 +1987,11 @@ static bool32 Fishing_ChangeMinigame(struct Task *task)
 // We have a bite. Now, wait for the player to press A, or the timer to expire.
 static bool32 Fishing_WaitForA(struct Task *task)
 {
+    //Jinnora: made all timeouts quite generous, since the minigame is aggravating
     const s16 reelTimeouts[3] = {
-        [OLD_ROD]   = 36,
-        [GOOD_ROD]  = 33,
-        [SUPER_ROD] = 30
+        [OLD_ROD]   = 70,   // was 36
+        [GOOD_ROD]  = 75,   // was 33
+        [SUPER_ROD] = 80    // was 30
     };
 
     AlignFishingAnimationFrames();
