@@ -86,7 +86,7 @@ script RustboroCity_DevonCorp_2F_EventScript_PorygonForker {
 }
 
 script RustboroCity_DevonCorp_2F_EventScript_ItemFinderGiver {
-	lockall
+	lock
 	faceplayer
 	goto_if_set(FLAG_RECEIVED_DOWSING_MACHINE, DowsingMachineEval)
 	msgbox(format("Since I gave up on working on the Devon Scope, I've been developing our Dowsing Machine."))
@@ -94,25 +94,25 @@ script RustboroCity_DevonCorp_2F_EventScript_ItemFinderGiver {
 	msgbox(format("Want to beta test the Dowsing Machine?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == NO) {
 		msgbox(format("I guess I'll have to badger one of the interns into doing the testing for me."))
-		releaseall
+		release
 		end
 	}
 	msgbox(format("Grand! Here you are then!"))
 	giveitem(ITEM_DOWSING_MACHINE)
 	setflag(FLAG_RECEIVED_DOWSING_MACHINE)
-	releaseall
+	release
 	end
 
 	DowsingMachineEval:
 	msgbox(format("Oh, it's you again! Has the Dowsing Machine been helpful in finding items?"), MSGBOX_YESNO)
 	if (var(VAR_RESULT) == NO) {
 		msgbox(format("Back to the drawing board for me, I suppose!"))
-		releaseall
+		release
 		end
 	} else {
 		msgbox(format("Excellent! Oh, the profits we'll make selling those to every Trainer…"))
 	}
-	releaseall
+	release
 	end
 }
 
