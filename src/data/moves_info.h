@@ -398,10 +398,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
                 "powerful pincers."),
         #endif
         .effect = EFFECT_HIT,
-        .power = 55,
-        .type = TYPE_NORMAL,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 85 : 55,
+        .type = B_UPDATED_MOVE_TYPES >= GEN_CUSTOM ? TYPE_BUG : TYPE_NORMAL,
         .accuracy = 100,
-        .pp = 30,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 20 : 30,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
