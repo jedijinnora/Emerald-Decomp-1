@@ -19064,6 +19064,9 @@ gBattleAnimMove_TailWhip::
 
 gBattleAnimMove_Cut::
 	loadspritegfx ANIM_TAG_CUT
+	loopsewithpan SE_M_HARDEN, SOUND_PAN_ATTACKER, 28, 2
+	createvisualtask AnimTask_MetallicShine, 5, 0, 0, RGB_BLACK
+	waitforvisualfinish
 	monbg ANIM_TARGET
 	setalpha 12, 8
 	playsewithpan SE_M_CUT, SOUND_PAN_TARGET
@@ -22990,7 +22993,6 @@ gBattleAnimMove_Bubble::
 
 gBattleAnimMove_Smog::
 	loadspritegfx ANIM_TAG_PURPLE_GAS_CLOUD
-	monbg ANIM_DEF_PARTNER
 	splitbgprio_all
 	setalpha 12, 8
 	loopsewithpan SE_M_MIST, SOUND_PAN_TARGET, 17, 10
@@ -23003,15 +23005,15 @@ gBattleAnimMove_Smog::
 	call SmogCloud
 	delay 120
 	loopsewithpan SE_M_TOXIC, SOUND_PAN_TARGET, 18, 2
-	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_TARGET, 2, 2, 0, 12, RGB(26, 0, 26)
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_DEF_SIDE, 2, 2, 0, 12, RGB(26, 0, 26)
 	delay 10
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 2, 0, 15, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 2, 0, 15, 1
 	waitforvisualfinish
-	clearmonbg ANIM_DEF_PARTNER
 	blendoff
 	end
 SmogCloud:
-	createsprite gSmogCloudSpriteTemplate, ANIM_ATTACKER, 2, 0, -24, 48, 240, 1, 0
+	createsprite gSmogCloudSpriteTemplate, ANIM_ATTACKER, 2, 0, -24, 48, 240, 1, 1
 	delay 7
 	return
 

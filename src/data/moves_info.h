@@ -1378,7 +1378,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? EFFECT_LEVEL_DAMAGE : EFFECT_FIXED_DAMAGE_ARG,
         .power = 1,
         .type = TYPE_NORMAL,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 20,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -2379,7 +2379,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 50,
         .type = TYPE_ROCK,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -3271,21 +3271,40 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_SMOG] =
     {
         .name = COMPOUND_STRING("Smog"),
+    #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+        .description = COMPOUND_STRING(
+            "A gaseous attack that\n"
+            "lowers the foe's Speed."),
+    #else
         .description = COMPOUND_STRING(
             "An exhaust-gas attack\n"
             "that may also poison."),
+    #endif
         .effect = EFFECT_HIT,
-        .power = B_UPDATED_MOVE_DATA >= GEN_6 ? 30 : 20,
+    #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+        .power = 55,
+    #elif B_UPDATED_MOVE_DATA >= GEN_6
+        .power = 30,
+    #else
+        .power = 20,
+    #endif
         .type = TYPE_POISON,
-        .accuracy = 70,
-        .pp = 20,
-        .target = MOVE_TARGET_SELECTED,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 95 : 70,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 15 : 20,
+        .target = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? MOVE_TARGET_BOTH : MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
+    #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_SPD_MINUS_1,
+            .chance = 100,
+        }),
+    #else
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_POISON,
             .chance = 40,
         }),
+    #endif
         .contestEffect = CONTEST_EFFECT_BADLY_STARTLE_PREV_MONS,
         .contestCategory = CONTEST_CATEGORY_TOUGH,
         .contestComboStarterId = COMBO_STARTER_SMOG,
@@ -3718,9 +3737,15 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_BARRAGE] =
     {
         .name = COMPOUND_STRING("Barrage"),
+    #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+        .description = COMPOUND_STRING(
+            "Hurls psychic orbs at the\n"
+            "foe 2 to 5 times."),
+    #else
         .description = COMPOUND_STRING(
             "Hurls round objects at the\n"
             "foe 2 to 5 times."),
+    #endif
         .effect = EFFECT_MULTI_HIT,
         .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 25 : 15,
         .type = B_UPDATED_MOVE_TYPES >= GEN_CUSTOM ? TYPE_PSYCHIC : TYPE_NORMAL,
@@ -4184,7 +4209,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 80,
         .type = TYPE_NORMAL,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -5579,7 +5604,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 70,
         .type = TYPE_STEEL,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 25,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -6485,7 +6510,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "An attack that may raise\n"
             "all stats."),
-        .effect = EFFECT_HIT,
+        .effect = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? EFFECT_PHOTON_GEYSER : EFFECT_HIT,
         .power = 60,
         .type = TYPE_ROCK,
         .accuracy = 100,
@@ -8081,7 +8106,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 90 : 75,
         .type = TYPE_NORMAL,
-        .accuracy = 95,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 95,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -8391,7 +8416,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "A powdery attack that may\n"
             "raise abilities."),
-        .effect = EFFECT_HIT,
+        .effect = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? EFFECT_PHOTON_GEYSER : EFFECT_HIT,
         .power = 60,
         .type = TYPE_BUG,
         .accuracy = 100,
@@ -9456,7 +9481,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 100,
         .type = TYPE_FIGHTING,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -10460,7 +10485,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "The user swings its tail\n"
             "like a wave to attack."),
         .effect = EFFECT_HIT,
-        .power = 90,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .type = TYPE_WATER,
         .accuracy = 90,
         .pp = 10,
@@ -10696,7 +10721,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 120,
         .type = TYPE_FIGHTING,
-        .accuracy = 70,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 80 : 70,
         .pp = 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -10958,7 +10983,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 65,
         .type = TYPE_ELECTRIC,
-        .accuracy = 95,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 95,
         .pp = 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -10993,7 +11018,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 65,
         .type = TYPE_ICE,
-        .accuracy = 95,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 95,
         .pp = 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -11024,7 +11049,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 65,
         .type = TYPE_FIRE,
-        .accuracy = 95,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 95,
         .pp = 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -11126,7 +11151,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 80,
         .type = TYPE_PSYCHIC,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -11866,7 +11891,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 45 : 35,
         .type = TYPE_NORMAL,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -12050,7 +12075,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "A repulsive attack that may\n"
             "raise all stats."),
-        .effect = EFFECT_HIT,
+        .effect = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? EFFECT_PHOTON_GEYSER : EFFECT_HIT,
         .power = 60,
         .type = TYPE_GHOST,
         .accuracy = 100,
@@ -13444,7 +13469,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = B_UPDATED_MOVE_DATA >= GEN_6 ? 60 : 40,
         .type = TYPE_ICE,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -14047,7 +14072,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 65,
         .type = TYPE_ICE,
-        .accuracy = 95,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 95,
         .pp = 10,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
@@ -14208,7 +14233,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 55,
         .type = TYPE_DARK,
-        .accuracy = 95,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 95,
         .pp = 15,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
@@ -14389,7 +14414,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_BELCH,
         .power = 120,
         .type = TYPE_POISON,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -15116,7 +15141,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 100,
         .type = TYPE_ROCK,
-        .accuracy = 95,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 95,
         .pp = 5,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
@@ -16039,7 +16064,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 100,
         .type = TYPE_ICE,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -16456,7 +16481,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Burns out the user fully\n"
             "removing the Fire type."),
         .effect = EFFECT_FAIL_IF_NOT_ARG_TYPE,
-        .power = 130,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 150 : 130,
         .type = TYPE_FIRE,
         .accuracy = 100,
         .pp = 5,
@@ -18498,7 +18523,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_TWO_TURNS_ATTACK,
         .power = 120,
         .type = TYPE_ROCK,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -18642,7 +18667,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_HIT,
         .power = 70,
         .type = TYPE_BUG,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -19175,9 +19200,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Hits a foe with psychic\n"
             "energy. May raise Defense."),
         .effect = EFFECT_HIT,
-        .power = 70,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 90 : 70,
         .type = TYPE_PSYCHIC,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -19219,9 +19244,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "High critical hit ratio. Sets\n"
             "Splinters that hurt the foe."),
         .effect = EFFECT_HIT,
-        .power = 65,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 90 : 65,
         .type = TYPE_ROCK,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -19265,9 +19290,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "A mysterious power strikes,\n"
             "raising the user's Sp. Atk."),
         .effect = EFFECT_HIT,
-        .power = 70,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 85 : 70,
         .type = TYPE_PSYCHIC,
-        .accuracy = 90,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -19346,7 +19371,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Giant chunks of ice damage\n"
             "the foe. It may flinch."),
         .effect = EFFECT_HIT,
-        .power = 100,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 120 : 100,
         .type = TYPE_ICE,
         .accuracy = 85,
         .pp = 5,
@@ -19558,7 +19583,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "High critical hit ratio. Sets\n"
             "Splinters that hurt the foe."),
         .effect = EFFECT_HIT,
-        .power = 65,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 75 : 65,
         .type = TYPE_DARK,
         .accuracy = 90,
         .pp = 15,
@@ -19980,9 +20005,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Hits target with splashes\n"
             "of water 3 times in a row."),
         .effect = EFFECT_HIT,
-        .power = 30,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 35 : 30,
         .type = TYPE_WATER,
-        .accuracy = 95,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 95,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -20252,7 +20277,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
-        .pp = 10,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 5 : 10,
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -20503,7 +20528,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Discharges all electricity,\n"
             "losing the Electric type."),
         .effect = EFFECT_FAIL_IF_NOT_ARG_TYPE,
-        .power = 120,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 150 : 120,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 5,
