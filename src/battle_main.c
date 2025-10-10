@@ -1833,6 +1833,7 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
 {
     bool32 noMoveSet = TRUE;
     u32 j;
+    u8 maxPpBonuses = 0xFF; //Jinnora: bitmask with max pp bonuses applied
 
     for (j = 0; j < MAX_MON_MOVES; ++j)
     {
@@ -1845,9 +1846,12 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
         return;
     }
 
+    //Jinnora: apply max pp bonus to all moves
+    SetMonData(mon, MON_DATA_PP_BONUSES, &maxPpBonuses);
+
     for (j = 0; j < MAX_MON_MOVES; ++j)
     {
-        u32 pp = GetMovePP(partyEntry->moves[j]);
+        u32 pp = CalculatePPWithBonus(partyEntry->moves[j], maxPpBonuses, j);
         SetMonData(mon, MON_DATA_MOVE1 + j, &partyEntry->moves[j]);
         SetMonData(mon, MON_DATA_PP1 + j, &pp);
     }
@@ -1887,6 +1891,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
     s32 i;
     u8 monsCount;
     u8 adjustedLevel;
+    u8 playerMaxLevel = 5;
     if (battleTypeFlags & BATTLE_TYPE_TRAINER && !(battleTypeFlags & (BATTLE_TYPE_FRONTIER
                                                                         | BATTLE_TYPE_EREADER_TRAINER
                                                                         | BATTLE_TYPE_TRAINER_HILL)))
@@ -1908,6 +1913,12 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
 
         u32 monIndices[monsCount];
         DoTrainerPartyPool(trainer, monIndices, monsCount, battleTypeFlags);
+
+        //Jinnora: calculate player max level party mon before entering main loop
+        for (i = 0; i < PARTY_SIZE; i++)
+        {
+            playerMaxLevel = max(playerMaxLevel, GetMonData(&gPlayerParty[i], MON_DATA_LEVEL));
+        }
 
         for (i = 0; i < monsCount; i++)
         {
@@ -1940,17 +1951,26 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 fixedOtId = HIHALF(personalityValue) ^ LOHALF(personalityValue);
             }
 
-            //Jinnora: adjustedLevel will handle level boost for level cap implementation
+            // Jinnora: adjustedLevel will handle level boost for level cap implementation
             adjustedLevel = partyData[monIndex].lvl;
-            if(VarGet(VAR_DIFFICULTY_SETTING) == 1)
-            {
-                adjustedLevel--;
-            }
             if (adjustedLevel > 16)
             {
-                adjustedLevel = 16; //max Trainer Boost is 84
+                adjustedLevel = 16; // max Trainer Boost is 84
             }
             adjustedLevel += TrainerBoostArray[GetTrainerScalingState()];
+
+            if (VarGet(VAR_DIFFICULTY_SETTING) != 2) // difficulty is not hardcore
+            {
+                if (VarGet(VAR_NUM_BADGES) < 8 && !FlagGet(FLAG_NO_LEVEL_REDUCTIONS)) // less than 8 badges and enemy not Gym Leader
+                {
+                    adjustedLevel = min(adjustedLevel, playerMaxLevel + 2); // reduce trainer levels for smoother level curve in case player is not grinding/candying
+                }
+                if (VarGet(VAR_DIFFICULTY_SETTING) == 1) // easy difficulty further reduces all levels by 1
+                {
+                    adjustedLevel--;
+                }
+            }
+
             //Jinnora: changed fixedIV from 0 to USE_RANDOM_IVS
             CreateMon(&party[i], partyData[monIndex].species, adjustedLevel, USE_RANDOM_IVS, TRUE, personalityValue, otIdType, fixedOtId);
             SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[monIndex].heldItem);
