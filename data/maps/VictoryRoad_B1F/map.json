@@ -348,24 +348,24 @@
       "x": 40,
       "y": 8,
       "elevation": 0,
-      "item": "ITEM_ETHER",
-      "flag": "FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_ETHER_1"
+      "item": "ITEM_MAX_ETHER",
+      "flag": "FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_MAX_ETHER_1"
     },
     {
       "type": "hidden_item",
       "x": 44,
       "y": 8,
       "elevation": 0,
-      "item": "ITEM_ETHER",
-      "flag": "FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_ETHER_2"
+      "item": "ITEM_MAX_ETHER",
+      "flag": "FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_MAX_ETHER_2"
     },
     {
       "type": "hidden_item",
       "x": 42,
       "y": 10,
       "elevation": 0,
-      "item": "ITEM_MAX_REVIVE",
-      "flag": "FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_MAX_REVIVE"
+      "item": "ITEM_MAX_ELIXIR",
+      "flag": "FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_MAX_ELIXIR"
     }
   ]
 }

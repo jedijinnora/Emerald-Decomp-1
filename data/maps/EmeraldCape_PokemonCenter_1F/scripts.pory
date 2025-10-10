@@ -18,3 +18,13 @@ script EmeraldCape_PokemonCenter_1F_EventScript_Nurse {
 	release
 	end
 }
+
+script EmeraldCape_PokemonCenter_1F_EventScript_Woman {
+    lock
+    faceplayer
+    msgbox(format("It's hard to prep for the Elite Four when you don't know which member of their team will come out first."))
+    msgbox(format("If only I had the TM for Protect…"))
+    msgbox(format("Someone said it's in Victory Road, but I've looked everywhere and just can't find it!"))
+    release
+    end
+}

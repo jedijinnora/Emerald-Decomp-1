@@ -16,7 +16,7 @@ script VerdanturfTown_Mart_EventScript_BallSeller {
 	faceplayer
     msgbox(gText_HowMayIServeYou)
 	waitmessage
-	pokemart(MossdeepBallsMart)
+	pokemart(VerdanturfBallsMart)
 	msgbox(gText_PleaseComeAgain)
 	release
 	end

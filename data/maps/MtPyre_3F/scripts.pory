@@ -5,11 +5,22 @@ const LOCALID_GABRIELLE = 3
 script MtPyre_3F_EventScript_Gabrielle_Left {
 	applymovement(LOCALID_GABRIELLE, Common_Movement_FaceLeft)
 	setvar(VAR_TEMP_1, 1)
+	end
 }
 
 script MtPyre_3F_EventScript_Gabrielle_Right {
 	applymovement(LOCALID_GABRIELLE, Common_Movement_FaceRight)
+	setvar(VAR_TEMP_1, 2)
+	release
+	end
+}
+
+script MtPyre_3F_EventScript_Gabrielle_Reset {
+	setobjectmovementtype(LOCALID_GABRIELLE, MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT)
+	applymovement(LOCALID_GABRIELLE, Common_Movement_FaceLeft)
 	setvar(VAR_TEMP_1, 0)
+	release
+	end
 }
 
 script MtPyre_3F_EventScript_William {

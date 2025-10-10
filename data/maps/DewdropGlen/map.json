@@ -103,8 +103,8 @@
       "x": 25,
       "y": 11,
       "elevation": 0,
-      "item": "ITEM_WATER_STONE",
-      "flag": "FLAG_HIDDEN_ITEM_DEWDROP_GLEN_WATER_STONE"
+      "item": "ITEM_SHINY_STONE",
+      "flag": "FLAG_HIDDEN_ITEM_DEWDROP_GLEN_SHINY_STONE"
     }
   ]
 }

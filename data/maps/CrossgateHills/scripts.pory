@@ -9,7 +9,7 @@ script CrossgateHills_EventScript_UmbrellaLady {
     lock
     faceplayer
     msgbox(format("I'm the leader of the Parasol Lady Society."))
-    goto_if_unset(FLAG_RECEIVED_UTILITY_UMBRELLA, CrossgateHills_EventScript_CheckParasolLadies)
+    call_if_unset(FLAG_RECEIVED_UTILITY_UMBRELLA, CrossgateHills_EventScript_CheckParasolLadies)
     msgbox(format("A parasol is simply the most divine personal accessory. That's what I think."))
     release
     end

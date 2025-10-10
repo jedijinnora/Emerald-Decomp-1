@@ -15,6 +15,7 @@ script MossdeepCity_OnLoad {
 
 script MossdeepCity_OnTransition {
 	call_if_unset(FLAG_VISITED_MOSSDEEP_CITY, MossdeepCity_EventScript_VisitMossdeep)
+	clearflag(FLAG_NO_LEVEL_REDUCTIONS)
 	end
 }
 

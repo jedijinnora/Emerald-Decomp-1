@@ -17,7 +17,10 @@ mapscripts FortreeCity_MapScripts {
 
 script FortreeCity_OnTransition {
 	call_if_unset(FLAG_VISITED_FORTREE_CITY, FortreeCity_EventScript_VisitFortree)
+	clearflag(FLAG_NO_LEVEL_REDUCTIONS)
+
 	call(FortreeCity_EventScript_TryRespawnKecleon)
+	
 	call_if_eq(VAR_FORTREE_CITY_STATE, 0, FortreeCity_EventScript_TrySpawnRival)
 	setflag(FLAG_TEMP_1A)
 	call_if_ne(VAR_FORTREE_CITY_STATE, 0, FortreeCity_EventScript_SetupRival)

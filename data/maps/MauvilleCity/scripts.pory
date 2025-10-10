@@ -15,13 +15,17 @@ mapscripts MauvilleCity_MapScripts {
 
 script MauvilleCity_OnTransition {
 	call_if_unset(FLAG_VISITED_MAUVILLE_CITY, MauvilleCity_EventScript_VisitMauville)
+	clearflag(FLAG_NO_LEVEL_REDUCTIONS)
+
 	call_if_eq(VAR_MAUVILLE_CITY_STATE, 0, MauvilleCity_EventScript_TrySpawnRival)
 	setflag(FLAG_TEMP_1A)
 	call_if_ne(VAR_MAUVILLE_CITY_STATE, 0, MauvilleCity_EventScript_SetupRival)
+
 	setflag(FLAG_SYS_TV_START)
 	clearflag(FLAG_FORCE_MIRAGE_TOWER_VISIBLE)
 	clearflag(FLAG_MAUVILLE_GYM_BARRIERS_STATE)
 	setvar(VAR_MAUVILLE_GYM_STATE, 0)
+	
 	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
 	end
 }

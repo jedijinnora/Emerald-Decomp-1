@@ -367,6 +367,11 @@ script EverGrandeCity_PokemonLeague_1F_EventScript_OmniTutor {
 	end
 }
 
+script EverGrandeCity_PokemonLeague_1F_EventScript_BlackBelt {
+	msgbox(format("I planned to smash my way through Glacia's Pokémon with Fighting moves, but her Glalie was somehow immune…"), MSGBOX_NPC)
+	end
+}
+
 raw `
 .set LOCALID_GUARD_1, 3
 .set LOCALID_GUARD_2, 4

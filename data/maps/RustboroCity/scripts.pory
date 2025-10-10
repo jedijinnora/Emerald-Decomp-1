@@ -21,7 +21,10 @@ mapscripts RustboroCity_MapScripts {
 
 script RustboroCityOnTransition {
 	call_if_unset(FLAG_VISITED_RUSTBORO_CITY, RustboroCity_EventScript_VisitRustboro)
+	clearflag(FLAG_NO_LEVEL_REDUCTIONS)
+
 	call_if_set(FLAG_MET_ROXANNE_STEVEN, RustboroCity_EventScript_HideNolandRoxanneSteven)
+	
 	call_if_eq(VAR_RUSTBORO_CITY_STATE, 0, RustboroCity_EventScript_TrySpawnRival)
 	setflag(FLAG_TEMP_1A)
 	call_if_ne(VAR_RUSTBORO_CITY_STATE, 0, RustboroCity_EventScript_SetupRival)

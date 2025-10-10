@@ -17,6 +17,8 @@ mapscripts PetalburgCity_MapScripts {
 script PetalburgCity_OnTransition {
 	call_if_unset(FLAG_VISITED_PETALBURG_CITY, PetalburgCity_EventScript_VisitPetalburg)
 	call_if_unset(FLAG_DEFEATED_PETALBURG_GYM, PetalburgCity_EventScript_ResetGymDoors)
+	clearflag(FLAG_NO_LEVEL_REDUCTIONS)
+
 	call_if_eq(VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_TrySpawnRival)
 	setflag(FLAG_TEMP_1A)
 	call_if_ne(VAR_PETALBURG_CITY_STATE, 0, PetalburgCity_EventScript_SetupRival)

@@ -18,6 +18,11 @@ script Route114_EventScript_Nurse {
 	end
 }
 
+script Route114_EventScript_HackersHideawaySign {
+	msgbox(format("Hacker's Hideaway"), MSGBOX_SIGN)
+	end
+}
+
 script Route114_EventScript_Lenny {
 	trainerbattle_single(TRAINER_LENNY, Route114_Text_LennyIntro, Route114_Text_LennyDefeat)
 	msgbox(Route114_Text_LennyPostBattle, MSGBOX_AUTOCLOSE)

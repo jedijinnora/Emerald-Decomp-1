@@ -13,6 +13,7 @@ const LOCALID_LITTLE_BOY = 5
 script DewfordTown_OnTransition {
 	call_if_unset(FLAG_VISITED_DEWFORD_TOWN, DewfordTown_EventScript_VisitDewford)
 	call_if_set(FLAG_SAND_FAMILY_MOVED, DewfordTown_EventScript_HideNPCs)
+	clearflag(FLAG_NO_LEVEL_REDUCTIONS)
 	end
 }
 

@@ -131,6 +131,7 @@ raw `
 LavaridgeTown_Gym_1F_OnTransition:
 	call LavaridgeTown_Gym_1F_EventScript_SetTrainerTempVars
 	call LavaridgeTown_Gym_1F_EventScript_CheckBuryTrainers
+	setflag FLAG_NO_LEVEL_REDUCTIONS
 	end
 
 @ Unclear where/if these temp vars are getting checked

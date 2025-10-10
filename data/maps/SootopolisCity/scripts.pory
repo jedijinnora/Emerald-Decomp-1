@@ -5,6 +5,7 @@ mapscripts SootopolisCity_MapScripts {
 
 script SootopolisCity_OnTransition {
 	call_if_unset(FLAG_VISITED_SOOTOPOLIS_CITY, SootopolisCity_EventScript_VisitSootopolis)
+	clearflag(FLAG_NO_LEVEL_REDUCTIONS)
 	end
 }
 

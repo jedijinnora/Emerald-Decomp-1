@@ -137,6 +137,7 @@ FortreeCity_Gym_MapScripts::
 FortreeCity_Gym_OnTransition:
 	setflag FLAG_TEMP_HIDE_FOLLOWER
 	special RotatingGate_InitPuzzle
+	setflag FLAG_NO_LEVEL_REDUCTIONS
 	end
 
 FortreeCity_Gym_OnWarp:

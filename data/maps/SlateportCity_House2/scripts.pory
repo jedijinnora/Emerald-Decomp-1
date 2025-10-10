@@ -60,6 +60,8 @@ script SlateportCity_House2_EventScript_PoisonSpecialistTutor {
             setvar(VAR_0x8005, MOVE_VENOSHOCK)
         case 12:
             setvar(VAR_0x8005, MOVE_ACID_ARMOR)
+        case 13:
+            setvar(VAR_0x8005, MOVE_SMOG)
         case 21:
             setvar(VAR_0x8005, MOVE_VENOM_DRENCH)
         case 22:
@@ -101,6 +103,7 @@ script SlateportCity_House2_EventScript_PoisonSpecialistCheckMoves {
 script SlateportCity_House2_EventScript_PoisonSpecialistInitialUnlock {
     dynmultipush("Venoshock", 11)
     dynmultipush("Acid Armor", 12)
+    dynmultipush("Smog", 13)
     return
 }
 
@@ -153,14 +156,14 @@ script SlateportCity_House2_EventScript_PoisonSpecialistBattle {
 
 script SlateportCity_House2_EventScript_InitialBattle {
     if(!defeated(TRAINER_CLAUDIUS_INITIAL)) {
-        msgbox(format("Winning a standard double battle will unlock the tutor moves Venoshock and Acid Armor."))
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Venoshock, Acid Armor, and Smog."))
         setflag(FLAG_TEMP_11)
     }
     msgbox(format("I shall unmake you! Ready?"), MSGBOX_YESNO)
     goto_if_eq(VAR_RESULT, NO, SlateportCity_House2_EventScript_PoisonSpecialistMenu)
     trainerbattle_no_intro(TRAINER_CLAUDIUS_INITIAL, SlateportCity_House2_Text_ClaudiusDefeated)
     if(flag(FLAG_TEMP_11)) {
-        msgbox(format("Added Venoshock and Acid Armor to the tutor list."))
+        msgbox(format("Added Venoshock, Acid Armor, and Smog to the tutor list."))
         clearflag(FLAG_TEMP_11)
     }
     return

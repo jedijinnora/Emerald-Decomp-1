@@ -49,10 +49,10 @@ script Route114_HackersHideaway_EventScript_Thompson {
     lock
     faceplayer
     msgbox(format("I am Thompson, with a P as in psychology!"))
-    msgbox(format("I can teach your Pokémon reliable moves that never miss! Therefore, I am the superior sibling!"))
-    if (!flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
+    msgbox(format("I can teach your Pokémon reliable moves that deal set damage! Therefore, I am the superior sibling!"))
+    if (!flag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)) {
         msgbox(format("Now that you've found me, the apporopriate type experts will also teach these moves."))
-        setflag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)
+        setflag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)
     }
     ThompsonAccMovesMenu:
     msgbox(format("Which move should I teach?"))
@@ -89,10 +89,10 @@ script Route114_HackersHideaway_EventScript_Thomson {
     lock
     faceplayer
     msgbox(format("I am Thomson, with a P as in vuvuzela!"))
-    msgbox(format("I can teach your Pokémon reliable moves that deal set damage! Therefore, I am the superior sibling!"))
-    if (!flag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)) {
+    msgbox(format("I can teach your Pokémon reliable moves that never miss! Therefore, I am the superior sibling!"))
+    if (!flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
         msgbox(format("Now that you've found me, the apporopriate type experts will also teach these moves."))
-        setflag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)
+        setflag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)
     }
     ThomsonSetMovesMenu:
     msgbox(format("Which move should I teach?"))

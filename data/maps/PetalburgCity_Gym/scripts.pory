@@ -1,10 +1,16 @@
 mapscripts PetalburgCity_Gym_MapScripts {
 	MAP_SCRIPT_ON_LOAD : PetalburgCity_Gym_OnLoad
+	MAP_SCRIPT_ON_TRANSITION : PetalburgCity_Gym_OnTransition
 }
 
 script PetalburgCity_Gym_OnLoad {
 	goto_if_unset(FLAG_DEFEATED_PETALBURG_GYM, PetalburgCity_Gym_EventScript_OpenUnlockedDoors)
 	call_if_set(FLAG_DEFEATED_PETALBURG_GYM, PetalburgCity_Gym_EventScript_UnlockAllDoors)
+	end
+}
+
+script PetalburgCity_Gym_OnTransition {
+	setflag(FLAG_NO_LEVEL_REDUCTIONS)
 	end
 }
 

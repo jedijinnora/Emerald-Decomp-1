@@ -1,4 +1,11 @@
-mapscripts RustboroCity_Gym_MapScripts {}
+mapscripts RustboroCity_Gym_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : RustboroCity_Gym_OnTransition
+}
+
+script RustboroCity_Gym_OnTransition {
+	setflag(FLAG_NO_LEVEL_REDUCTIONS)
+	end
+}
 
 script RustboroCity_Gym_EventScript_GymGuide {
 	lock

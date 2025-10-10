@@ -26,6 +26,16 @@ script Route132_EventScript_DomeSign {
 	end
 }
 
+script Route132_EventScript_LordHelix {
+	lock
+	faceplayer
+	delay(8)
+	playmoncry(SPECIES_OMANYTE, CRY_MODE_ENCOUNTER)
+	msgbox(format("(>o=o)> Praise Helix! (>o=o)>"))
+	release
+	end
+}
+
 script Route132_EventScript_Dots {
 	msgbox(Route132_Text_TPP, MSGBOX_NPC)
 	end

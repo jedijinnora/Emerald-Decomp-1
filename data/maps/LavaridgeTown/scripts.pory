@@ -16,6 +16,8 @@ mapscripts LavaridgeTown_MapScripts {
 
 script LavaridgeTown_OnTransition {
 	call_if_unset(FLAG_VISITED_LAVARIDGE_TOWN, LavaridgeTown_EventScript_VisitLavaridge)
+	clearflag(FLAG_NO_LEVEL_REDUCTIONS)
+	
 	call_if_eq(VAR_LAVARIDGE_TOWN_STATE, 0, LavaridgeTown_EventScript_TrySpawnRival)
 	setflag(FLAG_TEMP_1A)
 	call_if_ne(VAR_LAVARIDGE_TOWN_STATE, 0, LavaridgeTown_EventScript_SetupRival)
