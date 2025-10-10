@@ -434,6 +434,7 @@ void Overworld_ResetBattleFlagsAndVars(void)
     FlagClear(B_FLAG_DYNAMAX_BATTLE);
     FlagClear(B_FLAG_SKY_BATTLE);
     FlagClear(FLAG_USE_NEXT_LEVEL_CAP); //Jinnora: level cap flag used in boss battles
+    FlagClear(FLAG_NO_LEVEL_REDUCTIONS);  //Level restriction flag used in gyms
     FlagClear(FLAG_WILD_PERFECT_IVS); //Jinnora: covering white out to Regigigas, really?
     FlagClear(FLAG_WILD_HIDDEN_ABILITY); //Jinnora: covering white out to Regigigas, really?
     FlagClear(FLAG_NO_ESCAPE); //Jinnora: you wiped to a static encounter? lame

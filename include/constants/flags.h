@@ -99,7 +99,7 @@
 #define FLAG_NO_ESCAPE              0x4B // prevents running from wild battle
 #define FLAG_NO_FOLLOWERS           0x4C // persistent hide follower flag
 
-#define FLAG_UNUSED_0x4D            0x4D
+#define FLAG_NO_LEVEL_REDUCTIONS    0x4D // do not reduce Trainer levels to be close to player's max level
 #define FLAG_UNUSED_0x4E            0x4E
 #define FLAG_UNUSED_0x4F            0x4F
 
@@ -676,7 +676,7 @@
 #define FLAG_HIDDEN_ITEM_LITTLEROOT_SHORE_PEARL              (FLAG_HIDDEN_ITEMS_START + 0x73)
 #define FLAG_HIDDEN_ITEM_LITTLEROOT_SHORE_HEART_SCALE        (FLAG_HIDDEN_ITEMS_START + 0x74)
 #define FLAG_HIDDEN_ITEM_ARRIVAL_FERRY_ROOM_FRESH_WATER      (FLAG_HIDDEN_ITEMS_START + 0x75)
-#define FLAG_HIDDEN_ITEM_DEWDROP_GLEN_WATER_STONE            (FLAG_HIDDEN_ITEMS_START + 0x76)
+#define FLAG_HIDDEN_ITEM_DEWDROP_GLEN_SHINY_STONE            (FLAG_HIDDEN_ITEMS_START + 0x76)
 #define FLAG_HIDDEN_ITEM_FORINA_BIG_NUGGET                   (FLAG_HIDDEN_ITEMS_START + 0x77)
 #define FLAG_HIDDEN_ITEM_FORINA_STAR_PIECE                   (FLAG_HIDDEN_ITEMS_START + 0x78)
 #define FLAG_HIDDEN_ITEM_MILLENNIUM_FIELD_AIR_BALLOON        (FLAG_HIDDEN_ITEMS_START + 0x79)
@@ -702,9 +702,9 @@
 #define FLAG_HIDDEN_ITEM_MT_PYRE_3F_MAX_REVIVE                0x281
 #define FLAG_HIDDEN_ITEM_MT_PYRE_6F_REAPER_CLOTH              0x282
 #define FLAG_HIDDEN_ITEM_MT_PYRE_REVIVAL_HERB                 0x283
-#define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_ETHER_1             0x284
-#define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_ETHER_2             0x285
-#define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_MAX_REVIVE          0x286
+#define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_MAX_ETHER_1         0x284
+#define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_MAX_ETHER_2         0x285
+#define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_MAX_ELIXIR          0x286
 #define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B2F_EVIOLITE            0x287
 #define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B2F_PP_UP               0x288
 #define FLAG_HIDDEN_ITEM_ABANDONED_SHIP_ROOMS_1F_BOTTLE_CAP   0x289
@@ -1248,7 +1248,7 @@
 #define FLAG_ITEM_ROUTE_121_LIGHT_BALL                              0x483
 #define FLAG_ITEM_ROUTE_121_PP_UP                                   0x484
 #define FLAG_ITEM_ROUTE_122_COVERT_CLOAK                            0x485
-#define FLAG_ITEM_ROUTE_122_WATER_STONE                             0x486
+#define FLAG_ITEM_ROUTE_122_ICE_STONE                               0x486
 #define FLAG_ITEM_ROUTE_122_PP_MAX                                  0x487
 #define FLAG_ITEM_ROUTE_123_WEAKNESS_POLICY                         0x488
 #define FLAG_ITEM_ROUTE_124_FLOAT_STONE                             0x489
