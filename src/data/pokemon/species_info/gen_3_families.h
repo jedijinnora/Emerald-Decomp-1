@@ -9919,11 +9919,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_TROPIUS] =
     {
         .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 109 : 99,
-        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 88 : 68,
-        .baseDefense   = P_UPDATED_STATS >= GEN_CUSTOM ? 93 : 83,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 85 : 68,
+        .baseDefense   = P_UPDATED_STATS >= GEN_CUSTOM ? 95 : 83,
         .baseSpeed     = 51,
-        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 92 : 72,
-        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 97 : 87,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 85 : 72,
+        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 105 : 87,
         .types = MON_TYPES(TYPE_GRASS, TYPE_FLYING),
         .catchRate = 200,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 161 : 169,
@@ -9934,7 +9934,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_GRASS),
     #if P_UPDATED_ABILITIES >= GEN_4
-        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_SOLAR_POWER, ABILITY_HARVEST },
+        .abilities = { ABILITY_CHLOROPHYLL, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_WIND_RIDER : ABILITY_SOLAR_POWER, ABILITY_HARVEST },
     #else
         .abilities = { ABILITY_CHLOROPHYLL, ABILITY_NONE, ABILITY_HARVEST },
     #endif

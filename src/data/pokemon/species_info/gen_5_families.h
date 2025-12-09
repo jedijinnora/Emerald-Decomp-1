@@ -3162,7 +3162,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sTympoleLevelUpLearnset,
         .teachableLearnset = sTympoleTeachableLearnset,
         .eggMoveLearnset = sTympoleEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_PALPITOAD}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 17, SPECIES_PALPITOAD}),
     },
 
     [SPECIES_PALPITOAD] =
@@ -4656,7 +4656,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sSandileLevelUpLearnset,
         .teachableLearnset = sSandileTeachableLearnset,
         .eggMoveLearnset = sSandileEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 29, SPECIES_KROKOROK}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 21, SPECIES_KROKOROK}),
     },
 
     [SPECIES_KROKOROK] =
@@ -5476,7 +5476,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sScraggyLevelUpLearnset,
         .teachableLearnset = sScraggyTeachableLearnset,
         .eggMoveLearnset = sScraggyEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 39, SPECIES_SCRAFTY}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_SCRAFTY}),
     },
 
     [SPECIES_SCRAFTY] =
@@ -10941,7 +10941,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sPawniardLevelUpLearnset,
         .teachableLearnset = sPawniardTeachableLearnset,
         .eggMoveLearnset = sPawniardEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_BISHARP}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_BISHARP}),
     },
 
     [SPECIES_BISHARP] =

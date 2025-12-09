@@ -5149,7 +5149,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 #if P_FAMILY_SHUCKLE
     [SPECIES_SHUCKLE] =
     {
-        .baseHP        = 20,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 45 : 20,
         .baseAttack    = 10,
         .baseDefense   = 230,
         .baseSpeed     = 5,
@@ -5167,7 +5167,9 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
-    #if P_UPDATED_ABILITIES >= GEN_4
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_SHELL_ARMOR, ABILITY_UNAWARE, ABILITY_CHEEK_POUCH },
+    #elif P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_STURDY, ABILITY_GLUTTONY, ABILITY_CONTRARY },
     #else
         .abilities = { ABILITY_STURDY, ABILITY_NONE, ABILITY_CONTRARY },

@@ -5427,7 +5427,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
 
     [SPECIES_BERGMITE] =
     {
-        .baseHP        = 55,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 75 : 55,
         .baseAttack    = 69,
         .baseDefense   = 85,
         .baseSpeed     = 28,
@@ -5498,12 +5498,12 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
 
     [SPECIES_AVALUGG] =
     {
-        .baseHP        = 95,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 125 : 95,
         .baseAttack    = 117,
-        .baseDefense   = 184,
+        .baseDefense   = P_UPDATED_STATS >= GEN_CUSTOM ? 154 : 184,
         .baseSpeed     = 28,
         .baseSpAttack  = 44,
-        .baseSpDefense = 46,
+        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 76 : 46,
         .types = MON_TYPES(TYPE_ICE),
         .catchRate = 55,
         .expYield = 180,
@@ -5513,7 +5513,11 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = BERGMITE_EGG_GROUPS,
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_UNAWARE, ABILITY_FILTER, ABILITY_CONTRARY },
+    #else
         .abilities = { ABILITY_OWN_TEMPO, ABILITY_ICE_BODY, ABILITY_STURDY },
+    #endif
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Avalugg"),
         .cryId = CRY_AVALUGG,
@@ -5567,12 +5571,12 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
 #if P_HISUIAN_FORMS
     [SPECIES_AVALUGG_HISUI] =
     {
-        .baseHP        = 95,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 125 : 95,
         .baseAttack    = 127,
-        .baseDefense   = 184,
+        .baseDefense   = P_UPDATED_STATS >= GEN_CUSTOM ? 154 : 184,
         .baseSpeed     = 38,
         .baseSpAttack  = 34,
-        .baseSpDefense = 36,
+        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 66 : 36,
         .types = MON_TYPES(TYPE_ICE, TYPE_ROCK),
         .catchRate = 55,
         .expYield = 180,
@@ -5582,7 +5586,11 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = BERGMITE_EGG_GROUPS,
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_ROCKY_PAYLOAD, ABILITY_SOLID_ROCK, ABILITY_TECHNICIAN },
+    #else
         .abilities = { ABILITY_STRONG_JAW, ABILITY_ICE_BODY, ABILITY_STURDY },
+    #endif
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Avalugg"),
         .cryId = CRY_AVALUGG,
