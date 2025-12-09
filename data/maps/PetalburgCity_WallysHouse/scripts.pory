@@ -3,7 +3,7 @@ mapscripts PetalburgCity_WallysHouse_MapScripts {}
 script PetalburgCity_WallysHouse_EventScript_WallysDad {
 	lock
 	faceplayer
-	msgbox(format("Our little tyke Wally is often ill. I worry about what the future will be like for him…"))
+	msgbox(format("My wife's pregnancy is going well! I'm making sure to get her everything she asks for!"))
 	release
 	end
 }
@@ -11,22 +11,22 @@ script PetalburgCity_WallysHouse_EventScript_WallysDad {
 script PetalburgCity_WallysHouse_EventScript_WallysMom {
 	lock
 	faceplayer
-	goto_if_set(FLAG_PETALBURG_CHANSEY_TRADE_COMPLETED, ChanseyTradeCompleted)
-	setvar(VAR_0x8008, INGAME_TRADE_CHANSEY)
+	goto_if_set(FLAG_PETALBURG_HAPPINY_TRADE_COMPLETED, HappinyTradeCompleted)
+	setvar(VAR_0x8008, INGAME_TRADE_HAPPINY)
 	copyvar(VAR_0x8004, VAR_0x8008)
 	specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
 	copyvar(VAR_0x8009, VAR_RESULT)
-	msgbox(format("When Wally first started getting sick, I got a Chansey in the hope she might be able to heal him."))
-	msgbox(format("But there was nothing a Pokémon could do."))
-	msgbox(format("Maybe instead I should have gotten a caring and protective Pokémon to keep him company…"))
-	msgbox(format("Do you have a Gardevoir? I'll trade you my Chansey."), MSGBOX_YESNO)
-	goto_if_eq(VAR_RESULT, NO, DeclineChanseyTrade)
+	msgbox(format("When I found out I was pregnant, I got a Happiny in case I had a health scare."))
+	msgbox(format("But everything's been going smoothly…"))
+	msgbox(format("Maybe instead I should have gotten a Pokémon to help us around the house."))
+	msgbox(format("Do you have a Gardevoir? I'll trade you my Happiny."), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DeclineHappinyTrade)
 	msgbox(format("Oh, thank goodness!"))
 	waitmessage
 	special(ChoosePartyMon)
 	waitstate
 	copyvar(VAR_0x800A, VAR_0x8004)
-	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, DeclineChanseyTrade)
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, DeclineHappinyTrade)
 	copyvar(VAR_0x8005, VAR_0x800A)
 	specialvar(VAR_RESULT, GetTradeSpecies)
 	copyvar(VAR_0x800B, VAR_RESULT)
@@ -36,24 +36,24 @@ script PetalburgCity_WallysHouse_EventScript_WallysMom {
 	special(CreateInGameTradePokemon)
 	special(DoInGameTradeScene)
 	waitstate
-	msgbox(format("Chansey is a unique Pokémon, able to copy any move using Sketch!"))
-	setflag(FLAG_PETALBURG_CHANSEY_TRADE_COMPLETED)
+	msgbox(format("I hope a trainer like you will raise Happiny big and strong!"))
+	setflag(FLAG_PETALBURG_HAPPINY_TRADE_COMPLETED)
 	release
 	end
 
-	DeclineChanseyTrade:
+	DeclineHappinyTrade:
 	msgbox(format("If you won't trade, I suppose I'll have to figure something else out."))
 	release
 	end
 
 	SelectedNotGardevoir:
 	bufferspeciesname(STR_VAR_1, VAR_0x800B)
-	msgbox(format("Please don't make me disappoint Wally with a {STR_VAR_1}."))
+	msgbox(format("{STR_VAR_1}? Mmm, I don't think so."))
 	release
 	end
 
-	ChanseyTradeCompleted:
-	msgbox(format("Will Wally ever be healthy? I just want the best for my child."))
+	HappinyTradeCompleted:
+	msgbox(format("I just want the best for my child, whoever they turn out to be."))
 	release
 	end
 }

@@ -598,7 +598,7 @@ Route111_EventScript_CheckSetSandstorm::
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	goto_if_gt VAR_TEMP_0, 200, Route111_EventScript_EndCheckSetSandstorm
 	goto_if_lt VAR_TEMP_0, 11, Route111_EventScript_EndCheckSetSandstorm
-	goto_if_lt VAR_TEMP_1, 55, Route111_EventScript_EndCheckSetSandstorm
+	goto_if_lt VAR_TEMP_1, 54, Route111_EventScript_EndCheckSetSandstorm
 	goto_if_gt VAR_TEMP_1, 124, Route111_EventScript_EndCheckSetSandstorm
 	goto_if_lt VAR_TEMP_1, 82, Route111_EventScript_SandstormTrigger
 	goto_if_lt VAR_TEMP_0, 21, Route111_EventScript_EndCheckSetSandstorm

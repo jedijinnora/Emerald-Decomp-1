@@ -1,3 +1,5 @@
+const LOCALID_DOCTOR = 8
+
 mapscripts Route110_TrickHousePuzzle5_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : Route110_TrickHousePuzzle5_OnTransition
 }
@@ -9,6 +11,601 @@ script Route110_TrickHousePuzzle5_OnTransition {
 	cleartrainerflag(TRAINER_ALICIA)
 	cleartrainerflag(TRAINER_OLIVER)
 	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll {
+	lock
+	faceplayer
+	msgbox(format("CLICKETY-CLACK…\nDOCTOR MECHADOLL AM I!"))
+	msgbox(format("IF YOU ANSWER QUIZZES CORRECTLY, HEAL YOUR POKéMON I WILL!"))
+	msgbox(format("FAILURE MAY HAVE CONSEQUENCES!"))
+	msgbox(format("WOULD YOU LIKE TO PLAY?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Quiz)
+	DoctorMechadollEnd:
+	msgbox(Route110_TrickHousePuzzle5_Text_DisappointmentError)
+	release
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Quiz {
+	if(!flag(FLAG_TEMP_11)) {
+		dynmultipush("Battle mechanics.", 1)
+	}
+	if(!flag(FLAG_TEMP_12)) {
+		dynmultipush("The Hoenn region.", 2)
+	}
+	if(!flag(FLAG_TEMP_13)) {
+		dynmultipush("Memery and mischief.", 3)
+	}
+	if(!flag(FLAG_TEMP_14)) {
+		dynmultipush("VGC lore.", 4)
+	}
+	msgbox(format("WHICH CATEGORY IS YOUR FAVORITE?"))
+	dynmultistack(0,0,FALSE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			setflag(FLAG_TEMP_11)
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Q_Battle)
+		case 2:
+			setflag(FLAG_TEMP_12)
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Q_Hoenn)
+		case 3:
+			setflag(FLAG_TEMP_13)
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Q_Meme)
+		case 4:
+			setflag(FLAG_TEMP_14)
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Q_VGC)
+		default:
+	}
+	goto(DoctorMechadollEnd)
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Q_Battle {
+	random(3)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_1)
+		case 1:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_2)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_3)
+	}
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Q_Hoenn {
+	random(3)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_4)
+		case 1:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_5)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_6)
+	}
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Q_Meme {
+	random(3)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_7)
+		case 1:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_8)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_9)
+	}
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Q_VGC {
+	random(3)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_10)
+		case 1:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_11)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_12)
+	}
+	end
+}
+
+// Rapid Spin does not clear hazards if the user dies to contact damage
+// Court Change is not affected by protect
+// Thus P1's side has both Stealth Rock and Spikes present
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_1 {
+	dynmultipush("Read prompt again.", 1)
+	dynmultipush("P1: None. P2: None.", 2)
+	dynmultipush("P1: Spikes. P2: None.", 3)
+	dynmultipush("P1: Stealth Rock. P2: None.", 4)
+	dynmultipush("P1: None. P2: Stealth Rock.", 5)
+	dynmultipush("P1: None. P2: Spikes.", 6)
+	dynmultipush("P1: Spikes. P2: Stealth Rock.", 7)
+	dynmultipush("P1: Stealth Rock. P2: Spikes.", 8)
+	dynmultipush("P1: Spikes and Stealth Rock. P2: None.", 9)
+	dynmultipush("P1: None. P2: Spikes and Stealth Rock.", 10)
+	msgbox(format("A battle is in progress and proceeds as follows:"))
+	msgbox(format("Turn 1: P1's Gligar uses Stealth Rock. P2's Cloyster uses Rapid Spin, and faints to Rocky Helmet."))
+	msgbox(format("Turn 2: P2 sends out Scizor. P1's Gligar uses Spikes. P2's Scizor uses U-Turn."))
+	msgbox(format("Turn 3: P2 sends out Cinderace. P1's Gligar uses Protect. P2's Cinderace uses Court Change."))
+	msgbox(format("Question: after Turn 3, which hazards affect each player's side of the field?"))
+	dynmultistack(0,0,TRUE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_1)
+		case 9:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Correct)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Incorrect)
+	}
+	end
+}
+
+// Glimmora must have Toxic Debris, meaning two layers of Toxic Spikes
+// Thus Breloom is badly poisoned, and takes damage after Lickitung knocks off its Ability Shield and Neutralizing Gas Weezing is on the field
+// The toxic counter still ticks while Poison Heal is active, so the correct answer is 3/16ths damage from poison
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_2 {
+	dynmultipush("Read prompt again.", 1)
+	dynmultipush("Breloom is healed by the poison.", 2)
+	dynmultipush("Loses 1/16th of its health from poison.", 3)
+	dynmultipush("Loses 1/8th of its health from poison.", 4)
+	dynmultipush("Loses 3/16ths of its health from poison.", 5)
+	dynmultipush("Loses 5/16ths of its health from poison.", 6)
+	msgbox(format("A battle is in progress and proceeds as follows:"))
+	msgbox(format("Turn 1: P1's Glimmora uses Toxic. P2's Empoleon is not poisoned, and uses Waterfall, knocking out Glimmora."))
+	msgbox(format("Turn 2: P1 sends out Roselia. Roselia uses Toxic Spikes. P2's Empoleon uses Ice Beam, knocking out Roselia and fainting to Life Orb recoil."))
+	msgbox(format("Turn 3: P1 sends out Arcanine. P2 sends out Breloom, who is affected by Toxic Spikes. Arcanine's Intimidate does not affect Breloom. Breloom knocks out Arcanine with Mach Punch."))
+	msgbox(format("Turn 4: P1 sends out Lickitung. P2's Breloom uses Mach Punch. P1's Lickitung uses Knock Off."))
+	msgbox(format("Turn 5: P2's Breloom uses Mach Punch, knocking out Lickitung. P1 sends out Weezing with Neutralizing Gas."))
+	msgbox(format("It is the end of Turn 5. Breloom's ability is Poison Heal."))
+	msgbox(format("Question: How will Breloom be affected by poison at the end of Turn 5?"))
+	dynmultistack(0,0,TRUE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_2)
+		case 5:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Correct)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Incorrect)
+	}
+	end
+}
+
+// TODO: Refactor to a battle sequence like others
+// Trick Room can be beaten with >=1809 speed: +2 Swift Swim Floatzel with rain & tailwind
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_3 {
+	dynmultipush("Minimum speed Torkoal holding Iron Ball.", 1)
+	dynmultipush("Minimum speed Shuckle.", 2)
+	dynmultipush("Regieleki holding a Choice Scarf.", 3)
+	dynmultipush("My juiced Floatzel with 1809 Speed.", 4)
+	dynmultipush("My hacked Kyogre with a 0 Speed stat.", 5)
+	dynmultipush("Lagging Tail Slowbro.", 6)
+	msgbox(format("Which Pokémon will move first under Trick Room?"))
+	dynmultistack(0,0,TRUE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 4:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Correct)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Incorrect)
+	}
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_4 {
+	dynmultipush("Route 119.", 9)
+	dynmultipush("Littleroot.", 2)
+	random(3)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			dynmultipush("Petalburg.", 3)
+		case 1:
+			dynmultipush("Mauville.", 12)
+			dynmultipush("Oldale.", 3)
+		default:
+			dynmultipush("Pacifidlog.", 3)
+	}
+	dynmultipush("Meteor Village.", 4)
+	dynmultipush("Fallarbor.", 5)
+	dynmultipush("Verdanturf.", 7)
+	random(3)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			dynmultipush("Victory Road.", 8)
+			dynmultipush("Slateport.", 6)
+		case 1:
+			dynmultipush("Shoal Cave.", 8)
+			dynmultipush("Route 114.", 6)
+		default:
+			dynmultipush("Millennium Field.", 8)
+			dynmultipush("Route 111.", 6)
+	}
+	dynmultipush("Mossdeep Caverns.", 10)
+	dynmultipush("Pacifidlog.", 11)
+	msgbox(format("Which location is not home to a Move Tutor? TM gifts do not count."))
+	dynmultistack(0,0,TRUE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 8:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Correct)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Incorrect)
+	}
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_5 {
+	clearflag(FLAG_TEMP_15)
+	msgbox(format("ANSWER ALL THREE QUESTIONS CORRECTLY TO PASS. YOU'LL BE GRADED AT THE END!"))
+
+	// Q1: Bike routes (must be completed without dismounting)
+	random(4)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("Can I ride my Acro Bike from Lilycove to Fortree?"), MSGBOX_YESNO)
+			// Yes: Lilycove -> 121 -> 122 -> 123 -> 118 -> Mauville -> 111 -> Desert Underpass -> Sandswept Oasis -> Crossgate Hills -> 119 -> Fortree
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 1:
+			msgbox(format("Can I ride my Acro Bike from Fortree to Lilycove?"), MSGBOX_YESNO)
+			// Yes: Fortree -> 119 -> Crossgate Hills -> Sandswept Oasis -> 111 -> Mauville -> 118 -> 123 -> 122 -> 121 -> Lilycove
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 2:
+			msgbox(format("Can I ride my Mach Bike from Lilycove to Fortree?"), MSGBOX_YESNO)
+			// Yes: Lilycove -> Sunrise Shore -> 123 -> 118 -> Mauville -> 111 -> Sandswept Oasis -> Crossgate Hills -> 119 -> Fortree
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 3:
+			msgbox(format("Can I ride my Mach Bike from Fortree to Lilycove?"), MSGBOX_YESNO)
+			// No: blocked by ledges on r123
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		default:
+	}
+
+	// Q2: Surf routes (must be completed without dismounting)
+	random(6)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("Can I Surf from Petalbug to Southern Island?"), MSGBOX_YESNO)
+			// No: blocked by shallow water/beach on r109
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 1:
+			msgbox(format("Can I Surf from Southern Island to Ever Grande?"), MSGBOX_YESNO)
+			// Yes: Southern Island -> Summer Sea -> 133 -> 132 -> Pacifidlog -> 131 -> 130 -> 129 -> 128 -> Ever Grande
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 2:
+			msgbox(format("Can I Surf from Sunrise Shore to Route 125?"), MSGBOX_YESNO)
+			// Yes: Sunrise Shore -> 128 -> Mossdeep -> 125
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 3:
+			msgbox(format("Can I use Surf and Dive from Route 125 to Sootopolis without entering Mossdeep?"), MSGBOX_YESNO)
+			// Yes: 125 -> 124 -> 126 -> Sootopolis
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 4:
+			msgbox(format("Would Mirage Island prevent me from Surfing across Route 130?"), MSGBOX_YESNO)
+			// No
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 5:
+			msgbox(format("Can I Surf from Slateport to Pacifidlog?"), MSGBOX_YESNO)
+			// Yes, the currents go both ways
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		default:
+	}
+
+	// Q3: Land routes
+	random(5)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("I have no bike and no HMs! Can I walk from Petalburg to Mauville?"), MSGBOX_YESNO)
+			// Yes, many routes
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 1:
+			msgbox(format("I have no bike and no HMs! Can I walk from Meteor Village to Slateport?"), MSGBOX_YESNO)
+			// Yes: 
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 2:
+			msgbox(format("I hate bridges, caves, and sand! Can I walk from Verdanturf to Fallarbor?"), MSGBOX_YESNO)
+			// No
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 3:
+			msgbox(format("I hate tall grass! Can I walk from Mauville to Petalburg?"), MSGBOX_YESNO)
+			// No
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 4:
+			msgbox(format("I hate tall grass! Can I walk from Petalburg to Mauville?"), MSGBOX_YESNO)
+			// Yes
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		default:
+	}
+
+	msgbox(format("CALCULATING RESPONSES..."))
+	goto_if_set(FLAG_TEMP_15, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Incorrect)
+	goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Correct)
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_6 {	
+	dynmultipush("Altering Cave.", 3)
+	random(3)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			dynmultipush("Route 108.", 4)
+			dynmultipush("Granite Cave.", 23)
+			dynmultipush("Lavaridge Town.", 20)
+		case 1:
+			dynmultipush("Shoal Cave.", 5)
+			dynmultipush("Lavaridge Town.", 13)
+		default:
+			dynmultipush("Granite Cave.", 6)
+	}
+	random(3)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			dynmultipush("Verdant Forest.", 7)
+			dynmultipush("Abandoned Ship.", 8)
+		case 1:
+			dynmultipush("Mt. Pyre.", 4)
+			dynmultipush("Cave of Origin.", 15)
+			dynmultipush("Verdant Forest.", 19)
+		default:
+			dynmultipush("Victory Road.", 9)
+			dynmultipush("Scorched Slab.", 16)
+	}
+	random(3)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			dynmultipush("Route 106.", 10)
+			dynmultipush("Summer Sea.", 17)
+		case 1:
+			dynmultipush("Route 114.", 11)
+		default:
+			dynmultipush("Route 122.", 18)
+	}
+	random(3)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			dynmultipush("Route 116.", 24)
+			dynmultipush("Route 113.", 1)
+		case 1:
+			dynmultipush("Route 113.", 24)
+			dynmultipush("Mossdeep City.", 25)
+			dynmultipush("Fortree City.", 1)
+		default:
+			dynmultipush("Pacifidlog Town.", 24)
+			dynmultipush("Fortree City.", 25)
+	}
+
+	//correct answer
+	random(4)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			dynmultipush("Crossgate Hills.", 12)
+		case 1:
+			dynmultipush("Sakurai Overlook.", 12)
+		case 2:
+			dynmultipush("Safari Zone.", 12)
+		default:
+			dynmultipush("Sootopolis Gardens.", 12)
+	}
+
+	msgbox(format("I want any Ghost-type Pokémon! Where should I not look?"))
+	dynmultistack(0,0,TRUE,6,TRUE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 12:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Correct)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Incorrect)
+	}
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_7 {
+	dynmultipush("Milk Drink.", 1)
+	dynmultipush("Voltorb twins.", 2)
+	dynmultipush("Suspiciously Castform.", 3)
+	dynmultipush("The Vaporeon copypasta.", 4)
+	dynmultipush("Waifu Gardevoir.", 5)
+	dynmultipush("S1E8's bondage Sandshrew.", 6)
+
+	msgbox("58008?")
+	dynmultistack(0,0,TRUE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_7)
+		case 3:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Correct)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Incorrect)
+	}
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_8 {
+	dynmultipush("Squirtle Squad.", 1)
+	dynmultipush("Whitney's battle was hard.", 2)
+	dynmultipush("Who wants a jelly donut?", 3)
+	dynmultipush("Bidoof > Arceus.", 4)
+	dynmultipush("Snake backwards.", 5)
+	dynmultipush("Shocked Pikachu.", 6)
+	dynmultipush("Zorua was not the imposter.", 7)
+	dynmultipush("Ghetsis deez nuts.", 6)
+
+	msgbox("6-7?")
+	dynmultistack(0,0,TRUE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 5:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Correct)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Incorrect)
+	}
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_9 {
+	dynmultipush("This statement is a lie.", 1)
+	dynmultipush("MissingNo.", 2)
+	dynmultipush("Here, have a Pomeg Berry.", 3)
+	dynmultipush("kNoCkeD oFf uR MaIl.", 4)
+	dynmultipush("Just hold this Dubious Disc.", 5)
+	dynmultipush("Look at that shiny Magikarp!", 6)
+	dynmultipush("Pay Bill to do it for me.", 7)
+
+	msgbox("Glitch my Porygon?")
+	dynmultistack(0,0,TRUE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 6:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Correct)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Incorrect)
+	}
+	end
+}
+
+// Palkia or Zamazenta
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_10 {
+	dynmultipush("Groudon", 1)
+	dynmultipush("Kyogre", 2)
+	dynmultipush("Rayquaza", 3)
+	dynmultipush("Dialga", 4)
+	dynmultipush("Palkia", 5)
+	dynmultipush("Zacian", 6)
+	dynmultipush("Zamazenta", 7)
+	dynmultipush("Miraidon", 8)
+	dynmultipush("Koraidon", 9)
+	msgbox(format("Which box art Legendary has never won a VGC World Championship?"))
+	dynmultistack(0,0,TRUE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 5:
+		case 7:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Correct)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Incorrect)
+	}
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_11 {
+	msgbox(format("Which Pokémon type has the fewest VGC World Championship wins?"))
+	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Normal","Fighting","Flying","Poison","Ground","Rock","Bug","Ghost","Steel","Fire","Water","Grass","Electric","Psychic","Ice","Dragon","Dark","Fairy")
+	switch(var(VAR_RESULT)) {
+		case 6:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Correct)
+		default:
+			goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Incorrect)
+	}
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Question_12 {
+	clearflag(FLAG_TEMP_15)
+	msgbox(format("ANSWER ALL THREE QUESTIONS CORRECTLY TO PASS. YOU'LL BE GRADED AT THE END!"))
+
+	// Q1
+	random(4)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("Metagross has won more Worlds than Salamence?"), MSGBOX_YESNO)
+			// No: 2009 and 2012 vs. 2009, 2018, and 2019
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 1:
+			msgbox(format("Salamence has won more Worlds than Metagross?"), MSGBOX_YESNO)
+			// Yes: 2009, 2018, and 2019 vs. 2009 and 2012
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 2:
+			msgbox(format("The only starter to win a World Championship is Incineroar?"), MSGBOX_YESNO)
+			// No: Empoleon, 2009 and Rillaboom, 2022
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 3:
+			msgbox(format("Both Urshifu forms have won a VGC World Championship?"), MSGBOX_YESNO)
+			// No: both were rapid strike (water)
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		default:
+	}
+
+	// Q2
+	random(4)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("Is Tyranitar is the only Generation 2 Pokémon to win a World Championship?"), MSGBOX_YESNO)
+			// No: Hitmontop, 2016
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 1:
+			msgbox(format("Thundurus has the most Worlds victories of all Generation 5 Pokémon?"), MSGBOX_YESNO)
+			// No: Amoonguss also has 3
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 2:
+			msgbox(format("Only the USA and Japan have more than one Worlds winner?"), MSGBOX_YESNO)
+			// No: Italy has Arash Ommati (2013) and Luca Ceribelli (2024)
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 3:
+			msgbox(format("There is no single type present on all winning Worlds Teams?"), MSGBOX_YESNO)
+			// Yes
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		default:
+	}
+
+	// Q3
+	random(5)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("Zacian-crowned has the highest BST of all Worlds winners?"), MSGBOX_YESNO)
+			// No: Primals and Mega-Ray
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 1:
+			msgbox(format("Did the infamous CHALK team actually win Worlds?"), MSGBOX_YESNO)
+			// Yes, with Thundurus as the 6th
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 2:
+			msgbox(format("Paradox Pokémon have more wins than their standard counterparts?"), MSGBOX_YESNO)
+			// Paradox: Iron Hands x2, Flutter Mane x2, Miraidon, Koraidon, Brute Bonnet = 7
+			// Standard: Salamence x3, Amoonguss x3, Hydreigon x2, Hariyama, Terrakion, (Gardevoir) = 10 or 11
+			// No
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 3:
+			msgbox(format("Grass, Fire, and Water starters have all won Worlds?"), MSGBOX_YESNO)
+			// Yes: Rillaboom, Incineroar, and Empoleon
+			call_if_eq(VAR_RESULT, NO, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		case 4:
+			msgbox(format("Every type of Pokémon has been present on a winning Worlds team?"), MSGBOX_YESNO)
+			// No: Bug type
+			call_if_eq(VAR_RESULT, YES, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong)
+		default:
+	}
+
+	msgbox(format("CALCULATING RESPONSES..."))
+	goto_if_set(FLAG_TEMP_15, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Incorrect)
+	goto(Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Correct)
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Correct {
+	waitse
+	playse(SE_SUCCESS)
+	msgbox(format("CONGRATULATIONS. CORRECT YOU ARE."))
+	call(Common_EventScript_OutOfCenterPartyHeal)
+	addvar(VAR_TEMP_6, 1)
+	goto_if_eq(VAR_TEMP_6, 3, Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Vanish)
+	release
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Incorrect {
+	waitse
+	playse(SE_FAILURE)
+	msgbox(Route110_TrickHousePuzzle5_Text_DisappointmentError)
+	applymovement(LOCALID_DOCTOR, Route110_TrickHousePuzzle5_Movement_MechadollShake)
+	waitmovement(LOCALID_DOCTOR)
+	Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Vanish:
+	msgbox(Route110_TrickHousePuzzle5_Text_Wahahahaha)
+	applymovement(LOCALID_DOCTOR, KecleonVanish)
+	waitmovement(LOCALID_DOCTOR)
+	removeobject(LOCALID_DOCTOR)
+	release
+	end
+}
+
+script Route110_TrickHousePuzzle5_EventScript_DoctorMechadoll_Wrong {
+	setflag(FLAG_TEMP_15)
+	return
 }
 
 script Route110_TrickHousePuzzle5_EventScript_Irvin {

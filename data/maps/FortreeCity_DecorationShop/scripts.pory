@@ -3,6 +3,7 @@ mapscripts FortreeCity_DecorationShop_MapScripts {}
 script FortreeCity_DecorationShop_EventScript_BerrySeller {
 	lock
 	faceplayer
+	goto_if_unset(FLAG_DEFEATED_FORTREE_GYM, FortreeCity_DecorationShop_EventScript_BerrySeller_PreGym)
     msgbox(gText_HowMayIServeYou)
 	waitmessage
 	pokemart(FortreeBerryMart)
@@ -11,6 +12,20 @@ script FortreeCity_DecorationShop_EventScript_BerrySeller {
 	end
 }
 
+script FortreeCity_DecorationShop_EventScript_BerrySeller_PreGym {
+	msgbox(format("Hello! Our stock is a bit limited at present."))
+	waitmessage
+	pokemart(FortreeBerryMartPreGym)
+	msgbox(gText_PleaseComeAgain)
+	release
+	end
+}
+
+mart FortreeBerryMartPreGym {
+	ITEM_RINDO_BERRY
+	ITEM_COBA_BERRY
+	ITEM_TANGA_BERRY
+}
 
 mart FortreeBerryMart {
 	ITEM_CHILAN_BERRY

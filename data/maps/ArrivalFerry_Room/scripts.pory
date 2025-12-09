@@ -11,6 +11,8 @@ const LOCALID_BAG = 2
 
 //TEMPs used
 //VAR_TEMP_1 and VAR_TEMP_2 for Player x,y determination
+//FLAG_TEMP_11, FLAG_TEMP_12 object flags
+//FLAG_TEMP_13 starter was shiny
 
 script ArrivalFerry_Room_OnTransition {
     if (var(VAR_CLEANUP_STATE) > 3) {
@@ -260,12 +262,22 @@ script ArrivalFerry_Room_EventScript_Bag {
     //get starter
     hidemonpic
     playfanfare(MUS_OBTAIN_ITEM)
+    random(99)
+    if (var(VAR_RESULT) == 0) {
+        setflag(FLAG_FORCE_SHINY)
+        setflag(FLAG_TEMP_13)
+    }
     givemon(VAR_STARTER_CHOICE, 5, ITEM_ORAN_BERRY)
+    clearflag(FLAG_FORCE_SHINY)
     setmonmetlocation(0, 0xFF)
     waitfanfare 
     setflag(FLAG_TEMP_12)
     removeobject(LOCALID_BAG)
     setflag(FLAG_SYS_POKEMON_GET)
+    specialvar(VAR_RESULT, CheckPartyForShiny)
+    if (var(VAR_RESULT)) {
+        msgbox(format("Oh wow, you have a shiny starter!"))
+    }
 
     //nickname
     msgbox(format("Did you nickname your starter?"), MSGBOX_YESNO)

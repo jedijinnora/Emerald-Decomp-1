@@ -50,7 +50,8 @@ script EverGrandeCity_Building1_EventScript_ExpertF {
 script EverGrandeCity_Building1_EventScript_BlackBelt {
     lock
     faceplayer
-    msgbox(format("I'm trying to encourage my grandma to start swimming more! Good exercise is important for everyone! When's the last time you worked up a sweat?"))
+    msgbox(format("I'm trying to encourage my grandma to start swimming more! Good exercise is important for everyone!"))
+	msgbox(format("When's the last time you worked up a sweat?"))
     release
     end
 }

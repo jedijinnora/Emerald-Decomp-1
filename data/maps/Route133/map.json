@@ -196,16 +196,16 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 21,
-      "y": 57,
+      "x": 29,
+      "y": 24,
       "elevation": 0,
       "item": "ITEM_RED_SHARD",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_133_RED_SHARD"
     },
     {
       "type": "hidden_item",
-      "x": 4,
-      "y": 25,
+      "x": 14,
+      "y": 28,
       "elevation": 0,
       "item": "ITEM_BLUE_SHARD",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_133_BLUE_SHARD"

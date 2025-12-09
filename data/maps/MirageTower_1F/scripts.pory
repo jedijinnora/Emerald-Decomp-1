@@ -1,12 +1,21 @@
-raw `
-MirageTower_1F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, MirageTower_1F_OnTransition
-	.byte 0
+mapscripts MirageTower_1F_MapScripts {
+	MAP_SCRIPT_ON_LOAD : MirageTower_1F_OnLoad
+	MAP_SCRIPT_ON_TRANSITION : MirageTower_1F_OnTransition
+}
 
-MirageTower_1F_OnTransition:
-	setflag FLAG_ENTERED_MIRAGE_TOWER
-	setflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
-	setflag FLAG_LANDMARK_MIRAGE_TOWER
+script MirageTower_1F_OnLoad {
+	call_if_unset(FLAG_DESERT_UNDERPASS_OPEN, MirageTower_1F_EventScript_CloseUnderpass)
 	end
+}
 
-`
+script MirageTower_1F_OnTransition {
+	setflag(FLAG_ENTERED_MIRAGE_TOWER)
+	setflag(FLAG_FORCE_MIRAGE_TOWER_VISIBLE)
+	setflag(FLAG_LANDMARK_MIRAGE_TOWER)
+	end
+}
+
+script MirageTower_1F_EventScript_CloseUnderpass {
+	setmetatile(5, 2, 0x211, FALSE)
+	return
+}
