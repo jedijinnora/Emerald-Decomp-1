@@ -988,7 +988,7 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Dots"),
         .species = SPECIES_SEEDOT,
-        .ivs = {15, 15, 15, 15, 15, 15},
+        .ivs = {24, 24, 24, 24, 24, 24},
         .abilityNum = 1,
         .otId = 38726,
         .conditions = {30, 5, 5, 5, 5},
@@ -1004,7 +1004,7 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Pluses"),
         .species = SPECIES_PLUSLE,
-        .ivs = {15, 15, 15, 15, 15, 15},
+        .ivs = {30, 15, 15, 30, 15, 15},
         .abilityNum = 0,
         .otId = 73996,
         .conditions = {5, 5, 30, 5, 5},
@@ -1020,7 +1020,7 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Seasor"),
         .species = SPECIES_HORSEA,
-        .ivs = {15, 15, 15, 15, 15, 15},
+        .ivs = {15, 15, 15, 30, 30, 15},
         .abilityNum = 0,
         .otId = 46285,
         .conditions = {5, 5, 5, 5, 30},
@@ -1036,7 +1036,7 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Meowow"),
         .species = SPECIES_MEOWTH,
-        .ivs = {15, 15, 15, 15, 15, 15},
+        .ivs = {30, 30, 15, 15, 15, 15},
         .abilityNum = 0,
         .otId = 91481,
         .conditions = {5, 5, 5, 30, 5},
@@ -1068,10 +1068,10 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Banner"),
         .species = SPECIES_STUFFUL,
-        .ivs = {15, 31, 31, 0, 15, 15},
+        .ivs = {15, 31, 31, 15, 15, 15},
         .abilityNum = 0,
         .otId = 51962,
-        .conditions = {0, 0, 0, 0, 0},
+        .conditions = {0, 0, 0, 0, 100},
         .personality = 0x03,//should be male, Adamant nature
         .heldItem = ITEM_ASSAULT_VEST,
         .mailNum = -1,
@@ -1100,7 +1100,7 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Karma"),
         .species = SPECIES_HAUNTER,
-        .ivs = {15, 0, 5, 30, 30, 5},
+        .ivs = {15, 0, 15, 30, 30, 15},
         .abilityNum = 0,
         .otId = 19248,
         .conditions = {0, 0, 0, 0, 0},
@@ -1112,30 +1112,30 @@ static const struct InGameTrade sIngameTrades[] =
         .sheen = 0,
         .requestedSpecies = SPECIES_MEDICHAM
     },
-    [INGAME_TRADE_SHUCKLE] =
+    [INGAME_TRADE_SNEASEL] =
     {
         .nickname = _("Lupin"),
-        .species = SPECIES_SHUCKLE,
-        .ivs = {25, 5, 20, 5, 5, 20},
+        .species = SPECIES_SNEASEL_HISUI,
+        .ivs = {15, 15, 30, 30, 15, 15},
         .abilityNum = 0,
         .otId = 91067,
-        .conditions = {0, 0, 0, 0, 0},
+        .conditions = {100, 0, 0, 0, 0},
         .personality = 0x08,//should be male, Impish nature
-        .heldItem = ITEM_LEFTOVERS,
+        .heldItem = ITEM_BIG_NUGGET,
         .mailNum = -1,
-        .otName = _("Arsene"),
+        .otName = _("Kirk"),
         .otGender = MALE, 
         .sheen = 0,
-        .requestedSpecies = SPECIES_SNEASEL
+        .requestedSpecies = SPECIES_SHUCKLE
     },
     [INGAME_TRADE_CHATOT] =
     {
         .nickname = _("Alex"),
         .species = SPECIES_CHATOT,
-        .ivs = {15, 15, 15, 31, 31, 15},
+        .ivs = {15, 15, 15, 30, 30, 15},
         .abilityNum = 0,
         .otId = 51876,
-        .conditions = {0, 0, 0, 0, 0},
+        .conditions = {0, 0, 0, 100, 0},
         .personality = 0x0F,//should be male, Modest nature
         .heldItem = ITEM_THROAT_SPRAY,
         .mailNum = -1,
@@ -1146,16 +1146,16 @@ static const struct InGameTrade sIngameTrades[] =
     },
     [INGAME_TRADE_FURFROU] =
     {
-        .nickname = _("Bruiser"),
+        .nickname = _("Georgie"),
         .species = SPECIES_FURFROU_DEBUTANTE,
-        .ivs = {15, 15, 15, 15, 15, 15},
+        .ivs = {30, 15, 30, 15, 15, 15},
         .abilityNum = 0,
         .otId = 71301,
         .conditions = {0, 0, 0, 0, 0},
-        .personality = 0x08,//should be male, Impish nature
+        .personality = 0x0D,//should be male, Jolly nature
         .heldItem = ITEM_CHOICE_BAND,
         .mailNum = -1,
-        .otName = _("Elle"),
+        .otName = _("Regina"),
         .otGender = FEMALE, 
         .sheen = 0,
         .requestedSpecies = SPECIES_CINCCINO
@@ -1180,7 +1180,7 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Saturn"),
         .species = SPECIES_SNOM,
-        .ivs = {15, 15, 15, 15, 15, 15},
+        .ivs = {15, 15, 15, 15, 30, 30},
         .abilityNum = 0,
         .otId = 23794,
         .conditions = {0, 0, 0, 0, 0},
@@ -1196,7 +1196,7 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Jekyll"),
         .species = SPECIES_MORPEKO,
-        .ivs = {15, 15, 15, 15, 15, 15},
+        .ivs = {15, 30, 15, 15, 30, 15},
         .abilityNum = 0,
         .otId = 51886,
         .conditions = {0, 0, 0, 0, 0},
@@ -1212,7 +1212,7 @@ static const struct InGameTrade sIngameTrades[] =
     {
         .nickname = _("Crochet"),
         .species = SPECIES_TYROGUE,
-        .ivs = {15, 15, 15, 15, 15, 15},
+        .ivs = {30, 15, 15, 30, 15, 15},
         .abilityNum = 0,
         .otId = 11111,
         .conditions = {0, 0, 0, 0, 0},
@@ -1224,11 +1224,11 @@ static const struct InGameTrade sIngameTrades[] =
         .sheen = 0,
         .requestedSpecies = SPECIES_FURRET
     },
-    [INGAME_TRADE_CHANSEY] =
+    [INGAME_TRADE_HAPPINY] =
     {
         .nickname = _("Panacea"),
-        .species = SPECIES_CHANSEY,
-        .ivs = {15, 31, 5, 15, 31, 5},
+        .species = SPECIES_HAPPINY,
+        .ivs = {15, 15, 15, 15, 15, 15},
         .abilityNum = 0,
         .otId = 62312,
         .conditions = {0, 0, 0, 0, 0},
@@ -1238,7 +1238,7 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("Amelia"),
         .otGender = FEMALE, 
         .sheen = 0,
-        .requestedSpecies = SPECIES_GALLADE
+        .requestedSpecies = SPECIES_GARDEVOIR
     },
     [INGAME_TRADE_SMEARGLE] =
     {
@@ -1326,7 +1326,7 @@ static const struct InGameTrade sIngameTrades[] =
         .species = SPECIES_CORSOLA_GALAR,
         .ivs = {15, 15, 15, 15, 15, 15},
         .abilityNum = 0,
-        .otId = 11111,
+        .otId = 60564,
         .conditions = {0, 0, 0, 0, 0},
         .personality = 0xF5,//should be female, Calm nature
         .heldItem = ITEM_SHELL_BELL,
