@@ -3310,6 +3310,8 @@ u32 GetPlayerIDAsU32(void)
 
 u8 CheckForPlayersHouseNews(void)
 {
+    return PLAYERS_HOUSE_TV_NONE;
+    /*
     // Check if not in Littleroot house map group
     if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(LITTLEROOT_TOWN_BRENDANS_HOUSE_1F))
         return PLAYERS_HOUSE_TV_NONE;
@@ -3333,6 +3335,7 @@ u8 CheckForPlayersHouseNews(void)
         return PLAYERS_HOUSE_TV_MOVIE;
 
     return PLAYERS_HOUSE_TV_LATI;
+    */
 }
 
 void GetMomOrDadStringForTVMessage(void)
