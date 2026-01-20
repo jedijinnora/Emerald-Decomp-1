@@ -99,15 +99,15 @@
 #define FLAG_NO_ESCAPE              0x4B // prevents running from wild battle
 #define FLAG_NO_FOLLOWERS           0x4C // persistent hide follower flag
 
-#define FLAG_NO_LEVEL_REDUCTIONS    0x4D // do not reduce Trainer levels to be close to player's max level
-#define FLAG_UNUSED_0x4E            0x4E
-#define FLAG_UNUSED_0x4F            0x4F
+#define FLAG_NO_LEVEL_REDUCTIONS    0x4D // do not reduce Trainer levels to be closer to player's max level
+#define FLAG_EASY_HM_USE            0x4E // do not require a party Pokemon to be capable of using field HMs
+#define FLAG_BOOSTED_SHINIES        0x4F // greatly increase shiny odds
 
 // Given/Received item Flags
 #define FLAG_GIVEN_POWER_ITEMS               0x50
 #define FLAG_GIVEN_ARRIVAL_FERRY_LEMONADE    0x51
 #define FLAG_RECEIVED_BLUNDER_POLICY         0x52 // tunneler's rest stop
-#define FLAG_RECEIVED_TUNNELER_GIFT          0x53 // given Eviolite if have HM 4/5/6
+#define FLAG_RECEIVED_TUNNELER_GIFT          0x53 // given Eviolite if have HMs 4, 5, & 6
 #define FLAG_RECEIVED_SAFETY_GOGGLES         0x54 // desert oasis
 #define FLAG_RECEIVED_SPACE_CENTER_EJECT_PACK 0x55
 #define FLAG_RECEIVED_UTILITY_UMBRELLA       0x56
@@ -216,7 +216,7 @@
 #define FLAG_TUTOR_SHROOMISH_SPORE           0xB7 // rustboro city
 #define FLAG_RECEIVED_SECRET_POWER           0xB8 // r111
 #define FLAG_TUTOR_WEATHER_BALL              0xB9 // weather institute
-#define FLAG_UNUSED_0xBA                     0xBA
+#define FLAG_TUTOR_BASIC_MOVES               0xBA // basic tutor
 #define FLAG_UNUSED_0xBB                     0xBB
 #define FLAG_UNUSED_0xBC                     0xBC
 #define FLAG_UNUSED_0xBD                     0xBD

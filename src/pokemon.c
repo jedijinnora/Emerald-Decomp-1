@@ -1127,7 +1127,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     else if (otIdType == OT_ID_PRESET)
     {
         value = fixedOtId;
-        isShiny = GET_SHINY_VALUE(value, hasFixedPersonality ? fixedPersonality : personality) < SHINY_ODDS;
+        isShiny = GET_SHINY_VALUE(value, hasFixedPersonality ? fixedPersonality : personality) < (FlagGet(FLAG_BOOSTED_SHINIES) ? 655 : SHINY_ODDS);
     }
     else // Player is the OT
     {
@@ -1164,13 +1164,13 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
             if (gDexNavSpecies)
                 totalRerolls += CalculateDexNavShinyRolls();
 
-            while (GET_SHINY_VALUE(value, personality) >= SHINY_ODDS && totalRerolls > 0)
+            while (GET_SHINY_VALUE(value, personality) >= (FlagGet(FLAG_BOOSTED_SHINIES) ? 655 : SHINY_ODDS) && totalRerolls > 0)
             {
                 personality = Random32();
                 totalRerolls--;
             }
 
-            isShiny = GET_SHINY_VALUE(value, personality) < SHINY_ODDS;
+            isShiny = GET_SHINY_VALUE(value, personality) < (FlagGet(FLAG_BOOSTED_SHINIES) ? 655 : SHINY_ODDS);
         }
     }
 
@@ -2898,7 +2898,7 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_IS_SHINY:
         {
             u32 shinyValue = GET_SHINY_VALUE(boxMon->otId, boxMon->personality);
-            retVal = (shinyValue < SHINY_ODDS) ^ boxMon->shinyModifier;
+            retVal = (shinyValue < (FlagGet(FLAG_BOOSTED_SHINIES) ? 655 : SHINY_ODDS)) ^ boxMon->shinyModifier;
             break;
         }
         case MON_DATA_HIDDEN_NATURE:
@@ -3324,7 +3324,7 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             u32 shinyValue = GET_SHINY_VALUE(boxMon->otId, boxMon->personality);
             bool32 isShiny;
             SET8(isShiny);
-            boxMon->shinyModifier = (shinyValue < SHINY_ODDS) ^ isShiny;
+            boxMon->shinyModifier = (shinyValue < (FlagGet(FLAG_BOOSTED_SHINIES) ? 655 : SHINY_ODDS)) ^ isShiny;
             break;
         }
         case MON_DATA_HIDDEN_NATURE:
