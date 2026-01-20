@@ -167,7 +167,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_GRASS),
-        .abilities = { ABILITY_OVERGROW, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_LEAF_GUARD : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_TRIAGE : ABILITY_LEAF_GUARD },
+        .abilities = { ABILITY_OVERGROW, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_FLOWER_VEIL : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_TRIAGE : ABILITY_LEAF_GUARD },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Meganium"),
         .cryId = CRY_MEGANIUM,
@@ -3884,7 +3884,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 72 : 48,                                                                            \
         .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 81 : 72,                                                                            \
         .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 63 : 48,                                                                            \
-        .types = MON_TYPES(TYPE_PSYCHIC),                                                               \
+        .types = MON_TYPES(P_UPDATED_TYPES >= GEN_CUSTOM ? TYPE_MYSTERY : TYPE_PSYCHIC),                                                               \
         .catchRate = 225,                                                                               \
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 118 : 61,                                         \
         .evYield_Attack = 1,                                                                            \
@@ -3894,7 +3894,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,                                                              \
         .growthRate = GROWTH_MEDIUM_FAST,                                                               \
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),                                      \
-        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },                                  \
+        .abilities = { P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_MAGIC_GUARD : ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },                                  \
         .bodyColor = BODY_COLOR_BLACK,                                                                  \
         .noFlip = _noFlip,                                                                              \
         .speciesName = _("Unown"),                                                                      \

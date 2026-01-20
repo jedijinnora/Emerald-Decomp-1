@@ -4492,10 +4492,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     {
         .baseHP        = 50,
         .baseAttack    = 75,
-        .baseDefense   = P_UPDATED_STATS >= GEN_CUSTOM ? 90 : 75,
+        .baseDefense   = P_UPDATED_STATS >= GEN_CUSTOM ? 85 : 75,
         .baseSpeed     = 50,
         .baseSpAttack  = 65,
-        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 90 : 65,
+        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 95 : 65,
         .types = MON_TYPES(TYPE_DARK, TYPE_GHOST),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 133 : 98,
@@ -4507,8 +4507,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = 35,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-    #if P_UPDATED_ABILITIES >= GEN_4
-        .abilities = { ABILITY_KEEN_EYE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_PRANKSTER : ABILITY_STALL, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_MAGIC_BOUNCE : ABILITY_PRANKSTER },
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_SCRAPPY, ABILITY_PRANKSTER, ABILITY_MAGIC_BOUNCE },
+    #elif P_UPDATED_ABILITIES >= GEN_4
+        .abilities = { ABILITY_KEEN_EYE, ABILITY_STALL, ABILITY_PRANKSTER },
     #else
         .abilities = { ABILITY_KEEN_EYE, ABILITY_NONE, ABILITY_PRANKSTER },
     #endif
@@ -4646,11 +4648,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_MAWILE] =
     {
         .baseHP        = 50,
-        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 95 : 85,
+        .baseAttack    = 85,
         .baseDefense   = P_UPDATED_STATS >= GEN_CUSTOM ? 95 : 85,
         .baseSpeed     = 50,
         .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 65 : 55,
-        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 65 : 55,
+        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 75 : 55,
         .types = MAWILE_TYPES,
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 133 : 98,
@@ -5086,10 +5088,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_MEDITITE] =
     {
         .baseHP        = 30,
-        .baseAttack    = 40,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 50 : 40,
         .baseDefense   = 55,
         .baseSpeed     = 60,
-        .baseSpAttack  = 40,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 50 : 40,
         .baseSpDefense = 55,
         .types = MON_TYPES(TYPE_FIGHTING, TYPE_PSYCHIC),
         .catchRate = 180,
@@ -5167,11 +5169,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_MEDICHAM] =
     {
         .baseHP        = 60,
-        .baseAttack    = 60,
-        .baseDefense   = 75,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 75 : 60,
+        .baseDefense   = P_UPDATED_STATS >= GEN_CUSTOM ? 85 : 75,
         .baseSpeed     = 80,
-        .baseSpAttack  = 60,
-        .baseSpDefense = 75,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 75 : 60,
+        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 85 : 75,
         .types = MON_TYPES(TYPE_FIGHTING, TYPE_PSYCHIC),
         .catchRate = 90,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 144 : 153,
@@ -9439,10 +9441,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_SHUPPET] =
     {
         .baseHP        = 44,
-        .baseAttack    = 75,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 85 : 75,
         .baseDefense   = 35,
-        .baseSpeed     = 45,
-        .baseSpAttack  = 63,
+        .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 63 : 45,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 45 : 63,
         .baseSpDefense = 33,
     #if P_UPDATED_TYPES >= GEN_CUSTOM
         .types = MON_TYPES(TYPE_GHOST, TYPE_NORMAL),
@@ -9521,7 +9523,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_BANETTE] =
     {
         .baseHP        = 64,
-        .baseAttack    = 115,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 135 : 115,
         .baseDefense   = 65,
         .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 83 : 65,
         .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 65 : 83,

@@ -2521,7 +2521,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FIELD),
-        .abilities = { ABILITY_SWIFT_SWIM, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_TECHNICIAN : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_WATER_BUBBLE : ABILITY_WATER_VEIL },
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM 
+        .abilities = { ABILITY_WATER_VEIL, ABILITY_LIMBER, ABILITY_SWIFT_SWIM },
+    #else
+        .abilities = { ABILITY_SWIFT_SWIM, ABILITY_NONE, ABILITY_WATER_VEIL },
+    #endif
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Buizel"),
         .cryId = CRY_BUIZEL,
@@ -2600,7 +2604,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FIELD),
-        .abilities = { ABILITY_SWIFT_SWIM, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_TECHNICIAN : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_WATER_BUBBLE : ABILITY_WATER_VEIL },
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM 
+        .abilities = { ABILITY_WATER_VEIL, ABILITY_LIMBER, ABILITY_SWIFT_SWIM },
+    #else
+        .abilities = { ABILITY_SWIFT_SWIM, ABILITY_NONE, ABILITY_WATER_VEIL },
+    #endif
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Floatzel"),
         .cryId = CRY_FLOATZEL,

@@ -429,10 +429,10 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
     {
         .baseHP        = 110,
         .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 125 : 123,
-        .baseDefense   = 65,
+        .baseDefense   = P_UPDATED_STATS >= GEN_CUSTOM ? 75 : 65,
         .baseSpeed     = 65,
-        .baseSpAttack  = 100,
-        .baseSpDefense = 65,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 80 : 100,
+        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 75 : 65,
         .types = MON_TYPES(TYPE_FIRE, TYPE_FIGHTING),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_8) ? 264 : 238,
@@ -9524,7 +9524,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sElgyemLevelUpLearnset,
         .teachableLearnset = sElgyemTeachableLearnset,
         .eggMoveLearnset = sElgyemEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 42, SPECIES_BEHEEYEM}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_BEHEEYEM}),
     },
 
     [SPECIES_BEHEEYEM] =

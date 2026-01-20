@@ -4239,7 +4239,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sHatennaLevelUpLearnset,
         .teachableLearnset = sHatennaTeachableLearnset,
         .eggMoveLearnset = sHatennaEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_HATTREM}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 22, SPECIES_HATTREM}),
     },
 
     [SPECIES_HATTREM] =

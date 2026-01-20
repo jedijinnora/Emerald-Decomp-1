@@ -7212,8 +7212,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseHP        = 50,
         .baseAttack    = 52,
         .baseDefense   = 48,
-        .baseSpeed     = 55,
-        .baseSpAttack  = 65,
+        .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 70 : 55,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 70 : 65,
         .baseSpDefense = 50,
         .types = MON_TYPES(TYPE_WATER),
         .catchRate = 190,
@@ -7282,8 +7282,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseHP        = 80,
         .baseAttack    = 82,
         .baseDefense   = 78,
-        .baseSpeed     = 85,
-        .baseSpAttack  = 95,
+        .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 100 : 85,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 100 : 95,
         .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_WATER),
         .catchRate = 75,
@@ -10966,7 +10966,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseSpeed     = 45,
         .baseSpAttack  = 45,
         .baseSpDefense = 70,
+    #if P_UPDATED_TYPES >= GEN_CUSTOM
+        .types = MON_TYPES(TYPE_WATER, TYPE_ICE),
+    #else
         .types = MON_TYPES(TYPE_WATER),
+    #endif
         .catchRate = 190,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 65 : 100,
         .evYield_SpDefense = 1,
@@ -10975,7 +10979,9 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FIELD),
-    #if P_UPDATED_ABILITIES >= GEN_4
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_THICK_FAT, ABILITY_ICE_BODY, ABILITY_ICE_SCALES },
+    #elif P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_THICK_FAT, ABILITY_HYDRATION, ABILITY_ICE_BODY },
     #else
         .abilities = { ABILITY_THICK_FAT, ABILITY_NONE, ABILITY_ICE_BODY },
@@ -11034,10 +11040,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_DEWGONG] =
     {
         .baseHP        = 90,
-        .baseAttack    = 70,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 85 : 70,
         .baseDefense   = 80,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 70,
+        .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 85 : 70,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 85 : 70,
         .baseSpDefense = 95,
         .types = MON_TYPES(TYPE_WATER, TYPE_ICE),
         .catchRate = 75,
@@ -11048,7 +11054,9 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_FIELD),
-    #if P_UPDATED_ABILITIES >= GEN_4
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_THICK_FAT, ABILITY_ICE_BODY, ABILITY_ICE_SCALES },
+    #elif P_UPDATED_ABILITIES >= GEN_4
         .abilities = { ABILITY_THICK_FAT, ABILITY_HYDRATION, ABILITY_ICE_BODY },
     #else
         .abilities = { ABILITY_THICK_FAT, ABILITY_NONE, ABILITY_ICE_BODY },
