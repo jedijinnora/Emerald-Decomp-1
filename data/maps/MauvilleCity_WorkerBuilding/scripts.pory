@@ -111,6 +111,8 @@ script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistTutor {
             setvar(VAR_0x8005, MOVE_MAGNET_RISE)
         case 13:
             setvar(VAR_0x8005, MOVE_ELECTRO_BALL)
+        case 14:
+            setvar(VAR_0x8005, MOVE_SPARK)
         case 21:
             setvar(VAR_0x8005, MOVE_DISCHARGE)
         case 22:
@@ -125,12 +127,16 @@ script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistTutor {
             setvar(VAR_0x8005, MOVE_VOLT_TACKLE)
         case 33:
             setvar(VAR_0x8005, MOVE_ZAP_CANNON)
+        case 34:
+            setvar(VAR_0x8005, MOVE_SUPERCELL_SLAM)
         case 41:
             setvar(VAR_0x8005, MOVE_THUNDER_FANG)
         case 42:
             setvar(VAR_0x8005, MOVE_ELECTRIC_TERRAIN)
         case 43:
             setvar(VAR_0x8005, MOVE_SHOCK_WAVE)
+        case 44:
+            setvar(VAR_0x8005, MOVE_THUNDER_SHOCK)
         default:
             return
     }
@@ -146,6 +152,7 @@ script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistCheckMoves {
     goto_if_defeated(TRAINER_SCOTTY_CHALLENGE, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_BITE_TUTOR, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BASIC_MOVES, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
     setvar(VAR_RESULT, FALSE)
     return
@@ -155,6 +162,7 @@ script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistInitialUnlock {
     dynmultipush("Charge", 11)
     dynmultipush("Magnet Rise", 12)
     dynmultipush("Electro Ball", 13)
+    dynmultipush("Spark", 14)
     return
 }
 
@@ -170,18 +178,22 @@ script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistChallengeUnlock
     dynmultipush("Rising Voltage", 31)
     dynmultipush("Volt Tackle", 32)
     dynmultipush("Zap Cannon", 33)
+    dynmultipush("Supercell Slam", 34)
     return
 }
 
 script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistUnlockOtherTutor {
-    if(defeated(TRAINER_BITE_TUTOR)) {
+    if (defeated(TRAINER_BITE_TUTOR)) {
         dynmultipush("Thunder Fang", 41)
     }
-    if(defeated(TRAINER_TERRAIN_TUTOR_ELECTRIC)) {
+    if (defeated(TRAINER_TERRAIN_TUTOR_ELECTRIC)) {
         dynmultipush("Electric Terrain", 42)
     }
-    if(flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
+    if (flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
         dynmultipush("Shock Wave", 43)
+    }
+    if (flag(FLAG_TUTOR_BASIC_MOVES)) {
+        dynmultipush("Thunder Shock", 44)
     }
     return
 }
@@ -210,14 +222,14 @@ script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistBattle {
 
 script MauvilleCity_WorkerBuilding_EventScript_InitialBattle {
     if(!defeated(TRAINER_SCOTTY_INITIAL)) {
-        msgbox(format("Winning a standard double battle will unlock the tutor moves Charge, Magnet Rise, and Electro Ball."))
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Charge, Magnet Rise, Electro Ball, and Spark."))
         setflag(FLAG_TEMP_11)
     }
     msgbox(format("Be careful not to bust up the engineering department! Ready?"), MSGBOX_YESNO)
     goto_if_eq(VAR_RESULT, NO, MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistMenu)
     trainerbattle_no_intro(TRAINER_SCOTTY_INITIAL, MauvilleCity_WorkerBuilding_Text_ScottyDefeated)
     if(flag(FLAG_TEMP_11)) {
-        msgbox(format("Added Charge, Magnet Rise, and Electro Ball to the tutor list."))
+        msgbox(format("Added Charge, Magnet Rise, Electro Ball, and Spark to the tutor list."))
         clearflag(FLAG_TEMP_11)
     }
     return
@@ -245,14 +257,14 @@ script MauvilleCity_WorkerBuilding_EventScript_ChallengeBattle {
     specialvar(VAR_RESULT, CheckPartyMonotype)
     goto_if_eq(VAR_RESULT, FALSE, MauvilleCity_WorkerBuilding_EventScript_NotElectricMonotype)
     if(!defeated(TRAINER_SCOTTY_CHALLENGE)) {
-        msgbox(format("Winning against me with all Electric-type Pokémon will unlock the tutor moves Rising Voltage, Volt Tackle, and Zap Cannon."))
+        msgbox(format("Winning against me with all Electric-type Pokémon will unlock the tutor moves Rising Voltage, Volt Tackle, Zap Cannon, and Supercell Slam."))
         setflag(FLAG_TEMP_11)
     }
     msgbox(format("I'll give it all I've got. Will you?"), MSGBOX_YESNO)
     goto_if_eq(VAR_RESULT, NO, MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistMenu)
     trainerbattle_no_intro(TRAINER_SCOTTY_CHALLENGE, MauvilleCity_WorkerBuilding_Text_ScottyDefeated)
     if(flag(FLAG_TEMP_11)) {
-        msgbox(format("Added Rising Voltage, Volt Tackle, and Zap Cannon to the tutor list."))
+        msgbox(format("Added Rising Voltage, Volt Tackle, Zap Cannon, and Supercell Slam to the tutor list."))
         clearflag(FLAG_TEMP_11)
     }
     return

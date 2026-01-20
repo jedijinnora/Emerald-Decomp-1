@@ -306,9 +306,13 @@ script EverGrandeCity_EventScript_Fisherman {
 script EverGrandeCity_EventScript_SchoolKidM {
 	lock
 	faceplayer
-	msgbox(format("They say it's good luck to catch a Pokémon here before challenging the Elite Four."))
-	msgbox(format("There's even a whole superstition around which Pokémon are lucky or unlucky!"))
-	msgbox(format("Finding an Absol means bad luck in your future, but I think that's ridiculous! Absol are cool! That's way better than any lame Zigzagoon or Pikachu."))
+	goto_if_set(FLAG_DEPARTED_EVER_GRANDE, EverGrandeCity_EventScript_SchoolKidM_AfterLeaving)
+	msgbox(format("Hey, Trainer! Be sure to head south along the beach to Route 128 before you take the ferry!"))
+	release
+	end
+	EverGrandeCity_EventScript_SchoolKidM_AfterLeaving:
+	msgbox(format("Even if you only catch one Pokémon per location in Hoenn, that's still more than 80!"))
+	msgbox(format("If you can't beat the Pokémon League with that many, are you even trying?"))
 	release
 	end
 }

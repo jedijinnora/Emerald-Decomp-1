@@ -320,6 +320,7 @@ script EverGrandeCity_PokemonLeague_1F_EventScript_BPExchange_End {
 script EverGrandeCity_PokemonLeague_1F_EventScript_OmniTutor {
 	lock
 	faceplayer
+	setflag(FLAG_TUTOR_BASIC_MOVES)
 	msgbox(format("What type of moves would you like to learn?"))
 	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Normal","Fighting","Flying","Poison","Ground","Rock","Bug","Ghost","Steel","Fire","Water","Grass","Electric","Psychic","Ice","Dragon","Dark","Fairy")
 	switch(var(VAR_RESULT)) {

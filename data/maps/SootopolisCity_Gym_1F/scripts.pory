@@ -86,6 +86,7 @@ SootopolisCity_Gym_1F_MapScripts::
 SootopolisCity_Gym_1F_OnTransition:
 	setvar VAR_ICE_STEP_COUNT, 1
 	setflag FLAG_NO_LEVEL_REDUCTIONS
+	call Common_EventScript_DisableBPReward
 	end
 
 SootopolisCity_Gym_1F_OnResume:

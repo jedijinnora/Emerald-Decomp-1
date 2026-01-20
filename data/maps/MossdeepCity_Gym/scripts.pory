@@ -5,6 +5,7 @@ mapscripts MossdeepCity_Gym_MapScripts {
 script MossdeepCity_Gym_OnTransition {
 	setflag(FLAG_TEMP_HIDE_FOLLOWER)
 	setflag(FLAG_NO_LEVEL_REDUCTIONS)
+	call(Common_EventScript_DisableBPReward)
 }
 
 script MossdeepCity_Gym_EventScript_GymGuide {

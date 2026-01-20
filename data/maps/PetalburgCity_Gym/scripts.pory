@@ -11,6 +11,7 @@ script PetalburgCity_Gym_OnLoad {
 
 script PetalburgCity_Gym_OnTransition {
 	setflag(FLAG_NO_LEVEL_REDUCTIONS)
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 

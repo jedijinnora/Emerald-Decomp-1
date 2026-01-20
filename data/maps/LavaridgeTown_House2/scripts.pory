@@ -92,6 +92,8 @@ script LavaridgeTown_House2_EventScript_FireSpecialistTutor {
             setvar(VAR_0x8005, MOVE_TEMPER_FLARE)
         case 41:
             setvar(VAR_0x8005, MOVE_FIRE_FANG)
+        case 42:
+            setvar(VAR_0x8005, MOVE_EMBER)
         default:
             return
     }
@@ -106,6 +108,7 @@ script LavaridgeTown_House2_EventScript_FireSpecialistCheckMoves {
     goto_if_defeated(TRAINER_FLANNERY_INVERSE, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_FLANNERY_CHALLENGE, Common_EventScript_NopReturn)
     goto_if_set(FLAG_TUTOR_BITE_MOVES, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BASIC_MOVES, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
     setvar(VAR_RESULT, FALSE)
     return
@@ -138,8 +141,11 @@ script LavaridgeTown_House2_EventScript_FireSpecialistChallengeUnlock {
 }
 
 script LavaridgeTown_House2_EventScript_FireSpecialistUnlockOtherTutor {
-    if(flag(FLAG_TUTOR_BITE_MOVES)) {
+    if (flag(FLAG_TUTOR_BITE_MOVES)) {
         dynmultipush("Fire Fang", 41)
+    }
+    if (flag(FLAG_TUTOR_BASIC_MOVES)) {
+        dynmultipush("Ember", 42)
     }
     return
 }

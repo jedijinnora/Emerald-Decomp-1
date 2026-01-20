@@ -17,7 +17,7 @@ script SootopolisCity_House6_EventScript_HelioptileWoman {
 	goto_if_eq(VAR_RESULT, PARTY_SIZE, NoRoomForHelioptile)
 
 	setflag(FLAG_RECEIVED_HELIOPTILE)
-	givemon(SPECIES_HELIOPTILE, 10)
+	givemon(SPECIES_HELIOPTILE, 15)
 	playfanfare(MUS_OBTAIN_ITEM)
 	bufferspeciesname(STR_VAR_1, SPECIES_HELIOPTILE)
     msgbox("{PLAYER} received {STR_VAR_1}!")

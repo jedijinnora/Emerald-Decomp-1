@@ -4,6 +4,7 @@ mapscripts RustboroCity_Gym_MapScripts {
 
 script RustboroCity_Gym_OnTransition {
 	setflag(FLAG_NO_LEVEL_REDUCTIONS)
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 

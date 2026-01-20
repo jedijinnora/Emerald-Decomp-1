@@ -93,6 +93,10 @@ script PetalburgCity_House4_EventScript_NormalSpecialistTutor {
             setvar(VAR_0x8005, MOVE_SWIFT)
         case 45:
             setvar(VAR_0x8005, MOVE_WEATHER_BALL)
+        case 46:
+            setvar(VAR_0x8005, MOVE_QUICK_ATTACK)
+        case 47:
+            setvar(VAR_0x8005, MOVE_ROUND)
         default:
             return
     }
@@ -103,12 +107,14 @@ script PetalburgCity_House4_EventScript_NormalSpecialistTutor {
 }
 
 script PetalburgCity_House4_EventScript_NormalSpecialistCheckMoves {
+    setvar(VAR_RESULT, TRUE) // this is needed because otherwise the Omni-Tutor will return instantly from trying to teach Normal moves
     goto_if_defeated(TRAINER_NORMAN_INITIAL, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_NORMAN_INVERSE, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_NORMAN_CHALLENGE, Common_EventScript_NopReturn)
     goto_if_set(FLAG_TUTOR_BITE_MOVES, Common_EventScript_NopReturn)
     goto_if_set(FLAG_TUTOR_TERRAIN_MOVES, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BASIC_MOVES, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
     setvar(VAR_RESULT, FALSE)
     return
@@ -144,17 +150,21 @@ script PetalburgCity_House4_EventScript_NormalSpecialistUnlockOtherTutor {
     if (defeated(TRAINER_BITE_TUTOR)) {
         dynmultipush("Hyper Fang", 41)
     }
-    if(flag(FLAG_TUTOR_PUNCH_MOVES)) {
+    if (flag(FLAG_TUTOR_PUNCH_MOVES)) {
         dynmultipush("Mega Punch", 42)
     }
     if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
         dynmultipush("Tail Slap", 43)
     }
-    if(flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
+    if (flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
         dynmultipush("Swift", 44)
     }
-    if(flag(FLAG_TUTOR_WEATHER_BALL)) {
+    if (flag(FLAG_TUTOR_WEATHER_BALL)) {
         dynmultipush("Weather Ball", 45)
+    }
+    if (flag(FLAG_TUTOR_BASIC_MOVES)) {
+        dynmultipush("Quick Attack", 46)
+        dynmultipush("Round", 47)
     }
     return
 }

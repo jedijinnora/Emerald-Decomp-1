@@ -88,6 +88,8 @@ script RustboroCity_House2_EventScript_RockSpecialistTutor {
             setvar(VAR_0x8005, MOVE_METEOR_BEAM)
 		case 41:
             setvar(VAR_0x8005, MOVE_ROCK_BLAST)
+        case 42:
+            setvar(VAR_0x8005, MOVE_ROCK_THROW)
         default:
             return
     }
@@ -103,6 +105,7 @@ script RustboroCity_House2_EventScript_RockSpecialistCheckMoves {
     goto_if_defeated(TRAINER_ROXANNE_CHALLENGE, Common_EventScript_NopReturn)
 	goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
 	goto_if_defeated(TRAINER_TERRAIN_TUTOR_MISTY, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BASIC_MOVES, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
     setvar(VAR_RESULT, FALSE)
     return
@@ -130,6 +133,9 @@ script RustboroCity_House2_EventScript_RockSpecialistChallengeUnlock {
 script RustboroCity_House2_EventScript_RockSpecialistUnlockOtherTutor {
     if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
         dynmultipush("Rock Blast", 41)
+    }
+    if (flag(FLAG_TUTOR_BASIC_MOVES)) {
+        dynmultipush("Rock Throw", 42)
     }
     return
 }

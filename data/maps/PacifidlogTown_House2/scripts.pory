@@ -77,6 +77,12 @@ script PacifidlogTown_House2_EventScript_FlyingSpecialistTutor {
             setvar(VAR_0x8005, MOVE_DRILL_PECK)
         case 43:
             setvar(VAR_0x8005, MOVE_AERIAL_ACE)
+        case 44:
+            setvar(VAR_0x8005, MOVE_PECK)
+        case 45:
+            setvar(VAR_0x8005, MOVE_GUST)
+        case 46:
+            setvar(VAR_0x8005, MOVE_WING_ATTACK)
         default:
             return
     }
@@ -92,6 +98,7 @@ script PacifidlogTown_House2_EventScript_FlyingSpecialistCheckMoves {
     goto_if_defeated(TRAINER_WINONA_CHALLENGE, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
     goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BASIC_MOVES, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
     setvar(VAR_RESULT, FALSE)
     return
@@ -118,12 +125,17 @@ script PacifidlogTown_House2_EventScript_FlyingSpecialistChallengeUnlock {
 }
 
 script PacifidlogTown_House2_EventScript_FlyingSpecialistUnlockOtherTutor {
-    if(defeated(TRAINER_CRITICAL_TUTOR)) {
+    if (defeated(TRAINER_CRITICAL_TUTOR)) {
         dynmultipush("Air Cutter", 41)
         dynmultipush("Drill Peck", 42)
     }
-    if(flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
+    if (flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
         dynmultipush("Aerial Ace", 43)
+    }
+    if (flag(FLAG_TUTOR_BASIC_MOVES)) {
+        dynmultipush("Peck", 44)
+        dynmultipush("Gust", 45)
+        dynmultipush("Wing Attack", 46)
     }
     return
 }

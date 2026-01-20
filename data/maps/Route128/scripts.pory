@@ -7,7 +7,7 @@ script Route128_OnTransition {
 	end
 }
 
-script Route128_EventScript_Lass {
+script Route128_EventScript_Girl {
 	lock
 	faceplayer
 	msgbox(format("Oh, I'm not interested in battles. I just like to explore all the little islands in Hoenn."))
@@ -193,6 +193,65 @@ text Route128_Text_LeonardDefeat {
 	"…but I'm not the strongest Trainer!"
 }
 text Route128_Text_LeonardPostBattle {
-	"If you can beat me, you could take on\n"
+	"Since you beat me, you could take on\n"
 	"the Elite Four no sweat!"
+}
+
+script Route128_EventScript_Andy {
+	trainerbattle_single(TRAINER_ANDY, Route128_Text_AndyIntro, Route128_Text_AndyDefeat)
+	msgbox(Route128_Text_AndyPostBattle, MSGBOX_AUTOCLOSE)
+	call(Route128_EventScript_TryAndyRematch)
+	release
+	end
+}
+script Route128_EventScript_TryAndyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ANDY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ANDY, Route128_Text_AndyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route128_Text_AndyIntro {
+	"Argh! I need an Acro Bike!"
+}
+text Route128_Text_AndyDefeat {
+	"What? You mean you won't give me a free\n"
+	"Bike Voucher?"
+}
+text Route128_Text_AndyPostBattle {
+	"If I had an Acro Bike I could style my\n"
+	"way between these islands."
+}
+
+script Route128_EventScript_Martine {
+	trainerbattle_single(TRAINER_MARTINE, Route128_Text_MartineIntro, Route128_Text_MartineDefeat)
+	msgbox(Route128_Text_MartinePostBattle, MSGBOX_AUTOCLOSE)
+	call(Route128_EventScript_TryMartineRematch)
+	release
+	end
+}
+script Route128_EventScript_TryMartineRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MARTINE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MARTINE, Route128_Text_MartineDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text Route128_Text_MartineIntro {
+	"Oh, a battle? Here we go!"
+}
+text Route128_Text_MartineDefeat {
+	"Nuts! How'd we lose?"
+}
+text Route128_Text_MartinePostBattle {
+	"Maybe I should travel around the region\n"
+	"and train my Pokémon a bit more."
 }

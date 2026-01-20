@@ -1,3 +1,114 @@
+script Common_EventScript_BasicTutor {
+	lock
+	faceplayer
+	setflag(FLAG_TUTOR_BASIC_MOVES)
+	call(Common_EventScript_BasicTutor_TeachMoves)
+	release
+	end
+}
+
+script Common_EventScript_BasicTutor_TeachMoves {
+	dynmultipush("Absorb", 11)
+	dynmultipush("Acid", 12)
+	dynmultipush("Astonish", 13)
+	dynmultipush("Avalanche", 14)
+	dynmultipush("Brutal Swing", 15)
+	dynmultipush("Confusion", 16)
+	dynmultipush("Double Kick", 17)
+	dynmultipush("Ember", 18)
+	dynmultipush("Fairy Wind", 19)
+	dynmultipush("Gust", 20)
+	dynmultipush("Karate Chop", 21)
+	dynmultipush("Lick", 22)
+	dynmultipush("Magnitude", 23)
+	dynmultipush("Metal Claw", 24)
+	dynmultipush("Peck", 25)
+	dynmultipush("Poison Sting", 26)
+	dynmultipush("Pounce", 27)
+	dynmultipush("Powder Snow", 28)
+	dynmultipush("Pursuit", 29)
+	dynmultipush("Quick Attack", 30)
+	dynmultipush("Razor Leaf", 31)
+	dynmultipush("Rock Throw", 32)
+	dynmultipush("Round", 33)
+	dynmultipush("Sand Tomb", 34)
+	dynmultipush("Struggle Bug", 35)
+	dynmultipush("Thunder Shock", 36)
+	dynmultipush("Twister", 37)
+	dynmultipush("Water Gun", 38)
+	dynmultipush("Wing Attack", 39)
+	msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,VAR_TEMP_2,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+		case 11:
+            setvar(VAR_0x8005, MOVE_ABSORB)
+		case 12:
+            setvar(VAR_0x8005, MOVE_ACID)
+		case 13:
+            setvar(VAR_0x8005, MOVE_ASTONISH)
+		case 14:
+            setvar(VAR_0x8005, MOVE_AVALANCHE)
+		case 15:
+            setvar(VAR_0x8005, MOVE_BRUTAL_SWING)
+		case 16:
+            setvar(VAR_0x8005, MOVE_CONFUSION)
+		case 17:
+            setvar(VAR_0x8005, MOVE_DOUBLE_KICK)
+		case 18:
+            setvar(VAR_0x8005, MOVE_EMBER)
+		case 19:
+            setvar(VAR_0x8005, MOVE_FAIRY_WIND)
+		case 20:
+            setvar(VAR_0x8005, MOVE_GUST)
+		case 21:
+            setvar(VAR_0x8005, MOVE_KARATE_CHOP)
+		case 22:
+            setvar(VAR_0x8005, MOVE_LICK)
+		case 23:
+            setvar(VAR_0x8005, MOVE_MAGNITUDE)
+		case 24:
+            setvar(VAR_0x8005, MOVE_METAL_CLAW)
+		case 25:
+            setvar(VAR_0x8005, MOVE_PECK)
+		case 26:
+            setvar(VAR_0x8005, MOVE_POISON_STING)
+		case 27:
+            setvar(VAR_0x8005, MOVE_POUNCE)
+		case 28:
+            setvar(VAR_0x8005, MOVE_POWDER_SNOW)
+		case 29:
+            setvar(VAR_0x8005, MOVE_PURSUIT)
+		case 30:
+            setvar(VAR_0x8005, MOVE_QUICK_ATTACK)
+		case 31:
+            setvar(VAR_0x8005, MOVE_RAZOR_LEAF)
+		case 32:
+            setvar(VAR_0x8005, MOVE_ROCK_THROW)
+		case 33:
+            setvar(VAR_0x8005, MOVE_ROUND)
+		case 34:
+            setvar(VAR_0x8005, MOVE_SAND_TOMB)
+		case 35:
+            setvar(VAR_0x8005, MOVE_STRUGGLE_BUG)
+		case 36:
+            setvar(VAR_0x8005, MOVE_THUNDER_SHOCK)
+		case 37:
+            setvar(VAR_0x8005, MOVE_TWISTER)
+		case 38:
+            setvar(VAR_0x8005, MOVE_WATER_GUN)
+		case 39:
+            setvar(VAR_0x8005, MOVE_WING_ATTACK)
+		default:
+			msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    		goto_if_eq(VAR_RESULT, YES, Common_EventScript_BasicTutor_TeachMoves)
+			return
+	}
+	copyvar(VAR_TEMP_2, VAR_RESULT)
+	call(MoveTutor_EventScript_OpenPartyMenu)
+    goto(Common_EventScript_BasicTutor_TeachMoves)
+	end
+}
+
 raw `
 EverGrandeCity_PokemonLeague_2F_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, CableClub_OnFrame

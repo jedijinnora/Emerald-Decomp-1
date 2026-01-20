@@ -79,6 +79,8 @@ script SootopolisCity_House8_EventScript_WaterSpecialistTutor {
             setvar(VAR_0x8005, MOVE_MUDDY_WATER)
         case 41:
             setvar(VAR_0x8005, MOVE_SPIKE_CANNON)
+        case 42:
+            setvar(VAR_0x8005, MOVE_WATER_GUN)
         default:
             return
     }
@@ -93,6 +95,7 @@ script SootopolisCity_House8_EventScript_WaterSpecialistCheckMoves {
     goto_if_defeated(TRAINER_WALLACE_INVERSE, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_WALLACE_CHALLENGE, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BASIC_MOVES, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
     setvar(VAR_RESULT, FALSE)
     return
@@ -122,8 +125,11 @@ script SootopolisCity_House8_EventScript_WaterSpecialistChallengeUnlock {
 }
 
 script SootopolisCity_House8_EventScript_WaterSpecialistUnlockOtherTutor {
-    if(defeated(TRAINER_MULTI_HIT_TUTOR)) {
+    if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
         dynmultipush("Spike Canon", 41)
+    }
+    if (flag(FLAG_TUTOR_BASIC_MOVES)) {
+        dynmultipush("Water Gun", 42)
     }
     return
 }

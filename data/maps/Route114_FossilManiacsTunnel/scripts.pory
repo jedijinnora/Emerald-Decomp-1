@@ -94,6 +94,10 @@ script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistTutor {
             setvar(VAR_0x8005, MOVE_BONE_RUSH)
         case 42:
             setvar(VAR_0x8005, MOVE_DRILL_RUN)
+        case 43:
+            setvar(VAR_0x8005, MOVE_MAGNITUDE)
+        case 44:
+            setvar(VAR_0x8005, MOVE_SAND_TOMB)
         default:
             return
     }
@@ -109,6 +113,7 @@ script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistCheckMoves {
     goto_if_defeated(TRAINER_ANTON_CHALLENGE, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_BITE_TUTOR, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BASIC_MOVES, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
     setvar(VAR_RESULT, FALSE)
     return
@@ -135,11 +140,15 @@ script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistChallengeUnlock 
 }
 
 script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistUnlockOtherTutor {
-    if(defeated(TRAINER_MULTI_HIT_TUTOR)) {
+    if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
         dynmultipush("Bone Rush", 41)
     }
-    if(defeated(TRAINER_CRITICAL_TUTOR)) {
+    if (defeated(TRAINER_CRITICAL_TUTOR)) {
         dynmultipush("Drill Run", 42)
+    }
+    if (flag(FLAG_TUTOR_BASIC_MOVES)) {
+        dynmultipush("Magnitude", 43)
+        dynmultipush("Sand Tomb", 44)
     }
     return
 }

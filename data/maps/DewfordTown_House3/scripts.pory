@@ -93,6 +93,10 @@ script DewfordTown_House3_EventScript_DarkSpecialistTutor {
             setvar(VAR_0x8005, MOVE_NIGHT_SLASH)
         case 46:
             setvar(VAR_0x8005, MOVE_FEINT_ATTACK)
+        case 47:
+            setvar(VAR_0x8005, MOVE_BRUTAL_SWING)
+        case 48:
+            setvar(VAR_0x8005, MOVE_PAYBACK)
         default:
             return
     }
@@ -111,6 +115,7 @@ script DewfordTown_House3_EventScript_DarkSpecialistCheckMoves {
     goto_if_set(FLAG_MET_THOMSON_SET_DAMAGE_MOVES, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BASIC_MOVES, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
     setvar(VAR_RESULT, FALSE)
     return
@@ -142,13 +147,13 @@ script DewfordTown_House3_EventScript_DarkSpecialistChallengeUnlock {
 }
 
 script DewfordTown_House3_EventScript_DarkSpecialistUnlockOtherTutor {
-    if(flag(FLAG_TUTOR_BITE_MOVES)) {
+    if (flag(FLAG_TUTOR_BITE_MOVES)) {
         dynmultipush("Bite", 41)
     }
     if (defeated(TRAINER_BITE_TUTOR)) {
         dynmultipush("Crunch", 42)
     }
-    if(flag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)) {
+    if (flag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)) {
         dynmultipush("Super Fang", 43)
     }
     if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
@@ -157,8 +162,12 @@ script DewfordTown_House3_EventScript_DarkSpecialistUnlockOtherTutor {
     if (defeated(TRAINER_CRITICAL_TUTOR)) {
         dynmultipush("Night Slash", 45)
     }
-    if(flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
+    if (flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
         dynmultipush("Feint Attack", 46)
+    }
+    if (flag(FLAG_TUTOR_BASIC_MOVES)) {
+        dynmultipush("Brutal Swing", 47)
+        dynmultipush("Pursuit", 48)
     }
     return
 }

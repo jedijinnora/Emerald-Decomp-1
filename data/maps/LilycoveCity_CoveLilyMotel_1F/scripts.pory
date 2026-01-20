@@ -84,6 +84,10 @@ script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistTutor {
             setvar(VAR_0x8005, MOVE_NIGHT_SHADE)
         case 43:
             setvar(VAR_0x8005, MOVE_SHADOW_CLAW)
+        case 44:
+            setvar(VAR_0x8005, MOVE_ASTONISH)
+        case 45:
+            setvar(VAR_0x8005, MOVE_LICK)
         default:
             return
     }
@@ -102,6 +106,7 @@ script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistCheckMoves {
 	goto_if_set(FLAG_MET_THOMSON_SET_DAMAGE_MOVES, Common_EventScript_NopReturn)
 	goto_if_defeated(TRAINER_PUNCH_TUTOR, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BASIC_MOVES, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
     setvar(VAR_RESULT, FALSE)
     return
@@ -128,14 +133,18 @@ script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistChallengeUnlock 
 }
 
 script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistUnlockOtherTutor {
-    if(flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES) || defeated(TRAINER_PUNCH_TUTOR)) {
+    if (flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES) || defeated(TRAINER_PUNCH_TUTOR)) {
         dynmultipush("Shadow Punch", 41)
     }
-    if(flag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)) {
+    if (flag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)) {
         dynmultipush("Night Shade", 42)
     }
     if (defeated(TRAINER_CRITICAL_TUTOR)) {
         dynmultipush("Shadow Claw", 43)
+    }
+    if (flag(FLAG_TUTOR_BASIC_MOVES)) {
+        dynmultipush("Astonish", 44)
+        dynmultipush("Lick", 45)
     }
     return
 }

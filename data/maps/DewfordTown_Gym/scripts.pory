@@ -5,6 +5,7 @@ mapscripts DewfordTown_Gym_MapScripts {
 script DewfordTown_Gym_OnTransition {
 	call(DewfordTown_Gym_EventScript_SetFlashLevel)
 	setflag(FLAG_NO_LEVEL_REDUCTIONS)
+	call(Common_EventScript_DisableBPReward)
 	end
 }
 

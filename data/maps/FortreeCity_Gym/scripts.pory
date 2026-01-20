@@ -138,6 +138,7 @@ FortreeCity_Gym_OnTransition:
 	setflag FLAG_TEMP_HIDE_FOLLOWER
 	special RotatingGate_InitPuzzle
 	setflag FLAG_NO_LEVEL_REDUCTIONS
+	call Common_EventScript_DisableBPReward
 	end
 
 FortreeCity_Gym_OnWarp:

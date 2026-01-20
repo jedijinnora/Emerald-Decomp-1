@@ -11,7 +11,7 @@ script MossdeepCity_House2_EventScript_InkayMan {
 	specialvar(VAR_RESULT, CalculatePlayerPartyCount)
 	goto_if_eq(VAR_RESULT, PARTY_SIZE, NoRoomForInkay)
 	setflag(FLAG_RECEIVED_INKAY)
-	givemon(SPECIES_INKAY, 10)
+	givemon(SPECIES_INKAY, 15)
 	playfanfare(MUS_OBTAIN_ITEM)
 	bufferspeciesname(STR_VAR_1, SPECIES_INKAY)
     msgbox("{PLAYER} received {STR_VAR_1}!")

@@ -92,6 +92,10 @@ script OldaleTown_House2_EventScript_BugSpecialistTutor {
             setvar(VAR_0x8005, MOVE_PIN_MISSILE)
         case 43:
             setvar(VAR_0x8005, MOVE_X_SCISSOR)
+        case 44:
+            setvar(VAR_0x8005, MOVE_POUNCE)
+        case 45:
+            setvar(VAR_0x8005, MOVE_STRUGGLE_BUG)
         default:
             return
     }
@@ -108,6 +112,7 @@ script OldaleTown_House2_EventScript_BugSpecialistCheckMoves {
     goto_if_set(FLAG_TUTOR_BITE_MOVES, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_MULTI_HIT_TUTOR, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BASIC_MOVES, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
     setvar(VAR_RESULT, FALSE)
     return
@@ -137,7 +142,7 @@ script OldaleTown_House2_EventScript_BugSpecialistChallengeUnlock {
 }
 
 script OldaleTown_House2_EventScript_BugSpecialistUnlockOtherTutor {
-    if(flag(FLAG_TUTOR_BITE_MOVES)) {
+    if (flag(FLAG_TUTOR_BITE_MOVES)) {
         dynmultipush("Bug Bite", 41)
     }
     if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
@@ -145,6 +150,10 @@ script OldaleTown_House2_EventScript_BugSpecialistUnlockOtherTutor {
     }
     if (defeated(TRAINER_CRITICAL_TUTOR)) {
         dynmultipush("X-Scissor", 43)
+    }
+    if (flag(FLAG_TUTOR_BASIC_MOVES)) {
+        dynmultipush("Pounce", 44)
+        dynmultipush("Struggle Bug", 45)
     }
     return
 }
