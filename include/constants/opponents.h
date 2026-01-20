@@ -132,18 +132,18 @@
 #define TRAINER_NIKOLAI                     (GYM_TRAINERS_START + 46) // Psychic-M Nikolai (pink tiles), may double with Nikolai
 #define TRAINER_MACEY                       (GYM_TRAINERS_START + 47) // Psychic-F Macey, may double with Clifford
 
-//Sootopolis                                                          // Listed left-to-right within each puzzle
-#define TRAINER_ANDREA                      (GYM_TRAINERS_START + 48) // Puzzle 1, Lass Andrea
-#define TRAINER_CONNIE                      (GYM_TRAINERS_START + 49) // Puzzle 1, Beauty Connie
-#define TRAINER_DAPHNE                      (GYM_TRAINERS_START + 50) // Puzzle 2, Lady Daphne
-#define TRAINER_ANNIKA                      (GYM_TRAINERS_START + 51) // Puzzle 2, Pokefan-F Annika
-#define TRAINER_CRISSY                      (GYM_TRAINERS_START + 52) // Puzzle 3, Lass Crissy
-#define TRAINER_TIFFANY                     (GYM_TRAINERS_START + 53) // Puzzle 3, Beauty Tiffany
-#define TRAINER_BETHANY                     (GYM_TRAINERS_START + 54) // Puzzle 3, Pokefan F Bethany
-#define TRAINER_OLIVIA                      (GYM_TRAINERS_START + 55) // Puzzle 3, Beauty Olivia
-#define TRAINER_BRIDGET                     (GYM_TRAINERS_START + 56) // Puzzle 3, Beauty Bridget
-#define TRAINER_BRIANNA                     (GYM_TRAINERS_START + 57) // Puzzle 3, Lady Brianna
-#define GYM_TRAINERS_END                    TRAINER_BRIANNA
+//Sootopolis
+#define TRAINER_ANDREA                      (GYM_TRAINERS_START + 48) // 1F tier 1, Lass Andrea
+#define TRAINER_CONNIE                      (GYM_TRAINERS_START + 49) // 1F tier 1, Beauty Connie
+#define TRAINER_DAPHNE                      (GYM_TRAINERS_START + 50) // 1F tier 2, Lady Daphne
+#define TRAINER_CRISSY                      (GYM_TRAINERS_START + 51) // 1F tier 3, Lass Crissy
+#define TRAINER_BETHANY                     (GYM_TRAINERS_START + 52) // 1F tier 3, Pokefan F Bethany
+#define TRAINER_OLIVIA                      (GYM_TRAINERS_START + 53) // 1F tier 3, Beauty Olivia
+#define TRAINER_BRIANNA                     (GYM_TRAINERS_START + 54) // 1F tier 3, Lady Brianna
+#define TRAINER_ANNIKA                      (GYM_TRAINERS_START + 55) // B1F tier 1, Pokefan-F Annika
+#define TRAINER_BRIDGET                     (GYM_TRAINERS_START + 56) // B1F tier 1, Beauty Bridget
+#define TRAINER_TIFFANY                     (GYM_TRAINERS_START + 57) // B1F tier 3, Beauty Tiffany
+#define GYM_TRAINERS_END                    TRAINER_TIFFANY
 
 //Type Tutors
 #define TYPE_TUTORS_START                   (GYM_TRAINERS_END + 1)
@@ -675,7 +675,9 @@
 #define TRAINER_CARLEE                      (ROUTE_128_TRAINERS_START + 5) // Swimmer-F Carlee, may double with Harrison
 #define TRAINER_HARRISON                    (ROUTE_128_TRAINERS_START + 6) // Swimmer-M Harrison, may double with Carlee
 #define TRAINER_LEONARD                     (ROUTE_128_TRAINERS_START + 7) // Running Triathlete-M Leonard
-#define ROUTE_128_TRAINERS_END              TRAINER_LEONARD
+#define TRAINER_ANDY                        (ROUTE_128_TRAINERS_START + 8) // Youngster Andy
+#define TRAINER_MARTINE                     (ROUTE_128_TRAINERS_START + 9) // Lass Martine
+#define ROUTE_128_TRAINERS_END              TRAINER_MARTINE
 
 //Route 129
 #define ROUTE_129_TRAINERS_START            (ROUTE_128_TRAINERS_END + 1)
@@ -1042,7 +1044,7 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 676 (675 + TRAINER_NONE)
+//I think it's currently 678 (677 + TRAINER_NONE)
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 863 trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

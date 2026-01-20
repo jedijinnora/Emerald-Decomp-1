@@ -18342,69 +18342,82 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Intense
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-   Beheeyem @ Power Herb
-      Level: 14
-      Ability: Analytic
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
-      EVs: 225 HP / 225 SpA
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Psychic
-      - Meteor Beam
-      - Recover
-      - Flash Cannon
-
-   Xatu @ Light Clay
-      Level: 14
-      Ability: Magic Bounce
+   Slowpoke @ Rocky Helmet
+      Level: 16
+      Ability: Own Tempo
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 HP / 225 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Heat Wave
-      - Air Slash
-      - Reflect
-      - Light Screen
+      Tags: Badge 0
+      - Slack Off
+      - Future Sight
+      - Flamethrower
+      - Water Pulse
+
+   Slowking @ Rocky Helmet
+      Level: 10
+      Ability: Own Tempo
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 1 / Badge 2
+      - Slack Off
+      - Future Sight
+      - Flamethrower
+      - Surf
 
    Slowking @ Rocky Helmet
       Level: 14
       Ability: Own Tempo
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 225 HP / 225 SpA
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Slack Off
       - Future Sight
       - Flamethrower
       - Surf
 
-   Elgyem @ Power Herb
-      Level: 14
-      Ability: Analytic
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Psyshock
-      - Meteor Beam
-      - Recover
-      - Flash Cannon
-
    Natu @ Eviolite
       Level: 14
       Ability: Magic Bounce
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1
       - Thunder Wave
       - Night Shade
       - Reflect
       - Light Screen
 
-   Slowpoke @ Rocky Helmet
+   Xatu @ Light Clay
       Level: 14
-      Ability: Own Tempo
+      Ability: Magic Bounce
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Slack Off
-      - Future Sight
-      - Flamethrower
-      - Water Pulse
+      EVs: 225 HP / 225 Spe
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Heat Wave
+      - Air Slash
+      - Reflect
+      - Light Screen
+
+   Elgyem @ Power Herb
+      Level: 14
+      Ability: Analytic
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Psyshock
+      - Meteor Beam
+      - Recover
+      - Flash Cannon
+
+   Beheeyem @ Power Herb
+      Level: 14
+      Ability: Analytic
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      EVs: 225 HP / 225 SpA
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Psychic
+      - Meteor Beam
+      - Recover
+      - Flash Cannon
 
 === TRAINER_MAURA ===
    Name: Maura
@@ -18414,13 +18427,36 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Intense
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Party Size: 2
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Abra @ Wise Glasses
+      Level: 14
+      Ability: Inner Focus
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0
+      - Psyshock
+      - Shadow Ball
+      - Calm Mind
+      - Dazzling Gleam
+
+   Kadabra @ Life Orb
+      Level: 14
+      Ability: Inner Focus
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 1 / Badge 2
+      - Psybeam
+      - Shadow Ball
+      - Calm Mind
+      - Future Sight
 
    Alakazam @ Life Orb
       Level: 14
       Ability: Magic Guard
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 225 SpA / 225 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Psychic
       - Focus Blast
       - Calm Mind
@@ -18429,27 +18465,17 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Oricorio Pau @ Lum Berry
       Level: 14
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 SpA / 225 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Revelation Dance
       - Roost
       - Air Slash
       - Quiver Dance
 
-   Kadabra @ Life Orb
-      Level: 14
-      Ability: Magic Guard
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Psybeam
-      - Shadow Ball
-      - Calm Mind
-      - Future Sight
-
    Oricorio Pau @ Lum Berry
       Level: 14
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      EVs: 225 SpA / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Revelation Dance
       - Roost
       - Air Slash
@@ -18463,48 +18489,61 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Intense
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Party Size: 2
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-   Meowstic
+   Solosis @ Eviolite
       Level: 14
-      Ability: Prankster
+      Ability: Magic Guard
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Thunder Wave
+      Tags: Badge 0 / Badge 1
+      - Psyshock
       - Calm Mind
-      - Psychic
-      - Sucker Punch
+      - Recover
+      - Shadow Ball
+
+   Duosion @ Eviolite
+      Level: 14
+      Ability: Magic Guard
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 2 / Badge 3
+      - Psyshock
+      - Calm Mind
+      - Recover
+      - Shadow Ball
 
    Reuniclus @ Life Orb
       Level: 14
       Ability: Magic Guard
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 225 HP / 225 SpA
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Psyshock
       - Calm Mind
       - Recover
       - Focus Blast
 
-   Meowstic
+   Meowstic M @ Leftovers
       Level: 14
-      Ability: Infiltrator
+      Ability: Prankster
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Thunder Wave
-      - Calm Mind
-      - Psychic
-      - Sucker Punch
+      - Fake Tears
+      - Psychic Noise
+      - Alluring Voice
 
-   Solosis @ Eviolite
+   Meowstic M @ Leftovers
       Level: 14
-      Ability: Magic Guard
+      Ability: Prankster
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Psyshock
-      - Calm Mind
-      - Recover
-      - Shadow Ball
+      EVs: 150 HP / 150 Def / 150 SpD
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Thunder Wave
+      - Fake Tears
+      - Psychic Noise
+      - Alluring Voice
 
 === TRAINER_SAMANTHA ===
    Name: Samantha
@@ -18514,36 +18553,28 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Intense
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Party Size: 2
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Meowstic F @ Wise Glasses
+      Level: 14
+      Ability: Infiltrator
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Charge Beam
+      - Shadow Ball
+      - Extrasensory
+      - Signal Beam
 
    Meowstic F @ Life Orb
       Level: 14
       Ability: Competitive
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 225 SpA / 225 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Thunderbolt
       - Dark Pulse
-      - Extrasensory
-      - Signal Beam
-
-   Hatterene @ Lum Berry
-      Level: 14
-      Ability: Magic Bounce
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 HP / 225 SpA
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Moonblast
-      - Life Dew
-      - Psychic
-      - Mystical Fire
-
-   Meowstic F @ Wise Glasses
-      Level: 14
-      Ability: Competitive
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Charge Beam
-      - Shadow Ball
       - Extrasensory
       - Signal Beam
 
@@ -18551,9 +18582,29 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Level: 14
       Ability: Magic Bounce
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1
       - Dazzling Gleam
+      - Life Dew
+      - Psychic
+      - Mystical Fire
+
+   Hattrem @ Eviolite
+      Level: 14
+      Ability: Magic Bounce
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 2 / Badge 3
+      - Dazzling Gleam
+      - Life Dew
+      - Psychic
+      - Mystical Fire
+
+   Hatterene @ Lum Berry
+      Level: 14
+      Ability: Magic Bounce
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 SpA
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Moonblast
       - Life Dew
       - Psychic
       - Mystical Fire
@@ -18566,13 +18617,26 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Rich
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Party Size: 2
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Spoink @ Eviolite
+      Level: 16
+      Ability: Thick Fat
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1
+      - Psybeam
+      - Bounce
+      - Power Gem
+      - Drain Punch
 
    Grumpig @ Leftovers
       Level: 14
       Ability: Thick Fat
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 150 HP / 150 Atk / 150 Def
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Payback
       - Bounce
       - Power Gem
@@ -18582,28 +18646,18 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Level: 14
       Ability: Magic Guard
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 150 HP / 150 SpA / 150 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Psycho Shift
       - Roost
       - Air Slash
       - Heat Wave
 
-   Spoink @ Eviolite
-      Level: 14
-      Ability: Thick Fat
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Psybeam
-      - Bounce
-      - Power Gem
-      - Drain Punch
-
    Sigilyph @ Flame Orb
       Level: 14
       Ability: Magic Guard
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      EVs: 150 HP / 150 SpA / 150 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Psycho Shift
       - Roost
       - Air Slash
@@ -18617,48 +18671,51 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Intense
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Party Size: 2
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-   Oranguru @ Leftovers
+   Meditite @ Fighting Gem
       Level: 14
-      Ability: Inner Focus
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
-      EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Instruct
-      - Yawn
-      - Psychic
-      - Shadow Ball
+      Ability: Pure Power
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Fake Out
+      - Force Palm
+      - Zen Headbutt
+      - Acupressure
 
    Medicham @ Fighting Gem
       Level: 14
       Ability: Pure Power
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 225 Atk / 225 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Fake Out
       - High Jump Kick
       - Zen Headbutt
-      - Helping Hand
+      - Acupressure
 
    Oranguru @ Leftovers
       Level: 14
       Ability: Inner Focus
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Instruct
       - Yawn
       - Psychic
       - Shadow Ball
 
-   Meditite @ Fighting Gem
+   Oranguru @ Leftovers
       Level: 14
-      Ability: Pure Power
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Fake Out
-      - Force Palm
-      - Zen Headbutt
-      - Helping Hand
+      Ability: Inner Focus
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      EVs: 150 HP / 150 Def / 150 SpD
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Instruct
+      - Yawn
+      - Psychic
+      - Shadow Ball
 
 === TRAINER_SYLVIA ===
    Name: Sylvia
@@ -18668,24 +18725,26 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Suspicious
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
+   Party Size: 2
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-   Mr Rime @ Life Orb
-      Level: 14
-      Ability: Screen Cleaner
+   Drowzee @ Leftovers
+      Level: 16
+      Ability: Bad Dreams
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 SpA / 225 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Psychic
-      - Dazzling Gleam
-      - Freeze Dry
-      - Icy Wind
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Hypnosis
+      - Dream Eater
+      - Nightmare
+      - Knock Off
 
    Hypno @ Leftovers
       Level: 14
       Ability: Bad Dreams
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Dark Void
       - Dream Eater
       - Nightmare
@@ -18695,21 +18754,32 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Level: 14
       Ability: Filter
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1
       - Psybeam
       - Dazzling Gleam
       - Sucker Punch
       - Icy Wind
 
-   Drowzee @ Leftovers
+   Mr Mime Galar @ Eviolite
       Level: 14
-      Ability: Bad Dreams
+      Ability: Screen Cleaner
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Hypnosis
-      - Dream Eater
-      - Nightmare
-      - Knock Off
+      Tags: Badge 2 / Badge 3
+      - Psychic
+      - Dazzling Gleam
+      - Freeze Dry
+      - Icy Wind
+
+   Mr Rime @ Life Orb
+      Level: 14
+      Ability: Screen Cleaner
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 SpA / 225 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Psychic
+      - Dazzling Gleam
+      - Freeze Dry
+      - Icy Wind
 
 === TRAINER_HANNAH ===
    Name: Hannah
@@ -18719,23 +18789,26 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Intense
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Party Size: 2
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-   Chimecho @ Leftovers
+   Girafarig @ Colbur Berry
       Level: 14
+      Ability: Inner Focus
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Calm Mind
-      - Yawn
-      - Shadow Ball
-      - Extrasensory
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Agility
+      - Nasty Plot
+      - Hyper Voice
+      - Psybeam
 
    Farigiraf @ Leftovers
       Level: 14
       Ability: Armor Tail
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Agility
       - Nasty Plot
       - Hyper Voice
@@ -18745,21 +18818,21 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Level: 14
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1
       - Cosmic Power
       - Recover
-      - Shadow Ball
+      - Mirror Shot
       - Stored Power
 
-   Girafarig @ Colbur Berry
+   Chimecho @ Leftovers
       Level: 14
-      Ability: Inner Focus
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Agility
-      - Nasty Plot
-      - Hyper Voice
-      - Psybeam
+      EVs: 150 HP / 150 Def / 150 SpD
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Calm Mind
+      - Yawn
+      - Flash Cannon
+      - Extrasensory
 
 === TRAINER_CLIFFORD ===
    Name: Clifford
@@ -18769,16 +18842,19 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Rich
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-   Oricorio Sensu @ Lum Berry
-      Level: 14
+   Espeon @ Leftovers
+      Level: 13
+      Ability: Synchronize
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 SpA / 225 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Revelation Dance
-      - Roost
-      - Air Slash
-      - Quiver Dance
+      Tags: Lead / Badge 0 / Badge 1 / Badge 2
+      - Calm Mind
+      - Dazzling Gleam
+      - Psybeam
+      - Morning Sun
 
    Espeon @ Leftovers
       Timid Nature
@@ -18786,51 +18862,51 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Magic Bounce
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 252 HP / 4 Def / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Lead / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Calm Mind
       - Dazzling Gleam
       - Psychic
       - Baton Pass
 
-   Bronzong @ Leftovers
+   Bronzor @ Eviolite
+      Level: 14
+      Ability: Levitate
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Flash Cannon
+      - Extrasensory
+      - Gyro Ball
+      - Stomping Tantrum
+
+   Bronzong @ Quick Claw
       Level: 14
       Ability: Levitate
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
       EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Flash Cannon
       - Psyshock
       - Gyro Ball
-      - Earthquake
+      - Stomping Tantrum
 
    Oricorio Sensu @ Lum Berry
       Level: 14
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Revelation Dance
       - Roost
       - Air Slash
       - Quiver Dance
 
-   Espeon @ Leftovers
+   Oricorio Sensu @ Lum Berry
       Level: 14
-      Ability: Synchronize
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Calm Mind
-      - Dazzling Gleam
-      - Psybeam
-      - Morning Sun
-
-   Bronzor @ Eviolite
-      Level: 14
-      Ability: Levitate
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 0 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Flash Cannon
-      - Extrasensory
-      - Gyro Ball
-      - Earthquake
+      EVs: 225 SpA / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Revelation Dance
+      - Roost
+      - Air Slash
+      - Quiver Dance
 
 === TRAINER_KATHLEEN ===
    Name: Kathleen
@@ -18840,65 +18916,78 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Suspicious
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-   Musharna @ Leftovers
+   Wynaut @ Leftovers
       Level: 14
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Stored Power
-      - Hypnosis
-      - Amnesia
-      - Barrier
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Safeguard
+      - Destiny Bond
+      - Counter
+      - Mirror Coat
 
    Wobbuffet @ Leftovers
       Level: 14
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Safeguard
       - Destiny Bond
       - Counter
       - Mirror Coat
+
+   Ralts @ Eviolite
+      Level: 16
+      Ability: Trace
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0
+      - Magical Leaf
+      - Will O Wisp
+      - Charge Beam
+      - Draining Kiss
+
+   Kirlia @ Eviolite
+      Level: 14
+      Ability: Trace
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 1 / Badge 2
+      - Magical Leaf
+      - Will O Wisp
+      - Charge Beam
+      - Draining Kiss
 
    Gardevoir @ Leftovers
       Level: 14
       Ability: Trace
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 225 HP / 225 SpA
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Psychic
       - Will O Wisp
       - Life Dew
       - Draining Kiss
 
-   Munna @ Leftovers
-      Level: 14
+   Musharna @ Leftovers
+      Level: 13
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Stored Power
       - Hypnosis
       - Amnesia
       - Barrier
 
-   Wynaut @ Leftovers
+   Musharna @ Leftovers
       Level: 14
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Safeguard
-      - Destiny Bond
-      - Counter
-      - Mirror Coat
-
-   Kirlia @ Eviolite
-      Level: 14
-      Ability: Trace
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Magical Leaf
-      - Will O Wisp
-      - Charge Beam
-      - Draining Kiss
+      EVs: 150 HP / 150 Def / 150 SpD
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Stored Power
+      - Hypnosis
+      - Amnesia
+      - Barrier
 
 === TRAINER_NIKOLAI ===
    Name: Nikolai
@@ -18908,49 +18997,67 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Intense
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Party Size: 2
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Swoobat @ Rocky Helmet
+      Level: 12
+      Ability: Unaware
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Calm Mind
+      - Signal Beam
+      - Stored Power
+      - Roost
 
    Swoobat @ Focus Sash
       Level: 14
       Ability: Simple
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 225 HP / 225 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Calm Mind
       - Signal Beam
       - Stored Power
       - Roost
+
+   Gothita @ Eviolite
+      Level: 16
+      Ability: Shadow Tag
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1
+      - Dark Pulse
+      - Energy Ball
+      - Tickle
+      - Psyshock
+
+   Gothorita @ Eviolite
+      Level: 14
+      Ability: Shadow Tag
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 2 / Badge 3
+      - Dark Pulse
+      - Energy Ball
+      - Tickle
+      - Psyshock
 
    Gothitelle @ Leftovers
       Level: 14
       Ability: Shadow Tag
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 225 HP / 225 SpA
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Dark Pulse
-      - Mirror Coat
+      - Energy Ball
       - Tickle
       - Psyshock
 
-   Swoobat @ Rocky Helmet
-      Level: 14
-      Ability: Simple
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Calm Mind
-      - Signal Beam
-      - Stored Power
-      - Roost
-
-   Gothorita @ Eviolite
-      Level: 14
-      Ability: Shadow Tag
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Dark Pulse
-      - Mirror Coat
-      - Tickle
-      - Psyshock
-
+/* Hidden Power types: 
+   Unown F: Bug, Dragon, Ground, or Steel
+   Unown H: Dark, Fighting, Poison, or Water
+   Unown K: Fairy, Fire, Flying, or Grass
+   Unown W: Electric, Ghost, Ice, or Rock */
 === TRAINER_MACEY ===
    Name: Macey
    Class: Psychic
@@ -18959,98 +19066,254 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Intense
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Omniscient
+   Party Size: 5
+   Pool Rules: Duplicate Items Forms
+   Pool Prune: Badges
+
+   Natu @ Light Clay
+      Level: 14
+      Ability: Magic Bounce
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Lead / Badge 0 / Badge 1
+      - Thunder Wave
+      - Night Shade
+      - Reflect
+      - Light Screen
 
    Xatu @ Light Clay
       Level: 14
       Ability: Magic Bounce
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Lead / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Thunder Wave
       - Night Shade
       - Reflect
       - Light Screen
 
-   Unown @ Choice Specs
+   Unown F @ Choice Specs
       Level: 14
-      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 30 SpD / 30 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
+      - Hidden Power
+
+   Unown F @ Choice Specs
+      Level: 14
+      IVs: 30 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
+      - Hidden Power
+
+   Unown F @ Choice Specs
+      Level: 14
+      IVs: 31 HP / 31 Atk / 31 Def / 30 SpA / 30 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
+      - Hidden Power
+
+   Unown F @ Choice Specs
+      Level: 14
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 30 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
+      - Hidden Power
+
+   Unown H @ Choice Specs
+      Level: 14
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
       - Hidden Power
 
-   Unown @ Choice Specs
+   Unown H @ Choice Specs
       Level: 14
-      Ability: Levitate
-      IVs: 31 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      IVs: 31 HP / 31 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
       - Hidden Power
 
-   Unown @ Choice Specs
+   Unown H @ Choice Specs
       Level: 14
-      Ability: Levitate
-      IVs: 31 HP / 30 Atk / 31 Def / 31 SpA / 30 SpD / 30 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      IVs: 31 HP / 31 Atk / 30 Def / 30 SpA / 30 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
       - Hidden Power
 
-   Unown @ Choice Specs
+   Unown H @ Choice Specs
       Level: 14
-      Ability: Levitate
-      IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 31 SpD / 31 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      IVs: 31 HP / 31 Atk / 31 Def / 30 SpA / 31 SpD / 30 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
       - Hidden Power
 
-   Wobbuffet @ Leftovers
+   Unown K @ Choice Specs
       Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Safeguard
-      - Destiny Bond
-      - Counter
-      - Mirror Coat
-
-   Natu @ Light Clay
-      Level: 14
-      Ability: Magic Bounce
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Thunder Wave
-      - Night Shade
-      - Reflect
-      - Light Screen
-
-   Unown @ Choice Specs
-      Level: 14
-      Ability: Levitate
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      IVs: 30 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 30 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
       - Hidden Power
 
-   Unown @ Choice Specs
+   Unown K @ Choice Specs
       Level: 14
-      Ability: Levitate
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      IVs: 31 HP / 30 Atk / 31 Def / 30 SpA / 31 SpD / 30 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
       - Hidden Power
 
-   Unown @ Choice Specs
+   Unown K @ Choice Specs
       Level: 14
-      Ability: Levitate
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      IVs: 31 HP / 31 Atk / 31 Def / 30 SpA / 30 SpD / 30 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
       - Hidden Power
 
-   Unown @ Choice Specs
+   Unown K @ Choice Specs
       Level: 14
-      Ability: Levitate
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      IVs: 30 HP / 31 Atk / 31 Def / 30 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
       - Hidden Power
 
-   Wynaut @ Leftovers
+   Unown W @ Choice Specs
       Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Safeguard
-      - Destiny Bond
-      - Counter
-      - Mirror Coat
+      IVs: 31 HP / 31 Atk / 31 Def / 30 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
+      - Hidden Power
+
+   Unown W @ Choice Specs
+      Level: 14
+      IVs: 31 HP / 30 Atk / 31 Def / 31 SpA / 30 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
+      - Hidden Power
+
+   Unown W @ Choice Specs
+      Level: 14
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 30 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
+      - Hidden Power
+
+   Unown W @ Choice Specs
+      Level: 14
+      IVs: 31 HP / 31 Atk / 30 Def / 31 SpA / 30 SpD / 30 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
+      - Hidden Power
+
+   Unown F @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 30 SpD / 30 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown F @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 30 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown F @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 31 HP / 31 Atk / 31 Def / 30 SpA / 30 SpD / 31 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown F @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 30 SpD / 31 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown H @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown H @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 31 HP / 31 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown H @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 31 HP / 31 Atk / 30 Def / 30 SpA / 30 SpD / 31 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown H @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 31 HP / 31 Atk / 31 Def / 30 SpA / 31 SpD / 30 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown K @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 30 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 30 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown K @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 31 HP / 30 Atk / 31 Def / 30 SpA / 31 SpD / 30 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown K @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 31 HP / 31 Atk / 31 Def / 30 SpA / 30 SpD / 30 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown K @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 30 HP / 31 Atk / 31 Def / 30 SpA / 31 SpD / 31 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown W @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 31 HP / 31 Atk / 31 Def / 30 SpA / 31 SpD / 31 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown W @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 31 HP / 30 Atk / 31 Def / 31 SpA / 30 SpD / 31 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown W @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 30 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
+
+   Unown W @ Choice Specs
+      Modest Nature
+      Level: 16
+      IVs: 31 HP / 31 Atk / 30 Def / 31 SpA / 30 SpD / 30 Spe
+      EVs: 128 HP / 252 SpA / 128 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hidden Power
 
 
 /* Sootopolis Gym */
@@ -19062,48 +19325,123 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Female
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-   Cloyster @ Loaded Dice
+   Shellder @ Eviolite
       Level: 14
-      Ability: Overcoat
+      Ability: Shell Armor
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Hydro Pump
-      - Icicle Spear
-      - Rock Blast
-      - Ice Shard
-
-   Floatzel @ Lum Berry
-      Level: 14
-      Ability: Swift Swim
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 Atk / 225 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Bulk Up
-      - Ice Fang
-      - Aqua Jet
-      - Wave Crash
-
-   Shellder @ Loaded Dice
-      Level: 14
-      Ability: Overcoat
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1
       - Water Pulse
       - Icicle Spear
       - Rock Blast
       - Ice Shard
 
+   Cloyster @ Loaded Dice
+      Level: 14
+      Ability: Shell Armor
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 2 / Badge 3
+      - Surf
+      - Icicle Spear
+      - Rock Blast
+      - Ice Shard
+
+   Cloyster @ Loaded Dice
+      Level: 15
+      Ability: Shell Armor
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 150 HP / 150 Def / 150 SpD
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hydro Pump
+      - Icicle Spear
+      - Rock Blast
+      - Ice Shard
+
+   Barboach @ Rindo Berry
+      Level: 14
+      Ability: Unaware
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Icy Wind
+      - Spark
+      - Water Pulse
+      - Bulldoze
+
+   Whiscash @ Rindo Berry
+      Level: 15
+      Ability: Unaware
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 SpA
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Wild Charge
+      - Blizzard
+      - Earthquake
+      - Liquidation
+
+   Whiscash @ Leftovers
+      Level: 15
+      Ability: Adaptability
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Wild Charge
+      - Dragon Dance
+      - Earthquake
+      - Liquidation
+
    Buizel @ Mystic Water
       Level: 14
-      Ability: Swift Swim
+      Ability: Limber
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Flip Turn
-      - Facade
-      - Aqua Jet
+      Tags: Badge 0 / Badge 1
+      - Bulk Up
       - Ice Fang
+      - Aqua Jet
+      - Waterfall
+
+   Floatzel @ Mystic Water
+      Level: 14
+      Ability: Limber
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 2 / Badge 3
+      - Bulk Up
+      - Ice Fang
+      - Aqua Jet
+      - Liquidation
+
+   Buizel @ Focus Sash
+      Level: 14
+      Ability: Water Veil
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1
+      - Bulk Up
+      - Ice Fang
+      - Aqua Jet
+      - Waterfall
+
+   Floatzel @ Focus Sash
+      Level: 14
+      Ability: Water Veil
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 2 / Badge 3
+      - Bulk Up
+      - Ice Fang
+      - Aqua Jet
+      - Liquidation
+
+   Floatzel @ Life Orb
+      Level: 15
+      Ability: Technician
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Bulk Up
+      - Ice Spinner
+      - Jet Punch
+      - Wave Crash
 
 === TRAINER_CONNIE ===
    Name: Connie
@@ -19113,46 +19451,92 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Female
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-   Vaporeon @ Lum Berry
+   Chinchou @ Big Root
+      Level: 14
+      Ability: Volt Absorb
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Parabolic Charge
+      - Water Pulse
+      - Ice Beam
+      - Soak
+
+   Lanturn @ Big Root
+      Level: 14
+      Ability: Volt Absorb
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 SpA
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Parabolic Charge
+      - Hydro Pump
+      - Ice Beam
+      - Soak
+
+   Wooper @ Eviolite
+      Level: 14
+      Ability: Water Absorb
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0
+      - Sludge Bomb
+      - Stomping Tantrum
+      - Waterfall
+      - Avalanche
+
+   Quagsire @ Assault Vest
+      Level: 14
+      Ability: Water Absorb
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 1 / Badge 2
+      - Sludge Bomb
+      - Stomping Tantrum
+      - Waterfall
+      - Avalanche
+
+   Quagsire @ Assault Vest
       Level: 14
       Ability: Water Absorb
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Wish
-      - Acid Armor
-      - Surf
-      - Toxic
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Sludge Bomb
+      - Earthquake
+      - Liquidation
+      - Avalanche
 
-   Phione @ Rocky Helmet
+   Lombre @ Oran Berry
       Level: 14
+      Ability: Own Tempo
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0
+      - Grass Knot
+      - Bubble Beam
+      - Icy Wind
+      - Leech Seed
+
+   Ludicolo @ Leftovers
+      Level: 14
+      Ability: Own Tempo
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 1 / Badge 2
+      - Giga Drain
+      - Surf
+      - Ice Beam
+      - Leech Seed
+
+   Ludicolo @ Leftovers
+      Level: 14
+      Ability: Dancer
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Take Heart
-      - Acid Armor
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Giga Drain
       - Surf
-      - Grass Knot
-
-   Vaporeon @ Lum Berry
-      Level: 14
-      Ability: Water Absorb
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Wish
-      - Acid Armor
-      - Water Pulse
-      - Toxic
-
-   Phione @ Rocky Helmet
-      Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Take Heart
-      - Acid Armor
-      - Water Pulse
-      - Grass Knot
+      - Ice Beam
+      - Leech Seed
 
 === TRAINER_DAPHNE ===
    Name: Daphne
@@ -19162,95 +19546,101 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Female
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-   Luvdisc @ Choice Specs
+   Krabby @ Life Orb
+      Level: 14
+      Ability: Sheer Force
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Metal Claw
+      - Bulldoze
+      - Razor Shell
+      - Agility
+
+   Kingler @ Life Orb
+      Level: 14
+      Ability: Sheer Force
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Iron Head
+      - Bulldoze
+      - Liquidation
+      - Agility
+
+   Kingler @ Life Orb
+      Level: 14
+      Ability: Sheer Force
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Iron Head
+      - Bulldoze
+      - Liquidation
+      - Swords Dance
+
+   Mantyke @ Eviolite
+      Level: 14
+      Ability: Water Veil
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1
+      - Tailwind
+      - Bubble Beam
+      - Air Slash
+      - Icy Wind
+
+   Mantine @ Wacan Berry
+      Level: 14
+      Ability: Water Veil
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 2 / Badge 3
+      - Tailwind
+      - Surf
+      - Air Slash
+      - Ice Beam
+
+   Mantine @ Wacan Berry
+      Level: 15
+      Ability: Water Bubble
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 Def
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Tailwind
+      - Hydro Pump
+      - Hurricane
+      - Ice Beam
+
+   Luvdisc @ Fairy Feather
+      Level: 12
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0
+      - Dazzling Gleam
+      - Draining Kiss
+      - Brine
+      - Aqua Jet
+
+   Luvdisc @ Fairy Feather
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 1 / Badge 2
+      - Dazzling Gleam
+      - Draining Kiss
+      - Brine
+      - Aqua Jet
+
+   Luvdisc @ Fairy Feather
       Level: 14
       Ability: Soul Heart
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Hydro Pump
-      - Ice Beam
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Moonblast
       - Draining Kiss
+      - Hydro Pump
       - Aqua Jet
-
-   Ludicolo @ Leftovers
-      Level: 14
-      Ability: Rain Dish
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 150 HP / 150 Def / 150 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Giga Drain
-      - Surf
-      - Ice Beam
-      - Leech Seed
-
-   Luvdisc @ Choice Specs
-      Level: 14
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Hydro Pump
-
-   Ludicolo @ Leftovers
-      Level: 14
-      Ability: Rain Dish
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Energy Ball
-      - Surf
-      - Fake Out
-      - Leech Seed
-
-=== TRAINER_ANNIKA ===
-   Name: Annika
-   Class: Pokefan
-   Pic: Pokefan F
-   Gender: Female
-   Music: Twins
-   Double Battle: No
-   AI: Check Bad Move / Try To Faint / Check Viability
-
-   Milotic @ Leftovers
-      Level: 14
-      Ability: Competitive
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 HP / 225 Def
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Recover
-      - Water Pulse
-      - Ice Beam
-      - Dragon Pulse
-
-   Lanturn @ Big Root
-      Level: 14
-      Ability: Volt Absorb
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 HP / 225 SpA
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Parabolic Charge
-      - Hydro Pump
-      - Ice Beam
-      - Soak
-
-   Milotic @ Sitrus Berry
-      Level: 14
-      Ability: Marvel Scale
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Recover
-      - Water Pulse
-      - Ice Beam
-      - Dragon Pulse
-
-   Chinchou @ Chesto Berry
-      Level: 14
-      Ability: Volt Absorb
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Discharge
-      - Water Pulse
-      - Rest
-      - Sleep Talk
 
 === TRAINER_CRISSY ===
    Name: Crissy
@@ -19260,99 +19650,92 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Female
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-   Lumineon @ Expert Belt
-      Level: 14
-      Ability: Storm Drain
+   Lapras @ Assault Vest
+      Level: 11
+      Ability: Shell Armor
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 HP / 225 SpA
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Tailwind
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Brine
+      - Thunderbolt
+      - Icy Wind
+      - Psychic Noise
+
+   Lapras @ Assault Vest
+      Level: 14
+      Ability: Shell Armor
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Def / 225 SpA
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Hydro Pump
-      - Tail Glow
-      - Ice Beam
+      - Thunderbolt
+      - Freeze-Dry
+      - Psychic Noise
 
-   Primarina @ Lum Berry
+   Lapras @ Weakness Policy
       Level: 14
-      Ability: Torrent
+      Ability: Shell Armor
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 HP / 225 SpA
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Hydro Pump
-      - Moonblast
-      - Aqua Jet
-      - Draining Kiss
-
-   Finneon @ Leftovers
-      Level: 14
-      Ability: Swift Swim
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Rain Dance
-      - Water Pulse
-      - Bounce
-      - Aurora Beam
-
-   Brionne @ Sitrus Berry
-      Level: 14
-      Ability: Torrent
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Surf
-      - Disarming Voice
-      - Aqua Jet
-      - Misty Terrain
-
-=== TRAINER_TIFFANY ===
-   Name: Tiffany
-   Class: Beauty
-   Pic: Beauty
-   Gender: Female
-   Music: Female
-   Double Battle: No
-   AI: Check Bad Move / Try To Faint / Check Viability
-
-   Wailord @ Leftovers
-      Level: 14
-      Ability: Oblivious
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 Def / 225 SpD
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Hydro Pump
-      - Ice Beam
-      - Slack Off
-      - Whirlpool
-
-   Sharpedo @ Focus Sash
-      Level: 14
-      Ability: Speed Boost
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 Atk / 225 SpA
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Ice Beam
-      - Surf
-      - Night Slash
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Dragon Dance
+      - Icicle Spear
       - Earthquake
+      - Ancient Power
 
-   Carvanha @ Focus Sash
-      Level: 14
-      Ability: Speed Boost
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Crunch
-      - Waterfall
+   Bibarel @ Focus Sash
+      Level: 15
+      Ability: Unaware
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Curse
+      - Headbutt
       - Aqua Jet
-      - Poison Fang
+      - Pluck
 
-   Wailmer @ Leftovers
-      Level: 14
-      Ability: Oblivious
+   Bibarel @ Focus Sash
+      Level: 16
+      Ability: Simple
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      EVs: 225 HP / 225 Atk
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Curse
+      - Facade
+      - Aqua Jet
+      - Quick Attack
+
+   Ducklett @ Eviolite
+      Level: 14
+      Ability: No Guard
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0
+      - Icy Wind
+      - Water Pulse
+      - Air Cutter
+      - Aqua Jet
+
+   Ducklett @ Eviolite
+      Level: 14
+      Ability: No Guard
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 1 / Badge 2
       - Ice Beam
-      - Surf
-      - Slack Off
-      - Whirlpool
+      - Hydro Pump
+      - Hurricane
+      - Aqua Jet
+
+   Swanna @ Life Orb
+      Level: 14
+      Ability: No Guard
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 SpA / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Blizzard
+      - Hydro Pump
+      - Hurricane
+      - Aqua Jet
 
 === TRAINER_BETHANY ===
    Name: Bethany
@@ -19362,69 +19745,105 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Twins
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
 
-   Azumarill @ Choice Band
+   Slowpoke Galar @ Salac Berry
       Level: 14
-      Ability: Huge Power
+      Ability: Gluttony
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 252 Atk / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Superpower
-      - Play Rough
+      EVs: 170 HP / 170 Atk / 170 SpA
+      Tags: Badge 0 / Badge 1
+      - Zen Headbutt
+      - Belch
       - Liquidation
-      - Giga Impact
+      - Slack Off
 
-   Azumarill @ Sitrus Berry
+   Slowbro Galar @ Quick Claw
       Level: 14
-      Ability: Huge Power
+      Ability: Quick Draw
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 252 Atk / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Belly Drum
-      - Aqua Jet
-      - Liquidation
-      - Play Rough
+      Tags: Badge 2 / Badge 3
+      - Shell Side Arm
+      - Slack Off
+      - Psyshock
+      - Flamethrower
 
-   Azumarill @ Assault Vest
-      Level: 14
-      Ability: Huge Power
+   Slowbro Galar @ Quick Claw
+      Level: 15
+      Ability: Quick Draw
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 252 Atk / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Ice Punch
-      - Aqua Jet
-      - Liquidation
-      - Play Rough
+      EVs: 252 HP / 252 SpA
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Shell Side Arm
+      - Slack Off
+      - Psyshock
+      - Flamethrower
 
-   Azurill @ Choice Band
+   Corsola Galar @ Eviolite
       Level: 14
-      Ability: Huge Power
+      Ability: Cursed Body
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 252 Atk / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Slam
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Strength Sap
+      - Ancient Power
+      - Will O Wisp
+      - Hex
 
-   Marill @ Sitrus Berry
-      Level: 14
-      Ability: Huge Power
+   Cursola @ Rocky Helmet
+      Bold Nature
+      Level: 15
+      Ability: Perish Body
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 200 Atk / 200 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Belly Drum
-      - Aqua Jet
-      - Waterfall
-      - Play Rough
+      EVs: 225 HP / 225 Def
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Strength Sap
+      - Ancient Power
+      - Will O Wisp
+      - Hex
 
-   Marill @ Assault Vest
+   Toedscool @ Yache Berry
       Level: 14
-      Ability: Huge Power
+      Ability: Adaptability
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 170 HP / 170 Atk / 170 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Ice Punch
-      - Aqua Jet
-      - Waterfall
-      - Play Rough
+      Tags: Badge 0
+      - Mud Shot
+      - Magical Leaf
+      - Dazzling Gleam
+      - Flash Cannon
+
+   Toedscool @ Yache Berry
+      Level: 14
+      Ability: Adaptability
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 1 / Badge 2
+      - Earth Power
+      - Giga Drain
+      - Dazzling Gleam
+      - Flash Cannon
+
+   Toedscruel @ Yache Berry
+      Level: 14
+      Ability: Adaptability
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 SpA / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Earth Power
+      - Giga Drain
+      - Dazzling Gleam
+      - Flash Cannon
+
+   Toedscruel @ Leftovers
+      Level: 14
+      Ability: Adaptability
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 Def
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Earth Power
+      - Giga Drain
+      - Knock Off
+      - Spore
 
 === TRAINER_OLIVIA ===
    Name: Olivia
@@ -19434,101 +19853,75 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Female
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 2
+   Pool Rules: Duplicates Allowed
+   Pool Prune: Badges
 
-   Gorebyss @ Petaya Berry
-      Timid Nature
-      Level: 16
-      Ability: Competitive
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 SpA / 225 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Draining Kiss
-      - Hydro Pump
+   Clamperl @ Deep Sea Tooth
+      Modest Nature
+      Level: 14
+      Ability: Shell Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Surf
       - Ice Beam
-      - Shell Smash
+      - Rest
+      - Sleep Talk
 
-   Huntail @ Liechi Berry
-      Naughty Nature
-      Level: 16
+   Clamperl @ Deep Sea Scale
+      Calm Nature
+      Level: 14
+      Ability: Shell Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Whirlpool
+      - Toxic
+      - Rest
+      - Sleep Talk
+
+   Huntail @ Lum Berry
+      Level: 13
+      Ability: Strong Jaw
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 1 / Badge 2
+      - Crunch
+      - Sucker Punch
+      - Waterfall
+      - Ice Fang
+
+   Huntail @ White Herb
+      Adamant Nature
+      Level: 15
       Ability: Defiant
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 225 Atk / 225 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Crunch
       - Liquidation
       - Sucker Punch
       - Shell Smash
 
    Gorebyss @ Damp Rock
-      Level: 14
-      Ability: Swift Swim
+      Level: 13
+      Ability: Dazzling
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 1 / Badge 2
       - Dazzling Gleam
-      - Whirlpool
-      - Rain Dance
-      - Water Pulse
-
-   Huntail @ Lum Berry
-      Level: 14
-      Ability: Swift Swim
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Crunch
-      - Sucker Punch
-      - Waterfall
+      - Surf
       - Ice Beam
+      - Shadow Ball
 
-=== TRAINER_BRIDGET ===
-   Name: Bridget
-   Class: Beauty
-   Pic: Beauty
-   Gender: Female
-   Music: Female
-   Double Battle: No
-   AI: Check Bad Move / Try To Faint / Check Viability
-
-   Corsola @ Rocky Helmet
-      Level: 14
-      Ability: Regenerator
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 HP / 225 Def
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Mirror Coat
-      - Earth Power
-      - Power Gem
-      - Recover
-
-   Mantine @ Wide Lens
-      Level: 14
-      Ability: Swift Swim
+   Gorebyss @ Focus Sash
+      Timid Nature
+      Level: 16
+      Ability: Dazzling
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
       EVs: 225 SpA / 225 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Draining Kiss
       - Hydro Pump
-      - Roost
-      - Hurricane
-      - Gunk Shot
-
-   Corsola @ Lum Berry
-      Level: 14
-      Ability: Regenerator
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Bubble Beam
-      - Earth Power
-      - Power Gem
-      - Recover
-
-   Mantine @ Wacan Berry
-      Level: 14
-      Ability: Swift Swim
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Bubble Beam
-      - Psybeam
-      - Air Slash
-      - Bullet Seed
+      - Ice Beam
+      - Shell Smash
 
 === TRAINER_BRIANNA ===
    Name: Brianna
@@ -19538,64 +19931,400 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Female
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
-
-   Golduck @ Expert Belt
-      Level: 14
-      Ability: Swift Swim
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 225 SpA / 225 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Icy Wind
-      - Psyshock
-      - Low Sweep
-      - Hydro Pump
-
-   Seaking @ Choice Scarf
-      Jolly Nature
-      Level: 14
-      Ability: Swift Swim
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 4 HP / 252 Atk / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Fishious Rend
-
-   Seaking @ Muscle Band
-      Level: 14
-      Ability: Lightning Rod
-      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      EVs: 4 HP / 252 Atk / 252 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Fishious Rend
-      - Agility
-      - Megahorn
-      - Drill Run
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
 
    Psyduck @ Eviolite
-      Level: 14
-      Ability: Swift Swim
+      Level: 15
+      Ability: Cloud Nine
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Icy Wind
       - Psyshock
-      - Low Sweep
+      - Aura Sphere
       - Water Pulse
 
-   Goldeen @ Choice Scarf
-      Level: 14
-      Ability: Swift Swim
+   Golduck @ Expert Belt
+      Level: 15
+      Ability: Neuroforce
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Fishious Rend
+      EVs: 225 SpA / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Ice Beam
+      - Psyshock
+      - Aura Sphere
+      - Hydro Pump
 
-   Goldeen @ Muscle Band
+   Seel @ Rocky Helmet
+      Level: 14
+      Ability: Ice Scales
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Frost Breath
+      - Fake Out
+      - Icicle Spear
+      - Aqua Jet
+
+   Dewgong @ Rocky Helmet
+      Level: 14
+      Ability: Ice Scales
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Def / 225 Atk
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Icicle Spear
+      - Liquidation
+      - Drill Run
+      - Aqua Jet
+
+   Dewgong @ Rocky Helmet
+      Level: 14
+      Ability: Ice Scales
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Def / 225 SpA
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Blizzard
+      - Hydro Pump
+      - Signal Beam
+      - Ice Shard
+
+   Goldeen @ Rindo Berry
       Level: 14
       Ability: Lightning Rod
       IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Waterfall
       - Agility
       - Megahorn
       - Drill Run
+
+   Seaking @ Rindo Berry
+      Level: 14
+      Ability: Lightning Rod
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Badge 3 / Badge 4
+      - Waterfall
+      - Agility
+      - Megahorn
+      - Drill Run
+
+   Seaking @ Rindo Berry
+      Level: 14
+      Ability: Lightning Rod
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Fishious Rend
+      - Agility
+      - Megahorn
+      - Drill Run
+
+=== TRAINER_ANNIKA ===
+   Name: Annika
+   Class: Pokefan
+   Pic: Pokefan F
+   Gender: Female
+   Music: Twins
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 2
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Phione @ Rocky Helmet
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0
+      - Take Heart
+      - Acid Armor
+      - Water Pulse
+      - Grass Knot
+
+   Phione @ Rocky Helmet
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 1 / Badge 2
+      - Take Heart
+      - Acid Armor
+      - Surf
+      - Grass Knot
+
+   Phione @ Leftovers
+      Level: 14
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 150 HP / 150 Def / 150 SpD
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Take Heart
+      - Ice Beam
+      - Surf
+      - Grass Knot
+
+   Wishiwashi @ Berry Juice
+      Level: 14
+      Ability: Schooling
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0
+      - Water Gun
+      - Uproar
+      - Aqua Ring
+      - Tearful Look
+
+   Wishiwashi @ Sitrus Berry
+      Level: 14
+      Ability: Schooling
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 SpA
+      Tags: Badge 1 / Badge 2
+      - Brine
+      - Mud Shot
+      - Ice Beam
+      - Take Down
+
+   Wishiwashi @ Weakness Policy
+      Level: 14
+      Ability: Schooling
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 Atk
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Liquidation
+      - Earthquake
+      - Ice Beam
+      - Iron Tail
+
+=== TRAINER_BRIDGET ===
+   Name: Bridget
+   Class: Beauty
+   Pic: Beauty
+   Gender: Female
+   Music: Female
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 2
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Poliwag @ Eviolite
+      Level: 14
+      Ability: Swift Swim
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1
+      - Waterfall
+      - Bulldoze
+      - Wake-Up Slap
+      - Hypnosis
+
+   Poliwag @ Eviolite
+      Level: 14
+      Ability: Swift Swim
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1
+      - Waterfall
+      - Bulldoze
+      - Low Kick
+      - Belly Drum
+
+   Poliwhirl @ Eviolite
+      Level: 14
+      Ability: Swift Swim
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 Def
+      Tags: Badge 2 / Badge 3
+      - Waterfall
+      - Earthquake
+      - Brick Break
+      - Hypnosis
+
+   Poliwhirl @ Eviolite
+      Level: 14
+      Ability: Swift Swim
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 Def
+      Tags: Badge 2 / Badge 3
+      - Waterfall
+      - Earthquake
+      - Drain Punch
+      - Belly Drum
+
+   Poliwrath @ Assault Vest
+      Level: 14
+      Ability: Swift Swim
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Liquidation
+      - Earthquake
+      - Drain Punch
+      - Ice Punch
+
+   Poliwrath @ Sitrus Berry
+      Level: 14
+      Ability: Swift Swim
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Belly Drum
+      - Earthquake
+      - Drain Punch
+      - Ice Punch
+
+   Wingull @ Damp Rock
+      Level: 14
+      Ability: Rain Dish
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1
+      - Rain Dance
+      - Air Slash
+      - Knock Off
+      - Chilling Water
+
+   Pelipper @ Damp Rock
+      Level: 14
+      Ability: Drizzle
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 2 / Badge 3
+      - Roost
+      - Air Slash
+      - Ice Beam
+      - Surf
+
+   Pelipper @ Damp Rock
+      Level: 14
+      Ability: Drizzle
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 SpA / 225 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Roost
+      - Hurricane
+      - Ice Beam
+      - Hydro Pump
+
+   Pelipper @ Choice Scarf
+      Level: 14
+      Ability: Drizzle
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 SpA / 225 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - U Turn
+      - Hurricane
+      - Ice Beam
+      - Hydro Pump
+
+   Corphish @ Focus Sash
+      Level: 14
+      Ability: Adaptability
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Crabhammer
+      - Aqua Jet
+      - Swords Dance
+      - Crunch
+
+   Crawdaunt @ Focus Sash
+      Level: 14
+      Ability: Adaptability
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Crabhammer
+      - Aqua Jet
+      - Swords Dance
+      - Crunch
+
+=== TRAINER_TIFFANY ===
+   Name: Tiffany
+   Class: Beauty
+   Pic: Beauty
+   Gender: Female
+   Music: Female
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Carvanha @ Focus Sash
+      Level: 14
+      Ability: Speed Boost
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Crunch
+      - Waterfall
+      - Aqua Jet
+      - Poison Fang
+
+   Sharpedo @ Focus Sash
+      Level: 14
+      Ability: Speed Boost
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 Atk / 225 SpA
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Ice Beam
+      - Surf
+      - Night Slash
+      - Earthquake
+
+   Popplio @ Berry Juice
+      Level: 14
+      Ability: Torrent
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0
+      - Surf
+      - Disarming Voice
+      - Aqua Jet
+      - Misty Terrain
+
+   Brionne @ Sitrus Berry
+      Level: 14
+      Ability: Torrent
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 1 / Badge 2
+      - Surf
+      - Draining Kiss
+      - Aqua Jet
+      - Misty Terrain
+
+   Primarina @ Lum Berry
+      Level: 14
+      Ability: Torrent
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 SpA
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hydro Pump
+      - Moonblast
+      - Aqua Jet
+      - Draining Kiss
+
+   Dewpider @ Eviolite
+      Level: 14
+      Ability: Water Bubble
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 0 / Badge 1
+      - Leech Life
+      - Bubble Beam
+      - Icy Wind
+      - Trailblaze
+
+   Araquanid @ Assault Vest
+      Level: 14
+      Ability: Water Bubble
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      Tags: Badge 2 / Badge 3
+      - Leech Life
+      - Liquidation
+      - Icy Wind
+      - Trailblaze
+
+   Araquanid @ Assault Vest
+      Level: 14
+      Ability: Water Bubble
+      IVs: 20 HP / 20 Atk / 20 Def / 20 SpA / 20 SpD / 20 Spe
+      EVs: 225 HP / 225 Atk
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Leech Life
+      - Liquidation
+      - Icy Wind
+      - Trailblaze
 
 
 /* Type Tutors */
@@ -24240,6 +24969,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    - Rest
    - Foul Play
 
+
 /* Stat Trainers */
 /* Since these NPCs are used for grinding Exp. Candies or EVs, */
 /* I have chosen mons with higher exp yields where possible */
@@ -25074,6 +25804,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Iron Head
       - Low Kick
       - Zen Headbutt
+
 
 /* Winstrates */
 === TRAINER_VICTOR ===
@@ -46994,6 +47725,240 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - First Impression
       - Close Combat
       - Poison Jab
+
+=== TRAINER_ANDY ===
+   Name: Andy
+   Class: Youngster
+   Pic: Youngster
+   Gender: Male
+   Music: Male
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Numel @ Berry Juice
+      Level: 8
+      Ability: Oblivious
+      Tags: Badge 0
+      - Flame Charge
+      - Bulldoze
+      - Rock Tomb
+      - Focus Energy
+
+   Numel @ Leftovers
+      Level: 13
+      Ability: Simple
+      Tags: Badge 1 / Badge 2
+      - Lava Plume
+      - Flame Charge
+      - Earth Power
+      - Rock Slide
+
+   Camerupt @ Weakness Policy
+      Level: 14
+      Ability: Solid Rock
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Lava Plume
+      - Rock Slide
+      - Scorching Sands
+      - Self Destruct
+
+   Spheal @ Eviolite
+      Level: 8
+      Ability: Thick Fat
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Chilling Water
+      - Icy Wind
+      - Defense Curl
+      - Rollout
+
+   Spheal @ Eviolite
+      Level: 12
+      Ability: Thick Fat
+      Tags: Badge 1 / Badge 2
+      - Brine
+      - Icy Wind
+      - Body Slam
+      - Super Fang
+
+   Sealeo @ Eviolite
+      Level: 14
+      Ability: Thick Fat
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 3 / Badge 4
+      - Surf
+      - Ice Beam
+      - Body Slam
+      - Super Fang
+
+   Walrein @ Assault Vest
+      Level: 14
+      Ability: Thick Fat
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Hydro Pump
+      - Blizzard
+      - Body Slam
+      - Super Fang
+
+   Skiddo @ Grassy Seed
+      Level: 8
+      Ability: Grass Pelt
+      Tags: Badge 0
+      - Trailblaze
+      - Grassy Terrain
+      - Leech Seed
+      - Take Down
+
+   Skiddo @ Grassy Seed
+      Level: 12
+      Ability: Grass Pelt
+      Tags: Badge 1
+      - Seed Bomb
+      - Grassy Terrain
+      - Leech Seed
+      - Double Edge
+
+   Gogoat @ Grassy Seed
+      Level: 14
+      Ability: Grass Pelt
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Horn Leech
+      - Grassy Terrain
+      - Bulk Up
+      - Wild Charge
+
+=== TRAINER_MARTINE ===
+   Name: Martine
+   Class: Lass
+   Pic: Lass
+   Gender: Female
+   Music: Female
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Meowth Alola @ Kings Rock
+      Level: 8
+      Ability: Technician
+      Tags: Badge 0
+      - Bite
+      - Trailblaze
+      - Swift
+      - Work Up
+
+   Meowth Alola @ Kings Rock
+      Level: 12
+      Ability: Technician
+      Tags: Badge 1
+      - Snarl
+      - Play Rough
+      - Fake Out
+      - Nasty Plot
+
+   Persian Alola @ Wise Glasses
+      Modest Nature
+      Level: 14
+      Ability: Technician
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Snarl
+      - Icy Wind
+      - Chilling Water
+      - Nasty Plot
+
+   Persian Alola @ Wise Glasses
+      Modest Nature
+      Level: 14
+      Ability: Fur Coat
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Dark Pulse
+      - Gunk Shot
+      - Burning Jealousy
+      - Hypnosis
+
+   Mankey @ Black Belt
+      Level: 8
+      Ability: Vital Spirit
+      Tags: Badge 0
+      - Low Kick
+      - Rock Throw
+      - Taunt
+      - Fury Swipes
+
+   Mankey @ Scope Lens
+      Level: 12
+      Ability: Vital Spirit
+      Tags: Badge 1
+      - Karate Chop
+      - Rock Tomb
+      - Taunt
+      - Beat Up
+
+   Primeape @ Scope Lens
+      Level: 14
+      Ability: Defiant
+      Tags: Badge 2 / Badge 3
+      - Cross Chop
+      - Stone Edge
+      - Shadow Claw
+      - Taunt
+
+   Annihilape @ Leftovers
+      Adamant Nature
+      Level: 14
+      Ability: Defiant
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Bulk Up
+      - Drain Punch
+      - Rage Fist
+      - Taunt
+
+   Solosis @ Eviolite
+      Level: 7
+      Ability: Overcoat
+      Tags: Badge 0
+      - Psybeam
+      - Recover
+      - Shadow Ball
+      - Thunder Wave
+
+   Solosis @ Eviolite
+      Level: 12
+      Ability: Magic Guard
+      Tags: Badge 1
+      - Psyshock
+      - Night Shade
+      - Recover
+      - Shadow Ball
+
+   Duosion @ Eviolite
+      Level: 14
+      Ability: Magic Guard
+      Tags: Badge 2 / Badge 3
+      - Psyshock
+      - Calm Mind
+      - Recover
+      - Shadow Ball
+
+   Reuniclus @ Weakness Policy
+      Modest Nature
+      Level: 14
+      Ability: Magic Guard
+      EVs: 100 HP / 100 Atk / 100 SpA / 100 Spe
+      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Psyshock
+      - Stored Power
+      - Recover
+      - Shadow Ball
 
 
 /* Route 129 */
