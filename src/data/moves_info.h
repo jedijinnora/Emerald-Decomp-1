@@ -6262,7 +6262,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "The effectiveness varies\n"
             "with the user."),
-        .power = B_HIDDEN_POWER_DMG >= GEN_6 ? 60 : 1,
+        .power = B_HIDDEN_POWER_DMG >= GEN_CUSTOM ? 80 : B_HIDDEN_POWER_DMG >= GEN_6 ? 60 : 1,
         .effect = EFFECT_HIDDEN_POWER,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -7398,7 +7398,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .name = COMPOUND_STRING("Brick Break"),
         .description = COMPOUND_STRING(
             "Destroys barriers such as\n"
-            "REFLECT and causes damage."),
+            "Reflect and causes damage."),
         .effect = EFFECT_BRICK_BREAK,
         .power = 75,
         .type = TYPE_FIGHTING,
@@ -8457,7 +8457,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .power = 0,
         .type = TYPE_GRASS,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 60 : 55,
-        .pp = _UPDATED_MOVE_DATA >= GEN_CUSTOM ? 10 : 15,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 10 : 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
@@ -9029,7 +9029,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .type = TYPE_POISON,
         .accuracy = 100,
         .criticalHitStage = 1,
-        .pp = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 15 : 25,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 10 : 25,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
@@ -14954,7 +14954,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Stirs up a fairy wind to\n"
             "strike the foe."),
         .effect = EFFECT_HIT,
-        .power = 40,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 50 : 40,
         .type = TYPE_FAIRY,
         .accuracy = 100,
         .pp = 30,
