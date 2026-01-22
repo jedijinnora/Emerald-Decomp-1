@@ -612,3 +612,8 @@ gSpecials::
 	def_special UpdateRecentTrainers
 
 	def_special VsSeekerResetChargingStepCounter
+
+	def_special GetPartyMonContestRibbon
+	def_special GetPartyMonContestStat
+	def_special ChangeCosplayPikachuOutfit
+	def_special TeachSpecialMove

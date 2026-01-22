@@ -4721,9 +4721,9 @@ u16 SetVarBit(void)
     return j;
 }
 
-u8 GetDayOfTheWeek(void)
+u16 GetDayOfTheWeek(void)
 {
-    u8 day = VarGet(VAR_DAYS) % 7;
+    u8 day = gLocalTime.days % 7;
     return day;
 }
 
@@ -4780,4 +4780,223 @@ void UpdateRecentTrainers(void)
             VarSet(VAR_RECENT_TRAINER_10, lastTrainer);
     }
     return;
+}
+
+u8 GetPartyMonContestRibbon(void)
+{
+    struct Pokemon *targetMon;
+    u8 ribbon;
+
+    targetMon = &gPlayerParty[gSpecialVar_0x8004];
+
+    switch (gSpecialVar_0x8005)
+    {
+    case CONTEST_CATEGORY_COOL:
+        ribbon = GetMonData(targetMon, MON_DATA_COOL_RIBBON);
+        break;
+    case CONTEST_CATEGORY_BEAUTY:
+        ribbon = GetMonData(targetMon, MON_DATA_BEAUTY_RIBBON);
+        break;
+    case CONTEST_CATEGORY_CUTE:
+        ribbon = GetMonData(targetMon, MON_DATA_CUTE_RIBBON);
+        break;
+    case CONTEST_CATEGORY_SMART:
+        ribbon = GetMonData(targetMon, MON_DATA_SMART_RIBBON);
+        break;
+    case CONTEST_CATEGORY_TOUGH:
+        ribbon = GetMonData(targetMon, MON_DATA_TOUGH_RIBBON);
+        break;
+    default:
+        ribbon = 0;
+    }
+    return ribbon;
+}
+
+u16 GetPartyMonContestStat(void)
+{
+    struct Pokemon *targetMon;
+    u16 condition;
+
+    targetMon = &gPlayerParty[gSpecialVar_0x8004];
+
+    switch (gSpecialVar_0x8005)
+    {
+    case CONTEST_CATEGORY_COOL:
+        condition = GetMonData(targetMon, MON_DATA_COOL);
+        break;
+    case CONTEST_CATEGORY_BEAUTY:
+        condition = GetMonData(targetMon, MON_DATA_BEAUTY);
+        break;
+    case CONTEST_CATEGORY_CUTE:
+        condition = GetMonData(targetMon, MON_DATA_CUTE);
+        break;
+    case CONTEST_CATEGORY_SMART:
+        condition = GetMonData(targetMon, MON_DATA_SMART);
+        break;
+    case CONTEST_CATEGORY_TOUGH:
+        condition = GetMonData(targetMon, MON_DATA_TOUGH);
+        break;
+    default:
+        condition = 0;
+    }
+    return condition;
+}
+
+bool8 ChangeCosplayPikachuOutfit(void)
+{
+    struct Pokemon *targetMon = &gPlayerParty[gSpecialVar_0x8004];
+    u16 species = GetMonData(targetMon, MON_DATA_SPECIES);
+    u8 i,j;
+    u32 move;
+
+    switch(species)
+    {
+        case SPECIES_PIKACHU_COSPLAY:
+            break;
+        case SPECIES_PIKACHU_ROCK_STAR:
+            for (i = 0; i < MAX_MON_MOVES; i++)
+            {
+                move = GetMonData(targetMon, MON_DATA_MOVE1 + i);
+                if (move == MOVE_METEOR_MASH
+                    || move == MOVE_FLASH_CANNON
+                    || move == MOVE_BEAT_UP
+                    || move == MOVE_OVERDRIVE
+                    || move == MOVE_BULLET_PUNCH)
+                {
+                    SetMonMoveSlot(targetMon, MOVE_NONE, i);
+                    RemoveMonPPBonus(targetMon, i);
+                    for (j = i; j < MAX_MON_MOVES - 1; j++)
+                        ShiftMoveSlot(targetMon, j, j + 1);
+                }
+            }
+            break;
+        case SPECIES_PIKACHU_BELLE:
+            for (i = 0; i < MAX_MON_MOVES; i++)
+            {
+                move = GetMonData(targetMon, MON_DATA_MOVE1 + i);
+                if (move == MOVE_ICICLE_CRASH
+                    || move == MOVE_ICE_BEAM
+                    || move == MOVE_TEATIME
+                    || move == MOVE_ICICLE_SPEAR
+                    || move == MOVE_ICE_SHARD)
+                {
+                    SetMonMoveSlot(targetMon, MOVE_NONE, i);
+                    RemoveMonPPBonus(targetMon, i);
+                    for (j = i; j < MAX_MON_MOVES - 1; j++)
+                        ShiftMoveSlot(targetMon, j, j + 1);
+                }
+            }
+            break;
+        case SPECIES_PIKACHU_POP_STAR:
+            for (i = 0; i < MAX_MON_MOVES; i++)
+            {
+                move = GetMonData(targetMon, MON_DATA_MOVE1 + i);
+                if (move == MOVE_DAZZLING_GLEAM
+                    || move == MOVE_SPIRIT_BREAK
+                    || move == MOVE_MISTY_TERRAIN
+                    || move == MOVE_DRAINING_KISS
+                    || move == MOVE_SPARKLING_ARIA)
+                {
+                    SetMonMoveSlot(targetMon, MOVE_NONE, i);
+                    RemoveMonPPBonus(targetMon, i);
+                    for (j = i; j < MAX_MON_MOVES - 1; j++)
+                        ShiftMoveSlot(targetMon, j, j + 1);
+                }
+            }
+            break;
+        case SPECIES_PIKACHU_PHD:
+            for (i = 0; i < MAX_MON_MOVES; i++)
+            {
+                move = GetMonData(targetMon, MON_DATA_MOVE1 + i);
+                if (move == MOVE_PSYCHIC_NOISE
+                    || move == MOVE_ZEN_HEADBUTT
+                    || move == MOVE_PSYCHIC_TERRAIN
+                    || move == MOVE_PARABOLIC_CHARGE
+                    || move == MOVE_VACUUM_WAVE)
+                {
+                    SetMonMoveSlot(targetMon, MOVE_NONE, i);
+                    RemoveMonPPBonus(targetMon, i);
+                    for (j = i; j < MAX_MON_MOVES - 1; j++)
+                        ShiftMoveSlot(targetMon, j, j + 1);
+                }
+            }
+            break;
+        case SPECIES_PIKACHU_LIBRE:
+            for (i = 0; i < MAX_MON_MOVES; i++)
+            {
+                move = GetMonData(targetMon, MON_DATA_MOVE1 + i);
+                if (move == MOVE_FLYING_PRESS
+                    || move == MOVE_AURA_SPHERE
+                    || move == MOVE_COACHING
+                    || move == MOVE_DRAIN_PUNCH
+                    || move == MOVE_MACH_PUNCH)
+                {
+                    SetMonMoveSlot(targetMon, MOVE_NONE, i);
+                    RemoveMonPPBonus(targetMon, i);
+                    for (j = i; j < MAX_MON_MOVES - 1; j++)
+                        ShiftMoveSlot(targetMon, j, j + 1);
+                }
+            }
+            break;
+        default:
+            return FALSE;
+    }
+
+    if (GetMonData(targetMon, MON_DATA_MOVE1) == MOVE_NONE)
+    {
+        move = MOVE_ELECTRO_BALL;
+        SetMonData(targetMon, MON_DATA_MOVE1, &move);
+    }
+
+    switch(gSpecialVar_0x8005)
+    {
+        case 1:
+            species = SPECIES_PIKACHU_ROCK_STAR;
+            break;
+        case 2:
+            species = SPECIES_PIKACHU_BELLE;
+            break;
+        case 3:
+            species = SPECIES_PIKACHU_POP_STAR;
+            break;
+        case 4:
+            species = SPECIES_PIKACHU_PHD;
+            break;
+        case 5:
+            species = SPECIES_PIKACHU_LIBRE;
+            break;
+        case 6:
+            species = SPECIES_PIKACHU_COSPLAY;
+            break;
+        default:
+            return FALSE;
+    }
+    SetMonData(targetMon, MON_DATA_SPECIES, &species);
+
+    return TRUE;
+}
+
+bool8 TeachSpecialMove(void)
+{
+    struct Pokemon *targetMon = &gPlayerParty[gSpecialVar_0x8004];
+    u32 move = gSpecialVar_0x8006;
+    u8 i;
+
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (GetMonData(targetMon, MON_DATA_MOVE1 + i) == move)
+            return FALSE;
+    }
+    for (i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (GetMonData(targetMon, MON_DATA_MOVE1 + i) == MOVE_NONE)
+        {
+            SetMonMoveSlot(targetMon, move, i);
+            RemoveMonPPBonus(targetMon, i);
+            return TRUE;
+        }
+    }
+    SetMonMoveSlot(targetMon, move, 0);
+    RemoveMonPPBonus(targetMon, 0);
+    return TRUE;
 }

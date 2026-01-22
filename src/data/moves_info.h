@@ -14349,7 +14349,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_TWO_TYPED_MOVE,
         .power = B_UPDATED_MOVE_DATA >= GEN_7 ? 100 : 80,
         .type = TYPE_FIGHTING,
-        .accuracy = 95,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 95,
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
@@ -16014,8 +16014,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .name = COMPOUND_STRING("Sparkling Aria"),
         #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
             .description = COMPOUND_STRING(
-                "Powerful against statused\n"
-                "foes, but also heals them."),
+                "Sings with bubbles. Cures\n"
+                "status for extra damage."),
         #else
             .description = COMPOUND_STRING(
                 "Sings with bubbles. Cures\n"

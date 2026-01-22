@@ -1,3 +1,8 @@
+const LOCALID_MAN_1 = 13
+const LOCALID_WOMAN_1 = 12
+const LOCALID_COSPLAY_PIKACHU = 20
+const LOCALID_SPIKY_EARED_PICHU = 21
+
 mapscripts LilycoveCity_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : LilycoveCity_OnTransition
 }
@@ -6,6 +11,7 @@ script LilycoveCity_OnTransition {
 	call_if_unset(FLAG_VISITED_LILYCOVE_CITY, LilycoveCity_EventScript_VisitLilycove)
 	setvar(VAR_CONTEST_HALL_STATE, 0)
 	setflag(FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER)
+	call(LilycoveCity_EventScript_SetPichuPikachuVisibility)
 	end
 }
 
@@ -15,8 +21,703 @@ script LilycoveCity_EventScript_VisitLilycove {
 	return
 }
 
-const LOCALID_MAN_1 = 13
-const LOCALID_WOMAN_1 = 12
+script LilycoveCity_EventScript_SetPichuPikachuVisibility {
+	goto_if_unset(FLAG_RECEIVED_COSPLAY_PIKACHU, Common_EventScript_NopReturn)
+	call_if_set(FLAG_RECEIVED_COSPLAY_PIKACHU, LilycoveCity_EventScript_HidePikachu)
+	call_if_set(FLAG_RECEIVED_SPIKY_EARED_PICHU, LilycoveCity_EventScript_HidePichu)
+	setvar(VAR_0x8004, SPECIES_PIKACHU_COSPLAY)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_PIKACHU_ROCK_STAR)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_PIKACHU_BELLE)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_PIKACHU_POP_STAR)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_PIKACHU_PHD)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8004, SPECIES_PIKACHU_LIBRE)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setflag(FLAG_TEMP_12)
+	setvar(VAR_0x8004, SPECIES_PICHU_SPIKY_EARED)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+	setflag(FLAG_TEMP_13)
+	return
+}
+
+script LilycoveCity_EventScript_HidePikachu{
+	setflag(FLAG_TEMP_11)
+	return
+}
+
+script LilycoveCity_EventScript_HidePichu{
+	setflag(FLAG_TEMP_12)
+	return
+}
+
+script LilycoveCity_EventScript_Pikachu {
+	lock
+	call_if_unset(FLAG_TEMP_14, LilycoveCity_EventScript_SuperstarScene)
+	applymovement(LOCALID_COSPLAY_PIKACHU, Common_Movement_FacePlayer)
+	waitmovement(LOCALID_COSPLAY_PIKACHU)
+	playmoncry(SPECIES_PIKACHU_COSPLAY, CRY_MODE_ENCOUNTER)
+	applymovement(LOCALID_SPIKY_EARED_PICHU, Common_Movement_FaceLeft)
+	waitmovement(LOCALID_SPIKY_EARED_PICHU)
+	showmonpic(SPECIES_PIKACHU_COSPLAY, 10, 3)
+	msgbox(format("Pichu and Pikachu are trying to make Pikachu a Contest superstar!"))
+	msgbox(format("Pikachu needs a Trainer to enter her into as many Contests as possible."))
+	msgbox(format("If you increase Pikachu's Conditions, Pichu will craft her cosplay outfits!"))
+	msgbox(format("Will you take Pikachu and help her on her way to fame and fortune?"), MSGBOX_YESNO)
+	hidemonpic
+	goto_if_eq(VAR_RESULT, YES, LilycoveCity_EventScript_ObtainCosplaychu)
+	playmoncry(SPECIES_PICHU, CRY_MODE_WEAK)
+	waitmoncry
+	playmoncry(SPECIES_PIKACHU, CRY_MODE_WEAK)
+	waitmoncry
+	msgbox(format("Pichu and Pikachu didn't want your help anyway."))
+	applymovement(LOCALID_SPIKY_EARED_PICHU, Common_Movement_FaceUp)
+	waitmovement(LOCALID_SPIKY_EARED_PICHU)
+	setobjectmovementtype(LOCALID_COSPLAY_PIKACHU, MOVEMENT_TYPE_FACE_UP)
+	applymovement(LOCALID_COSPLAY_PIKACHU, Common_Movement_FaceUp)
+	waitmovement(LOCALID_COSPLAY_PIKACHU)
+	release
+	end
+}
+
+script LilycoveCity_EventScript_SuperstarScene {
+	setflag(FLAG_TEMP_14)
+	playmoncry(SPECIES_PIKACHU, CRY_MODE_ENCOUNTER)
+	applymovement(LOCALID_COSPLAY_PIKACHU, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_COSPLAY_PIKACHU)
+	playmoncry(SPECIES_PICHU, CRY_MODE_ENCOUNTER)
+	applymovement(LOCALID_SPIKY_EARED_PICHU, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_SPIKY_EARED_PICHU)
+	applymovement(LOCALID_COSPLAY_PIKACHU, LilycoveCity_Movement_PikachuDance)
+	applymovement(LOCALID_SPIKY_EARED_PICHU, LilycoveCity_Movement_PichuHop)
+	waitmovement(LOCALID_COSPLAY_PIKACHU)
+	waitmovement(LOCALID_SPIKY_EARED_PICHU)
+	return
+}
+
+script LilycoveCity_EventScript_ObtainCosplaychu {
+	setflag(FLAG_RECEIVED_COSPLAY_PIKACHU)
+	givemon(SPECIES_PIKACHU_COSPLAY, 15)
+	playfanfare(MUS_OBTAIN_ITEM)
+	bufferspeciesname(STR_VAR_1, SPECIES_PIKACHU_COSPLAY)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PIKACHU_COSPLAY)
+	msgbox(format("Cosplay Pikachu joined {PLAYER}!"))
+	removeobject(LOCALID_COSPLAY_PIKACHU)
+	waitmessage
+	waitfanfare
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, PikachuToParty)
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, PikachuToPC)
+
+	PikachuToParty:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	}
+	goto(PikachuEnd)
+
+	PikachuToPC:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	call(Common_EventScript_TransferredToPC)
+	PikachuEnd:
+	applymovement(LOCALID_SPIKY_EARED_PICHU, LilycoveCity_Movement_PichuHop)
+	waitmovement(LOCALID_SPIKY_EARED_PICHU)
+	msgbox(format("Bring Pikachu back to try on outfits once you've increased her Conditions!"))
+	release
+	end
+}
+
+movement LilycoveCity_Movement_PikachuDance {
+	jump_in_place_right
+	delay_4
+	walk_in_place_up
+	delay_4
+	walk_in_place_down
+	delay_4
+	jump_in_place_right
+}
+
+movement LilycoveCity_Movement_PichuHop {
+	jump_in_place_left
+	jump_in_place_left
+	jump_in_place_left
+	walk_in_place_down
+	walk_in_place_up
+	walk_in_place_right
+	walk_in_place_left
+}
+
+script LilycoveCity_EventScript_Pichu {
+	lock
+	setvar(VAR_LAST_TALKED, LOCALID_SPIKY_EARED_PICHU)
+	applymovement(LOCALID_SPIKY_EARED_PICHU, Common_Movement_WalkInPlaceLeft)
+	waitmovement(LOCALID_SPIKY_EARED_PICHU)
+	playmoncry(SPECIES_PICHU, CRY_MODE_ENCOUNTER)
+	msgbox(format("Pichu is ready to help make Cosplay Pikachu a superstar!"))
+	msgbox(format("Please choose Cosplay Pikachu from your party."))
+	special(ChoosePartyMon)
+	waitstate
+	copyvar(VAR_RESULT, VAR_0x8004)
+	goto_if_eq(VAR_RESULT, PARTY_NOTHING_CHOSEN, PikachuEnd)
+	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	switch(var(VAR_RESULT)) {
+		case SPECIES_PIKACHU_COSPLAY:
+		case SPECIES_PIKACHU_ROCK_STAR:
+		case SPECIES_PIKACHU_BELLE:
+		case SPECIES_PIKACHU_POP_STAR:
+		case SPECIES_PIKACHU_PHD:
+		case SPECIES_PIKACHU_LIBRE:
+			call(LilycoveCity_EventScript_TrySpikyUnlock)
+			call_if_set(FLAG_TEMP_3, LilycoveCity_EventScript_TryGiveSpikyPichu)
+			break
+		default:
+			msgbox(format("That's not Cosplay Pikachu!"))
+			release
+			end
+	}
+
+	LilycoveCity_EventScript_PichuMenu:
+	dynmultipush("Check unlocked cosplays", 1)
+	dynmultipush("Change current cosplay", 2)
+	dynmultipush("Teach special move", 3)
+	dynmultipush("Nothing right now", 4)
+	msgbox(format("What would you like to do?"))
+	dynmultistack(0,0,FALSE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1: 
+			call(LilycoveCity_EventScript_CheckCosplaychuOutfits)
+		case 2:
+			call(LilycoveCity_EventScript_SwitchCosplaychuOutfit)
+		case 3:
+			call(LilycoveCity_EventScript_TeachCosplaychuSpecialMoves)
+		default:
+			closemessage
+			release
+			end
+	}
+	goto(LilycoveCity_EventScript_PichuMenu)
+	end
+}
+
+script LilycoveCity_EventScript_TrySpikyUnlock {
+	setvar(VAR_0x8005, CONTEST_CATEGORY_COOL)
+	specialvar(VAR_RESULT, GetPartyMonContestRibbon)
+	goto_if_lt(VAR_RESULT, 4, Common_EventScript_NopReturn)
+	setvar(VAR_0x8005, CONTEST_CATEGORY_BEAUTY)
+	specialvar(VAR_RESULT, GetPartyMonContestRibbon)
+	goto_if_lt(VAR_RESULT, 4, Common_EventScript_NopReturn)
+	setvar(VAR_0x8005, CONTEST_CATEGORY_CUTE)
+	specialvar(VAR_RESULT, GetPartyMonContestRibbon)
+	goto_if_lt(VAR_RESULT, 4, Common_EventScript_NopReturn)
+	setvar(VAR_0x8005, CONTEST_CATEGORY_SMART)
+	specialvar(VAR_RESULT, GetPartyMonContestRibbon)
+	goto_if_lt(VAR_RESULT, 4, Common_EventScript_NopReturn)
+	setvar(VAR_0x8005, CONTEST_CATEGORY_TOUGH)
+	specialvar(VAR_RESULT, GetPartyMonContestRibbon)
+	goto_if_lt(VAR_RESULT, 4, Common_EventScript_NopReturn)
+	setflag(FLAG_TEMP_3)
+	return
+}
+
+script LilycoveCity_EventScript_TryGiveSpikyPichu {
+	playse(SE_PIN)
+	applymovement(LOCALID_SPIKY_EARED_PICHU, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_SPIKY_EARED_PICHU)
+	msgbox(format("Wait a minute!"))
+	msgbox(format("You've successfully won every possible Contest with Pikachu!"))
+	applymovement(LOCALID_SPIKY_EARED_PICHU, LilycoveCity_Movement_PichuHop)
+	waitmovement(LOCALID_SPIKY_EARED_PICHU)
+	special(DoDomeConfetti)
+	playse(SE_M_ENCORE2)
+	msgbox(format("Amazing! Superb! Fantabulous!"))
+	msgbox(format("Thank you for making Pichu and Pikachu's dreams come true!"))
+	waitmessage
+	applymovement(LOCALID_SPIKY_EARED_PICHU, Common_Movement_WalkInPlaceRight)
+	waitmovement(LOCALID_SPIKY_EARED_PICHU)
+	msgbox(format("But…"))
+	delay(10)
+	msgbox(format("What's Pichu going to do now that all the Contests have been won?"))
+	delay(10)
+	msgbox(format("…"))
+	waitmessage
+	playse(SE_PIN)
+	applymovement(LOCALID_SPIKY_EARED_PICHU, Common_Movement_ExclamationMark)
+	waitmovement(LOCALID_SPIKY_EARED_PICHU)
+	delay(20)
+	applymovement(LOCALID_SPIKY_EARED_PICHU, Common_Movement_WalkInPlaceLeft)
+	waitmovement(LOCALID_SPIKY_EARED_PICHU)
+	showmonpic(SPECIES_PICHU_SPIKY_EARED, 10, 3)
+	msgbox(format("Pichu shall join you and Pikachu on your adventures, of course!"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, YES, LilycoveCity_EventScript_ObtainSpikychu)
+	msgbox(format("No?"))
+	hidemonpic
+	delay(20)
+	playmoncry(SPECIES_PICHU_SPIKY_EARED, CRY_MODE_WEAK)
+	waitmoncry
+	applymovement(LOCALID_SPIKY_EARED_PICHU, Common_Movement_WalkInPlaceRight)
+	waitmovement(LOCALID_SPIKY_EARED_PICHU)
+	msgbox(format("No…"))
+	msgbox(format("Maybe later, little spiky-eared friend."))
+	release
+	end
+
+	LilycoveCity_EventScript_ObtainSpikychu:
+	hidemonpic
+	setflag(FLAG_RECEIVED_SPIKY_EARED_PICHU)
+	givemon(SPECIES_PICHU_SPIKY_EARED, 15)
+	playfanfare(MUS_OBTAIN_ITEM)
+	bufferspeciesname(STR_VAR_1, SPECIES_PICHU_SPIKY_EARED)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PICHU_SPIKY_EARED)
+	msgbox(format("Spiky-eared Pichu joined {PLAYER}!"))
+	removeobject(LOCALID_SPIKY_EARED_PICHU)
+	waitmessage
+	waitfanfare
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, PichuToParty)
+	goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, PichuToPC)
+
+	PichuToParty:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
+	}
+	goto(PichuEnd)
+
+	PichuToPC:
+	msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		call(Common_EventScript_NameReceivedBoxMon)
+	}
+	call(Common_EventScript_TransferredToPC)
+	PichuEnd:
+	msgbox(format("Not to worry! The cosplay box will always be here if you need it!"))
+	release
+	end
+}
+
+script LilycoveCity_EventScript_CosplayBox {
+	lock
+	msgbox(format("It's spiky-eared Pichu's secret box of cosplay stuff!"))
+	msgbox(format("Choose a spiky-eared Pichu or Cosplay Pikachu from the party."))
+	special(ChoosePartyMon)
+	waitstate
+	copyvar(VAR_RESULT, VAR_0x8004)
+	goto_if_eq(VAR_RESULT, PARTY_NOTHING_CHOSEN, BoxEnd)
+	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	clearflag(FLAG_TEMP_2)
+	switch(var(VAR_RESULT)) {
+		case SPECIES_PICHU_SPIKY_EARED:
+			break
+		case SPECIES_PIKACHU_COSPLAY:
+		case SPECIES_PIKACHU_ROCK_STAR:
+		case SPECIES_PIKACHU_BELLE:
+		case SPECIES_PIKACHU_POP_STAR:
+		case SPECIES_PIKACHU_PHD:
+		case SPECIES_PIKACHU_LIBRE:
+			setflag(FLAG_TEMP_2)
+			break
+		default:
+			msgbox(format("That's not a valid Pichu or Pikachu!"))
+			release
+			end
+	}
+	goto_if_set(FLAG_TEMP_2, LilycoveCity_EventScript_PichuMenu)
+	LilycoveCity_EventScript_PichuTutor:
+	dynmultipush("Meteor Mash", 11)
+	dynmultipush("Flash Cannon", 12)
+	dynmultipush("Beat Up", 13)
+	dynmultipush("Overdrive", 14)
+	dynmultipush("Bullet Punch", 15)
+	dynmultipush("Icicle Crash", 21)
+	dynmultipush("Ice Beam", 22)
+	dynmultipush("Teatime", 23)
+	dynmultipush("Icicle Spear", 24)
+	dynmultipush("Ice Shard", 25)
+	dynmultipush("Dazzling Gleam", 31)
+	dynmultipush("Spirit Break", 32)
+	dynmultipush("Misty Terrain", 33)
+	dynmultipush("Draining Kiss", 34)
+	dynmultipush("Sparkling Aria", 35)
+	dynmultipush("Psychic Noise", 41)
+	dynmultipush("Zen Headbutt", 42)
+	dynmultipush("Psychic Terrain", 43)
+	dynmultipush("Parabolic Charge", 44)
+	dynmultipush("Vacuum Wave", 45)
+	dynmultipush("Flying Press", 51)
+	dynmultipush("Aura Sphere", 52)
+	dynmultipush("Coaching", 53)
+	dynmultipush("Drain Punch", 54)
+	dynmultipush("Mach Punch", 55)
+	call(LilycoveCity_EventScript_CosplayTutor)
+	BoxEnd:
+	closemessage
+	release
+	end
+}
+
+script LilycoveCity_EventScript_CheckCosplaychuOutfits {
+	setvar(VAR_0x8005, CONTEST_CATEGORY_COOL)
+	specialvar(VAR_RESULT, GetPartyMonContestStat)
+	buffernumberstring(STR_VAR_1, VAR_RESULT)
+	if(var(VAR_RESULT) >= 100) {
+		msgbox(format("Pikachu Rock Star unlocked!"))
+		setflag(FLAG_TEMP_1)
+	} elif (var(VAR_RESULT) == 0) {
+		msgbox(format("You haven't increased Pikachu's Cool at all!"))
+	} else {
+		msgbox(format("The Rock Star outfit needs 100 Cool.\nPikachu's Cool: {STR_VAR_1}."))
+	}
+
+	setvar(VAR_0x8005, CONTEST_CATEGORY_BEAUTY)
+	specialvar(VAR_RESULT, GetPartyMonContestStat)
+	buffernumberstring(STR_VAR_1, VAR_RESULT)
+	if(var(VAR_RESULT) >= 100) {
+		msgbox(format("Pikachu Belle unlocked!"))
+		setflag(FLAG_TEMP_1)
+	} elif (var(VAR_RESULT) == 0) {
+		msgbox(format("You haven't increased Pikachu's Beauty at all!"))
+	} else {
+		msgbox(format("The Belle outfit needs 100 Beauty.\nPikachu's Beauty: {STR_VAR_1}."))
+	}
+
+	setvar(VAR_0x8005, CONTEST_CATEGORY_CUTE)
+	specialvar(VAR_RESULT, GetPartyMonContestStat)
+	buffernumberstring(STR_VAR_1, VAR_RESULT)
+	if(var(VAR_RESULT) >= 100) {
+		msgbox(format("Pikachu Pop Star unlocked!"))
+		setflag(FLAG_TEMP_1)
+	} elif (var(VAR_RESULT) == 0) {
+		msgbox(format("You haven't increased Pikachu's Cute at all!"))
+	} else {
+		msgbox(format("The Pop Star outfit needs 100 Cute.\nPikachu's Cute: {STR_VAR_1}."))
+	}
+
+	setvar(VAR_0x8005, CONTEST_CATEGORY_SMART)
+	specialvar(VAR_RESULT, GetPartyMonContestStat)
+	buffernumberstring(STR_VAR_1, VAR_RESULT)
+	if(var(VAR_RESULT) >= 100) {
+		msgbox(format("Pikachu PhD unlocked!"))
+		setflag(FLAG_TEMP_1)
+	} elif (var(VAR_RESULT) == 0) {
+		msgbox(format("You haven't increased Pikachu's Smart at all!"))
+	} else {
+		msgbox(format("The PhD outfit needs 100 Smart.\nPikachu's Smart: {STR_VAR_1}."))
+	}
+
+	setvar(VAR_0x8005, CONTEST_CATEGORY_TOUGH)
+	specialvar(VAR_RESULT, GetPartyMonContestStat)
+	buffernumberstring(STR_VAR_1, VAR_RESULT)
+	if(var(VAR_RESULT) >= 100) {
+		msgbox(format("Pikachu Libre unlocked!"))
+		setflag(FLAG_TEMP_1)
+	} elif (var(VAR_RESULT) == 0) {
+		msgbox(format("You haven't increased Pikachu's Tough at all!"))
+	} else {
+		msgbox(format("The Libre outfit needs 100 Tough.\nPikachu's Tough: {STR_VAR_1}."))
+	}
+	goto(LilycoveCity_EventScript_PichuMenu)
+	end
+}
+
+script LilycoveCity_EventScript_SwitchCosplaychuOutfit {
+	setvar(VAR_0x8005, CONTEST_CATEGORY_COOL)
+	specialvar(VAR_RESULT, GetPartyMonContestStat)
+	if(var(VAR_RESULT) >= 100) {
+		dynmultipush("Rock Star", 1)
+		setflag(FLAG_TEMP_1)
+	}
+	setvar(VAR_0x8005, CONTEST_CATEGORY_BEAUTY)
+	specialvar(VAR_RESULT, GetPartyMonContestStat)
+	if(var(VAR_RESULT) >= 100) {
+		dynmultipush("Belle", 2)
+		setflag(FLAG_TEMP_1)
+	}
+	setvar(VAR_0x8005, CONTEST_CATEGORY_CUTE)
+	specialvar(VAR_RESULT, GetPartyMonContestStat)
+	if(var(VAR_RESULT) >= 100) {
+		dynmultipush("Pop Star", 3)
+		setflag(FLAG_TEMP_1)
+	}
+	setvar(VAR_0x8005, CONTEST_CATEGORY_SMART)
+	specialvar(VAR_RESULT, GetPartyMonContestStat)
+	if(var(VAR_RESULT) >= 100) {
+		dynmultipush("PhD", 4)
+		setflag(FLAG_TEMP_1)
+	}
+	setvar(VAR_0x8005, CONTEST_CATEGORY_TOUGH)
+	specialvar(VAR_RESULT, GetPartyMonContestStat)
+	if(var(VAR_RESULT) >= 100) {
+		dynmultipush("Libre", 5)
+		setflag(FLAG_TEMP_1)
+	}
+	goto_if_unset(FLAG_TEMP_1, LilycoveCity_EventScript_NoCosplaychuOutfits)
+	dynmultipush("No outfit", 6)
+	msgbox(format("Which cosplay outfit should Pikachu try on?"))
+	dynmultistack(0,0,FALSE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	copyvar(VAR_TEMP_1, VAR_RESULT)
+	switch(var(VAR_TEMP_1)) {
+		case 1:
+			setvar(VAR_0x8005, 1)
+		case 2:
+			setvar(VAR_0x8005, 2)
+		case 3:
+			setvar(VAR_0x8005, 3)
+		case 4:
+			setvar(VAR_0x8005, 4)
+		case 5:
+			setvar(VAR_0x8005, 5)
+		case 6:
+			setvar(VAR_0x8005, 6)
+		default:
+			goto(LilycoveCity_EventScript_PichuMenu)
+	}
+	specialvar(VAR_RESULT, ChangeCosplayPikachuOutfit)
+	goto_if_eq(VAR_RESULT, TRUE, LilycoveCity_EventScript_CosplaychuTransformed)
+	msgbox(format("Something has gone wrong!"))
+	return
+}
+
+script LilycoveCity_EventScript_NoCosplaychuOutfits {
+	msgbox(format("You haven't unlocked any outfits. Go feed Pikachu some tasty {POKEBLOCK}s!"))
+	release
+	end
+}
+
+script LilycoveCity_EventScript_CosplaychuTransformed {
+	switch(var(VAR_TEMP_1)) {
+		case 1:
+			msgbox(format("Pikachu put on her Rock Star cosplay!"))
+		case 2:
+			msgbox(format("Pikachu put on her Belle cosplay!"))
+		case 3:
+			msgbox(format("Pikachu put on her Pop Star cosplay!"))
+		case 4:
+			msgbox(format("Pikachu put on her PhD cosplay!"))
+		case 5:
+			msgbox(format("Pikachu put on her Libre cosplay!"))
+		default:
+			msgbox(format("Pikachu took off her cosplay!"))
+	}
+	goto(LilycoveCity_EventScript_PichuMenu)
+}
+
+script LilycoveCity_EventScript_TeachCosplaychuSpecialMoves {
+	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	switch(var(VAR_RESULT)) {
+		case SPECIES_PIKACHU_COSPLAY:
+			msgbox(format("Cosplay Pikachu needs to be in one of her costumes to learn special moves!"))
+			goto(LilycoveCity_EventScript_PichuMenu)
+		case SPECIES_PIKACHU_ROCK_STAR:
+			setvar(VAR_0x8005, CONTEST_CATEGORY_COOL)
+			specialvar(VAR_TEMP_2, GetPartyMonContestRibbon)
+			switch(var(VAR_TEMP_2)) {
+				case 1: // Normal
+					dynmultipush("Meteor Mash", 11)
+					dynmultipush("Flash Cannon", 12)
+				case 2: // Super
+					dynmultipush("Meteor Mash", 11)
+					dynmultipush("Flash Cannon", 12)
+					dynmultipush("Beat Up", 13)
+				case 3: // Hyper
+					dynmultipush("Meteor Mash", 11)
+					dynmultipush("Flash Cannon", 12)
+					dynmultipush("Beat Up", 13)
+					dynmultipush("Overdrive", 14)
+				case 4: // Master
+					dynmultipush("Meteor Mash", 11)
+					dynmultipush("Flash Cannon", 12)
+					dynmultipush("Beat Up", 13)
+					dynmultipush("Overdrive", 14)
+					dynmultipush("Bullet Punch", 15)
+				default: // None
+					dynmultipush("Meteor Mash", 11)
+			}
+		case SPECIES_PIKACHU_BELLE:
+			setvar(VAR_0x8005, CONTEST_CATEGORY_BEAUTY)
+			specialvar(VAR_TEMP_2, GetPartyMonContestRibbon)
+			switch(var(VAR_TEMP_2)) {
+				case 1: // Normal
+					dynmultipush("Icicle Crash", 21)
+					dynmultipush("Ice Beam", 22)
+				case 2: // Super
+					dynmultipush("Icicle Crash", 21)
+					dynmultipush("Ice Beam", 22)
+					dynmultipush("Teatime", 23)
+				case 3: // Hyper
+					dynmultipush("Icicle Crash", 21)
+					dynmultipush("Ice Beam", 22)
+					dynmultipush("Teatime", 23)
+					dynmultipush("Icicle Spear", 24)
+				case 4: // Master
+					dynmultipush("Icicle Crash", 21)
+					dynmultipush("Ice Beam", 22)
+					dynmultipush("Teatime", 23)
+					dynmultipush("Icicle Spear", 24)
+					dynmultipush("Ice Shard", 25)
+				default: // None
+					dynmultipush("Icicle Crash", 21)
+			}
+		case SPECIES_PIKACHU_POP_STAR:
+			setvar(VAR_0x8005, CONTEST_CATEGORY_CUTE)
+			specialvar(VAR_TEMP_2, GetPartyMonContestRibbon)
+			switch(var(VAR_TEMP_2)) {
+				case 1: // Normal
+					dynmultipush("Dazzling Gleam", 31)
+					dynmultipush("Spirit Break", 32)
+				case 2: // Super
+					dynmultipush("Dazzling Gleam", 31)
+					dynmultipush("Spirit Break", 32)
+					dynmultipush("Misty Terrain", 33)
+				case 3: // Hyper
+					dynmultipush("Dazzling Gleam", 31)
+					dynmultipush("Spirit Break", 32)
+					dynmultipush("Misty Terrain", 33)
+					dynmultipush("Draining Kiss", 34)
+				case 4: // Master
+					dynmultipush("Dazzling Gleam", 31)
+					dynmultipush("Spirit Break", 32)
+					dynmultipush("Misty Terrain", 33)
+					dynmultipush("Draining Kiss", 34)
+					dynmultipush("Sparkling Aria", 35)
+				default: // None
+					dynmultipush("Dazzling Gleam", 31)
+			}
+		case SPECIES_PIKACHU_PHD:
+			setvar(VAR_0x8005, CONTEST_CATEGORY_SMART)
+			specialvar(VAR_TEMP_2, GetPartyMonContestRibbon)
+			switch(var(VAR_TEMP_2)) {
+				case 1: // Normal
+					dynmultipush("Psychic Noise", 41)
+					dynmultipush("Zen Headbutt", 42)
+				case 2: // Super
+					dynmultipush("Psychic Noise", 41)
+					dynmultipush("Zen Headbutt", 42)
+					dynmultipush("Psychic Terrain", 43)
+				case 3: // Hyper
+					dynmultipush("Psychic Noise", 41)
+					dynmultipush("Zen Headbutt", 42)
+					dynmultipush("Psychic Terrain", 43)
+					dynmultipush("Parabolic Charge", 44)
+				case 4: // Master
+					dynmultipush("Psychic Noise", 41)
+					dynmultipush("Zen Headbutt", 42)
+					dynmultipush("Psychic Terrain", 43)
+					dynmultipush("Parabolic Charge", 44)
+					dynmultipush("Vacuum Wave", 45)
+				default: // None
+					dynmultipush("Psychic Noise", 41)
+			}
+		case SPECIES_PIKACHU_LIBRE:
+			setvar(VAR_0x8005, CONTEST_CATEGORY_TOUGH)
+			specialvar(VAR_TEMP_2, GetPartyMonContestRibbon)
+			switch(var(VAR_TEMP_2)) {
+				case 1: // Normal
+					dynmultipush("Flying Press", 51)
+					dynmultipush("Aura Sphere", 52)
+				case 2: // Super
+					dynmultipush("Flying Press", 51)
+					dynmultipush("Aura Sphere", 52)
+					dynmultipush("Coaching", 53)
+				case 3: // Hyper
+					dynmultipush("Flying Press", 51)
+					dynmultipush("Aura Sphere", 52)
+					dynmultipush("Coaching", 53)
+					dynmultipush("Drain Punch", 54)
+				case 4: // Master
+					dynmultipush("Flying Press", 51)
+					dynmultipush("Aura Sphere", 52)
+					dynmultipush("Coaching", 53)
+					dynmultipush("Drain Punch", 54)
+					dynmultipush("Mach Punch", 55)
+				default: // None
+					dynmultipush("Flying Press", 51)
+			}
+		default:
+			msgbox(format("That's not Cosplay Pikachu!"))
+			return
+	}
+	LilycoveCity_EventScript_CosplayTutor:
+	msgbox(format("Moves will be taught to an open slot if possible, or will replace the first move."))
+	msgbox(format("Teach which move?"))
+	dynmultistack(0,0,FALSE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 11:
+			setvar(VAR_0x8006, MOVE_METEOR_MASH)
+		case 12:
+			setvar(VAR_0x8006, MOVE_FLASH_CANNON)
+		case 13:
+			setvar(VAR_0x8006, MOVE_BEAT_UP)
+		case 14:
+			setvar(VAR_0x8006, MOVE_OVERDRIVE)
+		case 15:
+			setvar(VAR_0x8006, MOVE_BULLET_PUNCH)
+		case 21:
+			setvar(VAR_0x8006, MOVE_ICICLE_CRASH)
+		case 22:
+			setvar(VAR_0x8006, MOVE_ICE_BEAM)
+		case 23:
+			setvar(VAR_0x8006, MOVE_TEATIME)
+		case 24:
+			setvar(VAR_0x8006, MOVE_ICICLE_SPEAR)
+		case 25:
+			setvar(VAR_0x8006, MOVE_ICE_SHARD)
+		case 31:
+			setvar(VAR_0x8006, MOVE_DAZZLING_GLEAM)
+		case 32:
+			setvar(VAR_0x8006, MOVE_SPIRIT_BREAK)
+		case 33:
+			setvar(VAR_0x8006, MOVE_MISTY_TERRAIN)
+		case 34:
+			setvar(VAR_0x8006, MOVE_DRAINING_KISS)
+		case 35:
+			setvar(VAR_0x8006, MOVE_SPARKLING_ARIA)
+		case 41:
+			setvar(VAR_0x8006, MOVE_PSYCHIC_NOISE)
+		case 42:
+			setvar(VAR_0x8006, MOVE_ZEN_HEADBUTT)
+		case 43:
+			setvar(VAR_0x8006, MOVE_PSYCHIC_TERRAIN)
+		case 44:
+			setvar(VAR_0x8006, MOVE_PARABOLIC_CHARGE)
+		case 45:
+			setvar(VAR_0x8006, MOVE_VACUUM_WAVE)
+		case 51:
+			setvar(VAR_0x8006, MOVE_FLYING_PRESS)
+		case 52:
+			setvar(VAR_0x8006, MOVE_AURA_SPHERE)
+		case 53:
+			setvar(VAR_0x8006, MOVE_COACHING)
+		case 54:
+			setvar(VAR_0x8006, MOVE_DRAIN_PUNCH)
+		case 55:
+			setvar(VAR_0x8006, MOVE_MACH_PUNCH)
+		default:
+			return
+	}
+	specialvar(VAR_RESULT, TeachSpecialMove)
+	goto_if_eq(VAR_RESULT, TRUE, LilycoveCity_EventScript_SpecialMoveTaught)
+	msgbox(format("Your Pokémon already knows that move!"))
+	return
+	LilycoveCity_EventScript_SpecialMoveTaught:
+	playfanfare(MUS_OBTAIN_ITEM)
+	msgbox(format("Success! Your Pokémon has a new special move!"))
+	waitmessage
+	closemessage
+	return
+}
 
 script LilycoveCity_EventScript_Sailor2 {
 	lock

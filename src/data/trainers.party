@@ -12779,41 +12779,56 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
    Party Size: 6
-   Pool Rules: Basic
+   Pool Rules: Core 3 Singles
    Pool Prune: Badges
 
-   Krookodile @ Weakness Policy
+   Persian Alola @ Weakness Policy
       Jolly Nature
-      Level: 15
-      Ability: Intimidate
+      Level: 16
+      Ability: Rattled
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 252 HP / 252 Atk / 4 Spe
-      - Earthquake
-      - Stealth Rock
-      - Crunch
-      - Sucker Punch
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 1
+      - Power Trip
+      - Play Rough
+      - Work Up
+      - Gunk Shot
 
-   Sharpedo @ Life Orb
+   Muk Alola @ Assault Vest
       Adamant Nature
       Level: 16
-      Ability: Speed Boost
+      Ability: Poison Touch
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 4 HP / 252 Atk / 252 Spe
-      - Liquidation
-      - Crunch
-      - Ice Fang
-      - Protect
+      EVs: 4 HP / 252 Atk / 252 SpD
+      Tags: Core 2
+      - Explosion
+      - Gunk Shot
+      - Fire Punch
+      - Knock Off
 
-   Scrafty @ Lum Berry
+   Overqwil @ Clear Amulet
       Jolly Nature
       Level: 16
-      Ability: Moxie
+      Ability: Intimidate
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-      EVs: 4 HP / 252 Atk / 252 Spe
-      - Drain Punch
-      - Knock Off
-      - Dragon Dance
-      - High Jump Kick
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 3
+      - Gunk Shot
+      - Liquidation
+      - Throat Chop
+      - Swords Dance
+
+   Overqwil @ Loaded Dice
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 3
+      - Gunk Shot
+      - Scale Shot
+      - Throat Chop
+      - Swords Dance
 
    Houndoom @ Charcoal
       Modest Nature
@@ -12821,10 +12836,191 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Flash Fire
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 3
       - Fire Blast
       - Fiery Wrath
       - Nasty Plot
       - Taunt
+
+   Mightyena @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 1
+      - Crunch
+      - Sucker Punch
+      - Play Rough
+      - Iron Tail
+
+   Obstagoon @ Flame Orb
+      Adamant Nature
+      Level: 16
+      Ability: Guts
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 1
+      - Facade
+      - Retaliate
+      - Knock Off
+      - Parting Shot
+
+   Obstagoon @ Scope Lens
+      Adamant Nature
+      Level: 16
+      Ability: Defiant
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 1
+      - Cross Chop
+      - Retaliate
+      - Night Slash
+      - Gunk Shot
+
+   Shiftry @ Normal Gem
+      Adamant Nature
+      Level: 16
+      Ability: Wind Rider
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 5
+      - Tailwind
+      - Leaf Blade
+      - Explosion
+      - Sucker Punch
+
+   Shiftry @ Scope Lens
+      Adamant Nature
+      Level: 16
+      Ability: Wind Rider
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 5
+      - Tailwind
+      - Leaf Blade
+      - Explosion
+      - Toxic Spikes
+
+   Shiftry @ Heat Rock
+      Adamant Nature
+      Level: 16
+      Ability: Chlorophyll
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 5
+      - Sunny Day
+      - Solar Blade
+      - Weather Ball
+      - Knock Off
+
+   Shiftry @ Loaded Dice
+      Jolly Nature
+      Level: 16
+      Ability: Wind Rider
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 5
+      - Tailwind
+      - Bullet Seed
+      - Explosion
+      - Beat Up
+
+   Shiftry @ Kings Rock
+      Jolly Nature
+      Level: 16
+      Ability: Wind Rider
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 5
+      - Tailwind
+      - Bullet Seed
+      - Explosion
+      - Beat Up
+
+   Sharpedo @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 4
+      - Liquidation
+      - Crunch
+      - Ice Fang
+      - Protect
+
+   Sharpedo @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 4
+      - Liquidation
+      - Crunch
+      - Ice Fang
+      - Poison Fang
+
+   Cacturne @ Loaded Dice
+      Adamant Nature
+      Level: 16
+      Ability: Water Absorb
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 5
+      - Pin Missile
+      - Beat Up
+      - Bullet Seed
+      - Spikes
+
+   Cacturne @ Leftovers
+      Adamant Nature
+      Level: 16
+      Ability: Water Absorb
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 5
+      - Leech Seed
+      - Destiny Bond
+      - Needle Arm
+      - Spikes
+
+   Crawdaunt @ Mystic Water
+      Adamant Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 4
+      - Crabhammer
+      - Crunch
+      - Aqua Jet
+      - Swords Dance
+
+   Crawdaunt @ Mystic Water
+      Jolly Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 4
+      - Crabhammer
+      - Crunch
+      - Aqua Jet
+      - Dragon Dance
+
+   Crawdaunt @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 4
+      - Crabhammer
+      - Crunch
+      - Aqua Jet
+      - Dragon Dance
 
    Absol @ Scope Lens
       Jolly Nature
@@ -12832,10 +13028,413 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Super Luck
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 1
       - Night Slash
       - Psycho Cut
       - Sucker Punch
       - Superpower
+
+   Absol @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 1
+      - Night Slash
+      - Psycho Cut
+      - Sucker Punch
+      - Superpower
+
+   Skuntank @ Flame Orb
+      Modest Nature
+      Level: 16
+      Ability: Flare Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 2
+      - Sludge Wave
+      - Fire Blast
+      - Super Fang
+      - Dark Pulse
+
+   Skuntank @ Flame Orb
+      Modest Nature
+      Level: 16
+      Ability: Flare Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 2
+      - Toxic
+      - Venoshock
+      - Super Fang
+      - Fire Blast
+
+   Skuntank @ Black Sludge
+      Modest Nature
+      Level: 16
+      Ability: Stench
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Core 2
+      - Nasty Plot
+      - Fire Blast
+      - Sludge Wave
+      - Dark Pulse
+
+   Drapion @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Sniper
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 2
+      - Wicked Blow
+
+   Drapion @ Choice Scarf
+      Jolly Nature
+      Level: 16
+      Ability: Sniper
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 2
+      - Wicked Blow
+
+   Drapion @ Scope Lens
+      Adamant Nature
+      Level: 16
+      Ability: Sniper
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 2
+      - Wicked Blow
+      - Cross Poison
+      - Fell Stinger
+      - Acupressure
+
+   Samurott Hisui @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      Tags: Core 4
+      - Ceaseless Edge
+      - Razor Shell
+      - Aqua Jet
+      - Knock Off
+
+   Samurott Hisui @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      Tags: Core 4
+      - Ceaseless Edge
+      - Razor Shell
+      - Flip Turn
+      - Sucker Punch
+
+   Samurott Hisui @ Black Glasses
+      Adamant Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 4
+      - Ceaseless Edge
+      - Razor Shell
+      - Swords Dance
+      - Sucker Punch
+
+   Samurott Hisui @ Black Glasses
+      Adamant Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 4
+      - Ceaseless Edge
+      - Razor Shell
+      - Swords Dance
+      - Sacred Sword
+
+   Krookodile @ Rocky Helmet
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      Tags: Core 1
+      - Earthquake
+      - Stealth Rock
+      - Knock Off
+      - Sucker Punch
+
+   Krookodile @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      Tags: Core 1
+      - Earthquake
+      - Stone Edge
+      - Knock Off
+      - Superpower
+
+   Krookodile @ Chople Berry
+      Jolly Nature
+      Level: 16
+      Ability: Anger Point
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      Tags: Core 1
+      - Earthquake
+      - Taunt
+      - Knock Off
+      - Toxic
+
+   Krookodile @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      Tags: Core 1
+      - Bulk Up
+      - Scale Shot
+      - Power Trip
+      - Earthquake
+
+   Scrafty @ Lum Berry
+      Jolly Nature
+      Level: 16
+      Ability: Moxie
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 1
+      - Drain Punch
+      - Knock Off
+      - Dragon Dance
+      - High Jump Kick
+
+   Scrafty @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Shed Skin
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Core 1
+      - Iron Head
+      - Knock Off
+      - Dragon Dance
+      - Close Combat
+
+   Zoroark @ Choice Specs
+      Timid Nature
+      Level: 16
+      Ability: Illusion
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Core 1
+      - Dark Pulse
+      - Sludge Bomb
+      - Trick
+      - Focus Blast
+
+   Zoroark @ Choice Specs
+      Jolly Nature
+      Level: 16
+      Ability: Illusion
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Knock Off
+      - U Turn
+      - Trick
+      - Low Kick
+
+   Zoroark @ Choice Band
+      Jolly Nature
+      Level: 16
+      Ability: Illusion
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Knock Off
+      - U Turn
+      - Trick
+      - Sucker Punch
+
+   Zoroark @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Illusion
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 1
+      - Nasty Plot
+      - Dark Pulse
+      - Sludge Bomb
+      - Flamethrower
+
+   Zoroark @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Illusion
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      Tags: Core 1
+      - Swords Dance
+      - Knock Off
+      - Sucker Punch
+      - Low Kick
+
+   Gothitelle @ Leftovers
+      Modest Nature
+      Level: 16
+      Ability: Shadow Tag
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 SpA / 4 Spe
+      Tags: Core 1
+      - Tickle
+      - Calm Mind
+      - Dark Pulse
+      - Psyshock
+
+   Gothitelle @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Shadow Tag
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Core 1
+      - Stored Power
+      - Calm Mind
+      - Dark Pulse
+      - Psyshock
+
+   Gothitelle @ Leftovers
+      Bold Nature
+      Level: 16
+      Ability: Shadow Tag
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Core 1
+      - Stored Power
+      - Calm Mind
+      - Rest
+      - Charm
+
+   Greninja @ Choice Specs
+      Timid Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Hydro Pump
+      - Ice Beam
+      - Dark Pulse
+      - Sludge Wave
+
+   Greninja @ Expert Belt
+      Timid Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Hydro Pump
+      - Ice Beam
+      - Dark Pulse
+      - Water Shuriken
+
+   Greninja @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Protean
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Hydro Pump
+      - Ice Beam
+      - Dark Pulse
+      - Water Shuriken
+
+   Greninja @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Battle Bond
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Hydro Pump
+      - Ice Beam
+      - Dark Pulse
+      - Water Shuriken
+
+   Greninja @ Expert Belt
+      Timid Nature
+      Level: 16
+      Ability: Battle Bond
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Core 4
+      - Hydro Pump
+      - Ice Beam
+      - Dark Pulse
+      - Water Shuriken
+
+   Grimmsnarl @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Prankster
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 SpD
+      Tags: Core 1
+      - Bulk Up
+      - Substitute
+      - Spirit Break
+      - Sucker Punch
+
+   Grimmsnarl @ Leftovers
+      Careful Nature
+      Level: 16
+      Ability: Prankster
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Core 1
+      - Parting Shot
+      - Thunder Wave
+      - Spirit Break
+      - Sucker Punch
+
+   Grimmsnarl @ Light Clay
+      Careful Nature
+      Level: 16
+      Ability: Prankster
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Core 1
+      - Parting Shot
+      - Light Screen
+      - Spirit Break
+      - Reflect
+
+   Grimmsnarl @ Light Clay
+      Impish Nature
+      Level: 16
+      Ability: Prankster
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Core 1
+      - Parting Shot
+      - Light Screen
+      - Spirit Break
+      - Reflect
 
    Moltres Galar @ Life Orb
       Modest Nature
@@ -12843,6 +13442,31 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Berserk
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Ace
+      - Fiery Wrath
+      - Air Slash
+      - Nasty Plot
+      - Roost
+
+   Moltres Galar @ Leftovers
+      Modest Nature
+      Level: 16
+      Ability: Berserk
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Ace
+      - Fiery Wrath
+      - Air Slash
+      - Nasty Plot
+      - Roost
+
+   Moltres Galar @ Black Glasses
+      Modest Nature
+      Level: 16
+      Ability: Berserk
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Ace
       - Fiery Wrath
       - Air Slash
       - Nasty Plot
@@ -42856,26 +43480,29 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
 
    Pikachu Rock Star @ Expert Belt
       Level: 14
+      Ability: Opportunist
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       Tags: Badge 0 / Badge 1
       - Meteor Mash
-      - Spark
+      - Thunder
       - Nuzzle
-      - Surf
+      - Grass Knot
 
    Pikachu Rock Star @ Light Ball
       Naughty Nature
       Level: 15
+      Ability: Steely Spirit
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
       Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Meteor Mash
       - Volt Tackle
-      - Nuzzle
-      - Surf
+      - Bullet Punch
+      - Grass Knot
 
    Pikachu Belle @ Life Orb
       Level: 14
+      Ability: Queenly Majesty
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       Tags: Badge 0 / Badge 1
       - Icicle Crash
@@ -42884,75 +43511,82 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Spark
 
    Pikachu Belle @ Light Ball
-      Lonely Nature
+      Rash Nature
       Level: 15
+      Ability: Queenly Majesty
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
       Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Icicle Crash
+      - Ice Beam
       - Volt Switch
-      - Nuzzle
-      - Spark
+      - Ice Shard
+      - Thunderbolt
 
    Pikachu Pop Star @ Wise Glasses
       Level: 14
+      Ability: Dazzling
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       Tags: Badge 0 / Badge 1
       - Draining Kiss
       - Thunderbolt
       - Nuzzle
-      - Grass Knot
+      - Surf
 
    Pikachu Pop Star @ Light Ball
-      Rash Nature
+      Timid Nature
       Level: 15
+      Ability: Fairy Aura
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
       Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Draining Kiss
       - Thunderbolt
       - Nuzzle
-      - Grass Knot
+      - Sparkling Aria
 
    Pikachu Phd @ Electric Seed
       Level: 14
+      Ability: Neuroforce
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       Tags: Badge 0 / Badge 1
       - Electric Terrain
-      - Psychic
-      - Nuzzle
+      - Zen Headbutt
+      - Nasty Plot
       - Thunderbolt
 
    Pikachu Phd @ Light Ball
       Modest Nature
       Level: 15
+      Ability: Tinted Lens
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
       Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Electric Terrain
-      - Psychic
-      - Nuzzle
-      - Thunderbolt
+      - Psychic Noise
+      - Nasty Plot
+      - Parabolic Charge
 
    Pikachu Libre @ Muscle Band
       Level: 14
+      Ability: Iron Fist
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       Tags: Badge 0 / Badge 1
       - Flying Press
       - Knock Off
       - Nuzzle
-      - Thunder
+      - Thunder Punch
 
    Pikachu Libre @ Light Ball
-      Mild Nature
+      Jolly Nature
       Level: 15
+      Ability: Moxie
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 85 HP / 85 Atk / 85 Def / 85 SpA / 85 SpD / 85 Spe
       Tags: Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Flying Press
       - Knock Off
-      - Nuzzle
-      - Thunder
+      - Mach Punch
+      - Volt Tackle
 
 === TRAINER_WALTER ===
    Name: Walter

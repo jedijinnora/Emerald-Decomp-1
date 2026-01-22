@@ -6,10 +6,13 @@ script Route119_WeatherInstitute_2F_EventScript_CastformScientist {
 	faceplayer
 	goto_if_set(FLAG_RECEIVED_CASTFORM, CastformInfo)
 	msgbox(format("Hello! I work with the Weather Institute's artificial Pokémon!"))
+	showmonpic(SPECIES_CASTFORM_NORMAL, 10, 3)
 	msgbox(format("We're giving out Castform to suitable Trainers so we can gather more data on its use in battle."))
+	call(Common_EventScript_CountBadges)
 	goto_if_lt(VAR_NUM_BADGES, 1, CastformNeedBadge)
 	msgbox(format("Would you be willing to take a Castform with you on your journey?"), MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, YES, CastformGift)
+	hidemonpic
 	msgbox(format("Come back if you change your mind."))
 	release
 	end
@@ -17,10 +20,12 @@ script Route119_WeatherInstitute_2F_EventScript_CastformScientist {
 	CastformGift:
 	msgbox(format("Excellent! Here you are!"))
 	waitmessage
+	hidemonpic
 	setflag(FLAG_RECEIVED_CASTFORM)
 	givemon(SPECIES_CASTFORM_NORMAL, 10)
 	playfanfare(MUS_OBTAIN_ITEM)
 	bufferspeciesname(STR_VAR_1, SPECIES_CASTFORM_NORMAL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CASTFORM_NORMAL)
 	msgbox("{PLAYER} received Castform!")
 	waitmessage
 	waitfanfare

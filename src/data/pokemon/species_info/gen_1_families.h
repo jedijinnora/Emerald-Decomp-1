@@ -2755,12 +2755,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 
     [SPECIES_PICHU_SPIKY_EARED] =
     {
-        .baseHP        = 20,
-        .baseAttack    = 40,
-        .baseDefense   = 15,
-        .baseSpeed     = 60,
-        .baseSpAttack  = 35,
-        .baseSpDefense = 35,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 35 : 20,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 95 : 40,
+        .baseDefense   = P_UPDATED_STATS >= GEN_CUSTOM ? 30 : 15,
+        .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 115 : 60,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 95 : 35,
+        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 40 : 35,
         .types = MON_TYPES(TYPE_ELECTRIC),
         .catchRate = 190,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 41 : 42,
@@ -2770,7 +2770,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_COMPETITIVE, ABILITY_DEFIANT, ABILITY_GALVANIZE },
+    #else
         .abilities = { ABILITY_STATIC, ABILITY_NONE, ABILITY_LIGHTNING_ROD },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,
         .speciesName = _("Pichu"),
@@ -2833,11 +2837,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 
     [SPECIES_PIKACHU] =
     {
-        .baseHP        = 35,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 45 : 35,
         .baseAttack    = 55,
         .baseDefense   = P_UPDATED_STATS >= GEN_6 ? 40 : 30,
         .baseSpeed     = 90,
-        .baseSpAttack  = 50,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 55 : 50,
         .baseSpDefense = P_UPDATED_STATS >= GEN_6 ? 50 : 40,
         .types = MON_TYPES(TYPE_ELECTRIC),
         .catchRate = 190,
@@ -2920,11 +2924,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_COSPLAY_PIKACHU_FORMS
     [SPECIES_PIKACHU_COSPLAY]   =
     {
-        .baseHP        = 35,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 45 : 35,
         .baseAttack    = 55,
         .baseDefense   = P_UPDATED_STATS >= GEN_6 ? 40 : 30,
         .baseSpeed     = 90,
-        .baseSpAttack  = 50,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 55 : 50,
         .baseSpDefense = P_UPDATED_STATS >= GEN_6 ? 50 : 40,
         .types = MON_TYPES(TYPE_ELECTRIC),
         .catchRate = 190,
@@ -2936,7 +2940,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_DANCER, ABILITY_COSTAR, ABILITY_VICTORY_STAR },
+    #else
         .abilities = { ABILITY_STATIC, ABILITY_NONE, ABILITY_LIGHTNING_ROD },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Pikachu"),
         .cryId = CRY_PIKACHU,
@@ -2971,11 +2979,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 
     [SPECIES_PIKACHU_ROCK_STAR] =
     {
-        .baseHP        = 35,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 45 : 35,
         .baseAttack    = 55,
         .baseDefense   = P_UPDATED_STATS >= GEN_6 ? 40 : 30,
         .baseSpeed     = 90,
-        .baseSpAttack  = 50,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 55 : 50,
         .baseSpDefense = P_UPDATED_STATS >= GEN_6 ? 50 : 40,
     #if P_UPDATED_TYPES >= GEN_CUSTOM
         .types = MON_TYPES(TYPE_ELECTRIC, TYPE_STEEL),
@@ -2991,7 +2999,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_STATIC, ABILITY_NONE, ABILITY_LIGHTNING_ROD },
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_DANCER, ABILITY_COSTAR, ABILITY_VICTORY_STAR },
+    #else
+        .abilities = { ABILITY_PUNK_ROCK, ABILITY_OPPORTUNIST, ABILITY_STEELY_SPIRIT },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Pikachu"),
         .cryId = CRY_PIKACHU,
@@ -3026,11 +3038,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 
     [SPECIES_PIKACHU_BELLE] =
     {
-        .baseHP        = 35,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 45 : 35,
         .baseAttack    = 55,
         .baseDefense   = P_UPDATED_STATS >= GEN_6 ? 40 : 30,
         .baseSpeed     = 90,
-        .baseSpAttack  = 50,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 55 : 50,
         .baseSpDefense = P_UPDATED_STATS >= GEN_6 ? 50 : 40,
     #if P_UPDATED_TYPES >= GEN_CUSTOM
         .types = MON_TYPES(TYPE_ELECTRIC, TYPE_ICE),
@@ -3046,7 +3058,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_REFRIGERATE, ABILITY_QUEENLY_MAJESTY, ABILITY_SNOW_WARNING },
+    #else
         .abilities = { ABILITY_STATIC, ABILITY_NONE, ABILITY_LIGHTNING_ROD },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,
         .speciesName = _("Pikachu"),
@@ -3082,11 +3098,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 
     [SPECIES_PIKACHU_POP_STAR] =
     {
-        .baseHP        = 35,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 45 : 35,
         .baseAttack    = 55,
         .baseDefense   = P_UPDATED_STATS >= GEN_6 ? 40 : 30,
         .baseSpeed     = 90,
-        .baseSpAttack  = 50,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 55 : 50,
         .baseSpDefense = P_UPDATED_STATS >= GEN_6 ? 50 : 40,
     #if P_UPDATED_TYPES >= GEN_CUSTOM
         .types = MON_TYPES(TYPE_ELECTRIC, TYPE_FAIRY),
@@ -3102,7 +3118,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_PIXILATE, ABILITY_DAZZLING, ABILITY_FAIRY_AURA },
+    #else
         .abilities = { ABILITY_STATIC, ABILITY_NONE, ABILITY_LIGHTNING_ROD },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,
         .speciesName = _("Pikachu"),
@@ -3138,11 +3158,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 
     [SPECIES_PIKACHU_PHD] =
     {
-        .baseHP        = 35,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 45 : 35,
         .baseAttack    = 55,
         .baseDefense   = P_UPDATED_STATS >= GEN_6 ? 40 : 30,
         .baseSpeed     = 90,
-        .baseSpAttack  = 50,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 55 : 50,
         .baseSpDefense = P_UPDATED_STATS >= GEN_6 ? 50 : 40,
     #if P_UPDATED_TYPES >= GEN_CUSTOM
         .types = MON_TYPES(TYPE_ELECTRIC, TYPE_PSYCHIC),
@@ -3158,7 +3178,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_TINTED_LENS, ABILITY_NEUROFORCE, ABILITY_DOWNLOAD },
+    #else
         .abilities = { ABILITY_STATIC, ABILITY_NONE, ABILITY_LIGHTNING_ROD },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Pikachu"),
         .cryId = CRY_PIKACHU,
@@ -3193,11 +3217,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 
     [SPECIES_PIKACHU_LIBRE] =
     {
-        .baseHP        = 35,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 45 : 35,
         .baseAttack    = 55,
         .baseDefense   = P_UPDATED_STATS >= GEN_6 ? 40 : 30,
         .baseSpeed     = 90,
-        .baseSpAttack  = 50,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 55 : 50,
         .baseSpDefense = P_UPDATED_STATS >= GEN_6 ? 50 : 40,
     #if P_UPDATED_TYPES >= GEN_CUSTOM
         .types = MON_TYPES(TYPE_ELECTRIC, TYPE_FIGHTING),
@@ -3213,7 +3237,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_SCRAPPY, ABILITY_IRON_FIST, ABILITY_MOXIE },
+    #else
         .abilities = { ABILITY_STATIC, ABILITY_NONE, ABILITY_LIGHTNING_ROD },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Pikachu"),
         .cryId = CRY_PIKACHU,

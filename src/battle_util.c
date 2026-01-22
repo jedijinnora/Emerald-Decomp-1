@@ -9888,6 +9888,10 @@ static inline u32 CalcAttackStat(struct DamageCalculationData *damageCalcData, u
     case HOLD_EFFECT_LIGHT_BALL:
         if (atkBaseSpeciesId == SPECIES_PIKACHU && (B_LIGHT_BALL_ATTACK_BOOST >= GEN_4 || IsBattleMoveSpecial(move)))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
+        if (atkBaseSpeciesId == SPECIES_PICHU && B_LIGHT_BALL_ATTACK_BOOST >= GEN_CUSTOM)
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        if (atkBaseSpeciesId == SPECIES_RAICHU && B_LIGHT_BALL_ATTACK_BOOST >= GEN_CUSTOM)
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.2));
         break;
     case HOLD_EFFECT_CHOICE_BAND:
         if (IsBattleMovePhysical(move) && GetActiveGimmick(battlerAtk) != GIMMICK_DYNAMAX)
@@ -10742,7 +10746,10 @@ uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk,
     {
         modifier = CalcTypeEffectivenessMultiplierInternal(move, moveType, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
         if (GetMoveEffect(move) == EFFECT_TWO_TYPED_MOVE)
-            modifier = CalcTypeEffectivenessMultiplierInternal(move, GetMoveArgType(move), battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
+            // modifier = CalcTypeEffectivenessMultiplierInternal(move, GetMoveArgType(move), battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
+            // Jinnora: two typed moves should use the stronger kind of effectiveness instead of overlapping (might be OP)
+            // Flying Press only resisted by Electric/Flying, Electric/Psychic, Electric/Poison, Electric/Fairy, Steel/Ghost
+            modifier = max(modifier, CalcTypeEffectivenessMultiplierInternal(move, GetMoveArgType(move), battlerAtk, battlerDef, recordAbilities, modifier, defAbility));
     }
 
     if (recordAbilities)
