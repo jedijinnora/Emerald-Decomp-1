@@ -309,7 +309,7 @@
 #define FLAG_CAUGHT_TERRAKION                0x110
 #define FLAG_CAUGHT_VIRIZION                 0x111
 #define FLAG_CAUGHT_KELDEO                   0x112
-#define FLAG_SWORDS_OF_JUSTICE_ACTIVE        0x113
+#define FLAG_UNUSED_0x113                    0x113
 #define FLAG_ROUTE_127_PSYCHIC_ENCOUNTER     0x114
 #define FLAG_UNUSED_0x115                    0x115
 #define FLAG_UNUSED_0x116                    0x116
@@ -1554,9 +1554,9 @@
 #define FLAG_LANDMARK_SUNNY_LAGOON                  (SYSTEM_FLAGS + 0x8D)
 #define FLAG_LANDMARK_CREATORS_HOUSE                (SYSTEM_FLAGS + 0x8E)
 #define FLAG_LANDMARK_OBSERVATORY                   (SYSTEM_FLAGS + 0x8F)
-#define FLAG_UNUSED_0x8F0                           (SYSTEM_FLAGS + 0x90) // Unused Flag
-#define FLAG_UNUSED_0x8F1                           (SYSTEM_FLAGS + 0x91) // Unused Flag
-#define FLAG_UNUSED_0x8F2                           (SYSTEM_FLAGS + 0x92) // Unused Flag
+#define FLAG_LANDMARK_SECRET_GROVE                  (SYSTEM_FLAGS + 0x90)
+#define FLAG_LANDMARK_SOOTOPOLIS_GARDENS            (SYSTEM_FLAGS + 0x91)
+#define FLAG_LANDMARK_CALDERA_CAVE                  (SYSTEM_FLAGS + 0x92)
 #define FLAG_UNUSED_0x8F3                           (SYSTEM_FLAGS + 0x93) // Unused Flag
 #define FLAG_UNUSED_0x8F4                           (SYSTEM_FLAGS + 0x94) // Unused Flag
 #define FLAG_UNUSED_0x8F5                           (SYSTEM_FLAGS + 0x95) // Unused Flag

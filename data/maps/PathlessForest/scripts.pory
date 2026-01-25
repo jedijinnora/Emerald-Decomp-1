@@ -1,0 +1,833 @@
+mapscripts PathlessForest_MapScripts {
+    MAP_SCRIPT_ON_LOAD : PathlessForest_OnLoad
+    MAP_SCRIPT_ON_TRANSITION : PathlessForest_OnTransition
+}
+
+// 2, 3, 8, and 9 too close to 131 entrance
+// 22 and 23 too close to secret entrance
+
+script PathlessForest_OnLoad {
+    call(PathlessForest_EventScript_Close_4)
+    call(PathlessForest_EventScript_Close_7)
+    call(PathlessForest_EventScript_Close_10)
+    call(PathlessForest_EventScript_Close_13)
+    call(PathlessForest_EventScript_Close_16)
+    call(PathlessForest_EventScript_Close_17)
+    call(PathlessForest_EventScript_Close_18)
+    call(PathlessForest_EventScript_Close_19)
+    call(PathlessForest_EventScript_Close_20)
+    call(PathlessForest_EventScript_Close_21)
+    call(PathlessForest_EventScript_Close_24)
+    end
+}
+
+script PathlessForest_OnTransition {
+    call_if_ne(VAR_KELDEO_QUEST_STATE, 20, PathlessForest_EventScript_HideKeldeo)
+    end
+}
+
+const LOCALID_KELDEO = 5
+
+script PathlessForest_EventScript_HideKeldeo {
+    setflag(FLAG_TEMP_D)
+    setvar(VAR_TEMP_0, 1)
+    return
+}
+
+script PathlessForest_EventScript_KeldeoTrigger {
+    lock
+    playse(SE_PIN)
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+    applymovement(LOCALID_KELDEO, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    applymovement(LOCALID_KELDEO, PathlessForest_Movement_KeldeoApproach)
+    waitmovement(0)
+    goto(PathlessForest_EventScript_Keldeo)
+    end
+}
+
+script PathlessForest_EventScript_Keldeo {
+    lock
+    faceplayer
+    playmoncry(SPECIES_KELDEO, CRY_MODE_ENCOUNTER)
+    msgbox(format("Keldeo is wondering what took you so long?"))
+    waitmessage
+    closemessage
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+    applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    msgbox(format("…"))
+    applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceLeft)
+    waitmovement(0)
+    applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceUp)
+    waitmovement(0)
+    msgbox(format("Nevermind! Onwards, friend!"))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_KELDEO, PathlessForest_Movement_KeldeoExit)
+    waitmovement(0)
+    applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceUp)
+    waitmovement(0)
+    playse(SE_EXIT)
+    waitse
+    removeobject(LOCALID_KELDEO)
+    setvar(VAR_KELDEO_QUEST_STATE, 30)
+    setvar(VAR_TEMP_0, 1)
+    release
+    end
+}
+
+movement PathlessForest_Movement_KeldeoApproach {
+    walk_left
+    walk_up
+}
+
+movement PathlessForest_Movement_KeldeoExit {
+    walk_right * 4
+    walk_up * 2
+}
+
+// 0x001 grass
+// 0x00E top of tree
+// 0x016 bottom of tree
+// 0x0C6 overlapping trees
+
+script PathlessForest_EventScript_Toggle_0 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_0)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_0)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_1 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_1)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_1)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_2 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_2)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_2)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_3 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_3)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_3)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_4 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_4)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_4)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_5 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_5)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_5)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_6 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_6)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_6)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_7 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_7)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_7)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_8 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_8)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_8)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_9 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_9)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_9)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_10 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_10)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_10)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_11 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_11)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_11)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_12 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_12)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_12)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_13 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_13)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_13)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_14 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_14)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_14)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_15 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_15)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_15)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_16 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_16)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_16)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_17 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_17)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_17)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_18 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_18)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_18)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_19 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_19)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_19)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_20 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_20)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_20)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_21 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_21)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_21)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_22 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_22)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_22)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_23 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_23)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_23)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_24 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_24)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_24)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_25 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_25)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_25)
+    return
+}
+
+script PathlessForest_EventScript_Toggle_26 {
+    clearflag(FLAG_TEMP_F)
+    call_if_set(FLAG_TEMP_1, PathlessForest_EventScript_Open_26)
+    goto_if_set(FLAG_TEMP_F, Common_EventScript_NopReturn)
+    call(PathlessForest_EventScript_Close_26)
+    return
+}
+
+script PathlessForest_EventScript_Close_0 {
+    setmetatile(18, 6, 0x00E, TRUE)
+    setmetatile(18, 7, 0x016, TRUE)
+    setflag(FLAG_TEMP_1)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_0 {
+    setmetatile(18, 6, 0x001, FALSE)
+    setmetatile(18, 7, 0x001, FALSE)
+    clearflag(FLAG_TEMP_1)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_1 {
+    setmetatile(20, 2, 0x0C6, TRUE)
+    setmetatile(20, 3, 0x0C6, TRUE)
+    setmetatile(21, 2, 0x0C6, TRUE)
+    setmetatile(21, 3, 0x0C6, TRUE)
+    setflag(FLAG_TEMP_2)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_1 {
+    setmetatile(20, 2, 0x016, TRUE)
+    setmetatile(20, 3, 0x00E, FALSE)
+    setmetatile(21, 2, 0x016, TRUE)
+    setmetatile(21, 3, 0x00E, FALSE)
+    clearflag(FLAG_TEMP_2)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_2 {
+    setmetatile(32, 2, 0x0C6, TRUE)
+    setmetatile(32, 3, 0x0C6, TRUE)
+    setmetatile(33, 2, 0x0C6, TRUE)
+    setmetatile(33, 2, 0x016, TRUE)
+    setflag(FLAG_TEMP_3)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_2 {
+    setmetatile(32, 2, 0x016, TRUE)
+    setmetatile(32, 3, 0x00E, TRUE)
+    setmetatile(33, 2, 0x001, FALSE)
+    setmetatile(33, 2, 0x001, FALSE)
+    clearflag(FLAG_TEMP_3)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_3 {
+    setmetatile(35, 7, 0x00E, FALSE)
+    setmetatile(35, 8, 0x0C6, TRUE)
+    setmetatile(36, 7, 0x0C6, TRUE)
+    setmetatile(36, 8, 0x0C6, TRUE)
+    setflag(FLAG_TEMP_4)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_3 {
+    setmetatile(35, 7, 0x001, FALSE)
+    setmetatile(35, 8, 0x00E, FALSE)
+    setmetatile(36, 7, 0x016, TRUE)
+    setmetatile(36, 8, 0x00E, FALSE)
+    clearflag(FLAG_TEMP_4)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_4 {
+    setmetatile(9, 9, 0x0C6, TRUE)
+    setmetatile(9, 10, 0x0C6, TRUE)
+    setmetatile(9, 11, 0x016, TRUE)
+    setflag(FLAG_TEMP_5)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_4 {
+    setmetatile(9, 9, 0x016, TRUE)
+    setmetatile(9, 10, 0x001, FALSE)
+    setmetatile(9, 11, 0x001, FALSE)
+    clearflag(FLAG_TEMP_5)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_5 {
+    setmetatile(12, 14, 0x0C6, TRUE)
+    setmetatile(12, 15, 0x0C6, TRUE)
+    setmetatile(13, 14, 0x0C6, TRUE)
+    setmetatile(13, 15, 0x0C6, TRUE)
+    setflag(FLAG_TEMP_6)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_5 {
+    setmetatile(12, 14, 0x016, TRUE)
+    setmetatile(12, 15, 0x00E, FALSE)
+    setmetatile(13, 14, 0x016, TRUE)
+    setmetatile(13, 15, 0x00E, FALSE)
+    clearflag(FLAG_TEMP_6)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_6 {
+    setmetatile(19, 11, 0x0C6, TRUE)
+    setmetatile(19, 12, 0x0C6, TRUE)
+    setflag(FLAG_TEMP_7)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_6 {
+    setmetatile(19, 11, 0x016, TRUE)
+    setmetatile(19, 12, 0x00E, FALSE)
+    clearflag(FLAG_TEMP_7)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_7 {
+    setmetatile(26, 10, 0x0C6, TRUE)
+    setmetatile(26, 11, 0x0C6, TRUE)
+    setmetatile(26, 12, 0x0C6, TRUE)
+    setflag(FLAG_TEMP_8)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_7 {
+    setmetatile(26, 10, 0x016, TRUE)
+    setmetatile(26, 11, 0x001, FALSE)
+    setmetatile(26, 12, 0x00E, FALSE)
+    clearflag(FLAG_TEMP_8)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_8 {
+    setmetatile(33, 9, 0x0C6, TRUE)
+    setmetatile(33, 10, 0x0C6, TRUE)
+    setmetatile(34, 9, 0x0C6, TRUE)
+    setmetatile(34, 10, 0x016, TRUE)
+    setflag(FLAG_TEMP_9)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_8 {
+    setmetatile(33, 9, 0x016, TRUE)
+    setmetatile(33, 10, 0x00E, FALSE)
+    setmetatile(34, 9, 0x016, TRUE)
+    setmetatile(34, 10, 0x001, FALSE)
+    clearflag(FLAG_TEMP_9)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_9 {
+    setmetatile(38, 11, 0x0C6, TRUE)
+    setmetatile(38, 12, 0x0C6, TRUE)
+    setmetatile(39, 9, 0x00E, FALSE)
+    setmetatile(39, 10, 0x0C6, TRUE)
+    setmetatile(39, 11, 0x016, TRUE)
+    setflag(FLAG_TEMP_10)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_9 {
+    setmetatile(38, 11, 0x016, TRUE)
+    setmetatile(38, 12, 0x00E, FALSE)
+    setmetatile(39, 9, 0x001, FALSE)
+    setmetatile(39, 10, 0x001, FALSE)
+    setmetatile(39, 11, 0x001, FALSE)
+    clearflag(FLAG_TEMP_10)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_10 {
+    setmetatile(8, 17, 0x00E, FALSE)
+    setmetatile(8, 18, 0x016, TRUE)
+    setflag(FLAG_TEMP_11)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_10 {
+    setmetatile(8, 17, 0x001, FALSE)
+    setmetatile(8, 18, 0x001, FALSE)
+    clearflag(FLAG_TEMP_11)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_11 {
+    setmetatile(22, 18, 0x00E, FALSE)
+    setmetatile(22, 19, 0x0C6, TRUE)
+    setmetatile(22, 20, 0x016, TRUE)
+    setflag(FLAG_TEMP_12)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_11 {
+    setmetatile(22, 18, 0x001, FALSE)
+    setmetatile(22, 19, 0x001, FALSE)
+    setmetatile(22, 20, 0x001, FALSE)
+    clearflag(FLAG_TEMP_12)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_12 {
+    setmetatile(25, 20, 0x0C6, TRUE)
+    setmetatile(25, 21, 0x0C6, TRUE)
+    setmetatile(26, 20, 0x0C6, TRUE)
+    setmetatile(26, 21, 0x0C6, TRUE)
+    setflag(FLAG_TEMP_13)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_12 {
+    setmetatile(25, 20, 0x016, TRUE)
+    setmetatile(25, 21, 0x00E, FALSE)
+    setmetatile(26, 20, 0x016, TRUE)
+    setmetatile(26, 21, 0x00E, FALSE)
+    clearflag(FLAG_TEMP_13)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_13 {
+    setmetatile(32, 16, 0x0C6, TRUE)
+    setmetatile(32, 17, 0x016, TRUE)
+    setflag(FLAG_TEMP_14)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_13 {
+    setmetatile(32, 16, 0x016, TRUE)
+    setmetatile(32, 17, 0x001, FALSE)
+    clearflag(FLAG_TEMP_14)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_14 {
+    setmetatile(6, 24, 0x0C6, TRUE)
+    setmetatile(6, 25, 0x016, TRUE)
+    setflag(FLAG_TEMP_15)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_14 {
+    setmetatile(6, 24, 0x016, TRUE)
+    setmetatile(6, 25, 0x001, FALSE)
+    clearflag(FLAG_TEMP_15)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_15 {
+    setmetatile(16, 28, 0x00E, FALSE)
+    setmetatile(16, 29, 0x0C6, TRUE)
+    setflag(FLAG_TEMP_15)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_15 {
+    setmetatile(16, 28, 0x001, FALSE)
+    setmetatile(16, 29, 0x00E, TRUE)
+    clearflag(FLAG_TEMP_16)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_16 {
+    setmetatile(25, 26, 0x0C6, TRUE)
+    setmetatile(25, 27, 0x0C6, TRUE)
+    setmetatile(26, 26, 0x0C6, TRUE)
+    setmetatile(26, 27, 0x0C6, TRUE)
+    setmetatile(27, 26, 0x0C6, TRUE)
+    setmetatile(27, 27, 0x0C6, TRUE)
+    setflag(FLAG_TEMP_17)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_16 {
+    setmetatile(25, 26, 0x016, TRUE)
+    setmetatile(25, 27, 0x00E, FALSE)
+    setmetatile(26, 26, 0x016, TRUE)
+    setmetatile(26, 27, 0x00E, FALSE)
+    setmetatile(27, 26, 0x016, TRUE)
+    setmetatile(27, 27, 0x00E, FALSE)
+    clearflag(FLAG_TEMP_17)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_17 {
+    setmetatile(28, 24, 0x00E, FALSE)
+    setmetatile(28, 25, 0x016, TRUE)
+    setflag(FLAG_TEMP_18)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_17 {
+    setmetatile(28, 24, 0x001, FALSE)
+    setmetatile(28, 25, 0x001, FALSE)
+    clearflag(FLAG_TEMP_18)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_18 {
+    setmetatile(37, 23, 0x00E, FALSE)
+    setmetatile(37, 24, 0x0C6, TRUE)
+    setmetatile(37, 25, 0x016, TRUE)
+    setflag(FLAG_TEMP_19)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_18 {
+    setmetatile(37, 23, 0x001, FALSE)
+    setmetatile(37, 24, 0x001, FALSE)
+    setmetatile(37, 25, 0x001, FALSE)
+    clearflag(FLAG_TEMP_19)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_19 {
+    setmetatile(7, 34, 0x00E, FALSE)
+    setmetatile(7, 35, 0x016, TRUE)
+    setflag(FLAG_TEMP_1A)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_19 {
+    setmetatile(7, 34, 0x001, FALSE)
+    setmetatile(7, 35, 0x001, FALSE)
+    clearflag(FLAG_TEMP_1A)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_20 {
+    setmetatile(8, 30, 0x0C6, TRUE)
+    setmetatile(8, 31, 0x016, TRUE)
+    setflag(FLAG_TEMP_1B)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_20 {
+    setmetatile(8, 30, 0x016, TRUE)
+    setmetatile(8, 31, 0x001, TRUE)
+    clearflag(FLAG_TEMP_1B)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_21 {
+    setmetatile(21, 33, 0x0C6, TRUE)
+    setmetatile(21, 34, 0x0C6, TRUE)
+    setflag(FLAG_TEMP_1C)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_21 {
+    setmetatile(21, 33, 0x016, TRUE)
+    setmetatile(21, 34, 0x00E, FALSE)
+    clearflag(FLAG_TEMP_1D)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_22 {
+    setmetatile(29, 31, 0x0C6, TRUE)
+    setmetatile(29, 32, 0x0C6, TRUE)
+    setmetatile(30, 31, 0x0C6, TRUE)
+    setmetatile(30, 32, 0x0C6, TRUE)
+    setflag(FLAG_TEMP_1E)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_22 {
+    setmetatile(29, 31, 0x016, TRUE)
+    setmetatile(29, 32, 0x00E, FALSE)
+    setmetatile(30, 31, 0x016, TRUE)
+    setmetatile(30, 32, 0x00E, FALSE)
+    clearflag(FLAG_TEMP_1E)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_23 {
+    setmetatile(32, 32, 0x00E, FALSE)
+    setmetatile(32, 33, 0x016, TRUE)
+    setmetatile(33, 33, 0x0C6, TRUE)
+    setmetatile(33, 34, 0x016, TRUE)
+    setflag(FLAG_TEMP_1F)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_23 {
+    setmetatile(32, 32, 0x001, FALSE)
+    setmetatile(32, 33, 0x001, FALSE)
+    setmetatile(33, 33, 0x016, TRUE)
+    setmetatile(33, 34, 0x001, FALSE)
+    clearflag(FLAG_TEMP_1F)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_24 {
+    setmetatile(11, 40, 0x0C6, TRUE)
+    setmetatile(11, 41, 0x016, TRUE)
+    setflag(FLAG_TEMP_A)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_24 {
+    setmetatile(11, 40, 0x016, TRUE)
+    setmetatile(11, 41, 0x001, FALSE)
+    clearflag(FLAG_TEMP_A)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_25 {
+    setmetatile(20, 42, 0x00E, FALSE)
+    setmetatile(20, 43, 0x0C6, TRUE)
+    setflag(FLAG_TEMP_B)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_25 {
+    setmetatile(20, 42, 0x001, FALSE)
+    setmetatile(20, 43, 0x00E, FALSE)
+    clearflag(FLAG_TEMP_B)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Close_26 {
+    setmetatile(22, 36, 0x00E, FALSE)
+    setmetatile(22, 37, 0x0C6, TRUE)
+    setmetatile(22, 38, 0x016, TRUE)
+    setflag(FLAG_TEMP_1C)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Open_26 {
+    setmetatile(22, 36, 0x001, FALSE)
+    setmetatile(22, 37, 0x001, FALSE)
+    setmetatile(22, 38, 0x001, FALSE)
+    clearflag(FLAG_TEMP_C)
+    setflag(FLAG_TEMP_F)
+    return
+}
+
+script PathlessForest_EventScript_Farfetchd {
+    lock
+    faceplayer
+    playmoncry(SPECIES_FARFETCHD, CRY_MODE_ENCOUNTER)
+    msgbox(format("Farfetch'd is completely turned around…"))
+    release
+    end
+}
+
+script PathlessForest_EventScript_Psyduck {
+    lock
+    faceplayer
+    playmoncry(SPECIES_PSYDUCK, CRY_MODE_ENCOUNTER)
+    msgbox(format("Is this Psyduck more confused than usual? It's impossible to tell."))
+    release
+    end
+}
+
+script PathlessForest_EventScript_Bidoof {
+    lock
+    faceplayer
+    playmoncry(SPECIES_BIDOOF, CRY_MODE_ENCOUNTER)
+    msgbox(format("Bidoof looks at you with blank eyes."))
+    release
+    end
+}
+
+script PathlessForest_EventScript_Bonsly {
+    lock
+    faceplayer
+    playmoncry(SPECIES_BONSLY, CRY_MODE_ENCOUNTER)
+    msgbox(format("The lost Bonsly is too exhausted to do anything but stumble around."))
+    release
+    end
+}

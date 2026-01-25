@@ -177,6 +177,7 @@ script ArrivalFerry_Room_EventScript_GoFind {
 //cleanup 3
 script ArrivalFerry_Room_EventScript_Finished {
     lock
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     applymovement(LOCALID_ROOMMATE, Common_Movement_FacePlayer)
     msgbox(format("That's much better, isn't it?"))
     msgbox(format("It's important to neaten up after yourself! Cleaning staff are people too, don't give them unnecessary work!"))
@@ -534,6 +535,8 @@ script ArrivalFerry_Room_EventScript_OtherStarter {
     dynmultipush("Shedinja", SPECIES_SHEDINJA)
     dynmultipush("Azurill", SPECIES_AZURILL)
     dynmultipush("Skitty", SPECIES_SKITTY)
+    dynmultipush("Spinda", SPECIES_SPINDA)
+    dynmultipush("Kecleon", SPECIES_KECLEON)
     dynmultipush("Wynaut", SPECIES_WYNAUT)
     dynmultipush("Budew", SPECIES_BUDEW)
     dynmultipush("Chingling", SPECIES_CHINGLING)

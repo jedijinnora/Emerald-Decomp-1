@@ -54,6 +54,7 @@ script MeteorFalls_StevensCave_EventScript_Steven {
     giveitem(ITEM_HEART_SCALE, 3)
     msgbox(format("Steven: I'm heading back to my house in Mossdeep. Maybe training where I first met Beldum will make the difference."))
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     call_if_lt(VAR_TEMP_1, 11, MeteorFalls_StevensCave_EventScript_StevenExitRight)
     call_if_gt(VAR_TEMP_1, 11, MeteorFalls_StevensCave_EventScript_StevenExitLeft)
     waitmovement(0)

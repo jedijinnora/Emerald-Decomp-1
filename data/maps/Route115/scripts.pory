@@ -1,15 +1,25 @@
-const LOCALID_STASH = 19
-
 mapscripts Route115_MapScripts {
     MAP_SCRIPT_ON_TRANSITION : Route115_OnTransition
+	MAP_SCRIPT_ON_RESUME : Route115_OnResume
 }
 
 script Route115_OnTransition {
     call(Route115_EventScript_TryMoveStash)
 	call(Common_EventScript_SetWild_0)
 	call(Common_EventScript_DisableBPReward)
+	call_if_set(FLAG_DEFEATED_COBALION, Route115_EventScript_HideCobalion)
+    call_if_set(FLAG_CAUGHT_COBALION, Route115_EventScript_HideCobalion)
+	call_if_lt(VAR_KELDEO_QUEST_STATE, 40, Route115_EventScript_HideCobalion)
     end
 }
+
+script Route115_OnResume {
+	call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_TryRemoveCaughtEncounter)
+    end
+}
+
+const LOCALID_STASH = 19
+const LOCALID_COBALION = 29
 
 script Route115_EventScript_TryMoveStash {
     goto_if_set(FLAG_HIDE_SECRET_STASH_ROUTE_115, Common_EventScript_NopReturn)
@@ -33,6 +43,65 @@ script Route115_EventScript_Stash {
     setvar(VAR_TEMP_F, ITEM_MOON_STONE)
     call(Common_EventScript_SecretStash)
     end
+}
+
+script Route115_EventScript_HideCobalion {
+    setflag(FLAG_TEMP_1D)
+    return
+}
+
+script Route115_EventScript_Cobalion {
+    lock
+    faceplayer
+    waitse
+    playmoncry(SPECIES_COBALION, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+    setflag(FLAG_SMART_WILD_AI)
+    call(Common_EventScript_CountBadges)
+    switch(var(VAR_NUM_BADGES)) {
+        case 2:
+            createmon(1, 0, SPECIES_COBALION, 30, ITEM_LEPPA_BERRY, move1=MOVE_SACRED_SWORD, move2=MOVE_WORK_UP, move3=MOVE_FLASH_CANNON, move4=MOVE_TAKE_DOWN)
+        case 3:
+            createmon(1, 0, SPECIES_COBALION, 40, ITEM_LEPPA_BERRY, move1=MOVE_SACRED_SWORD, move2=MOVE_WORK_UP, move3=MOVE_FLASH_CANNON, move4=MOVE_TAKE_DOWN)
+        case 4:
+            createmon(1, 0, SPECIES_COBALION, 45, ITEM_LEPPA_BERRY, move1=MOVE_SACRED_SWORD, move2=MOVE_WORK_UP, move3=MOVE_FLASH_CANNON, move4=MOVE_TAKE_DOWN)
+        case 5:
+            createmon(1, 0, SPECIES_COBALION, 55, ITEM_LEPPA_BERRY, move1=MOVE_SACRED_SWORD, move2=MOVE_WORK_UP, move3=MOVE_FLASH_CANNON, move4=MOVE_TAKE_DOWN)
+        case 6:
+            createmon(1, 0, SPECIES_COBALION, 65, ITEM_LEPPA_BERRY, move1=MOVE_SACRED_SWORD, move2=MOVE_WORK_UP, move3=MOVE_FLASH_CANNON, move4=MOVE_TAKE_DOWN)
+        case 7:
+            createmon(1, 0, SPECIES_COBALION, 75, ITEM_LEPPA_BERRY, move1=MOVE_SACRED_SWORD, move2=MOVE_WORK_UP, move3=MOVE_FLASH_CANNON, move4=MOVE_TAKE_DOWN)
+        case 8:
+            createmon(1, 0, SPECIES_COBALION, 85, ITEM_LEPPA_BERRY, move1=MOVE_SACRED_SWORD, move2=MOVE_WORK_UP, move3=MOVE_FLASH_CANNON, move4=MOVE_TAKE_DOWN)
+        default:
+            createmon(1, 0, SPECIES_COBALION, 25, ITEM_LEPPA_BERRY, move1=MOVE_SACRED_SWORD, move2=MOVE_WORK_UP, move3=MOVE_FLASH_CANNON, move4=MOVE_TAKE_DOWN)
+    }
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	special(BattleSetup_StartLegendaryBattle)
+	waitstate
+    clearflag(FLAG_SMART_WILD_AI)
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, Route115_EventScript_DefeatedCobalion)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, Route115_EventScript_RanFromCobalion)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, Route115_EventScript_RanFromCobalion)
+	setflag(FLAG_CAUGHT_COBALION)
+    release
+    end
+}
+
+script Route115_EventScript_DefeatedCobalion {
+	setflag(FLAG_DEFEATED_COBALION)
+	goto(Common_EventScript_RemoveStaticPokemon)
+	end
+}
+
+script Route115_EventScript_RanFromCobalion {
+	setflag(FLAG_DEFEATED_COBALION)
+	setvar(VAR_0x8004, SPECIES_COBALION)
+	goto(Common_EventScript_LegendaryFlewAway)
+	end
 }
 
 script Route115_EventScript_Woman {

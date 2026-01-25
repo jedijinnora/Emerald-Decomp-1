@@ -12019,7 +12019,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .effect = EFFECT_DARK_VOID,
         .power = 0,
         .type = TYPE_DARK,
-        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 80 : B_UPDATED_MOVE_DATA >= GEN_7 ? 50 : 80,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 75 : B_UPDATED_MOVE_DATA >= GEN_7 ? 50 : 80,
         .pp = 10,
         .target = MOVE_TARGET_BOTH,
         .priority = 0,
@@ -14162,20 +14162,29 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Freeze Shock"),
         .description = COMPOUND_STRING(
+        #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+            "Does Ice or Electric damage.\n"
+            "May paralyze the foe."),
+        #else
             "A powerful 2-turn move that\n"
             "may paralyze the foe."),
-        .effect = EFFECT_TWO_TURNS_ATTACK,
-        .power = 140,
+        #endif
+        .effect = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? EFFECT_TWO_TYPED_MOVE : EFFECT_TWO_TURNS_ATTACK,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 140,
         .type = TYPE_ICE,
-        .accuracy = 90,
-        .pp = 5,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 10 : 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .metronomeBanned = TRUE,
         .sleepTalkBanned = TRUE,
         .instructBanned = TRUE,
+    #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+        .argument = { .type = TYPE_ELECTRIC },
+    #else
         .argument.twoTurnAttack = { .stringId = STRINGID_CLOAKEDINAFREEZINGLIGHT },
+    #endif
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_PARALYSIS,
             .chance = 30,
@@ -14191,20 +14200,29 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Ice Burn"),
         .description = COMPOUND_STRING(
+        #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+            "Does Ice or Fire damage.\n"
+            "May burn the foe."),
+        #else
             "A powerful 2-turn move that\n"
             "may inflict a burn."),
-        .effect = EFFECT_TWO_TURNS_ATTACK,
-        .power = 140,
+        #endif
+        .effect = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? EFFECT_TWO_TYPED_MOVE : EFFECT_TWO_TURNS_ATTACK,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 140,
         .type = TYPE_ICE,
-        .accuracy = 90,
-        .pp = 5,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 10 : 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .metronomeBanned = TRUE,
         .sleepTalkBanned = TRUE,
         .instructBanned = TRUE,
+    #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+        .argument = { .type = TYPE_FIRE },
+    #else
         .argument.twoTurnAttack = { .stringId = STRINGID_CLOAKEDINAFREEZINGLIGHT },
+    #endif
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_BURN,
             .chance = 30,
@@ -14344,8 +14362,13 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Flying Press"),
         .description = COMPOUND_STRING(
+        #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+            "This attack does Fighting\n"
+            "or Flying-type damage."),
+        #else
             "This attack does Fighting\n"
             "and Flying-type damage."),
+        #endif
         .effect = EFFECT_TWO_TYPED_MOVE,
         .power = B_UPDATED_MOVE_DATA >= GEN_7 ? 100 : 80,
         .type = TYPE_FIGHTING,
@@ -17320,22 +17343,26 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     [MOVE_BOUNCY_BUBBLE] =
     {
         .name = COMPOUND_STRING("Bouncy Bubble"),
+    #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+        .description = sMegaDrainDescription,
+    #elif B_UPDATED_MOVE_DATA >= GEN_8
         .description = COMPOUND_STRING(
             "An attack that absorbs\n"
-        #if B_UPDATED_MOVE_DATA >= GEN_8
             "all the damage inflicted."),
-        #else
+    #else
+        .description = COMPOUND_STRING(
+            "An attack that absorbs\n"
             "half the damage inflicted."),
-        #endif
+    #endif
         .effect = EFFECT_ABSORB,
-        .power = B_UPDATED_MOVE_DATA >= GEN_8 ? 60 : 90,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 75 : B_UPDATED_MOVE_DATA >= GEN_8 ? 60 : 90,
         .type = TYPE_WATER,
         .accuracy = 100,
-        .pp = B_UPDATED_MOVE_DATA >= GEN_8 ? 20 : 15,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 10 : B_UPDATED_MOVE_DATA >= GEN_8 ? 20 : 15,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
-        .argument = { .absorbPercentage = B_UPDATED_MOVE_DATA >= GEN_8 ? 100 : 50 },
+        .argument = { .absorbPercentage = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 50 : B_UPDATED_MOVE_DATA >= GEN_8 ? 100 : 50 },
         .mirrorMoveBanned = B_UPDATED_MOVE_FLAGS < GEN_8,
         .metronomeBanned = TRUE,
         .healingMove = B_HEAL_BLOCKING >= GEN_6,
@@ -17548,7 +17575,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .makesContact = TRUE,
-        .punchingMove = TRUE,
+        .punchingMove = B_UPDATED_MOVE_FLAGS >= GEN_CUSTOM ? FALSE : TRUE,
         .strikeCount = 2,
         .minimizeDoubleDamage = B_UPDATED_MOVE_FLAGS < GEN_8,
         .metronomeBanned = TRUE,

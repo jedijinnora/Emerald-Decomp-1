@@ -502,7 +502,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseSpeed     = 100,
         .baseSpAttack  = 109,
         .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 75 : 85,
-        .types = MON_TYPES(TYPE_FIRE, TYPE_FLYING),
+        .types = MON_TYPES(TYPE_FIRE, P_UPDATED_TYPES >= GEN_CUSTOM ? TYPE_DRAGON : TYPE_FLYING),
         .catchRate = 45,
     #if P_UPDATED_EXP_YIELDS >= GEN_8
         .expYield = 267,
@@ -517,7 +517,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_BLAZE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_TOUGH_CLAWS : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_DESOLATE_LAND : ABILITY_SOLAR_POWER },
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_LEVITATE, ABILITY_TOUGH_CLAWS, ABILITY_SOLAR_POWER },
+    #else
+        .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_SOLAR_POWER },
+    #endif
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Charizard"),
         .cryId = CRY_CHARIZARD,
@@ -2120,7 +2124,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_RUN_AWAY, ABILITY_GUTS, ABILITY_HUSTLE },
+        .abilities = { P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_ADAPTABILITY : ABILITY_RUN_AWAY, ABILITY_GUTS, ABILITY_HUSTLE },
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Raticate"),
         .cryId = CRY_RATICATE,
@@ -5004,7 +5008,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_FLASH_FIRE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_FLAME_BODY : ABILITY_NONE, ABILITY_DROUGHT },
+        .abilities = { ABILITY_FLASH_FIRE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_SERENE_GRACE : ABILITY_NONE, ABILITY_DROUGHT },
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Vulpix"),
         .cryId = CRY_VULPIX,
@@ -5081,7 +5085,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_FLASH_FIRE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_FLAME_BODY : ABILITY_NONE, ABILITY_DROUGHT },
+        .abilities = { ABILITY_FLASH_FIRE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_SERENE_GRACE : ABILITY_NONE, ABILITY_DROUGHT },
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Ninetales"),
         .cryId = CRY_NINETALES,
@@ -16055,7 +16059,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_STATIC, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_VOLT_ABSORB : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_IRON_FIST : ABILITY_VITAL_SPIRIT },
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_STATIC, ABILITY_MOLD_BREAKER, ABILITY_SHEER_FORCE },
+    #else
+        .abilities = { ABILITY_STATIC, ABILITY_NONE, ABILITY_VITAL_SPIRIT },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,
         .speciesName = _("Elekid"),
@@ -16126,7 +16134,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_STATIC, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_VOLT_ABSORB : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_IRON_FIST : ABILITY_VITAL_SPIRIT },
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_STATIC, ABILITY_MOLD_BREAKER, ABILITY_SHEER_FORCE },
+    #else
+        .abilities = { ABILITY_STATIC, ABILITY_NONE, ABILITY_VITAL_SPIRIT },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,
         .speciesName = _("Electabuzz"),
@@ -16183,17 +16195,13 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_GEN_4_CROSS_EVOS
     [SPECIES_ELECTIVIRE] =
     {
-        .baseHP        = 75,
-        .baseAttack    = 123,
-        .baseDefense   = 67,
-        .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 100 : 95,
-        .baseSpAttack  = 95,
+        .baseHP        = P_UPDATED_STATS >= GEN_CUSTOM ? 90 : 75,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 125 : 123,
+        .baseDefense   = P_UPDATED_STATS >= GEN_CUSTOM ? 85 : 67,
+        .baseSpeed     = P_UPDATED_STATS >= GEN_CUSTOM ? 105 : 95,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 55 : 95,
         .baseSpDefense = 85,
-    #if P_UPDATED_TYPES >= GEN_CUSTOM
-        .types = MON_TYPES(TYPE_ELECTRIC, TYPE_FIGHTING),
-    #else
         .types = MON_TYPES(TYPE_ELECTRIC),
-    #endif
         .catchRate = 30,
     #if P_UPDATED_EXP_YIELDS >= GEN_8
         .expYield = 270,
@@ -16209,7 +16217,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_MOTOR_DRIVE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_VOLT_ABSORB : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_IRON_FIST : ABILITY_VITAL_SPIRIT },
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_MOTOR_DRIVE, ABILITY_TERAVOLT, ABILITY_SHEER_FORCE },
+    #else
+        .abilities = { ABILITY_MOTOR_DRIVE, ABILITY_NONE, ABILITY_VITAL_SPIRIT },
+    #endif
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Electivire"),
         .cryId = CRY_ELECTIVIRE,
@@ -16280,7 +16292,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_FLAME_BODY, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_FLASH_FIRE : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_MEGA_LAUNCHER : ABILITY_VITAL_SPIRIT },
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_FLAME_BODY, ABILITY_MOLD_BREAKER, ABILITY_MEGA_LAUNCHER },
+    #else
+        .abilities = { ABILITY_FLAME_BODY, ABILITY_NONE, ABILITY_VITAL_SPIRIT },
+    #endif
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
         .speciesName = _("Magby"),
@@ -16352,7 +16368,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_FLAME_BODY, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_FLASH_FIRE : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_MEGA_LAUNCHER : ABILITY_VITAL_SPIRIT },
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_FLAME_BODY, ABILITY_MOLD_BREAKER, ABILITY_MEGA_LAUNCHER },
+    #else
+        .abilities = { ABILITY_FLAME_BODY, ABILITY_NONE, ABILITY_VITAL_SPIRIT },
+    #endif
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Magmar"),
         .cryId = CRY_MAGMAR,
@@ -16427,7 +16447,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
-        .abilities = { ABILITY_FLAME_BODY, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_FLASH_FIRE : ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_MEGA_LAUNCHER : ABILITY_VITAL_SPIRIT },
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_FLAME_BODY, ABILITY_TURBOBLAZE, ABILITY_MEGA_LAUNCHER },
+    #else
+        .abilities = { ABILITY_FLAME_BODY, ABILITY_NONE, ABILITY_VITAL_SPIRIT },
+    #endif
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
         .speciesName = _("Magmortar"),

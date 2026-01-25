@@ -1,8 +1,127 @@
-mapscripts RustboroCity_CuttersHouse_MapScripts {}
+mapscripts RustboroCity_CuttersHouse_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : RustboroCity_CuttersHouse_OnTransition
+}
+
+const LOCALID_CUTTER = 1
+const LOCALID_KELDEO = 3
+
+script RustboroCity_CuttersHouse_OnTransition {
+	call_if_not_defeated(TRAINER_CRITICAL_TUTOR, RustboroCity_CuttersHouse_EventScript_HideKeldeo)
+	call_if_ne(VAR_KELDEO_QUEST_STATE, 0, RustboroCity_CuttersHouse_EventScript_HideKeldeo)
+	setobjectxy(LOCALID_CUTTER, 7, 5)
+	setobjectxyperm(LOCALID_CUTTER, 7, 5)
+	setobjectmovementtype(LOCALID_CUTTER, MOVEMENT_TYPE_FACE_RIGHT)
+	call(RustboroCity_CuttersHouse_EventScript_TryMoveCutter)
+	setflag(FLAG_TEMP_E)
+	end
+}
+
+script RustboroCity_CuttersHouse_EventScript_HideKeldeo {
+	setflag(FLAG_TEMP_11)
+	return
+}
+
+script RustboroCity_CuttersHouse_EventScript_TryMoveCutter {
+	goto_if_not_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+	goto_if_ne(VAR_KELDEO_QUEST_STATE, 0, Common_EventScript_NopReturn)
+	setobjectxy(LOCALID_CUTTER, 3, 4)
+	setobjectxyperm(LOCALID_CUTTER, 3, 4)
+	setobjectmovementtype(LOCALID_CUTTER, MOVEMENT_TYPE_FACE_LEFT)
+	return
+}
+
+script RustboroCity_CuttersHouse_EventScript_CutterKeldeo {
+	lock
+	playmoncry(SPECIES_KELDEO, CRY_MODE_ENCOUNTER)
+	applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	applymovement(LOCALID_CUTTER, Common_Movement_WalkInPlaceLeft)
+	msgbox(format("Cutter: I'd come with you, but I'm getting too old for this sort of thing."))
+	playmoncry(SPECIES_KELDEO, CRY_MODE_WEAK)
+	msgbox(format("Keldeo: …"))
+	playse(SE_PIN)
+	applymovement(LOCALID_CUTTER, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(LOCALID_CUTTER, Common_Movement_FacePlayer)
+	waitmovement(0)
+	msgbox(format("Cutter: {PLAYER} is a very capable Trainer, you know."))
+	applymovement(LOCALID_KELDEO, Common_Movement_FacePlayer)
+	waitmovement(0)
+	msgbox(format("What do you say? Willing to go on an adventure?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, RustboroCity_CuttersHouse_EventScript_CriticalMenu)
+	closemessage
+	playmoncry(SPECIES_KELDEO, CRY_MODE_ENCOUNTER)
+	applymovement(LOCALID_KELDEO, RustboroCity_CuttersHouse_Movement_KeldeoHopRight)
+	waitmovement(0)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	goto_if_le(VAR_TEMP_2, 4, KeldeoExit1)
+	goto_if_eq(VAR_TEMP_1, 2, KeldeoExit2)
+	KeldeoExit1:
+	applymovement(LOCALID_KELDEO, RustboroCity_CuttersHouse_Movement_KeldeoExit1)
+	goto(CutterFinish)
+	KeldeoExit2:
+	applymovement(LOCALID_KELDEO, RustboroCity_CuttersHouse_Movement_KeldeoExit2)
+	CutterFinish:
+	waitmovement(LOCALID_KELDEO)
+	playse(SE_EXIT)
+	removeobject(LOCALID_KELDEO)
+	delay(10)
+	call_if_eq(VAR_TEMP_1, 2, RustboroCity_CuttersHouse_EventScript_CutterToPlayer)
+	msgbox(format("Cutter: Full of energy, that one. You'll have to hurry to catch up!"))
+	msgbox(format("Oh, but you don't even know what's going on, do you?"))
+
+	call(RustboroCity_CuttersHouse_EventScript_KeldeoInfo)
+	setvar(VAR_KELDEO_QUEST_STATE, 10)
+	release
+	end
+}
+
+movement RustboroCity_CuttersHouse_Movement_KeldeoHopRight {
+    jump_in_place_right
+    jump_in_place_right
+}
+
+movement RustboroCity_CuttersHouse_Movement_KeldeoExit1 {
+    walk_down * 2
+	walk_right * 3
+	walk_down * 2
+}
+
+movement RustboroCity_CuttersHouse_Movement_KeldeoExit2 {
+	walk_left
+    walk_down * 2
+	walk_right * 4
+	walk_down * 2
+}
+
+
+movement RustboroCity_CuttersHouse_Movement_CutterLeft {
+	walk_left
+}
+
+script RustboroCity_CuttersHouse_EventScript_CutterToPlayer {
+	applymovement(LOCALID_CUTTER, RustboroCity_CuttersHouse_Movement_CutterLeft)
+	waitmovement(0)
+	applymovement(LOCALID_CUTTER, Common_Movement_FacePlayer)
+	waitmovement(0)
+	return
+}
+
+script RustboroCity_CuttersHouse_EventScript_KeldeoInfo {
+	msgbox(format("Cutter: Keldeo used to have a special move called Secret Sword."))
+	msgbox(format("But sometime since leaving the Unova region, Keldeo's lost the ability to use it at full power."))
+	msgbox(format("Somewhere near Pacifidlog Town is the Pathless Forest."))
+	msgbox(format("On the other side is a secret grove where Keldeo can regain the power to use Secret Sword."))
+	msgbox(format("I have full confidence in you, {PLAYER}!"))
+	closemessage
+	return
+}
 
 script RustboroCity_CuttersHouse_EventScript_Cutter {
+	goto_if_unset(FLAG_TEMP_11, RustboroCity_CuttersHouse_EventScript_CutterKeldeo)
 	lock
 	faceplayer
+	goto_if_eq(VAR_KELDEO_QUEST_STATE, 40, RustboroCity_CuttersHouse_EventScript_KeldeoQuestFinished)
 	goto_if_defeated(TRAINER_CRITICAL_TUTOR, RustboroCity_CuttersHouse_EventScript_CriticalMenu)
 	msgbox(format("That determined expression…"))
 	msgbox(format("The limber way you move…"))
@@ -31,9 +150,25 @@ text RustboroCity_CuttersHouse_Text_CutterDefeated {
 	"Cut down! Such style!"
 }
 
+script RustboroCity_CuttersHouse_EventScript_TryKeldeoMenu {
+	goto_if_eq(VAR_KELDEO_QUEST_STATE, 0, Common_EventScript_NopReturn)
+	goto_if_ge(VAR_KELDEO_QUEST_STATE, 100, Common_EventScript_NopReturn)
+	dynmultipush("Keldeo?", 3)
+}
+
+script RustboroCity_CuttersHouse_EventScript_KeldeoQuestFinished {
+	msgbox(format("Cutter: Oh! You found the secret grove and unlocked Keldeo's Secret Sword?"))
+	msgbox(format("Amazing! Well, sounds like you had quite the trip!"))
+	msgbox(format("If you haven't already, be sure to look around the region for the other Swords of Justice."))
+	setvar(VAR_KELDEO_QUEST_STATE, 100)
+	closemessage
+	return
+}
+
 script RustboroCity_CuttersHouse_EventScript_CriticalMenu {
 	dynmultipush("Teach a move", 1)
 	dynmultipush("Rematch", 2)
+	call(RustboroCity_CuttersHouse_EventScript_TryKeldeoMenu)
 	msgbox(format("What do you need today?"))
 	dynmultistack(0,0,FALSE,6,TRUE,1,DYN_MULTICHOICE_CB_NONE)
 	switch(var(VAR_RESULT)) {
@@ -41,9 +176,13 @@ script RustboroCity_CuttersHouse_EventScript_CriticalMenu {
 			call(RustboroCity_CuttersHouse_EventScript_CriticalTutor)
 		case 2:
 			call(RustboroCity_CuttersHouse_EventScript_CriticalBattle)
+		case 3:
+			call(RustboroCity_CuttersHouse_EventScript_KeldeoInfo)
 		default:
+			release
+			end
 	}
-	release
+	goto(RustboroCity_CuttersHouse_EventScript_CriticalMenu)
 	end
 }
 

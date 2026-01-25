@@ -9406,7 +9406,8 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageCalculationData *
         break;
     case ABILITY_IRON_FIST:
         if (IsPunchingMove(move))
-           modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+           //modifier = uq4_12_multiply(modifier, UQ_4_12(1.2));
+           modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_SHEER_FORCE:
         if (MoveIsAffectedBySheerForce(move))
@@ -10746,10 +10747,17 @@ uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk,
     {
         modifier = CalcTypeEffectivenessMultiplierInternal(move, moveType, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
         if (GetMoveEffect(move) == EFFECT_TWO_TYPED_MOVE)
+        {
             // modifier = CalcTypeEffectivenessMultiplierInternal(move, GetMoveArgType(move), battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
             // Jinnora: two typed moves should use the stronger kind of effectiveness instead of overlapping (might be OP)
             // Flying Press only resisted by Electric/Flying, Electric/Psychic, Electric/Poison, Electric/Fairy, Steel/Ghost
-            modifier = max(modifier, CalcTypeEffectivenessMultiplierInternal(move, GetMoveArgType(move), battlerAtk, battlerDef, recordAbilities, modifier, defAbility));
+            // Freeze Shock only resisted by Electric/Steel, Electric/Fire, Electric/Ice
+            // Ice Burn resisted by Water and Fire types with any neutral secondary typing
+
+            // if this proves too overpowered, change it to "includes second type only if advantageous" by removing modifier2
+            uq4_12_t modifier2 = UQ_4_12(1.0);
+            modifier = max(modifier, CalcTypeEffectivenessMultiplierInternal(move, GetMoveArgType(move), battlerAtk, battlerDef, recordAbilities, modifier2, defAbility));
+        }
     }
 
     if (recordAbilities)

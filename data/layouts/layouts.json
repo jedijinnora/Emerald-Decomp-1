@@ -465,7 +465,7 @@
       "id": "LAYOUT_ROUTE131",
       "name": "Route131_Layout",
       "width": 60,
-      "height": 40,
+      "height": 60,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/Route131/border.bin",
@@ -5320,6 +5320,26 @@
       "secondary_tileset": "gTileset_Sootopolis",
       "border_filepath": "data/layouts/SootopolisGardens/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisGardens/map.bin"
+    },
+    {
+      "id": "LAYOUT_PATHLESS_FOREST",
+      "name": "PathlessForest_Layout",
+      "width": 40,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/PathlessForest/border.bin",
+      "blockdata_filepath": "data/layouts/PathlessForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_PATHLESS_FOREST_GROVE",
+      "name": "PathlessForest_Grove_Layout",
+      "width": 24,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/PathlessForest_Grove/border.bin",
+      "blockdata_filepath": "data/layouts/PathlessForest_Grove/map.bin"
     }
   ]
 }

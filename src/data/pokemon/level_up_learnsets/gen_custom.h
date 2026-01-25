@@ -3871,6 +3871,7 @@ static const struct LevelUpMove sElectabuzzLevelUpLearnset[] = {
 
 #if P_GEN_4_CROSS_EVOS
 static const struct LevelUpMove sElectivireLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 0, MOVE_PLASMA_FISTS),
     LEVEL_UP_MOVE( 1, MOVE_DRAIN_PUNCH),
     LEVEL_UP_MOVE( 1, MOVE_WILD_CHARGE),
     LEVEL_UP_MOVE( 1, MOVE_CHARGE_BEAM),
@@ -3888,7 +3889,7 @@ static const struct LevelUpMove sElectivireLevelUpLearnset[] = {
     LEVEL_UP_MOVE(52, MOVE_LIGHT_SCREEN),
     LEVEL_UP_MOVE(58, MOVE_THUNDER),
     LEVEL_UP_MOVE(64, MOVE_THUNDERCLAP),
-    LEVEL_UP_MOVE(70, MOVE_PLASMA_FISTS),
+    LEVEL_UP_MOVE(70, MOVE_VOLT_TACKLE),
     LEVEL_UP_END
 };
 #endif //P_GEN_4_CROSS_EVOS
@@ -19742,6 +19743,7 @@ static const struct LevelUpMove sAlcremieLevelUpLearnset[] = {
     LEVEL_UP_MOVE(40, MOVE_RECOVER),
     LEVEL_UP_MOVE(45, MOVE_MISTY_TERRAIN),
     LEVEL_UP_MOVE(50, MOVE_ENTRAINMENT),
+    LEVEL_UP_MOVE(55, MOVE_SPARKLY_SWIRL),
     LEVEL_UP_END
 };
 #endif //P_FAMILY_MILCERY

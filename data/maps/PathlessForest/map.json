@@ -1,0 +1,318 @@
+{
+  "id": "MAP_PATHLESS_FOREST",
+  "name": "PathlessForest",
+  "layout": "LAYOUT_PATHLESS_FOREST",
+  "music": "MUS_PETALBURG_WOODS",
+  "region_map_section": "MAPSEC_PATHLESS_FOREST",
+  "requires_flash": false,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_PACIFIDLOG_TOWN",
+      "offset": 20,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE132",
+      "offset": -60,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE131",
+      "offset": -40,
+      "direction": "right"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(FARFETCHD)",
+      "x": 12,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PathlessForest_EventScript_Farfetchd",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PSYDUCK)",
+      "x": 5,
+      "y": 42,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PathlessForest_EventScript_Psyduck",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BIDOOF)",
+      "x": 12,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PathlessForest_EventScript_Bidoof",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(BONSLY)",
+      "x": 34,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PathlessForest_EventScript_Bonsly",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KELDEO)",
+      "x": 35,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "PathlessForest_EventScript_Keldeo",
+      "flag": "FLAG_TEMP_D"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 18,
+      "y": 7,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 21,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 32,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 35,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 9,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 12,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 26,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 33,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 38,
+      "y": 12,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 22,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 26,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 32,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 28,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 37,
+      "y": 25,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 7,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 21,
+      "y": 34,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 29,
+      "y": 32,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 32,
+      "y": 33,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 11,
+      "y": 41,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 20,
+      "y": 43,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 22,
+      "y": 37,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 38,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST_GROVE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 39,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_PATHLESS_FOREST_GROVE",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "PathlessForest_EventScript_KeldeoTrigger"
+    }
+  ],
+  "bg_events": [
+
+  ]
+}

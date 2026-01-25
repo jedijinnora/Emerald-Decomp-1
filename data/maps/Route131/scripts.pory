@@ -4,7 +4,50 @@ mapscripts Route131_MapScripts {
 
 script Route131_OnTransition {
 	call(Common_EventScript_DisableBPReward)
+	call_if_ne(VAR_KELDEO_QUEST_STATE, 10, Route131_EventScript_HideKeldeo)
 	end
+}
+
+const LOCALID_KELDEO = 13
+
+script Route131_EventScript_HideKeldeo {
+	setflag(FLAG_TEMP_11)
+	setvar(VAR_TEMP_0, 1)
+	return
+}
+
+script Route131_EventScript_KeldeoTrigger {
+	lock
+	playmoncry(SPECIES_KELDEO, CRY_MODE_ENCOUNTER)
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+	applymovement(LOCALID_KELDEO, Route131_Movement_KeldeoHello)
+	waitmovement(0)
+	msgbox(format("Let's keep moving!"))
+	waitmessage
+	closemessage
+	applymovement(LOCALID_KELDEO, Route131_Movement_KeldeoExit)
+	waitmovement(0)
+	removeobject(LOCALID_KELDEO)
+	setvar(VAR_TEMP_0, 1)
+	setvar(VAR_KELDEO_QUEST_STATE, 20)
+	release
+	end
+}
+
+movement Route131_Movement_KeldeoHello {
+	jump_in_place_right
+	jump_in_place_right
+	walk_in_place_right
+	walk_in_place_left
+	walk_in_place_right
+}
+
+movement Route131_Movement_KeldeoExit {
+	walk_left
+	walk_up * 2
+	walk_left * 3
+	walk_up
+	walk_left * 4
 }
 
 script Route131_EventScript_LittleGirl {
@@ -12,6 +55,17 @@ script Route131_EventScript_LittleGirl {
 	faceplayer
 	msgbox(format("My big brother said there's a statue around here that can teleport you!"))
 	msgbox(format("I haven't found it yet though."))
+	release
+	end
+}
+
+script Route131_EventScript_Hiker {
+	lock
+	faceplayer
+	msgbox(format("Groan…"))
+	msgbox(format("I spent ages trying to find my way out of the Pathless Forest."))
+	msgbox(format("I swear, the trees kept wandering around to block my way!"))
+	msgbox(format("If only I had a Pokémon that knew how to Fly me out of there…"))
 	release
 	end
 }

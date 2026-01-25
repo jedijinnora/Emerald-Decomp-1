@@ -121,7 +121,8 @@
     "Underwater_Route109",
     "SouthernIsland",
     "SkyPillar_Outside",
-    "MtChimney"
+    "MtChimney",
+    "PathlessForest"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -549,7 +550,8 @@
     "SouthernIsland_LatiosGlen",
     "SouthernIsland_LatiasGlen",
     "SouthernIsland_Clearing",
-    "SootopolisGardens"
+    "SootopolisGardens",
+    "PathlessForest_Grove"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

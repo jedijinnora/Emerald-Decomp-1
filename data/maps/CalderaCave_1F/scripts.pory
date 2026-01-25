@@ -1,1 +1,8 @@
-mapscripts CalderaCave_1F_MapScripts {}
+mapscripts CalderaCave_1F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : CalderaCave_1F_OnTransition
+}
+
+script CalderaCave_1F_OnTransition {
+    setflag(FLAG_LANDMARK_CALDERA_CAVE)
+    end
+}

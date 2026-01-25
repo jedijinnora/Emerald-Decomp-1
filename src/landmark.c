@@ -70,6 +70,7 @@ static const u8 LandmarkName_Observatory[] = _("Observatory");
 static const u8 LandmarkName_SootopolisGardens[] = _("Sootopolis Gardens");
 static const u8 LandmarkName_CalderaCave[] = _("Caldera Cave");
 static const u8 LandmarkName_Ferry[] = _("Ferry Terminal");
+static const u8 LandmarkName_SecretGrove[] = _("Secret Grove");
 
 static const struct Landmark Landmark_FlowerShop = {LandmarkName_FlowerShop, FLAG_LANDMARK_FLOWER_SHOP};
 static const struct Landmark Landmark_PetalburgWoods = {LandmarkName_PetalburgWoods, -1};
@@ -122,9 +123,10 @@ static const struct Landmark Landmark_AnarchyIsland = {LandmarkName_AnarchyIslan
 static const struct Landmark Landmark_SunnyLagoon = {LandmarkName_SunnyLagoon, FLAG_LANDMARK_SUNNY_LAGOON};
 static const struct Landmark Landmark_CreatorsHouse = {LandmarkName_CreatorsHouse, FLAG_LANDMARK_CREATORS_HOUSE};
 static const struct Landmark Landmark_Observatory = {LandmarkName_Observatory, FLAG_LANDMARK_OBSERVATORY};
-static const struct Landmark Landmark_SootopolisGardens = {LandmarkName_SootopolisGardens, -1};
-static const struct Landmark Landmark_CalderaCave = {LandmarkName_CalderaCave, -1};
+static const struct Landmark Landmark_SootopolisGardens = {LandmarkName_SootopolisGardens, FLAG_LANDMARK_SOOTOPOLIS_GARDENS};
+static const struct Landmark Landmark_CalderaCave = {LandmarkName_CalderaCave, FLAG_LANDMARK_CALDERA_CAVE};
 static const struct Landmark Landmark_Ferry = {LandmarkName_Ferry, -1};
+static const struct Landmark Landmark_SecretGrove = {LandmarkName_SecretGrove, FLAG_LANDMARK_SECRET_GROVE};
 
 static const struct Landmark *const Landmarks_Route103_2[]  =
 {
@@ -454,6 +456,12 @@ static const struct Landmark *const Landmarks_PowerPlant_0[]  =
     NULL,
 };
 
+static const struct Landmark *const Landmarks_PathlessForest_1[]  =
+{
+    &Landmark_SecretGrove,
+    NULL,
+};
+
 static const struct LandmarkList sLandmarkLists[] =
 {
     {MAPSEC_ROUTE_103, 2, Landmarks_Route103_2},
@@ -514,6 +522,7 @@ static const struct LandmarkList sLandmarkLists[] =
     {MAPSEC_SLATEPORT_BEACH, 0, Landmarks_SlateportBeach_0},
     {MAPSEC_MILLENNIUM_FIELD, 0, Landmarks_MillenniumField_0},
     {MAPSEC_MAUVILLE_POWER_PLANT, 0, Landmarks_PowerPlant_0},
+    {MAPSEC_PATHLESS_FOREST, 1, Landmarks_PathlessForest_1},
     {MAPSEC_NONE, 0, NULL},
 };
 

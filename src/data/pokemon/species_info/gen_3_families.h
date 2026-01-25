@@ -6508,11 +6508,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FLUCTUATING,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_WATER_2),
-    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
-        .abilities = { ABILITY_PRESSURE, ABILITY_OBLIVIOUS, ABILITY_DRIZZLE },
-    #else
-        .abilities = { ABILITY_WATER_VEIL, ABILITY_OBLIVIOUS, ABILITY_PRESSURE },
-    #endif
+        .abilities = { P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_WATER_BUBBLE : ABILITY_WATER_VEIL, ABILITY_OBLIVIOUS, ABILITY_PRESSURE },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Wailmer"),
         .cryId = CRY_WAILMER,
@@ -6584,11 +6580,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FLUCTUATING,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD, EGG_GROUP_WATER_2),
-    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
-        .abilities = { ABILITY_PRESSURE, ABILITY_OBLIVIOUS, ABILITY_PRIMORDIAL_SEA },
-    #else
-        .abilities = { ABILITY_WATER_VEIL, ABILITY_OBLIVIOUS, ABILITY_PRESSURE },
-    #endif        
+        .abilities = { P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_WATER_BUBBLE : ABILITY_WATER_VEIL, ABILITY_OBLIVIOUS, ABILITY_PRESSURE },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Wailord"),
         .cryId = CRY_WAILORD,

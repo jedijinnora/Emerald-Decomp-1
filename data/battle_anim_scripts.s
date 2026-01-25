@@ -7030,6 +7030,9 @@ gBattleAnimMove_FreezeShock::
 	loadspritegfx ANIM_TAG_SPARK_2
 	loadspritegfx ANIM_TAG_ICE_CHUNK @Ice Ball
 	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT @Electric Circle
+.if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+	goto FreezeShockAttack
+.endif
 	choosetwoturnanim FreezeShockCharge FreezeShockAttack
 FreezeShockCharge:
 	createvisualtask AnimTask_HorizontalShake, 5, ANIM_ATTACKER, 2, 16
@@ -7071,6 +7074,9 @@ gBattleAnimMove_IceBurn::
 	loadspritegfx ANIM_TAG_ICE_CHUNK @white color
 	loadspritegfx ANIM_TAG_ICE_CRYSTALS @ice
 	loadspritegfx ANIM_TAG_SMALL_EMBER
+.if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+	goto IceBurnUnleash
+.endif
 	choosetwoturnanim IceBurnCharge, IceBurnUnleash
 	waitforvisualfinish
 	end

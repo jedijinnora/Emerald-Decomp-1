@@ -347,7 +347,6 @@ script MillenniumField_EventScript_KecleonPrize {
     setobjectxyperm(LOCALID_KECLEON, 0, 30)
     applymovement(LOCALID_KECLEON, KecleonAppear)
     waitmovement(LOCALID_KECLEON)
-    clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     msgbox(format("Come back tomorrow to play again!"))
     waitmessage
     release
@@ -428,7 +427,6 @@ script MillenniumField_EventScript_KecleonVanish {
     }
     applymovement(LOCALID_KECLEON, KecleonAppear)
     waitmovement(LOCALID_KECLEON)
-    clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     return
 }
 

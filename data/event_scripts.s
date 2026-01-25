@@ -1395,3 +1395,7 @@ Common_EventScript_DisableBPReward::
 	.include "data/maps/MonsuIsland_Pyramid_Summit/scripts.inc"
 
 	.include "data/maps/SootopolisGardens/scripts.inc"
+
+	.include "data/maps/PathlessForest/scripts.inc"
+
+	.include "data/maps/PathlessForest_Grove/scripts.inc"

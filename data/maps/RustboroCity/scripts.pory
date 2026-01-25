@@ -376,15 +376,18 @@ script RustboroCity_EventScript_MovePlayerForGymScene {
 	lock
 	setvar(VAR_TEMP_0, 1)
 	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
 	switch(var(VAR_TEMP_2)) {
+		case 20:
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepRight)
 		case 21:
-			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUp)
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUpRight)
 		case 22:
-			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUp2)
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUp2Right)
 		case 23:
-			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUp3)
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUp3Right)
 		case 24:
-			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUp4)
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_StepUp4Right)
 		default:
 			goto(RustboroCity_EventScript_GymScene)
 	}
@@ -394,6 +397,7 @@ script RustboroCity_EventScript_MovePlayerForGymScene {
 
 script RustboroCity_EventScript_GymScene {
 	lock
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight)
 	waitmovement(OBJ_EVENT_ID_PLAYER)
 	applymovement(LOCALID_STEVEN, Common_Movement_WalkInPlaceFasterUp)
@@ -474,20 +478,33 @@ script RustboroCity_EventScript_GymScene {
 	end
 }
 
+movement RustboroCity_Movement_StepRight {
+	walk_right
+}
+
 movement RustboroCity_Movement_StepUp {
 	walk_up
+	walk_right
 }
 
-movement RustboroCity_Movement_StepUp2 {
+movement RustboroCity_Movement_StepUpRight {
+	walk_up
+	walk_right
+}
+
+movement RustboroCity_Movement_StepUp2Right {
 	walk_up * 2
+	walk_right
 }
 
-movement RustboroCity_Movement_StepUp3 {
+movement RustboroCity_Movement_StepUp3Right {
 	walk_up * 3
+	walk_right
 }
 
-movement RustboroCity_Movement_StepUp4 {
+movement RustboroCity_Movement_StepUp4Right {
 	walk_up * 4
+	walk_right
 }
 
 movement RustboroCity_Movement_StepLeft {
@@ -500,11 +517,11 @@ movement RustboroCity_Movement_StevenExit {
 }
 
 movement RustboroCity_Movement_RoxanneApproachPlayer {
-	walk_left * 3
+	walk_left * 2
 }
 
 movement RustboroCity_Movement_RoxanneExit {
-	walk_left * 3
+	walk_left * 4
 	walk_down * 7
 }
 
@@ -526,12 +543,12 @@ script RustboroCity_EventScript_FatMan {
 }
 
 script RustboroCity_EventScript_NinjaBoy {
-	lockall
+	lock
 	faceplayer
 	goto_if_set(FLAG_TUTOR_SHROOMISH_SPORE, RustboroCity_EventScript_ShroomishSporeTutor)
 	msgbox(format("Hi! I love the Pokémon Shroomish!"))
 	goto_if_unset(FLAG_TUTOR_SHROOMISH_SPORE, RustboroCity_EventScript_CheckShroomishTutor)
-	releaseall
+	release
 	end
 }
 
@@ -541,7 +558,7 @@ script RustboroCity_EventScript_CheckShroomishTutor {
 	specialvar(VAR_RESULT, CheckPartyForMon)
 	goto_if_eq(VAR_RESULT, TRUE, RustboroCity_EventScript_EnableShroomishTutor)
 	msgbox(format("Aww, you really should go get a Shroomish in Petalburg Woods. Shroomish is such a fun guy!"))
-	releaseall
+	release
 	end
 }
 
@@ -559,7 +576,7 @@ script RustboroCity_EventScript_ShroomishSporeTutor {
 	if(var(VAR_RESULT) == NO) {
 		RustboroCity_EventScript_SporeDeclined:
 		msgbox(format("I guess you aren't a fun guy."))
-		releaseall
+		release
 		end
 	}
 	msgbox(format("All right, show me a real fun Pokémon!"))
@@ -567,7 +584,7 @@ script RustboroCity_EventScript_ShroomishSporeTutor {
 	call(MoveTutor_EventScript_OpenPartyMenu)
 	goto_if_eq(VAR_RESULT, 0, RustboroCity_EventScript_SporeDeclined)
 	msgbox(format("Have fun befuddling your foes with Spore!"))
-	releaseall
+	release
 	end
 }
 

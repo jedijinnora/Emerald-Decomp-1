@@ -1,0 +1,349 @@
+mapscripts PathlessForest_Grove_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : PathlessForest_Grove_OnTransition
+    MAP_SCRIPT_ON_RESUME : PathlessForest_Grove_OnResume
+}
+
+script PathlessForest_Grove_OnTransition {
+    setflag(FLAG_LANDMARK_SECRET_GROVE)
+    call_if_ne(VAR_KELDEO_QUEST_STATE, 30, PathlessForest_Grove_EventScript_HideSwords)
+    call_if_eq(VAR_KELDEO_QUEST_STATE, 40, PathlessForest_Grove_EventScript_MoveKeldeo)
+    call_if_lt(VAR_KELDEO_QUEST_STATE, 30, PathlessForest_Grove_EventScript_HideKeldeo)
+    call_if_set(FLAG_DEFEATED_KELDEO, PathlessForest_Grove_EventScript_HideKeldeo)
+    call_if_set(FLAG_CAUGHT_KELDEO, PathlessForest_Grove_EventScript_HideKeldeo)
+    end
+}
+
+script PathlessForest_Grove_OnResume {
+    call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_TryRemoveCaughtEncounter)
+    end
+}
+
+const LOCALID_KELDEO = 1
+const LOCALID_VIRIZION = 2
+const LOCALID_COBALION = 3
+const LOCALID_TERRAKION = 4
+const LOCALID_BOULDER = 5
+
+script PathlessForest_Grove_EventScript_HideSwords {
+    setflag(FLAG_TEMP_12)
+    setflag(FLAG_TEMP_13)
+    setflag(FLAG_TEMP_14)
+    setflag(FLAG_TEMP_15)
+    setvar(VAR_TEMP_0, 1)
+    return
+}
+
+script PathlessForest_Grove_EventScript_MoveKeldeo {
+    setobjectxy(LOCALID_KELDEO, 12, 10)
+    setobjectxyperm(LOCALID_KELDEO, 12, 10)
+    return
+}
+
+script PathlessForest_Grove_EventScript_HideKeldeo {
+    setflag(FLAG_TEMP_11)
+    return
+}
+
+script PathlessForest_Grove_EventScript_Keldeo {
+    lock
+    faceplayer
+    waitse
+    playmoncry(SPECIES_KELDEO, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+    setflag(FLAG_SMART_WILD_AI)
+    call(Common_EventScript_CountBadges)
+    switch(var(VAR_NUM_BADGES)) {
+        case 2:
+            createmon(1, 0, SPECIES_KELDEO, 30, ITEM_LEPPA_BERRY, move1=MOVE_SECRET_SWORD, move2=MOVE_WORK_UP, move3=MOVE_AQUA_TAIL, move4=MOVE_TAKE_DOWN)
+        case 3:
+            createmon(1, 0, SPECIES_KELDEO, 40, ITEM_LEPPA_BERRY, move1=MOVE_SECRET_SWORD, move2=MOVE_WORK_UP, move3=MOVE_AQUA_TAIL, move4=MOVE_TAKE_DOWN)
+        case 4:
+            createmon(1, 0, SPECIES_KELDEO, 45, ITEM_LEPPA_BERRY, move1=MOVE_SECRET_SWORD, move2=MOVE_WORK_UP, move3=MOVE_AQUA_TAIL, move4=MOVE_TAKE_DOWN)
+        case 5:
+            createmon(1, 0, SPECIES_KELDEO, 55, ITEM_LEPPA_BERRY, move1=MOVE_SECRET_SWORD, move2=MOVE_WORK_UP, move3=MOVE_AQUA_TAIL, move4=MOVE_TAKE_DOWN)
+        case 6:
+            createmon(1, 0, SPECIES_KELDEO, 65, ITEM_LEPPA_BERRY, move1=MOVE_SECRET_SWORD, move2=MOVE_WORK_UP, move3=MOVE_AQUA_TAIL, move4=MOVE_TAKE_DOWN)
+        case 7:
+            createmon(1, 0, SPECIES_KELDEO, 75, ITEM_LEPPA_BERRY, move1=MOVE_SECRET_SWORD, move2=MOVE_WORK_UP, move3=MOVE_AQUA_TAIL, move4=MOVE_TAKE_DOWN)
+        case 8:
+            createmon(1, 0, SPECIES_KELDEO, 85, ITEM_LEPPA_BERRY, move1=MOVE_SECRET_SWORD, move2=MOVE_WORK_UP, move3=MOVE_AQUA_TAIL, move4=MOVE_TAKE_DOWN)
+        default:
+            createmon(1, 0, SPECIES_KELDEO, 25, ITEM_LEPPA_BERRY, move1=MOVE_SECRET_SWORD, move2=MOVE_WORK_UP, move3=MOVE_AQUA_TAIL, move4=MOVE_TAKE_DOWN)
+    }
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	special(BattleSetup_StartLegendaryBattle)
+	waitstate
+    clearflag(FLAG_SMART_WILD_AI)
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, PathlessForest_Grove_EventScript_DefeatedKeldeo)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, PathlessForest_Grove_EventScript_RanFromKeldeo)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, PathlessForest_Grove_EventScript_RanFromKeldeo)
+	setflag(FLAG_CAUGHT_KELDEO)
+    release
+    end
+}
+
+script PathlessForest_Grove_EventScript_DefeatedKeldeo {
+	setflag(FLAG_DEFEATED_KELDEO)
+	goto(Common_EventScript_RemoveStaticPokemon)
+	end
+}
+
+script PathlessForest_Grove_EventScript_RanFromKeldeo {
+	setflag(FLAG_DEFEATED_KELDEO)
+	setvar(VAR_0x8004, SPECIES_KELDEO)
+	goto(Common_EventScript_LegendaryFlewAway)
+	end
+}
+
+script PathlessForest_Grove_EventScript_ResoluteScene {
+    lock
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    switch(var(VAR_TEMP_1)) {
+        case 10: 
+            applymovement(OBJ_EVENT_ID_PLAYER, PathlessForest_Grove_Movement_PlayerLeft)
+        case 11: 
+            applymovement(OBJ_EVENT_ID_PLAYER, PathlessForest_Grove_Movement_PlayerCenter)
+        default: 
+            applymovement(OBJ_EVENT_ID_PLAYER, PathlessForest_Grove_Movement_PlayerRight)
+    }
+    waitmovement(OBJ_EVENT_ID_PLAYER)
+    playmoncry(SPECIES_KELDEO, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_KELDEO, PathlessForest_Grove_Movement_KeldeoHopDown)
+    waitmovement(0)
+    msgbox(format("We're here! It's time for Keldeo to unlock Secret Sword!"))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_KELDEO, PathlessForest_Grove_Movement_Up3)
+    applymovement(OBJ_EVENT_ID_PLAYER, PathlessForest_Grove_Movement_Up3)
+    waitmovement(0)
+
+    fadeoutbgm(0)
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_CAMERA, PathlessForest_Grove_Movement_CameraToRock)
+    waitmovement(OBJ_EVENT_ID_CAMERA)
+    delay(10)
+    applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceLeft)
+    waitmovement(0)
+    applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceUp)
+    waitmovement(0)
+    applymovement(LOCALID_KELDEO, PathlessForest_Grove_Movement_KeldeoHopUp)
+    waitmovement(0)
+    playmoncry(SPECIES_KELDEO, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    delay(20)
+
+    applymovement(LOCALID_COBALION, PathlessForest_Grove_Movement_CobalionToRock)
+    waitmovement(0)
+    playmoncry(SPECIES_COBALION, CRY_MODE_ENCOUNTER)
+
+    applymovement(LOCALID_VIRIZION, PathlessForest_Grove_Movement_VirizionToRock)
+    waitmovement(0)
+    playmoncry(SPECIES_VIRIZION, CRY_MODE_ENCOUNTER)
+
+    applymovement(LOCALID_TERRAKION, PathlessForest_Grove_Movement_TerrakionToRock)
+    waitmovement(0)
+    playmoncry(SPECIES_TERRAKION, CRY_MODE_ENCOUNTER)
+
+    applymovement(LOCALID_KELDEO, PathlessForest_Grove_Movement_KeldeoHopUp)
+    waitmovement(0)
+    applymovement(LOCALID_KELDEO, PathlessForest_Grove_Movement_KeldeoToRock)
+    waitmovement(0)
+    playmoncry(SPECIES_KELDEO, CRY_MODE_ENCOUNTER)
+
+     playse(SE_M_DETECT)
+	dofieldeffectsparkle(11, 10, 0)
+	waitfieldeffect(FLDEFF_SPARKLE)
+     playse(SE_M_DETECT)
+	dofieldeffectsparkle(12, 9, 0)
+	waitfieldeffect(FLDEFF_SPARKLE)
+    playse(SE_M_DETECT)
+	dofieldeffectsparkle(13, 10, 0)
+	waitfieldeffect(FLDEFF_SPARKLE)
+    delay(20)
+
+    playse(SE_M_DETECT)
+	dofieldeffectsparkle(11, 10, 0)
+    playse(SE_M_DETECT)
+	dofieldeffectsparkle(12, 9, 0)
+    playse(SE_M_DETECT)
+	dofieldeffectsparkle(13, 10, 0)
+
+    applymovement(LOCALID_KELDEO, PathlessForest_Grove_Movement_KeldeoHopUp)
+    waitmovement(0)
+    playmoncry(SPECIES_KELDEO, CRY_MODE_ENCOUNTER)
+    waitmoncry
+    playse(SE_M_DETECT)
+	dofieldeffectsparkle(12, 11, 0)
+	waitfieldeffect(FLDEFF_SPARKLE)
+
+    msgbox(format("Keldeo used Secret Sword!"))
+    dofieldeffectsparkle(12, 10, 0)
+	waitfieldeffect(FLDEFF_SPARKLE)
+    playse(SE_M_CUT)
+    waitse
+    setvar(VAR_0x8004, 1)  // vertical pan
+	setvar(VAR_0x8005, 1)  // horizontal pan
+	setvar(VAR_0x8006, 8)  // num shakes
+	setvar(VAR_0x8007, 5)  // shake delay
+	special(ShakeCamera)
+	waitstate
+    applymovement(LOCALID_BOULDER, Movement_SmashRock)
+    waitmovement(0)
+	removeobject(LOCALID_BOULDER)
+    playfanfare(MUS_OBTAIN_ITEM)
+    msgbox(format("It worked! Keldeo is at full power!"))
+    waitmessage
+    closemessage
+
+    playmoncry(SPECIES_KELDEO, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_KELDEO, PathlessForest_Grove_Movement_KeldeoHopUp)
+    waitmovement(0)
+    playmoncry(SPECIES_KELDEO, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_KELDEO, PathlessForest_Grove_Movement_KeldeoHopUp)
+    waitmovement(0)
+
+    applymovement(LOCALID_VIRIZION, PathlessForest_Grove_Movement_VirizionToKeldeo)
+    waitmovement(0)
+    applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceLeft)
+    waitmovement(0)
+    playmoncry(SPECIES_VIRIZION, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_VIRIZION, PathlessForest_Grove_Movement_Leave)
+    delay(10)
+    applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceDown)
+    waitmovement(LOCALID_VIRIZION)
+    removeobject(LOCALID_VIRIZION)
+
+    applymovement(LOCALID_TERRAKION, PathlessForest_Grove_Movement_TerrakionToKeldeo)
+    waitmovement(0)
+    applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    playmoncry(SPECIES_TERRAKION, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_TERRAKION, PathlessForest_Grove_Movement_Leave)
+    delay(10)
+    applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceDown)
+    waitmovement(LOCALID_TERRAKION)
+    removeobject(LOCALID_TERRAKION)
+
+    applymovement(LOCALID_COBALION, PathlessForest_Grove_Movement_CobalionToKeldeo)
+    waitmovement(0)
+    applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceLeft)
+    waitmovement(0)
+    playmoncry(SPECIES_COBALION, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_COBALION, PathlessForest_Grove_Movement_Leave)
+    delay(10)
+    applymovement(LOCALID_KELDEO, Common_Movement_WalkInPlaceDown)
+    waitmovement(LOCALID_COBALION)
+    removeobject(LOCALID_COBALION)
+
+    applymovement(LOCALID_KELDEO, PathlessForest_Grove_Keldeo_Final)
+    waitmovement(0)
+
+    applymovement(OBJ_EVENT_ID_CAMERA, PathlessForest_Grove_Movement_CameraBack)
+    waitmovement(OBJ_EVENT_ID_CAMERA)
+    special(RemoveCameraObject)
+
+    setvar(VAR_TEMP_0, 1)
+    setvar(VAR_KELDEO_QUEST_STATE, 40)
+
+    release
+    end
+}
+
+movement PathlessForest_Grove_Movement_PlayerLeft {
+    walk_right
+    walk_up * 2
+}
+
+movement PathlessForest_Grove_Movement_PlayerCenter {
+    walk_up * 2
+}
+
+movement PathlessForest_Grove_Movement_PlayerRight {
+    walk_left
+    walk_up * 2
+}
+
+movement PathlessForest_Grove_Movement_KeldeoHopUp {
+    jump_in_place_up
+    jump_in_place_up
+}
+
+movement PathlessForest_Grove_Movement_KeldeoHopDown {
+    jump_in_place_down
+    jump_in_place_down
+}
+
+movement PathlessForest_Grove_Movement_Up3 {
+    walk_up * 3
+}
+
+movement PathlessForest_Grove_Movement_KeldeoToRock {
+    walk_right
+    walk_up
+    walk_in_place_up
+}
+
+movement PathlessForest_Grove_Movement_VirizionToRock {
+    walk_down * 2
+    walk_right
+    walk_down
+    walk_right * 2
+    walk_in_place_right
+}
+
+movement PathlessForest_Grove_Movement_VirizionToKeldeo {
+    walk_down
+    walk_in_place_right
+}
+
+movement PathlessForest_Grove_Movement_CobalionToRock {
+    walk_right
+    walk_up
+    walk_right
+    walk_in_place_down
+}
+
+movement PathlessForest_Grove_Movement_CobalionToKeldeo {
+    walk_left
+    walk_down * 2
+    walk_in_place_right
+}
+
+movement PathlessForest_Grove_Movement_TerrakionToRock {
+    walk_left
+    walk_up * 2
+    walk_left
+    walk_in_place_left
+}
+
+movement PathlessForest_Grove_Movement_TerrakionToKeldeo {
+    walk_down
+    walk_in_place_left
+}
+
+movement PathlessForest_Grove_Movement_Leave {
+    walk_down
+    walk_left
+    walk_down * 7
+}
+
+movement PathlessForest_Grove_Keldeo_Final {
+    walk_up
+    walk_in_place_down
+}
+
+movement PathlessForest_Grove_Movement_CameraToRock {
+    walk_up * 3
+    walk_right
+}
+
+movement PathlessForest_Grove_Movement_CameraBack {
+    walk_left
+    walk_down * 3
+}

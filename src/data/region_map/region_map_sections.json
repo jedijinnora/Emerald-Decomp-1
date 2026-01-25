@@ -374,7 +374,7 @@
       "x": 18,
       "y": 10,
       "width": 2,
-      "height": 1
+      "height": 2
     },
     {
       "map_section": "MAPSEC_ROUTE_132",
@@ -1887,6 +1887,14 @@
       "y": 7,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_PATHLESS_FOREST",
+      "name": "Pathless Forest",
+      "x": 17,
+      "y": 11,
+      "width": 1,
+      "height": 2
     }
   ]
 }

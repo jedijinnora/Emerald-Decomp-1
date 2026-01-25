@@ -17,6 +17,10 @@ EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries::
 	clearflag FLAG_DEFEATED_LUGIA
 	clearflag FLAG_DEFEATED_HO_OH
 	clearflag FLAG_DEFEATED_JIRACHI
+	clearflag FLAG_DEFEATED_COBALION
+	clearflag FLAG_DEFEATED_TERRAKION
+	clearflag FLAG_DEFEATED_VIRIZION
+	clearflag FLAG_DEFEATED_KELDEO
 	return
 
 EverGrandeCity_HallOfFame_EventScript_ResetStarterGifts::
