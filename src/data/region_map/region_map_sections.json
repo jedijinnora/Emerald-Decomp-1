@@ -1895,6 +1895,38 @@
       "y": 11,
       "width": 1,
       "height": 2
+    },
+    {
+      "map_section": "MAPSEC_HEAVENGRASS_TOWN",
+      "name": "Heavengrass Town",
+      "x": 11,
+      "y": 8,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_BAMBOO_WILDS",
+      "name": "Bamboo Wilds",
+      "x": 12,
+      "y": 7,
+      "width": 2,
+      "height": 2
+    },
+    {
+      "map_section": "MAPSEC_SLATEPORT_LIGHTHOUSE",
+      "name": "Lighthouse",
+      "x": 9,
+      "y": 11,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SEASIDE_MEADOW",
+      "name": "Seaside Meadow",
+      "x": 10,
+      "y": 9,
+      "width": 3,
+      "height": 1
     }
   ]
 }
