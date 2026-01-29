@@ -1399,3 +1399,13 @@ Common_EventScript_DisableBPReward::
 	.include "data/maps/PathlessForest/scripts.inc"
 
 	.include "data/maps/PathlessForest_Grove/scripts.inc"
+
+	.include "data/maps/DewfordTown_House4/scripts.inc"
+
+	.include "data/maps/HeavengrassTown/scripts.inc"
+
+	.include "data/maps/BambooWilds/scripts.inc"
+
+	.include "data/maps/SeasideMeadow/scripts.inc"
+
+	.include "data/maps/SlateportLighthouse/scripts.inc"
