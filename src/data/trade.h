@@ -1318,7 +1318,7 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("Jan"),
         .otGender = MALE, 
         .sheen = 0,
-        .requestedSpecies = SPECIES_SLAKING
+        .requestedSpecies = SPECIES_VIGOROTH
     },
     [INGAME_TRADE_CORSOLA] =
     {
@@ -1342,7 +1342,7 @@ static const struct InGameTrade sIngameTrades[] =
         .species = SPECIES_MUNNA,
         .ivs = {15, 15, 15, 15, 15, 15},
         .abilityNum = 0,
-        .otId = 11111,
+        .otId = 75337,
         .conditions = {0, 0, 0, 0, 0},
         .personality = 0xE6,//Should be female, Bold nature
         .heldItem = ITEM_WISE_GLASSES,
@@ -1350,23 +1350,23 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("Sandy"),
         .otGender = FEMALE, 
         .sheen = 0,
-        .requestedSpecies = SPECIES_MISDREAVUS
+        .requestedSpecies = SPECIES_MISMAGIUS
     },
     [INGAME_TRADE_MELTAN] =
     {
-        .nickname = _("Mimi"),
+        .nickname = _("T-806"),
         .species = SPECIES_MELTAN,
         .ivs = {15, 15, 15, 15, 15, 15},
         .abilityNum = 0,
-        .otId = 11111,
+        .otId = 38011,
         .conditions = {0, 0, 0, 0, 0},
         .personality = 0xE2,//Should be Lonely nature
-        .heldItem = ITEM_BIG_NUGGET,
+        .heldItem = ITEM_RARE_CANDY,
         .mailNum = -1,
-        .otName = _("Grace"),
-        .otGender = FEMALE, 
+        .otName = _("James"),
+        .otGender = MALE, 
         .sheen = 0,
-        .requestedSpecies = SPECIES_ZORUA
+        .requestedSpecies = SPECIES_ZOROARK
     }
 };
 
