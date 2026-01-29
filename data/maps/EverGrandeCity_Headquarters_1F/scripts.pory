@@ -714,6 +714,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Repeated field medicine use, by ghoulslash, AsparagusEduardo, and Alex N."))
                     msgbox(format("Swap party Pokémon with select button, by Lunos."))
                     msgbox(format("Display Hidden Power type in battle, by Lunos."))
+                    msgbox(format("Wild Pokémon drop held items when fainted, by Soilydude."))
                     goto(FeaturesMenu)
                 case 1: // Creator QOL
                     msgbox(format("Generic item ball script, by Deokishisu."))

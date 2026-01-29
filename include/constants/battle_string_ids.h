@@ -730,9 +730,13 @@
 #define STRINGID_SENDCAUGHTMONPARTYORBOX              728
 #define STRINGID_PKMNSENTTOPCAFTERCATCH               729
 #define STRINGID_TOXICSPIKESBADLYPOISONED             730
-#define STRINGID_PLAYERGOTBP                          731
+#define STRINGID_PLAYERGOTBP                          731 // for BP rewards from trainer battles
+#define STRINGID_PKMNDROPPEDITEM                      732 // for dropping wild held item
+#define STRINGID_ADDEDTOBAG                           733 // for dropping wild held item
+#define STRINGID_BAGISFULL                            734 // for dropping wild held item
 
-#define BATTLESTRINGS_COUNT                           732
+
+#define BATTLESTRINGS_COUNT                           735
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
