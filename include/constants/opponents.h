@@ -205,19 +205,19 @@
 
 //Other Tutors
 #define OTHER_TUTORS_START                  (TYPE_TUTORS_END + 1)
-#define TRAINER_WEATHER_TUTOR_RAIN          (OTHER_TUTORS_START + 0)
-#define TRAINER_WEATHER_TUTOR_SUN           (OTHER_TUTORS_START + 1)
-#define TRAINER_WEATHER_TUTOR_HAIL          (OTHER_TUTORS_START + 2)
-#define TRAINER_WEATHER_TUTOR_SAND          (OTHER_TUTORS_START + 3)
-#define TRAINER_TERRAIN_TUTOR_ELECTRIC      (OTHER_TUTORS_START + 4)
-#define TRAINER_TERRAIN_TUTOR_GRASSY        (OTHER_TUTORS_START + 5)
-#define TRAINER_TERRAIN_TUTOR_MISTY         (OTHER_TUTORS_START + 6)
-#define TRAINER_TERRAIN_TUTOR_PSYCHIC       (OTHER_TUTORS_START + 7)
-#define TRAINER_CRITICAL_TUTOR              (OTHER_TUTORS_START + 8)
-#define TRAINER_BITE_TUTOR                  (OTHER_TUTORS_START + 9)
-#define TRAINER_PUNCH_TUTOR                 (OTHER_TUTORS_START + 10)
+#define TRAINER_WEATHER_TUTOR_RAIN          (OTHER_TUTORS_START + 0) // weather institute
+#define TRAINER_WEATHER_TUTOR_SUN           (OTHER_TUTORS_START + 1) // weather institute
+#define TRAINER_WEATHER_TUTOR_HAIL          (OTHER_TUTORS_START + 2) // weather institute
+#define TRAINER_WEATHER_TUTOR_SAND          (OTHER_TUTORS_START + 3) // weather institute
+#define TRAINER_TERRAIN_TUTOR_ELECTRIC      (OTHER_TUTORS_START + 4) // lavaridge
+#define TRAINER_TERRAIN_TUTOR_GRASSY        (OTHER_TUTORS_START + 5) // lavaridge
+#define TRAINER_TERRAIN_TUTOR_MISTY         (OTHER_TUTORS_START + 6) // lavaridge
+#define TRAINER_TERRAIN_TUTOR_PSYCHIC       (OTHER_TUTORS_START + 7) // lavaridge
+#define TRAINER_CRITICAL_TUTOR              (OTHER_TUTORS_START + 8) // cutter, rustboro
+#define TRAINER_BITE_TUTOR                  (OTHER_TUTORS_START + 9) // ninja, littleroot
+#define TRAINER_PUNCH_TUTOR                 (OTHER_TUTORS_START + 10) // black belt, mossdeep
 #define TRAINER_MULTI_HIT_TUTOR             (OTHER_TUTORS_START + 11)
-#define TRAINER_KOBAYASHI                   (OTHER_TUTORS_START + 12)
+#define TRAINER_KOBAYASHI                   (OTHER_TUTORS_START + 12) // ninja, r119
 #define OTHER_TUTORS_END                    TRAINER_KOBAYASHI
 
 //EV Grinding/Exp. Candy Trainers

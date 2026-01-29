@@ -25029,84 +25029,659 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
 
 /* Other Tutors */
 === TRAINER_WEATHER_TUTOR_RAIN ===
-   Name: Weather
-   Class: Rival
-   Pic: Lady
-   Gender: Male
-   Music: Male
-   Double Battle: No
+   Name: Audra
+   Class: Cooltrainer
+   Pic: Cooltrainer F
+   Gender: Female
+   Music: Cool
+   Double Battle: Yes
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+   Party Size: 6
+   Pool Rules: Weather Doubles
 
-   Absol @ Scope Lens
-   Jolly Nature
-   Level: 16
-   Ability: Super Luck
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 Spe
-   - Night Slash
-   - Psycho Cut
-   - Play Rough
-   - Sucker Punch
+   Politoed @ Damp Rock
+      Bold Nature
+      Level: 16
+      Ability: Drizzle
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Lead / Weather Setter
+      - Surf
+      - Slack Off
+      - Toxic
+      - Hyper Voice
+
+   Pelipper @ Damp Rock
+      Timid Nature
+      Level: 16
+      Ability: Drizzle
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead / Weather Setter
+      - Hydro Pump
+      - Roost
+      - Hurricane
+      - U Turn
+
+   Kingdra @ White Herb
+      Modest Nature
+      Level: 16
+      Ability: Swift Swim
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Weather Abuser
+      - Hydro Pump
+      - Draco Meteor
+      - Ice Beam
+      - Flip Turn
+
+   Kingdra @ Scope Lens
+      Modest Nature
+      Level: 16
+      Ability: Sniper
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Hydro Pump
+      - Draco Meteor
+      - Ice Beam
+      - Focus Energy
+
+   Ludicolo @ Life Orb
+      Timid Nature
+      Level: 16
+      Ability: Swift Swim
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Weather Abuser
+      - Hydro Pump
+      - Ice Beam
+      - Grass Knot
+      - Giga Drain
+
+   Basculegion @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Swift Swim
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Weather Abuser
+      - Liquidation
+      - Aqua Jet
+      - Last Respects
+      - Flip Turn
+
+   Basculegion @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Swift Swim
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Weather Abuser
+      - Liquidation
+      - Aqua Jet
+      - Last Respects
+      - Flip Turn
+
+   Ferrothorn @ Leftovers
+      Relaxed Nature
+      Level: 16
+      Ability: Iron Barbs
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      - Leech Seed
+      - Spikes
+      - Power Whip
+      - Gyro Ball
+
+   Ferrothorn @ Rocky Helmet
+      Relaxed Nature
+      Level: 16
+      Ability: Iron Barbs
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      - Leech Seed
+      - Spikes
+      - Power Whip
+      - Gyro Ball
+
+   Archaludon @ Assault Vest
+      Modest Nature
+      Level: 16
+      Ability: Stamina
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Electro Shot
+      - Body Press
+      - Draco Meteor
+      - Flash Cannon
+
+   Politoed @ Damp Rock
+      Bold Nature
+      Level: 16
+      Ability: Drizzle
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Ace
+      - Surf
+      - Slack Off
+      - Toxic
+      - Hyper Voice
+
+   Pelipper @ Choice Scarf
+      Timid Nature
+      Level: 16
+      Ability: Drizzle
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Ace
+      - Hydro Pump
+      - Ice Beam
+      - Hurricane
+      - U Turn
 
 === TRAINER_WEATHER_TUTOR_SUN ===
-   Name: Weather
-   Class: Rival
-   Pic: Lady
+   Name: Elio
+   Class: Cooltrainer
+   Pic: Cooltrainer M
    Gender: Male
-   Music: Male
-   Double Battle: No
+   Music: Cool
+   Double Battle: Yes
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+   Party Size: 6
+   Pool Rules: Weather Doubles
 
-   Absol @ Scope Lens
-   Jolly Nature
-   Level: 16
-   Ability: Super Luck
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 Spe
-   - Night Slash
-   - Psycho Cut
-   - Play Rough
-   - Sucker Punch
+   Ninetales @ Heat Rock
+      Timid Nature
+      Level: 16
+      Ability: Drought
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead / Weather Setter
+      - Flamethrower
+      - Dazzling Gleam
+      - Energy Ball
+      - Scorching Sands
+
+   Torkoal @ Heat Rock
+      Bold Nature
+      Level: 16
+      Ability: Drought
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      Tags: Lead / Stealth Rock / Weather Setter
+      - Lava Plume
+      - Body Press
+      - Rapid Spin
+      - Stealth Rock
+
+   Torkoal @ Heat Rock
+      Calm Nature
+      Level: 16
+      Ability: Drought
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Lead / Stealth Rock / Weather Setter
+      - Lava Plume
+      - Body Press
+      - Rapid Spin
+      - Stealth Rock
+
+   Torkoal @ Charcoal
+      Modest Nature
+      Level: 16
+      Ability: Drought
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpA
+      Tags: Lead / Stealth Rock / Weather Setter
+      - Eruption
+      - Heat Wave
+      - Rapid Spin
+      - Stealth Rock
+
+   Venusaur @ Wide Lens
+      Timid Nature
+      Level: 16
+      Ability: Chlorophyll
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Weather Abuser
+      - Sleep Powder
+      - Weather Ball
+      - Giga Drain
+      - Sludge Bomb
+
+   Charizard @ Life Orb
+      Modest Nature
+      Level: 16
+      Ability: Solar Power
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Weather Abuser
+      - Fire Blast
+      - Scorching Sands
+      - Air Slash
+      - Dragon Pulse
+
+   Ninetales @ Heat Rock
+      Timid Nature
+      Level: 16
+      Ability: Drought
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 Spe
+      Tags: Ace
+      - Moonblast
+      - Encore
+      - Healing Wish
+      - Will O Wisp
+
+   Ninetales @ Expert Belt
+      Timid Nature
+      Level: 16
+      Ability: Drought
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Ace
+      - Moonblast
+      - Encore
+      - Flamethrower
+      - Extrasensory
+
+   Torkoal @ Charcoal
+      Modest Nature
+      Level: 16
+      Ability: Drought
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpA
+      Tags: Ace
+      - Eruption
+      - Heat Wave
+      - Rapid Spin
+      - Body Press
 
 === TRAINER_WEATHER_TUTOR_HAIL ===
-   Name: Weather
-   Class: Rival
-   Pic: Lady
-   Gender: Male
-   Music: Male
-   Double Battle: No
+   Name: Yuki
+   Class: Pkmn Ranger
+   Pic: Pokemon Ranger F
+   Gender: Female
+   Music: Cool
+   Double Battle: Yes
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+   Party Size: 6
+   Pool Rules: Weather Doubles
 
-   Absol @ Scope Lens
-   Jolly Nature
-   Level: 16
-   Ability: Super Luck
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 Spe
-   - Night Slash
-   - Psycho Cut
-   - Play Rough
-   - Sucker Punch
+   Ninetales Alola @ Icy Rock
+      Timid Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead / Weather Setter
+      - Freeze Dry
+      - Dazzling Gleam
+      - Aurora Veil
+      - Blizzard
+
+   Abomasnow @ Icy Rock
+      Modest Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Lead / Weather Setter
+      - Giga Drain
+      - Blizzard
+      - Aurora Veil
+      - Earth Power
+
+   Aurorus @ Power Herb
+      Modest Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpD
+      Tags: Lead / Weather Setter
+      - Meteor Beam
+      - Blizzard
+      - Discharge
+      - Diamond Storm
+
+   Aurorus @ Power Herb
+      Timid Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Lead / Weather Setter
+      - Meteor Beam
+      - Blizzard
+      - Discharge
+      - Diamond Storm
+
+   Ninetales Alola @ Icy Rock
+      Timid Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Ace
+      - Freeze Dry
+      - Dazzling Gleam
+      - Aurora Veil
+      - Blizzard
+
+   Aurorus @ Power Herb
+      Modest Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpD
+      Tags: Ace
+      - Meteor Beam
+      - Blizzard
+      - Discharge
+      - Diamond Storm
+
+   Aurorus @ Power Herb
+      Timid Nature
+      Level: 16
+      Ability: Snow Warning
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Ace
+      - Meteor Beam
+      - Blizzard
+      - Discharge
+      - Diamond Storm
 
 === TRAINER_WEATHER_TUTOR_SAND ===
-   Name: Weather
-   Class: Rival
-   Pic: Lady
+   Name: Remal
+   Class: Pkmn Ranger
+   Pic: Pokemon Ranger M
    Gender: Male
-   Music: Male
-   Double Battle: No
+   Music: Cool
+   Double Battle: Yes
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+   Party Size: 6
+   Pool Rules: Weather Doubles
 
-   Absol @ Scope Lens
-   Jolly Nature
-   Level: 16
-   Ability: Super Luck
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 Spe
-   - Night Slash
-   - Psycho Cut
-   - Play Rough
-   - Sucker Punch
+   Tyranitar @ Smooth Rock
+      Sassy Nature
+      Level: 16
+      Ability: Sand Stream
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Lead / Stealth Rock / Weather Setter
+      - Stealth Rock
+      - Crunch
+      - Ice Beam
+      - Thunder Wave
+
+   Tyranitar @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Sand Stream
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Lead / Weather Setter
+      - Stone Edge
+      - Crunch
+      - Low Kick
+      - Ice Punch
+
+   Scizor @ Occa Berry
+      Jolly Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Swords Dance
+      - Roost
+      - Bullet Punch
+      - Bug Bite
+
+   Scizor @ Sitrus Berry
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 252 SpD
+      - Knock Off
+      - Defog
+      - Bullet Punch
+      - U Turn
+
+   Scizor @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Knock Off
+      - Dual Wingbeat
+      - Bullet Punch
+      - U Turn
+
+   Mamoswine @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Icicle Crash
+      - Earthquake
+      - Ice Shard
+      - Knock Off
+
+   Mamoswine @ Loaded Dice
+      Jolly Nature
+      Level: 16
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Icicle Spear
+      - High Horsepower
+      - Ice Shard
+      - Rock Blast
+
+   Skarmory @ Leftovers
+      Impish Nature
+      Level: 16
+      Ability: Sharpness
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 Spe
+      - Spikes
+      - Roost
+      - Whirlwind
+      - Aerial Ace
+
+   Skarmory @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      - Drill Run
+      - Swords Dance
+      - Cut
+      - Aerial Ace
+
+   Excadrill @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Hazard Removal / Weather Abuser
+      - High Horsepower
+      - Iron Head
+      - Rock Slide
+      - Rapid Spin
+
+   Excadrill @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Hazard Removal / Weather Abuser
+      - High Horsepower
+      - Iron Head
+      - Rock Slide
+      - Rapid Spin
+
+   Excadrill @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Hazard Removal / Weather Abuser
+      - High Horsepower
+      - Iron Head
+      - Rock Slide
+      - Rapid Spin
+
+   Excadrill @ Life Orb
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Hazard Removal / Weather Abuser
+      - High Horsepower
+      - Iron Head
+      - Swords Dance
+      - Rapid Spin
+
+   Excadrill @ Air Balloon
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Hazard Removal / Weather Abuser
+      - High Horsepower
+      - Iron Head
+      - Swords Dance
+      - Rapid Spin
+
+   Helioptile @ Magnet
+      Modest Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 4 SpD / 252 Spe
+      Tags: Weather Abuser
+      - Parabolic Charge
+      - Grass Knot
+      - Thunderbolt
+      - Hyper Voice
+
+   Sandaconda @ Leftovers
+      Jolly Nature
+      Level: 16
+      Ability: Shed Skin
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 SpD / 252 Spe
+      - Coil
+      - High Horsepower
+      - Rest
+      - Scale Shot
+
+   Sandaconda @ Rocky Helmet
+      Jolly Nature
+      Level: 16
+      Ability: Shed Skin
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 SpD / 252 Spe
+      - Coil
+      - High Horsepower
+      - Rest
+      - Stone Edge
+
+   Houndstone @ Focus Sash
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Weather Abuser
+      - Last Respects
+      - Endeavor
+      - Destiny Bond
+      - Crunch
+
+   Houndstone @ Spell Tag
+      Adamant Nature
+      Level: 16
+      Ability: Sand Rush
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Weather Abuser
+      - Last Respects
+      - Endeavor
+      - Destiny Bond
+      - Crunch
+
+   Tyranitar @ Choice Band
+      Adamant Nature
+      Level: 16
+      Ability: Sand Stream
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 SpD / 252 Spe
+      Tags: Ace
+      - Rock Slide
+      - Crunch
+      - Low Kick
+      - Ice Punch
+
+   Tyranitar @ Assault Vest
+      Adamant Nature
+      Level: 16
+      Ability: Sand Stream
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 Spe
+      Tags: Ace
+      - Rock Slide
+      - Crunch
+      - Dragon Tail
+      - Ice Punch
+
+   Tyranitar @ Weakness Policy
+      Jolly Nature
+      Level: 16
+      Ability: Sand Stream
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Atk / 252 Spe
+      Tags: Ace
+      - Rock Slide
+      - Crunch
+      - Low Kick
+      - Dragon Dance
+
+   Hippowdon @ Leftovers
+      Impish Nature
+      Level: 16
+      Ability: Sand Stream
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Ace
+      - High Horsepower
+      - Toxic
+      - Slack Off
+      - Roar
+
+   Hippowdon @ Rocky Helmet
+      Impish Nature
+      Level: 16
+      Ability: Sand Stream
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      Tags: Ace
+      - High Horsepower
+      - Toxic
+      - Slack Off
+      - Whirlwind
 
 === TRAINER_TERRAIN_TUTOR_ELECTRIC ===
    Name: Terrain
@@ -25316,16 +25891,16 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    - Ice Fang
    - Poison Fang
 
-   Avalugg Hisui @ Leftovers
-   Adamant Nature
+   Raticate @ Focus Sash
+   Jolly Nature
    Level: 16
-   Ability: Strong Jaw
+   Ability: Adaptability
    IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 252 HP / 252 Atk / 4 SpD
-   - Stone Edge
-   - Mountain Gale
+   EVs: 252 Atk / 4 Def / 252 Spe
+   - Hyper Fang
    - Crunch
-   - Recover
+   - Quick Attack
+   - Endeavor
 
    Drednaw @ Assault Vest
    Adamant Nature
@@ -25378,7 +25953,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    - Shadow Punch
    - Earthquake
    - Ice Punch
-   - Dynamic Punch
+   - Drain Punch
 
    Infernape @ Expert Belt
    Jolly Nature
@@ -27376,37 +27951,37 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
 
    Staryu @ Eviolite
-   Jolly Nature
-   Level: 16
-   Ability: Regenerator
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 Spe
-   - Flip Turn
-   - Thunder Wave
-   - Reflect
-   - Confuse Ray
+      Jolly Nature
+      Level: 16
+      Ability: Regenerator
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Flip Turn
+      - Thunder Wave
+      - Reflect
+      - Confuse Ray
 
    Scyther @ Eviolite
-   Adamant Nature
-   Level: 16
-   Ability: Technician
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 Spe
-   - Dual Wingbeat
-   - Bug Bite
-   - U Turn
-   - Roost
+      Adamant Nature
+      Level: 16
+      Ability: Technician
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Dual Wingbeat
+      - Bug Bite
+      - U Turn
+      - Roost
 
    Starmie @ Assault Vest
-   Modest Nature
-   Level: 16
-   Ability: Victory Star
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 SpA / 252 Spe
-   - Hydro Pump
-   - Psyshock
-   - Blizzard
-   - Thunder
+      Modest Nature
+      Level: 16
+      Ability: Victory Star
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Hydro Pump
+      - Psyshock
+      - Blizzard
+      - Thunder
 
 === TRAINER_BB_MIRABELLE ===
    Name: Mirabelle
@@ -27418,37 +27993,37 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
 
    Clefable @ Life Orb
-   Bold Nature
-   Level: 16
-   Ability: Magic Guard
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 SpA
-   - Calm Mind
-   - Draining Kiss
-   - Fire Blast
-   - Softboiled
+      Bold Nature
+      Level: 16
+      Ability: Magic Guard
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 SpA
+      - Calm Mind
+      - Draining Kiss
+      - Fire Blast
+      - Softboiled
 
    Butterfree @ Leftovers
-   Timid Nature
-   Level: 16
-   Ability: Compound Eyes
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 SpA / 252 Spe
-   - Sleep Powder
-   - Pollen Puff
-   - Quiver Dance
-   - Hurricane
+      Timid Nature
+      Level: 16
+      Ability: Compound Eyes
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Sleep Powder
+      - Pollen Puff
+      - Quiver Dance
+      - Hurricane
 
    Clefairy @ Eviolite
-   Bold Nature
-   Level: 16
-   Ability: Friend Guard
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 252 HP / 252 Def / 4 SpD
-   - Life Dew
-   - Follow Me
-   - Charm
-   - Seismic Toss
+      Bold Nature
+      Level: 16
+      Ability: Friend Guard
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpD
+      - Life Dew
+      - Follow Me
+      - Charm
+      - Seismic Toss
 
 === TRAINER_BB_ANTONIO ===
    Name: Antonio
@@ -27460,37 +28035,37 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
 
    Dhelmise @ Assault Vest
-   Adamant Nature
-   Level: 16
-   Ability: Steelworker
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 252 HP / 252 Atk / 4 SpD
-   - Power Whip
-   - Anchor Shot
-   - Shadow Claw
-   - Body Press
+      Adamant Nature
+      Level: 16
+      Ability: Steelworker
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 SpD
+      - Power Whip
+      - Anchor Shot
+      - Shadow Claw
+      - Body Press
 
    Wailord @ Air Balloon
-   Adamant Nature
-   Level: 16
-   Ability: Water Bubble
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 252 Atk / 4 Def / 252 Spe
-   - Noble Roar
-   - Bounce
-   - Waterfall
-   - Self Destruct
+      Adamant Nature
+      Level: 16
+      Ability: Water Bubble
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 4 Def / 252 Spe
+      - Noble Roar
+      - Bounce
+      - Waterfall
+      - Self Destruct
 
    Ampharos @ Magnet
-   Modest Nature
-   Level: 16
-   Ability: Static
-   IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 252 HP / 4 Def / 252 SpA
-   - Discharge
-   - Signal Beam
-   - Thunder
-   - Tail Glow
+      Modest Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpA
+      - Discharge
+      - Signal Beam
+      - Thunder
+      - Tail Glow
 
 === TRAINER_BB_LUISA ===
    Name: Luisa
@@ -27502,37 +28077,37 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
 
    Drifblim @ Focus Sash
-   Lonely Nature
-   Level: 16
-   Ability: Unburden
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 Spe
-   - Strength Sap
-   - Tailwind
-   - Destiny Bond
-   - Explosion
+      Lonely Nature
+      Level: 16
+      Ability: Unburden
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Strength Sap
+      - Tailwind
+      - Destiny Bond
+      - Explosion
 
    Claydol @ Weakness Policy
-   Adamant Nature
-   Level: 16
-   Ability: Levitate
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 252 HP / 252 Atk / 4 Spe
-   - Explosion
-   - Earthquake
-   - Zen Headbutt
-   - Rock Slide
+      Adamant Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      - Explosion
+      - Earthquake
+      - Zen Headbutt
+      - Rock Slide
 
    Gastrodon @ Leftovers
-   Bold Nature
-   Level: 16
-   Ability: Storm Drain
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 170 HP / 170 Def / 170 SpA
-   - Earth Power
-   - Ice Beam
-   - Muddy Water
-   - Toxic
+      Bold Nature
+      Level: 16
+      Ability: Storm Drain
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpA
+      - Earth Power
+      - Ice Beam
+      - Muddy Water
+      - Toxic
 
 === TRAINER_BB_JULIETA ===
    Name: Julieta
@@ -27544,37 +28119,37 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
 
    Wyrdeer @ Assault Vest
-   Impish Nature
-   Level: 16
-   Ability: Intimidate
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 170 HP / 170 Atk / 170 SpD
-   - Horn Leech
-   - Psyshield Bash
-   - Body Slam
-   - Bulldoze
+      Impish Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Atk / 170 SpD
+      - Horn Leech
+      - Psyshield Bash
+      - Body Slam
+      - Bulldoze
 
    Comfey @ Big Root
-   Modest Nature
-   Level: 16
-   Ability: Triage
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 252 HP / 252 SpA / 4 Spe
-   - Draining Kiss
-   - Giga Drain
-   - Heal Pulse
-   - Aromatherapy
+      Modest Nature
+      Level: 16
+      Ability: Triage
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 SpA / 4 Spe
+      - Draining Kiss
+      - Giga Drain
+      - Heal Pulse
+      - Aromatherapy
 
    Venusaur @ Leftovers
-   Modest Nature
-   Level: 16
-   Ability: Chlorophyll
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 SpA / 252 Spe
-   - Weather Ball
-   - Solar Beam
-   - Sludge Bomb
-   - Sleep Powder
+      Modest Nature
+      Level: 16
+      Ability: Chlorophyll
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      - Weather Ball
+      - Solar Beam
+      - Sludge Bomb
+      - Sleep Powder
 
 === TRAINER_BB_CAMILO ===
    Name: Camilo
@@ -27586,37 +28161,37 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
 
    Blaziken @ Weakness Policy
-   Hasty Nature
-   Level: 16
-   Ability: Speed Boost
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 Spe
-   - Coaching
-   - Overheat
-   - High Jump Kick
-   - Brave Bird
+      Hasty Nature
+      Level: 16
+      Ability: Speed Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Coaching
+      - Overheat
+      - High Jump Kick
+      - Brave Bird
 
    Marowak Alola @ Thick Club
-   Adamant Nature
-   Level: 16
-   Ability: Rock Head
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 252 HP / 252 Atk / 4 Spe
-   - Flare Blitz
-   - Shadow Bone
-   - Bonemerang
-   - Will O Wisp
+      Adamant Nature
+      Level: 16
+      Ability: Rock Head
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      - Flare Blitz
+      - Shadow Bone
+      - Bonemerang
+      - Will O Wisp
 
    Torkoal @ Heat Rock
-   Bold Nature
-   Level: 16
-   Ability: Drought
-   IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Def / 252 SpA
-   - Heat Wave
-   - Iron Defense
-   - Body Press
-   - Toxic
+      Bold Nature
+      Level: 16
+      Ability: Drought
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Def / 252 SpA
+      - Heat Wave
+      - Iron Defense
+      - Body Press
+      - Toxic
 
 === TRAINER_BB_PEDRO ===
    Name: Pedro
@@ -27628,37 +28203,37 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
 
    Swampert @ Weakness Policy
-   Jolly Nature
-   Level: 2
-   Ability: Swift Swim
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 Spe
-   - Earthquake
-   - Waterfall
-   - Power Up Punch
-   - Ice Punch
+      Jolly Nature
+      Level: 2
+      Ability: Swift Swim
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Earthquake
+      - Waterfall
+      - Power Up Punch
+      - Ice Punch
 
    Krookodile @ Assault Vest
-   Jolly Nature
-   Level: 16
-   Ability: Intimidate
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 Spe
-   - Knock Off
-   - Earthquake
-   - Rock Slide
-   - Snarl
+      Jolly Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Knock Off
+      - Earthquake
+      - Rock Slide
+      - Snarl
 
    Tangrowth @ Assault Vest
-   Relaxed Nature
-   Level: 16
-   Ability: Regenerator
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 170 Atk / 170 SpA / 170 SpD
-   - Knock Off
-   - Power Whip
-   - Acid Spray
-   - Giga Drain
+      Relaxed Nature
+      Level: 16
+      Ability: Regenerator
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 Atk / 170 SpA / 170 SpD
+      - Knock Off
+      - Power Whip
+      - Acid Spray
+      - Giga Drain
 
 === TRAINER_BB_ALMA ===
    Name: Alma
@@ -27670,36 +28245,36 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
 
    Rotom-Heat @ Leftovers
-   Timid Nature
-   Level: 2
-   Ability: Levitate
-   EVs: 252 HP / 4 SpA / 252 Spe
-   - Overheat
-   - Discharge
-   - Nasty Plot
-   - Thunder
+      Timid Nature
+      Level: 2
+      Ability: Levitate
+      EVs: 252 HP / 4 SpA / 252 Spe
+      - Overheat
+      - Discharge
+      - Nasty Plot
+      - Thunder
 
    Scrafty @ Assault Vest
-   Adamant Nature
-   Level: 16
-   Ability: Intimidate
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 SpD
-   - Fake Out
-   - Drain Punch
-   - Knock Off
-   - Super Fang
+      Adamant Nature
+      Level: 16
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 SpD
+      - Fake Out
+      - Drain Punch
+      - Knock Off
+      - Super Fang
 
    Milotic @ Leftovers
-   Bold Nature
-   Level: 16
-   Ability: Competitive
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 252 HP / 252 Def / 4 SpA
-   - Icy Wind
-   - Muddy Water
-   - Toxic
-   - Recover
+      Bold Nature
+      Level: 16
+      Ability: Competitive
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def / 4 SpA
+      - Icy Wind
+      - Muddy Water
+      - Toxic
+      - Recover
 
 === TRAINER_BB_BRAWLY ===
    Name: Brawly
@@ -27711,37 +28286,37 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
 
    Machamp @ Lum Berry
-   Adamant Nature
-   Level: 16
-   Ability: No Guard
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 252 HP / 252 Atk / 4 Spe
-   - Dynamic Punch
-   - Thunder Punch
-   - Payback
-   - Bullet Punch
+      Adamant Nature
+      Level: 16
+      Ability: No Guard
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Atk / 4 Spe
+      - Dynamic Punch
+      - Thunder Punch
+      - Payback
+      - Bullet Punch
 
    Medicham @ Life Orb
-   Jolly Nature
-   Level: 16
-   Ability: Pure Power
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 Spe
-   - High Jump Kick
-   - Zen Headbutt
-   - Bullet Punch
-   - Ice Punch
+      Jolly Nature
+      Level: 16
+      Ability: Pure Power
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - High Jump Kick
+      - Zen Headbutt
+      - Bullet Punch
+      - Ice Punch
 
    Hariyama @ Leftovers
-   Adamant Nature
-   Level: 16
-   Ability: Guts
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 170 Atk / 170 Def / 170 SpD
-   - Facade
-   - Drain Punch
-   - Bulk Up
-   - Knock Off
+      Adamant Nature
+      Level: 16
+      Ability: Guts
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 Atk / 170 Def / 170 SpD
+      - Facade
+      - Drain Punch
+      - Bulk Up
+      - Knock Off
 
 === TRAINER_BB_PHOEBE ===
    Name: Phoebe
@@ -27753,37 +28328,37 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
 
    Dusclops @ Eviolite
-   Bold Nature
-   Level: 16
-   Ability: Pressure
-   IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Def / 252 SpD
-   - Curse
-   - Pain Split
-   - Night Shade
-   - Taunt
+      Bold Nature
+      Level: 16
+      Ability: Pressure
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Def / 252 SpD
+      - Curse
+      - Pain Split
+      - Night Shade
+      - Taunt
 
    Sableye @ Leftovers
-   Calm Nature
-   Level: 16
-   Ability: Prankster
-   IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 252 HP / 4 Def / 252 SpD
-   - Screech
-   - Foul Play
-   - Will O Wisp
-   - Recover
+      Calm Nature
+      Level: 16
+      Ability: Prankster
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 Def / 252 SpD
+      - Screech
+      - Foul Play
+      - Will O Wisp
+      - Recover
 
    Dusknoir @ Leftovers
-   Impish Nature
-   Level: 16
-   Ability: Perish Body
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 SpD
-   - Protect
-   - Pain Split
-   - Shadow Sneak
-   - Shadow Force
+      Impish Nature
+      Level: 16
+      Ability: Perish Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 SpD
+      - Protect
+      - Pain Split
+      - Shadow Sneak
+      - Shadow Force
 
 
 /* Blocker Rivals */
@@ -38829,6 +39404,9 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Hiker
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
+   Party Size: 3
+   Pool Rules: Basic
+   Pool Prune: Badges
 
    Roggenrola @ Eviolite
       Adamant Nature
@@ -58114,7 +58692,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Female
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
-   Party Size: 5
+   Party Size: 6
    Pool Rules: Basic
    Pool Prune: Badges
 
@@ -58143,7 +58721,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Drought
       Tags: Lead / Badge 0 / Badge 1
       - Stealth Rock
-      - Lava Plume
+      - Incinerate
       - Body Press
       - Rapid Spin
 
@@ -58154,7 +58732,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       EVs: 150 HP / 150 Def / 150 SpD
       Tags: Lead / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Stealth Rock
-      - Lava Plume
+      - Heat Wave
       - Body Press
       - Rapid Spin
 
@@ -58214,7 +58792,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Harvest
       Tags: Badge 0 / Badge 1 / Badge 2
       - Flamethrower
-      - Bulldoze
+      - Stomping Tantrum
       - Sludge Bomb
       - Growth
 
@@ -58224,7 +58802,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       EVs: 150 HP / 150 Def / 150 SpD
       Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Flamethrower
-      - Earthquake
+      - Stomping Tantrum
       - Sludge Bomb
       - Growth
 
@@ -58252,7 +58830,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Level: 13
       Ability: Solar Power
       Tags: Badge 0 / Badge 1 / Badge 2
-      - Parabolic Charge
+      - Thunderbolt
       - Solar Beam
       - Hyper Voice
       - Volt Switch
@@ -58263,10 +58841,32 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Ability: Solar Power
       EVs: 150 HP / 150 Def / 150 SpD
       Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
-      - Parabolic Charge
+      - Thunderbolt
       - Solar Beam
-      - Boomburst
+      - Hyper Voice
       - Volt Switch
+
+   Ninetales @ Expert Belt
+      Timid Nature
+      Level: 16
+      Ability: Drought
+      EVs: 150 HP / 150 Def / 150 SpD
+      Tags: Ace / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Will O Wisp
+      - Hex
+      - Moonblast
+      - Fire Blast
+
+   Torkoal @ Charcoal
+      Modest Nature
+      Level: 15
+      Ability: Drought
+      EVs: 150 HP / 150 Def / 150 SpD
+      Tags: Ace / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Eruption
+      - Heat Wave
+      - Body Press
+      - Rapid Spin
 
 
 /* Slateport Beach */
