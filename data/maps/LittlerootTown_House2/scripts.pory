@@ -1,1 +1,93 @@
-mapscripts LittlerootTown_House2_MapScripts {}
+mapscripts LittlerootTown_House2_MapScripts {
+    MAP_SCRIPT_ON_LOAD : LittlerootTown_House2_OnLoad
+}
+
+const LOCALID_SYLVEON = 3
+
+script LittlerootTown_House2_OnLoad {
+    setmetatile(2, 1, 0x003, TRUE)
+    end
+}
+
+script LittlerootTown_House2_EventScript_Sylveon {
+    lock
+    playmoncry(SPECIES_SYLVEON, CRY_MODE_NORMAL)
+    msgbox(format("Sylveon is busy watching “Dancing with the Stars!”"))
+    release
+    end
+}
+
+script LittlerootTown_House2_EventScript_TV_Trigger {
+    lock
+    playse(SE_PIN)
+    applymovement(LOCALID_SYLVEON, Common_Movement_ExclamationMark)
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+    applymovement(OBJ_EVENT_ID_PLAYER, LittlerootTown_House2_Movement_PlayerAway)
+    playmoncry(SPECIES_SYLVEON, CRY_MODE_NORMAL)
+    msgbox(format("Sylveon is busy watching “Dancing with the Stars!”"))
+    release
+    end
+}
+
+movement LittlerootTown_House2_Movement_PlayerAway {
+    walk_right
+    walk_down
+}
+
+script LittlerootTown_House2_EventScript_Man {
+    lock
+    faceplayer
+    msgbox(format("I'm making a lot of Berry-based dishes for our anniversary coming up."))
+    msgbox(format("Check out the info tags on your Berries, they really add flavor and pizzaz to your cooking!"))
+    msgbox(format("In my humble opinion, there's nothing worse than an underseasoned meal."))
+    release
+    end
+}
+
+script LittlerootTown_House2_EventScript_EeveeWoman {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_EEVEE)) {
+        msgbox(format("Have you evolved Eevee yet? What did you choose?"))
+        release
+        end
+    }
+    msgbox(format("This Eevee is the last of Sylveon's most recent litter."))
+    playmoncry(SPECIES_EEVEE, CRY_MODE_NORMAL)
+    msgbox(format("Did you know Eevee can evolve into eight different Eeveelutions?"))
+    msgbox(format("Anyways, a Trainer like you surely covets this Pokémon."), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+	    setflag(FLAG_RECEIVED_EEVEE)
+	    givemon(SPECIES_EEVEE, 10)
+	    playfanfare(MUS_OBTAIN_ITEM)
+	    bufferspeciesname(STR_VAR_1, SPECIES_EEVEE)
+        msgbox("{PLAYER} received {STR_VAR_1}!")
+	    waitmessage
+	    waitfanfare
+	    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, EeveeToParty)
+	    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, EeveeToPC)
+
+        EeveeToParty:
+        msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            call(Common_EventScript_GetGiftMonPartySlot)
+            call(Common_EventScript_NameReceivedPartyMon)
+        }
+        goto(EeveeEnd)
+
+        EeveeToPC:
+        msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            call(Common_EventScript_NameReceivedBoxMon)
+        }
+        setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_EEVEE)
+        call(Common_EventScript_TransferredToPC)
+        EeveeEnd:
+        msgbox(format("Remember to ask Eevee who they want to be before giving them a stone!"))
+        release
+        end
+    }
+    msgbox(format("Hmm. I suppose I could give this Eevee to one of the kids next door…"))
+    release
+    end
+}

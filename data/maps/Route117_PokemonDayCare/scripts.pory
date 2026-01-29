@@ -387,6 +387,7 @@ script Route117_PokemonDayCare_EventScript_DittoBoy {
 	if(var(VAR_RESULT) == YES) {
 		call(Common_EventScript_NameReceivedBoxMon)
 	}
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DITTO)
 	call(Common_EventScript_TransferredToPC)
 	DittoEnd:
 	msgbox(format("Please take good care of Ditto! Take them far away and never bring them back!"))

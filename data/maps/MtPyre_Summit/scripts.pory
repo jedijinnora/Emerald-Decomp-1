@@ -1,4 +1,81 @@
-mapscripts MtPyre_Summit_MapScripts {}
+mapscripts MtPyre_Summit_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : MtPyre_Summit_OnTransition
+}
+
+const LOCALID_PHOEBE = 4
+
+script MtPyre_Summit_OnTransition {
+	call_if_set(FLAG_MET_PHOEBE_MT_PYRE, MtPyre_Summit_EventScript_HidePhoebe)
+	end
+}
+
+script MtPyre_Summit_EventScript_HidePhoebe {
+	setflag(FLAG_TEMP_11)
+	setvar(VAR_TEMP_1, 1)
+	return
+}
+
+script MtPyre_Summit_EventScript_PhoebeTrigger {
+	lock
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+	getplayerxy(VAR_TEMP_2, VAR_TEMP_3)
+	playse(SE_PIN)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	switch(var(VAR_TEMP_2)) {
+		case 22:
+			applymovement(LOCALID_PHOEBE, MtPyre_Summit_Movement_PhoebeApproach_1)
+			waitmovement(LOCALID_PHOEBE)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceRight)
+		case 23:
+			applymovement(LOCALID_PHOEBE, MtPyre_Summit_Movement_PhoebeApproach_2)
+			waitmovement(LOCALID_PHOEBE)
+		default:
+			applymovement(LOCALID_PHOEBE, MtPyre_Summit_Movement_PhoebeApproach_3)
+			waitmovement(LOCALID_PHOEBE)
+			applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceLeft)
+	}
+	waitmovement(0)
+	msgbox(format("Alola!"))
+	msgbox(format("Oh, sorry, that's the normal greeting where I'm from."))
+	msgbox(format("My name is Phoebe! I was just here to visit my grandma."))
+	msgbox(format("Phoebe: I'm also an expert Trainer of Ghost-type Pokémon!"))
+	msgbox(format("I'm heading back to the Cove Lily motel in Lilycove."))
+	msgbox(format("Stop by if you want to learn some moves!"))
+	waitmessage
+	closemessage
+	switch(var(VAR_TEMP_2)) {
+		case 23:
+			applymovement(LOCALID_PHOEBE, MtPyre_Summit_Movement_PhoebeLeave)
+		default:
+			applymovement(LOCALID_PHOEBE, MtPyre_Summit_Movement_PhoebeApproach_3)
+	}
+	waitmovement(LOCALID_PHOEBE)
+	removeobject(LOCALID_PHOEBE)
+	setflag(FLAG_MET_PHOEBE_MT_PYRE)
+	setvar(VAR_TEMP_1, 1)
+	release
+	end
+}
+
+movement MtPyre_Summit_Movement_PhoebeApproach_1 {
+	walk_down * 7
+	walk_in_place_left
+}
+
+movement MtPyre_Summit_Movement_PhoebeApproach_2 {
+	walk_down * 6
+}
+
+movement MtPyre_Summit_Movement_PhoebeApproach_3 {
+	walk_down * 7
+	walk_in_place_right
+}
+
+movement MtPyre_Summit_Movement_PhoebeLeave {
+	walk_right
+	walk_down * 7
+}
 
 script MtPyre_Summit_EventScript_OldMan {
 

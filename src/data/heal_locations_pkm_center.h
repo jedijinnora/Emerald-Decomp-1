@@ -127,6 +127,13 @@ static const struct HealLocation sHealLocationsPokemonCenter[HEAL_LOCATION_COUNT
         .x = 18,
         .y = 18,
     },
+    [HEAL_LOCATION_HEAVENGRASS_TOWN - 1] =
+    {
+        .group = MAP_GROUP(HEAVENGRASS_TOWN),
+        .map = MAP_NUM(HEAVENGRASS_TOWN),
+        .x = 18,
+        .y = 18,
+    },
     [HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR - 1] =
     {
         .group = MAP_GROUP(SOUTHERN_ISLAND_EXTERIOR),
@@ -184,6 +191,7 @@ static const u8 sHealNpcLocalId[HEAL_LOCATION_COUNT - 1] =
     [HEAL_LOCATION_VERDANTURF_TOWN - 1] = 1,
     [HEAL_LOCATION_PACIFIDLOG_TOWN - 1] = 1,
     [HEAL_LOCATION_METEOR_VILLAGE - 1] = 0,
+    [HEAL_LOCATION_HEAVENGRASS_TOWN - 1] = 1,
     [HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR - 1] = 0, // no heal npc
     [HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST - 1] = 1,
     [HEAL_LOCATION_EMERALD_CAPE - 1] = 1,

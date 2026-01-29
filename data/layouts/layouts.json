@@ -1285,7 +1285,7 @@
       "id": "LAYOUT_RUSTURF_TUNNEL",
       "name": "RusturfTunnel_Layout",
       "width": 48,
-      "height": 48,
+      "height": 50,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_RusturfTunnel",
       "border_filepath": "data/layouts/RusturfTunnel/border.bin",
@@ -1834,7 +1834,7 @@
     {
       "id": "LAYOUT_NEW_MAUVILLE_ENTRANCE",
       "name": "NewMauville_Entrance_Layout",
-      "width": 9,
+      "width": 17,
       "height": 22,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",
@@ -5340,6 +5340,46 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/PathlessForest_Grove/border.bin",
       "blockdata_filepath": "data/layouts/PathlessForest_Grove/map.bin"
+    },
+    {
+      "id": "LAYOUT_HEAVENGRASS_TOWN",
+      "name": "HeavengrassTown_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/HeavengrassTown/border.bin",
+      "blockdata_filepath": "data/layouts/HeavengrassTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_BAMBOO_WILDS",
+      "name": "BambooWilds_Layout",
+      "width": 80,
+      "height": 70,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/BambooWilds/border.bin",
+      "blockdata_filepath": "data/layouts/BambooWilds/map.bin"
+    },
+    {
+      "id": "LAYOUT_SEASIDE_MEADOW",
+      "name": "SeasideMeadow_Layout",
+      "width": 100,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Pacifidlog",
+      "border_filepath": "data/layouts/SeasideMeadow/border.bin",
+      "blockdata_filepath": "data/layouts/SeasideMeadow/map.bin"
+    },
+    {
+      "id": "LAYOUT_SLATEPORT_LIGHTHOUSE",
+      "name": "SlateportLighthouse_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/SlateportLighthouse/border.bin",
+      "blockdata_filepath": "data/layouts/SlateportLighthouse/map.bin"
     }
   ]
 }

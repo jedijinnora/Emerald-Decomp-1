@@ -139,7 +139,7 @@
 #define MAPSEC_SILPH_CO                     0x86
 #define MAPSEC_POKEMON_MANSION              0x87
 #define MAPSEC_KANTO_SAFARI_ZONE            0x88
-#define MAPSEC_INDIGO_LEAGUE                0x89
+#define MAPSEC_POKEMON_LEAGUE               0x89
 #define MAPSEC_ROCK_TUNNEL                  0x8A
 #define MAPSEC_SEAFOAM_ISLANDS              0x8B
 #define MAPSEC_POKEMON_TOWER                0x8C
@@ -219,7 +219,7 @@
 
 #define MAPSEC_OLDALE_RUINS                 0xD5
 #define MAPSEC_EMERALD_CAPE                 0xD6
-#define MAPSEC_POKEMON_LEAGUE               0xD7
+#define MAPSEC_SLATEPORT_LIGHTHOUSE         0xD7
 #define MAPSEC_DEWFORD_RESORT               0xD8
 #define MAPSEC_VERDANT_FOREST               0xD9
 #define MAPSEC_MOSSDEEP_CAVERNS             0xDA
@@ -243,9 +243,12 @@
 #define MAPSEC_SAKURAI_OVERLOOK             0xEC
 #define MAPSEC_CALDERA_CAVE                 0xED
 #define MAPSEC_SOOTOPOLIS_GARDENS           0xEE
-#define MAPSEC_PATHLESS_FOREST               0xEF
+#define MAPSEC_PATHLESS_FOREST              0xEF
+#define MAPSEC_HEAVENGRASS_TOWN             0xF0
+#define MAPSEC_BAMBOO_WILDS                 0xF1
+#define MAPSEC_SEASIDE_MEADOW               0xF2
 
-#define MAPSEC_NONE                         0xF0
+#define MAPSEC_NONE                         0xF3
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

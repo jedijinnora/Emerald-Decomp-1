@@ -1,0 +1,14 @@
+mapscripts HeavengrassTown_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : HeavengrassTown_OnTransition
+}
+
+script HeavengrassTown_OnTransition {
+    call_if_unset(FLAG_VISITED_HEAVENGRASS_TOWN, HeavengrassTown_EventScript_VisitHeavengrass)
+    end
+}
+
+script HeavengrassTown_EventScript_VisitHeavengrass {
+	setflag(FLAG_VISITED_HEAVENGRASS_TOWN)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
+}

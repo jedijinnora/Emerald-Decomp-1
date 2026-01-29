@@ -80,18 +80,56 @@ script Route116_EventScript_RanFromVirizion {
 }
 
 script Route116_EventScript_SableyeWoman {
-	lock
-	faceplayer
-	msgbox(format("I had a terrifying encounter with some kind of gremlin!"))
-	
-	//check flag for sableye gift
-	//comment about a "strange encounter"
-	//offer sableye
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_SABLEYE)) {
+        msgbox(format("Once I calm down a little I'll fly home."))
+        release
+        end
+    }
+    msgbox(format("I had a terrifying encounter with some kind of gremlin!"))
+    msgbox(format("First I couldn't get the image of this place out of my head, then a strange shadow kept following me."))
+    msgbox(format("Now I've hiked out here and the music turns ominous every time I walk towards the stairs. I'm stuck!"))
+	msgbox(format("Sableye is insisting on staying in my shadow. I'm no Trainer! How can I get rid of it?"))
+	playmoncry(SPECIES_SABLEYE, CRY_MODE_NORMAL)
+	delay(10)
+	playmoncry(SPECIES_SABLEYE, CRY_MODE_NORMAL)
+	msgbox(format("I've just about had it! Please, take this Pokémon away!"), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+	    setflag(FLAG_RECEIVED_SABLEYE)
+	    givemon(SPECIES_SABLEYE, 10)
+	    playfanfare(MUS_OBTAIN_ITEM)
+	    bufferspeciesname(STR_VAR_1, SPECIES_SABLEYE)
+        msgbox("{PLAYER} received {STR_VAR_1}!")
+	    waitmessage
+	    waitfanfare
+	    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, SableyeToParty)
+	    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, SableyeToPC)
 
-	//various ufo references
+        SableyeToParty:
+        msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            call(Common_EventScript_GetGiftMonPartySlot)
+            call(Common_EventScript_NameReceivedPartyMon)
+        }
+        goto(SableyeEnd)
 
-	release
-	end
+        SableyeToPC:
+        msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            call(Common_EventScript_NameReceivedBoxMon)
+        }
+        setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SABLEYE)
+        call(Common_EventScript_TransferredToPC)
+        SableyeEnd:
+        msgbox(format("If Sableye offers you a cookbook, don't accept!"))
+        release
+        end
+    }
+    msgbox(format("Oh no…"))
+	msgbox(format("Someone get me out of this Twilight Zone, I'm begging you!"))
+    release
+    end
 }
 
 script Route116_EventScript_RouteSignRustboro {

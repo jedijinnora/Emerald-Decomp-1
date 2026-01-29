@@ -85,3 +85,42 @@ script OldaleRuins_EventScript_RuinsSign {
     msgbox(format("Oldale Ruins"), MSGBOX_SIGN)
     end
 }
+
+script OldaleRuins_EventScript_ProfessorAlden {
+    lock
+    faceplayer
+    call(OldaleRuins_EventScript_CountDoors)
+    switch(var(VAR_TEMP_1)) {
+        case 1:
+            msgbox(format("Prof. Alden: Hey there, {PLAYER}. Come to check out the ruins?"))
+            msgbox(format("I see you managed to get a door open. Nice work!"))
+        case 2:
+        case 3:
+        case 4:
+            msgbox(format("Prof. Alden: Hey there, {PLAYER}. Come to check out the ruins?"))
+            msgbox(format("Hmm, you've got a couple doors open now. Going to get the rest soon?"))
+        case 5:
+            msgbox(format("Prof. Alden: Look at this place, all opened up! I should get my students in here to take notes."))
+            msgbox(format("At this rate you'll turn out to be a more successful archaeologist than Cedric Juniper over in Unova!"))
+        default: 
+            msgbox(format("Prof. Alden: Hey there, {PLAYER}. Come to check out the ruins?"))
+            msgbox(format("It's been months, and I feel no closer to opening up the rest of the ruins. Maybe a Trainer like you can do it?"))
+    }
+    release
+    end
+}
+
+script OldaleRuins_EventScript_CountDoors {
+    setvar(VAR_TEMP_1, 0)
+    call_if_set(FLAG_OLDALE_RUINS_OPEN_DOOR_1, OldaleRuins_EventScript_AddOne)
+    call_if_set(FLAG_OLDALE_RUINS_OPEN_DOOR_2, OldaleRuins_EventScript_AddOne)
+    call_if_set(FLAG_OLDALE_RUINS_OPEN_DOOR_3, OldaleRuins_EventScript_AddOne)
+    call_if_set(FLAG_OLDALE_RUINS_OPEN_DOOR_4, OldaleRuins_EventScript_AddOne)
+    call_if_set(FLAG_OLDALE_RUINS_OPEN_DOOR_5, OldaleRuins_EventScript_AddOne)
+    end
+}
+
+script OldaleRuins_EventScript_AddOne {
+    addvar(VAR_TEMP_1, 1)
+    return
+}

@@ -1,0 +1,108 @@
+mapscripts DewfordTown_House4_MapScripts {}
+
+script DewfordTown_House4_EventScript_WynautWoman {
+    lock
+    faceplayer
+    if (flag(FLAG_RECEIVED_WYNAUT)) {
+        msgbox(format("Has Wynaut proved to be more than a punching bag?"))
+        release
+        end
+    }
+    msgbox(format("I've got an odd Pokémon here."))
+    playmoncry(SPECIES_WYNAUT, CRY_MODE_NORMAL)
+    msgbox(format("Their moves don't do anything to the foe unless they've been hit first."))
+    msgbox(format("Does that interest you? I think this Wynaut could be stronger than you might think."), MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+	    setflag(FLAG_RECEIVED_WYNAUT)
+	    givemon(SPECIES_WYNAUT, 10)
+	    playfanfare(MUS_OBTAIN_ITEM)
+	    bufferspeciesname(STR_VAR_1, SPECIES_WYNAUT)
+        msgbox("{PLAYER} received {STR_VAR_1}!")
+	    waitmessage
+	    waitfanfare
+	    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, WynautToParty)
+	    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, WynautToPC)
+
+        WynautToParty:
+        msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            call(Common_EventScript_GetGiftMonPartySlot)
+            call(Common_EventScript_NameReceivedPartyMon)
+        }
+        goto(WynautEnd)
+
+        WynautToPC:
+        msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+        if(var(VAR_RESULT) == YES) {
+            call(Common_EventScript_NameReceivedBoxMon)
+        }
+        setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_WYNAUT)
+        call(Common_EventScript_TransferredToPC)
+        WynautEnd:
+        msgbox(format("Don't underestimate Counter and Mirror Coat!"))
+        release
+        end
+    }
+    msgbox(format("You only like Pokémon with strong attacks?"))
+    release
+    end
+}
+
+script DewfordTown_House4_EventScript_Cacnea {
+    lock
+    faceplayer
+    playmoncry(SPECIES_CACNEA, CRY_MODE_ENCOUNTER)
+    msgbox(format("Cacnea: kek ir!"))
+    release
+    end
+}
+
+script DewfordTown_House4_EventScript_ShuckleTrader {
+    lock
+	faceplayer
+	goto_if_set(FLAG_DEWFORD_SNEASEL_TRADE_COMPLETED, SneaselTradeCompleted)
+	setvar(VAR_0x8008, INGAME_TRADE_SNEASEL)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
+	copyvar(VAR_0x8009, VAR_RESULT)
+	msgbox(format("My Sneasel has proven a little too troublesome."))
+    msgbox(format("He keeps stealing from the neighbors, and it's a huge hassle to return everything…"))
+	msgbox(format("I'd be more suited to a sedentary Pokémon like Shuckle."))
+    msgbox(format("Do you have one to trade?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DeclineSneaselTrade)
+	msgbox(format("Oh really? Sneasel is strong against the Dewford Gym, you won't regret it!"))
+	waitmessage
+	special(ChoosePartyMon)
+	waitstate
+	copyvar(VAR_0x800A, VAR_0x8004)
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, DeclineSneaselTrade)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	specialvar(VAR_RESULT, GetTradeSpecies)
+	copyvar(VAR_0x800B, VAR_RESULT)
+	goto_if_ne(VAR_RESULT, VAR_0x8009, SelectedNotShuckle)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	special(CreateInGameTradePokemon)
+	special(DoInGameTradeScene)
+	waitstate
+	msgbox(format("Far out! We're gonna drink a lot of Berry Juice together, Shuckle and I."))
+	setflag(FLAG_DEWFORD_SNEASEL_TRADE_COMPLETED)
+	release
+	end
+
+	DeclineSneaselTrade:
+	msgbox(format("Check your pockets before you go."))
+	release
+	end
+
+	SelectedNotShuckle:
+	bufferspeciesname(STR_VAR_1, VAR_0x800B)
+	msgbox(format("No, I have my heart set on Shuckle. I hear they can turn Oran Berries into delicious Berry Juice!"))
+	release
+	end
+
+	SneaselTradeCompleted:
+	msgbox(format("Shuckle and I are quite happy together. How have you been treating Sneasel?"))
+	release
+	end
+}

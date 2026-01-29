@@ -1,1 +1,21 @@
 mapscripts OldaleTown_Tower_2F_MapScripts {}
+
+script OldaleTown_Tower_2F_EventScript_SchoolKidM {
+    lock
+    faceplayer
+    msgbox(format("The Professor's great! He never makes fun of my ideas."))
+    msgbox(format("Right now I'm trying to prove that the ruins were built on an ancient site for UFO landings."))
+    msgbox(format("Surely the best explanation for pyramidal ruins is that that's the best shape for an alien landing pad!"))
+    release
+    end
+}
+
+script OldaleTown_Tower_2F_EventScript_Girl {
+    lock
+    faceplayer
+    msgbox(format("Yes, sometimes we find valuable items in the ruins."))
+    msgbox(format("No, I'm not going to give you any."))
+    msgbox(format("If you want a Black Augurite to evolve your Scyther, go buy it from the guy in Slateport like everybody else."))
+    release
+    end
+}

@@ -17,7 +17,14 @@ script PathlessForest_OnLoad {
     call(PathlessForest_EventScript_Close_19)
     call(PathlessForest_EventScript_Close_20)
     call(PathlessForest_EventScript_Close_21)
+    call(PathlessForest_EventScript_Close_22)
+    call(PathlessForest_EventScript_Close_23)
     call(PathlessForest_EventScript_Close_24)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    call_if_gt(VAR_TEMP_2, 10, PathlessForest_EventScript_OpenExit)
+    setvar(VAR_TEMP_1, 0)
+    setvar(VAR_TEMP_2, 0)
+    special(DrawWholeMapView)
     end
 }
 
@@ -26,6 +33,18 @@ script PathlessForest_OnTransition {
     end
 }
 
+script PathlessForest_EventScript_OpenExit {
+    call(PathlessForest_EventScript_Open_3)
+    call(PathlessForest_EventScript_Open_9)
+    call(PathlessForest_EventScript_Open_18)
+    call(PathlessForest_EventScript_Open_23)
+    return
+}
+
+const LOCALID_FARFETCHD = 1
+const LOCALID_PSYDUCK = 2
+const LOCALID_BIDOOF = 3
+const LOCALID_BONSLY = 4
 const LOCALID_KELDEO = 5
 
 script PathlessForest_EventScript_HideKeldeo {
@@ -85,6 +104,20 @@ movement PathlessForest_Movement_KeldeoApproach {
 movement PathlessForest_Movement_KeldeoExit {
     walk_right * 4
     walk_up * 2
+}
+
+script PathlessForest_EventScript_Trigger_Close9 {
+    call(PathlessForest_EventScript_Close_9)
+    special(DrawWholeMapView)
+    playse(SE_M_CUT)
+    setvar(VAR_TEMP_1, 1)
+    end
+}
+
+script PathlessForest_EventScript_Trigger_Open9Silent {
+    call(PathlessForest_EventScript_Open_9)
+    special(DrawWholeMapView)
+    setvar(VAR_TEMP_1, 0)
 }
 
 // 0x001 grass
@@ -479,9 +512,8 @@ script PathlessForest_EventScript_Open_8 {
 script PathlessForest_EventScript_Close_9 {
     setmetatile(38, 11, 0x0C6, TRUE)
     setmetatile(38, 12, 0x0C6, TRUE)
-    setmetatile(39, 9, 0x00E, FALSE)
-    setmetatile(39, 10, 0x0C6, TRUE)
-    setmetatile(39, 11, 0x016, TRUE)
+    setmetatile(39, 11, 0x00E, FALSE)
+    setmetatile(39, 12, 0x0C6, TRUE)
     setflag(FLAG_TEMP_10)
     setflag(FLAG_TEMP_F)
     return
@@ -490,9 +522,8 @@ script PathlessForest_EventScript_Close_9 {
 script PathlessForest_EventScript_Open_9 {
     setmetatile(38, 11, 0x016, TRUE)
     setmetatile(38, 12, 0x00E, FALSE)
-    setmetatile(39, 9, 0x001, FALSE)
-    setmetatile(39, 10, 0x001, FALSE)
     setmetatile(39, 11, 0x001, FALSE)
+    setmetatile(39, 12, 0x00E, FALSE)
     clearflag(FLAG_TEMP_10)
     setflag(FLAG_TEMP_F)
     return
@@ -797,37 +828,43 @@ script PathlessForest_EventScript_Open_26 {
 }
 
 script PathlessForest_EventScript_Farfetchd {
-    lock
-    faceplayer
+    lockall
+    applymovement(LOCALID_FARFETCHD, Common_Movement_FacePlayer)
+	waitmovement(LOCALID_FARFETCHD)
     playmoncry(SPECIES_FARFETCHD, CRY_MODE_ENCOUNTER)
     msgbox(format("Farfetch'd is completely turned around…"))
-    release
+    releaseall
     end
 }
 
 script PathlessForest_EventScript_Psyduck {
-    lock
-    faceplayer
+    lockall
+    applymovement(LOCALID_PSYDUCK, Common_Movement_FacePlayer)
+	waitmovement(LOCALID_PSYDUCK)
     playmoncry(SPECIES_PSYDUCK, CRY_MODE_ENCOUNTER)
     msgbox(format("Is this Psyduck more confused than usual? It's impossible to tell."))
-    release
+    waitmessage
+    releaseall
     end
 }
 
 script PathlessForest_EventScript_Bidoof {
     lock
-    faceplayer
+    applymovement(LOCALID_BIDOOF, Common_Movement_FacePlayer)
+	waitmovement(LOCALID_BIDOOF)
     playmoncry(SPECIES_BIDOOF, CRY_MODE_ENCOUNTER)
     msgbox(format("Bidoof looks at you with blank eyes."))
+    waitmessage
     release
     end
 }
 
 script PathlessForest_EventScript_Bonsly {
-    lock
-    faceplayer
+    lockall
+    applymovement(LOCALID_BONSLY, Common_Movement_FacePlayer)
+	waitmovement(LOCALID_BONSLY)
     playmoncry(SPECIES_BONSLY, CRY_MODE_ENCOUNTER)
     msgbox(format("The lost Bonsly is too exhausted to do anything but stumble around."))
-    release
+    releaseall
     end
 }

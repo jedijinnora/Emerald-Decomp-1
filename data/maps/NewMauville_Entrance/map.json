@@ -18,28 +18,28 @@
   ],
   "warp_events": [
     {
-      "x": 4,
+      "x": 8,
       "y": 6,
       "elevation": 3,
       "dest_map": "MAP_POWER_PLANT",
       "dest_warp_id": "0"
     },
     {
-      "x": 4,
+      "x": 8,
       "y": 1,
       "elevation": 3,
       "dest_map": "MAP_NEW_MAUVILLE_INSIDE",
       "dest_warp_id": "0"
     },
     {
-      "x": 4,
+      "x": 8,
       "y": 19,
       "elevation": 0,
       "dest_map": "MAP_POWER_PLANT",
       "dest_warp_id": "1"
     },
     {
-      "x": 4,
+      "x": 8,
       "y": 14,
       "elevation": 0,
       "dest_map": "MAP_NEW_MAUVILLE_INSIDE",
@@ -49,7 +49,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 4,
+      "x": 8,
       "y": 2,
       "elevation": 3,
       "var": "VAR_NEW_MAUVILLE_STATE",
@@ -58,7 +58,7 @@
     },
     {
       "type": "trigger",
-      "x": 4,
+      "x": 8,
       "y": 15,
       "elevation": 3,
       "var": "VAR_NEW_MAUVILLE_STATE",
@@ -67,6 +67,197 @@
     }
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 2,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 3,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 17,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 17,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 5,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 17,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 17,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NewMauville_Entrance_EventScript_Turbine"
+    }
   ]
 }

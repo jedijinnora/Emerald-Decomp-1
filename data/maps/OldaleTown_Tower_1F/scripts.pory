@@ -1,5 +1,62 @@
 mapscripts OldaleTown_Tower_1F_MapScripts {}
 
+script OldaleTown_Tower_1F_EventScript_Maniac {
+    lock
+    faceplayer
+    msgbox(format("I was so excited when I qualified for this grad student program."))
+    msgbox(format("I mean, what's not to love about archeology: fedoras, death-defying stunts, magic idols…"))
+    msgbox(format("Instead I get to write grant proposals and look at potsherds under a magnifying glass."))
+    msgbox(format("Truly riveting."))
+    release
+    end
+}
+
+script OldaleTown_Tower_1F_EventScript_Picnicker {
+    lock
+    faceplayer
+    msgbox(format("No, Professor Alden isn't here."))
+    msgbox(format("Why spend time here doing grunt work when he could be out at the field site looking for the next big find?"))
+    msgbox(format("We grad students get to do all the boring stuff."))
+    msgbox(format("I wish I had applied for a different advisor."))
+    release
+    end
+}
+
+script OldaleTown_Tower_1F_EventScript_Man {
+    lock
+    faceplayer
+    msgbox(format("I used to work at the Relic Castle dig site in Unova."))
+    msgbox(format("Did you know that some Pokémon have Abilities that make them change form?"))
+    msgbox(format("Sometimes the statues we found in the desert turned out to be meditating Darmanitan!"))
+    release
+    end
+}
+
+script OldaleTown_Tower_1F_EventScript_CollectionBox {
+    msgbox(format("It's full of labelled samples collected from the Oldale Ruins."), MSGBOX_SIGN)
+    end
+}
+
+script OldaleTown_Tower_1F_EventScript_Bookshelf_1 {
+    msgbox(format("Hey! There's a copy of “Raiders of the Lost Arcanine” snuck in between textbooks."), MSGBOX_SIGN)
+    end
+}
+
+script OldaleTown_Tower_1F_EventScript_Bookshelf_2 {
+    msgbox(format("This shelf contains many manuscripts describing efforts to map the Ruins of Alph in Johto."), MSGBOX_SIGN)
+    end
+}
+
+script OldaleTown_Tower_1F_EventScript_Bookshelf_3 {
+    msgbox(format("Titles on this shelf include “Hero's Cave: the Unovan Legend”, “Hisui and Sinnoh: Analyzing the Past”, and “How to be an Archaeologist, For Dummies”."), MSGBOX_SIGN)
+    end
+}
+
+script OldaleTown_Tower_1F_EventScript_Bookshelf_4 {
+    msgbox(format("It's full of texts about the geology of the region.\pDid you know that Hoenn is unusual for both its volcanoes and its meteorites?"), MSGBOX_SIGN)
+    end
+}
+
 script OldaleTown_Tower_1F_EventScript_RuinsNotes {
     lock
     msgbox(format("This book is filled with handwritten notes that detail the author's theories about the nearby ruins."))
@@ -26,7 +83,7 @@ script OldaleTown_Tower_1F_EventScript_RuinsNotes {
         case 5:
             msgbox(format("“Took a break last night to stargaze and relax. The southern constellations always seem so bright and shiny when viewed from the ruins…”"))
         case 6:
-            msgbox(format("“There are clay statues of ancient Pokémon in this area, but they do not react to my presence.”"))
+            msgbox(format("“Sometimes I find clay statues of ancient Pokémon in this area, but they do not react to my presence.”"))
         case 7:
             msgbox(format("“Many cultures associate the sun with east, where dawn breaks. Perhaps the moon should be placed to the west, with dusk?”"))
         case 8:
@@ -40,7 +97,7 @@ script OldaleTown_Tower_1F_EventScript_RuinsNotes {
         case 12:
             msgbox(format("“Tanoby = numerology/plants? Alph = fossils/Johto myths? Oldale = astronomy/????”"))
         case 13:
-            msgbox(format("“I'll never get a decent paper finished at this rate. Annoying little girl keeps following me into the forest.”"))
+            msgbox(format("“I'll never get a decent paper finished at this rate. Annoying little girl keeps following me into the forest. Told her brother at the shop to keep a closer eye on her.”"))
         default:
             msgbox(format("Decided not to read any more."))
             release

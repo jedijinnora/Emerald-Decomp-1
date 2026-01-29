@@ -12,7 +12,7 @@ script MauvilleCity_WorkerBuilding_EventScript_HideScotty {
 }
 
 script MauvilleCity_WorkerBuilding_EventScript_SchoolKid {
-    msgbox(format("My boss sent me to get a set of left-handed allen wrenches from the toolbox, but I just can't find it."), MSGBOX_NPC)
+    msgbox(format("My boss sent me to get a set of left-handed allen wrenches from the toolbox, but I just can't find them."), MSGBOX_NPC)
     end
 }
 
@@ -30,7 +30,7 @@ script MauvilleCity_WorkerBuilding_EventScript_BatteryGuy {
     lock
 	faceplayer
     goto_if_set(FLAG_SYS_GAME_CLEAR, MauvilleCity_WorkerBuilding_EventScript_BatterySeller)
-    msgbox(format("As soon as the new generators come online, I'm going to make bank selling my single-use chargeable items!"))
+    msgbox(format("As soon as we finish upgrading the generator, I'm going to make bank selling my single-use chargeable items!"))
     release
     end
 }
@@ -150,8 +150,9 @@ script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistCheckMoves {
     goto_if_defeated(TRAINER_SCOTTY_INITIAL, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_SCOTTY_INVERSE, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_SCOTTY_CHALLENGE, Common_EventScript_NopReturn)
-    goto_if_defeated(TRAINER_BITE_TUTOR, Common_EventScript_NopReturn)
-    goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_TUTOR_BITE_MOVES, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_TERRAIN_TUTOR_ELECTRIC, Common_EventScript_NopReturn)
+    goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
     goto_if_set(FLAG_TUTOR_BASIC_MOVES, Common_EventScript_NopReturn)
     msgbox(format("You haven't unlocked any moves yet."))
     setvar(VAR_RESULT, FALSE)
@@ -183,7 +184,7 @@ script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistChallengeUnlock
 }
 
 script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistUnlockOtherTutor {
-    if (defeated(TRAINER_BITE_TUTOR)) {
+    if (flag(FLAG_TUTOR_BITE_MOVES)) {
         dynmultipush("Thunder Fang", 41)
     }
     if (defeated(TRAINER_TERRAIN_TUTOR_ELECTRIC)) {

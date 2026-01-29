@@ -297,6 +297,7 @@ static const u8 sMapHealLocations[][3] =
     [MAPSEC_MOSSDEEP_CITY] = {MAP_GROUP(MOSSDEEP_CITY), MAP_NUM(MOSSDEEP_CITY), HEAL_LOCATION_MOSSDEEP_CITY},
     [MAPSEC_SOOTOPOLIS_CITY] = {MAP_GROUP(SOOTOPOLIS_CITY), MAP_NUM(SOOTOPOLIS_CITY), HEAL_LOCATION_SOOTOPOLIS_CITY},
     [MAPSEC_METEOR_VILLAGE] = {MAP_GROUP(METEOR_VILLAGE), MAP_NUM(METEOR_VILLAGE), HEAL_LOCATION_METEOR_VILLAGE},
+    [MAPSEC_HEAVENGRASS_TOWN] = {MAP_GROUP(HEAVENGRASS_TOWN), MAP_NUM(HEAVENGRASS_TOWN), HEAL_LOCATION_HEAVENGRASS_TOWN},
     [MAPSEC_EMERALD_CAPE] = {MAP_GROUP(EMERALD_CAPE), MAP_NUM(EMERALD_CAPE), HEAL_LOCATION_EMERALD_CAPE},
     [MAPSEC_EVER_GRANDE_CITY] = {MAP_GROUP(EVER_GRANDE_CITY), MAP_NUM(EVER_GRANDE_CITY), HEAL_LOCATION_EVER_GRANDE_CITY},
     [MAPSEC_ROUTE_101] = {MAP_GROUP(ROUTE101), MAP_NUM(ROUTE101), HEAL_LOCATION_NONE},
@@ -1224,6 +1225,8 @@ static u8 GetMapsecType(u16 mapSecId)
         return FlagGet(FLAG_VISITED_SOOTOPOLIS_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_METEOR_VILLAGE:
         return FlagGet(FLAG_VISITED_METEOR_VILLAGE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_HEAVENGRASS_TOWN:
+        return FlagGet(FLAG_VISITED_HEAVENGRASS_TOWN) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_EMERALD_CAPE:
         return FlagGet(FLAG_VISITED_EMERALD_CAPE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_EVER_GRANDE_CITY:
@@ -1888,13 +1891,17 @@ static void CreateFlyDestIcons(void)
     }
 
     //Jinnora: adding a second loop to handle additional locations
-    for (i = 0; i < 2; i++) {
+    for (i = 0; i < 3; i++) {
         switch(i) {
-            case 0: //Meteor Village
+            case 0: // Meteor Village
                 mapSecId = MAPSEC_METEOR_VILLAGE;
                 canFlyFlag = FLAG_VISITED_METEOR_VILLAGE;
                 break;
-            case 1: //Emerald Cape
+            case 1: // Heavengrass Town
+                mapSecId = MAPSEC_HEAVENGRASS_TOWN;
+                canFlyFlag = FLAG_VISITED_HEAVENGRASS_TOWN;
+                break;
+            case 2: // Emerald Cape
                 mapSecId = MAPSEC_EMERALD_CAPE;
                 canFlyFlag = FLAG_VISITED_EMERALD_CAPE;
                 break;

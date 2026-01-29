@@ -30,6 +30,7 @@ script NewMauville_Inside_OnTransition {
 script NewMauville_Inside_EventScript_HideScotty {
 	setflag(FLAG_TEMP_15)
 	setflag(FLAG_TEMP_16)
+	setvar(VAR_TEMP_3, 1)
 	return
 }
 
@@ -102,6 +103,7 @@ script NewMauville_Inside_EventScript_SetBarrierStateBlueButton {
 	setmetatile(17, 10, METATILE_BikeShop_Button_Green, FALSE)
 	setmetatile(25, 18, METATILE_BikeShop_Button_Green, FALSE)
 	setmetatile(18, 36, METATILE_BikeShop_Button_Green, FALSE)
+	setmetatile(31, 17, METATILE_BikeShop_Button_Green, FALSE)
 	return
 }
 
@@ -138,6 +140,7 @@ script NewMauville_Inside_EventScript_SetBarrierStateGreenButton {
 	setmetatile(17, 10, METATILE_BikeShop_Button_Pressed, FALSE)
 	setmetatile(25, 18, METATILE_BikeShop_Button_Pressed, FALSE)
 	setmetatile(18, 36, METATILE_BikeShop_Button_Pressed, FALSE)
+	setmetatile(31, 17, METATILE_BikeShop_Button_Pressed, FALSE)
 	setmetatile(6, 11, METATILE_BikeShop_Button_Blue, FALSE)
 	setmetatile(13, 10, METATILE_BikeShop_Button_Blue, FALSE)
 	setmetatile(16, 22, METATILE_BikeShop_Button_Blue, FALSE)
@@ -174,17 +177,21 @@ script NewMauville_Inside_EventScript_SetGeneratorOnMetatiles {
 
 script NewMauville_Inside_EventScript_RotomWarning {
 	lock
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
 	playmoncry(SPECIES_ROTOM, CRY_MODE_ENCOUNTER)
 	waitmoncry
 	playse(SE_BANG)
-	msgbox(format("Unknown: Buzz off! Shoo! I'll smack you with my spanner!"))
+	msgbox(format("Buzz off! Shoo! I'll smack you with my spanner!"))
 	addvar(VAR_TEMP_3, 1)
+	applymovement(LOCALID_ROTOM, NewMauville_Inside_Movement_RotomDisappear)
+	waitmovement(0)
 	release
 	end
 }
 
 script NewMauville_Inside_EventScript_MovePlayerForScene {
 	lock
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
 	applymovement(OBJ_EVENT_ID_PLAYER, NewMauville_Inside_Movement_PlayerApproach)
 	waitmovement(OBJ_EVENT_ID_PLAYER)
 	goto(NewMauville_Inside_EventScript_RotomScene)
@@ -201,39 +208,46 @@ movement NewMauville_Inside_Movement_PlayerApproach {
 script NewMauville_Inside_EventScript_RotomScene {
 	lock
 	playse(SE_GLASS_FLUTE)
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_QuestionMark)
 	waitmovement(OBJ_EVENT_ID_PLAYER)
 	playmoncry(SPECIES_ROTOM, CRY_MODE_ENCOUNTER)
+	applymovement(LOCALID_ROTOM, NewMauville_Inside_Movement_RotomAppear)
 	delay(16)
+	applymovement(LOCALID_ROTOM, NewMauville_Inside_Movement_RotomVanish)
 	applymovement(LOCALID_SCOTTY, NewMauville_Inside_Movement_Scotty_1)
 	waitmovement(LOCALID_SCOTTY)
 	playse(SE_WALL_HIT)
 	waitse
-	applymovement(LOCALID_SCOTTY, Common_Movement_WalkInPlaceFasterUp)
-	playse(SE_WALL_HIT)
-	waitse
-	waitmovement(LOCALID_SCOTTY)
 	playmoncry(SPECIES_ROTOM, CRY_MODE_ENCOUNTER)
 	applymovement(LOCALID_SCOTTY, Common_Movement_FaceDown)
-	applymovement(LOCALID_SCOTTY, Common_Movement_Delay32)
 	waitmovement(LOCALID_SCOTTY)
 	msgbox(format("Scotty: Damn it, I'm an engineer, not a Ghost Buster!"))
 	closemessage
 	playse(SE_PIN)
+	setobjectxy(LOCALID_ROTOM, 27, 8)
+	applymovement(LOCALID_ROTOM, NewMauville_Inside_Movement_RotomAppear)
 	applymovement(LOCALID_SCOTTY, Common_Movement_ExclamationMark)
 	waitmovement(LOCALID_SCOTTY)
-	applymovement(LOCALID_SCOTTY, Common_Movement_Delay32)
-	waitmovement(LOCALID_SCOTTY)
+	applymovement(LOCALID_ROTOM, NewMauville_Inside_Movement_RotomSpin)
+	waitmovement(LOCALID_ROTOM)
+	applymovement(LOCALID_ROTOM, NewMauville_Inside_Movement_RotomVanish)
+	delay(10)
 	applymovement(LOCALID_SCOTTY, NewMauville_Inside_Movement_Scotty_2)
 	waitmovement(LOCALID_SCOTTY)
 	playmoncry(SPECIES_ROTOM, CRY_MODE_ENCOUNTER)
 	msgbox(format("Scotty: Come back here with that Magnet!"))
 	closemessage
+	applymovement(LOCALID_ROTOM, NewMauville_Inside_Movement_RotomAppear)
+	waitmovement(0)
+	applymovement(LOCALID_ROTOM, NewMauville_Inside_Movement_Scotty_3)
+	delay(10)
 	applymovement(LOCALID_SCOTTY, NewMauville_Inside_Movement_Scotty_3)
 	waitmovement(LOCALID_SCOTTY)
 	//chases Rotom into the player
 	call(NewMauville_Inside_EventScript_ChooseRotom)
 	playse(SE_PIN)
+	applymovement(LOCALID_ROTOM, Common_Movement_ExclamationMark)
 	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
 	waitse
 	waitmovement(OBJ_EVENT_ID_PLAYER)
@@ -242,18 +256,22 @@ script NewMauville_Inside_EventScript_RotomScene {
 	settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 1, 1, 1, 1)
 	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
 	setflag(FLAG_NO_ESCAPE)
+	setflag(FLAG_SMART_WILD_AI)
 	dowildbattle
 	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
 	clearflag(FLAG_NO_ESCAPE)
+	clearflag(FLAG_SMART_WILD_AI)
 	removeobject(LOCALID_ROTOM)
 	setvar(VAR_NEW_MAUVILLE_STATE, 2)
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
 	applymovement(LOCALID_SCOTTY, NewMauville_Inside_Movement_Scotty_LookAround)
 	waitmovement(LOCALID_SCOTTY)
 	msgbox(format("Scotty: And that's it, then? No more gremlins going to jump out of the air vents to steal my tools?"))
 	applymovement(LOCALID_SCOTTY, NewMauville_Inside_Movement_Scotty_Approach)
 	waitmovement(LOCALID_SCOTTY)
 	msgbox(format("Scotty: Well, thanks a bunch! I left my Pokémon behind and that poltergeist sure taught me a lesson!"))
-	msgbox(format("I'm all finished down here. If you find me back in Mauville, I'll be happy to show off my knowledge of electricity!"))
+	msgbox(format("We didn't expect this many wild Pokémon would be attracted to the power generators."))
+	msgbox(format("I'm all finished down here. If you find me back in Mauville, I'll be happy to show off my knowledge of the Electric type!"))
 	closemessage
 	applymovement(LOCALID_SCOTTY, NewMauville_Inside_Movement_Scotty_Exit)
 	waitmovement(LOCALID_SCOTTY)
@@ -283,6 +301,60 @@ script NewMauville_Inside_EventScript_ChooseRotom {
 	}
 }
 
+movement NewMauville_Inside_Movement_RotomAppear {
+    set_visible
+}
+
+movement NewMauville_Inside_Movement_RotomDisappear {
+    set_invisible
+}
+
+movement NewMauville_Inside_Movement_RotomVanish {
+	set_invisible
+	delay_8
+	set_visible
+	delay_8
+	set_invisible
+	delay_8
+	set_visible
+	delay_8
+	set_invisible
+	delay_4
+	set_visible
+	delay_4
+	walk_in_place_faster_up
+	walk_in_place_faster_right
+	walk_in_place_faster_down
+	walk_in_place_faster_left
+	set_invisible
+}
+
+movement NewMauville_Inside_Movement_RotomSpin {
+	walk_in_place_faster_up
+	delay_4
+	walk_in_place_faster_left
+	delay_4
+	walk_in_place_faster_down
+	delay_4
+	walk_in_place_faster_right
+	delay_4
+	walk_up
+	delay_4
+	walk_in_place_faster_up
+	delay_4
+	walk_in_place_faster_left
+	delay_4
+	walk_in_place_faster_down
+	delay_4
+	walk_in_place_faster_right
+	delay_4
+	walk_in_place_faster_up
+}
+
+movement NewMauville_Inside_Movement_RotomToPlayer {
+
+}
+
 movement NewMauville_Inside_Movement_Scotty_1 {
 	face_right
 	delay_16
@@ -298,10 +370,8 @@ movement NewMauville_Inside_Movement_Scotty_2 {
 	walk_fast_left * 2
 }
 movement NewMauville_Inside_Movement_Scotty_3 {
-	walk_fast_up
+	walk_fast_up * 2
 	walk_fast_left
-	walk_fast_up
-	face_left
 }
 
 movement NewMauville_Inside_Movement_Scotty_LookAround {
@@ -334,4 +404,34 @@ text NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped {
 	"… … … … … … … …\p"
 	"The generator appears to have\n"
 	"stopped…"
+}
+
+script NewMauville_Inside_EventScript_Scientist {
+	lock
+	faceplayer
+	msgbox(format("When we designed the new generator system, we weren't expecting this many wild Pokémon!"))
+	msgbox(format("I spray myself with Repel every hour so I can stay safe down here."))
+	release
+	end
+}
+
+script NewMauville_Inside_EventScript_Maniac {
+	lock
+	faceplayer
+	msgbox(format("A lot of New Mauville has been left unfinished since the wild Pokémon appeared."))
+	msgbox(format("Be careful not to trip over any boxes."))
+	msgbox(format("And watch out for Voltorb! They like to explode."))
+	release
+	end
+}
+
+script NewMauville_Inside_EventScript_Beauty {
+	lock
+	faceplayer
+	msgbox(format("We spent all that time getting the city to run off of hydroelectric power."))
+	msgbox(format("Now the project is almost abandoned because a few Electric rodents showed up!"))
+	msgbox(format("Seriously, how hard is it to bring a Ground-type to work?"))
+	msgbox(format("Some people are just lazy."))
+	release
+	end
 }

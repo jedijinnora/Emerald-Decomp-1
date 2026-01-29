@@ -112,6 +112,7 @@ script PacifidlogTown_House4_EventScript_WaterStarterGift {
 	if(var(VAR_RESULT) == YES) {
 		call(Common_EventScript_NameReceivedBoxMon)
 	}
+	copyvar(VAR_TEMP_TRANSFERRED_SPECIES, VAR_TEMP_1)
 	call(Common_EventScript_TransferredToPC)
 	WaterStarterEnd:
 	msgbox(format("I hope you have grand adventures together!"))
@@ -153,8 +154,8 @@ PacifidlogTown_House4_Text_PeopleSawHighFlyingPokemon:
 	.string "Doesn't it need to rest somewhere?$"
 
 PacifidlogTown_House4_Text_SkyPokemon:
-	.string "A sky Pokémon!\n"
-	.string "A sky Pokémon!$"
+	.string "Bubble! Bubble!\n"
+	.string "Water Pokémon are the best!$"
 
 PacifidlogTown_House4_Text_WhereDidYouComeFrom:
 	.string "Where did you come from?$"

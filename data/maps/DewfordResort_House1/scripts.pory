@@ -16,3 +16,68 @@ script DewfordResort_House1_EventScript_GiveRoomService {
     setflag(FLAG_RECEIVED_ROOM_SERVICE)
     return
 }
+
+script DewfordResort_House1_EventScript_Beauty {
+    lock
+    faceplayer
+    msgbox(format("Oh no…"))
+    msgbox(format("I decided to go for a stroll in Granite Cave, but I broke a heel and dropped my purse!"))
+    msgbox(format("I recoverd everything except my precious Everstone. It's very dear to me, and I want it back!"))
+    msgbox(format("Sadly, that was my only fashionable spelunking outfit, and it just doesn't do it for me without the matching heels."))
+    msgbox(format("I'd never be so gauche to return to that cave without the proper clothing, but I can't see you being bothered by a little thing like wanting to look your best."))
+    msgbox(format("Would you be a good little dear and go retrieve my Everstone?"))
+    checkitem(ITEM_EVERSTONE)
+    goto_if_ne(VAR_RESULT, TRUE, BeautyEnd)
+    goto_if_set(FLAG_HIDDEN_ITEM_GRANITE_CAVE_B1F_EVERSTONE, DewfordResort_House1_EventScript_EverstoneRetrieved)
+    // she's a tourist, she has no ability to tell if you give her the right one or not
+    BeautyEnd:
+    release
+    end
+}
+
+script DewfordResort_House1_EventScript_EverstoneRetrieved {
+    msgbox(format("Oh, that's it! You'll hand it over immediately, of course!"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, DewfordResort_House1_EventScript_Police)
+    removeitem(ITEM_EVERSTONE)
+    msgbox(format("{PLAYER} handed over the Everstone to the snobby lady."))
+    msgbox(format("I suppose you want some kind of reward, don't you?"))
+    msgbox(format("Let's see…"))
+    msgbox(format("Sunglasses? No, too expensive…"))
+    msgbox(format("Perfume? Too fancy for someone like you…"))
+    msgbox(format("Oh, here! You can have this flower bracelet, it's useless to me!"))
+    setflag(FLAG_RECEIVED_COMFEY)
+    givemon(SPECIES_COMFEY, 10)
+    playfanfare(MUS_OBTAIN_ITEM)
+    bufferspeciesname(STR_VAR_1, SPECIES_COMFEY)
+    msgbox("{PLAYER} received {STR_VAR_1}!")
+    waitmessage
+    waitfanfare
+    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, ComfeyToParty)
+    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, ComfeyToPC)
+
+    ComfeyToParty:
+    msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+    goto(ComfeyEnd)
+
+    ComfeyToPC:
+    msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        call(Common_EventScript_NameReceivedBoxMon)
+    }
+    setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_COMFEY)
+    call(Common_EventScript_TransferredToPC)
+    ComfeyEnd:
+    msgbox(format("No returns, thank you very much!"))
+    release
+    end
+}
+
+script DewfordResort_House1_EventScript_Police {
+    msgbox(format("Eeek! Someone fetch me an Officer Jenny, this Trainer's a thief!"))
+    release
+    end
+}

@@ -117,6 +117,7 @@ script LavaridgeTown_House3_EventScript_FireStarterGift {
 	if(var(VAR_RESULT) == YES) {
 		call(Common_EventScript_NameReceivedBoxMon)
 	}
+	copyvar(VAR_TEMP_TRANSFERRED_SPECIES, VAR_TEMP_1)
 	call(Common_EventScript_TransferredToPC)
 	FireStarterEnd:
 	msgbox(format("I hope you have grand adventures together!"))

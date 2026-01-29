@@ -133,6 +133,7 @@ script MossdeepCity_House4_EventScript_Gimmighoul {
 	if(var(VAR_RESULT) == YES) {
 		call(Common_EventScript_NameReceivedBoxMon)
 	}
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_GIMMIGHOUL_CHEST)
 	call(Common_EventScript_TransferredToPC)
 	GimmighoulEnd:
 	return

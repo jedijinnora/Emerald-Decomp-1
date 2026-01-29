@@ -122,7 +122,11 @@
     "SouthernIsland",
     "SkyPillar_Outside",
     "MtChimney",
-    "PathlessForest"
+    "PathlessForest",
+    "HeavengrassTown",
+    "BambooWilds",
+    "SeasideMeadow",
+    "SlateportLighthouse"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -154,7 +158,8 @@
     "DewfordTown_Gym",
     "DewfordTown_Hall",
     "DewfordTown_House2",
-    "DewfordTown_House3"
+    "DewfordTown_House3",
+    "DewfordTown_House4"
   ],
   "gMapGroup_IndoorLavaridge": [
     "LavaridgeTown_HerbShop",

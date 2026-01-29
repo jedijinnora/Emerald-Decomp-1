@@ -110,7 +110,6 @@ script LilycoveCity_EventScript_ObtainCosplaychu {
 	givemon(SPECIES_PIKACHU_COSPLAY, 15)
 	playfanfare(MUS_OBTAIN_ITEM)
 	bufferspeciesname(STR_VAR_1, SPECIES_PIKACHU_COSPLAY)
-	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PIKACHU_COSPLAY)
 	msgbox(format("Cosplay Pikachu joined {PLAYER}!"))
 	removeobject(LOCALID_COSPLAY_PIKACHU)
 	waitmessage
@@ -131,6 +130,7 @@ script LilycoveCity_EventScript_ObtainCosplaychu {
 	if(var(VAR_RESULT) == YES) {
 		call(Common_EventScript_NameReceivedBoxMon)
 	}
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PIKACHU_COSPLAY)
 	call(Common_EventScript_TransferredToPC)
 	PikachuEnd:
 	applymovement(LOCALID_SPIKY_EARED_PICHU, LilycoveCity_Movement_PichuHop)
@@ -280,7 +280,6 @@ script LilycoveCity_EventScript_TryGiveSpikyPichu {
 	givemon(SPECIES_PICHU_SPIKY_EARED, 15)
 	playfanfare(MUS_OBTAIN_ITEM)
 	bufferspeciesname(STR_VAR_1, SPECIES_PICHU_SPIKY_EARED)
-	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PICHU_SPIKY_EARED)
 	msgbox(format("Spiky-eared Pichu joined {PLAYER}!"))
 	removeobject(LOCALID_SPIKY_EARED_PICHU)
 	waitmessage
@@ -301,6 +300,7 @@ script LilycoveCity_EventScript_TryGiveSpikyPichu {
 	if(var(VAR_RESULT) == YES) {
 		call(Common_EventScript_NameReceivedBoxMon)
 	}
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PICHU_SPIKY_EARED)
 	call(Common_EventScript_TransferredToPC)
 	PichuEnd:
 	msgbox(format("Not to worry! The cosplay box will always be here if you need it!"))

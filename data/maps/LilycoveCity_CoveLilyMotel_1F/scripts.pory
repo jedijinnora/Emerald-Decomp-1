@@ -3,7 +3,31 @@ mapscripts LilycoveCity_CoveLilyMotel_1F_MapScripts {
 }
 
 script LilycoveCity_CoveLilyMotel_1F_OnTransition {
+    call_if_unset(FLAG_MET_PHOEBE_MT_PYRE, LilycoveCity_CoveLilyMotel_1F_EventScript_HidePhoebe)
+    //todo: hide jan if not had seafloor cavern encounter yet
+    call_if_set(FLAG_LILYCOVE_TAILLOW_TRADE_COMPLETED, LilycoveCity_CoveLilyMotel_1F_EventScript_HideJan)
+    specialvar(VAR_TEMP_1, GetDayOfTheWeek)
+    switch(var(VAR_TEMP_1)) {
+        case 0:
+        case 2:
+        case 4:
+            setflag(FLAG_TEMP_12)
+        case 1:
+        case 3:
+        case 5:
+            setflag(FLAG_TEMP_13)
+        default:
+    }
 	end
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_HidePhoebe {
+    setflag(FLAG_TEMP_11)
+    return
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_HideJan {
+    setflag(FLAG_TEMP_14)
 }
 
 
@@ -101,7 +125,6 @@ script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistCheckMoves {
     goto_if_defeated(TRAINER_PHOEBE_INITIAL, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_PHOEBE_INVERSE, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_PHOEBE_CHALLENGE, Common_EventScript_NopReturn)
-    goto_if_set(FLAG_TUTOR_PUNCH_MOVES, Common_EventScript_NopReturn)
 	goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
 	goto_if_set(FLAG_MET_THOMSON_SET_DAMAGE_MOVES, Common_EventScript_NopReturn)
 	goto_if_defeated(TRAINER_PUNCH_TUTOR, Common_EventScript_NopReturn)
@@ -240,8 +263,151 @@ text LilycoveCity_CoveLilyMotel_1F_Text_PhoebeDefeated {
     "Oh, darn. I've gone and lost."
 }
 
+script LilycoveCity_CoveLilyMotel_1F_EventScript_CorsolaTrader {
+	lock
+	faceplayer
+	goto_if_set(FLAG_LILYCOVE_CORSOLA_TRADE_COMPLETED, CorsolaTradeCompleted)
+	setvar(VAR_0x8008, INGAME_TRADE_CORSOLA)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
+	copyvar(VAR_0x8009, VAR_RESULT)
+	msgbox(format("I found a sick Corsola on the beach a little while ago."))
+    msgbox(format("I tried my best to take care of it, but it's changed completely and I don't know what to do."))
+	msgbox(format("Can you trade me a flower Pokémon like Vileplume instead?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DeclineCorsolaTrade)
+	msgbox(format("Thanks a bunch!"))
+	waitmessage
+	special(ChoosePartyMon)
+	waitstate
+	copyvar(VAR_0x800A, VAR_0x8004)
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, DeclineCorsolaTrade)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	specialvar(VAR_RESULT, GetTradeSpecies)
+	copyvar(VAR_0x800B, VAR_RESULT)
+	goto_if_ne(VAR_RESULT, VAR_0x8009, SelectedNotVileplume)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	special(CreateInGameTradePokemon)
+	special(DoInGameTradeScene)
+	waitstate
+	msgbox(format("I hope I have better luck with flowers than coral!"))
+	setflag(FLAG_LILYCOVE_CORSOLA_TRADE_COMPLETED)
+	release
+	end
 
+	DeclineCorsolaTrade:
+	msgbox(format("Corsola's gone all white and bleached. I don't know what to do!"))
+	release
+	end
 
+	SelectedNotVileplume:
+	bufferspeciesname(STR_VAR_1, VAR_0x800B)
+	msgbox(format("Oh, do you think {STR_VAR_1} has better flowers than Vilplume?"))
+	msgbox(format("No, I think your eyesight must be going."))
+	release
+	end
+
+	CorsolaTradeCompleted:
+	msgbox(format("Vileplume seems a little wilted sometimes. I think I might just be bad at Pokémon."))
+	release
+	end
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_MunnaTrader {
+	lock
+	faceplayer
+	goto_if_set(FLAG_LILYCOVE_MUNNA_TRADE_COMPLETED, MunnaTradeCompleted)
+	setvar(VAR_0x8008, INGAME_TRADE_MUNNA)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
+	copyvar(VAR_0x8009, VAR_RESULT)
+	msgbox(format("Ever since this pink Pokémon showed up, I can't remember any of my dreams."))
+    msgbox(format("I'd much rather have fancy Mismagius to cast spells with."))
+	msgbox(format("Do you have one? I'll trade you my Munna."), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DeclineMunnaTrade)
+	msgbox(format("Ooh, yes!"))
+	waitmessage
+	special(ChoosePartyMon)
+	waitstate
+	copyvar(VAR_0x800A, VAR_0x8004)
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, DeclineMunnaTrade)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	specialvar(VAR_RESULT, GetTradeSpecies)
+	copyvar(VAR_0x800B, VAR_RESULT)
+	goto_if_ne(VAR_RESULT, VAR_0x8009, SelectedNotMismagius)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	special(CreateInGameTradePokemon)
+	special(DoInGameTradeScene)
+	waitstate
+	msgbox(format("I hope Munna only eats the dreams you don't want."))
+	setflag(FLAG_LILYCOVE_MUNNA_TRADE_COMPLETED)
+	release
+	end
+
+	DeclineMunnaTrade:
+	msgbox(format("Maybe meditating before bed will help me get my dreams back."))
+	release
+	end
+
+	SelectedNotMismagius:
+	bufferspeciesname(STR_VAR_1, VAR_0x800B)
+	msgbox(format("Look, I'm pretty into witchcraft. Have you seen Mismagius? It's the only one for me."))
+	release
+	end
+
+	MunnaTradeCompleted:
+	msgbox(format("I heard in Unova they're using Munna's Dream Mist to access Pokémon with Hidden Abilities."))
+	release
+	end
+}
+
+script LilycoveCity_CoveLilyMotel_1F_EventScript_TaillowTrader {
+	lock
+	faceplayer
+	goto_if_set(FLAG_LILYCOVE_TAILLOW_TRADE_COMPLETED, TaillowTradeCompleted)
+	setvar(VAR_0x8008, INGAME_TRADE_TAILLOW)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	specialvar(VAR_RESULT, GetInGameTradeSpeciesInfo)
+	copyvar(VAR_0x8009, VAR_RESULT)
+    msgbox(format("I've been adjusting to Pokémon being able to survive getting knocked out in this world."))
+	msgbox(format("I even raised up a new Taillow, but it's just not the same as the original."))
+	msgbox(format("I think it's time I moved on. Would you trade me a Vigoroth for Taillow?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DeclineTaillowTrade)
+	special(ChoosePartyMon)
+	waitstate
+	copyvar(VAR_0x800A, VAR_0x8004)
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, DeclineTaillowTrade)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	specialvar(VAR_RESULT, GetTradeSpecies)
+	copyvar(VAR_0x800B, VAR_RESULT)
+	goto_if_ne(VAR_RESULT, VAR_0x8009, SelectedNotVigoroth)
+	copyvar(VAR_0x8004, VAR_0x8008)
+	copyvar(VAR_0x8005, VAR_0x800A)
+	special(CreateInGameTradePokemon)
+	special(DoInGameTradeScene)
+	waitstate
+	msgbox(format("Don't forget, even the strongest Swellow might fall to Thunder."))
+	setflag(FLAG_LILYCOVE_TAILLOW_TRADE_COMPLETED)
+	release
+	end
+
+	DeclineTaillowTrade:
+	msgbox(format("I'll stick around until I find a home for Taillow."))
+	release
+	end
+
+	SelectedNotVigoroth:
+	bufferspeciesname(STR_VAR_1, VAR_0x800B)
+	msgbox(format(""))
+	release
+	end
+
+	TaillowTradeCompleted:
+	msgbox(format("Traveling around on Vigoroth has really opened my eyes to just how huge the world really is."))
+	release
+	end
+}
 
 
 raw `
@@ -249,22 +415,10 @@ raw `
 LilycoveCity_CoveLilyMotel_1F_EventScript_MotelOwner::
 	lockall
 	goto_if_set FLAG_SYS_GAME_CLEAR, LilycoveCity_CoveLilyMotel_1F_EventScript_GameClear
-	goto_if_set FLAG_BADGE07_GET, LilycoveCity_CoveLilyMotel_1F_EventScript_AquaHideoutBusted
 	msgbox LilycoveCity_CoveLilyMotel_1F_Text_GuestsDoubledByMascot, MSGBOX_DEFAULT
 	applymovement LOCALID_OWNER, Common_Movement_FacePlayer
 	waitmovement 0
 	msgbox LilycoveCity_CoveLilyMotel_1F_Text_NoGuestsWithTeamAqua, MSGBOX_DEFAULT
-	closemessage
-	applymovement LOCALID_OWNER, Common_Movement_FaceOriginalDirection
-	waitmovement 0
-	releaseall
-	end
-
-LilycoveCity_CoveLilyMotel_1F_EventScript_AquaHideoutBusted::
-	msgbox LilycoveCity_CoveLilyMotel_1F_Text_MonFoundLostItem, MSGBOX_DEFAULT
-	applymovement LOCALID_OWNER, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox LilycoveCity_CoveLilyMotel_1F_Text_HeardAquaHideoutBusted, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_OWNER, Common_Movement_FaceOriginalDirection
 	waitmovement 0
@@ -329,8 +483,8 @@ LilycoveCity_CoveLilyMotel_1F_Text_GuestsDoubledByMascot:
 LilycoveCity_CoveLilyMotel_1F_Text_NoGuestsWithTeamAqua:
 	.string "Oh, sorry, sorry!\n"
 	.string "I was too involved in watching TV!\p"
-	.string "There aren't any guests checked in\n"
-	.string "today, so feel free to hang around.$"
+	.string "Feel free to hang around the motel.\n"
+	.string "Plenty of locals like to drop in!$"
 
 LilycoveCity_CoveLilyMotel_1F_Text_CantSeeTheTV:
 	.string "Hey, down in front!\n"

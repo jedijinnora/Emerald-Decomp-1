@@ -9,23 +9,37 @@ script NewMauville_Entrance_OnLoad {
 }
 
 script NewMauville_Entrance_EventScript_CloseDoors {
-	setmetatile(3, 0, METATILE_Facility_NewMauvilleDoor_Closed_Tile0, TRUE)
-	setmetatile(4, 0, METATILE_Facility_NewMauvilleDoor_Closed_Tile1, TRUE)
-	setmetatile(5, 0, METATILE_Facility_NewMauvilleDoor_Closed_Tile2, TRUE)
-	setmetatile(3, 1, METATILE_Facility_NewMauvilleDoor_Closed_Tile3, TRUE)
-	setmetatile(4, 1, METATILE_Facility_NewMauvilleDoor_Closed_Tile4, TRUE)
-	setmetatile(5, 1, METATILE_Facility_NewMauvilleDoor_Closed_Tile5, TRUE)
-	setmetatile(3, 13, METATILE_Facility_NewMauvilleDoor_Closed_Tile0, TRUE)
-	setmetatile(4, 13, METATILE_Facility_NewMauvilleDoor_Closed_Tile1, TRUE)
-	setmetatile(5, 13, METATILE_Facility_NewMauvilleDoor_Closed_Tile2, TRUE)
-	setmetatile(3, 14, METATILE_Facility_NewMauvilleDoor_Closed_Tile3, TRUE)
-	setmetatile(4, 14, METATILE_Facility_NewMauvilleDoor_Closed_Tile4, TRUE)
-	setmetatile(5, 14, METATILE_Facility_NewMauvilleDoor_Closed_Tile5, TRUE)
+	setmetatile(7, 0, METATILE_Facility_NewMauvilleDoor_Closed_Tile0, TRUE)
+	setmetatile(8, 0, METATILE_Facility_NewMauvilleDoor_Closed_Tile1, TRUE)
+	setmetatile(9, 0, METATILE_Facility_NewMauvilleDoor_Closed_Tile2, TRUE)
+	setmetatile(7, 1, METATILE_Facility_NewMauvilleDoor_Closed_Tile3, TRUE)
+	setmetatile(8, 1, METATILE_Facility_NewMauvilleDoor_Closed_Tile4, TRUE)
+	setmetatile(9, 1, METATILE_Facility_NewMauvilleDoor_Closed_Tile5, TRUE)
+	setmetatile(7, 13, METATILE_Facility_NewMauvilleDoor_Closed_Tile0, TRUE)
+	setmetatile(8, 13, METATILE_Facility_NewMauvilleDoor_Closed_Tile1, TRUE)
+	setmetatile(9, 13, METATILE_Facility_NewMauvilleDoor_Closed_Tile2, TRUE)
+	setmetatile(7, 14, METATILE_Facility_NewMauvilleDoor_Closed_Tile3, TRUE)
+	setmetatile(8, 14, METATILE_Facility_NewMauvilleDoor_Closed_Tile4, TRUE)
+	setmetatile(9, 14, METATILE_Facility_NewMauvilleDoor_Closed_Tile5, TRUE)
 	return
 }
 
 script NewMauville_Entrance_OnTransition {
 	setflag(FLAG_LANDMARK_NEW_MAUVILLE)
+	end
+}
+
+script NewMauville_Entrance_EventScript_Turbine {
+	lock
+	goto_if_lt(VAR_NEW_MAUVILLE_STATE, 2, NewMauville_Entrance_EventScript_Maintenance)
+	msgbox(format("One of New Mauville's turbines. Seems to be operating smoothly."), MSGBOX_SIGN)
+	release
+	end
+}
+
+script NewMauville_Entrance_EventScript_Maintenance {
+	msgbox(format("One of New Mauville's turbines. Seems to be offline for maintenance."), MSGBOX_SIGN)
+	release
 	end
 }
 

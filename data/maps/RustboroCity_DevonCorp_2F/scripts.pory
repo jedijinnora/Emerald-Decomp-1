@@ -309,7 +309,7 @@ script RustboroCity_DevonCorp_2F_EventScript_FossilScientist {
 			bufferspeciesname(STR_VAR_2, SPECIES_AMAURA)
 			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_AMAURA)
 		default:
-		msgbox(format("ERROR:Something went very wrong while reviving a fossil!"))
+		msgbox(format("ERROR: Something went very wrong while reviving a fossil!"))
 		release
 		end
 	}

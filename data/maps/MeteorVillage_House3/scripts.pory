@@ -45,6 +45,7 @@ script MeteorVillage_House3_EventScript_TinkatinkGiver {
         if(var(VAR_RESULT) == YES) {
             call(Common_EventScript_NameReceivedBoxMon)
         }
+        setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TINKATINK)
         call(Common_EventScript_TransferredToPC)
         TinkatinkEnd:
         msgbox(format("I hope you two get along."))

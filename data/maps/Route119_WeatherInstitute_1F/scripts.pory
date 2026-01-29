@@ -8,11 +8,10 @@ script Route119_WeatherInstitute_1F_EventScript_Bed {
 	end
 }
 
-script Route119_WeatherInstitute_1F_EventScript_InstituteWorker1 {
+script Route119_WeatherInstitute_1F_EventScript_WeatherBallTutor {
 	lock
 	faceplayer
 	setflag(FLAG_TUTOR_WEATHER_BALL)
-	msgbox(format("I'm an expert on using weather conditions in battle."))
 	msgbox(format("I can teach your Pokémon the move Weather Ball if you'd like?"), MSGBOX_YESNO)
 	if(var(VAR_RESULT) == NO) {
 		Route119_WeatherInstitute_1F_EventScript_WeatherBallDeclined:
@@ -28,7 +27,157 @@ script Route119_WeatherInstitute_1F_EventScript_InstituteWorker1 {
 	end
 }
 
-script Route119_WeatherInstitute_1F_EventScript_InstituteWorker2 {
+script Route119_WeatherInstitute_1F_EventScript_ExpertsEnd {
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+	release
+	end
+}
+script Route119_WeatherInstitute_1F_EventScript_ShelfEnd {
+	release
+	end
+}
+
+script Route119_WeatherInstitute_1F_EventScript_SunExpert {
+	lock
+	faceplayer
+	msgbox(format("I'm an expert on using Harsh Sunlight in double battles."))
+	call(Common_EventScript_CountBadges)
+	goto_if_lt(VAR_NUM_BADGES, 2, Route119_WeatherInstitute_1F_EventScript_ExpertsEnd)
+	msgbox(format("Want to practice against my Sun team?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Route119_WeatherInstitute_1F_EventScript_ExpertsEnd)
+	trainerbattle_no_intro(TRAINER_WEATHER_TUTOR_SUN, Route119_WeatherInstitute_1F_Text_SunDefeated)
+	release
+	end
+}
+text Route119_WeatherInstitute_1F_Text_SunDefeated {
+	"Ack! My solar powers!"
+}
+script Route119_WeatherInstitute_1F_EventScript_SunBook {
+	lock
+	msgbox(format("This shelf has info on the Harsh Sunlight weather condition."))
+	msgbox(format("It's a lot to read. Continue?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Route119_WeatherInstitute_1F_EventScript_ShelfEnd)
+	msgbox(format("Harsh Sunlight is set by the move Sunny Day or the ability Drought."))
+	msgbox(format("It lasts for 5 turns, or 8 if the user holds a Heat Rock."))
+	msgbox(format("Harsh Sunlight has the following effects:"))
+	msgbox(format("Fire-type moves are boosted by 50%. Water-type moves are weakened by 50%."))
+	msgbox(format("No Pokémon can be frozen."))
+	msgbox(format("Castform changes to its Fire-type Sunny form and has increased stats."))
+	msgbox(format("Cherrim changes to its Sunshine form and has increased stats."))
+	msgbox(format("Sun activates the abilities Chlorophyll, Dry Skin, Flower Gift, Forecast, Leaf Guard, Solar Power, and Protosynthesis."))
+	msgbox(format("The ability Harvest is guaranteed to restore a used Berry."))
+	msgbox(format("Moonlight, Synthesis, and Morning Sun restore more HP."))
+	msgbox(format("Solar Beam and Solar Blade do not require a charging turn."))
+	msgbox(format("Growth sharply boosts both Atk and Sp. Atk."))
+	msgbox(format("Weather Ball becomes Fire-type and increases in power."))
+	msgbox(format("The accuracy of Thunder and Hurricane lowers to 50%."))
+	release
+}
+
+script Route119_WeatherInstitute_1F_EventScript_RainExpert {
+	lock
+	faceplayer
+	msgbox(format("I'm an expert on using Rain in double battles."))
+	call(Common_EventScript_CountBadges)
+	goto_if_lt(VAR_NUM_BADGES, 2, Route119_WeatherInstitute_1F_EventScript_ExpertsEnd)
+	msgbox(format("Want to practice against my Rain team?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Route119_WeatherInstitute_1F_EventScript_ExpertsEnd)
+	trainerbattle_no_intro(TRAINER_WEATHER_TUTOR_RAIN, Route119_WeatherInstitute_1F_Text_RainDefeated)
+	release
+	end
+}
+text Route119_WeatherInstitute_1F_Text_RainDefeated {
+	"Ugh, my shoes are soggy."
+}
+script Route119_WeatherInstitute_1F_EventScript_RainBook {
+	lock
+	msgbox(format("This shelf has info on the Rainy weather condition."))
+	msgbox(format("It's a lot to read. Continue?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Route119_WeatherInstitute_1F_EventScript_ShelfEnd)
+	msgbox(format("Rain is set by the move Rain Dance or the ability Drizzle."))
+	msgbox(format("It lasts for 5 turns, or 8 if the user holds a Damp Rock."))
+	msgbox(format("Rain has the following effects:"))
+	msgbox(format("Water-type moves are boosted by 50%. Fire-type moves are weakened by 50%."))
+	msgbox(format("Castform changes to its Water-type Rainy form and has increased stats."))
+	msgbox(format("Rain activates the abilities Dry Skin, Forecast, Hydration, Rain Dish, and Swift Swim."))
+	msgbox(format("The move Electro Shot does not require a charging turn."))
+	msgbox(format("Moonlight, Synthesis, and Morning Sun restore less HP."))
+	msgbox(format("Solar Beam and Solar Blade are 50% weaker."))
+	msgbox(format("Weather Ball becomes Water-type and increases in power."))
+	msgbox(format("Thunder, Hurricane, Bleakwind Storm, Wildbolt Storm, and Sandsear Storm will always hit."))
+	release
+}
+
+script Route119_WeatherInstitute_1F_EventScript_HailExpert {
+	lock
+	faceplayer
+	msgbox(format("I'm an expert on using Hail in double battles."))
+	call(Common_EventScript_CountBadges)
+	goto_if_lt(VAR_NUM_BADGES, 2, Route119_WeatherInstitute_1F_EventScript_ExpertsEnd)
+	msgbox(format("Want to practice against my Hail team?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Route119_WeatherInstitute_1F_EventScript_ExpertsEnd)
+	trainerbattle_no_intro(TRAINER_WEATHER_TUTOR_HAIL, Route119_WeatherInstitute_1F_Text_HailDefeated)
+	release
+	end
+}
+text Route119_WeatherInstitute_1F_Text_HailDefeated {
+	"But winter weather is so pretty…"
+}
+script Route119_WeatherInstitute_1F_EventScript_HailBook {
+	lock
+	msgbox(format("This shelf has info on the Hail weather condition."))
+	msgbox(format("It's a lot to read. Continue?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Route119_WeatherInstitute_1F_EventScript_ShelfEnd)
+	msgbox(format("Hail is set by the moves Hail and Chilly Reception or the ability Snow Warning."))
+	msgbox(format("It lasts for 5 turns, or 8 if the user holds an Icy Rock."))
+	msgbox(format("Hail has the following effects:"))
+	msgbox(format("Pokémon take 1/16 damage at the end of each turn unless Ice-type or protected by their ability or item."))
+	msgbox(format("Ice-type Pokémon have their Defense boosted by 50%."))
+	msgbox(format("The Pokémon Castform changes to its Ice-type Snowy form and has increased stats."))
+	msgbox(format("Ice Face will change Eiscue from its Noice form to its Ice Face form."))
+	msgbox(format("Hail activates the abilities Forecast, Ice Body, Snow Cloak, and Slush Rush."))
+	msgbox(format("The move Aurora Veil may be used."))
+	msgbox(format("Moonlight, Synthesis, and Morning Sun restore less HP."))
+	msgbox(format("Solar Beam and Solar Blade are 50% weaker. Blizzard will always hit."))
+	msgbox(format("Weather Ball becomes Ice-type and increases in power."))
+	release
+}
+
+script Route119_WeatherInstitute_1F_EventScript_SandstormExpert {
+	lock
+	faceplayer
+	msgbox(format("I'm an expert on using Sandstorm in double battles."))
+	call(Common_EventScript_CountBadges)
+	goto_if_lt(VAR_NUM_BADGES, 2, Route119_WeatherInstitute_1F_EventScript_ExpertsEnd)
+	msgbox(format("Want to practice against my Sand team?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Route119_WeatherInstitute_1F_EventScript_ExpertsEnd)
+	trainerbattle_no_intro(TRAINER_WEATHER_TUTOR_SAND, Route119_WeatherInstitute_1F_Text_SandDefeated)
+	release
+	end
+}
+text Route119_WeatherInstitute_1F_Text_SandDefeated {
+	"Sand gets everywhere.\nCheck your clothes!"
+}
+script Route119_WeatherInstitute_1F_EventScript_SandBook {
+	lock
+	msgbox(format("This shelf has info on the Sandstorm weather condition."))
+	msgbox(format("It's a lot to read. Continue?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Route119_WeatherInstitute_1F_EventScript_ShelfEnd)
+	msgbox(format("Sandstorm is set by the move Sandstorm or the abilities Sand Stream and Sand Spit."))
+	msgbox(format("It lasts for 5 turns, or 8 if the user holds a Smooth Rock."))
+	msgbox(format("Sand has the following effects:"))
+	msgbox(format("Pokémon take 1/16 damage at the end of each turn unless Rock- Steel- or Ground-type or protected by their ability or item."))
+	msgbox(format("Rock-type Pokémon have their Sp. Def boosted by 50%."))
+	msgbox(format("Sand activates the abilities Sand Force, Sand Rush, and Sand Veil."))
+	msgbox(format("Meteor Beam does not require a charging turn. Shore Up restores more HP."))
+	msgbox(format("Moonlight, Synthesis, and Morning Sun restore less HP."))
+	msgbox(format("Solar Beam and Solar Blade are 50% weaker."))
+	msgbox(format("Weather Ball becomes Rock-type and increases in power."))
+	release
+}
+
+script Route119_WeatherInstitute_1F_EventScript_Man {
 	lock
 	faceplayer
 	msgbox(format("Hoenn has a wide range of environments, so it's a great place for us to study weather and climate."))

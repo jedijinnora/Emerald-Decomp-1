@@ -22,15 +22,15 @@ script PowerPlant_EventScript_Worker {
     lock
     faceplayer
     msgbox(format("We're doing some maintainence on this entrance."))
+	checkitem(ITEM_BASEMENT_KEY)
+	goto_if_eq(VAR_RESULT, TRUE, PowerPlant_EventScript_EntranceInfo)
 	if(flag(FLAG_DEFEATED_MAUVILLE_GYM)) {
-		msgbox(format("We've lost contact with the engineers inside. Would you mind taking a look?"))
+		msgbox(format("The engineer inside isn't responding to the radio. Would you mind taking a look?"))
 		giveitem(ITEM_BASEMENT_KEY)
 	}
-    checkitem(ITEM_BASEMENT_KEY)
-    if(var(VAR_RESULT)) {
-        msgbox(format("You can get in through the south side, via Route 110."))
-    }
-    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	PowerPlant_EventScript_EntranceInfo:
+	msgbox(format("You can get in through the south side, via Route 110."))
+	applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
     waitmovement(VAR_LAST_TALKED)
     release
     end
