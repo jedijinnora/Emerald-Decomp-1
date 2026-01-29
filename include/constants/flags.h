@@ -190,7 +190,7 @@
 #define FLAG_RECEIVED_SABLEYE                0x9F // r116
 #define FLAG_RECEIVED_TINKATINK              0xA0 // meteor village
 #define FLAG_RECEIVED_DITTO                  0xA1 // r117
-#define FLAG_RECEIVED_EEVEE                  0xA2 // rustboro
+#define FLAG_RECEIVED_EEVEE                  0xA2 // littleroot
 #define FLAG_RECEIVED_TOGEPI                 0xA3 // verdanturf
 #define FLAG_RECEIVED_MINIOR                 0xA4 // fallarbor
 #define FLAG_RECEIVED_WYNAUT                 0xA5 // dewford
@@ -961,7 +961,7 @@
 #define FLAG_MONSU_ISLAND_PYRAMID_WARP_2_UNLOCKED                   0x374
 #define FLAG_MONSU_ISLAND_PYRAMID_WARP_3_UNLOCKED                   0x375
 #define FLAG_BEACH_BATTLE_VICTORY                                   0x376 //player has won the initial, static tournament and gotten prize
-#define FLAG_UNUSED_0x377                                           0x377
+#define FLAG_MET_PHOEBE_MT_PYRE                                     0x377 // met Phoebe at the top of Mt. Pyre; she should be in the Motel
 #define FLAG_UNUSED_0x378                                           0x378
 #define FLAG_UNUSED_0x379                                           0x379
 #define FLAG_UNUSED_0x37A                                           0x37A
@@ -1426,10 +1426,10 @@
 #define FLAG_IS_CHAMPION                            (SYSTEM_FLAGS + 0x1F) // Seems to be related to linking.
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
-#define FLAG_VISITED_METEOR_VILLAGE                 (SYSTEM_FLAGS + 0x21) //Jinnora added
-#define FLAG_VISITED_EMERALD_CAPE                   (SYSTEM_FLAGS + 0x22) //Jinnora added
-#define FLAG_VISITED_POKEMON_LEAGUE                 (SYSTEM_FLAGS + 0x23) //Jinnora added
-#define FLAG_UNUSED_0x884                           (SYSTEM_FLAGS + 0x24) // Unused Flag
+#define FLAG_VISITED_METEOR_VILLAGE                 (SYSTEM_FLAGS + 0x21) // Jinnora added
+#define FLAG_VISITED_EMERALD_CAPE                   (SYSTEM_FLAGS + 0x22) // Jinnora added
+#define FLAG_VISITED_POKEMON_LEAGUE                 (SYSTEM_FLAGS + 0x23) // Jinnora added
+#define FLAG_VISITED_HEAVENGRASS_TOWN               (SYSTEM_FLAGS + 0x24) // Jinnora added
 #define FLAG_UNUSED_0x885                           (SYSTEM_FLAGS + 0x25) // Unused Flag
 #define FLAG_UNUSED_0x886                           (SYSTEM_FLAGS + 0x26) // Unused Flag
 #define FLAG_UNUSED_0x887                           (SYSTEM_FLAGS + 0x27) // Unused Flag
