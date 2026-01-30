@@ -180,7 +180,7 @@
 #define VAR_UNUSED_0x40A0                                0x40A0
 #define VAR_UNUSED_0x40A1                                0x40A1
 #define VAR_KELDEO_QUEST_STATE                           0x40A2 // cutter -> r131 -> pathless forest -> grove -> battle
-#define VAR_UNUSED_0x40A3                                0x40A3
+#define VAR_LANETTE_QUEST_STATE                          0x40A3
 #define VAR_UNUSED_0x40A4                                0x40A4
 #define VAR_TRICK_HOUSE_BEING_WATCHED_STATE              0x40A5
 #define VAR_TRICK_HOUSE_FOUND_TRICK_MASTER               0x40A6

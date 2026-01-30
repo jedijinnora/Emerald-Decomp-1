@@ -1345,8 +1345,8 @@
 #define FLAG_ITEM_MONSU_ISLAND_EXTERIOR_BOOSTER_ENERGY              0x4E4
 #define FLAG_ITEM_SUNRISE_SHORE_SUN_STONE                           0x4E5
 #define FLAG_ITEM_ROUTE_107_DAWN_STONE                              0x4E6
-#define FLAG_UNUSED_0x4E7                                           0x4E7
-#define FLAG_UNUSED_0x4E8                                           0x4E8
+#define FLAG_ITEM_ROUTE_114_DUBIOUS_DISC                            0x4E7
+#define FLAG_ITEM_ROUTE_114_UPGRADE                                 0x4E8
 #define FLAG_UNUSED_0x4E9                                           0x4E9
 #define FLAG_UNUSED_0x4EA                                           0x4EA
 #define FLAG_UNUSED_0x4EB                                           0x4EB
