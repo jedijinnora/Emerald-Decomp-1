@@ -29516,6 +29516,438 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Level: 5
 
 
+/* Story Events */
+=== TRAINER_KODY ===
+   Name: Kody
+   Class: Cooltrainer
+   Pic: Cooltrainer M
+   Gender: Male
+   Music: Cool
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+   Party Size: 6
+   Pool Rules: Basic
+   Pool Prune: Badges
+
+   Growlithe @ Ability Shield
+      Jolly Nature
+      Level: 14
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Fire Fang
+      - Crunch
+      - Retaliate
+      - Play Rough
+
+   Arcanine @ Ability Shield
+      Jolly Nature
+      Level: 14
+      Ability: Intimidate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 252 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Fire Fang
+      - Crunch
+      - Extreme Speed
+      - Play Rough
+
+   Swinub @ Eviolite
+      Brave Nature
+      Level: 14
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Avalanche
+      - Bulldoze
+      - Rock Tomb
+      - Ice Shard
+
+   Piloswine @ Eviolite
+      Brave Nature
+      Level: 14
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 128 Def / 128 SpD
+      Tags: Badge 3 / Badge 4
+      - Avalanche
+      - Bulldoze
+      - Rock Tomb
+      - Ice Shard
+
+   Mamoswine @ Weakness Policy
+      Brave Nature
+      Level: 14
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 128 Def / 128 SpD
+      Tags: Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Avalanche
+      - Earthquake
+      - Rock Slide
+      - Ice Shard
+
+   Spoink @ Covert Cloak
+      Modest Nature
+      Level: 14
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Psychic Noise
+      - Dazzling Gleam
+      - Shadow Ball
+      - Charge Beam
+
+   Grumpig @ Covert Cloak
+      Bold Nature
+      Level: 14
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 Def
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Psychic Noise
+      - Dazzling Gleam
+      - Shadow Ball
+      - Calm Mind
+
+   Lucario @ Muscle Band
+      Level: 13
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Vacuum Wave
+      - Force Palm
+      - Metal Claw
+      - Bullet Punch
+
+   Lucario @ Life Orb
+      Modest Nature
+      Level: 14
+      Ability: Adaptability
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 SpA / 252 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Vacuum Wave
+      - Focus Blast
+      - Flash Cannon
+      - Nasty Plot
+
+   Yamper @ Air Balloon
+      Hasty Nature
+      Level: 14
+      Ability: Rattled
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Spark
+      - Flame Charge
+      - Crunch
+      - Electro Ball
+
+   Boltund @ Air Balloon
+      Adamant Nature
+      Level: 14
+      Ability: Strong Jaw
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 Atk / 252 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Thunder Fang
+      - Fire Fang
+      - Crunch
+      - Psychic Fangs
+
+   Lechonk @ Liechi Berry
+      Careful Nature
+      Level: 14
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 0
+      - Stuff Cheeks
+      - Body Slam
+      - Covet
+      - Trailblaze
+
+   Oinkologne @ Liechi Berry
+      Careful Nature
+      Level: 14
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      Tags: Badge 1 / Badge 2
+      - Stuff Cheeks
+      - Body Slam
+      - Covet
+      - Trailblaze
+
+   Oinkologne @ Liechi Berry
+      Careful Nature
+      Level: 14
+      Ability: Thick Fat
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 252 SpD
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Stuff Cheeks
+      - Body Slam
+      - Covet
+      - Trailblaze
+
+=== TRAINER_MULTIVERSE_MATT ===
+   Name: Matt
+   Class: Aqua Admin
+   Pic: Aqua Admin M
+   Gender: Male
+   Music: Aqua
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+
+   Zapdos @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bolt Beak
+      - Dual Wingbeat
+      - Thunder Wave
+      - Roost
+
+=== TRAINER_MULTIVERSE_SHELLY ===
+   Name: Shelly
+   Class: Aqua Admin
+   Pic: Aqua Admin F
+   Gender: Female
+   Music: Aqua
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+
+   Zapdos @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bolt Beak
+      - Dual Wingbeat
+      - Thunder Wave
+      - Roost
+
+=== TRAINER_MULTIVERSE_ARCHIE ===
+   Name: Archie
+   Class: Aqua Leader
+   Pic: Aqua Leader Archie
+   Gender: Male
+   Music: Aqua
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+
+   Zapdos @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bolt Beak
+      - Dual Wingbeat
+      - Thunder Wave
+      - Roost
+
+=== TRAINER_MULTIVERSE_TABITHA ===
+   Name: Tabitha
+   Class: Magma Admin
+   Pic: Magma Admin M
+   Gender: Male
+   Music: Magma
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+
+   Zapdos @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bolt Beak
+      - Dual Wingbeat
+      - Thunder Wave
+      - Roost
+
+=== TRAINER_MULTIVERSE_COURTNEY ===
+   Name: Courtney
+   Class: Magma Admin
+   Pic: Magma Admin F
+   Gender: Female
+   Music: Magma
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+
+   Zapdos @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bolt Beak
+      - Dual Wingbeat
+      - Thunder Wave
+      - Roost
+
+=== TRAINER_MULTIVERSE_MAXIE ===
+   Name: Maxie
+   Class: Magma Leader
+   Pic: Magma Leader Maxie
+   Gender: Male
+   Music: Magma
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+
+   Zapdos @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bolt Beak
+      - Dual Wingbeat
+      - Thunder Wave
+      - Roost
+
+/* EVs are turned off for this fight */
+=== TRAINER_MULTIVERSE_JAN ===
+   Name: Jan
+   Class: Pokemaniac
+   Pic: Pokemaniac
+   Gender: Male
+   Music: Suspicious
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+
+   Misdreavus @ Spell Tag
+      Level: 16
+      Ability: Levitate
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      - Shadow Ball
+      - Pain Split
+      - Shadow Sneak
+      - Hyper Voice
+
+   Quagsire @ Soft Sand
+      Level: 16
+      Ability: Water Absorb
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      - Earthquake
+      - Strength
+      - Recover
+      - Mud Shot
+
+   Tentacruel @ Sitrus Berry
+      Relaxed Nature
+      Level: 16
+      Ability: Clear Body
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      - Surf
+      - Toxic
+      - Sludge Bomb
+      - Ice Beam
+
+   Relicanth @ Lum Berry
+      Serious Nature
+      Level: 16
+      Ability: Swift Swim
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      - Head Smash
+      - Earthquake
+      - Ancient Power
+      - Rock Smash
+
+   Donphan @ Never Melt Ice
+      Jolly Nature
+      Level: 16
+      Ability: Sturdy
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      - Earthquake
+      - Endeavor
+      - Head Smash
+      - Ice Shard
+
+=== TRAINER_MULTIVERSE_BRENDAN ===
+   Name: Brendan
+   Class: Rival
+   Pic: Brendan
+   Gender: Male
+   Music: Cool
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+
+   Zapdos @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bolt Beak
+      - Dual Wingbeat
+      - Thunder Wave
+      - Roost
+
+=== TRAINER_MULTIVERSE_MAY ===
+   Name: May
+   Class: Rival
+   Pic: May
+   Gender: Female
+   Music: Cool
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+
+   Zapdos @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bolt Beak
+      - Dual Wingbeat
+      - Thunder Wave
+      - Roost
+
+=== TRAINER_MULTIVERSE_WALLY ===
+   Name: Wally
+   Class: Rival
+   Pic: Wally
+   Gender: Male
+   Music: Cool
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+
+   Zapdos @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bolt Beak
+      - Dual Wingbeat
+      - Thunder Wave
+      - Roost
+
+=== TRAINER_MULTIVERSE_ZINNIA ===
+   Name: Zinnia
+   Class: Rival
+   Pic: Lass
+   Gender: Female
+   Music: Suspicious
+   Double Battle: No
+   AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
+
+   Zapdos @ Life Orb
+      Jolly Nature
+      Level: 16
+      Ability: Static
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      - Bolt Beak
+      - Dual Wingbeat
+      - Thunder Wave
+      - Roost
+
+
 /* TPP Islands */
 === TRAINER_TPP_RED ===
    Name: Red
