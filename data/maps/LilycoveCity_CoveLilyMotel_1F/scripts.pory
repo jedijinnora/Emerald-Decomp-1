@@ -125,7 +125,6 @@ script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistCheckMoves {
     goto_if_defeated(TRAINER_PHOEBE_INITIAL, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_PHOEBE_INVERSE, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_PHOEBE_CHALLENGE, Common_EventScript_NopReturn)
-	goto_if_set(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES, Common_EventScript_NopReturn)
 	goto_if_set(FLAG_MET_THOMSON_SET_DAMAGE_MOVES, Common_EventScript_NopReturn)
 	goto_if_defeated(TRAINER_PUNCH_TUTOR, Common_EventScript_NopReturn)
     goto_if_defeated(TRAINER_CRITICAL_TUTOR, Common_EventScript_NopReturn)
@@ -156,7 +155,7 @@ script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistChallengeUnlock 
 }
 
 script LilycoveCity_CoveLilyMotel_1F_EventScript_GhostSpecialistUnlockOtherTutor {
-    if (flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES) || defeated(TRAINER_PUNCH_TUTOR)) {
+    if (defeated(TRAINER_PUNCH_TUTOR)) {
         dynmultipush("Shadow Punch", 41)
     }
     if (flag(FLAG_MET_THOMSON_SET_DAMAGE_MOVES)) {

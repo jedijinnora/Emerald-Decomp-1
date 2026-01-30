@@ -1,38 +1,207 @@
 mapscripts Route114_LanettesHouse_MapScripts {
+	MAP_SCRIPT_ON_LOAD : Route114_LanettesHouse_OnLoad
 	MAP_SCRIPT_ON_TRANSITION : Route114_LanettesHouse_OnTransition
+}
+
+const LOCALID_PORYGON2 = 1
+const LOCALID_COOLTRAINER = 2
+const LOCALID_CORPO = 3
+const LOCALID_DEVON_PARTS = 4
+
+script Route114_LanettesHouse_OnLoad {
+	call_if_gt(VAR_LANETTE_QUEST_STATE, 20, Route114_LanettesHouse_EventScript_HidePorygon2)
+	end
 }
 
 script Route114_LanettesHouse_OnTransition {
 	setflag(FLAG_LANDMARK_LANETTES_HOUSE)
+	setflag(FLAG_TEMP_E)
+	setflag(FLAG_TEMP_12)
+	setflag(FLAG_TEMP_13)
 	end
 }
 
-raw `
-Route114_LanettesHouse_EventScript_Notebook::
-	lockall
-	msgbox Route114_LanettesHouse_Text_ResearchNotesPage1, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, Route114_LanettesHouse_EventScript_NotebookPage2
-	msgbox Route114_LanettesHouse_Text_ClosedTheNotebook, MSGBOX_DEFAULT
-	releaseall
-	end
-
-Route114_LanettesHouse_EventScript_NotebookPage2::
-	msgbox Route114_LanettesHouse_Text_ResearchNotesPage2, MSGBOX_YESNO
-	call_if_eq VAR_RESULT, YES, Route114_LanettesHouse_EventScript_NotebookPage3
-	releaseall
-	end
-
-Route114_LanettesHouse_EventScript_NotebookPage3::
-	msgbox Route114_LanettesHouse_Text_ResearchNotesPage3, MSGBOX_DEFAULT
+script Route114_LanettesHouse_EventScript_HidePorygon2 {
+	setflag(FLAG_TEMP_11)
+	setflag(FLAG_TEMP_14)
 	return
+}
 
-Route114_LanettesHouse_EventScript_PC::
-	msgbox Route114_LanettesHouse_Text_EmailFromBill, MSGBOX_SIGN
+script Route114_LanettesHouse_EventScript_Porygon2 {
+	lock
+	goto_if_ge(VAR_LANETTE_QUEST_STATE, 20, Route114_LanettesHouse_EventScript_Porygon2_GiveParts)
+	applymovement(LOCALID_PORYGON2, Common_Movement_FacePlayer)
+	waitmovement(LOCALID_PORYGON2)
+	playmoncry(SPECIES_PORYGON2, CRY_MODE_ENCOUNTER)
+	msgbox(format("Does this Porygon belong to Lanette?"))
+	msgbox(format("… … … … … … …"))
+	playmoncry(SPECIES_PORYGON2, CRY_MODE_ENCOUNTER)
+	closemessage
+
+	playse(SE_EXIT)
+	addobject(LOCALID_CORPO)
+	applymovement(LOCALID_CORPO, Common_Movement_WalkInPlaceUp)
+	waitmovement(LOCALID_CORPO)
+	playse(SE_PIN)
+	applymovement(LOCALID_CORPO, Common_Movement_ExclamationMark)
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceDown)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	msgbox(format("????: Aha! We've caught Lanette red-handed!"))
+	waitmessage
+	closemessage
+	applymovement(LOCALID_CORPO, Route114_LanettesHouse_Movement_CorpoEnter)
+	waitmovement(LOCALID_CORPO)
+	msgbox(format("Get in here and arrest her, agent! Quickly, quickly!"))
+	closemessage
+	playse(SE_EXIT)
+	addobject(LOCALID_COOLTRAINER)
+	applymovement(LOCALID_COOLTRAINER, Common_Movement_WalkInPlaceUp)
+	waitmovement(LOCALID_COOLTRAINER)
+	applymovement(LOCALID_COOLTRAINER, Route114_LanettesHouse_Movement_KodyEnter)
+	waitmovement(LOCALID_COOLTRAINER)
+	applymovement(LOCALID_COOLTRAINER, Common_Movement_WalkInPlaceDown)
+	waitmovement(LOCALID_COOLTRAINER)
+	msgbox(format("Sir, I'm pretty sure this isn't…"))
+	closemessage
+	applymovement(LOCALID_CORPO, Route114_LanettesHouse_Movement_CorpoSeethe)
+	waitmovement(LOCALID_CORPO)
+	msgbox(format("Don't have a polite chat with her, slap her with handcuffs!"))
+	closemessage
+	applymovement(LOCALID_COOLTRAINER, Common_Movement_WalkInPlaceUp)
+	waitmovement(LOCALID_COOLTRAINER)
+	msgbox(format("Sigh…"))
+	msgbox(format("This'll go easier on you if you just come quietly."))
+	closemessage
+	trainerbattle_no_intro(TRAINER_KODY, Route114_LanettesHouse_Text_KodyDefeat)
+
+	applymovement(LOCALID_CORPO, Route114_LanettesHouse_Movement_CorpoSeethe)
+	waitmovement(LOCALID_CORPO)
+	msgbox(format("What? Agent, why didn't you inform me sooner that we had the wrong person?"))
+	closemessage
+	applymovement(LOCALID_COOLTRAINER, Common_Movement_WalkInPlaceDown)
+	waitmovement(LOCALID_COOLTRAINER)
+	msgbox(format("Let's keep moving! We can't let Lanette escape, and I want lunch in Fallarbor before reporting back to HQ!"))
+	closemessage
+	applymovement(LOCALID_CORPO, Route114_LanettesHouse_Movement_CorpoLeave)
+	waitmovement(LOCALID_CORPO)
+	playse(SE_EXIT)
+	removeobject(LOCALID_CORPO)
+	applymovement(LOCALID_COOLTRAINER, Common_Movement_WalkInPlaceUp)
+	waitmovement(LOCALID_COOLTRAINER)
+	msgbox(format("Well, that was typical of him. Sorry, but it's my job, you know?"))
+	msgbox(format("I'd rather be the boot than be stomped on."))
+	closemessage
+	applymovement(LOCALID_COOLTRAINER, Route114_LanettesHouse_Movement_KodyLeave)
+	waitmovement(LOCALID_COOLTRAINER)
+	msgbox(format("I bet he won't pay for my lunch, either."))
+	closemessage
+	applymovement(LOCALID_COOLTRAINER, Common_Movement_WalkInPlaceDown)
+	waitmovement(LOCALID_COOLTRAINER)
+	playse(SE_EXIT)
+	removeobject(LOCALID_COOLTRAINER)
+	setvar(VAR_LANETTE_QUEST_STATE, 20)
+	release
 	end
+}
 
+movement Route114_LanettesHouse_Movement_CorpoEnter {
+	walk_up
+	walk_right
+	walk_in_place_left
+}
+
+movement Route114_LanettesHouse_Movement_CorpoLeave {
+	walk_left
+	walk_down
+	walk_in_place_down
+}
+
+movement Route114_LanettesHouse_Movement_KodyEnter {
+	walk_up * 3
+}
+
+movement Route114_LanettesHouse_Movement_KodyLeave {
+	walk_down * 3
+}
+
+movement Route114_LanettesHouse_Movement_CorpoSeethe {
+	walk_in_place_left
+	walk_in_place_up
+	walk_in_place_left
+	walk_in_place_up
+}
+
+text Route114_LanettesHouse_Text_KodyDefeat {
+	"Easy, easy! Don't blame me!\n"
+	"I was just following orders!"
+}
+
+script Route114_LanettesHouse_EventScript_Porygon2_GiveParts {
+	playmoncry(SPECIES_PORYGON2, CRY_MODE_ENCOUNTER)
+	applymovement(LOCALID_PORYGON2, Common_Movement_WalkInPlaceLeft)
+	waitmovement(LOCALID_PORYGON2)
+	removeobject(LOCALID_DEVON_PARTS)
+	delay(10)
+	applymovement(LOCALID_PORYGON2, Common_Movement_WalkInPlaceDown)
+	waitmovement(LOCALID_PORYGON2)
+	giveitem(ITEM_DEVON_PARTS)
+	delay(20)
+	playmoncry(SPECIES_PORYGON2, CRY_MODE_ENCOUNTER)
+	msgbox(format("01110011 01110101 01100100 01101111 00100000 01101101 01101111 01110110 01100101 01110101 01110011 01100101 01110010"))
+	closemessage
+	applymovement(OBJ_EVENT_ID_PLAYER, Route114_LanettesHouse_Movement_MovePlayer)
+	waitmovement(OBJ_EVENT_ID_PLAYER)
+	applymovement(LOCALID_PORYGON2, Route114_LanettesHouse_Movement_Porygon2Leave)
+	waitmovement(LOCALID_PORYGON2)
+	applymovement(LOCALID_PORYGON2, Common_Movement_WalkInPlaceDown)
+	waitmovement(LOCALID_PORYGON2)
+	playse(SE_EXIT)
+	removeobject(LOCALID_PORYGON2)
+	setvar(VAR_LANETTE_QUEST_STATE, 22)
+	release
+	end
+}
+
+movement Route114_LanettesHouse_Movement_MovePlayer {
+	walk_down * 3
+	walk_left
+	walk_in_place_right
+}
+
+movement Route114_LanettesHouse_Movement_Porygon2Leave {
+	walk_down * 5
+}
+
+script Route114_LanettesHouse_EventScript_PC {
+	msgbox(Route114_LanettesHouse_Text_EmailFromBill, MSGBOX_SIGN)
+	end
+}
+
+script Route114_LanettesHouse_EventScript_Notebook {
+	lockall
+	msgbox(Route114_LanettesHouse_Text_ResearchNotesPage1, MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, YES, Route114_LanettesHouse_EventScript_NotebookPage2)
+	msgbox(Route114_LanettesHouse_Text_ClosedTheNotebook, MSGBOX_DEFAULT)
+	releaseall
+	end
+}
+
+script Route114_LanettesHouse_EventScript_NotebookPage2 {
+	msgbox(Route114_LanettesHouse_Text_ResearchNotesPage2, MSGBOX_YESNO)
+	call_if_eq(VAR_RESULT, YES, Route114_LanettesHouse_EventScript_NotebookPage3)
+	releaseall
+	end
+}
+
+script Route114_LanettesHouse_EventScript_NotebookPage3 {
+	msgbox(Route114_LanettesHouse_Text_ResearchNotesPage3, MSGBOX_DEFAULT)
+	return
+}
+
+raw `
 Route114_LanettesHouse_Text_ResearchNotesPage1:
 	.string "It's Lanette's research notes.\n"
-	.string "There's information about Boxes.\p"
+	.string "There's information about PC Boxes.\p"
 	.string "Design Boxes to hold 30 Pokémon each.\p"
 	.string "Each Trainer should be able to store\n"
 	.string "420 Pokémon on the PC system.\p"
@@ -62,15 +231,18 @@ Route114_LanettesHouse_Text_EmailFromBill:
 	.string "There's an e-mail from someone on\n"
 	.string "the PC.\p"
 	.string "“… … … … … … …\p"
-	.string "“Your Storage System offers more\n"
-	.string "convenience than mine.\p"
-	.string "“It has a lot of user-friendly features\n"
-	.string "that make it fun and useful, too.\p"
-	.string "“It makes me proud that I played\n"
-	.string "a part in its development.\p"
-	.string "“Here's hoping that you'll continue\n"
-	.string "research in Storage Systems.\p"
-	.string "“From Bill\n"
+	.string "“I'm leaving tomorrow for Celio's place.\n"
+	.string "With a little work we'll be able to run\l"
+	.string "the network from One Island.\p"
+	.string "“Things at Silph have taken a dark turn.\n"
+	.string "Some company called Rocket Inc. bought\l"
+	.string "out all the other shareholders.\p"
+	.string "“Lance is still Champion, but we all know\n"
+	.string "the Rockets are in control of Indigo.\p"
+	.string "“I'm hearing rumors that the Rockets are\n"
+	.string "coming for Devon Corp. and Hoenn next.\p"
+	.string "“Stay safe.\n"
+	.string "From Bill\p"
 	.string "… … … … … … … …”$"
 
 `

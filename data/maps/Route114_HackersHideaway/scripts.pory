@@ -17,14 +17,56 @@ script Route114_HackersHideaway_EventScript_PC {
 }
 
 script Route114_HackersHideaway_EventScript_Machine {
-    msgbox(format("The intricate machine hums ominously."), MSGBOX_SIGN)
+    msgbox(format("The massive computer hums ominously."), MSGBOX_SIGN)
+    end
+}
+
+script Route114_HackersHideaway_EventScript_RedBook {
+    lock
+    msgbox(format("It's full of notes about floating-point arithmetic errors."))
+    release
     end
 }
 
 script Route114_HackersHideaway_EventScript_Lanette {
     lock
     faceplayer
-    msgbox("Lanette: Welcome!")
+    goto_if_eq(VAR_LANETTE_QUEST_STATE, 40, Route114_HackersHideaway_EventScript_Investigate)
+    goto_if_eq(VAR_LANETTE_QUEST_STATE, 35, Route114_HackersHideaway_EventScript_Reward)
+    setvar(VAR_LANETTE_QUEST_STATE, 35)
+    msgbox(format("Lanette: Oh, welcome!"))
+    msgbox(format("You saved Porygon2 from those corporate goons and recovered my Devon Parts. Thank you!"))
+    playfanfare(MUS_OBTAIN_TMHM)
+    msgbox(format("Player handed over the Devon Parts."))
+    removeitem(ITEM_DEVON_PARTS)
+    msgbox(format("Lanette: My home address used to be private, but Devon must have put trackers in this latest parts order."))
+    msgbox(format("I barely managed to sneak past those goons and escape!"))
+    msgbox(format("It's lucky we have this hideaway, and even luckier that Porygon2 was able to remove the trackers before you brought the parts here."))
+
+    Route114_HackersHideaway_EventScript_Reward:
+    msgbox(format("I really should reward you somehow…"))
+    msgbox(format("Oh, I know!"))
+    giveitem(ITEM_COMET_SHARD)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setvar(VAR_LANETTE_QUEST_STATE, 40)
+    msgbox(format("Professor Cosmo gave that to me while babbling about meteorites."))
+    msgbox(format("I didn't have the heart to tell him I'm not interested in astrophysics."))
+    msgbox(format("Anyways, with these parts we can keep our machines running for a good while."))
+    msgbox(format("Hopefully we won't have to buy from Devon again until this crisis is over."))
+
+    Route114_HackersHideaway_EventScript_Investigate:
+    msgbox(format("Something odd has been going on at Silph and now Devon - more than usual."))
+    msgbox(format("In the last year they've been tracking down every programmer and engineer to force them into exclusive contracts."))
+    msgbox(format("They're obviously trying to build something, but we don't know what it is."))
+    msgbox(format("Maybe you can investigate further? My friends and I would be seized if we showed up, but a strong Trainer could speak to President Stone safely."))
+    release
+    end
+}
+
+script Route114_HackersHideaway_EventScript_Porygon2 {
+    lock
+    playmoncry(SPECIES_PORYGON2, CRY_MODE_ENCOUNTER)
+    msgbox(format("Porygon2 is busy grinding their Everquest account."))
     release
     end
 }
@@ -132,9 +174,12 @@ script Route114_HackersHideaway_EventScript_Maniac {
     lock
     faceplayer
     msgbox(format("Hackerman: I am the most powerful man of all time."))
-    msgbox(format("Hackerman: My hacks transcend time and space…"))
-    msgbox(format("Hackerman: Use my custom algorithms to summon any past opponent to battle again!"))
-    msgbox(format("Hackerman: It was all written in assembly, so I make no promises as to your survival."))
+    msgbox(format("My hacks transcend time and space…"))
+    msgbox(format("Through my brilliance, this machine can detect anything!"))
+    msgbox(format("It goes “ding!” when there's stuff."))
+    playse(SE_PIN)
+    msgbox(format("Hackerman: It appears you have a severe case of protagonism!"))
+    msgbox(format("I would strongly advise your mother to get a haircut, lest she become part of your tragic backstory."))
     release
     end
 }
@@ -241,6 +286,18 @@ script Route114_HackersHideaway_EventScript_Bard {
     msgbox(format("The humor of some of these people, it is too much!"))
     msgbox(format("Such crude insults and bourgeois references! Tintin? Bah! Colonialist garbage."))
     msgbox(format("If I had to read Herge, I would always pick the superior Quick & Flupke!"))
+    release
+    end
+}
+
+script Route114_HackersHideaway_EventScript_Girl {
+    lock
+    faceplayer
+    msgbox(format("This place used to just be our secret clubhouse."))
+    msgbox(format("Now we all live here pretty much full time."))
+    msgbox(format("Officially, we're wanted for cracking the encryption that made TMs single-use only…"))
+    msgbox(format("But nobody really cared about that until the Rockets took over Silph Co."))
+    msgbox(format("You've benefitted from reusable TMs, haven't you? Please, help us."))
     release
     end
 }

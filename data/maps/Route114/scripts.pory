@@ -1,11 +1,108 @@
 mapscripts Route114_MapScripts {
+	MAP_SCRIPT_ON_LOAD : Route114_OnLoad
 	MAP_SCRIPT_ON_TRANSITION : Route114_OnTransition
+}
+
+const LOCALID_PORYGON2 = 34
+
+script Route114_OnLoad {
+	call_if_le(VAR_LANETTE_QUEST_STATE, 25, Route114_EventScript_CloseHideaway)
+	call_if_lt(VAR_LANETTE_QUEST_STATE, 22, Route114_EventScript_HidePorygon)
+	call_if_eq(VAR_LANETTE_QUEST_STATE, 25, Route114_EventScript_MovePorygon)
+	call_if_ge(VAR_LANETTE_QUEST_STATE, 30, Route114_EventScript_HidePorygon)
+	end
+}
+
+script Route114_EventScript_HidePorygon {
+	setflag(FLAG_TEMP_19)
+	return
+}
+
+script Route114_EventScript_MovePorygon {
+	setobjectxy(LOCALID_PORYGON2, 31, 59)
+	setobjectxyperm(LOCALID_PORYGON2, 31, 59)
+	return
+}
+
+script Route114_EventScript_CloseHideaway {
+	setmetatile(32, 58, 0x253, TRUE)
+	setmetatile(33, 58, 0x254, TRUE)
+	setmetatile(32, 59, 0x25B, TRUE)
+	setmetatile(33, 59, 0x25C, TRUE)
+	return
+}
+
+script Route114_EventScript_OpenHideaway {
+	setmetatile(32, 58, 0x241, FALSE)
+	setmetatile(33, 58, 0x241, FALSE)
+	setmetatile(32, 59, 0x241, FALSE)
+	setmetatile(33, 59, 0x241, FALSE)
+	return
 }
 
 script Route114_OnTransition {
 	call(Common_EventScript_SetWild_0)
 	call(Common_EventScript_DisableBPReward)
 	end
+}
+
+script Route114_EventScript_Porygon2 {
+	lock
+	applymovement(LOCALID_PORYGON2, Common_Movement_FacePlayer)
+	waitmovement(LOCALID_PORYGON2)
+	playmoncry(SPECIES_PORYGON2, CRY_MODE_ENCOUNTER)
+	goto_if_eq(VAR_LANETTE_QUEST_STATE, 25, Route114_EventScript_Porygon2_OpenSesame)
+	msgbox(format("01110011 01110101 01100100 01101111 00100000 01100110 01101111 01101100 01101100 01101111 01110111 00100000 01101101 01100101"))
+	waitmessage
+	closemessage
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	if (var(VAR_TEMP_1) == 27) {
+		applymovement(LOCALID_PORYGON2, Route114_Movement_Porygon2_Blocked)
+	} else {
+		applymovement(LOCALID_PORYGON2, Route114_Movement_Porygon2_Onward)
+	}
+	waitmovement(LOCALID_PORYGON2)
+	call(Route114_EventScript_MovePorygon)
+	setvar(VAR_LANETTE_QUEST_STATE, 25)
+	release
+	end
+}
+
+script Route114_EventScript_Porygon2_OpenSesame {
+	delay(20)
+	applymovement(LOCALID_PORYGON2, Common_Movement_WalkInPlaceRight)
+	waitmovement(LOCALID_PORYGON2)
+	msgbox(format("01110011 01110101 01100100 01101111 00100000 01101000 01101111 01101100 01101111 00100000 01101111 01100110 01100110"))
+	waitmessage
+	closemessage
+	playse(SE_BANG)
+	call(Route114_EventScript_OpenHideaway)
+	special(DrawWholeMapView)
+	applymovement(LOCALID_PORYGON2, Route114_Movement_Porygon2_Leave)
+	waitmovement(LOCALID_PORYGON2)
+	removeobject(LOCALID_PORYGON2)
+	setvar(VAR_LANETTE_QUEST_STATE, 30)
+	release
+	end
+}
+
+movement Route114_Movement_Porygon2_Onward {
+	walk_left * 2
+	walk_down * 7
+}
+
+movement Route114_Movement_Porygon2_Blocked {
+	walk_down * 2
+	walk_left * 2
+	walk_down * 5
+}
+
+movement Route114_Movement_Porygon2_Leave {
+	walk_right * 4
+	walk_up
+	walk_right * 3
+	walk_down
+	walk_right * 2
 }
 
 script Route114_EventScript_Nurse {

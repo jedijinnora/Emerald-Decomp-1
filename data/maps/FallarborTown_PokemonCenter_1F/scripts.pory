@@ -1,3 +1,14 @@
+script FallarborTown_PokemonCenter_1F_EventScript_Woman {
+	goto_if_ge(VAR_LANETTE_QUEST_STATE, 20, FallarborTown_PokemonCenter_1F_EventScript_DefeatedGoons)
+	msgbox(format("If you're going to be near Lanette's house, watch out.\p Some corporate goons have been hanging around looking for her."), MSGBOX_NPC)
+	end
+}
+
+script FallarborTown_PokemonCenter_1F_EventScript_DefeatedGoons {
+	msgbox(format("You defeated those corporate goons that were after Lanette?\pThank you, I feel much safer!"), MSGBOX_NPC)
+	end
+}
+
 raw `
 .set LOCALID_NURSE, 1
 
