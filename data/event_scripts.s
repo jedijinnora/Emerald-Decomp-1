@@ -1409,3 +1409,5 @@ Common_EventScript_DisableBPReward::
 	.include "data/maps/SeasideMeadow/scripts.inc"
 
 	.include "data/maps/SlateportLighthouse/scripts.inc"
+
+	.include "data/maps/Route114_Edge/scripts.inc"

@@ -38,7 +38,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
       "x": 13,
-      "y": 16,
+      "y": 26,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -51,7 +51,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 12,
-      "y": 26,
+      "y": 36,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_TREE_DISGUISE",
       "movement_range_x": 0,
@@ -64,7 +64,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_M",
       "x": 21,
-      "y": 35,
+      "y": 45,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_DOWN",
       "movement_range_x": 2,
@@ -77,7 +77,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
       "x": 4,
-      "y": 34,
+      "y": 44,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -90,7 +90,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 0,
-      "y": 26,
+      "y": 36,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_TREE_DISGUISE",
       "movement_range_x": 0,
@@ -103,7 +103,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
       "x": 6,
-      "y": 30,
+      "y": 40,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -116,7 +116,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_KECLEON",
       "x": 9,
-      "y": 29,
+      "y": 39,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
@@ -129,7 +129,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_KECLEON",
       "x": 30,
-      "y": 36,
+      "y": 46,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 1,
@@ -142,7 +142,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 0,
-      "y": 28,
+      "y": 38,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -155,7 +155,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 66,
-      "y": 10,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -168,7 +168,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
       "x": 32,
-      "y": 12,
+      "y": 22,
       "elevation": 1,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_DOWN_RIGHT_UP",
       "movement_range_x": 5,
@@ -181,7 +181,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 7,
-      "y": 9,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -194,7 +194,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BIRCHS_BAG",
       "x": 31,
-      "y": 36,
+      "y": 46,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -207,7 +207,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_DEVON_EMPLOYEE",
       "x": 54,
-      "y": 32,
+      "y": 40,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 0,
@@ -221,7 +221,7 @@
   "warp_events": [
     {
       "x": 55,
-      "y": 31,
+      "y": 39,
       "elevation": 0,
       "dest_map": "MAP_MT_PYRE_1F",
       "dest_warp_id": "0"
@@ -231,7 +231,7 @@
     {
       "type": "trigger",
       "x": 2,
-      "y": 33,
+      "y": 43,
       "elevation": 0,
       "var": "VAR_TEMP_2",
       "var_value": "0",
@@ -240,7 +240,7 @@
     {
       "type": "trigger",
       "x": 5,
-      "y": 33,
+      "y": 43,
       "elevation": 0,
       "var": "VAR_TEMP_2",
       "var_value": "1",
@@ -251,7 +251,7 @@
     {
       "type": "sign",
       "x": 30,
-      "y": 3,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route121_EventScript_MtPyrePierSign"
@@ -259,7 +259,7 @@
     {
       "type": "hidden_item",
       "x": 0,
-      "y": 34,
+      "y": 44,
       "elevation": 0,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_122_RARE_CANDY_1"
@@ -267,7 +267,7 @@
     {
       "type": "hidden_item",
       "x": 62,
-      "y": 32,
+      "y": 39,
       "elevation": 0,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_122_RARE_CANDY_2"
@@ -275,7 +275,7 @@
     {
       "type": "hidden_item",
       "x": 7,
-      "y": 37,
+      "y": 47,
       "elevation": 0,
       "item": "ITEM_GRASSY_SEED",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_122_GRASSY_SEED"

@@ -27,6 +27,11 @@
       "map": "MAP_METEOR_VILLAGE",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE114_EDGE",
+      "offset": 30,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -60,7 +65,7 @@
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
       "x": 15,
       "y": 65,
-      "elevation": 7,
+      "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
       "movement_range_x": 8,
       "movement_range_y": 1,
@@ -524,7 +529,7 @@
     },
     {
       "type": "trigger",
-      "x": 51,
+      "x": 47,
       "y": 57,
       "elevation": 0,
       "var": "VAR_OVERWORLD_WILD_SET",

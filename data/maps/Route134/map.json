@@ -27,6 +27,11 @@
       "map": "MAP_UNDERWATER_ROUTE134",
       "offset": 0,
       "direction": "dive"
+    },
+    {
+      "map": "MAP_SEASIDE_MEADOW",
+      "offset": 50,
+      "direction": "up"
     }
   ],
   "object_events": [

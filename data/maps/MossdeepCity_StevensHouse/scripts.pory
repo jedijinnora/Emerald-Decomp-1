@@ -86,6 +86,8 @@ script MossdeepCity_StevensHouse_EventScript_SteelSpecialistTutor {
             setvar(VAR_0x8005, MOVE_STEEL_BEAM)
         case 24:
             setvar(VAR_0x8005, MOVE_GYRO_BALL)
+        case 25:
+            setvar(VAR_0x8005, MOVE_SMART_STRIKE)
         case 31:
             setvar(VAR_0x8005, MOVE_METEOR_MASH)
         case 32:
@@ -95,7 +97,7 @@ script MossdeepCity_StevensHouse_EventScript_SteelSpecialistTutor {
         case 41:
             setvar(VAR_0x8005, MOVE_BULLET_PUNCH)
 		case 42:
-            setvar(VAR_0x8005, MOVE_SMART_STRIKE)
+            setvar(VAR_0x8005, MOVE_MAGNET_BOMB)
         case 43:
             setvar(VAR_0x8005, MOVE_METAL_CLAW)
         default:
@@ -131,6 +133,7 @@ script MossdeepCity_StevensHouse_EventScript_SteelSpecialistInverseUnlock {
 	dynmultipush("Metal Burst", 22)
     dynmultipush("Steel Beam", 23)
     dynmultipush("Gyro Ball", 24)
+    dynmultipush("Smart Strike", 25)
     return
 }
 
@@ -146,7 +149,7 @@ script MossdeepCity_StevensHouse_EventScript_SteelSpecialistUnlockOtherTutor {
         dynmultipush("Bullet Punch", 41)
     }
 	if (flag(FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES)) {
-        dynmultipush("Smart Strike", 42)
+        dynmultipush("Magnet Bomb", 42)
     }
     if (flag(FLAG_TUTOR_BASIC_MOVES)) {
         dynmultipush("Metal Claw", 43)
@@ -193,7 +196,7 @@ script MossdeepCity_StevensHouse_EventScript_InitialBattle {
 
 script MossdeepCity_StevensHouse_EventScript_InverseBattle {
     if(!defeated(TRAINER_STEVEN_INVERSE)) {
-        msgbox(format("Winning an inverse double battle will unlock the tutor moves Autotomize, Metal Burst, Steel Beam, and Gyro Ball."))
+        msgbox(format("Winning an inverse double battle will unlock the tutor moves Autotomize, Metal Burst, Steel Beam, Gyro Ball, and Smart Strike."))
         setflag(FLAG_TEMP_11)
     }
     msgbox(format("I've got some new plans! Ready to go?"), MSGBOX_YESNO)
@@ -202,7 +205,7 @@ script MossdeepCity_StevensHouse_EventScript_InverseBattle {
     trainerbattle_no_intro(TRAINER_STEVEN_INVERSE, MossdeepCity_StevensHouse_Text_StevenDefeated)
     clearflag(FLAG_INVERSE_BATTLE)
     if(flag(FLAG_TEMP_11)) {
-        msgbox(format("Added Autotomize, Metal Burst, Steel Beam, and Gyro Ball to the tutor list."))
+        msgbox(format("Added Autotomize, Metal Burst, Steel Beam, Gyro Ball, and Smart Strike to the tutor list."))
         clearflag(FLAG_TEMP_11)
     }
     return

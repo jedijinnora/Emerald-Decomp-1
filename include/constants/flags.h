@@ -139,8 +139,8 @@
 #define FLAG_RECEIVED_SCOPE_LENS             0x70 // lass in cutter's house
 #define FLAG_RECEIVED_ROOM_SERVICE           0x71 // dewford resort house
 #define FLAG_RECEIVED_GRACIDEA               0x72 // defeat Anabel's Shaymin team with Shaymin in party
-#define FLAG_UNUSED_0x73                     0x73
-#define FLAG_UNUSED_0x74                     0x74
+#define FLAG_GIVEN_ZOOM_LENS                 0x73 // r124 observatory
+#define FLAG_GIVEN_WIDE_LENS                 0x74 // r124 observatory
 #define FLAG_UNUSED_0x75                     0x75
 #define FLAG_UNUSED_0x76                     0x76
 #define FLAG_UNUSED_0x77                     0x77
@@ -744,10 +744,10 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_132_HEART_SCALE_1              0x2AB
 #define FLAG_HIDDEN_ITEM_ROUTE_132_HEART_SCALE_2              0x2AC
 #define FLAG_HIDDEN_ITEM_UNDERWATER_109_COMET_SHARD           0x2AD
-#define FLAG_UNUSED_0x2AE  0x2AE // Unused Flag
-#define FLAG_UNUSED_0x2AF  0x2AF // Unused Flag
-#define FLAG_UNUSED_0x2B0  0x2B0 // Unused Flag
-#define FLAG_UNUSED_0x2B1  0x2B1 // Unused Flag
+#define FLAG_HIDDEN_ITEM_SEASIDE_MEADOW_RED_NECTAR            0x2AE
+#define FLAG_HIDDEN_ITEM_SEASIDE_MEADOW_YELLOW_NECTAR         0x2AF
+#define FLAG_HIDDEN_ITEM_SEASIDE_MEADOW_PINK_NECTAR           0x2B0
+#define FLAG_HIDDEN_ITEM_SEASIDE_MEADOW_PURPLE_NECTAR         0x2B1
 #define FLAG_UNUSED_0x2B2  0x2B2 // Unused Flag
 #define FLAG_UNUSED_0x2B3  0x2B3 // Unused Flag
 #define FLAG_UNUSED_0x2B4  0x2B4 // Unused Flag
@@ -1063,7 +1063,7 @@
 #define FLAG_LILYCOVE_TAILLOW_TRADE_COMPLETED                       0x3D0
 #define FLAG_LILYCOVE_CORSOLA_TRADE_COMPLETED                       0x3D1
 #define FLAG_LILYCOVE_MUNNA_TRADE_COMPLETED                         0x3D2
-#define FLAG_VICTORY_ROAD_MELTAN_TRADE_COMPLETED                    0x3D3
+#define FLAG_HACKERS_HIDEAWAY_MELTAN_TRADE_COMPLETED                0x3D3
 
 //hide static encounter flags
 #define FLAG_HIDE_BATTLE_FRONTIER_SUDOWOODO                         0x3D4

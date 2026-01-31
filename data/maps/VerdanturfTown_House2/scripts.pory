@@ -67,6 +67,8 @@ script VerdanturfTown_House2_EventScript_FairySpecialistTutor {
             setvar(VAR_0x8005, MOVE_SPIRIT_BREAK)
         case 32:
             setvar(VAR_0x8005, MOVE_MOONLIGHT)
+        case 33:
+            setvar(VAR_0x8005, MOVE_FLEUR_CANNON)
         case 41:
             setvar(VAR_0x8005, MOVE_MISTY_TERRAIN)
         case 42:
@@ -109,6 +111,7 @@ script VerdanturfTown_House2_EventScript_FairySpecialistInverseUnlock {
 script VerdanturfTown_House2_EventScript_FairySpecialistChallengeUnlock {
     dynmultipush("Spirit Break", 31)
     dynmultipush("Moonlight", 32)
+    dynmultipush("Fleur Cannon", 33)
     return
 }
 
@@ -184,14 +187,14 @@ script VerdanturfTown_House2_EventScript_ChallengeBattle {
     specialvar(VAR_RESULT, CheckPartyMonotype)
     goto_if_eq(VAR_RESULT, FALSE, VerdanturfTown_House2_EventScript_NotFairyMonotype)
     if(!defeated(TRAINER_BELLATRIX_CHALLENGE)) {
-        msgbox(format("Winning against me with all Fairy-type Pokémon will unlock the tutor moves Spirit Break and Moonlight."))
+        msgbox(format("Winning against me with all Fairy-type Pokémon will unlock the tutor moves Spirit Break, Moonlight, and Fleur Cannon."))
         setflag(FLAG_TEMP_11)
     }
     msgbox(format("Which of us has the closer bond with our Pokémon? Ready to prove yourself?"), MSGBOX_YESNO)
     goto_if_eq(VAR_RESULT, NO, VerdanturfTown_House2_EventScript_FairySpecialistMenu)
     trainerbattle_no_intro(TRAINER_BELLATRIX_CHALLENGE, VerdanturfTown_House2_Text_BellatrixDefeated)
     if(flag(FLAG_TEMP_11)) {
-        msgbox(format("Added Spirit Break and Moonlight to the tutor list."))
+        msgbox(format("Added Spirit Break, Moonlight, and Fleur Cannon to the tutor list."))
         clearflag(FLAG_TEMP_11)
     }
     return

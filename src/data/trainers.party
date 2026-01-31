@@ -38550,7 +38550,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Girl
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
-   Party Size: 5
+   Party Size: 4
    Pool Rules: Basic
    Pool Prune: Badges
 
@@ -49458,7 +49458,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Pool Prune: Badges
 
    Numel @ Berry Juice
-      Level: 8
+      Level: 11
       Ability: Oblivious
       Tags: Badge 0
       - Flame Charge
@@ -49486,7 +49486,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Self Destruct
 
    Spheal @ Eviolite
-      Level: 8
+      Level: 11
       Ability: Thick Fat
       Tags: Badge 0 / Badge 1 / Badge 2
       - Chilling Water
@@ -49524,7 +49524,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Super Fang
 
    Skiddo @ Grassy Seed
-      Level: 8
+      Level: 11
       Ability: Grass Pelt
       Tags: Badge 0
       - Trailblaze
@@ -49564,7 +49564,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Pool Prune: Badges
 
    Meowth Alola @ Kings Rock
-      Level: 8
+      Level: 11
       Ability: Technician
       Tags: Badge 0
       - Bite
@@ -49604,7 +49604,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Hypnosis
 
    Mankey @ Black Belt
-      Level: 8
+      Level: 11
       Ability: Vital Spirit
       Tags: Badge 0
       - Low Kick
@@ -49642,7 +49642,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Taunt
 
    Solosis @ Eviolite
-      Level: 7
+      Level: 11
       Ability: Overcoat
       Tags: Badge 0
       - Psybeam

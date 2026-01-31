@@ -6,3 +6,56 @@ script Route124_Observatory_1F_OnTransition {
     setflag(FLAG_LANDMARK_OBSERVATORY)
     end
 }
+
+script Route124_Observatory_1F_EventScript_SchoolKidM {
+    lock
+    faceplayer
+    msgbox(format("Do you know what happens when you focus a space telescope on a region of dark and empty sky?"))
+    msgbox(format("You find hundreds and hundreds of super-distant galaxies!"))
+    call_if_unset(FLAG_GIVEN_ZOOM_LENS, Route124_Observatory_1F_EventScript_GiveZoomLens)
+    msgbox(format("Go look up the Hubble Deep Field and spend some time marveling at the scale of our universe."))
+    release
+    end
+}
+
+script Route124_Observatory_1F_EventScript_GiveZoomLens {
+    msgbox(format("This item won't help you look at the deep sky, but it will help a Pokémon in battle!"))
+    giveitem(ITEM_ZOOM_LENS)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_GIVEN_ZOOM_LENS)
+    return
+}
+
+script Route124_Observatory_1F_EventScript_Scientist {
+    msgbox(format("The best place to put a telescope is up in space, where there's no atmosphere or horizon to block your view."), MSGBOX_NPC)
+    end
+}
+
+script Route124_Observatory_1F_EventScript_Woman {
+    lock
+    faceplayer
+    msgbox(format("A telescope with a larger radius can collect more light and give you better data."))
+    msgbox(format("By combining the data from telescopes across the world, you can approximate a telescope the size of the Earth."))
+    msgbox(format("Isn't that amazing? Science is always better when we work together."))
+    call_if_unset(FLAG_GIVEN_WIDE_LENS, Route124_Observatory_1F_EventScript_GiveWideLens)
+    release
+    end
+}
+
+script Route124_Observatory_1F_EventScript_GiveWideLens {
+    msgbox(format("Here, this item can improve your Pokémon's field of vision."))
+    giveitem(ITEM_WIDE_LENS)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_GIVEN_WIDE_LENS)
+    return
+}
+
+script Route124_Observatory_1F_EventScript_Twin {
+    msgbox(format("Look at the colors on this nebula! Mom says the colors your eyes would see are different, though."), MSGBOX_NPC)
+    end
+}
+
+script Route124_Observatory_1F_EventScript_Girl {
+    msgbox(format("How do we know the size of the universe? Well, it all starts with timing a transit of Venus…"), MSGBOX_NPC)
+    end
+}

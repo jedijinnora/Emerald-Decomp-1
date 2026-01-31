@@ -12,3 +12,8 @@ script HeavengrassTown_EventScript_VisitHeavengrass {
 	addvar(VAR_CITIES_VISITED, 1)
 	return
 }
+
+script HeavengrassTown_EventScript_HeavengrassTownSign {
+    msgbox(format("Heavengrass Town\n “Where wind blows over a sea of green.”"), MSGBOX_SIGN)
+    end
+}

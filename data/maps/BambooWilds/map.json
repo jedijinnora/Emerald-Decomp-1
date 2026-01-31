@@ -12,7 +12,23 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "map": "MAP_ROUTE123",
+      "offset": 0,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_HEAVENGRASS_TOWN",
+      "offset": 20,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_SEASIDE_MEADOW",
+      "offset": -50,
+      "direction": "down"
+    }
+  ],
   "object_events": [
 
   ],

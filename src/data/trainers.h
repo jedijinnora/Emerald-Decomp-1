@@ -87583,7 +87583,7 @@ F_TRAINER_FEMALE |
 #line 38555
         .poolPruneIndex = POOL_PRUNE_BADGES,
 #line 38553
-        .partySize = 5,
+        .partySize = 4,
         .poolSize = 10,
         .party = (const struct TrainerMon[])
         {
@@ -112614,7 +112614,7 @@ F_TRAINER_FEMALE |
 #line 49462
             .ability = ABILITY_OBLIVIOUS,
 #line 49461
-            .lvl = 8,
+            .lvl = 11,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
 #line 49463
             .tags = MON_POOL_TAG_BADGE_0,
@@ -112679,7 +112679,7 @@ F_TRAINER_FEMALE |
 #line 49490
             .ability = ABILITY_THICK_FAT,
 #line 49489
-            .lvl = 8,
+            .lvl = 11,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
 #line 49491
             .tags = MON_POOL_TAG_BADGE_0 | MON_POOL_TAG_BADGE_1 | MON_POOL_TAG_BADGE_2,
@@ -112767,7 +112767,7 @@ F_TRAINER_FEMALE |
 #line 49528
             .ability = ABILITY_GRASS_PELT,
 #line 49527
-            .lvl = 8,
+            .lvl = 11,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
 #line 49529
             .tags = MON_POOL_TAG_BADGE_0,
@@ -112861,7 +112861,7 @@ F_TRAINER_FEMALE |
 #line 49568
             .ability = ABILITY_TECHNICIAN,
 #line 49567
-            .lvl = 8,
+            .lvl = 11,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
 #line 49569
             .tags = MON_POOL_TAG_BADGE_0,
@@ -112953,7 +112953,7 @@ F_TRAINER_FEMALE |
 #line 49608
             .ability = ABILITY_VITAL_SPIRIT,
 #line 49607
-            .lvl = 8,
+            .lvl = 11,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
 #line 49609
             .tags = MON_POOL_TAG_BADGE_0,
@@ -113041,7 +113041,7 @@ F_TRAINER_FEMALE |
 #line 49646
             .ability = ABILITY_OVERCOAT,
 #line 49645
-            .lvl = 7,
+            .lvl = 11,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
 #line 49647
             .tags = MON_POOL_TAG_BADGE_0,

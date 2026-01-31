@@ -1,1 +1,33 @@
 mapscripts SlateportLighthouse_MapScripts {}
+
+script SlateportLighthouse_EventScript_Sailor {
+    lock
+    faceplayer
+    msgbox(format("Burning upon some hidden shore\nAcross the sea one night\p
+    (“A little reef,” the Captain said),\nWe saw a shining light.\p
+
+    He said there was a lighthouse there\nWhere, lonely in the sea,\p
+    Men lived to guard that moving light,\nAnd trim the lamp for me.\p
+
+    For me, for him, for every ship\nThat passes by that way.\p
+    I thought it must be strange and quiet\nTo be there every day.\p
+
+    They have no shops, no fields, no\nstreets;\lNo whispering sound of trees,\p
+    But always shouting at their feet\nThe great voice of the seas.\p
+
+    And when we sleep at night they wake,\nAnd over every wave\p
+    They send that straight strong arm of\nlight\lStretched like a rope to save."))
+
+    msgbox(format("That's “The Lighthouse”, by Marjorie Wilson."))
+    release
+    end
+}
+
+script SlateportLighthouse_EventScript_SchoolKidM {
+    lock
+    faceplayer
+    msgbox(format("I like making paper planes and tossing them out to sea from the top of the Lighthouse."))
+    msgbox(format("How far could you go, if you could jump and be carried away by the wind?"))
+    release
+    end
+}

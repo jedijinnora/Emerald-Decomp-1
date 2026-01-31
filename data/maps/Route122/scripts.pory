@@ -21,15 +21,15 @@ script Route122_EventScript_TryMoveStash {
 	goto_if_set(FLAG_HIDE_SECRET_STASH_ROUTE_122, Common_EventScript_NopReturn)
 	switch(var(VAR_SECRET_STASH_STATE)) {
 		case 0:
-			setobjectxyperm(LOCALID_STASH, 31, 36)
+			setobjectxyperm(LOCALID_STASH, 31, 46)
 		case 1:
-			setobjectxyperm(LOCALID_STASH, 70, 32)
+			setobjectxyperm(LOCALID_STASH, 70, 38)
 		case 2:
-			setobjectxyperm(LOCALID_STASH, 59, 3)
+			setobjectxyperm(LOCALID_STASH, 59, 6)
 		case 3:
-			setobjectxyperm(LOCALID_STASH, 18, 28)
+			setobjectxyperm(LOCALID_STASH, 18, 38)
 		default:
-			setobjectxyperm(LOCALID_STASH, 14, 2)
+			setobjectxyperm(LOCALID_STASH, 14, 6)
 	}
 	return
 }

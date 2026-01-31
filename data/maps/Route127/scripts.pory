@@ -14,6 +14,7 @@ mapscripts Route127_MapScripts {
 
 script Route127_OnTransition {
 	call_if_set(FLAG_ROUTE_127_PSYCHIC_ENCOUNTER, Route127_EventScript_HideStaticEncounter)
+	call(Common_EventScript_CountBadges)
 	call_if_lt(VAR_NUM_BADGES, 1, Route127_EventScript_HideStaticEncounter)
 	call_if_ge(VAR_NUM_BADGES, 1, Route127_EventScript_ConfigureStaticEncounter)
 	call(Common_EventScript_DisableBPReward)

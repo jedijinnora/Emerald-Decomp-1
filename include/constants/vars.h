@@ -177,8 +177,8 @@
 #define VAR_WILD_SET_ALTERING_CAVE                       0x409D // renamed from VAR_ALTERING_CAVE_WILD_SET
 #define VAR_OVERWORLD_WILD_SET                           0x409E // used for all other areas, keeping altering cave separate b/c mystery gift messes with it
 #define VAR_NUM_FERRY_TRIPS                              0x409F // counts the number of times the player has taken the ferry
-#define VAR_UNUSED_0x40A0                                0x40A0
-#define VAR_UNUSED_0x40A1                                0x40A1
+#define VAR_ARCHIE_QUEST_STATE                           0x40A0
+#define VAR_MAXIE_QUEST_STATE                            0x40A1
 #define VAR_KELDEO_QUEST_STATE                           0x40A2 // cutter -> r131 -> pathless forest -> grove -> battle
 #define VAR_LANETTE_QUEST_STATE                          0x40A3
 #define VAR_UNUSED_0x40A4                                0x40A4

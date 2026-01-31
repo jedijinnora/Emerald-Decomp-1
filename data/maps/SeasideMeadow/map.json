@@ -12,9 +12,63 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "map": "MAP_BAMBOO_WILDS",
+      "offset": 50,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_HEAVENGRASS_TOWN",
+      "offset": 10,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE134",
+      "offset": -50,
+      "direction": "down"
+    }
+  ],
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "x": 24,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "x": 47,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_12"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "x": 49,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_13"
+    }
   ],
   "warp_events": [
 
@@ -23,6 +77,37 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 43,
+      "y": 5,
+      "elevation": 0,
+      "item": "ITEM_RED_NECTAR",
+      "flag": "FLAG_HIDDEN_ITEM_SEASIDE_MEADOW_RED_NECTAR"
+    },
+    {
+      "type": "hidden_item",
+      "x": 37,
+      "y": 11,
+      "elevation": 0,
+      "item": "ITEM_YELLOW_NECTAR",
+      "flag": "FLAG_HIDDEN_ITEM_SEASIDE_MEADOW_YELLOW_NECTAR"
+    },
+    {
+      "type": "hidden_item",
+      "x": 26,
+      "y": 17,
+      "elevation": 0,
+      "item": "ITEM_PINK_NECTAR",
+      "flag": "FLAG_HIDDEN_ITEM_SEASIDE_MEADOW_PINK_NECTAR"
+    },
+    {
+      "type": "hidden_item",
+      "x": 56,
+      "y": 12,
+      "elevation": 0,
+      "item": "ITEM_PURPLE_NECTAR",
+      "flag": "FLAG_HIDDEN_ITEM_SEASIDE_MEADOW_PURPLE_NECTAR"
+    }
   ]
 }

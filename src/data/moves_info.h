@@ -16539,13 +16539,19 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Smart Strike"),
         .description = COMPOUND_STRING(
+        #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
             "Hits with an accurate\n"
             "horn that never misses."),
-        .effect = EFFECT_HIT,
-        .power = 70,
+        #else
+            "The user ignores effects\n"
+            "that draw in moves."),
+        #endif
+        .effect = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? EFFECT_SNIPE_SHOT : EFFECT_HIT,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 80 : 70,
         .type = TYPE_STEEL,
-        .accuracy = 0,
-        .pp = 10,
+        .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 0,
+        .criticalHitStage = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 1 : 0,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 15 : 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_PHYSICAL,

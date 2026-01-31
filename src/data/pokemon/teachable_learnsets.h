@@ -213,6 +213,7 @@
 // - MOVE_FLAME_BURST                                  //
 // - MOVE_FLAME_WHEEL                                  //
 // - MOVE_FLARE_BLITZ                                  //
+// - MOVE_FLEUR_CANNON                                 //
 // - MOVE_FLING                                        //
 // - MOVE_FOCUS_ENERGY                                 //
 // - MOVE_FOCUS_PUNCH                                  //
@@ -268,6 +269,7 @@
 // - MOVE_MACH_PUNCH                                   //
 // - MOVE_MAGICAL_LEAF                                 //
 // - MOVE_MAGIC_COAT                                   //
+// - MOVE_MAGNET_BOMB                                  //
 // - MOVE_MAGNET_RISE                                  //
 // - MOVE_MAGNITUDE                                    //
 // - MOVE_MEGAHORN                                     //
@@ -8574,6 +8576,7 @@ static const u16 sMagnemiteTeachableLearnset[] = {
     MOVE_HEADBUTT,
     MOVE_HEAVY_SLAM,
     MOVE_MAGIC_COAT,
+    MOVE_MAGNET_BOMB,
     MOVE_MAGNET_RISE,
     MOVE_MIRROR_SHOT,
     MOVE_PSYCH_UP,
@@ -8634,6 +8637,7 @@ static const u16 sMagnetonTeachableLearnset[] = {
     MOVE_HEADBUTT,
     MOVE_HEAVY_SLAM,
     MOVE_MAGIC_COAT,
+    MOVE_MAGNET_BOMB,
     MOVE_MAGNET_RISE,
     MOVE_MIRROR_SHOT,
     MOVE_PSYCH_UP,
@@ -8697,6 +8701,7 @@ static const u16 sMagnezoneTeachableLearnset[] = {
     MOVE_HARD_PRESS,
     MOVE_HEAVY_SLAM,
     MOVE_MAGIC_COAT,
+    MOVE_MAGNET_BOMB,
     MOVE_MAGNET_RISE,
     MOVE_MIRROR_COAT,
     MOVE_MIRROR_SHOT,
@@ -28047,6 +28052,7 @@ static const u16 sProbopassTeachableLearnset[] = {
     MOVE_HIGH_HORSEPOWER,
     MOVE_ICE_PUNCH,
     MOVE_MAGIC_COAT,
+    MOVE_MAGNET_BOMB,
     MOVE_MAGNET_RISE,
     MOVE_MAGNITUDE,
     MOVE_METEOR_BEAM,
@@ -51293,6 +51299,7 @@ static const u16 sGenesectTeachableLearnset[] = {
     MOVE_GRAVITY,
     MOVE_INFESTATION,
     MOVE_MAGIC_COAT,
+    MOVE_MAGNET_BOMB,
     MOVE_MAGNET_RISE,
     MOVE_METAL_CLAW,
     MOVE_QUICK_ATTACK,
@@ -61241,6 +61248,7 @@ static const u16 sMagearnaTeachableLearnset[] = {
     MOVE_ENCORE,
     MOVE_ENDURE,
     MOVE_EXPLOSION,
+    MOVE_FLEUR_CANNON,
     MOVE_GRAVITY,
     MOVE_GYRO_BALL,
     MOVE_HEAL_BELL,

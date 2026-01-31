@@ -1,26 +1,88 @@
-mapscripts LittlerootTown_MapScripts {}
+mapscripts LittlerootTown_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : LittlerootTown_OnTransition
+}
+
+const LOCALID_GREGORY = 6 	// Youngster
+const LOCALID_RYAN = 7 		// School Kid M
+const LOCALID_DANI = 8 		// Lass
+const LOCALID_BREE = 9 		// Twin
+const LOCALID_KATYA = 10 	// Girl 3
+const LOCALID_JEREMY = 11 	// Tuber M
+const LOCALID_BIRCH = 12
+const LOCALID_MON_1 = 13 	// Gfx var 1
+const LOCALID_MON_2 = 14 	// Gfx var 2
+
+script LittlerootTown_OnTransition {
+	call(LittlerootTown_EventScript_HideFightClub)
+	end
+}
+
+script LittlerootTown_EventScript_HideFightClub {
+	setflag(FLAG_TEMP_12)
+	setflag(FLAG_TEMP_13)
+	setflag(FLAG_TEMP_14)
+	setflag(FLAG_TEMP_15)
+	setflag(FLAG_TEMP_16)
+	setflag(FLAG_TEMP_17)
+	setflag(FLAG_TEMP_18)
+	setflag(FLAG_TEMP_19)
+	setflag(FLAG_TEMP_1A)
+	setvar(VAR_TEMP_0, 1)
+	return
+}
+
+script LittlerootTown_EventScript_NotALocal {
+	lock
+	playse(SE_PIN)
+	applymovement(LOCALID_RYAN, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	msgbox(format("Locals only! You aren't allowed back here!"))
+	getplayerxy(VAR_TEMP_3, VAR_TEMP_4)
+	switch(var(VAR_TEMP_4)) {
+		case 10:
+			applymovement(LOCALID_RYAN, LittlerootTown_Movement_PushBack1)
+		default:
+			applymovement(LOCALID_RYAN, LittlerootTown_Movement_PushBack2)
+	}
+	applymovement(OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_Back)
+	waitmovement(LOCALID_RYAN)
+	delay(10)
+	release
+	end
+}
+
+movement LittlerootTown_Movement_PushBack1 {
+	walk_faster_right
+	delay_8
+	walk_left
+	walk_in_place_right
+}
+
+movement LittlerootTown_Movement_PushBack2 {
+	walk_faster_down
+	walk_faster_right
+	delay_8
+	walk_left
+	walk_up
+	walk_in_place_right
+}
+
+movement LittlerootTown_Movement_Back {
+	walk_right * 2
+}
 
 script LittlerootTown_EventScript_Twin {
-	lock
-	faceplayer
 	msgbox(LittlerootTown_Text_GoodLuckCatchingPokemon, MSGBOX_NPC)
-	release
 	end
 }
 
 script LittlerootTown_EventScript_FatMan {
-	lock
-	faceplayer
 	msgbox(LittlerootTown_Text_CanUsePCToStoreItems, MSGBOX_NPC)
-	release
 	end
 }
 
 script LittlerootTown_EventScript_Boy {
-	lock
-	faceplayer
 	msgbox(LittlerootTown_Text_BirchSpendsDaysInLab, MSGBOX_NPC)
-	release
 	end
 }
 
@@ -33,7 +95,6 @@ script LittlerootTown_EventScript_BirchsLabSign {
 	msgbox(LittlerootTown_Text_ProfBirchsLab, MSGBOX_SIGN)
 	end
 }
-
 
 script LittlerootTown_EventScript_BirchsHouseSign {
 	msgbox(LittlerootTown_Text_ProfBirchsHouse, MSGBOX_SIGN)

@@ -1,7 +1,15 @@
-raw `
-VerdanturfTown_FriendshipRatersHouse_MapScripts::
-	.byte 0
+mapscripts VerdanturfTown_FriendshipRatersHouse_MapScripts {}
 
+script VerdanturfTown_FriendshipRatersHouse_EventScript_Twin {
+	lock
+	faceplayer
+	msgbox(format("Buneary are so cute!"))
+	msgbox(format("They take a long time to trust a new Trainer, though."))
+	release
+	end
+}
+
+raw `
 VerdanturfTown_FriendshipRatersHouse_EventScript_FriendshipRater::
 	lock
 	faceplayer

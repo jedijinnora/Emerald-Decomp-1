@@ -1,1 +1,38 @@
 mapscripts Route124_Observatory_2F_MapScripts {}
+
+script Route124_Observatory_2F_EventScript_Lass {
+    lock
+    faceplayer
+    msgbox(format("Space telescopes can take years to be designed, built, and launched."))
+    msgbox(format("I worry sometimes, about what happens to funding when the government changes."))
+    goto_if_set(FLAG_SYS_GAME_CLEAR, Route124_Observatory_2F_EventScript_Champion)
+    msgbox(format("I hope whoever replaces Champion Anabel won't make any budget cuts."))
+    release
+    end
+}
+
+script Route124_Observatory_2F_EventScript_Champion {
+    msgbox(format("You're the new Champion, right?"))
+    msgbox(format("Can you make sure we have enough funding to maintain our telescope programs?"))
+    release
+    end
+}
+
+script Route124_Observatory_2F_EventScript_Beauty {
+    lock
+    faceplayer
+    msgbox(format("We collaborate with scientists all over the world!"))
+    msgbox(format("Have you spoken with Professor Cozmo, in Fallarbor? He's one of the leading experts on meteorites."))
+    release
+    end
+}
+
+script Route124_Observatory_2F_EventScript_Scientist {
+    lock
+    faceplayer
+    msgbox(format("No, listening to radio telescope data doesn't really do anything."))
+    msgbox(format("And the lead scientist sits in the lab where the computers are, not out in a field looking attractive."))
+    msgbox(format("Some movies are just unrealistic."))
+    release
+    end
+}

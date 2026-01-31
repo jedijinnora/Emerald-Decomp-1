@@ -1366,7 +1366,7 @@ static const struct InGameTrade sIngameTrades[] =
         .otName = _("John C."),
         .otGender = MALE, 
         .sheen = 0,
-        .requestedSpecies = SPECIES_ZOROARK
+        .requestedSpecies = SPECIES_AEGISLASH
     }
 };
 
