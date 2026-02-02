@@ -18409,7 +18409,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_ELECTRIKE"
+                "species": "SPECIES_BURMY_PLANT"
               },
               {
                 "min_level": 5,
@@ -18419,32 +18419,32 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_VOLBEAT"
+                "species": "SPECIES_TEDDIURSA"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_ILLUMISE"
+                "species": "SPECIES_TEDDIURSA"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_PLUSLE"
+                "species": "SPECIES_PHANPY"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_MINUN"
+                "species": "SPECIES_BUDEW"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_PLUSLE"
+                "species": "SPECIES_PHANPY"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_MINUN"
+                "species": "SPECIES_ROSELIA"
               }
             ]
           }
