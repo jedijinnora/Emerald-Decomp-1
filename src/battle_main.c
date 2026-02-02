@@ -4806,7 +4806,7 @@ u32 GetBattlerTotalSpeedStatArgs(u32 battler, u32 ability, u32 holdEffect)
     // other abilities
     if (ability == ABILITY_QUICK_FEET && gBattleMons[battler].status1 & STATUS1_ANY)
         speed = (speed * 150) / 100;
-    else if (ability == ABILITY_SURGE_SURFER && gFieldStatuses & STATUS_FIELD_ELECTRIC_TERRAIN)
+    else if (ability == ABILITY_SURGE_SURFER && (gFieldStatuses & (STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_GRASSY_TERRAIN | STATUS_FIELD_PSYCHIC_TERRAIN | STATUS_FIELD_MISTY_TERRAIN)))
         speed *= 2;
     else if (ability == ABILITY_SLOW_START && gDisableStructs[battler].slowStartTimer != 0)
         speed /= 2;
