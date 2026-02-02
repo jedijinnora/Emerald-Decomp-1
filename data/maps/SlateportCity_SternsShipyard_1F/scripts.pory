@@ -1,1 +1,63 @@
 mapscripts SlateportCity_SternsShipyard_1F_MapScripts {}
+
+script SlateportCity_SternsShipyard_1F_EventScript_Doc {
+    lock
+    faceplayer
+    goto_if_set(FLAG_TEMP_1, SlateportCity_SternsShipyard_1F_EventScript_Activist)
+    msgbox(format("Welcome to Stern's Shipyard!\pWe build those ferries you've been taking around the region."))
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
+    release
+    end
+}
+
+script SlateportCity_SternsShipyard_1F_EventScript_Activist {
+    msgbox(format("I don't know why that stranger has picked Stern's Shipyard to agitate for workplace reform. This is already a union shop!"))
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
+    release
+    end
+}
+
+script SlateportCity_SternsShipyard_1F_EventScript_Worker1 {
+    msgbox(format("Don't wander around in here! This is a working area."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_SternsShipyard_1F_EventScript_Worker2 {
+    msgbox(format("My children like to sneak smiley faces into my lunchbox. It always brings me joy while I'm working."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_SternsShipyard_1F_EventScript_Worker3 {
+    msgbox(format("I think this poor fellow's lost, so I'm making sure he doesn't get hit by moving equipment."), MSGBOX_NPC)
+    end
+}
+
+script SlateportCity_SternsShipyard_1F_EventScript_Maniac {
+    lock
+    faceplayer
+    msgbox(format("The next set of ferries we build should be airships on top of trained Wailord!"))
+    msgbox(format("You agree, right? Help me convince Capt. Stern."))
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+    waitmovement(0)
+    release
+    end
+}
+
+script SlateportCity_SternsShipyard_1F_EventScript_Woman {
+    lock
+    msgbox(format("Your job as an activist isn't to have the most radical take in the room."))
+    msgbox(format("Your job is to actually affect change. Now stop chanting slogans and go organize the vote!"))
+    release
+    end
+}
+
+script SlateportCity_SternsShipyard_1F_EventScript_Madman {
+    lock
+    faceplayer
+    setflag(FLAG_TEMP_1)
+    msgbox(format("{PLAYER}! Help me convince these downtrodden industrial workers that our strength lies in unity!\pLet's give the capitalists a sour apple tree for dinner!"))
+    release
+    end
+}

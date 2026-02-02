@@ -44,6 +44,8 @@ script PetalburgCity_EventScript_ResetGymDoors {
 }
 
 script PetalburgCity_EventScript_TrySpawnRival {
+	specialvar(VAR_RESULT, CountTotalBlockerRivals)
+	goto_if_ge(VAR_RESULT, 6, Common_EventScript_NopReturn)
 	goto_if_lt(VAR_CITIES_VISITED, 4, Common_EventScript_NopReturn)
 	goto_if_eq(VAR_DIFFICULTY_SETTING, 2, PetalburgCity_EventScript_SpawnRival)
 	goto_if_lt(VAR_CITIES_VISITED, 5, Common_EventScript_NopReturn)

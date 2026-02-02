@@ -4,6 +4,15 @@ mapscripts RustboroCity_House2_MapScripts {
 
 script RustboroCity_House2_OnTransition {
     call_if_unset(FLAG_MET_ROXANNE_STEVEN, RustboroCity_House2_EventScript_HideRoxanne)
+    specialvar(VAR_TEMP_1, GetDayOfTheWeek)
+	switch(var(VAR_TEMP_1)) {
+		case 1:
+		case 3:
+		case 5:
+			call(RustboroCity_House2_EventScript_HideRoxanne)
+		default:
+			break
+	}
     end
 }
 
@@ -13,8 +22,18 @@ script RustboroCity_House2_EventScript_HideRoxanne {
 }
 
 script RustboroCity_House2_EventScript_PokefanF {
-	msgbox(format("The Trainer's School is excellent. Those who study there often become some of the best Trainers of the generation."), MSGBOX_NPC)
+    lock
+    faceplayer
+    call_if_set(FLAG_TEMP_15, RustboroCity_House2_EventScript_AtTrainerSchool)
+	msgbox(format("The Trainer's School is excellent. Those who study there often become some of the best Trainers of the generation."))
+    release
 	end
+}
+
+script RustboroCity_House2_EventScript_AtTrainerSchool {
+    goto_if_unset(FLAG_MET_ROXANNE_STEVEN, Common_EventScript_NopReturn)
+    msgbox(format("You're looking for Roxanne? She's at the Trainer's School today."))
+    return
 }
 
 script RustboroCity_House2_EventScript_Roxanne {

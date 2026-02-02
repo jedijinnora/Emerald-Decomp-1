@@ -1,16 +1,95 @@
-raw `
-.set LOCALID_CAPT_STERN, 1
+mapscripts SlateportCity_OceanicMuseum_2F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : SlateportCity_OceanicMuseum_2F_OnTransition
+}
 
-SlateportCity_OceanicMuseum_2F_MapScripts::
-	.byte 0
+const LOCALID_STERN = 1
+const LOCALID_ARCHIE = 5
+const LOCALID_MAXIE = 6
 
-SlateportCity_OceanicMuseum_2F_EventScript_CaptStern::
+script SlateportCity_OceanicMuseum_2F_OnTransition {
+	setflag(FLAG_TEMP_E)
+	call_if_ne(VAR_ARCHIE_QUEST_STATE, 10, SlateportCity_OceanicMuseum_EventScript_HideArchie)
+	call_if_ne(VAR_MAXIE_QUEST_STATE, 10, SlateportCity_OceanicMuseum_EventScript_HideMaxie)
+	end
+}
+
+script SlateportCity_OceanicMuseum_2F_EventScript_CaptStern {
 	lock
 	faceplayer
-
+	msgbox(format("Capt. Stern: Hello! I hope you enjoy the museum!"))
 	release
 	end
+}
 
+script SlateportCity_OceanicMuseum_2F_EventScript_Archie {
+	lock
+	msgbox(format("Archie: Hrmph. Stupid Maxie and his stupid land-loving attitude."))
+	faceplayer
+	msgbox(format("Oh well. I won't need your help to win the next argument, guaranteed."))
+	playse(SE_PIN)
+	applymovement(LOCALID_ARCHIE, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	msgbox(format("Look at the time! I've got to get back to Lilycove, or Matt and Shelly will go exploring without me!"))
+	waitmessage
+	closemessage
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_2)) {
+		case 2:
+			applymovement(LOCALID_ARCHIE, SlateportCity_OceanicMuseum_2F_Movement_LeaderDepart1)
+		default:
+			applymovement(LOCALID_ARCHIE, SlateportCity_OceanicMuseum_2F_Movement_LeaderDepart2)
+	}
+	waitmovement(0)
+	playse(SE_EXIT)
+	applymovement(LOCALID_ARCHIE, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	removeobject(LOCALID_ARCHIE)
+	setvar(VAR_ARCHIE_QUEST_STATE, 20)
+	release
+	end
+}
+
+script SlateportCity_OceanicMuseum_2F_EventScript_Maxie {
+	lock
+	msgbox(format("Maxie: Hmmm. Poor form, letting that Archie get the better of me."))
+	faceplayer
+	msgbox(format("Very well. I shall not require your assistance to win our next debate."))
+	playse(SE_PIN)
+	applymovement(LOCALID_MAXIE, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	msgbox(format("Look at the time! I've got to get back to Mt. Chimney! My assistants will need my help with the monitoring equipment."))
+	waitmessage
+	closemessage
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_2)) {
+		case 2:
+			applymovement(LOCALID_MAXIE, SlateportCity_OceanicMuseum_2F_Movement_LeaderDepart1)
+		default:
+			applymovement(LOCALID_MAXIE, SlateportCity_OceanicMuseum_2F_Movement_LeaderDepart2)
+	}
+	waitmovement(0)
+	playse(SE_EXIT)
+	applymovement(LOCALID_MAXIE, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	removeobject(LOCALID_MAXIE)
+	setvar(VAR_MAXIE_QUEST_STATE, 20)
+	release
+	release
+	end
+}
+
+movement SlateportCity_OceanicMuseum_2F_Movement_LeaderDepart1 {
+	walk_down
+	walk_left * 3
+	walk_up * 2
+}
+
+movement SlateportCity_OceanicMuseum_2F_Movement_LeaderDepart2 {
+	walk_left * 3
+	walk_up
+}
+
+raw `
 SlateportCity_OceanicMuseum_2F_EventScript_WaterQualitySample1::
 	msgbox SlateportCity_OceanicMuseum_2F_Text_WaterQualitySample1, MSGBOX_SIGN
 	end

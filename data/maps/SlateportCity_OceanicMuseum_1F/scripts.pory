@@ -1,7 +1,251 @@
-raw `
-SlateportCity_OceanicMuseum_1F_MapScripts::
-	.byte 0
+mapscripts SlateportCity_OceanicMuseum_1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : SlateportCity_OceanicMuseum_1F_OnTransition
+}
 
+const LOCALID_ARCHIE = 7
+const LOCALID_MAXIE = 8
+
+script SlateportCity_OceanicMuseum_1F_OnTransition {
+	call_if_ge(VAR_ARCHIE_QUEST_STATE, 10, SlateportCity_OceanicMuseum_EventScript_HideArchie)
+	call_if_ge(VAR_MAXIE_QUEST_STATE, 10, SlateportCity_OceanicMuseum_EventScript_HideMaxie)
+	end
+}
+
+script SlateportCity_OceanicMuseum_EventScript_HideArchie {
+	setflag(FLAG_TEMP_11)
+	return
+}
+
+script SlateportCity_OceanicMuseum_EventScript_HideMaxie {
+	setflag(FLAG_TEMP_12)
+	return
+}
+
+script SlateportCity_OceanicMuseum_1F_EventScript_ArgumentTrigger {
+	lock
+	setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+	setvar(VAR_SLATEPORT_MUSEUM_1F_STATE, 2)
+	applymovement(LOCALID_ARCHIE, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	msgbox(format("It's the oceanic crust which subducts beneath Hoenn to form the material which gets erupted!"))
+	applymovement(LOCALID_MAXIE, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	msgbox(format("A mere technicality! The magma becomes important to us humans only after it has erupted to form landmasses like Hoenn."))
+	applymovement(LOCALID_ARCHIE, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	msgbox(format("Aha! Technically correct is the best kind of correct! Did Mr. Fancy Degree just admit defeat?"))
+	applymovement(LOCALID_MAXIE, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	msgbox(format("Perish the thought! I merely sought to educate Mr. Pirate of facts he clearly lacks the intellect to fully appreciate!"))
+	playse(SE_PIN)
+	applymovement(LOCALID_ARCHIE, Common_Movement_ExclamationMark)
+	applymovement(LOCALID_MAXIE, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(LOCALID_ARCHIE, Common_Movement_WalkInPlaceDown)
+	applymovement(LOCALID_MAXIE, Common_Movement_WalkInPlaceDown)
+	waitmovement(0)
+	msgbox(format("Archie: Here! We'll ask this random Trainer to settle today's argument."))
+	msgbox(format("Maxie: At last you make a sensible suggestion."))
+	msgbox(format("Trainer! Is the land or the ocean more responsible for the creation of Hoenn?"))
+	dynmultipush("The land", 1)
+	dynmultipush("The ocean", 2)
+	dynmultipush("The sky", 3)
+	dynmultipush("Who are you people?", 4)
+	dynmultistack(0,0,TRUE,6,FALSE,VAR_TEMP_2,DYN_MULTICHOICE_CB_NONE)
+	switch(var(VAR_RESULT)) {
+		case 1:
+			goto(SlateportCity_OceanicMuseum_1F_EventScript_MaxieVictory)
+		case 2:
+			goto(SlateportCity_OceanicMuseum_1F_EventScript_ArchieVictory)
+		case 3:
+			applymovement(LOCALID_ARCHIE, Common_Movement_WalkInPlaceRight)
+			applymovement(LOCALID_MAXIE, Common_Movement_WalkInPlaceLeft)
+			waitmovement(0)
+			msgbox(format("The sky?"))
+			applymovement(LOCALID_ARCHIE, Common_Movement_WalkInPlaceDown)
+			waitmovement(0)
+			msgbox(format("Ludicrous!"))
+			applymovement(LOCALID_MAXIE, Common_Movement_WalkInPlaceDown)
+			waitmovement(0)
+			msgbox(format("Preposterous!"))
+			delay(16)
+			msgbox(format("Besides…"))
+			goto(SlateportCity_OceanicMuseum_1F_EventScript_Introductions)
+		default:
+			applymovement(LOCALID_ARCHIE, Common_Movement_WalkInPlaceRight)
+			applymovement(LOCALID_MAXIE, Common_Movement_WalkInPlaceLeft)
+			waitmovement(0)
+			goto(SlateportCity_OceanicMuseum_1F_EventScript_Introductions)
+
+	}
+	end
+}
+
+script SlateportCity_OceanicMuseum_1F_EventScript_MaxieVictory {
+	playse(SE_PIN)
+	applymovement(LOCALID_ARCHIE, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	delay(16)
+	applymovement(LOCALID_MAXIE, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	msgbox(format("Hah! You see, my argument is superior!"))
+	waitmessage
+	closemessage
+	applymovement(LOCALID_ARCHIE, SlateportCity_OceanicMuseum_1F_Movement_ArchieUpstairs)
+	waitmovement(0)
+	playse(SE_EXIT)
+	applymovement(LOCALID_ARCHIE, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	removeobject(LOCALID_ARCHIE)
+	setvar(VAR_ARCHIE_QUEST_STATE, 10)
+	applymovement(LOCALID_MAXIE, Common_Movement_WalkInPlaceDown)
+	waitmovement(0)
+	msgbox(format("My name is Maxie. I am the local volcanologist, studying the magma beneath Mt. Chimney."))
+	msgbox(format("That ne'er-do-well hooligan who ran upstairs is Archie."))
+	msgbox(format("You are?"))
+	msgbox(format("…so you're {PLAYER}."))
+	msgbox(format("Well, it's good to see you acknowledge the importance of the land. We all live on it, after all!"))
+	msgbox(format("I have to get going. If you're interested in geology, meet up with me near Mt. Chimney!"))
+	waitmessage
+	closemessage
+	call(SlateportCity_OceanicMuseum_1F_EventScript_MaxieLeave)
+	release
+	end
+}
+
+script SlateportCity_OceanicMuseum_1F_EventScript_ArchieVictory {
+	playse(SE_PIN)
+	applymovement(LOCALID_MAXIE, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	delay(16)
+	applymovement(LOCALID_ARCHIE, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	msgbox(format("This Trainer agrees! I win!"))
+	waitmessage
+	closemessage
+	applymovement(LOCALID_MAXIE, SlateportCity_OceanicMuseum_1F_Movement_MaxieUpstairs)
+	waitmovement(0)
+	playse(SE_EXIT)
+	applymovement(LOCALID_MAXIE, Common_Movement_WalkInPlaceUp)
+	waitmovement(0)
+	removeobject(LOCALID_MAXIE)
+	setvar(VAR_MAXIE_QUEST_STATE, 10)
+	applymovement(LOCALID_ARCHIE, Common_Movement_WalkInPlaceDown)
+	waitmovement(0)
+	msgbox(format("I'm Archie! My friends and I explore every corner of the seas in the Hoenn region!"))
+	msgbox(format("This washed-up professor who fled upstairs is Maxie!"))
+	msgbox(format("You are?"))
+	msgbox(format("…so you're {PLAYER}."))
+	msgbox(format("Well, it's good to see you acknowledge the importance of the sea. We all rely on the water cycle after all!"))
+	msgbox(format("I have to get going. If you're interested in exploring some island caves, meet up with me near Lilycove City!"))
+	waitmessage
+	closemessage
+	call(SlateportCity_OceanicMuseum_1F_EventScript_ArchieLeave)
+	release
+	end
+}
+
+script SlateportCity_OceanicMuseum_1F_EventScript_Introductions {
+	msgbox(format("Did we not introduce ourselves?"))
+	waitmessage
+	applymovement(LOCALID_ARCHIE, Common_Movement_WalkInPlaceDown)
+	waitmovement(0)
+	msgbox(format("I'm Archie! My friends and I explore every corner of the seas in the Hoenn region!"))
+	msgbox(format("This washed-up professor next to me is Maxie!"))
+	applymovement(LOCALID_MAXIE, Common_Movement_WalkInPlaceDown)
+	waitmovement(0)
+	msgbox(format("My name is Maxie. I am the local volcanologist, studying the magma beneath Mt. Chimney."))
+	msgbox(format("This ne'er-do-well hooligan is Archie."))
+	waitmessage
+	closemessage
+	applymovement(LOCALID_ARCHIE, Common_Movement_WalkInPlaceRight)
+	applymovement(LOCALID_MAXIE, Common_Movement_WalkInPlaceLeft)
+	waitmovement(0)
+	msgbox(format("Maxie: Perhaps our discussion is best resumed on another occasion? I need to return to Mt. Chimney."))
+	msgbox(format("Archie: Agreed! We can finish this after the crew and I finish exploring the island near Lilycove."))
+	waitmessage
+	closemessage
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) {
+		case 9:
+			call(SlateportCity_OceanicMuseum_1F_EventScript_MaxieLeave)
+			call(SlateportCity_OceanicMuseum_1F_EventScript_ArchieLeave)
+		default:
+			call(SlateportCity_OceanicMuseum_1F_EventScript_ArchieLeave)
+			call(SlateportCity_OceanicMuseum_1F_EventScript_MaxieLeave)
+	}
+	release
+	end
+}
+
+script SlateportCity_OceanicMuseum_1F_EventScript_ArchieLeave {
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) {
+		case 9:
+			applymovement(LOCALID_ARCHIE, SlateportCity_OceanicMuseum_1F_Movement_DepartRight)
+		default:
+			applymovement(LOCALID_ARCHIE, SlateportCity_OceanicMuseum_1F_Movement_DepartEasy)
+	}
+	waitmovement(0)
+	playse(SE_EXIT)
+	applymovement(LOCALID_ARCHIE, Common_Movement_WalkInPlaceDown)
+	removeobject(LOCALID_ARCHIE)
+	setvar(VAR_ARCHIE_QUEST_STATE, 20)
+	return
+}
+
+script SlateportCity_OceanicMuseum_1F_EventScript_MaxieLeave {
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) {
+		case 9:
+			applymovement(LOCALID_MAXIE, SlateportCity_OceanicMuseum_1F_Movement_DepartEasy)
+		default:
+			applymovement(LOCALID_MAXIE, SlateportCity_OceanicMuseum_1F_Movement_DepartLeft)
+	}
+	waitmovement(0)
+	playse(SE_EXIT)
+	applymovement(LOCALID_MAXIE, Common_Movement_WalkInPlaceDown)
+	removeobject(LOCALID_MAXIE)
+	setvar(VAR_MAXIE_QUEST_STATE, 20)
+	return
+}
+
+movement SlateportCity_OceanicMuseum_1F_Movement_ArchieUpstairs {
+	walk_left * 3
+	walk_up * 3
+}
+
+movement SlateportCity_OceanicMuseum_1F_Movement_MaxieUpstairs {
+	walk_up
+	walk_left * 4
+	walk_up * 2
+}
+
+movement SlateportCity_OceanicMuseum_1F_Movement_StepLeft {
+	walk_left
+	walk_in_place_down
+}
+
+movement SlateportCity_OceanicMuseum_1F_Movement_StepRight {
+	walk_right
+	walk_in_place_down
+}
+
+movement SlateportCity_OceanicMuseum_1F_Movement_DepartLeft {
+	walk_left
+	walk_down * 4
+}
+
+movement SlateportCity_OceanicMuseum_1F_Movement_DepartRight {
+	walk_right
+	walk_down * 4
+}
+
+movement SlateportCity_OceanicMuseum_1F_Movement_DepartEasy {
+	walk_down * 4
+}
+
+raw `
 SlateportCity_OceanicMuseum_1F_EventScript_EntranceAttendant::
 	msgbox SlateportCity_OceanicMuseum_1F_Text_PleaseEnjoyYourself, MSGBOX_NPC
 	end

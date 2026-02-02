@@ -189,9 +189,9 @@ script Common_EventScript_SecretStash {
 	if (var(VAR_RESULT) < 7) {
 		finditem(ITEM_BOTTLE_CAP)
 	} elif (var(VAR_RESULT) < 14) {
-		finditem(ITEM_ABILITY_PATCH)
-	} else {
 		finditem(ITEM_ABILITY_CAPSULE)
+	} else {
+		finditem(ITEM_ABILITY_PATCH)
 	}
 	//give bottle caps
 	random(16)

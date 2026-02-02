@@ -13,8 +13,15 @@ const LOCALID_MON_1 = 13 	// Gfx var 1
 const LOCALID_MON_2 = 14 	// Gfx var 2
 
 script LittlerootTown_OnTransition {
+	call_if_unset(FLAG_VISITED_LITTLEROOT_TOWN, LittlerootTown_EventScript_VisitLittleroot)
 	call(LittlerootTown_EventScript_HideFightClub)
 	end
+}
+
+script LittlerootTown_EventScript_VisitLittleroot {
+	setflag(FLAG_VISITED_LITTLEROOT_TOWN)
+	addvar(VAR_CITIES_VISITED, 1)
+	return
 }
 
 script LittlerootTown_EventScript_HideFightClub {

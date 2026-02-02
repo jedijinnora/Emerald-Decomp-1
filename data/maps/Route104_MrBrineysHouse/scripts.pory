@@ -1,30 +1,31 @@
-raw `
-.set LOCALID_BRINEY, 1
-.set LOCALID_PEEKO, 2
+mapscripts Route104_MrBrineysHouse_MapScripts{
+	MAP_SCRIPT_ON_TRANSITION : Route104_MrBrineysHouse_OnTransition
+}
 
-Route104_MrBrineysHouse_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Route104_MrBrineysHouse_OnTransition
-	.byte 0
+const LOCALID_BRINEY = 1
+const LOCALID_PEEKO = 2
 
-Route104_MrBrineysHouse_OnTransition:
-	setflag FLAG_LANDMARK_MR_BRINEY_HOUSE
-	call_if_eq VAR_BRINEY_HOUSE_STATE, 1, Route104_MrBrineysHouse_EventScript_SetBrineyPeekoPos
+script Route104_MrBrineysHouse_OnTransition {
+	setflag(FLAG_LANDMARK_MR_BRINEY_HOUSE)
+	call(Route104_MrBrineysHouse_EventScript_SetBrineyPeekoPos)
+	//call_if_eq(VAR_BRINEY_HOUSE_STATE, 1, Route104_MrBrineysHouse_EventScript_SetBrineyPeekoPos)
 	end
+}
 
-Route104_MrBrineysHouse_EventScript_SetBrineyPeekoPos::
-	setobjectxyperm LOCALID_BRINEY, 9, 3
-	setobjectmovementtype LOCALID_BRINEY, MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT
-	setobjectxyperm LOCALID_PEEKO, 9, 6
-	setobjectmovementtype LOCALID_PEEKO, MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN
+script Route104_MrBrineysHouse_EventScript_SetBrineyPeekoPos {
+	setobjectxyperm(LOCALID_BRINEY, 9, 3)
+	setobjectmovementtype(LOCALID_BRINEY, MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT)
+	setobjectxyperm(LOCALID_PEEKO, 9, 6)
+	setobjectmovementtype(LOCALID_PEEKO, MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN)
 	return
+}
 
-Route104_MrBrineysHouse_EventScript_Briney::
-	lock
-	faceplayer
-	release
+script Route104_MrBrineysHouse_EventScript_Briney {
+	msgbox(Route104_MrBrineysHouse_Text_WaitUpPeeko, MSGBOX_NPC)
 	end
+}
 
-
+raw `
 Route104_MrBrineysHouse_EventScript_Peeko::
 	lock
 	faceplayer

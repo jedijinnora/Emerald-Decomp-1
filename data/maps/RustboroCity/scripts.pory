@@ -46,6 +46,8 @@ script RustboroCity_EventScript_HideNolandRoxanneSteven {
 }
 
 script RustboroCity_EventScript_TrySpawnRival {
+	specialvar(VAR_RESULT, CountTotalBlockerRivals)
+	goto_if_ge(VAR_RESULT, 6, Common_EventScript_NopReturn)
 	goto_if_lt(VAR_CITIES_VISITED, 4, Common_EventScript_NopReturn)
 	goto_if_eq(VAR_DIFFICULTY_SETTING, 2, RustboroCity_EventScript_SpawnRival)
 	goto_if_lt(VAR_CITIES_VISITED, 5, Common_EventScript_NopReturn)
@@ -171,6 +173,7 @@ script RustboroCity_EventScript_RivalCalem {
 
 script RustboroCity_EventScript_RivalNorth {
 	lock
+	setobjectxy(LOCALID_RIVAL, 41, 10)
 	setobjectxyperm(LOCALID_RIVAL, 41, 10)
 	addobject(LOCALID_RIVAL)
 	applymovement(LOCALID_RIVAL, RustboroCity_Movement_RivalApproachNorth)
@@ -232,6 +235,7 @@ movement RustboroCity_Movement_PlayerNorth_5 {
 
 script RustboroCity_EventScript_RivalEast {
 	lock
+	setobjectxy(LOCALID_RIVAL, 49, 9)
 	setobjectxyperm(LOCALID_RIVAL, 49, 9)
 	addobject(LOCALID_RIVAL)
 	applymovement(LOCALID_RIVAL, RustboroCity_Movement_RivalApproachEast)
@@ -293,6 +297,7 @@ movement RustboroCity_Movement_PlayerEast_5 {
 
 script RustboroCity_EventScript_RivalSouth {
 	lock
+	setobjectxy(LOCALID_RIVAL, 36, 51)
 	setobjectxyperm(LOCALID_RIVAL, 36, 51)
 	addobject(LOCALID_RIVAL)
 	applymovement(LOCALID_RIVAL, RustboroCity_Movement_RivalApproachSouth)
@@ -311,13 +316,13 @@ script RustboroCity_EventScript_RivalSouth {
 		case 35:
 			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_4)
 		case 36:
-			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_1)
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_5)
 		case 37:
-			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_2)
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_6)
 		case 38:
-			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_3)
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_7)
 		case 39:
-			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_4)
+			applymovement(OBJ_EVENT_ID_PLAYER, RustboroCity_Movement_PlayerSouth_8)
 		default:
 	}
 	waitmovement(OBJ_EVENT_ID_PLAYER)
@@ -333,12 +338,10 @@ script RustboroCity_EventScript_RivalSouth {
 	end
 }
 movement RustboroCity_Movement_RivalApproachSouth {
-	walk_left * 9
-	walk_down
+	walk_down * 5
 }
 movement RustboroCity_Movement_RivalDepartSouth {
-	walk_up
-	walk_right * 10
+	walk_up * 6
 }
 movement RustboroCity_Movement_PlayerSouth_1 {
 	walk_right * 4

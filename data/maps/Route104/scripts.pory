@@ -7,7 +7,13 @@ mapscripts Route104_MapScripts {
 
 script Route104_OnTransition {
 	call(Common_EventScript_DisableBPReward)
+	call(Route104_EventScript_HideMrBriney)
 	end
+}
+
+script Route104_EventScript_HideMrBriney {
+	setflag(FLAG_HIDE_ROUTE_104_MR_BRINEY)
+	return
 }
 
 script Route104_EventScript_StartSailToIsland {

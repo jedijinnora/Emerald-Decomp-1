@@ -1,56 +1,102 @@
-raw `
-RustboroCity_PokemonSchool_MapScripts::
-	.byte 0
+mapscripts RustboroCity_PokemonSchool_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION : RustboroCity_PokemonSchool_OnTransition
+}
 
-RustboroCity_PokemonSchool_EventScript_Blackboard::
+script RustboroCity_PokemonSchool_OnTransition {
+	specialvar(VAR_TEMP_1, GetDayOfTheWeek)
+	switch(var(VAR_TEMP_1)) {
+		case 1:
+		case 3:
+		case 5:
+			call(RustboroCity_PokemonSchool_EventScript_SetRoxanne)
+		default:
+			call(RustboroCity_PokemonSchool_EventScript_SetTeacher)
+	}
+	call_if_unset(FLAG_MET_ROXANNE_STEVEN, RustboroCity_PokemonSchool_EventScript_SetTeacher)
+	end
+}
+
+script RustboroCity_PokemonSchool_EventScript_SetTeacher {
+	clearflag(FLAG_TEMP_11)
+	setflag(FLAG_TEMP_12)
+	return
+}
+
+script RustboroCity_PokemonSchool_EventScript_SetRoxanne {
+	setflag(FLAG_TEMP_11)
+	clearflag(FLAG_TEMP_12)
+	return
+}
+
+script RustboroCity_PokemonSchool_EventScript_Roxanne {
+	lock
+	faceplayer
+	msgbox(format("Hi, {PLAYER}! The regular teacher is a little harsh on the kids, so I take over lessons a few days each week."))
+	msgbox(format("I'll be home tomorrow if you were looking to train with me."))
+	release
+	end
+}
+
+script RustboroCity_PokemonSchool_EventScript_Blackboard {
 	lockall
-	msgbox RustboroCity_PokemonSchool_Text_BlackboardListsStatusChanges, MSGBOX_DEFAULT
-	goto RustboroCity_PokemonSchool_EventScript_ChooseBlackboardTopic
+	msgbox(RustboroCity_PokemonSchool_Text_BlackboardListsStatusChanges, MSGBOX_DEFAULT)
+	goto(RustboroCity_PokemonSchool_EventScript_ChooseBlackboardTopic)
 	end
+}
 
-RustboroCity_PokemonSchool_EventScript_ChooseBlackboardTopic::
-	message RustboroCity_PokemonSchool_Text_ReadWhichTopic
+script RustboroCity_PokemonSchool_EventScript_ChooseBlackboardTopic {
+	message(RustboroCity_PokemonSchool_Text_ReadWhichTopic)
 	waitmessage
-	multichoicegrid 8, 1, MULTI_STATUS_INFO, 3, FALSE
-	switch VAR_RESULT
-	case 0, RustboroCity_PokemonSchool_EventScript_Poison
-	case 1, RustboroCity_PokemonSchool_EventScript_Paralysis
-	case 2, RustboroCity_PokemonSchool_EventScript_Sleep
-	case 3, RustboroCity_PokemonSchool_EventScript_Burn
-	case 4, RustboroCity_PokemonSchool_EventScript_Freeze
-	case 5, RustboroCity_PokemonSchool_EventScript_ExitTopicSelect
-	case MULTI_B_PRESSED, RustboroCity_PokemonSchool_EventScript_ExitTopicSelect
+	multichoicegrid(8, 1, MULTI_STATUS_INFO, 3, FALSE)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			call(RustboroCity_PokemonSchool_EventScript_Poison)
+		case 1:
+			call(RustboroCity_PokemonSchool_EventScript_Paralysis)
+		case 2:
+			call(RustboroCity_PokemonSchool_EventScript_Sleep)
+		case 3:
+			call(RustboroCity_PokemonSchool_EventScript_Burn)
+		case 4:
+			call(RustboroCity_PokemonSchool_EventScript_Freeze)
+		default:
+			goto(RustboroCity_PokemonSchool_EventScript_ExitTopicSelect)
+	}
+	goto(RustboroCity_PokemonSchool_EventScript_ChooseBlackboardTopic)
 	end
+}
 
-RustboroCity_PokemonSchool_EventScript_Poison::
-	msgbox RustboroCity_PokemonSchool_Text_ExplainPoison, MSGBOX_DEFAULT
-	goto RustboroCity_PokemonSchool_EventScript_ChooseBlackboardTopic
-	end
+script RustboroCity_PokemonSchool_EventScript_Poison {
+	msgbox(RustboroCity_PokemonSchool_Text_ExplainPoison, MSGBOX_DEFAULT)
+	return
+}
 
-RustboroCity_PokemonSchool_EventScript_Paralysis::
-	msgbox RustboroCity_PokemonSchool_Text_ExplainParalysis, MSGBOX_DEFAULT
-	goto RustboroCity_PokemonSchool_EventScript_ChooseBlackboardTopic
-	end
+script RustboroCity_PokemonSchool_EventScript_Paralysis {
+	msgbox(RustboroCity_PokemonSchool_Text_ExplainParalysis, MSGBOX_DEFAULT)
+	return
+}
 
-RustboroCity_PokemonSchool_EventScript_Sleep::
-	msgbox RustboroCity_PokemonSchool_Text_ExplainSleep, MSGBOX_DEFAULT
-	goto RustboroCity_PokemonSchool_EventScript_ChooseBlackboardTopic
-	end
+script RustboroCity_PokemonSchool_EventScript_Sleep {
+	msgbox(RustboroCity_PokemonSchool_Text_ExplainSleep, MSGBOX_DEFAULT)
+	return
+}
 
-RustboroCity_PokemonSchool_EventScript_Burn::
-	msgbox RustboroCity_PokemonSchool_Text_ExplainBurn, MSGBOX_DEFAULT
-	goto RustboroCity_PokemonSchool_EventScript_ChooseBlackboardTopic
-	end
+script RustboroCity_PokemonSchool_EventScript_Burn {
+	msgbox(RustboroCity_PokemonSchool_Text_ExplainBurn, MSGBOX_DEFAULT)
+	return
+}
 
-RustboroCity_PokemonSchool_EventScript_Freeze::
-	msgbox RustboroCity_PokemonSchool_Text_ExplainFreeze, MSGBOX_DEFAULT
-	goto RustboroCity_PokemonSchool_EventScript_ChooseBlackboardTopic
-	end
+script RustboroCity_PokemonSchool_EventScript_Freeze {
+	msgbox(RustboroCity_PokemonSchool_Text_ExplainFreeze, MSGBOX_DEFAULT)
+	return
+}
 
-RustboroCity_PokemonSchool_EventScript_ExitTopicSelect::
+script RustboroCity_PokemonSchool_EventScript_ExitTopicSelect {
 	releaseall
 	end
+}
 
+raw `
 RustboroCity_PokemonSchool_EventScript_GameboyKid1::
 	msgbox RustboroCity_PokemonSchool_Text_TradingRightNow, MSGBOX_NPC
 	end
@@ -183,7 +229,7 @@ RustboroCity_PokemonSchool_Text_ExplainParalysis:
 	.string "It may also not be able to move while\n"
 	.string "it is in battle.\p"
 	.string "Paralysis remains after battle.\n"
-	.string "Cure it using a Parlyz Heal.$"
+	.string "Cure it using a Paralyze Heal.$"
 
 RustboroCity_PokemonSchool_Text_ExplainSleep:
 	.string "If a Pokémon falls asleep, it will be\n"
@@ -194,14 +240,14 @@ RustboroCity_PokemonSchool_Text_ExplainSleep:
 	.string "Wake it up using an Awakening.$"
 
 RustboroCity_PokemonSchool_Text_ExplainBurn:
-	.string "A burn reduces Attack power, and it\n"
+	.string "A burn reduces Attack power and\n"
 	.string "steadily reduces the victim's HP.\p"
 	.string "A burn lingers after battle.\n"
 	.string "Cure a burn using a Burn Heal.$"
 
 RustboroCity_PokemonSchool_Text_ExplainFreeze:
-	.string "If a Pokémon is frozen, it becomes\n"
-	.string "completely helpless.\p"
+	.string "Frostbite reduces Sp.Atk power and\n"
+	.string "steadily reduces the victim's HP.\p"
 	.string "It will remain frozen after battle.\n"
 	.string "Thaw it out using an Ice Heal.$"
 

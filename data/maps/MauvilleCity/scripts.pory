@@ -37,6 +37,8 @@ script MauvilleCity_EventScript_VisitMauville {
 }
 
 script MauvilleCity_EventScript_TrySpawnRival {
+	specialvar(VAR_RESULT, CountTotalBlockerRivals)
+	goto_if_ge(VAR_RESULT, 6, Common_EventScript_NopReturn)
 	goto_if_lt(VAR_CITIES_VISITED, 4, Common_EventScript_NopReturn)
 	goto_if_eq(VAR_DIFFICULTY_SETTING, 2, MauvilleCity_EventScript_SpawnRival)
 	goto_if_lt(VAR_CITIES_VISITED, 5, Common_EventScript_NopReturn)
@@ -88,9 +90,12 @@ script MauvilleCity_EventScript_SetupRival {
 }
 
 script Common_EventScript_IncrementRivalVar {
-	setvar(VAR_CITIES_VISITED, 1)
 	addvar(VAR_BLOCKER_RIVAL_RANDOM, 1)
 	call_if_gt(VAR_BLOCKER_RIVAL_RANDOM, 5, Common_EventScript_ReduceRivalVar)
+
+	setvar(VAR_0x8004, 1)
+	specialvar(VAR_0x8005, CountActiveBlockerRivals)
+	specialvar(VAR_CITIES_VISITED, AddVars)
 	return
 }
 
@@ -335,7 +340,7 @@ script Common_EventScript_BattleLeaf {
 	if(var(VAR_DIFFICULTY_SETTING) == 1) {
 		msgbox(format("Let's have a battle to see if you love Pokémon as much as I do!"), MSGBOX_YESNO)
 		if(var(VAR_RESULT) == NO) {
-			msgbox(format("Leaf: Shame! Always believe in your Pokémon's potential, and accept every battle you're challenged to!"))
+			msgbox(format("Leaf: Shame! You should lways believe in your Pokémon's potential, and accept every offer to battle!"))
 			return
 		}
 	}
