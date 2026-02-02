@@ -4700,8 +4700,16 @@ u16 AddVars(void)
 {
     u16 i = gSpecialVar_0x8004;
     u16 j = gSpecialVar_0x8005;
-    i+=j;
-    return i;
+    return i + j;
+}
+
+u16 SubVars(void)
+{
+    u16 i = gSpecialVar_0x8004;
+    u16 j = gSpecialVar_0x8005;
+    if (i >= j)
+        return i - j;
+    return 0;
 }
 
 bool8 GetVarBit(void)
@@ -4999,4 +5007,44 @@ bool8 TeachSpecialMove(void)
     SetMonMoveSlot(targetMon, move, 0);
     RemoveMonPPBonus(targetMon, 0);
     return TRUE;
+}
+
+u16 CountActiveBlockerRivals(void)
+{
+    u16 i = 0;
+    if(VarGet(VAR_FALLARBOR_TOWN_STATE) > 0 && VarGet(VAR_FALLARBOR_TOWN_STATE) < 100)
+        i += 1;
+    if(VarGet(VAR_FORTREE_CITY_STATE) > 0 && VarGet(VAR_FORTREE_CITY_STATE) < 100)
+        i += 1;
+    if(VarGet(VAR_LAVARIDGE_TOWN_STATE) > 0 && VarGet(VAR_LAVARIDGE_TOWN_STATE) < 100)
+        i += 1;
+    if(VarGet(VAR_MAUVILLE_CITY_STATE) > 0 && VarGet(VAR_MAUVILLE_CITY_STATE) < 100)
+        i += 1;
+    if(VarGet(VAR_OLDALE_TOWN_STATE) > 0 && VarGet(VAR_OLDALE_TOWN_STATE) < 100)
+        i += 1;
+    if(VarGet(VAR_PETALBURG_CITY_STATE) > 0 && VarGet(VAR_PETALBURG_CITY_STATE) < 100)
+        i += 1;
+    if(VarGet(VAR_RUSTBORO_CITY_STATE) > 0 && VarGet(VAR_RUSTBORO_CITY_STATE) < 100)
+        i += 1;
+    return i;
+}
+
+u16 CountTotalBlockerRivals(void)
+{
+    u16 i = 0;
+    if(VarGet(VAR_FALLARBOR_TOWN_STATE) > 0)
+        i += 1;
+    if(VarGet(VAR_FORTREE_CITY_STATE) > 0)
+        i += 1;
+    if(VarGet(VAR_LAVARIDGE_TOWN_STATE) > 0)
+        i += 1;
+    if(VarGet(VAR_MAUVILLE_CITY_STATE) > 0)
+        i += 1;
+    if(VarGet(VAR_OLDALE_TOWN_STATE) > 0)
+        i += 1;
+    if(VarGet(VAR_PETALBURG_CITY_STATE) > 0)
+        i += 1;
+    if(VarGet(VAR_RUSTBORO_CITY_STATE) > 0)
+        i += 1;
+    return i;
 }

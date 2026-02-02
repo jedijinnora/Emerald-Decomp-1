@@ -602,6 +602,7 @@ gSpecials::
 
 	def_special MultiplyVars
 	def_special AddVars
+	def_special SubVars
 	def_special GetVarBit
 	def_special SetVarBit
 
@@ -617,3 +618,6 @@ gSpecials::
 	def_special GetPartyMonContestStat
 	def_special ChangeCosplayPikachuOutfit
 	def_special TeachSpecialMove
+
+	def_special CountActiveBlockerRivals
+	def_special CountTotalBlockerRivals
