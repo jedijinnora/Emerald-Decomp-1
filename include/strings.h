@@ -278,15 +278,15 @@ extern const u8 gText_SelectorArrow3[];
 extern const u8 gText_YesNo[];
 
 // main menu/birch speech text
-extern const u8 gText_Birch_Welcome[];
-extern const u8 gText_BerylVersion[];
-extern const u8 gText_Birch_MainSpeech[];
-extern const u8 gText_Birch_AndYouAre[];
-extern const u8 gText_Birch_BoyOrGirl[];
-extern const u8 gText_Birch_WhatsYourName[];
-extern const u8 gText_Birch_SoItsPlayer[];
-extern const u8 gText_Birch_YourePlayer[];
-extern const u8 gText_Birch_AreYouReady[];
+extern const u8 gText_Intro_Welcome[];
+extern const u8 gText_Intro_Version[];
+extern const u8 gText_Intro_MainSpeech[];
+extern const u8 gText_Intro_AndYouAre[];
+extern const u8 gText_Intro_BoyOrGirl[];
+extern const u8 gText_Intro_WhatsYourName[];
+extern const u8 gText_Intro_SoItsPlayer[];
+extern const u8 gText_Intro_YourePlayer[];
+extern const u8 gText_Intro_AreYouReady[];
 
 extern const u8 gText_BirchInTrouble[];
 extern const u8 gText_ConfirmStarterChoice[];
