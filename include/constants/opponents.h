@@ -22,130 +22,130 @@
     #define LEAGUE_TRAINERS_END                 TRAINER_ANABEL_4
 
 
-// Gym Leaders
-    #define GYM_LEADERS_START                   (LEAGUE_TRAINERS_END + 1)
+// Rustboro Gym
+    #define RUSTBORO_TRAINERS_START                 (LEAGUE_TRAINERS_END + 1)
+    #define TRAINER_TOMMY                       (RUSTBORO_TRAINERS_START + 0) // School Kid-M Tommy, may double with Marc
+    #define TRAINER_MARC                        (RUSTBORO_TRAINERS_START + 1) // Hiker Marc, may double with Tommy
+    #define TRAINER_JOSH                        (RUSTBORO_TRAINERS_START + 2) // Youngster Josh
+    #define TRAINER_MILO                        (RUSTBORO_TRAINERS_START + 3) // Bug Catcher Milo
 
-    //Rustboro
-        #define TRAINER_NOLAND_1                    (GYM_LEADERS_START + 0)
-        #define TRAINER_NOLAND_2                    (GYM_LEADERS_START + 1)
-        #define TRAINER_NOLAND_3                    (GYM_LEADERS_START + 2)
+    #define TRAINER_NOLAND_1                    (RUSTBORO_TRAINERS_START + 4)
+    #define TRAINER_NOLAND_2                    (RUSTBORO_TRAINERS_START + 5)
+    #define TRAINER_NOLAND_3                    (RUSTBORO_TRAINERS_START + 6)
+    #define RUSTBORO_TRAINERS_END                   (TRAINER_NOLAND_3)
 
-    //Dewford
-        #define TRAINER_SIDNEY_1                    (GYM_LEADERS_START + 3)
-        #define TRAINER_SIDNEY_2                    (GYM_LEADERS_START + 4)
-        #define TRAINER_SIDNEY_3                    (GYM_LEADERS_START + 5)
+// Dewford Gym
+    #define DEWFORD_TRAINERS_START                  (RUSTBORO_TRAINERS_END + 1)
+    #define TRAINER_LAURA                       (DEWFORD_TRAINERS_START + 0) // Battle Girl Laura
+    #define TRAINER_LILITH                      (DEWFORD_TRAINERS_START + 1) // Lass Lilith, may double with Brenden
+    #define TRAINER_BRENDEN                     (DEWFORD_TRAINERS_START + 2) // Sailor Brenden, may double with Lilith
+    #define TRAINER_CRISTIAN                    (DEWFORD_TRAINERS_START + 3) // Psychic-M Cristian
+    #define TRAINER_TAKAO                       (DEWFORD_TRAINERS_START + 4) // Black Belt Takao
+    #define TRAINER_JOCELYN                     (DEWFORD_TRAINERS_START + 5) // Lady Jocelyn
 
-    //Mauville
-        #define TRAINER_WATTSON_1                   (GYM_LEADERS_START + 6)
-        #define TRAINER_WATTSON_2                   (GYM_LEADERS_START + 7)
-        #define TRAINER_WATTSON_3                   (GYM_LEADERS_START + 8)
+    #define TRAINER_SIDNEY_1                    (DEWFORD_TRAINERS_START + 6)
+    #define TRAINER_SIDNEY_2                    (DEWFORD_TRAINERS_START + 7)
+    #define TRAINER_SIDNEY_3                    (DEWFORD_TRAINERS_START + 8)
+    #define DEWFORD_TRAINERS_END                    (TRAINER_SIDNEY_3)
 
-    //Lavaridge
-        #define TRAINER_MOORE_1                     (GYM_LEADERS_START + 9)
-        #define TRAINER_MOORE_2                     (GYM_LEADERS_START + 10)
-        #define TRAINER_MOORE_3                     (GYM_LEADERS_START + 11)
+// Mauville Gym
+    #define MAUVILLE_TRAINERS_START                 (DEWFORD_TRAINERS_END + 1)
+    #define TRAINER_SHAWN                       (MAUVILLE_TRAINERS_START + 0) // Guitarist Shawn
+    #define TRAINER_VIVIAN                      (MAUVILLE_TRAINERS_START + 1) // Battle Girl Vivian, may double with Kirk
+    #define TRAINER_KIRK                        (MAUVILLE_TRAINERS_START + 2) // Guitarist Kirk, may double with Vivian
+    #define TRAINER_BEN                         (MAUVILLE_TRAINERS_START + 3) // Youngster Ben
+    #define TRAINER_ANGELO                      (MAUVILLE_TRAINERS_START + 4) // Bug Maniac Angelo
 
-    //Petalburg
-        #define TRAINER_GRETA_1                     (GYM_LEADERS_START + 12)
-        #define TRAINER_GRETA_2                     (GYM_LEADERS_START + 13)
-        #define TRAINER_GRETA_3                     (GYM_LEADERS_START + 14)
+    #define TRAINER_WATTSON_1                   (MAUVILLE_TRAINERS_START + 5)
+    #define TRAINER_WATTSON_2                   (MAUVILLE_TRAINERS_START + 6)
+    #define TRAINER_WATTSON_3                   (MAUVILLE_TRAINERS_START + 7)
+    #define MAUVILLE_TRAINERS_END                   (TRAINER_WATTSON_3)
 
-    //Fortree
-        #define TRAINER_SPENSER_1                   (GYM_LEADERS_START + 15)
-        #define TRAINER_SPENSER_2                   (GYM_LEADERS_START + 16)
-        #define TRAINER_SPENSER_3                   (GYM_LEADERS_START + 17)
+// Lavaridge Gym
+    #define LAVARIDGE_TRAINERS_START                (MAUVILLE_TRAINERS_END + 1)
+    #define TRAINER_JEFF                        (LAVARIDGE_TRAINERS_START + 0) // B1F, Kindler Jeff
+    #define TRAINER_COLE                        (LAVARIDGE_TRAINERS_START + 1) // 1F, Kindler Cole, may double with Gerald
+    #define TRAINER_GERALD                      (LAVARIDGE_TRAINERS_START + 2) // 1F, Cooltrainer-M Gerald, may double with Cole
+    #define TRAINER_AXLE                        (LAVARIDGE_TRAINERS_START + 3) // 1F, Kindler Axle
+    #define TRAINER_DANIELLE                    (LAVARIDGE_TRAINERS_START + 4) // 1F, Battle Girl Danielle
+    #define TRAINER_KEEGAN                      (LAVARIDGE_TRAINERS_START + 5) // B1F, Kindler Keegan
+    #define TRAINER_JACE                        (LAVARIDGE_TRAINERS_START + 6) // B1F, Kindler Jace, may double with Eli
+    #define TRAINER_ELI                         (LAVARIDGE_TRAINERS_START + 7) // B1F, Hiker Eli, may double with Jace
 
-    //Mossdeep
-        #define TRAINER_SABITHA_1                   (GYM_LEADERS_START + 18)
-        #define TRAINER_SABITHA_2                   (GYM_LEADERS_START + 19)
-        #define TRAINER_SABITHA_3                   (GYM_LEADERS_START + 20)
+    #define TRAINER_MOORE_1                     (LAVARIDGE_TRAINERS_START + 8)
+    #define TRAINER_MOORE_2                     (LAVARIDGE_TRAINERS_START + 9)
+    #define TRAINER_MOORE_3                     (LAVARIDGE_TRAINERS_START + 10)
+    #define LAVARIDGE_TRAINERS_END                  (TRAINER_MOORE_3)
 
-    //Sootopolis
-        #define TRAINER_JUAN_1                      (GYM_LEADERS_START + 21)
-        #define TRAINER_JUAN_2                      (GYM_LEADERS_START + 22)
-        #define TRAINER_JUAN_3                      (GYM_LEADERS_START + 23)
-    #define GYM_LEADERS_END                     TRAINER_JUAN_3
+// Petalburg Gym
+    #define PETALBURG_TRAINERS_START                (LAVARIDGE_TRAINERS_END + 1)
+    #define TRAINER_MARY                        (PETALBURG_TRAINERS_START + 0) // Technician Room, Cooltrainer-F Mary
+    #define TRAINER_RANDALL                     (PETALBURG_TRAINERS_START + 1) // Speed Room, Cooltrainer-M Randall
+    #define TRAINER_PARKER                      (PETALBURG_TRAINERS_START + 2) // Trickery Room, Cooltrainer-M Parker
+    #define TRAINER_ALEXIA                      (PETALBURG_TRAINERS_START + 3) // Defense Room, Cooltrainer-F Alexia
+    #define TRAINER_GEORGE                      (PETALBURG_TRAINERS_START + 4) // Recovery Room, Cooltrainer-M George
+    #define TRAINER_JODY                        (PETALBURG_TRAINERS_START + 5) // Guts Room, Cooltrainer-F Jody
+    #define TRAINER_BERKE                       (PETALBURG_TRAINERS_START + 6) // Power Room, Cooltrainer-M Berke
 
-// Gym Trainers
-    #define GYM_TRAINERS_START                  (GYM_LEADERS_END + 1)
+    #define TRAINER_GRETA_1                     (PETALBURG_TRAINERS_START + 7)
+    #define TRAINER_GRETA_2                     (PETALBURG_TRAINERS_START + 8)
+    #define TRAINER_GRETA_3                     (PETALBURG_TRAINERS_START + 9)
+    #define PETALBURG_TRAINERS_END                  (TRAINER_GRETA_3)
 
-    //Rustboro
-        #define TRAINER_TOMMY                       (GYM_TRAINERS_START + 0) // School Kid-M Tommy, may double with Marc
-        #define TRAINER_MARC                        (GYM_TRAINERS_START + 1) // Hiker Marc, may double with Tommy
-        #define TRAINER_JOSH                        (GYM_TRAINERS_START + 2) // Youngster Josh
-        #define TRAINER_MILO                        (GYM_TRAINERS_START + 3) // Bug Catcher Milo
+// Fortree Gym
+    #define FORTREE_TRAINERS_START                  (PETALBURG_TRAINERS_END + 1)
+    #define TRAINER_HUMBERTO                    (FORTREE_TRAINERS_START + 0) // Ninja Boy Humberto
+    #define TRAINER_JARED                       (FORTREE_TRAINERS_START + 1) // Camper Jared, may double with Ashley
+    #define TRAINER_ASHLEY                      (FORTREE_TRAINERS_START + 2) // Picnicker Ashley, may double with Ashley
+    #define TRAINER_FLINT                       (FORTREE_TRAINERS_START + 3) // Camper Flint, may double with Edwina
+    #define TRAINER_EDWINA                      (FORTREE_TRAINERS_START + 4) // Aroma Lady Edwina, may double with Flint
+    #define TRAINER_CECILIA                     (FORTREE_TRAINERS_START + 5) // Aroma Lady Cecilia
 
-    //Dewford
-        #define TRAINER_LAURA                       (GYM_TRAINERS_START + 4) // Battle Girl Laura
-        #define TRAINER_LILITH                      (GYM_TRAINERS_START + 5) // Lass Lilith, may double with Brenden
-        #define TRAINER_BRENDEN                     (GYM_TRAINERS_START + 6) // Sailor Brenden, may double with Lilith
-        #define TRAINER_CRISTIAN                    (GYM_TRAINERS_START + 7) // Psychic-M Cristian
-        #define TRAINER_TAKAO                       (GYM_TRAINERS_START + 8) // Black Belt Takao
-        #define TRAINER_JOCELYN                     (GYM_TRAINERS_START + 9) // Lady Jocelyn
+    #define TRAINER_SPENSER_1                   (FORTREE_TRAINERS_START + 6)
+    #define TRAINER_SPENSER_2                   (FORTREE_TRAINERS_START + 7)
+    #define TRAINER_SPENSER_3                   (FORTREE_TRAINERS_START + 8)
+    #define FORTREE_TRAINERS_END                    (TRAINER_SPENSER_3)
 
-    //Mauville
-        #define TRAINER_SHAWN                       (GYM_TRAINERS_START + 10) // Guitarist Shawn
-        #define TRAINER_VIVIAN                      (GYM_TRAINERS_START + 11) // Battle Girl Vivian, may double with Kirk
-        #define TRAINER_KIRK                        (GYM_TRAINERS_START + 12) // Guitarist Kirk, may double with Vivian
-        #define TRAINER_BEN                         (GYM_TRAINERS_START + 13) // Youngster Ben
-        #define TRAINER_ANGELO                      (GYM_TRAINERS_START + 14) // Bug Maniac Angelo
+// Mossdeep Gym
+    #define MOSSDEEP_TRAINERS_START                 (FORTREE_TRAINERS_END + 1)
+    #define TRAINER_PRESTON                     (MOSSDEEP_TRAINERS_START + 0) // Psychic-M Preston (yellow tiles), may double with Maura
+    #define TRAINER_MAURA                       (MOSSDEEP_TRAINERS_START + 1) // Psychic-F Maura (yellow tiles), may double with Preston
+    #define TRAINER_BLAKE                       (MOSSDEEP_TRAINERS_START + 2) // Psychic-M Blake (yellow tiles), may double with Samantha
+    #define TRAINER_SAMANTHA                    (MOSSDEEP_TRAINERS_START + 3) // Psychic-F Samantha, may double with Blake
+    #define TRAINER_NATE                        (MOSSDEEP_TRAINERS_START + 4) // Gentleman Nate (blue tiles), may double with Virgil
+    #define TRAINER_VIRGIL                      (MOSSDEEP_TRAINERS_START + 5) // Psychic-M Virgil (blue tiles), may double with Nate
+    #define TRAINER_SYLVIA                      (MOSSDEEP_TRAINERS_START + 6) // Hex Maniac Sylvia (orange tiles), may double with Hannah
+    #define TRAINER_HANNAH                      (MOSSDEEP_TRAINERS_START + 7) // Psychic-F Hannah, may double with Sylvia
+    #define TRAINER_CLIFFORD                    (MOSSDEEP_TRAINERS_START + 8) // Gentleman Clifford (pink tiles), may double with Kathleen or Macey
+    #define TRAINER_KATHLEEN                    (MOSSDEEP_TRAINERS_START + 9) // Hex Maniac Kathleen (pink tiles), may double with Clifford or Nikolai
+    #define TRAINER_NIKOLAI                     (MOSSDEEP_TRAINERS_START + 10) // Psychic-M Nikolai (pink tiles), may double with Nikolai
+    #define TRAINER_MACEY                       (MOSSDEEP_TRAINERS_START + 11) // Psychic-F Macey, may double with Clifford
 
-    //Lavaridge
-        #define TRAINER_JEFF                        (GYM_TRAINERS_START + 15) // B1F, Kindler Jeff
-        #define TRAINER_COLE                        (GYM_TRAINERS_START + 16) // 1F, Kindler Cole, may double with Gerald
-        #define TRAINER_GERALD                      (GYM_TRAINERS_START + 17) // 1F, Cooltrainer-M Gerald, may double with Cole
-        #define TRAINER_AXLE                        (GYM_TRAINERS_START + 18) // 1F, Kindler Axle
-        #define TRAINER_DANIELLE                    (GYM_TRAINERS_START + 19) // 1F, Battle Girl Danielle
-        #define TRAINER_KEEGAN                      (GYM_TRAINERS_START + 20) // B1F, Kindler Keegan
-        #define TRAINER_JACE                        (GYM_TRAINERS_START + 21) // B1F, Kindler Jace, may double with Eli
-        #define TRAINER_ELI                         (GYM_TRAINERS_START + 22) // B1F, Hiker Eli, may double with Jace
+    #define TRAINER_SABITHA_1                   (MOSSDEEP_TRAINERS_START + 12)
+    #define TRAINER_SABITHA_2                   (MOSSDEEP_TRAINERS_START + 13)
+    #define TRAINER_SABITHA_3                   (MOSSDEEP_TRAINERS_START + 14)
+    #define MOSSDEEP_TRAINERS_END                   (TRAINER_SABITHA_3)
 
-    //Petalburg
-        #define TRAINER_MARY                        (GYM_TRAINERS_START + 23) // Technician Room, Cooltrainer-F Mary
-        #define TRAINER_RANDALL                     (GYM_TRAINERS_START + 24) // Speed Room, Cooltrainer-M Randall
-        #define TRAINER_PARKER                      (GYM_TRAINERS_START + 25) // Trickery Room, Cooltrainer-M Parker
-        #define TRAINER_ALEXIA                      (GYM_TRAINERS_START + 26) // Defense Room, Cooltrainer-F Alexia
-        #define TRAINER_GEORGE                      (GYM_TRAINERS_START + 27) // Recovery Room, Cooltrainer-M George
-        #define TRAINER_JODY                        (GYM_TRAINERS_START + 28) // Guts Room, Cooltrainer-F Jody
-        #define TRAINER_BERKE                       (GYM_TRAINERS_START + 29) // Power Room, Cooltrainer-M Berke
+// Sootopolis Gym
+    #define SOOTOPOLIS_TRAINERS_START               (MOSSDEEP_TRAINERS_END + 1)
+    #define TRAINER_ANDREA                      (SOOTOPOLIS_TRAINERS_START + 0) // 1F tier 1, Lass Andrea
+    #define TRAINER_CONNIE                      (SOOTOPOLIS_TRAINERS_START + 1) // 1F tier 1, Beauty Connie
+    #define TRAINER_DAPHNE                      (SOOTOPOLIS_TRAINERS_START + 2) // 1F tier 2, Lady Daphne
+    #define TRAINER_CRISSY                      (SOOTOPOLIS_TRAINERS_START + 3) // 1F tier 3, Lass Crissy
+    #define TRAINER_BETHANY                     (SOOTOPOLIS_TRAINERS_START + 4) // 1F tier 3, Pokefan F Bethany
+    #define TRAINER_OLIVIA                      (SOOTOPOLIS_TRAINERS_START + 5) // 1F tier 3, Beauty Olivia
+    #define TRAINER_BRIANNA                     (SOOTOPOLIS_TRAINERS_START + 6) // 1F tier 3, Lady Brianna
+    #define TRAINER_ANNIKA                      (SOOTOPOLIS_TRAINERS_START + 7) // B1F tier 1, Pokefan-F Annika
+    #define TRAINER_BRIDGET                     (SOOTOPOLIS_TRAINERS_START + 8) // B1F tier 1, Beauty Bridget
+    #define TRAINER_TIFFANY                     (SOOTOPOLIS_TRAINERS_START + 9) // B1F tier 3, Beauty Tiffany
 
-    //Fortree
-        #define TRAINER_HUMBERTO                    (GYM_TRAINERS_START + 30) // Ninja Boy Humberto
-        #define TRAINER_JARED                       (GYM_TRAINERS_START + 31) // Camper Jared, may double with Ashley
-        #define TRAINER_ASHLEY                      (GYM_TRAINERS_START + 32) // Picnicker Ashley, may double with Ashley
-        #define TRAINER_FLINT                       (GYM_TRAINERS_START + 33) // Camper Flint, may double with Edwina
-        #define TRAINER_EDWINA                      (GYM_TRAINERS_START + 34) // Aroma Lady Edwina, may double with Flint
-        #define TRAINER_CECILIA                     (GYM_TRAINERS_START + 35) // Aroma Lady Cecilia
-
-    //Mossdeep
-        #define TRAINER_PRESTON                     (GYM_TRAINERS_START + 36) // Psychic-M Preston (yellow tiles), may double with Maura
-        #define TRAINER_MAURA                       (GYM_TRAINERS_START + 37) // Psychic-F Maura (yellow tiles), may double with Preston
-        #define TRAINER_BLAKE                       (GYM_TRAINERS_START + 38) // Psychic-M Blake (yellow tiles), may double with Samantha
-        #define TRAINER_SAMANTHA                    (GYM_TRAINERS_START + 39) // Psychic-F Samantha, may double with Blake
-        #define TRAINER_NATE                        (GYM_TRAINERS_START + 40) // Gentleman Nate (blue tiles), may double with Virgil
-        #define TRAINER_VIRGIL                      (GYM_TRAINERS_START + 41) // Psychic-M Virgil (blue tiles), may double with Nate
-        #define TRAINER_SYLVIA                      (GYM_TRAINERS_START + 42) // Hex Maniac Sylvia (orange tiles), may double with Hannah
-        #define TRAINER_HANNAH                      (GYM_TRAINERS_START + 43) // Psychic-F Hannah, may double with Sylvia
-        #define TRAINER_CLIFFORD                    (GYM_TRAINERS_START + 44) // Gentleman Clifford (pink tiles), may double with Kathleen or Macey
-        #define TRAINER_KATHLEEN                    (GYM_TRAINERS_START + 45) // Hex Maniac Kathleen (pink tiles), may double with Clifford or Nikolai
-        #define TRAINER_NIKOLAI                     (GYM_TRAINERS_START + 46) // Psychic-M Nikolai (pink tiles), may double with Nikolai
-        #define TRAINER_MACEY                       (GYM_TRAINERS_START + 47) // Psychic-F Macey, may double with Clifford
-
-    //Sootopolis
-        #define TRAINER_ANDREA                      (GYM_TRAINERS_START + 48) // 1F tier 1, Lass Andrea
-        #define TRAINER_CONNIE                      (GYM_TRAINERS_START + 49) // 1F tier 1, Beauty Connie
-        #define TRAINER_DAPHNE                      (GYM_TRAINERS_START + 50) // 1F tier 2, Lady Daphne
-        #define TRAINER_CRISSY                      (GYM_TRAINERS_START + 51) // 1F tier 3, Lass Crissy
-        #define TRAINER_BETHANY                     (GYM_TRAINERS_START + 52) // 1F tier 3, Pokefan F Bethany
-        #define TRAINER_OLIVIA                      (GYM_TRAINERS_START + 53) // 1F tier 3, Beauty Olivia
-        #define TRAINER_BRIANNA                     (GYM_TRAINERS_START + 54) // 1F tier 3, Lady Brianna
-        #define TRAINER_ANNIKA                      (GYM_TRAINERS_START + 55) // B1F tier 1, Pokefan-F Annika
-        #define TRAINER_BRIDGET                     (GYM_TRAINERS_START + 56) // B1F tier 1, Beauty Bridget
-        #define TRAINER_TIFFANY                     (GYM_TRAINERS_START + 57) // B1F tier 3, Beauty Tiffany
-    #define GYM_TRAINERS_END                    TRAINER_TIFFANY
+    #define TRAINER_JUAN_1                      (SOOTOPOLIS_TRAINERS_START + 10)
+    #define TRAINER_JUAN_2                      (SOOTOPOLIS_TRAINERS_START + 11)
+    #define TRAINER_JUAN_3                      (SOOTOPOLIS_TRAINERS_START + 12)
+    #define SOOTOPOLIS_TRAINERS_END                 (TRAINER_JUAN_3)
 
 // Type Tutors
-    #define TYPE_TUTORS_START                   (GYM_TRAINERS_END + 1)
+    #define TYPE_TUTORS_START                   (SOOTOPOLIS_TRAINERS_END + 1)
     #define TRAINER_NORMAN_INITIAL              (TYPE_TUTORS_START + 0)
     #define TRAINER_NORMAN_INVERSE              (TYPE_TUTORS_START + 1)
     #define TRAINER_NORMAN_CHALLENGE            (TYPE_TUTORS_START + 2)
