@@ -66,7 +66,7 @@ static const struct MenuAction MultichoiceList_StatusInfo[] =
     {COMPOUND_STRING("PAR")},
     {COMPOUND_STRING("SLP")},
     {COMPOUND_STRING("BRN")},
-    {COMPOUND_STRING("FRZ")},
+    {COMPOUND_STRING("FRB")}, // Jinnora: changed for Frostbite instead of Freeze
     {gText_Exit},
 };
 
