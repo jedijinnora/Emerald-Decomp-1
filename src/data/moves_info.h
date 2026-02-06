@@ -3759,7 +3759,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "An attack that steals half\n"
             "the damage inflicted."),
         .effect = EFFECT_ABSORB,
-        .power = B_UPDATED_MOVE_DATA >= GEN_7 ? 80 : 20,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 75 : B_UPDATED_MOVE_DATA >= GEN_7 ? 80 : 20,
         .type = TYPE_BUG,
         .accuracy = 100,
         .pp = B_UPDATED_MOVE_DATA >= GEN_7 ? 10 : 15,
@@ -14631,7 +14631,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Damages adjacent Pokémon\n"
             "and heals up by half of it."),
         .effect = EFFECT_ABSORB,
-        #if B_UPDATED_MOVE_DATA >= GEN_7
+        #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
             .power = 75,
         #elif B_UPDATED_MOVE_DATA >= GEN_7
             .power = 65,
