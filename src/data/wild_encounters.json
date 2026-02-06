@@ -4709,17 +4709,17 @@
               {
                 "min_level": 4,
                 "max_level": 23,
-                "species": "SPECIES_SWABLU"
+                "species": "SPECIES_HOOTHOOT"
               },
               {
                 "min_level": 4,
                 "max_level": 23,
-                "species": "SPECIES_TAILLOW"
+                "species": "SPECIES_HOPPIP"
               },
               {
                 "min_level": 4,
                 "max_level": 21,
-                "species": "SPECIES_HOPPIP"
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 7,
@@ -4729,7 +4729,7 @@
               {
                 "min_level": 7,
                 "max_level": 25,
-                "species": "SPECIES_FLETCHLING"
+                "species": "SPECIES_SWABLU"
               },
               {
                 "min_level": 7,
@@ -4739,12 +4739,12 @@
               {
                 "min_level": 16,
                 "max_level": 32,
-                "species": "SPECIES_HOOTHOOT"
+                "species": "SPECIES_CATERPIE"
               },
               {
                 "min_level": 9,
                 "max_level": 26,
-                "species": "SPECIES_MACHOP"
+                "species": "SPECIES_WEEDLE"
               },
               {
                 "min_level": 24,
@@ -15868,6 +15868,36 @@
               }
             ]
           },
+          "rock_smash_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_DWEBBLE"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_ROCKRUFF"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CORSOLA_GALAR"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CORSOLA_GALAR"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_CORSOLA_GALAR"
+              }
+            ]
+          },
           "fishing_mons": {
             "encounter_rate": 30,
             "mons": [
@@ -18741,22 +18771,22 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SEAKING"
+                "species": "SPECIES_FRILLISH"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_WAILMER"
+                "species": "SPECIES_GASTRODON_EAST"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_SHARPEDO"
+                "species": "SPECIES_GASTRODON_WEST"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_WAILORD"
+                "species": "SPECIES_JELLICENT"
               },
               {
                 "min_level": 5,

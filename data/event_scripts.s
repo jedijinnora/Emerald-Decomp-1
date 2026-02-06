@@ -1323,8 +1323,6 @@ Common_EventScript_DisableBPReward::
 
 	.include "data/maps/LittlerootTown_House2/scripts.inc"
 
-	.include "data/maps/MeteorVillage_AnthropologyHouse/scripts.inc"
-
 	.include "data/maps/DewfordResort_House1/scripts.inc"
 
 	.include "data/maps/DewfordResort_House2/scripts.inc"
@@ -1411,3 +1409,5 @@ Common_EventScript_DisableBPReward::
 	.include "data/maps/SlateportLighthouse/scripts.inc"
 
 	.include "data/maps/Route114_Edge/scripts.inc"
+
+	.include "data/maps/SummerSea_House1/scripts.inc"

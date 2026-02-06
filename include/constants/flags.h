@@ -175,8 +175,10 @@
 #define FLAG_UNUSED_0x94                     0x94
 #define FLAG_UNUSED_0x95                     0x95
 #define FLAG_UNUSED_0x96                     0x96
-#define FLAG_UNUSED_0x97                     0x97
-#define FLAG_UNUSED_0x98                     0x98
+
+// Dexnav
+#define FLAG_DEXNAV_SEARCHING                0x97
+#define FLAG_DEXNAV_DETECTOR_MODE            0x98
 
 //Vanilla trades (additional trade flags start at 0x3C0)
 #define FLAG_RUSTBORO_NPC_TRADE_COMPLETED    0x99
@@ -1389,7 +1391,7 @@
 #define FLAG_SYS_POKEMON_GET                         (SYSTEM_FLAGS + 0x0) // FLAG_0x860
 #define FLAG_SYS_POKEDEX_GET                         (SYSTEM_FLAGS + 0x1)
 #define FLAG_SYS_POKENAV_GET                         (SYSTEM_FLAGS + 0x2)
-#define FLAG_UNUSED_0x863                            (SYSTEM_FLAGS + 0x3) // Unused Flag
+#define FLAG_SYS_DEXNAV_GET                          (SYSTEM_FLAGS + 0x3)
 #define FLAG_SYS_GAME_CLEAR                          (SYSTEM_FLAGS + 0x4)
 #define FLAG_SYS_CHAT_USED                           (SYSTEM_FLAGS + 0x5)
 #define FLAG_UNLOCKED_TRENDY_SAYINGS                 (SYSTEM_FLAGS + 0x6)

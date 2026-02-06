@@ -52,10 +52,8 @@ script MeteorVillage_EventScript_ExpertF {
 script MeteorVillage_EventScript_ExpertM {
     lock
     faceplayer
-    msgbox(format("Another outsider? I hope you are more respectful of our privacy than those anthropologists."))
-    msgbox(format("They claim their interest in our traditions is simply intellectual curiosity."))
-    msgbox(format("Hmph! I'd like to see them blasted out of the village."))
-    msgbox(format("We know better than to allow them to steal our secrets."))
+    msgbox(format("Another outsider? Bah, I can't keep track of you all."))
+    // todo: gets more friendly as story progresses
     release
     end
 }
@@ -83,9 +81,8 @@ script MeteorVillage_EventScript_BugCatcher {
 script MeteorVillage_EventScript_Girl3 {
     lock
     faceplayer
-    msgbox(format("Look, it's not like we hate all outsiders."))
-    msgbox(format("We just made the anthropologists stay outside the boundaries."))
-    msgbox(format("You know, where all the malign spirits roam freely."))
+    msgbox(format("Sometimes I miss the convenience of having a Pokémon Center and Pokémart."))
+    msgbox(format("But other times I'm grateful to get a break from modern things."))
     release
     end
 }
@@ -116,13 +113,6 @@ script MeteorVillage_EventScript_MeteorVillageSign {
 	msgbox(format("Meteor Village\n“Home of the last Draconids.”"), MSGBOX_SIGN)
 	end
 }
-
-script MeteorVillage_EventScript_AnthropologySign {
-	msgbox(format("Anthropology Field Lab"), MSGBOX_SIGN)
-	end
-}
-
-
 
 
 

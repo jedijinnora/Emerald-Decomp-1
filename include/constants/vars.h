@@ -179,9 +179,9 @@
 #define VAR_NUM_FERRY_TRIPS                              0x409F // counts the number of times the player has taken the ferry
 #define VAR_ARCHIE_QUEST_STATE                           0x40A0
 #define VAR_MAXIE_QUEST_STATE                            0x40A1
-#define VAR_KELDEO_QUEST_STATE                           0x40A2 // cutter -> r131 -> pathless forest -> grove -> battle
-#define VAR_LANETTE_QUEST_STATE                          0x40A3
-#define VAR_UNUSED_0x40A4                                0x40A4
+#define VAR_LANETTE_QUEST_STATE                          0x40A2
+#define VAR_MANAPHY_QUEST_STATE                          0x40A3 // summer sea -> r133 -> dewford resort -> r125 -> beach -> r115 -> r106 -> r129 -> summer sea
+#define VAR_KELDEO_QUEST_STATE                           0x40A4 // cutter -> r131 -> pathless forest -> grove -> battle
 #define VAR_TRICK_HOUSE_BEING_WATCHED_STATE              0x40A5
 #define VAR_TRICK_HOUSE_FOUND_TRICK_MASTER               0x40A6
 #define VAR_TRICK_HOUSE_ENTRANCE_STATE                   0x40A7
@@ -215,8 +215,8 @@
 #define VAR_UNUSED_0x40C3                                0x40C3
 #define VAR_FOSSIL_RESURRECTION_STATE                    0x40C4 // used to handle revive sequence
 #define VAR_WHICH_FOSSIL_REVIVED                         0x40C5 // used to save choice of revived fossil
-#define VAR_UNUSED_0x40C6                                0x40C6
-#define VAR_UNUSED_0x40C7                                0x40C7
+#define VAR_DEXNAV_SPECIES                               0x40C6
+#define VAR_DEXNAV_STEP_COUNTER                          0x40C7
 #define VAR_UNUSED_0x40C8                                0x40C8 // was jagged pass state
 #define VAR_UNUSED_0x40C9                                0x40C9 // was scott petalburg encounter
 #define VAR_SKY_PILLAR_STATE                             0x40CA

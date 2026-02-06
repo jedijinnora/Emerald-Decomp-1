@@ -205,6 +205,27 @@ script EverGrandeCity_EventScript_TuberF {
 
 script EverGrandeCity_EventScript_Painter {
 	lock
+	faceplayer
+	goto_if_set(FLAG_BOOSTED_SHINIES, EverGrandeCity_EventScript_HappyTree)
+	specialvar(VAR_RESULT, CheckPartyForShiny)
+	goto_if_eq(VAR_RESULT, FALSE, EverGrandeCity_EventScript_HappyTree)
+	msgbox(format("Oh, look at that shiny Pokémon!"))
+	msgbox(format("Wouldn't it be nice if every Pokémon had an increased chance to be shiny?"), MSGBOX_YESNO)
+	call_if_eq(VAR_RESULT, YES, EverGrandeCity_EventScript_BoostShinyOdds)
+	release
+	end
+}
+
+script EverGrandeCity_EventScript_BoostShinyOdds {
+	msgbox(format("This setting cannot be changed back. Continue?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Common_EventScript_NopReturn)
+	setflag(FLAG_BOOSTED_SHINIES)
+	msgbox(format("Scattered glitter throughout the world!"))
+	release
+	end
+}
+
+script EverGrandeCity_EventScript_HappyTree {
 	msgbox(format("Oops!"))
 	msgbox(format("Oh well, another happy tree."))
 	release

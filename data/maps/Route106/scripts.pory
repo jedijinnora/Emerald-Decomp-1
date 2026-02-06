@@ -2,9 +2,60 @@ mapscripts Route106_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : Route106_OnTransition
 }
 
+const LOCALID_PHIONE_6 = 9
+
 script Route106_OnTransition {
 	call(Common_EventScript_DisableBPReward)
+	call_if_lt(VAR_MANAPHY_QUEST_STATE, 60, Route106_EventScript_HidePhione)
+	call_if_ge(VAR_MANAPHY_QUEST_STATE, 65, Route106_EventScript_HidePhione)
 	end
+}
+
+script Route106_EventScript_HidePhione {
+	setflag(FLAG_TEMP_11)
+	return
+}
+
+script Route106_EventScript_Phione {
+	lock
+	faceplayer
+	playmoncry(SPECIES_PHIONE, CRY_MODE_WEAK)
+	waitmoncry
+	call_if_eq(VAR_MANAPHY_QUEST_STATE, 61, Route106_EventScript_OfferWaterStone)
+	msgbox(format("Phione explored Granite Cave for a while and saw a lot of gemstones."))
+	msgbox(format("They'd like a liquid blue stone for a keepsake."))
+	setvar(VAR_MANAPHY_QUEST_STATE, 61)
+	release
+	end
+}
+
+script Route106_EventScript_OfferWaterStone {
+	checkitem(ITEM_WATER_STONE)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	msgbox(format("Give Phione your Water Stone?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Common_EventScript_NopReturn)
+	playfanfare(MUS_OBTAIN_TMHM)
+	removeitem(ITEM_WATER_STONE)
+	msgbox(format("Player gave Phione the Water Stone."))
+	waitmessage
+	closemessage
+	applymovement(LOCALID_PHIONE_6, Route133_Movement_PhioneHappy)
+	msgbox(format("Phione stared deeply into the heart of the stone…"))
+	waitmessage
+	closemessage
+	playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+	applymovement(LOCALID_PHIONE_6, Route106_Movement_PhioneLeave6)
+	waitmovement(0)
+	removeobject(LOCALID_PHIONE_6)
+	msgbox(format("Phione headed back to Summer Sea…"))
+	setvar(VAR_MANAPHY_QUEST_STATE, 65)
+	release
+	end
+}
+
+movement Route106_Movement_PhioneLeave6 {
+	jump_2_left * 2
+	walk_up * 7
 }
 
 script Route106_EventScript_HexManiac {

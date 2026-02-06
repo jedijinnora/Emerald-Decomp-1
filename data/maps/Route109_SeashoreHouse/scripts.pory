@@ -2,9 +2,78 @@ mapscripts Route109_SeashoreHouse_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION : Route109_SeashoreHouseOnTransition
 }
 
+const LOCALID_PHIONE_4 = 5
+
 script Route109_SeashoreHouseOnTransition {
 	setflag(FLAG_LANDMARK_SEASHORE_HOUSE)
+	call_if_lt(VAR_MANAPHY_QUEST_STATE, 40, Route109_SeashoreHouse_EventScript_HidePhione)
+	call_if_ge(VAR_MANAPHY_QUEST_STATE, 45, Route109_SeashoreHouse_EventScript_HidePhione)
 	end
+}
+
+script Route109_SeashoreHouse_EventScript_HidePhione {
+	setflag(FLAG_TEMP_11)
+	return
+}
+
+script Route109_SeashoreHouse_EventScript_Phione {
+	lock
+	faceplayer
+	playmoncry(SPECIES_PHIONE, CRY_MODE_WEAK)
+	waitmoncry
+	call_if_eq(VAR_MANAPHY_QUEST_STATE, 41, Route109_SeashoreHouse_EventScript_OfferCookie)
+	msgbox(format("Phione has drank all the Soda Pop they can handle."))
+	msgbox(format("Now they want dessert. Do you have a cookie for them?"))
+	setvar(VAR_MANAPHY_QUEST_STATE, 41)
+	release
+	end
+}
+
+script Route109_SeashoreHouse_EventScript_OfferCookie {
+	checkitem(ITEM_LAVA_COOKIE)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	msgbox(format("Give Phione your Lava Cookie?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Common_EventScript_NopReturn)
+	playfanfare(MUS_OBTAIN_TMHM)
+	removeitem(ITEM_LAVA_COOKIE)
+	msgbox(format("Player gave Phione the Lava Cookie."))
+	waitmessage
+	closemessage
+	applymovement(LOCALID_PHIONE_4, Route133_Movement_PhioneHappy)
+	msgbox(format("Phione devoured the cookie in one bite!"))
+	waitmessage
+	closemessage
+	playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	switch(var(VAR_TEMP_1)) {
+		case 8:
+			applymovement(LOCALID_PHIONE_4, Route109_SeashoreHouse_Movement_PhioneLeave1)
+		default:
+			applymovement(LOCALID_PHIONE_4, Route109_SeashoreHouse_Movement_PhioneLeave2)
+	}
+	waitmovement(0)
+	playse(SE_EXIT)
+	removeobject(LOCALID_PHIONE_4)
+
+	msgbox(format("Phione waddled back to Summer Sea…"))
+	setvar(VAR_MANAPHY_QUEST_STATE, 45)
+
+	release
+	end
+}
+
+movement Route109_SeashoreHouse_Movement_PhioneLeave1 {
+	walk_right * 3
+	walk_down * 5
+	walk_left * 4
+	walk_down * 2
+}
+
+movement Route109_SeashoreHouse_Movement_PhioneLeave2 {
+	walk_down
+	walk_left
+	walk_down * 6
 }
 
 script Route109_SeashoreHouse_EventScript_Owner {

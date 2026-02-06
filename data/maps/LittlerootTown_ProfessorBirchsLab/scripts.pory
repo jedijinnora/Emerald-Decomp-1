@@ -6,17 +6,17 @@ script LittlerootTown_ProfessorBirchsLab_EventScript_Aide {
 	lock
 	faceplayer
 	call_if_unset(FLAG_ITEM_TM95, LittlerootTown_ProfessorBirchsLab_EventScript_Thief)
-	msgbox(format("Many held items are useful in battle, but you can also earn good money by farming Wild Pokémon for Nuggets or Star Pieces."))
+	msgbox(format("Many held items are useful in battle, but you can also earn good money by farming wild Pokémon for Nuggets or Star Pieces."))
 	release
 	end
 }
 
 script LittlerootTown_ProfessorBirchsLab_EventScript_Thief {
-	msgbox(format("My job? I've been collecting data on all the different items Wild Pokémon can hold."))
+	msgbox(format("My job? I've been collecting data on all the different items wild Pokémon can hold."))
 	msgbox(format("Here, this TM can teach your Pokémon to nab a foe's item."))
 	giveitem(ITEM_TM95_THIEF)
-	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
 	setflag(FLAG_ITEM_TM95)
+	msgbox(format("Technically, you don't even need a move like Thief.\pWild Pokémon will drop their held item when they faint!"))
 	return
 }
 
@@ -37,9 +37,8 @@ script LittlerootTown_ProfessorBirchsLab_EventScript_GiveFalseSwipe {
 	msgbox(format("Welcome to my lab! I'm Professor Birch. I run the Hoenn League's Pokédex system."))
 	msgbox(format("Prof. Birch: Here, all Trainers should have this TM in their pocket!"))
 	giveitem(ITEM_TM05_FALSE_SWIPE)
-	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
 	setflag(FLAG_ITEM_TM05)
-	msgbox(format("Prof. Birch: False Swipe is a wonderful move for catching new Pokémon. No matter what, the foe will be left with at least 1 HP!"))
+	msgbox(format("Prof. Birch: False Swipe is a wonderful move for catching new Pokémon.\pNo matter what, the foe will be left with at least 1 HP!"))
 	release
 	end
 }
@@ -69,7 +68,7 @@ script LittlerootTown_ProfessorBirchsLab_EventScript_TryGiveOvalCharm {
 
 script LittlerootTown_ProfessorBirchsLab_EventScript_GiveOvalCharm {
 	msgbox(format("Prof. Birch: Wow, you beat Champion Anabel! Here, I'd like you to have this."))
-	giveitem(ITEM_CATCHING_CHARM)
+	giveitem(ITEM_OVAL_CHARM)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
 	msgbox(format("Prof. Birch: The Oval Charm makes it more likely to find an Egg at the Pokémon Day Care."))
 	msgbox(format("Prof. Birch: Keep up the fantastic work, you're doing amazing!"))
@@ -85,6 +84,7 @@ script LittlerootTown_ProfessorBirchsLab_EventScript_GiveShinyCharm {
 	msgbox(format("Prof. Birch: Would you look at the colors on that Pokémon! Here, I'd like you to have this."))
 	giveitem(ITEM_SHINY_CHARM)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_RECEIVED_SHINY_CHARM)
 	msgbox(format("Prof. Birch: The Shiny Charm makes you more likely to encounter Shiny Pokémon."))
 	msgbox(format("Prof. Birch: Keep up the stellar work!"))
 	return

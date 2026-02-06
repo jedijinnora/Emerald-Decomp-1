@@ -1,0 +1,601 @@
+mapscripts SummerSea_House1_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : SummerSea_House1_OnTransition
+    MAP_SCRIPT_ON_RESUME : SummerSea_House1_OnResume
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_MANAPHY_QUEST_STATE, 15: SummerSea_House1_EventScript_Return1
+        VAR_MANAPHY_QUEST_STATE, 25: SummerSea_House1_EventScript_Return2
+        VAR_MANAPHY_QUEST_STATE, 35: SummerSea_House1_EventScript_Return3
+        VAR_MANAPHY_QUEST_STATE, 45: SummerSea_House1_EventScript_Return4
+        VAR_MANAPHY_QUEST_STATE, 55: SummerSea_House1_EventScript_Return5
+        VAR_MANAPHY_QUEST_STATE, 65: SummerSea_House1_EventScript_Return6
+        VAR_MANAPHY_QUEST_STATE, 75: SummerSea_House1_EventScript_Return7
+    ] 
+}
+
+const LOCALID_WOMAN = 1
+const LOCALID_MANAPHY = 2
+const LOCALID_PHIONE_1 = 3
+const LOCALID_PHIONE_2 = 4
+const LOCALID_PHIONE_3 = 5
+const LOCALID_PHIONE_4 = 6
+const LOCALID_PHIONE_5 = 7
+const LOCALID_PHIONE_6 = 8
+const LOCALID_PHIONE_7 = 9
+
+// Manaphy Quest State (VAR_MANAPHY_QUEST_STATE)
+// 0 - new game
+//
+// 10 - visited, spoke to woman and manaphy, got first clue
+// 11 - found phione 1: Route 133, Sunny Lagoon (a sunny circle in the sea)
+// 15 - completed phione 1 task: shown Rain Dance TM
+//
+// 20 - returned, got next clue
+// 21 - found phione 2: Dewford Resort (a place full of entitled humans)
+// 25 - completed phione 2 task: given Snowball
+//
+// 30 - returned, got next clue
+// 31 - found phione 3: Route 125, Shoal Cave (somewhere with strong tides)
+// 35 - completed phione 3 task: given Shell Bell
+//
+// 40 - returned, got next clue
+// 41 - found phione 4: Slateport Beach (a shop with fizzy drinks)
+// 45 - completed phione 4 task: given Lava Cookie
+//
+// 50 - returned, got next clue
+// 51 - found phione 5: Route 115, Meteor Falls (a meteor shower struck nearby)
+// 55 - completed phione 5 task: shown Minior
+//
+// 60 - returned, got next clue
+// 61 - found phione 6: Route 106, Granite Cave (lots of cool rocks)
+// 65 - completed phione 6 task: given Water Stone
+//
+// 70 - returned, got next clue
+// 71 - found phione 7: Route 129, Flower Paradise (shh! Manaphy's friend is sleeping here)
+// 75 - completed phione 7 task: given Honey
+//
+// 80 - returned
+// 85 - battled
+
+script SummerSea_House1_OnResume {
+	call_if_set(FLAG_SYS_CTRL_OBJ_DELETE, Common_EventScript_TryRemoveCaughtEncounter)
+    end
+}
+
+script SummerSea_House1_OnTransition {
+    call_if_set(FLAG_CAUGHT_MANAPHY, SummerSea_House1_EventScript_HideManaphy)
+    call_if_set(FLAG_DEFEATED_MANAPHY, SummerSea_House1_EventScript_HideManaphy)
+    call(SummerSea_House1_EventScript_HidePhione)
+    end
+}
+
+script SummerSea_House1_EventScript_HideManaphy {
+    setflag(FLAG_TEMP_12)
+    return
+}
+
+script SummerSea_House1_EventScript_HidePhione {
+    goto_if_ge(VAR_MANAPHY_QUEST_STATE, 75, Common_EventScript_NopReturn)
+    setflag(FLAG_TEMP_7)
+    goto_if_ge(VAR_MANAPHY_QUEST_STATE, 65, Common_EventScript_NopReturn)
+    setflag(FLAG_TEMP_6)
+    goto_if_ge(VAR_MANAPHY_QUEST_STATE, 55, Common_EventScript_NopReturn)
+    setflag(FLAG_TEMP_5)
+    goto_if_ge(VAR_MANAPHY_QUEST_STATE, 45, Common_EventScript_NopReturn)
+    setflag(FLAG_TEMP_4)
+    goto_if_ge(VAR_MANAPHY_QUEST_STATE, 35, Common_EventScript_NopReturn)
+    setflag(FLAG_TEMP_3)
+    goto_if_ge(VAR_MANAPHY_QUEST_STATE, 25, Common_EventScript_NopReturn)
+    setflag(FLAG_TEMP_2)
+    goto_if_ge(VAR_MANAPHY_QUEST_STATE, 15, Common_EventScript_NopReturn)
+    setflag(FLAG_TEMP_1)
+    return
+}
+
+script SummerSea_House1_EventScript_Woman {
+    lock
+    faceplayer
+    goto_if_set(FLAG_CAUGHT_MANAPHY, SummerSea_House1_EventScript_WomanFinal)
+    goto_if_set(FLAG_DEFEATED_MANAPHY, SummerSea_House1_EventScript_WomanReturn)
+    goto_if_lt(VAR_MANAPHY_QUEST_STATE, 10, SummerSea_House1_EventScript_WomanIntro)
+    goto_if_ge(VAR_MANAPHY_QUEST_STATE, 80, SummerSea_House1_EventScript_WomanOffer)
+    msgbox(format("Poor little Manaphy…"))
+    release
+    end
+}
+
+script SummerSea_House1_EventScript_WomanIntro {
+    msgbox(format("Do you know about the Pokémon Manaphy?"))
+    msgbox(format("It's sometimes called the King of the Ocean."))
+    msgbox(format("Manaphy travels the world's oceans with their attending Phione."))
+    msgbox(format("But all the Phione got lost while traveling through Hoenn and Manaphy is sick."))
+    msgbox(format("I've been tending to Manaphy, but I need a Trainer like you to find all the Phione and tell them where Manaphy is."))
+    msgbox(format("Manaphy can give you clues about where they might be."))
+    setvar(VAR_MANAPHY_QUEST_STATE, 9)
+    release
+    end
+}
+
+script SummerSea_House1_EventScript_WomanOffer {
+    msgbox(format("Manaphy has an offer for you!"))
+    release
+    end
+}
+
+script SummerSea_House1_EventScript_WomanFinal {
+    msgbox(format("I hope you're treating Manaphy well!"))
+    release
+    end
+}
+
+script SummerSea_House1_EventScript_WomanReturn {
+    msgbox(format("Manaphy will come back eventually."))
+    release
+    end
+}
+
+script SummerSea_House1_EventScript_Return1 {
+    lock
+    applymovement(LOCALID_PHIONE_1, SummerSea_House1_Movement_Phione1ToPlayer)
+    waitmovement(0)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    msgbox(format("Oh! You did it! You found the Phione at the Sunny Lagoon!"))
+    msgbox(format("Manaphy is feeling a little better with one of their friends around."))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_PHIONE_1, SummerSea_House1_Movement_Phione1Return)
+    waitmovement(0)
+    msgbox(format("You should talk to them to get the next clue."))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    setvar(VAR_MANAPHY_QUEST_STATE, 19)
+    release
+    end
+}
+
+script SummerSea_House1_EventScript_Return2 {
+    lock
+    applymovement(LOCALID_PHIONE_2, SummerSea_House1_Movement_Phione2ToPlayer)
+    waitmovement(0)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    msgbox(format("Oh! You did it! You found the Phione at Dewford Resort!"))
+    msgbox(format("Manaphy seems a bit better with two of their friends around."))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_PHIONE_2, SummerSea_House1_Movement_Phione2Return)
+    waitmovement(0)
+    msgbox(format("Check in with Manaphy to get the next clue."))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    setvar(VAR_MANAPHY_QUEST_STATE, 29)
+    release
+    end
+}
+
+script SummerSea_House1_EventScript_Return3 {
+    lock
+    applymovement(LOCALID_PHIONE_3, SummerSea_House1_Movement_Phione3ToPlayer)
+    waitmovement(0)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    msgbox(format("Oh! You did it! You found the Phione near Shoal Cave!"))
+    msgbox(format("Manaphy walked around the house a few times today."))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_PHIONE_3, SummerSea_House1_Movement_Phione3Return)
+    waitmovement(0)
+    msgbox(format("You should talk to them to get the next clue."))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    setvar(VAR_MANAPHY_QUEST_STATE, 39)
+    release
+    end
+}
+
+script SummerSea_House1_EventScript_Return4 {
+    lock
+    applymovement(LOCALID_PHIONE_4, SummerSea_House1_Movement_Phione4ToPlayer)
+    waitmovement(0)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    msgbox(format("Phione has been on a constant sugar high!"))
+    msgbox(format("I hope the others won't also develop a soda addiction!"))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_PHIONE_4, SummerSea_House1_Movement_Phione4Return)
+    waitmovement(0)
+    msgbox(format("You should talk to Manaphy to get the next clue."))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    setvar(VAR_MANAPHY_QUEST_STATE, 49)
+    release
+    end
+}
+
+script SummerSea_House1_EventScript_Return5 {
+    lock
+    applymovement(LOCALID_PHIONE_5, SummerSea_House1_Movement_Phione5ToPlayer)
+    waitmovement(0)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    msgbox(format("Phione has been teaching all the others about meteors since getting back!"))
+    msgbox(format("We're going to look at the stars tonight with everybody."))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_PHIONE_5, SummerSea_House1_Movement_Phione5Return)
+    waitmovement(0)
+    msgbox(format("Manaphy seems to be looking forward to it! Talk to them get the next clue."))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    setvar(VAR_MANAPHY_QUEST_STATE, 59)
+    release
+    end
+}
+
+script SummerSea_House1_EventScript_Return6 {
+    lock
+    applymovement(LOCALID_PHIONE_6, SummerSea_House1_Movement_Phione6ToPlayer)
+    waitmovement(0)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    msgbox(format("Phione has been holding that Water Stone like a Chansey with an Egg!"))
+    msgbox(format("I hope they aren't disappointed they can't evolve!"))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_PHIONE_6, SummerSea_House1_Movement_Phione6Return)
+    waitmovement(0)
+    msgbox(format("Just one more Phione to find!"))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    setvar(VAR_MANAPHY_QUEST_STATE, 69)
+    release
+    end
+}
+
+script SummerSea_House1_EventScript_Return7 {
+    lock
+    applymovement(LOCALID_PHIONE_7, SummerSea_House1_Movement_Phione7ToPlayer)
+    waitmovement(0)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceDown)
+    waitmovement(0)
+    msgbox(format("Phione came back with flowers for everyone!"))
+    msgbox(format("With all seven Phione back, Manaphy has completely perked up!"))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_PHIONE_7, SummerSea_House1_Movement_Phione7Return)
+    waitmovement(0)
+    msgbox(format("Manaphy has an exciting offer for you!"))
+    waitmessage
+    closemessage
+    applymovement(LOCALID_WOMAN, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    setvar(VAR_MANAPHY_QUEST_STATE, 80)
+    release
+    end
+}
+
+movement SummerSea_House1_Movement_Phione1ToPlayer {
+    walk_fast_down * 3
+    walk_fast_right * 3
+    jump_in_place_down
+    emote_heart
+}
+
+movement SummerSea_House1_Movement_Phione1Return {
+    walk_in_place_left
+    walk_in_place_up
+    walk_in_place_right
+    walk_in_place_down
+    walk_fast_left * 3
+    walk_fast_up * 3
+    face_right
+}
+
+movement SummerSea_House1_Movement_Phione2ToPlayer {
+    walk_fast_right * 4
+    walk_fast_down
+    jump_in_place_down
+    jump_in_place_down
+    jump_in_place_down
+}
+
+movement SummerSea_House1_Movement_Phione2Return {
+    emote_heart
+    delay_16
+    walk_fast_up
+    walk_fast_left * 4
+    face_right
+}
+
+movement SummerSea_House1_Movement_Phione3ToPlayer {
+    walk_fast_left
+    jump_2_left
+    jump_2_down
+    jump_2_left
+    jump_in_place_down
+}
+
+movement SummerSea_House1_Movement_Phione3Return {
+    walk_fast_right
+    jump_2_right
+    jump_2_right
+    jump_2_up
+    jump_in_place_left
+}
+
+movement SummerSea_House1_Movement_Phione4ToPlayer {
+    walk_fast_right
+    walk_fast_up
+    walk_fast_right
+    jump_in_place_down
+    jump_in_place_down
+    jump_in_place_down
+    jump_in_place_down
+}
+
+movement SummerSea_House1_Movement_Phione4Return {
+    jump_in_place_left
+    jump_in_place_left
+    walk_fast_left
+    walk_fast_down
+    walk_fast_left
+    jump_in_place_right
+}
+
+movement SummerSea_House1_Movement_Phione5ToPlayer {
+    walk_fast_up
+    walk_fast_left * 4
+    walk_in_place_down
+}
+
+movement SummerSea_House1_Movement_Phione5Return {
+    walk_fast_right * 4
+    walk_fast_down
+    emote_heart
+}
+
+movement SummerSea_House1_Movement_Phione6ToPlayer {
+    jump_left
+    jump_down
+    walk_in_place_down
+    walk_in_place_down
+}
+
+movement SummerSea_House1_Movement_Phione6Return {
+    jump_up
+    jump_right
+    emote_heart
+    walk_in_place_left
+    walk_in_place_up
+    walk_in_place_right
+    walk_in_place_down
+}
+
+movement SummerSea_House1_Movement_Phione7ToPlayer {
+    jump_2_down
+    jump_2_down
+    jump_left
+    emote_heart
+}
+
+movement SummerSea_House1_Movement_Phione7Return {
+    jump_right
+    jump_2_up
+    jump_2_up
+    walk_in_place_down
+}
+
+script SummerSea_House1_EventScript_Manaphy {
+    lock
+    applymovement(LOCALID_MANAPHY, Common_Movement_FacePlayer)
+    playmoncry(SPECIES_MANAPHY, CRY_MODE_ENCOUNTER)
+    waitmovement(0)
+    msgbox(format("Manaphy: Pii qhihi!"))
+    call_if_eq(VAR_MANAPHY_QUEST_STATE, 85, SummerSea_House1_EventScript_ManaphyBattle)
+    call_if_eq(VAR_MANAPHY_QUEST_STATE, 80, SummerSea_House1_EventScript_ManaphyBattle)
+    call_if_lt(VAR_MANAPHY_QUEST_STATE, 80, SummerSea_House1_EventScript_Hints)
+    release
+    end
+}
+
+script SummerSea_House1_EventScript_ManaphyBattle {
+    setvar(VAR_MANAPHY_QUEST_STATE, 85)
+    msgbox(format("Manaphy will join you if you prove yourself!"))
+    msgbox(format("Ready for battle?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, Common_EventScript_NopReturn)
+    setflag(FLAG_SMART_WILD_AI)
+    call(Common_EventScript_CountBadges)
+    switch(var(VAR_NUM_BADGES)) {
+        case 2:
+            createmon(1, 0, SPECIES_MANAPHY, 30, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+        case 3:
+            createmon(1, 0, SPECIES_MANAPHY, 40, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+        case 4:
+            createmon(1, 0, SPECIES_MANAPHY, 45, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+        case 5:
+            createmon(1, 0, SPECIES_MANAPHY, 55, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+        case 6:
+            createmon(1, 0, SPECIES_MANAPHY, 65, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+        case 7:
+            createmon(1, 0, SPECIES_MANAPHY, 75, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+        case 8:
+            createmon(1, 0, SPECIES_MANAPHY, 85, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+        default:
+            createmon(1, 0, SPECIES_MANAPHY, 25, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+    }
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	special(BattleSetup_StartLegendaryBattle)
+	waitstate
+    clearflag(FLAG_SMART_WILD_AI)
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_WON, SummerSea_House1_EventScript_DefeatedManaphy)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_RAN, SummerSea_House1_EventScript_RanFromManaphy)
+	goto_if_eq(VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SummerSea_House1_EventScript_RanFromManaphy)
+	setflag(FLAG_CAUGHT_MANAPHY)
+    release
+    end
+}
+
+script SummerSea_House1_EventScript_DefeatedManaphy {
+	setflag(FLAG_DEFEATED_MANAPHY)
+	goto(Common_EventScript_RemoveStaticPokemon)
+	end
+}
+
+script SummerSea_House1_EventScript_RanFromManaphy {
+	setflag(FLAG_DEFEATED_MANAPHY)
+	setvar(VAR_0x8004, SPECIES_MANAPHY)
+	goto(Common_EventScript_LegendaryFlewAway)
+	end
+}
+
+script SummerSea_House1_EventScript_Hints {
+    msgbox(format("Manaphy has been trying to remember where all the Phione went…"))
+    switch(var(VAR_MANAPHY_QUEST_STATE)) {
+        case 9:
+        case 10:
+        case 11:
+            msgbox(format("The first Phione stayed behind on a sunny beach! Maybe they got sunstroke?"))
+        case 19:
+        case 20:
+        case 21:
+            msgbox(format("The second Phione was somewhere with a lot of entitled humans."))
+        case 29:
+        case 30:
+        case 31:
+            msgbox(format("The third Phione got swept away by strong tides!"))
+        case 39:
+        case 40:
+        case 41:
+            msgbox(format("The fourth Phione had way too many fizzy drinks."))
+        case 49:
+        case 50:
+        case 51:
+            msgbox(format("The fifth Phione saw a meteor! They went looking for the crater."))
+        case 59:
+        case 60:
+        case 61:
+            msgbox(format("The sixth Phione went spelunking for cool rocks."))
+        case 69: // nice
+        case 70:
+        case 71:
+            msgbox(format("Shh! The seventh Phione stayed behind to meet Manaphy's sleeping friend."))
+    }
+    switch(var(VAR_MANAPHY_QUEST_STATE)) {
+        case 9:
+        case 19:
+        case 29:
+        case 39:
+        case 49:
+        case 59:
+        case 69:
+            addvar(VAR_MANAPHY_QUEST_STATE, 1)
+        default:
+    }
+    return
+}
+
+// rescued from r133, Sunny Lagoon
+// have Rain Dance TM
+script SummerSea_House1_EventScript_Phione1 {
+    lockall
+    applymovement(LOCALID_PHIONE_1, Common_Movement_FacePlayer)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    waitmovement(0)
+    msgbox(format("Phione promises to always remember Rain Dance!"))
+    releaseall
+    end
+}
+
+// rescued from Dewford Resort
+// bring snowball
+script SummerSea_House1_EventScript_Phione2 {
+    lockall
+    applymovement(LOCALID_PHIONE_2, Common_Movement_FacePlayer)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    waitmovement(0)
+    msgbox(format("Phione will watch out for tourists!"))
+    releaseall
+    end
+}
+
+// rescued from r125, near Shoal Cave
+// bring shell bell
+script SummerSea_House1_EventScript_Phione3 {
+    lockall
+    applymovement(LOCALID_PHIONE_3, Common_Movement_FacePlayer)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    waitmovement(0)
+    msgbox(format("Phione is keeping a keen eye on the tides!"))
+    releaseall
+    end
+}
+
+// rescued from Slateport Beach
+// bring lava cookie
+script SummerSea_House1_EventScript_Phione4 {
+    lockall
+    applymovement(LOCALID_PHIONE_4, Common_Movement_FacePlayer)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    waitmovement(0)
+    msgbox(format("Phione won't drink more than one can of Soda Pop at a time!"))
+    releaseall
+    end
+}
+
+// rescued from r115, near Meteor Falls
+// shown Minior
+script SummerSea_House1_EventScript_Phione5 {
+    lockall
+    applymovement(LOCALID_PHIONE_5, Common_Movement_FacePlayer)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    waitmovement(0)
+    msgbox(format("Phione is going to stargaze every night!"))
+    releaseall
+    end
+}
+
+// rescued from r106, near Granite Cave
+// bring evolution stone
+script SummerSea_House1_EventScript_Phione6 {
+    lockall
+    applymovement(LOCALID_PHIONE_6, Common_Movement_FacePlayer)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    waitmovement(0)
+    msgbox(format("Phione's practicing Bubble Beam with determination!"))
+    releaseall
+    end
+}
+
+// rescued from r129, near Flower Paradise
+// bring nectar or honey
+script SummerSea_House1_EventScript_Phione7 {
+    lockall
+    applymovement(LOCALID_PHIONE_7, Common_Movement_FacePlayer)
+    playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    waitmovement(0)
+    msgbox(format("Flowers are nice, but Phione knows friends are more important!"))
+    releaseall
+    end
+}

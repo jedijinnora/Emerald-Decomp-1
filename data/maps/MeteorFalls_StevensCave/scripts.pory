@@ -1,16 +1,19 @@
-const LOCALID_STEVEN = 2
-
-//FLAG_TEMP_11 : Stash
-//FLAG_TEMP_12 : Steven
-
 mapscripts MeteorFalls_StevensCave_MapScripts {
     MAP_SCRIPT_ON_TRANSITION : MeteorFalls_StevensCave_OnTransition
 }
+
+const LOCALID_STEVEN = 2
+const LOCALID_PHIONE_5 = 3
+
+//FLAG_TEMP_11 : Stash
+//FLAG_TEMP_12 : Steven
 
 script MeteorFalls_StevensCave_OnTransition {
     call(MeteorFalls_StevensCave_EventScript_TryHideStash)
     call_if_unset(FLAG_MET_ROXANNE_STEVEN, MeteorFalls_StevensCave_EventScript_HideSteven)
     call_if_defeated(TRAINER_STEVEN, MeteorFalls_StevensCave_EventScript_HideSteven)
+    call_if_lt(VAR_MANAPHY_QUEST_STATE, 50, MeteorFalls_StevensCave_EventScript_HidePhione)
+	call_if_ge(VAR_MANAPHY_QUEST_STATE, 55, MeteorFalls_StevensCave_EventScript_HidePhione)
     end
 }
 
@@ -27,6 +30,11 @@ script MeteorFalls_StevensCave_EventScript_HideStash {
 
 script MeteorFalls_StevensCave_EventScript_HideSteven {
     setflag(FLAG_TEMP_12)
+    return
+}
+
+script MeteorFalls_StevensCave_EventScript_HidePhione {
+    setflag(FLAG_TEMP_13)
     return
 }
 
@@ -58,9 +66,8 @@ script MeteorFalls_StevensCave_EventScript_Steven {
     call_if_lt(VAR_TEMP_1, 11, MeteorFalls_StevensCave_EventScript_StevenExitRight)
     call_if_gt(VAR_TEMP_1, 11, MeteorFalls_StevensCave_EventScript_StevenExitLeft)
     waitmovement(0)
-    playse(SE_DOOR)
-    applymovement(LOCALID_STEVEN, MeteorFalls_StevensCave_Movement_StevenExitDoor)
-    waitse
+    playse(SE_EXIT)
+    applymovement(LOCALID_STEVEN, Common_Movement_WalkInPlaceDown)
     waitmovement(0)
     removeobject(LOCALID_STEVEN)
     release
@@ -89,11 +96,58 @@ movement MeteorFalls_StevensCave_Movement_StevenExitRight {
     walk_down * 2
 }
 
-movement MeteorFalls_StevensCave_Movement_StevenExitDoor {
-    walk_in_place_down
-}
-
 text MeteorFalls_StevensCave_Text_StevenDefeated {
     "…Fine. Perhaps I don't have all the\n"
     "answers yet."
+}
+
+script MeteorFalls_StevensCave_EventScript_Phione {
+	lock
+	faceplayer
+	playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+	waitmoncry
+	call_if_eq(VAR_MANAPHY_QUEST_STATE, 51, MeteorFalls_StevensCave_EventScript_ShowMinior)
+	msgbox(format("Phione wandered deep into Meteor Falls trying to find a meteorite."))
+	msgbox(format("Do you have a meteorite Pokémon?"))
+	setvar(VAR_MANAPHY_QUEST_STATE, 51)
+	release
+	end
+}
+
+script MeteorFalls_StevensCave_EventScript_ShowMinior {
+    setvar(VAR_0x8004, SPECIES_MINIOR)
+    specialvar(VAR_RESULT, CheckPartyForMon)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+    msgbox(format("Phione wants to see a meteorite Pokémon!"))
+    special(ChoosePartyMon)
+    waitstate
+    goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, Common_EventScript_NopReturn)
+    specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+    goto_if_ne(VAR_RESULT, SPECIES_MINIOR, MeteorFalls_StevensCave_EventScript_NotMinior)
+    applymovement(LOCALID_PHIONE_5, Route133_Movement_PhioneHappy)
+	msgbox(format("Look at that Minior's color! Wow!\pIt must have looked amazing shooting across the sky!"))
+	waitmessage
+	closemessage
+	playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+    applymovement(LOCALID_PHIONE_5, MeteorFalls_StevensCave_Movement_PhioneExit)
+    waitmovement(0)
+	removeobject(LOCALID_PHIONE_5)
+	msgbox(format("Phione headed back to Summer Sea…"))
+	setvar(VAR_MANAPHY_QUEST_STATE, 55)
+	release
+	end
+}
+
+script MeteorFalls_StevensCave_EventScript_NotMinior {
+    msgbox(format("Hmm, Phione doesn't think that's a meteorite Pokémon!"))
+    release
+    end
+}
+
+movement MeteorFalls_StevensCave_Movement_PhioneExit {
+    walk_right
+    jump_2_down
+    walk_down
+    walk_left * 2
+    walk_down * 6
 }

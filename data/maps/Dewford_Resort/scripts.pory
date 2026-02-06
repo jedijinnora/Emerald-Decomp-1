@@ -1,10 +1,68 @@
+mapscripts Dewford_Resort_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : Dewford_Resort_OnTransition
+}
+
 //TEMPs used:
 
 //FLAG_TEMP_6 Camper script
 //FLAG_TEMP_7 Camper script
+const LOCALID_PHIONE_2 = 20
 
-mapscripts Dewford_Resort_MapScripts {
-    MAP_SCRIPT_ON_TRANSITION : Common_EventScript_DisableBPReward
+script Dewford_Resort_OnTransition {
+	call(Common_EventScript_DisableBPReward)
+	call_if_lt(VAR_MANAPHY_QUEST_STATE, 20, Dewford_Resort_EventScript_HidePhione)
+	call_if_ge(VAR_MANAPHY_QUEST_STATE, 25, Dewford_Resort_EventScript_HidePhione)
+}
+
+script Dewford_Resort_EventScript_HidePhione {
+	setflag(FLAG_TEMP_11)
+	return
+}
+
+script Dewford_Resort_EventScript_Phione {
+	lock
+	faceplayer
+	playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+	waitmoncry
+	call_if_eq(VAR_MANAPHY_QUEST_STATE, 21, Dewford_Resort_EventScript_OfferSnowball)
+	msgbox(format("Phione got yelled at by an entitled tourist!"))
+	msgbox(format("They want something to throw at the stupid human."))
+	setvar(VAR_MANAPHY_QUEST_STATE, 21)
+	release
+	end
+}
+
+script Dewford_Resort_EventScript_OfferSnowball {
+	checkitem(ITEM_SNOWBALL)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	msgbox(format("Phione wants to throw something."))
+	msgbox(format("Give Phione your Snowball?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Common_EventScript_NopReturn)
+	playfanfare(MUS_OBTAIN_TMHM)
+	removeitem(ITEM_SNOWBALL)
+	msgbox(format("Player gave Phione the Snowball."))
+	waitmessage
+	closemessage
+	applymovement(LOCALID_PHIONE_2, Route133_Movement_PhioneHappy)
+	waitmovement(0)
+	playmoncry(SPECIES_PHIONE, CRY_MODE_ENCOUNTER)
+
+	applymovement(LOCALID_PHIONE_2, Dewford_Resort_Movement_PhioneLeave)
+	waitmovement(0)
+	removeobject(LOCALID_PHIONE_2)
+
+	msgbox(format("… … … … … …"))
+	msgbox(format("Eeek! Who gave that Pokémon a snowball!? Oh no, it's all in my hair…"))
+	setvar(VAR_MANAPHY_QUEST_STATE, 25)
+
+	release
+	end
+}
+
+movement Dewford_Resort_Movement_PhioneLeave {
+	jump_2_down
+	walk_down * 2
+	walk_left * 8
 }
 
 script Dewford_Resort_EventScript_ResortSign {
@@ -111,7 +169,13 @@ script Dewford_Resort_EventScript_Azurill {
 }
 
 script Dewford_Resort_EventScript_Beauty {
-    msgbox(format("Waiter? Oh, fetch me another drink, please."), MSGBOX_NPC)
+	goto_if_eq(VAR_MANAPHY_QUEST_STATE, 25, Dewford_Resort_EventScript_Beauty_Snowball)
+    msgbox(format("Waiter? Waiter!\nFetch me another drink, right now!"), MSGBOX_NPC)
+    end
+}
+
+script Dewford_Resort_EventScript_Beauty_Snowball {
+    msgbox(format("Some beast of a Pokémon threw a snowball at me! Me! Can you believe it?\pDoesn't that heinous creature know how important I am?"), MSGBOX_NPC)
     end
 }
 

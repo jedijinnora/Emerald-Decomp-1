@@ -4543,7 +4543,8 @@ bool8 CheckPartyForShiny(void)
         pokemon = &gPlayerParty[i];
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
         {
-            return(GetMonData(pokemon, MON_DATA_IS_SHINY));
+            if (GetMonData(pokemon, MON_DATA_IS_SHINY))
+                return TRUE;
         }
     }
     return FALSE;
