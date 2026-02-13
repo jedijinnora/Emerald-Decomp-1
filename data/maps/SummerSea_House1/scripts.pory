@@ -427,21 +427,21 @@ script SummerSea_House1_EventScript_ManaphyBattle {
     call(Common_EventScript_CountBadges)
     switch(var(VAR_NUM_BADGES)) {
         case 2:
-            createmon(1, 0, SPECIES_MANAPHY, 30, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+            createmon(1, 0, SPECIES_MANAPHY, 30, ITEM_LEPPA_BERRY, move1=MOVE_RAIN_DANCE, move2=MOVE_BOUNCY_BUBBLE, move3=MOVE_TAKE_HEART, move4=MOVE_ICE_BEAM)
         case 3:
-            createmon(1, 0, SPECIES_MANAPHY, 40, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+            createmon(1, 0, SPECIES_MANAPHY, 40, ITEM_LEPPA_BERRY, move1=MOVE_RAIN_DANCE, move2=MOVE_BOUNCY_BUBBLE, move3=MOVE_TAKE_HEART, move4=MOVE_ICE_BEAM)
         case 4:
-            createmon(1, 0, SPECIES_MANAPHY, 45, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+            createmon(1, 0, SPECIES_MANAPHY, 45, ITEM_LEPPA_BERRY, move1=MOVE_RAIN_DANCE, move2=MOVE_BOUNCY_BUBBLE, move3=MOVE_TAKE_HEART, move4=MOVE_ICE_BEAM)
         case 5:
-            createmon(1, 0, SPECIES_MANAPHY, 55, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+            createmon(1, 0, SPECIES_MANAPHY, 55, ITEM_LEPPA_BERRY, move1=MOVE_RAIN_DANCE, move2=MOVE_BOUNCY_BUBBLE, move3=MOVE_TAKE_HEART, move4=MOVE_ICE_BEAM)
         case 6:
-            createmon(1, 0, SPECIES_MANAPHY, 65, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+            createmon(1, 0, SPECIES_MANAPHY, 65, ITEM_LEPPA_BERRY, move1=MOVE_RAIN_DANCE, move2=MOVE_BOUNCY_BUBBLE, move3=MOVE_TAKE_HEART, move4=MOVE_ICE_BEAM)
         case 7:
-            createmon(1, 0, SPECIES_MANAPHY, 75, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+            createmon(1, 0, SPECIES_MANAPHY, 75, ITEM_LEPPA_BERRY, move1=MOVE_RAIN_DANCE, move2=MOVE_BOUNCY_BUBBLE, move3=MOVE_TAKE_HEART, move4=MOVE_ICE_BEAM)
         case 8:
-            createmon(1, 0, SPECIES_MANAPHY, 85, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+            createmon(1, 0, SPECIES_MANAPHY, 85, ITEM_LEPPA_BERRY, move1=MOVE_RAIN_DANCE, move2=MOVE_BOUNCY_BUBBLE, move3=MOVE_TAKE_HEART, move4=MOVE_ICE_BEAM)
         default:
-            createmon(1, 0, SPECIES_MANAPHY, 25, ITEM_MYSTIC_WATER, move1=MOVE_RAIN_DANCE, move2=MOVE_REST, move3=MOVE_TAKE_HEART, move4=MOVE_SCALD)
+            createmon(1, 0, SPECIES_MANAPHY, 25, ITEM_LEPPA_BERRY, move1=MOVE_RAIN_DANCE, move2=MOVE_BOUNCY_BUBBLE, move3=MOVE_TAKE_HEART, move4=MOVE_ICE_BEAM)
     }
 	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
 	special(BattleSetup_StartLegendaryBattle)

@@ -33,3 +33,90 @@ script CrossgateHills_EventScript_CheckParasolLadies {
     msgbox(format("If you defeat all the other Parasol Ladies in Hoenn, I'll grant you honorary membership!"))
     return
 }
+
+script CrossgateHills_EventScript_Kaiten {
+    trainerbattle_single(TRAINER_KAITEN, CrossgateHills_Text_KaitenIntro, CrossgateHills_Text_KaitenDefeat)
+	msgbox(CrossgateHills_Text_KaitenPostBattle, MSGBOX_AUTOCLOSE)
+	call(CrossgateHills_EventScript_TryKaitenRematch)
+	release
+	end
+}
+script CrossgateHills_EventScript_TryKaitenRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_KAITEN)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_KAITEN, CrossgateHills_Text_KaitenDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text CrossgateHills_Text_KaitenIntro {
+	"I strike with the divine wind!"
+}
+text CrossgateHills_Text_KaitenDefeat {
+	"How could you withstand our fury?"
+}
+text CrossgateHills_Text_KaitenPostBattle {
+	"The breeze that blows over these hills \n"
+	"keeps the nasty desert sand away."
+}
+
+script CrossgateHills_EventScript_Walker {
+    trainerbattle_single(TRAINER_WALKER, CrossgateHills_Text_WalkerIntro, CrossgateHills_Text_WalkerDefeat)
+	msgbox(CrossgateHills_Text_WalkerPostBattle, MSGBOX_AUTOCLOSE)
+	call(CrossgateHills_EventScript_TryWalkerRematch)
+	release
+	end
+}
+script CrossgateHills_EventScript_TryWalkerRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_WALKER)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_WALKER, CrossgateHills_Text_WalkerDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text CrossgateHills_Text_WalkerIntro {
+	"Hey, hey! Stop and enjoy the breeze!"
+}
+text CrossgateHills_Text_WalkerDefeat {
+	"Man, you brought the doldrums."
+}
+text CrossgateHills_Text_WalkerPostBattle {
+	"The thermals rising off of the hot\n"
+    "desert let birds soar high in the sky."
+}
+
+script CrossgateHills_EventScript_Hunter {
+    trainerbattle_single(TRAINER_HUNTER, CrossgateHills_Text_HunterIntro, CrossgateHills_Text_HunterDefeat)
+	msgbox(CrossgateHills_Text_HunterPostBattle, MSGBOX_AUTOCLOSE)
+	call(CrossgateHills_EventScript_TryHunterRematch)
+	release
+	end
+}
+script CrossgateHills_EventScript_TryHunterRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HUNTER)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HUNTER, CrossgateHills_Text_HunterDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text CrossgateHills_Text_HunterIntro {
+	"Watch out! Don't trip on a jungle root!"
+}
+text CrossgateHills_Text_HunterDefeat {
+	"Ouch, my ankle!"
+}
+text CrossgateHills_Text_HunterPostBattle {
+	"Make sure your Running Shoes have good\n"
+	"ankle support. You don't want a sprain!"
+}

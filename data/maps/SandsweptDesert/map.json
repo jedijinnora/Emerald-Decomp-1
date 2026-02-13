@@ -174,7 +174,7 @@
     },
     {
       "type": "trigger",
-      "x": 28,
+      "x": 27,
       "y": 18,
       "elevation": 3,
       "var": "TRIGGER_RUN_IMMEDIATELY",
@@ -183,7 +183,25 @@
     },
     {
       "type": "trigger",
+      "x": 27,
+      "y": 16,
+      "elevation": 3,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "Route111_EventScript_SunTrigger"
+    },
+    {
+      "type": "trigger",
       "x": 28,
+      "y": 16,
+      "elevation": 3,
+      "var": "TRIGGER_RUN_IMMEDIATELY",
+      "var_value": "0",
+      "script": "Route111_EventScript_SunTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
       "y": 17,
       "elevation": 3,
       "var": "TRIGGER_RUN_IMMEDIATELY",

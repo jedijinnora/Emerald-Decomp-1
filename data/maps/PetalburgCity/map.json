@@ -477,8 +477,8 @@
       "x": 23,
       "y": 5,
       "elevation": 0,
-      "item": "ITEM_MAX_REVIVE",
-      "flag": "FLAG_HIDDEN_ITEM_PETALBURG_CITY_MAX_REVIVE"
+      "item": "ITEM_MAX_ELIXIR",
+      "flag": "FLAG_HIDDEN_ITEM_PETALBURG_CITY_MAX_ELIXIR"
     }
   ]
 }

@@ -667,7 +667,7 @@
               {
                 "min_level": 4,
                 "max_level": 4,
-                "species": "SPECIES_TAILLOW"
+                "species": "SPECIES_WURMPLE"
               },
               {
                 "min_level": 5,
@@ -682,7 +682,7 @@
               {
                 "min_level": 4,
                 "max_level": 4,
-                "species": "SPECIES_HOPPIP"
+                "species": "SPECIES_TAILLOW"
               },
               {
                 "min_level": 5,
@@ -697,7 +697,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_MURKROW"
+                "species": "SPECIES_SEWADDLE"
               },
               {
                 "min_level": 4,
@@ -1917,7 +1917,7 @@
               {
                 "min_level": 7,
                 "max_level": 7,
-                "species": "SPECIES_MURKROW"
+                "species": "SPECIES_ZIGZAGOON"
               },
               {
                 "min_level": 8,
@@ -1952,7 +1952,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_STARYU"
+                "species": "SPECIES_MARILL"
               },
               {
                 "min_level": 5,
@@ -1967,17 +1967,17 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_MARILL"
+                "species": "SPECIES_STARYU"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_AZUMARILL"
+                "species": "SPECIES_STARYU"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_AZURILL"
+                "species": "SPECIES_STARYU"
               }
             ]
           },
@@ -10726,22 +10726,22 @@
               {
                 "min_level": 5,
                 "max_level": 5,
+                "species": "SPECIES_HOUNDOUR"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_HOUNDOUR"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
                 "species": "SPECIES_EEVEE"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_TAILLOW"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_TAILLOW"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_TAILLOW"
+                "species": "SPECIES_EEVEE"
               }
             ]
           },
@@ -15671,7 +15671,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_HOOTHOOT"
+                "species": "SPECIES_LITWICK"
               },
               {
                 "min_level": 5,
@@ -16552,7 +16552,7 @@
           "map": "MAP_FALLARBOR_TOWN",
           "base_label": "gFallarborTown",
           "land_mons": {
-            "encounter_rate": 20,
+            "encounter_rate": 40,
             "mons": [
               {
                 "min_level": 5,
@@ -17102,7 +17102,7 @@
           "map": "MAP_LAVARIDGE_TOWN",
           "base_label": "gLavaridgeTown",
           "land_mons": {
-            "encounter_rate": 30,
+            "encounter_rate": 40,
             "mons": [
               {
                 "min_level": 5,
@@ -20449,7 +20449,7 @@
           "map": "MAP_VERDANTURF_TOWN",
           "base_label": "gVerdanturfTown",
           "land_mons": {
-            "encounter_rate": 20,
+            "encounter_rate": 40,
             "mons": [
               {
                 "min_level": 5,

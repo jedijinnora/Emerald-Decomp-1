@@ -1,5 +1,50 @@
 mapscripts MauvilleCity_House3_MapScripts {}
 
+script MauvilleCity_House3_EventScript_Man {
+	lock
+	faceplayer
+	msgbox(format("I am one awesome dude!"))
+	goto_if_unset(FLAG_RECEIVED_BLACK_GLASSES, MauvilleCity_House3_EventScript_TryGiveBlackGlasses)
+	msgbox(format("The whole wide world is playing one big game, and there's only one rule."))
+	msgbox(format("Wanna hear it?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, MauvilleCity_House3_EventScript_NoCoolPokemon)
+	msgbox(format("If you think about the game…\pYou lose the game!"))
+	release
+	end
+}
+
+script MauvilleCity_House3_EventScript_TryGiveBlackGlasses {
+	msgbox(format("Show me a Cool Pokémon and I'll share some awesomeness with you!"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, MauvilleCity_House3_EventScript_NoCoolPokemon)
+	special(ChoosePartyMon)
+	waitstate
+	copyvar(VAR_RESULT, VAR_0x8004)
+	goto_if_eq(VAR_RESULT, PARTY_NOTHING_CHOSEN, MauvilleCity_House3_EventScript_NoCoolPokemon)
+	setvar(VAR_0x8005, CONTEST_CATEGORY_COOL)
+	specialvar(VAR_TEMP_1, GetPartyMonContestRibbon)
+	goto_if_ge(VAR_TEMP_1, 1, MauvilleCity_House3_EventScript_GiveBlackGlasses)
+	setvar(VAR_0x8005, CONTEST_CATEGORY_COOL)
+	specialvar(VAR_TEMP_2, GetPartyMonContestStat)
+	goto_if_ge(VAR_TEMP_2, 100, MauvilleCity_House3_EventScript_GiveBlackGlasses)
+	goto(MauvilleCity_House3_EventScript_NoCoolPokemon)
+	end
+}
+
+script MauvilleCity_House3_EventScript_GiveBlackGlasses {
+	msgbox(format("Woah! You need to accentuate that aura with these shades!"))
+	giveitem(ITEM_BLACK_GLASSES)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_RECEIVED_BLACK_GLASSES)
+	release
+	end
+}
+
+script MauvilleCity_House3_EventScript_NoCoolPokemon {
+	msgbox(format("Mediocrity suits you."))
+	release
+	end
+}
+
 script MauvilleCity_House3_EventScript_PachirisuTrader {
     lock
 	faceplayer

@@ -90,7 +90,7 @@ script PacifidlogTown_House4_EventScript_WaterStarterGift {
 	msgbox(format("Excellent! Here you are!"))
 	waitmessage
 	setflag(FLAG_RECEIVED_WATER_STARTER)
-	givemon(VAR_TEMP_1, 5, ITEM_ORAN_BERRY)
+	givemon(VAR_TEMP_1, 5, ITEM_MYSTIC_WATER)
 	playfanfare(MUS_OBTAIN_ITEM)
 	bufferspeciesname(STR_VAR_1, VAR_TEMP_1)
 	msgbox("{PLAYER} received {STR_VAR_1}!")

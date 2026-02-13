@@ -596,7 +596,7 @@
     #define TRAINER_CLARISSA                    (ROUTE_120_TRAINERS_START + 7) // Parasol Lady Clarissa
     #define TRAINER_ANGELICA                    (ROUTE_120_TRAINERS_START + 8) // Parasol Lady Angelica, may double with Leonel
     #define TRAINER_KEIGO                       (ROUTE_120_TRAINERS_START + 9) // Ninja Boy Keigo (near Ancient Tomb)
-    #define TRAINER_RAPHAEL                       (ROUTE_120_TRAINERS_START + 10) // Ninja Boy Raphael, may double with Callie
+    #define TRAINER_RAPHAEL                     (ROUTE_120_TRAINERS_START + 10) // Ninja Boy Raphael, may double with Callie
     #define TRAINER_CALLIE                      (ROUTE_120_TRAINERS_START + 11) // Battle Girl Callie, may double with Raphael
     #define TRAINER_LEONEL                      (ROUTE_120_TRAINERS_START + 12) // Cooltrainer-M Leonel, may double with Angelica
     #define ROUTE_120_TRAINERS_END              TRAINER_LEONEL
@@ -989,8 +989,15 @@
     #define TRAINER_HOWIE                       (SUMMER_SEA_TRAINERS_START + 6) // Swimmer-M Howie
     #define SUMMER_SEA_TRAINERS_END             TRAINER_HOWIE
 
+// Crossgate Hills
+    #define CROSSGATE_HILLS_TRAINERS_START      (SUMMER_SEA_TRAINERS_END + 1)
+    #define TRAINER_KAITEN                      (CROSSGATE_HILLS_TRAINERS_START + 0) // Ninja Boy Kaiten
+    #define TRAINER_WALKER                      (CROSSGATE_HILLS_TRAINERS_START + 1) // Bird Keeper Walker
+    #define TRAINER_HUNTER                      (CROSSGATE_HILLS_TRAINERS_START + 2) // Triathlete-M Hunter
+    #define CROSSGATE_HILLS_TRAINERS_END        TRAINER_HUNTER
+
 // Sunrise Shore
-    #define SUNRISE_SHORE_TRAINERS_START        (SUMMER_SEA_TRAINERS_END + 1)
+    #define SUNRISE_SHORE_TRAINERS_START        (CROSSGATE_HILLS_TRAINERS_END + 1)
     #define TRAINER_CAILE                       (SUNRISE_SHORE_TRAINERS_START + 0) // Picnicker Caile
     #define TRAINER_WARNER                      (SUNRISE_SHORE_TRAINERS_START + 1) // Rich Boy Warner
     #define TRAINER_CALLAHAN                    (SUNRISE_SHORE_TRAINERS_START + 2) // Kindler Callahan, by the grassy path
@@ -1076,7 +1083,7 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 690 (689 + TRAINER_NONE)
+//I think it's currently 693 (692 + TRAINER_NONE)
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 863 trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

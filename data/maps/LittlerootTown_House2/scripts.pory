@@ -73,6 +73,8 @@ script LittlerootTown_House2_EventScript_EeveeWoman {
             call(Common_EventScript_GetGiftMonPartySlot)
             call(Common_EventScript_NameReceivedPartyMon)
         }
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(LittlerootTown_House2_EventScript_CheckShinyEevee)
         goto(EeveeEnd)
 
         EeveeToPC:
@@ -90,4 +92,11 @@ script LittlerootTown_House2_EventScript_EeveeWoman {
     msgbox(format("Hmm. I suppose I could give this Eevee to one of the kids next door…"))
     release
     end
+}
+
+script LittlerootTown_House2_EventScript_CheckShinyEevee {
+    specialvar(VAR_RESULT, CheckPartyForShinyIndex)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+    msgbox(format("Did I mention this Eevee has an unusual color? You're welcome!"))
+    return
 }

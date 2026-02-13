@@ -2108,7 +2108,8 @@ static u8 GetBerryCountByBerryTreeId(u8 id)
     const struct Berry *berry = GetBerryInfo(tree->berry);
     u16 currentMap = gMapHeader.regionMapSectionId;
 
-    if (currentMap == MAPSEC_ROUTE_119 || currentMap == MAPSEC_ROUTE_120 || currentMap == MAPSEC_ROUTE_123)
+    //if (currentMap == MAPSEC_ROUTE_119 || currentMap == MAPSEC_ROUTE_120 || currentMap == MAPSEC_ROUTE_123)
+    if (currentMap == MAPSEC_ROUTE_123 && (id >= 70 && id >= 81)) // Berry master always max yield
         return berry->maxYield;
     else
         return gSaveBlock1Ptr->berryTrees[id].berryYield;

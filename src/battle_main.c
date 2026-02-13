@@ -1914,7 +1914,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         u32 monIndices[monsCount];
         DoTrainerPartyPool(trainer, monIndices, monsCount, battleTypeFlags);
 
-        //Jinnora: calculate player max level party mon before entering main loop
+        // Jinnora: calculate player max level party mon before entering main loop
         for (i = 0; i < PARTY_SIZE; i++)
         {
             playerMaxLevel = max(playerMaxLevel, GetMonData(&gPlayerParty[i], MON_DATA_LEVEL));
@@ -1971,15 +1971,20 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 }
             }
 
-            //Jinnora: changed fixedIV from 0 to USE_RANDOM_IVS
+            // Jinnora: changed fixedIV from 0 to USE_RANDOM_IVS
             CreateMon(&party[i], partyData[monIndex].species, adjustedLevel, USE_RANDOM_IVS, TRUE, personalityValue, otIdType, fixedOtId);
             SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[monIndex].heldItem);
 
             CustomTrainerPartyAssignMoves(&party[i], &partyData[monIndex]);
 
-            //Jinnora: i'm concerned that the original call resulted in all 0 ivs 
-            //if the party iv data was uninitialized so I added the if clause
-            //and switched the call to CreateMon to have fixedIV:USE_RANDOM_IVS instead of 0 
+            // Jinnora: i'm concerned that the original call resulted in all 0 ivs 
+            // if the party iv data was uninitialized so I added the if clause
+            // and switched the call to CreateMon to have fixedIV:USE_RANDOM_IVS instead of 0 
+            if(VarGet(VAR_DIFFICULTY_SETTING) == 2) // hardcore default is all 31s
+            {
+                u32 maxIV = 0x3FFFFFFF;
+                SetMonData(&party[i], MON_DATA_IVS, &maxIV);
+            }
             if(partyData[monIndex].iv != 0)
             {
                 SetMonData(&party[i], MON_DATA_IVS, &(partyData[monIndex].iv));

@@ -19,3 +19,13 @@ script OldaleTown_Tower_2F_EventScript_Girl {
     release
     end
 }
+
+script OldaleTown_Tower_2F_EventScript_Woman {
+    lock
+    faceplayer
+    msgbox(format("Do you know about the Pokémon Unown?"))
+    msgbox(format("They're these floating letters, like an ancient alphabet come to life."))
+    msgbox(format("Unown are the Mystery type and can only the moves Hidden Power, Cosmic Power, Mystical Power, and Recover."))
+    release
+    end
+}

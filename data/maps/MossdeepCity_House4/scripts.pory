@@ -144,7 +144,14 @@ script MossdeepCity_House4_EventScript_SecretStash {
 	playfanfare(MUS_OBTAIN_TMHM)
 	msgbox(format("You looted a secret stash!"))
 	waitfanfare
-	finditem(ITEM_BOTTLE_CAP, 3)
+	switch(var(VAR_DIFFICULTY_SETTING)) {
+		case 1:
+			finditem(ITEM_BOTTLE_CAP, 4)
+		case 2:
+			finditem(ITEM_BOTTLE_CAP, 2)
+		default:
+			finditem(ITEM_BOTTLE_CAP, 3)
+	}
 	release
 	end
 }
@@ -166,11 +173,15 @@ script Common_EventScript_SecretStash {
 	playfanfare(MUS_OBTAIN_TMHM)
 	msgbox(format("You looted a secret stash!"))
 	waitfanfare
-	//give vitamins
+	// give vitamins
 	finditem(VAR_TEMP_D, 10)
-	//give two kinds of evo stone
-	finditem(VAR_TEMP_E)
-	finditem(VAR_TEMP_F)
+	// give two kinds of evo stone and a heart scale
+	// if not on hardcore difficulty
+	if(var(VAR_DIFFICULTY_SETTING) != 2) {
+		finditem(VAR_TEMP_E)
+		finditem(VAR_TEMP_F)
+		finditem(ITEM_HEART_SCALE)
+	}
 	//give random treasure
 	random(50)
 	if (var(VAR_RESULT) < 8) {
@@ -184,7 +195,7 @@ script Common_EventScript_SecretStash {
 	} else {
 		finditem(ITEM_COMET_SHARD)
 	}
-	//give ability item
+	//give ability item or bottle cap
 	random(16)
 	if (var(VAR_RESULT) < 7) {
 		finditem(ITEM_BOTTLE_CAP)
@@ -201,8 +212,6 @@ script Common_EventScript_SecretStash {
 		default:
 			finditem(ITEM_BOTTLE_CAP)
 	}
-	//handles object removal and flag
-	finditem(ITEM_HEART_SCALE)
 	release
 	return
 }

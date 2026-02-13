@@ -1,25 +1,73 @@
-raw `
-DewfordTown_House1_MapScripts::
-	.byte 0
+mapscripts DewfordTown_House1_MapScripts {}
 
-DewfordTown_House1_EventScript_Man::
-	msgbox DewfordTown_House1_Text_LotToBeSaidForLivingOnIsland, MSGBOX_NPC
+script DewfordTown_House1_EventScript_LittleGirl {
+	lock
+	faceplayer
+	msgbox(format("I love cute Pokémon!"))
+	goto_if_unset(FLAG_RECEIVED_SILK_SCARF, DewfordTown_House1_EventScript_TryGiveSilkScarf)
+	msgbox(format("I wanna see every cute Pokémon in the world - and I'm making a club."))
+	msgbox(format("Our Skitty is the chairman. Wanna join?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DewfordTown_House1_EventScript_NoCutePokemon)
+	msgbox(format("Yes! Okay, you'll be the secretary.\pWe need to get started drafting our Cuteness Manifesto!"))
+	release
 	end
+}
 
-DewfordTown_House1_EventScript_Woman::
-	msgbox DewfordTown_House1_Text_LifeGoesSlowlyOnIsland, MSGBOX_NPC
+script DewfordTown_House1_EventScript_TryGiveSilkScarf {
+	msgbox(format("Show me your cutest Pokémon and I'll reward you!"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, DewfordTown_House1_EventScript_NoCutePokemon)
+	special(ChoosePartyMon)
+	waitstate
+	copyvar(VAR_RESULT, VAR_0x8004)
+	goto_if_eq(VAR_RESULT, PARTY_NOTHING_CHOSEN, DewfordTown_House1_EventScript_NoCutePokemon)
+	setvar(VAR_0x8005, CONTEST_CATEGORY_CUTE)
+	specialvar(VAR_TEMP_1, GetPartyMonContestRibbon)
+	goto_if_ge(VAR_TEMP_1, 1, DewfordTown_House1_EventScript_GiveSilkScarf)
+	setvar(VAR_0x8005, CONTEST_CATEGORY_CUTE)
+	specialvar(VAR_TEMP_2, GetPartyMonContestStat)
+	goto_if_ge(VAR_TEMP_2, 100, DewfordTown_House1_EventScript_GiveSilkScarf)
+	goto(DewfordTown_House1_EventScript_NoCutePokemon)
 	end
+}
 
-DewfordTown_House1_EventScript_Zigzagoon::
+script DewfordTown_House1_EventScript_GiveSilkScarf {
+	msgbox(format("Totally cute! Super cute! You should have this!"))
+	giveitem(ITEM_SILK_SCARF)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setflag(FLAG_RECEIVED_SILK_SCARF)
+	release
+	end
+}
+
+script DewfordTown_House1_EventScript_NoCutePokemon {
+	msgbox(format("Lame! Aww, so uncute."))
+	release
+	end
+}
+
+script DewfordTown_House1_EventScript_Man {
+	msgbox(DewfordTown_House1_Text_LotToBeSaidForLivingOnIsland, MSGBOX_NPC)
+	end
+}
+
+script DewfordTown_House1_EventScript_Woman {
+	msgbox(DewfordTown_House1_Text_LifeGoesSlowlyOnIsland, MSGBOX_NPC)
+	end
+}
+
+script DewfordTown_House1_EventScript_Skitty {
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_ZIGZAGOON, CRY_MODE_NORMAL
-	msgbox DewfordTown_House1_Text_Zigzagoon, MSGBOX_DEFAULT
+	playmoncry(SPECIES_SKITTY, CRY_MODE_NORMAL)
+	msgbox(format("Chairman Miao: Mew!"))
 	waitmoncry
 	release
 	end
 
+}
+
+raw `
 DewfordTown_House1_Text_LotToBeSaidForLivingOnIsland:
 	.string "There's a lot to be said for living on\n"
 	.string "a small island like this in harmony with\l"
@@ -31,8 +79,4 @@ DewfordTown_House1_Text_LifeGoesSlowlyOnIsland:
 	.string "Life goes by slowly on this little\n"
 	.string "island. But being surrounded by the\l"
 	.string "beautiful sea--that's happiness, too.$"
-
-DewfordTown_House1_Text_Zigzagoon:
-	.string "Zigzagoon: Guguuh!$"
-
 `

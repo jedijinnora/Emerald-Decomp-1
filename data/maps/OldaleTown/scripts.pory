@@ -37,7 +37,7 @@ script OldaleTown_EventScript_TrySpawnRival {
 	if (var(VAR_TEMP_1) > 200) { 
 		//west entry
 		setvar(VAR_0x8004, 3)
-	} elif (var(VAR_TEMP_2) > 23) { 
+	} elif (var(VAR_TEMP_2) > 20) { 
 		//south entry
 		setvar(VAR_0x8004, 2)
 	} elif (var(VAR_TEMP_2) > 200) {
@@ -154,7 +154,7 @@ script OldaleTown_EventScript_RivalCalem {
 
 script OldaleTown_EventScript_RivalNorth {
 	lock
-	setobjectxyperm(LOCALID_RIVAL, 9, 10)
+	setobjectxyperm(LOCALID_RIVAL, 9, 8)
 	addobject(LOCALID_RIVAL)
 	applymovement(LOCALID_RIVAL, OldaleTown_Movement_RivalApproachNorth)
 	waitmovement(LOCALID_RIVAL)
@@ -197,7 +197,7 @@ movement OldaleTown_Movement_PlayerNorth_2 {
 
 script OldaleTown_EventScript_RivalSouth {
 	lock
-	setobjectxy(LOCALID_RIVAL, 26, 16)
+	setobjectxy(LOCALID_RIVAL, 8, 16)
 	addobject(LOCALID_RIVAL)
 	applymovement(LOCALID_RIVAL, OldaleTown_Movement_RivalApproachSouth)
 	waitmovement(LOCALID_RIVAL)

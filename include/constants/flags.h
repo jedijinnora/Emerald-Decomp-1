@@ -141,11 +141,11 @@
 #define FLAG_RECEIVED_GRACIDEA               0x72 // defeat Anabel's Shaymin team with Shaymin in party
 #define FLAG_GIVEN_ZOOM_LENS                 0x73 // r124 observatory
 #define FLAG_GIVEN_WIDE_LENS                 0x74 // r124 observatory
-#define FLAG_UNUSED_0x75                     0x75
-#define FLAG_UNUSED_0x76                     0x76
-#define FLAG_UNUSED_0x77                     0x77
-#define FLAG_UNUSED_0x78                     0x78
-#define FLAG_UNUSED_0x79                     0x79
+#define FLAG_RECEIVED_SILK_SCARF             0x75
+#define FLAG_RECEIVED_NEVER_MELT_ICE         0x76
+#define FLAG_RECEIVED_BLACK_BELT             0x77
+#define FLAG_RECEIVED_TWISTED_SPOON          0x78
+#define FLAG_RECEIVED_BLACK_GLASSES          0x79
 #define FLAG_UNUSED_0x7A                     0x7A
 #define FLAG_UNUSED_0x7B                     0x7B
 #define FLAG_UNUSED_0x7C                     0x7C
@@ -563,7 +563,7 @@
 #define FLAG_HIDDEN_ITEM_TRICK_HOUSE_NUGGET                  (FLAG_HIDDEN_ITEMS_START + 0x00)
 #define FLAG_HIDDEN_ITEM_PETALBURG_CITY_PP_MAX               (FLAG_HIDDEN_ITEMS_START + 0x01)
 #define FLAG_HIDDEN_ITEM_PETALBURG_CITY_RARE_CANDY           (FLAG_HIDDEN_ITEMS_START + 0x02)
-#define FLAG_HIDDEN_ITEM_PETALBURG_CITY_MAX_REVIVE           (FLAG_HIDDEN_ITEMS_START + 0x03)
+#define FLAG_HIDDEN_ITEM_PETALBURG_CITY_MAX_ELIXIR           (FLAG_HIDDEN_ITEMS_START + 0x03)
 #define FLAG_HIDDEN_ITEM_SLATEPORT_CITY_RARE_CANDY           (FLAG_HIDDEN_ITEMS_START + 0x04)
 #define FLAG_HIDDEN_ITEM_MAUVILLE_CITY_LOADED_DICE           (FLAG_HIDDEN_ITEMS_START + 0x05)
 #define FLAG_HIDDEN_ITEM_RUSTBORO_CITY_BOTTLE_CAP_1          (FLAG_HIDDEN_ITEMS_START + 0x06)
@@ -703,7 +703,7 @@
 #define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_BIG_MUSHROOM_2       0x280
 #define FLAG_HIDDEN_ITEM_MT_PYRE_3F_MAX_REVIVE                0x281
 #define FLAG_HIDDEN_ITEM_MT_PYRE_6F_REAPER_CLOTH              0x282
-#define FLAG_HIDDEN_ITEM_MT_PYRE_REVIVAL_HERB                 0x283
+#define FLAG_HIDDEN_ITEM_MT_PYRE_SUMMIT_REVIVAL_HERB          0x283
 #define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_MAX_ETHER_1         0x284
 #define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_MAX_ETHER_2         0x285
 #define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B1F_MAX_ELIXIR          0x286
@@ -1208,7 +1208,7 @@
 #define FLAG_ITEM_ROUTE_101_MOON_STONE                              0x459
 #define FLAG_ITEM_ROUTE_102_LUMINOUS_MOSS                           0x45A
 #define FLAG_ITEM_ROUTE_102_ABSORB_BULB                             0x45B
-#define FLAG_ITEM_ROUTE_102_FULL_RESTORE                            0x45C
+#define FLAG_ITEM_ROUTE_102_MAX_ETHER                               0x45C
 #define FLAG_ITEM_ROUTE_103_ROCKY_HELMET                            0x45D
 #define FLAG_ITEM_ROUTE_103_ELIXIR                                  0x45E
 #define FLAG_ITEM_ROUTE_104_SHED_SHELL                              0x45F

@@ -12,32 +12,32 @@ script OldaleRuins_OnLoad {
 }
 
 script OldaleRuins_EventScript_CloseRoom1 {
-    setmetatile(24, 33, METATILE_General_RockWall_RockBase, TRUE)
-	setmetatile(24, 34, METATILE_General_RockWall_SandBase, TRUE)
+    setmetatile(24, 31, METATILE_General_RockWall_RockBase, TRUE)
+	setmetatile(24, 32, METATILE_General_RockWall_SandBase, TRUE)
     return
 }
 
 script OldaleRuins_EventScript_CloseRoom2 {
-    setmetatile(14, 26, METATILE_General_RockWall_RockBase, TRUE)
-	setmetatile(14, 27, METATILE_General_RockWall_SandBase, TRUE)
+    setmetatile(14, 24, METATILE_General_RockWall_RockBase, TRUE)
+	setmetatile(14, 25, METATILE_General_RockWall_SandBase, TRUE)
     return
 }
 
 script OldaleRuins_EventScript_CloseRoom3 {
-    setmetatile(18, 16, METATILE_General_RockWall_RockBase, TRUE)
-	setmetatile(18, 17, METATILE_General_RockWall_SandBase, TRUE)
+    setmetatile(18, 14, METATILE_General_RockWall_RockBase, TRUE)
+	setmetatile(18, 15, METATILE_General_RockWall_SandBase, TRUE)
     return
 }
 
 script OldaleRuins_EventScript_CloseRoom4 {
-    setmetatile(30, 16, METATILE_General_RockWall_RockBase, TRUE)
-	setmetatile(30, 17, METATILE_General_RockWall_SandBase, TRUE)
+    setmetatile(30, 14, METATILE_General_RockWall_RockBase, TRUE)
+	setmetatile(30, 15, METATILE_General_RockWall_SandBase, TRUE)
     return
 }
 
 script OldaleRuins_EventScript_CloseRoom5 {
-    setmetatile(34, 26, METATILE_General_RockWall_RockBase, TRUE)
-	setmetatile(34, 27, METATILE_General_RockWall_SandBase, TRUE)
+    setmetatile(34, 24, METATILE_General_RockWall_RockBase, TRUE)
+	setmetatile(34, 25, METATILE_General_RockWall_SandBase, TRUE)
     return
 }
 

@@ -30,7 +30,7 @@
     },
     {
       "map": "MAP_ROUTE102",
-      "offset": -14,
+      "offset": -16,
       "direction": "left"
     }
   ],
@@ -38,7 +38,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 16,
-      "y": 16,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -51,7 +51,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 17,
-      "y": 16,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -64,7 +64,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 18,
-      "y": 16,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -77,7 +77,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 19,
-      "y": 16,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_BERRY_TREE_GROWTH",
       "movement_range_x": 0,
@@ -90,7 +90,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_1",
       "x": 9,
-      "y": 17,
+      "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -104,56 +104,56 @@
   "warp_events": [
     {
       "x": 5,
-      "y": 9,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_HOUSE1",
       "dest_warp_id": "0"
     },
     {
       "x": 16,
-      "y": 22,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_HOUSE2",
       "dest_warp_id": "0"
     },
     {
       "x": 3,
-      "y": 17,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 13,
-      "y": 9,
+      "x": 14,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_MART",
       "dest_warp_id": "0"
     },
     {
-      "x": 26,
-      "y": 19,
+      "x": 24,
+      "y": 17,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_TOWER_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 19,
-      "y": 10,
+      "x": 22,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_NATURE_SHOP",
       "dest_warp_id": "0"
     },
     {
-      "x": 26,
-      "y": 10,
+      "x": 31,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_GLADE",
       "dest_warp_id": "0"
     },
     {
-      "x": 27,
-      "y": 10,
+      "x": 32,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_GLADE",
       "dest_warp_id": "1"
@@ -163,7 +163,7 @@
     {
       "type": "trigger",
       "x": 9,
-      "y": 3,
+      "y": 1,
       "elevation": 0,
       "var": "VAR_TEMP_A",
       "var_value": "1",
@@ -172,7 +172,7 @@
     {
       "type": "trigger",
       "x": 10,
-      "y": 3,
+      "y": 1,
       "elevation": 0,
       "var": "VAR_TEMP_A",
       "var_value": "1",
@@ -181,7 +181,7 @@
     {
       "type": "trigger",
       "x": 8,
-      "y": 26,
+      "y": 23,
       "elevation": 0,
       "var": "VAR_TEMP_C",
       "var_value": "1",
@@ -190,7 +190,7 @@
     {
       "type": "trigger",
       "x": 9,
-      "y": 26,
+      "y": 23,
       "elevation": 0,
       "var": "VAR_TEMP_C",
       "var_value": "1",
@@ -199,7 +199,7 @@
     {
       "type": "trigger",
       "x": 0,
-      "y": 12,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_TEMP_D",
       "var_value": "1",
@@ -208,7 +208,7 @@
     {
       "type": "trigger",
       "x": 0,
-      "y": 13,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_D",
       "var_value": "1",
@@ -217,7 +217,7 @@
     {
       "type": "trigger",
       "x": 9,
-      "y": 4,
+      "y": 2,
       "elevation": 0,
       "var": "VAR_TEMP_A",
       "var_value": "1",
@@ -226,7 +226,7 @@
     {
       "type": "trigger",
       "x": 10,
-      "y": 4,
+      "y": 2,
       "elevation": 0,
       "var": "VAR_TEMP_A",
       "var_value": "1",
@@ -235,7 +235,7 @@
     {
       "type": "trigger",
       "x": 8,
-      "y": 25,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_TEMP_C",
       "var_value": "1",
@@ -244,7 +244,7 @@
     {
       "type": "trigger",
       "x": 9,
-      "y": 25,
+      "y": 22,
       "elevation": 0,
       "var": "VAR_TEMP_C",
       "var_value": "1",
@@ -253,25 +253,25 @@
     {
       "type": "trigger",
       "x": 1,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "1",
+      "script": "OldaleTown_EventScript_RivalWest"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_D",
+      "var_value": "1",
+      "script": "OldaleTown_EventScript_RivalWest"
+    },
+    {
+      "type": "trigger",
+      "x": 1,
       "y": 12,
-      "elevation": 0,
-      "var": "VAR_TEMP_D",
-      "var_value": "1",
-      "script": "OldaleTown_EventScript_RivalWest"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 13,
-      "elevation": 0,
-      "var": "VAR_TEMP_D",
-      "var_value": "1",
-      "script": "OldaleTown_EventScript_RivalWest"
-    },
-    {
-      "type": "trigger",
-      "x": 1,
-      "y": 14,
       "elevation": 0,
       "var": "VAR_TEMP_D",
       "var_value": "1",
@@ -282,7 +282,7 @@
     {
       "type": "sign",
       "x": 3,
-      "y": 20,
+      "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OldaleTown_EventScript_TownSign"
@@ -290,23 +290,7 @@
     {
       "type": "sign",
       "x": 4,
-      "y": 17,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "Common_EventScript_ShowPokemonCenterSign"
-    },
-    {
-      "type": "sign",
-      "x": 14,
-      "y": 9,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "Common_EventScript_ShowPokemartSign"
-    },
-    {
-      "type": "sign",
-      "x": 5,
-      "y": 17,
+      "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
@@ -314,31 +298,47 @@
     {
       "type": "sign",
       "x": 15,
-      "y": 9,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemartSign"
     },
     {
       "type": "sign",
-      "x": 23,
-      "y": 19,
+      "x": 5,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "Common_EventScript_ShowPokemartSign"
+    },
+    {
+      "type": "sign",
+      "x": 21,
+      "y": 17,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OldaleTown_EventScript_TowerSign"
     },
     {
       "type": "sign",
-      "x": 25,
-      "y": 12,
+      "x": 30,
+      "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OldaleTown_EventScript_GladeSign"
     },
     {
       "type": "sign",
-      "x": 20,
-      "y": 11,
+      "x": 19,
+      "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OldaleTown_EventScript_ShopSign"
@@ -346,7 +346,7 @@
     {
       "type": "sign",
       "x": 10,
-      "y": 15,
+      "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "OldaleTown_EventScript_PeaceSign"

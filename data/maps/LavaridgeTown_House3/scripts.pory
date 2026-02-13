@@ -95,7 +95,7 @@ script LavaridgeTown_House3_EventScript_FireStarterGift {
 	msgbox(format("Excellent! Here you are!"))
 	waitmessage
 	setflag(FLAG_RECEIVED_FIRE_STARTER)
-	givemon(VAR_TEMP_1, 5, ITEM_ORAN_BERRY)
+	givemon(VAR_TEMP_1, 5, ITEM_CHARCOAL)
 	playfanfare(MUS_OBTAIN_ITEM)
 	bufferspeciesname(STR_VAR_1, VAR_TEMP_1)
 	msgbox("{PLAYER} received {STR_VAR_1}!")

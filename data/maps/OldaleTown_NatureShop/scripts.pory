@@ -122,7 +122,7 @@ script OldaleTown_NatureShop_EventScript_GrassStarterGift {
 	msgbox(format("Excellent! Here you are!"))
 	waitmessage
 	setflag(FLAG_RECEIVED_GRASS_STARTER)
-	givemon(VAR_TEMP_1, 5, ITEM_ORAN_BERRY)
+	givemon(VAR_TEMP_1, 5, ITEM_MIRACLE_SEED)
 	playfanfare(MUS_OBTAIN_ITEM)
 	bufferspeciesname(STR_VAR_1, VAR_TEMP_1)
 	msgbox("{PLAYER} received {STR_VAR_1}!")
