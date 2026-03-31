@@ -241,12 +241,12 @@
     // Teams give only one type of EV and prioritize high exp yield
     // Todo: custom graphics
     #define GRINDING_TRAINERS_START             (OTHER_TUTORS_END + 1)
-    #define TRAINER_CHERYL                      (GRINDING_TRAINERS_START + 0) // Cheryl, HP
-    #define TRAINER_RILEY                       (GRINDING_TRAINERS_START + 1) // Riley, Atk
-    #define TRAINER_BUCK                        (GRINDING_TRAINERS_START + 2) // Buck, Def
-    #define TRAINER_MIRA                        (GRINDING_TRAINERS_START + 3) // Mira, Sp.Atk
-    #define TRAINER_DAGAN                       (GRINDING_TRAINERS_START + 4) // Dagan, Sp.Def
-    #define TRAINER_MARLEY                      (GRINDING_TRAINERS_START + 5) // Marley, Spe
+    #define TRAINER_CHERYL                      (GRINDING_TRAINERS_START + 0) // Cheryl, HP, Aroma Lady sprite
+    #define TRAINER_RILEY                       (GRINDING_TRAINERS_START + 1) // Riley, Atk, Ranger-M sprite
+    #define TRAINER_BUCK                        (GRINDING_TRAINERS_START + 2) // Buck, Def, Cooltrainer-M sprite
+    #define TRAINER_MIRA                        (GRINDING_TRAINERS_START + 3) // Mira, Sp.Atk, Psychic-F sprite
+    #define TRAINER_DAGAN                       (GRINDING_TRAINERS_START + 4) // Dagan, Sp.Def, Expert-M sprite
+    #define TRAINER_MARLEY                      (GRINDING_TRAINERS_START + 5) // Marley, Spe, Lass sprite
     #define GRINDING_TRAINERS_END               TRAINER_MARLEY
 
 // Winstrates
@@ -640,8 +640,8 @@
     #define TRAINER_FERNANDO                    (ROUTE_123_TRAINERS_START + 10) // Guitarist Fernando, may double with Alberto
     #define TRAINER_ALBERTO                     (ROUTE_123_TRAINERS_START + 11) // Bird Keeper Alberto, may double with Fernando
     #define TRAINER_FREDERICK                   (ROUTE_123_TRAINERS_START + 12) // Expert-M Frederick, may double with Jacki
-    #define TRAINER_JAZMYN                      (ROUTE_123_TRAINERS_START + 13) // Cooltrainer-F Jazmyn, may double with Davis
-    #define TRAINER_DAVIS                       (ROUTE_123_TRAINERS_START + 14) // Youngster Davis, may double with Jazmyn
+    #define TRAINER_JAZMYN                      (ROUTE_123_TRAINERS_START + 13) // Cooltrainer-F Jazmyn
+    #define TRAINER_DAVIS                       (ROUTE_123_TRAINERS_START + 14) // Youngster Davis
     #define ROUTE_123_TRAINERS_END              TRAINER_DAVIS
 
 // Route 124
@@ -857,7 +857,7 @@
     #define TRAINER_WOLFE                       (VICTORY_ROAD_TRAINERS_START + 7) // Cooltrainer-M Wolfe (1F, first after coming up)
     #define TRAINER_RYOTA                       (VICTORY_ROAD_TRAINERS_START + 8) // Cooltrainer-M Ryota (1F, second after coming up)
     #define TRAINER_RUIZ                        (VICTORY_ROAD_TRAINERS_START + 9) // Cooltrainer-M Ruiz (1F, third after coming up)
-    #define TRAINER_SHIRONA                     (VICTORY_ROAD_TRAINERS_START + 10) // Cooltrainer-F Shirona (B2F, ruins area)
+    #define TRAINER_CYNTHIA                     (VICTORY_ROAD_TRAINERS_START + 10) // Cynthia (B2F, ruins area)
     #define TRAINER_KATELYNN                    (VICTORY_ROAD_TRAINERS_START + 11) // Cooltrainer-F Katelynn (B1F, guards eastern bridge)
     #define TRAINER_EIFIE                       (VICTORY_ROAD_TRAINERS_START + 12) // Cooltrainer-F Eifie (B1F, guards bonus item)
     #define TRAINER_HOPE                        (VICTORY_ROAD_TRAINERS_START + 13) // Cooltrainer-F Hope (B2F, above the waterfalls)
@@ -1005,8 +1005,16 @@
     #define TRAINER_TREVOR                      (SUNRISE_SHORE_TRAINERS_START + 4) // Guitarist Trevor, south of the overlook
     #define SUNRISE_SHORE_TRAINERS_END          TRAINER_TREVOR
 
+// Bamboo Wilds
+    #define BAMBOO_WILDS_TRAINERS_START         (SUNRISE_SHORE_TRAINERS_END + 1)
+    #define TRAINER_HUMFREY                     (BAMBOO_WILDS_TRAINERS_START + 0) // Bug Maniac Humfrey
+    #define TRAINER_ELOISE                      (BAMBOO_WILDS_TRAINERS_START + 1) // Picnicker Eloise
+    #define TRAINER_BARNABY                     (BAMBOO_WILDS_TRAINERS_START + 2) // Black Belt Barnaby
+    #define TRAINER_MIRANDA                     (BAMBOO_WILDS_TRAINERS_START + 3) // Lass Miranda
+    #define BAMBOO_WILDS_TRAINERS_END           TRAINER_MIRANDA
+
 // Trick House
-    #define TRICK_HOUSE_TRAINERS_START          (SUNRISE_SHORE_TRAINERS_END + 1)
+    #define TRICK_HOUSE_TRAINERS_START          (BAMBOO_WILDS_TRAINERS_END + 1)
 
     // Puzzle 1
         #define TRAINER_SALLY                       (TRICK_HOUSE_TRAINERS_START + 0) // Lass Sally (by the entrance)
@@ -1083,7 +1091,7 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 693 (692 + TRAINER_NONE)
+//I think it's currently 697 (696 + TRAINER_NONE)
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 863 trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
