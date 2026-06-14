@@ -565,12 +565,12 @@ static void DoMoveRelearnerMain(void)
         {
             s8 selection = Menu_ProcessInputNoWrapClearOnChoose();
 
-            if (selection == MENU_B_PRESSED || selection == 1)
+            if (selection == 0)
             {
                 gSpecialVar_0x8004 = FALSE;
                 sMoveRelearnerStruct->state = MENU_STATE_FADE_AND_RETURN;
             }
-            else if (selection == 0)
+            else if (selection == MENU_B_PRESSED || selection == 1)
             {
                 if (sMoveRelearnerMenuSate.showContestInfo == FALSE)
                 {
@@ -627,6 +627,10 @@ static void DoMoveRelearnerMain(void)
 
             if (selection == 0)
             {
+                sMoveRelearnerStruct->state = MENU_STATE_CHOOSE_SETUP_STATE;
+            }
+            else if (selection == MENU_B_PRESSED || selection == 1)
+            {
                 // What's the point? It gets set to MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT, anyway.
                 if (sMoveRelearnerMenuSate.showContestInfo == FALSE)
                 {
@@ -637,10 +641,6 @@ static void DoMoveRelearnerMain(void)
                     sMoveRelearnerStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
                 }
                 sMoveRelearnerStruct->state = MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT;
-            }
-            else if (selection == MENU_B_PRESSED || selection == 1) //reordered for b-button cancel
-            {
-                sMoveRelearnerStruct->state = MENU_STATE_CHOOSE_SETUP_STATE;
             }
         }
         break;
