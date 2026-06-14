@@ -146,7 +146,7 @@
 #define FLAG_RECEIVED_BLACK_BELT             0x77
 #define FLAG_RECEIVED_TWISTED_SPOON          0x78
 #define FLAG_RECEIVED_BLACK_GLASSES          0x79
-#define FLAG_UNUSED_0x7A                     0x7A
+#define FLAG_RECEIVED_DRAGON_FANG            0x7A
 #define FLAG_UNUSED_0x7B                     0x7B
 #define FLAG_UNUSED_0x7C                     0x7C
 #define FLAG_UNUSED_0x7D                     0x7D
@@ -205,7 +205,7 @@
 #define FLAG_RECEIVED_GIMMIGHOUL             0xAC // mossdeep
 #define FLAG_RECEIVED_COSPLAY_PIKACHU        0xAD // lilycove
 #define FLAG_RECEIVED_SPIKY_EARED_PICHU      0xAE // lilycove
-#define FLAG_UNUSED_0xAF                     0xAF
+#define FLAG_RECEIVED_KUBFU                  0xAF // heavengrass
 
 //Tutor Flags
 #define FLAG_MET_THOMPSON_ALWAYS_HIT_MOVES   0xB0 // hideaway, r114
@@ -930,7 +930,7 @@
 #define FLAG_SCOTT_GIVES_BATTLE_POINTS                              0x355
 #define FLAG_OCEANIC_MUSEUM_MET_REPORTER                            0x356
 #define FLAG_CREDITS_LADY_INTRODUCTION                              0x357
-#define FLAG_MET_SHIRONA                                            0x358 //moves Shirona (in case you white out from a rematch, which leaves the trainer undefeated)
+#define FLAG_MET_CYNTHIA                                            0x358 //moves Cynthia (in case you white out from a rematch, which leaves the trainer undefeated)
 #define FLAG_UNUSED_0x359                                           0x359
 
 //Script state, Door Flags
@@ -964,7 +964,7 @@
 #define FLAG_MONSU_ISLAND_PYRAMID_WARP_3_UNLOCKED                   0x375
 #define FLAG_BEACH_BATTLE_VICTORY                                   0x376 //player has won the initial, static tournament and gotten prize
 #define FLAG_MET_PHOEBE_MT_PYRE                                     0x377 // met Phoebe at the top of Mt. Pyre; she should be in the Motel
-#define FLAG_UNUSED_0x378                                           0x378
+#define FLAG_MADE_KUBFU_MUSHROOM_SOUP                               0x378 // given 2 big and 2 balm mushrooms to battle girl at heavengrass dojo
 #define FLAG_UNUSED_0x379                                           0x379
 #define FLAG_UNUSED_0x37A                                           0x37A
 #define FLAG_UNUSED_0x37B                                           0x37B
@@ -1111,7 +1111,7 @@
 #define FLAG_ITEM_TM19      0x3FA // Defog, Mt. Pyre gift (postgame only if Hardcore)
 #define FLAG_ITEM_TM20      0x3FB // Roost, gift from Winona (Pacifidlog)
 #define FLAG_ITEM_TM21      0x3FC // Dual Wingbeat, Route 120 item ball
-#define FLAG_ITEM_TM22      0x3FD // Acrobatics, Route 117 item ball
+#define FLAG_ITEM_TM22      0x3FD // Acrobatics, Crossgate Hills item ball
 #define FLAG_ITEM_TM23      0x3FE // Toxic, Trick House #5 (trainer gauntlet)
 #define FLAG_ITEM_TM24      0x3FF // Poison Jab, Petalburg Woods item ball
 #define FLAG_ITEM_TM25      0x400 // Gunk Shot, Altering Cave item ball
@@ -1309,7 +1309,7 @@
 #define FLAG_ITEM_MOSSDEEP_CAVERNS_B2F_KINGS_ROCK                   0x4BE
 #define FLAG_ITEM_MOSSDEEP_CAVERNS_DIVE_CHAMBER_PROTECTOR           0x4BF
 #define FLAG_ITEM_SCORCHED_SLAB_B1F_HEAT_ROCK                       0x4C0
-#define FLAG_ITEM_GRANITE_CAVE_RESORT_EXITS_ABILITY_CAPSULE         0x4C1
+#define FLAG_ITEM_GRANITE_CAVE_RESORT_EXITS_HARD_STONE              0x4C1
 #define FLAG_ITEM_FOREST_HEART_STICKY_BARB                          0x4C2
 #define FLAG_ITEM_FOREST_HEART_WHITE_HERB                           0x4C3
 #define FLAG_ITEM_FOREST_HEART_POWER_HERB                           0x4C4
@@ -1349,9 +1349,9 @@
 #define FLAG_ITEM_ROUTE_107_DAWN_STONE                              0x4E6
 #define FLAG_ITEM_ROUTE_114_DUBIOUS_DISC                            0x4E7
 #define FLAG_ITEM_ROUTE_114_UPGRADE                                 0x4E8
-#define FLAG_UNUSED_0x4E9                                           0x4E9
-#define FLAG_UNUSED_0x4EA                                           0x4EA
-#define FLAG_UNUSED_0x4EB                                           0x4EB
+#define FLAG_ITEM_CROSSGATE_HILLS_SHARP_BEAK                        0x4E9
+#define FLAG_ITEM_BAMBOO_WILDS_SCROLL_OF_DARKNESS                   0x4EA
+#define FLAG_ITEM_BAMBOO_WILDS_SCROLL_OF_WATERS                     0x4EB
 #define FLAG_UNUSED_0x4EC                                           0x4EC
 #define FLAG_UNUSED_0x4ED                                           0x4ED
 #define FLAG_ITEM_TRICK_HOUSE_PUZZLE_X_BALL_1                       0x4EE
@@ -1641,7 +1641,7 @@
 #define FLAG_DAILY_SOOTOPOLIS_GYM_REMATCH           (DAILY_FLAGS_START + 0x1C)
 #define FLAG_DAILY_WINSTRATE_VIVI_BATTLE            (DAILY_FLAGS_START + 0x1D)
 #define FLAG_DAILY_WINSTRATE_VITO_BATTLE            (DAILY_FLAGS_START + 0x1E)
-#define FLAG_DAILY_SHIRONA_REMATCH                  (DAILY_FLAGS_START + 0x1F)
+#define FLAG_DAILY_CYNTHIA_REMATCH                  (DAILY_FLAGS_START + 0x1F)
 #define FLAG_DAILY_RIVAL_MATCH                      (DAILY_FLAGS_START + 0x20)
 #define FLAG_DAILY_LEAF_REMATCH                     (DAILY_FLAGS_START + 0x21)
 #define FLAG_DAILY_KRIS_REMATCH                     (DAILY_FLAGS_START + 0x22)

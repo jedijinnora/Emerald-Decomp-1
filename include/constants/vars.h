@@ -130,7 +130,7 @@
 #define VAR_ROUTE115_STATE                               0x406E
 #define VAR_ROUTE116_STATE                               0x406F
 #define VAR_ROUTE117_STATE                               0x4070
-#define VAR_ROUTE118_STATE                               0x4071
+#define VAR_ROUTE118_STATE                               0x4071 // used for Marley event
 #define VAR_ROUTE119_STATE                               0x4072
 #define VAR_ROUTE120_STATE                               0x4073
 #define VAR_ROUTE121_STATE                               0x4074
@@ -159,7 +159,7 @@
 #define VAR_RECENT_SPRAY                                 0x408B // see include/config/item.h
 #define VAR_DIFFICULTY_SETTING                           0x408C // 0 = standard, 1 = easy, 2 = hard
 #define VAR_UNUSED_0x408D                                0x408D
-#define VAR_RIVAL_CHOICE                                 0x408E // Jinnora: used to select rival trainer in Victory Road
+#define VAR_VICTORY_ROAD_RIVAL_CHOICE                    0x408E // Jinnora: used to select rival trainer in Victory Road
 #define VAR_DEVON_CORP_3F_STATE                          0x408F
 #define VAR_BRINEY_HOUSE_STATE                           0x4090
 #define VAR_BOARD_BRINEY_BOAT_STATE                      0x4091
@@ -185,7 +185,7 @@
 #define VAR_TRICK_HOUSE_BEING_WATCHED_STATE              0x40A5
 #define VAR_TRICK_HOUSE_FOUND_TRICK_MASTER               0x40A6
 #define VAR_TRICK_HOUSE_ENTRANCE_STATE                   0x40A7
-#define VAR_CABLE_CAR_STATION_STATE                      0x40A8//used for cable car scripting, eg player exit
+#define VAR_CABLE_CAR_STATION_STATE                      0x40A8 // used for cable car scripting, eg player exit
 #define VAR_CYCLING_CHALLENGE_STATE                      0x40A9
 #define VAR_SLATEPORT_MUSEUM_1F_STATE                    0x40AA
 #define VAR_TRICK_HOUSE_PUZZLE_1_STATE                   0x40AB
@@ -220,8 +220,8 @@
 #define VAR_UNUSED_0x40C8                                0x40C8 // was jagged pass state
 #define VAR_UNUSED_0x40C9                                0x40C9 // was scott petalburg encounter
 #define VAR_SKY_PILLAR_STATE                             0x40CA
-#define VAR_UNUSED_0x40CB                                0x40CB // was mirage tower state
-#define VAR_UNUSED_0x40CC                                0x40CC // was fossil maniac state
+#define VAR_PETALBURG_WOODS_STATE                        0x40CB // used for Cheryl event
+#define VAR_GRANITE_CAVE_STATE                           0x40CC // used for Riley event
 #define VAR_CABLE_CLUB_TUTORIAL_STATE                    0x40CD
 #define VAR_FRONTIER_BATTLE_MODE                         0x40CE
 #define VAR_FRONTIER_FACILITY                            0x40CF

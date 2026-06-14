@@ -150,6 +150,8 @@
 // gTileset_Dewford
 #define METATILE_Dewford_Door              0x225
 #define METATILE_Dewford_Door_BattleTower  0x25D
+#define METATILE_Dewford_LongGrass         0x2FE
+#define METATILE_Dewford_LongGrass_Root    0x2FD
 
 // gTileset_EliteFour
 #define METATILE_EliteFour_EntryDoor_ClosedBottom    0x20E
@@ -182,6 +184,10 @@
 // gTileset_Fallarbor
 #define METATILE_Fallarbor_AshField                  0x218
 #define METATILE_Fallarbor_AshGrass                  0x20A
+#define METATILE_Fallarbor_AshGrass_Hill_Left        0x36A
+#define METATILE_Fallarbor_AshGrass_Hill_Right       0x36B
+#define METATILE_Fallarbor_Ash_Hill_Left             0x201
+#define METATILE_Fallarbor_Ash_Hill_Right            0x203
 #define METATILE_Fallarbor_BrownCaveEntrance_Bottom  0x261
 #define METATILE_Fallarbor_BrownCaveEntrance_Top     0x259
 #define METATILE_Fallarbor_BrownCaveIndent           0x208
@@ -191,10 +197,15 @@
 #define METATILE_Fallarbor_Door_BattleTent           0x36C
 #define METATILE_Fallarbor_Door_DarkRoof             0x2F7
 #define METATILE_Fallarbor_Door_LightRoof            0x2A5
+#define METATILE_Fallarbor_Grass_Hill_Left           0x318
+#define METATILE_Fallarbor_Grass_Hill_Right          0x31A
 #define METATILE_Fallarbor_NormalGrass               0x212
 #define METATILE_Fallarbor_RedCaveEntrance_Bottom    0x34F
 #define METATILE_Fallarbor_RedCaveEntrance_Top       0x347
 #define METATILE_Fallarbor_RedRockWall               0x269
+#define METATILE_Fallarbor_SteelGrass                0x2DC
+#define METATILE_Fallarbor_TallGrass_Hill_Left       0x368
+#define METATILE_Fallarbor_TallGrass_Hill_Right      0x369
 
 // gTileset_Fortree
 #define METATILE_Fortree_BridgeOverGrass_Lowered           0x24F
@@ -214,6 +225,7 @@
 #define METATILE_Fortree_WoodBridge1_Top                   0x297
 
 // gTileset_General
+#define METATILE_General_BeachSand_Center      0x124
 #define METATILE_General_BlueCaveIndent        0x1B0
 #define METATILE_General_BlueCaveOpen          0x1B1
 #define METATILE_General_CalmWater             0x170
@@ -229,6 +241,8 @@
 #define METATILE_General_Grass_TreeRight       0x1CF
 #define METATILE_General_Grass_TreeUp          0x00E
 #define METATILE_General_LongGrass             0x015
+#define METATILE_General_LongGrass_Root        0x137
+#define METATILE_General_LongGrass_TreeUp      0x13F
 #define METATILE_General_MuddySlope_Frame0     0x0E8
 #define METATILE_General_MuddySlope_Frame1     0x0E9
 #define METATILE_General_MuddySlope_Frame2     0x0EA
