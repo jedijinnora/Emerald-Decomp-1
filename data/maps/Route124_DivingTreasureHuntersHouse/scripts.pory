@@ -135,7 +135,7 @@ script Route124_DivingTreasureHuntersHouse_EventScript_TreasureHunter {
 script Route124_DivingTreasureHuntersHouse_EventScript_Kid {
 	lock
 	faceplayer
-	msgbox(format("You can also trade Shards for TMs with a meteorologist at the Weather Institute!"))
+	msgbox(format("You can also trade Shards for TMs at the Weather Institute, or for Mints in Heavengrass Town!"))
 	release
 	end
 }

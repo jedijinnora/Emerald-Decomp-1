@@ -333,7 +333,7 @@ script MillenniumField_EventScript_Kecleon {
 
 script MillenniumField_EventScript_KecleonPrize {
     setflag(FLAG_DAILY_KECLEON_WON)
-    setvar(VAR_TEMP_3, -1)
+    setvar(VAR_TEMP_3, 0)
     playfanfare(MUS_LEVEL_UP)
     waitfanfare
     msgbox(format("Kecleon acknowledges his defeat, and presents you with your prize!"))

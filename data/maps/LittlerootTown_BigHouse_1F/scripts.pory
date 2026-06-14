@@ -74,6 +74,7 @@ script LittlerootTown_BigHouse_1F_EventScript_BiteTutor {
 }
 
 script LittlerootTown_BigHouse_1F_EventScript_BiteBattle {
+    call(Common_EventScript_DisableBPReward)
     msgbox(format("Wanna see my chompiest Pokémon?"), MSGBOX_YESNO)
     goto_if_eq(VAR_RESULT, NO, LittlerootTown_BigHouse_1F_EventScript_BiteAww)
     trainerbattle_no_intro(TRAINER_BITE_TUTOR, LittlerootTown_BigHouse_1F_Text_BiteDefeat)

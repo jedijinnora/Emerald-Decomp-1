@@ -1,1 +1,10 @@
 mapscripts SeasideMeadow_MapScripts {}
+
+script SeasideMeadow_EventScript_Oricorio {
+    lock
+    faceplayer
+    playmoncry(SPECIES_ORICORIO, CRY_MODE_ENCOUNTER)
+    msgbox(format("Oricorio: Whihihi!"))
+    release
+    end
+}

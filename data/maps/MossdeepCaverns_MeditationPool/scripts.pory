@@ -158,6 +158,7 @@ script MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistUnlockOtherTu
 }
 
 script MossdeepCaverns_MeditationPool_EventScript_PsychicSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Psychic-only double battle", 3)
@@ -313,6 +314,7 @@ script MossdeepCaverns_MeditationPool_EventScript_PunchTutor {
 }
 
 script MossdeepCaverns_MeditationPool_EventScript_PunchBattle {
+    call(Common_EventScript_DisableBPReward)
     msgbox(format("Hah! My Pokémon will punch your lights out!"), MSGBOX_YESNO)
     goto_if_eq(VAR_RESULT, NO, MossdeepCaverns_MeditationPool_EventScript_PunchBattleDeclined)
     trainerbattle_no_intro(TRAINER_PUNCH_TUTOR, MossdeepCaverns_MeditationPool_Text_PunchDefeat)

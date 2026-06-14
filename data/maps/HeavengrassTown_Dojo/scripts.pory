@@ -1,0 +1,259 @@
+mapscripts HeavengrassTown_Dojo_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : HeavengrassTown_Dojo_OnTransition
+}
+
+const LOCALID_KUBFU = 7
+const LOCALID_BATTLE_GIRL = 8
+
+script HeavengrassTown_Dojo_OnTransition {
+    call_if_set(FLAG_RECEIVED_KUBFU, HeavengrassTown_Dojo_EventScript_HideKubfu)
+    end
+}
+
+script HeavengrassTown_Dojo_EventScript_HideKubfu {
+    setflag(FLAG_TEMP_11)
+    return
+}
+
+script HeavengrassTown_Dojo_EventScript_BattleGirl {
+    lock
+    faceplayer
+    goto_if_set(FLAG_MADE_KUBFU_MUSHROOM_SOUP, HeavengrassTown_Dojo_EventScript_BattleGirl_Thanks)
+    msgbox(format("I'm looking for ingredients for Kubfu's favorite soup."))
+    msgbox(format("If we were in Galar I'd ask you to find me some Max Mushrooms…"))
+    msgbox(format("But here in Hoenn some Big Mushrooms and Balm Mushrooms will have to do."))
+    checkitem(ITEM_BIG_MUSHROOM, 2)
+    goto_if_eq(VAR_RESULT, FALSE, HeavengrassTown_Dojo_EventScript_BattleGirlEnd)
+    checkitem(ITEM_BALM_MUSHROOM, 2)
+    goto_if_eq(VAR_RESULT, FALSE, HeavengrassTown_Dojo_EventScript_BattleGirlEnd)
+    playse(SE_PIN)
+    applymovement(LOCALID_BATTLE_GIRL, Common_Movement_ExclamationMark)
+    msgbox(format("You've brought the mushrooms!"))
+    msgbox(format("Please, let me turn them into soup for Kubfu?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, FALSE, HeavengrassTown_Dojo_EventScript_BattleGirlEnd)
+    removeitem(ITEM_BIG_MUSHROOM, 2)
+    removeitem(ITEM_BALM_MUSHROOM, 2)
+    fadescreen(FADE_TO_BLACK)
+	playse(SE_SELECT)
+	delay(30)
+    playmoncry(SPECIES_KUBFU, CRY_MODE_ENCOUNTER)
+    waitmoncry
+	fadescreen(FADE_FROM_BLACK)
+    msgbox(format("Kubfu ate up all the mushroom soup!"))
+    setflag(FLAG_MADE_KUBFU_MUSHROOM_SOUP)
+    release
+    end
+}
+
+script HeavengrassTown_Dojo_EventScript_BattleGirlEnd {
+    msgbox(format("If you bring me two each of Big Mushrooms and Balm Mushrooms, I can make soup for Kubfu!"))
+    release
+    end
+}
+
+script HeavengrassTown_Dojo_EventScript_BattleGirl_Thanks {
+    msgbox(format("Kubfu can evolve into a different kind of Urshifu depending on which Scroll they choose to master."))
+    release
+    end
+}
+
+script HeavengrassTown_Dojo_EventScript_BlackBelt {
+    lock
+    faceplayer
+    goto_if_set(FLAG_RECEIVED_KUBFU, HeavengrassTown_Dojo_EventScript_BlackBelt_Thanks)
+    msgbox(format("Kubfu won't go with just any Trainer."))
+    msgbox(format("You'll have to prove you can provide Kubfu with the best tutoring possible!"))
+    call(HeavengrassTown_Dojo_EventScript_BufferNeededTutors)
+    goto_if_unset(FLAG_TEMP_1, HeavengrassTown_Dojo_EventScript_CheckKubfuReady)
+    msgbox(format("Which tutor(s) do you need to find and defeat?"))
+    dynmultistack(0,0,FALSE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(HeavengrassTown_Dojo_EventScript_FightingTutor)
+        case 2:
+            call(HeavengrassTown_Dojo_EventScript_DarkTutor)
+        case 3:
+            call(HeavengrassTown_Dojo_EventScript_WaterTutor)
+        case 4:
+            call(HeavengrassTown_Dojo_EventScript_PunchingTutor)
+        default:
+    }
+    release
+    end
+}
+
+script HeavengrassTown_Dojo_EventScript_BufferNeededTutors {
+    clearflag(FLAG_TEMP_1)
+    call(HeavengrassTown_Dojo_EventScript_CheckFightingTutor)
+    call(HeavengrassTown_Dojo_EventScript_CheckDarkTutor)
+    call(HeavengrassTown_Dojo_EventScript_CheckWaterTutor)
+    call(HeavengrassTown_Dojo_EventScript_CheckPunchingTutor)
+    return
+}
+
+script HeavengrassTown_Dojo_EventScript_CheckFightingTutor {
+    goto_if_defeated(TRAINER_BRAWLY_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_BRAWLY_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_BRAWLY_CHALLENGE, Common_EventScript_NopReturn)
+    dynmultipush("Fighting Tutor", 1)
+    setflag(FLAG_TEMP_1)
+    return
+}
+
+script HeavengrassTown_Dojo_EventScript_CheckDarkTutor {
+    goto_if_defeated(TRAINER_MEGAERA_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_MEGAERA_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_MEGAERA_CHALLENGE, Common_EventScript_NopReturn)
+    dynmultipush("Dark Tutor", 2)
+    setflag(FLAG_TEMP_1)
+    return
+}
+
+script HeavengrassTown_Dojo_EventScript_CheckWaterTutor {
+    goto_if_defeated(TRAINER_WALLACE_INITIAL, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_WALLACE_INVERSE, Common_EventScript_NopReturn)
+    goto_if_defeated(TRAINER_WALLACE_CHALLENGE, Common_EventScript_NopReturn)
+    dynmultipush("Water Tutor", 3)
+    setflag(FLAG_TEMP_1)
+    return
+}
+
+script HeavengrassTown_Dojo_EventScript_CheckPunchingTutor {
+    goto_if_defeated(TRAINER_PUNCH_TUTOR, Common_EventScript_NopReturn)
+    dynmultipush("Punching Tutor", 4)
+    setflag(FLAG_TEMP_1)
+    return
+}
+
+script HeavengrassTown_Dojo_EventScript_FightingTutor {
+    msgbox(format("Hoenn's Fighting-type specialist, Brawly, can be found at Dewford Resort!"))
+    return
+}
+
+script HeavengrassTown_Dojo_EventScript_DarkTutor {
+    msgbox(format("Hoenn's Dark-type specialist, Megaera, can be found in Dewford Town!"))
+    return
+}
+
+script HeavengrassTown_Dojo_EventScript_WaterTutor {
+    msgbox(format("Hoenn's Water-type specialist, Wallace, can be found in Sootopolis City!"))
+    return
+}
+
+script HeavengrassTown_Dojo_EventScript_PunchingTutor {
+    msgbox(format("Hoenn's Punching moves specialist can be found in Mossdeep Caverns!"))
+    return
+}
+
+script HeavengrassTown_Dojo_EventScript_CheckKubfuReady {
+    msgbox(format("Wow, you've mastered all the tutors needed to train up Kubfu's moves…"))
+    goto_if_unset(FLAG_MADE_KUBFU_MUSHROOM_SOUP, HeavengrassTown_Dojo_EventScript_NeedSoup)
+    playmoncry(SPECIES_KUBFU, CRY_MODE_ENCOUNTER)
+    showmonpic(SPECIES_KUBFU, 10, 3)
+    msgbox(format("That's it! You've proven yourself worthy to be Kubfu's Trainer!"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, KubfuEnd)
+    setflag(FLAG_RECEIVED_KUBFU)
+    setflag(FLAG_TEMP_11)
+    removeobject(LOCALID_KUBFU)
+    givemon(SPECIES_KUBFU, 15)
+    playfanfare(MUS_OBTAIN_ITEM)
+    bufferspeciesname(STR_VAR_1, SPECIES_KUBFU)
+    msgbox("{PLAYER} received {STR_VAR_1}!")
+    waitmessage
+    waitfanfare
+    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PARTY, KubfuToParty)
+    goto_if_eq(VAR_RESULT, MON_GIVEN_TO_PC, KubfuToPC)
+
+    KubfuToParty:
+    msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+    goto(KubfuEnd)
+
+    KubfuToPC:
+    msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES) {
+        call(Common_EventScript_NameReceivedBoxMon)
+    }
+    setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_KUBFU)
+    call(Common_EventScript_TransferredToPC)
+    KubfuEnd:
+    msgbox(format("Train hard!"))
+    release
+    end
+}
+
+script HeavengrassTown_Dojo_EventScript_NeedSoup {
+    msgbox(format("Oh, but Kubfu's gonna be hungry from all that training. Pity we're out of mushroom soup…"))
+    release
+    end
+}
+
+script HeavengrassTown_Dojo_EventScript_BlackBelt_Thanks {
+    msgbox(format("If you're looking for the Scrolls to evolve your Kubfu, Barnaby took them out into the Bamboo Wilds to train his own Urshifu."))
+    release
+    end
+}
+
+script HeavengrassTown_Dojo_EventScript_Hitmonchan {
+    lock
+    faceplayer
+    waitse
+    playmoncry(SPECIES_HITMONCHAN, CRY_MODE_ENCOUNTER)
+    msgbox(format("Hitmonchan is training Tyrogue's punches!"))
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+    release
+    end
+}
+
+script HeavengrassTown_Dojo_EventScript_Hitmonlee {
+    lock
+    faceplayer
+    waitse
+    playmoncry(SPECIES_HITMONLEE, CRY_MODE_ENCOUNTER)
+    msgbox(format("Hitmonlee is training Tyrogue's kicks!"))
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+    release
+    end
+}
+
+script HeavengrassTown_Dojo_EventScript_Hitmontop {
+    lock
+    faceplayer
+    waitse
+    playmoncry(SPECIES_HITMONTOP, CRY_MODE_ENCOUNTER)
+    msgbox(format("Hitmontop is training Tyrogue's stances!"))
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+    release
+    end
+}
+
+script HeavengrassTown_Dojo_EventScript_Tyrogue {
+    lock
+    faceplayer
+    waitse
+    playmoncry(SPECIES_TYROGUE, CRY_MODE_ENCOUNTER)
+    msgbox(format("Tyrogue is training hard!"))
+    waitmessage
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+    release
+    end
+}
+
+script HeavengrassTown_Dojo_EventScript_Kubfu {
+    lock
+    faceplayer
+    waitse
+    playmoncry(SPECIES_KUBFU, CRY_MODE_ENCOUNTER)
+    msgbox(format("Kubfu is waiting for a worthy Trainer!"))
+    applymovement(VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection)
+	waitmovement(0)
+    release
+    end
+}

@@ -56,7 +56,7 @@ script MauvilleCity_House3_EventScript_PachirisuTrader {
 	msgbox(format("My cousin sent me this electric squirrel Pokémon."))
     msgbox(format("He claims it can be really strong and awesome…"))
 	msgbox(format("But I don't see what makes it special. Maybe you will?"))
-    msgbox(format("I'd like to trade it for your Gible."), MSGBOX_YESNO)
+    msgbox(format("I'd like to trade Pachirisu for your Gible."), MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, NO, DeclinePachirisuTrade)
 	msgbox(format("Nice! Who needs a defensive Follow Me user anyways?"))
 	waitmessage

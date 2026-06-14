@@ -24,7 +24,7 @@ script LavaridgeTown_HerbShop_EventScript_Clerk {
 	faceplayer
 	message(LavaridgeTown_HerbShop_Text_WelcomeToHerbShop)
 	waitmessage
-	//check terrain guy flag, currently dummied with temp1
+	call(LavaridgeTown_HerbShop_EventScript_CheckSeedsUnlock)
 	if(flag(FLAG_TEMP_1) && flag(FLAG_SYS_GAME_CLEAR)) {
 		pokemart(LavaridgeTown_HerbShop_Pokemart_WithSeeds)
 	} else {
@@ -35,41 +35,126 @@ script LavaridgeTown_HerbShop_EventScript_Clerk {
 	end
 }
 
+script LavaridgeTown_HerbShop_EventScript_CheckSeedsUnlock {
+	goto_if_not_defeated(TRAINER_TERRAIN_TUTOR_ELECTRIC, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_TERRAIN_TUTOR_GRASSY, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_TERRAIN_TUTOR_MISTY, Common_EventScript_NopReturn)
+	goto_if_not_defeated(TRAINER_TERRAIN_TUTOR_PSYCHIC, Common_EventScript_NopReturn)
+	setflag(FLAG_TEMP_1)
+	return
+}
+
 script LavaridgeTown_HerbShop_EventScript_TerrainMan {
 	lock
 	faceplayer
-	//check trainer flag and skip to move tutor menu
-	msgbox(format("Hello!\nI am something of an expert on the various terrains summoned by Pokémon."))
-	//challenge to battle
-
-	msgbox(format("Want to face my team in battle?"), MSGBOX_YESNO)
-	//trainerbattlesingle()
-
-
-	TerrainMovesMenu:
-	msgbox(format("Which move should I teach?"))
-	dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Electric Terrain", "Grassy Terrain", "Ice Spinner", "Misty Terrain", "Psychic Terrain", "Terrain Pulse", "Steel Roller")
-	switch(var(VAR_RESULT)) {
-		case 0://elec terr
-		case 1://grass terr
-		case 2://ice spinner
-		case 3://misty terr
-		case 4://psych terr
-		case 5://terrain pulse
-		case 6://steel roller
-		default:
-			msgbox(format("Be seeing you."))
+	msgbox(format("I am something of an expert on the various terrains summoned by Pokémon."))
+	dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(LavaridgeTown_HerbShop_EventScript_TerrainTutor)
+        case 2:
+            call(LavaridgeTown_HerbShop_EventScript_TerrainBattle)
+        default:
+			msgbox(format("See you around."))
 			release
 			end
-	}
-	release
-	end
+    }
+    goto(LavaridgeTown_HerbShop_EventScript_TerrainMan)
 }
 
-script LavaridgeTown_HerbShop_EventScript_TerrainDefeated {
-	msgbox(format("Nice! Speak to me again if you want to learn moves. If you are Champion, the shop will now sell terrain seeds."))
-	release
-	end
+script LavaridgeTown_HerbShop_EventScript_TerrainTutor {
+
+	if(defeated(TRAINER_TERRAIN_TUTOR_ELECTRIC)) {
+		dynmultipush("Electric Terrain", 21)
+		setflag(FLAG_TEMP_2)
+	}
+	if(defeated(TRAINER_TERRAIN_TUTOR_GRASSY)) {
+		dynmultipush("Grassy Terrain", 22)
+		setflag(FLAG_TEMP_2)
+	}
+	if(defeated(TRAINER_TERRAIN_TUTOR_MISTY)) {
+		dynmultipush("Misty Terrain", 23)
+		setflag(FLAG_TEMP_2)
+	}
+	if(defeated(TRAINER_TERRAIN_TUTOR_PSYCHIC)) {
+		dynmultipush("Psychic Terrain", 24)
+		setflag(FLAG_TEMP_2)
+	}
+	if(flag(FLAG_TUTOR_TERRAIN_MOVES)) {
+		dynmultipush("Ice Spinner", 25)
+		dynmultipush("Steel Roller", 26)
+		dynmultipush("Terrain Pulse", 27)
+	}
+	if(!flag(FLAG_TEMP_2)) {
+		msgbox(format("You haven't unlocked any moves yet!"))
+		goto(LavaridgeTown_HerbShop_EventScript_TerrainMan)
+	}
+	msgbox(format("Which move should I teach?"))
+	dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 21:
+            setvar(VAR_0x8005, MOVE_ELECTRIC_TERRAIN)
+        case 22:
+            setvar(VAR_0x8005, MOVE_GRASSY_TERRAIN)
+        case 23:
+            setvar(VAR_0x8005, MOVE_MISTY_TERRAIN)
+		case 24:
+            setvar(VAR_0x8005, MOVE_MISTY_TERRAIN)
+        case 25:
+            setvar(VAR_0x8005, MOVE_ICE_SPINNER)
+        case 26:
+            setvar(VAR_0x8005, MOVE_STEEL_ROLLER)
+        case 27:
+            setvar(VAR_0x8005, MOVE_TERRAIN_PULSE)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, LavaridgeTown_HerbShop_EventScript_TerrainTutor)
+    return
+}
+
+script LavaridgeTown_HerbShop_EventScript_TerrainBattle {
+	call(Common_EventScript_DisableBPReward)
+	dynmultipush("Electric", 21)
+	dynmultipush("Grassy", 22)
+	dynmultipush("Misty", 23)
+	dynmultipush("Psychic", 24)
+	msgbox(format("Which type of terrain do you want to see in battle?"))
+	dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 21:
+            msgbox(format("You'll face my Electric Terrain team. Ready?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, LavaridgeTown_HerbShop_EventScript_TerrainBattle)
+			trainerbattle_no_intro(TRAINER_TERRAIN_TUTOR_ELECTRIC, LavaridgeTown_HerbShop_Text_TerrainDefeat)
+			setflag(FLAG_TUTOR_TERRAIN_MOVES)
+        case 22:
+            msgbox(format("You'll face my Grassy Terrain team. Ready?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, LavaridgeTown_HerbShop_EventScript_TerrainBattle)
+			trainerbattle_no_intro(TRAINER_TERRAIN_TUTOR_GRASSY, LavaridgeTown_HerbShop_Text_TerrainDefeat)
+			setflag(FLAG_TUTOR_TERRAIN_MOVES)
+        case 23:
+            msgbox(format("You'll face my Misty Terrain team. Ready?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, LavaridgeTown_HerbShop_EventScript_TerrainBattle)
+			trainerbattle_no_intro(TRAINER_TERRAIN_TUTOR_MISTY, LavaridgeTown_HerbShop_Text_TerrainDefeat)
+			setflag(FLAG_TUTOR_TERRAIN_MOVES)
+		case 24:
+            msgbox(format("You'll face my Psychic Terrain team. Ready?"), MSGBOX_YESNO)
+			goto_if_eq(VAR_RESULT, NO, LavaridgeTown_HerbShop_EventScript_TerrainBattle)
+			trainerbattle_no_intro(TRAINER_TERRAIN_TUTOR_PSYCHIC, LavaridgeTown_HerbShop_Text_TerrainDefeat)
+			setflag(FLAG_TUTOR_TERRAIN_MOVES)
+        default:
+            return
+    }
+
+    return
+}
+
+text LavaridgeTown_HerbShop_Text_TerrainDefeat {
+	"Nicely done!"
 }
 
 raw `

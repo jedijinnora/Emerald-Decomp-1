@@ -1,0 +1,10 @@
+mapscripts HeavengrassTown_House1_MapScripts {}
+
+script HeavengrassTown_House1_EventScript_Woman {
+    lock
+    faceplayer
+    msgbox(format("Sometimes we discuss building a bridge to connect the island to the mainland."))
+    msgbox(format("I kind of like it the way it is, though. Nobody can come bother us without Surf!"))
+    release
+    end
+}

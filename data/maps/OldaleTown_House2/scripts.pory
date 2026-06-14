@@ -159,6 +159,7 @@ script OldaleTown_House2_EventScript_BugSpecialistUnlockOtherTutor {
 }
 
 script OldaleTown_House2_EventScript_BugSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Bug-only double battle", 3)

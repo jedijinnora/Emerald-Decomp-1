@@ -1,5 +1,8 @@
 CableClub_OnTransition:
 	call CableClub_EventScript_HideOrShowMysteryGiftMan
+	call_if_lt VAR_PETALBURG_WOODS_STATE, 40, CableClub_EventScript_HideCheryl
+	call_if_lt VAR_GRANITE_CAVE_STATE, 40, CableClub_EventScript_HideRiley
+	call_if_lt VAR_ROUTE118_STATE, 40, CableClub_EventScript_HideMarley
 	end
 
 CableClub_EventScript_HideOrShowMysteryGiftMan::
@@ -9,6 +12,30 @@ CableClub_EventScript_HideOrShowMysteryGiftMan::
 	goto_if_eq VAR_RESULT, FALSE, CableClub_EventScript_HideMysteryGiftMan
 	goto CableClub_EventScript_ShowMysteryGiftMan
 	end
+
+CableClub_EventScript_HideCheryl::
+	setflag FLAG_TEMP_11
+	return
+
+CableClub_EventScript_HideRiley::
+	setflag FLAG_TEMP_12
+	return
+
+CableClub_EventScript_HideBuck::
+	setflag FLAG_TEMP_13
+	return
+
+CableClub_EventScript_HideMira::
+	setflag FLAG_TEMP_14
+	return
+
+CableClub_EventScript_HideDagan::
+	setflag FLAG_TEMP_15
+	return
+
+CableClub_EventScript_HideMarley::
+	setflag FLAG_TEMP_16
+	return
 
 CableClub_EventScript_ShowMysteryGiftMan::
 	clearflag FLAG_HIDE_POKEMON_CENTER_2F_MYSTERY_GIFT_MAN

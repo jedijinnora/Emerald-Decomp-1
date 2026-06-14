@@ -151,6 +151,7 @@ script LavaridgeTown_House2_EventScript_FireSpecialistUnlockOtherTutor {
 }
 
 script LavaridgeTown_House2_EventScript_FireSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Fire-only double battle", 3)

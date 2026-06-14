@@ -4,11 +4,163 @@ mapscripts PetalburgWoods_MapScripts {
 
 script PetalburgWoods_OnTransition {
 	call(Common_EventScript_DisableBPReward)
+	call_if_ge(VAR_PETALBURG_WOODS_STATE, 40, PetalburgWoods_EventScript_HideCheryl)
 	end
 }
 
+const LOCALID_CHERYL = 8
+
+script PetalburgWoods_EventScript_HideCheryl {
+	setflag(FLAG_TEMP_13)
+	return
+}
+
+script PetalburgWoods_EventScript_Cheryl {
+	lock
+	faceplayer
+	switch(var(VAR_PETALBURG_WOODS_STATE)) {
+		case 0:
+		case 1:
+			goto(PetalburgWoods_EventScript_CherylIntro)
+		case 10:
+			goto(PetalburgWoods_EventScript_CherylShowKomala)
+		case 20:
+			goto(PetalburgWoods_EventScript_CherylReward)
+		default:
+			goto(PetalburgWoods_EventScript_CherylBattle)
+	}
+	PetalburgWoods_EventScript_CherylEnd:
+	release
+	end
+}
+
+script PetalburgWoods_EventScript_CherylIntro {
+	msgbox(format("Another traveler…"))
+	msgbox(format("My name is Cheryl. It's nice to meet you!"))
+	msgbox(format("Cheryl: I once got lost in a forest quite similar to this one."))
+	msgbox(format("Do you know the Pokémon Komala?"))
+	msgbox(format("It's not the sort of Pokémon I use myself, but I can't help but adore how cute they are."))
+	msgbox(format("If you show me one, I'll give you something nice."))
+	setvar(VAR_PETALBURG_WOODS_STATE, 10)
+	goto(PetalburgWoods_EventScript_CherylEnd)
+	end
+}
+
+script PetalburgWoods_EventScript_CherylShowKomala {
+	msgbox(format("Oh? Do you have a Komala to show me?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, PetalburgWoods_EventScript_CherylNoKomala)
+	special(ChoosePartyMon)
+	waitstate
+	lock
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, PetalburgWoods_EventScript_CherylNoKomala)
+	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	goto_if_ne(VAR_RESULT, SPECIES_KOMALA, PetalburgWoods_EventScript_CherylNotKomala)
+	setvar(VAR_PETALBURG_WOODS_STATE, 20)
+	msgbox(format("Cheryl: Aww, so cute!"))
+	msgbox(format("I feel all snuggly just from looking!"))
+	PetalburgWoods_EventScript_CherylReward:
+	msgbox(format("You deserve a reward. It's dangerous to walk in the woods alone!"))
+	giveitem(ITEM_ABILITY_CAPSULE)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setvar(VAR_PETALBURG_WOODS_STATE, 30)
+	msgbox(format("Cheryl: There was something else…"))
+	goto(PetalburgWoods_EventScript_CherylBattle)
+	end
+}
+
+script PetalburgWoods_EventScript_CherylNoKomala {
+	msgbox(format("It's fine if you don't feel like searching for Komala. They're quite hard to find."))
+	call(PetalburgWoods_EventScript_CherylBattle)
+	release
+	end
+}
+
+script PetalburgWoods_EventScript_CherylNotKomala {
+	msgbox(format("No, I said show me Komala."))
+	release
+	end
+}
+
+script PetalburgWoods_EventScript_CherylBattle {
+	msgbox(format("I know! My Pokémon have been itching for a battle."))
+	msgbox(format("We can help you train your Pokémon to have lots of HP EVs!"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, PetalburgWoods_EventScript_CherylEnd)
+	trainerbattle_no_intro(TRAINER_CHERYL, PetalburgWoods_Text_CherylDefeat)
+	msgbox(format("Cheryl: Being a Trainer isn't easy. The more you battle, the more you discover."))
+	msgbox(format("But, you know? I love Pokémon for that, too!"))
+	msgbox(format("If you want to battle me in the future, I'll be in the upstairs of any Pokémon Center."))
+	msgbox(format("I'm not the only stat trainer in the region. You should work on finding all of us!"))
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	closemessage
+	switch(var(VAR_TEMP_2)) {
+		case 21:
+			applymovement(LOCALID_CHERYL, PetalburgWoods_Movement_CherylLeaveSouth)
+		case 22:
+		default:
+			applymovement(LOCALID_CHERYL, PetalburgWoods_Movement_CherylLeaveNorth)
+	}
+	waitmovement(0)
+	removeobject(LOCALID_CHERYL)
+	setvar(VAR_PETALBURG_WOODS_STATE, 40)
+	release
+	end
+}
+
+script PetalburgWoods_EventScript_CherylTrigger {
+	lock
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceLeft)
+	applymovement(LOCALID_CHERYL, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	setvar(VAR_PETALBURG_WOODS_STATE, 1)
+	goto(PetalburgWoods_EventScript_CherylIntro)
+	end
+}
+
+text PetalburgWoods_Text_CherylDefeat {
+	"Striking the right balance of offense\n"
+	"and defense… It's not easy to do."
+}
+
+movement PetalburgWoods_Movement_CherylLeaveNorth {
+	walk_up * 6
+}
+
+movement PetalburgWoods_Movement_CherylLeaveSouth {
+	walk_down * 4
+	walk_left * 7
+}
+
+script Common_EventScript_Cheryl {
+	lock
+	faceplayer
+	call(Common_EventScript_CherylBattle)
+	release
+	end
+}
+
+script Common_EventScript_CherylBattle {
+	msgbox(format("Cheryl: Ready to train your Pokémon's HP?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Common_EventScript_NopReturn)
+	special(HealPlayerParty)
+	trainerbattle_no_intro(TRAINER_CHERYL, PetalburgWoods_Text_CherylDefeat)
+	special(HealPlayerParty)
+	switch(var(VAR_NUM_BADGES)) {
+		case 4:
+		case 5:
+		case 6:
+			giveitem(ITEM_EXP_CANDY_L, 2)
+		case 7:
+		case 8:
+			giveitem(ITEM_EXP_CANDY_XL, 2)
+		default:
+			giveitem(ITEM_EXP_CANDY_M, 2)
+	}
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	return
+}
+
 script PetalburgWoods_EventScript_ForestHeartSign {
-	msgbox(format("Entrance to Forest Heart"), MSGBOX_SIGN)
+	msgbox(format("Forest Heart ahead"), MSGBOX_SIGN)
 	end
 }
 

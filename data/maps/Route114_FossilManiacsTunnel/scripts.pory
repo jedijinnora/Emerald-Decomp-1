@@ -154,6 +154,7 @@ script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistUnlockOtherTutor
 }
 
 script Route114_FossilManiacsTunnel_EventScript_GroundSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Ground-only double battle", 3)

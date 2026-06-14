@@ -1,0 +1,209 @@
+mapscripts HeavengrassTown_House3_MapScripts {}
+
+script HeavengrassTown_House3_EventScript_Lass {
+    lock
+    faceplayer
+
+    msgbox(format("I'll give you Mints in exchange for Shards."))
+    
+    CheckMintShards:
+	clearflag(FLAG_TEMP_1)
+	checkitem(ITEM_RED_SHARD)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Lonely Mint", ITEM_LONELY_MINT)
+        dynmultipush("Bold Mint", ITEM_BOLD_MINT)
+        dynmultipush("Modest Mint", ITEM_MODEST_MINT)
+        dynmultipush("Calm Mint", ITEM_CALM_MINT)
+        dynmultipush("Timid Mint", ITEM_TIMID_MINT)
+	}
+	checkitem(ITEM_GREEN_SHARD)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Adamant Mint", ITEM_ADAMANT_MINT)
+        dynmultipush("Impish Mint", ITEM_IMPISH_MINT)
+        dynmultipush("Mild Mint", ITEM_MILD_MINT)
+        dynmultipush("Gentle Mint", ITEM_GENTLE_MINT)
+        dynmultipush("Hasty Mint", ITEM_HASTY_MINT)
+	}
+	checkitem(ITEM_BLUE_SHARD)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Naughty Mint", ITEM_NAUGHTY_MINT)
+        dynmultipush("Lax Mint", ITEM_LAX_MINT)
+        dynmultipush("Rash Mint", ITEM_RASH_MINT)
+        dynmultipush("Careful Mint", ITEM_CAREFUL_MINT)
+        dynmultipush("Jolly Mint", ITEM_JOLLY_MINT)
+	}
+	checkitem(ITEM_YELLOW_SHARD)
+	if(var(VAR_RESULT)) {
+		setflag(FLAG_TEMP_1)
+		dynmultipush("Brave Mint", ITEM_BRAVE_MINT)
+        dynmultipush("Relaxed Mint", ITEM_RELAXED_MINT)
+        dynmultipush("Quiet Mint", ITEM_QUIET_MINT)
+        dynmultipush("Sassy Mint", ITEM_SASSY_MINT)
+        dynmultipush("Naive Mint", ITEM_NAIVE_MINT)
+	}
+    goto_if_unset(FLAG_TEMP_1, NoShards)
+
+    msgbox(format("Which Mint would you like to trade for?"))
+    dynmultistack(0,0,FALSE,6,TRUE,VAR_0x800A,DYN_MULTICHOICE_CB_SHOW_ITEM)
+	switch(var(VAR_RESULT)) {
+		case ITEM_LONELY_MINT:
+			bufferitemname(STR_VAR_1, ITEM_RED_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_LONELY_MINT)
+			setvar(VAR_TEMP_1, ITEM_RED_SHARD)
+			setvar(VAR_TEMP_2, ITEM_LONELY_MINT)
+        case ITEM_BOLD_MINT:
+			bufferitemname(STR_VAR_1, ITEM_RED_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_BOLD_MINT)
+			setvar(VAR_TEMP_1, ITEM_RED_SHARD)
+			setvar(VAR_TEMP_2, ITEM_BOLD_MINT)
+        case ITEM_MODEST_MINT:
+			bufferitemname(STR_VAR_1, ITEM_RED_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_MODEST_MINT)
+			setvar(VAR_TEMP_1, ITEM_RED_SHARD)
+			setvar(VAR_TEMP_2, ITEM_MODEST_MINT)
+        case ITEM_CALM_MINT:
+			bufferitemname(STR_VAR_1, ITEM_RED_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_CALM_MINT)
+			setvar(VAR_TEMP_1, ITEM_RED_SHARD)
+			setvar(VAR_TEMP_2, ITEM_CALM_MINT)
+        case ITEM_TIMID_MINT:
+			bufferitemname(STR_VAR_1, ITEM_RED_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_TIMID_MINT)
+			setvar(VAR_TEMP_1, ITEM_RED_SHARD)
+			setvar(VAR_TEMP_2, ITEM_TIMID_MINT)
+
+        case ITEM_ADAMANT_MINT:
+			bufferitemname(STR_VAR_1, ITEM_GREEN_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_ADAMANT_MINT)
+			setvar(VAR_TEMP_1, ITEM_GREEN_SHARD)
+			setvar(VAR_TEMP_2, ITEM_ADAMANT_MINT)
+        case ITEM_IMPISH_MINT:
+			bufferitemname(STR_VAR_1, ITEM_GREEN_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_IMPISH_MINT)
+			setvar(VAR_TEMP_1, ITEM_GREEN_SHARD)
+			setvar(VAR_TEMP_2, ITEM_IMPISH_MINT)
+        case ITEM_MILD_MINT:
+			bufferitemname(STR_VAR_1, ITEM_GREEN_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_MILD_MINT)
+			setvar(VAR_TEMP_1, ITEM_GREEN_SHARD)
+			setvar(VAR_TEMP_2, ITEM_MILD_MINT)
+        case ITEM_GENTLE_MINT:
+			bufferitemname(STR_VAR_1, ITEM_GREEN_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_GENTLE_MINT)
+			setvar(VAR_TEMP_1, ITEM_GREEN_SHARD)
+			setvar(VAR_TEMP_2, ITEM_GENTLE_MINT)
+        case ITEM_HASTY_MINT:
+			bufferitemname(STR_VAR_1, ITEM_GREEN_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_HASTY_MINT)
+			setvar(VAR_TEMP_1, ITEM_GREEN_SHARD)
+			setvar(VAR_TEMP_2, ITEM_HASTY_MINT)
+
+		case ITEM_NAUGHTY_MINT:
+			bufferitemname(STR_VAR_1, ITEM_BLUE_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_NAUGHTY_MINT)
+			setvar(VAR_TEMP_1, ITEM_BLUE_SHARD)
+			setvar(VAR_TEMP_2, ITEM_NAUGHTY_MINT)
+        case ITEM_LAX_MINT:
+			bufferitemname(STR_VAR_1, ITEM_BLUE_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_LAX_MINT)
+			setvar(VAR_TEMP_1, ITEM_BLUE_SHARD)
+			setvar(VAR_TEMP_2, ITEM_LAX_MINT)
+        case ITEM_RASH_MINT:
+			bufferitemname(STR_VAR_1, ITEM_BLUE_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_RASH_MINT)
+			setvar(VAR_TEMP_1, ITEM_BLUE_SHARD)
+			setvar(VAR_TEMP_2, ITEM_RASH_MINT)
+        case ITEM_CAREFUL_MINT:
+			bufferitemname(STR_VAR_1, ITEM_BLUE_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_CAREFUL_MINT)
+			setvar(VAR_TEMP_1, ITEM_BLUE_SHARD)
+			setvar(VAR_TEMP_2, ITEM_CAREFUL_MINT)
+        case ITEM_JOLLY_MINT:
+			bufferitemname(STR_VAR_1, ITEM_BLUE_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_JOLLY_MINT)
+			setvar(VAR_TEMP_1, ITEM_BLUE_SHARD)
+			setvar(VAR_TEMP_2, ITEM_JOLLY_MINT)
+
+		case ITEM_BRAVE_MINT:
+			bufferitemname(STR_VAR_1, ITEM_YELLOW_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_BRAVE_MINT)
+			setvar(VAR_TEMP_1, ITEM_YELLOW_SHARD)
+			setvar(VAR_TEMP_2, ITEM_BRAVE_MINT)
+        case ITEM_RELAXED_MINT:
+			bufferitemname(STR_VAR_1, ITEM_YELLOW_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_RELAXED_MINT)
+			setvar(VAR_TEMP_1, ITEM_YELLOW_SHARD)
+			setvar(VAR_TEMP_2, ITEM_RELAXED_MINT)
+        case ITEM_QUIET_MINT:
+			bufferitemname(STR_VAR_1, ITEM_YELLOW_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_QUIET_MINT)
+			setvar(VAR_TEMP_1, ITEM_YELLOW_SHARD)
+			setvar(VAR_TEMP_2, ITEM_QUIET_MINT)
+        case ITEM_SASSY_MINT:
+			bufferitemname(STR_VAR_1, ITEM_YELLOW_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_SASSY_MINT)
+			setvar(VAR_TEMP_1, ITEM_YELLOW_SHARD)
+			setvar(VAR_TEMP_2, ITEM_SASSY_MINT)
+        case ITEM_NAIVE_MINT:
+			bufferitemname(STR_VAR_1, ITEM_YELLOW_SHARD)
+			bufferitemname(STR_VAR_2, ITEM_NAIVE_MINT)
+			setvar(VAR_TEMP_1, ITEM_YELLOW_SHARD)
+			setvar(VAR_TEMP_2, ITEM_NAIVE_MINT)
+		
+		default:
+			release
+			end
+	}
+
+	msgbox(Route124_DivingTreasureHuntersHouse_Text_YoullTradeShardForStone, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == YES) {
+		giveitem(VAR_TEMP_2)
+		removeitem(VAR_TEMP_1)
+		msgbox(Route124_DivingTreasureHuntersHouse_Text_ItsADeal)
+	}
+	msgbox(Route124_DivingTreasureHuntersHouse_Text_TradeSomethingElse, MSGBOX_YESNO)
+	if(var(VAR_RESULT) == NO) {
+		goto(ShardGoodbye)
+	}
+	goto(CheckMintShards)
+
+    release
+    end
+}
+
+script HeavengrassTown_House3_EventScript_Minior {
+    lock
+    faceplayer
+    playmoncry(SPECIES_MINIOR, CRY_MODE_ENCOUNTER)
+    msgbox(format("Minior: !!!!"))
+    checkitem(ITEM_STAR_PIECE)
+    goto_if_eq(VAR_RESULT, YES, HeavengrassTown_House3_EventScript_MiniorShard)
+    release
+    end
+}
+
+script HeavengrassTown_House3_EventScript_MiniorShard {
+    random(4)
+    copyvar(VAR_TEMP_1, VAR_RESULT)
+    msgbox(format("Give Minior a Star Piece?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, Common_EventScript_NopReturn)
+    switch(var(VAR_TEMP_1)) {
+        case 0:
+            giveitem(ITEM_RED_SHARD)
+        case 1:
+            giveitem(ITEM_BLUE_SHARD)
+        case 2:
+            giveitem(ITEM_GREEN_SHARD)
+        case 3:
+            giveitem(ITEM_YELLOW_SHARD)
+        default:
+            msgbox(format("Something went wrong!"))
+    }
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    removeitem(ITEM_STAR_PIECE)
+    release
+    end
+}

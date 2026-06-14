@@ -1,6 +1,6 @@
 const LOCALID_BOY = 1
 const LOCALID_GENTLEMAN = 2
-const LOCALID_RIVAL = 9
+const LOCALID_RIVAL = 8
 
 //FLAG_TEMP_1A : Rival
 
@@ -371,7 +371,7 @@ script PetalburgCity_EventScript_GymBoy {
 			bufferspeciesname(STR_VAR_1, SPECIES_MELOETTA_PIROUETTE)
 			bufferspeciesname(STR_VAR_2, SPECIES_HELIOLISK)
 	}
-	msgbox("Against you she'd lead {STR_VAR_1}\nand have {STR_VAR_2} as her final Pokémon.")
+	msgbox("Against you her team could have\n{STR_VAR_1} and {STR_VAR_2}.")
 	release
 	end
 }

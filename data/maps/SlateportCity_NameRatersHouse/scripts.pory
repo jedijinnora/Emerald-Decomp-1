@@ -5,7 +5,7 @@ script SlateportCity_NameRatersHouse_EventScript_Scott {
 	faceplayer
 	msgbox(format("I've bought up property in several places across Hoenn."))
 	msgbox(format("In just a few short years you'll be begging to participate at my awesome Battle Tents and Battle Frontier."))
-	msgbox(format("Care to donate several billion dollars? No? I'll name something after you!"))
+	msgbox(format("Care to donate a few billion for my construction fund?\pNo?\pI'll put your name on a plaque, promise!"))
 	call(SlateportCity_NameRatersHouse_EventScript_BeginBeachBattle)
 	release
 	end

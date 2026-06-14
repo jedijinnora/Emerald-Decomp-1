@@ -14,7 +14,7 @@ script VictoryRoad_1F_OnTransition {
 }
 
 script VictoryRoad_1F_EventScript_SetupRivalGfx {
-	switch(var(VAR_RIVAL_CHOICE)) {
+	switch(var(VAR_VICTORY_ROAD_RIVAL_CHOICE)) {
 		case 1:
 		case 2:
 		case 3:
@@ -38,7 +38,7 @@ script VictoryRoad_1F_EventScript_HideRematchRival {
 script VictoryRoad_1F_EventScript_Rival {
 	lock
 	faceplayer
-	switch(var(VAR_RIVAL_CHOICE)) {
+	switch(var(VAR_VICTORY_ROAD_RIVAL_CHOICE)) {
 		case 1:
 		case 2:
 		case 3:

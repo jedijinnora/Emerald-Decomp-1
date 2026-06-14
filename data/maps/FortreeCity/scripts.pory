@@ -364,11 +364,9 @@ script FortreeCity_EventScript_OldMan {
 script FortreeCity_EventScript_GameboyKid {
 	lock
 	faceplayer
-	msgbox(format("I can tell you about all the Pokémon whose types have changed. Interested?"), MSGBOX_YESNO)
-	if(var(VAR_RESULT) == NO) {
-		msgbox(format("You're on your own!"))
-	}
-	//TODO: multichoice with all changed mons
+	msgbox(format("Don't you think Flygon and Salamence have their names switched?"))
+	msgbox(format("BA(by dra)GON, SHEL(l dra)GON, FLY(ing dra)GON - Bagon, Shelgon, Flygon."))
+	msgbox(format("Where does “Salamence” come from?"))
 	release
 	end
 }

@@ -173,6 +173,7 @@ script DewfordTown_House3_EventScript_DarkSpecialistUnlockOtherTutor {
 }
 
 script DewfordTown_House3_EventScript_DarkSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Dark-only double battle", 3)

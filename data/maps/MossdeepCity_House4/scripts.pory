@@ -174,35 +174,35 @@ script Common_EventScript_SecretStash {
 	msgbox(format("You looted a secret stash!"))
 	waitfanfare
 	// give vitamins
-	finditem(VAR_TEMP_D, 10)
+	giveitem(VAR_TEMP_D, 10)
 	// give two kinds of evo stone and a heart scale
 	// if not on hardcore difficulty
 	if(var(VAR_DIFFICULTY_SETTING) != 2) {
-		finditem(VAR_TEMP_E)
-		finditem(VAR_TEMP_F)
-		finditem(ITEM_HEART_SCALE)
+		giveitem(VAR_TEMP_E)
+		giveitem(VAR_TEMP_F)
+		giveitem(ITEM_HEART_SCALE)
 	}
 	//give random treasure
 	random(50)
 	if (var(VAR_RESULT) < 8) {
-		finditem(ITEM_STARDUST)
+		giveitem(ITEM_STARDUST)
 	} elif (var(VAR_RESULT) < 24) {
-		finditem(ITEM_STAR_PIECE)
+		giveitem(ITEM_STAR_PIECE)
 	} elif (var(VAR_RESULT) < 48) {
-		finditem(ITEM_NUGGET)
+		giveitem(ITEM_NUGGET)
 	} elif (var(VAR_RESULT) == 48) {
-		finditem(ITEM_BIG_NUGGET)
+		giveitem(ITEM_BIG_NUGGET)
 	} else {
-		finditem(ITEM_COMET_SHARD)
+		giveitem(ITEM_COMET_SHARD)
 	}
 	//give ability item or bottle cap
 	random(16)
 	if (var(VAR_RESULT) < 7) {
-		finditem(ITEM_BOTTLE_CAP)
+		giveitem(ITEM_BOTTLE_CAP)
 	} elif (var(VAR_RESULT) < 14) {
-		finditem(ITEM_ABILITY_CAPSULE)
+		giveitem(ITEM_ABILITY_CAPSULE)
 	} else {
-		finditem(ITEM_ABILITY_PATCH)
+		giveitem(ITEM_ABILITY_PATCH)
 	}
 	//give bottle caps
 	random(16)

@@ -142,6 +142,7 @@ script SlateportCity_House2_EventScript_PoisonSpecialistUnlockOtherTutor {
 }
 
 script SlateportCity_House2_EventScript_PoisonSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Poison-only double battle", 3)

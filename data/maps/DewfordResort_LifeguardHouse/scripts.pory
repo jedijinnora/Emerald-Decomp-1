@@ -241,6 +241,7 @@ script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistUnlockOtherTut
 }
 
 script DewfordResort_LifeguardHouse_EventScript_FightingSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Fighting-only double battle", 3)

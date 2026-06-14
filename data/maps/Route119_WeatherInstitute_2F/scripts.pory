@@ -76,27 +76,40 @@ script Route119_WeatherInstitute_2F_EventScript_TMScientist {
 	lock
 	faceplayer
 	checkitem(ITEM_TM32_SANDSTORM)
-	if(!var(VAR_RESULT) && defeated(TRAINER_WEATHER_TUTOR_SAND)) {
+	if(!var(VAR_RESULT)) {
 		setflag(FLAG_TEMP_1)
-		dynmultipush("TM32 Sandstorm", ITEM_TM32_SANDSTORM)
+		if (defeated(TRAINER_WEATHER_TUTOR_SAND)) {
+			setflag(FLAG_TEMP_2)
+			dynmultipush("TM32 Sandstorm", ITEM_TM32_SANDSTORM)
+		}
 	}
 	checkitem(ITEM_TM47_SUNNY_DAY)
-	if(!var(VAR_RESULT) && defeated(TRAINER_WEATHER_TUTOR_SUN)) {
+	if(!var(VAR_RESULT)) {
 		setflag(FLAG_TEMP_1)
-		dynmultipush("TM47 Sunny Day", ITEM_TM47_SUNNY_DAY)
+		if (defeated(TRAINER_WEATHER_TUTOR_SUN)) {
+			setflag(FLAG_TEMP_2)
+			dynmultipush("TM47 Sunny Day", ITEM_TM47_SUNNY_DAY)
+		}
 	}
 	checkitem(ITEM_TM53_RAIN_DANCE)
-	if(!var(VAR_RESULT) && defeated(TRAINER_WEATHER_TUTOR_RAIN)) {
+	if(!var(VAR_RESULT)) {
 		setflag(FLAG_TEMP_1)
-		dynmultipush("TM53 Rain Dance", ITEM_TM53_RAIN_DANCE)
+		if (defeated(TRAINER_WEATHER_TUTOR_RAIN)) {
+			setflag(FLAG_TEMP_2)
+			dynmultipush("TM53 Rain Dance", ITEM_TM53_RAIN_DANCE)
+		}
 	}
 	checkitem(ITEM_TM83_HAIL)
-	if(!var(VAR_RESULT) && defeated(TRAINER_WEATHER_TUTOR_HAIL)) {
+	if(!var(VAR_RESULT)) {
 		setflag(FLAG_TEMP_1)
-		dynmultipush("TM83 Hail", ITEM_TM83_HAIL)
+		if (defeated(TRAINER_WEATHER_TUTOR_HAIL)) {
+			setflag(FLAG_TEMP_2)
+			dynmultipush("TM83 Hail", ITEM_TM83_HAIL)
+		}
 	}
 	goto_if_unset(FLAG_TEMP_1, TMsGone)
 	msgbox(format("I exchange colored Shards for weather TMs once you've defeated the corresponding weather expert downstairs."))
+	goto_if_unset(FLAG_TEMP_2, FightWeatherExperts)
 	dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_SHOW_ITEM)
 	switch(var(VAR_RESULT)) {
 		case ITEM_TM32_SANDSTORM:
@@ -158,6 +171,11 @@ script Route119_WeatherInstitute_2F_EventScript_TMScientist {
 	}
 	TMsGone:
 	msgbox(format("I hope you're getting good use out of those TMs!"))
+	release
+	end
+
+	FightWeatherExperts:
+	msgbox(format("You haven't defeated any of them yet!"))
 	release
 	end
 }

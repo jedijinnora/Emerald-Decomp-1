@@ -635,7 +635,7 @@ PetalburgCity_Gym_Text_GeorgeDefeat:
 
 PetalburgCity_Gym_Text_GeorgePostBattle:
 	.string "I should have expected no less from\n"
-	.string "our Leader's kid.\p"
+	.string "a prodigy like you.\p"
 	.string "No, wait! A Trainer's abilities are\n"
 	.string "earned only through effort.\p"
 	.string "I lost because my own efforts\n"
@@ -648,7 +648,7 @@ PetalburgCity_Gym_Text_GeorgePostBadge:
 
 PetalburgCity_Gym_Text_BerkeIntro:
 	.string "I'm not going to take it easy just\n"
-	.string "because you're our Leader's kid.\p"
+	.string "because you're a little kid.\p"
 	.string "I'll show you how horrid it is for\n"
 	.string "a Pokémon to take a critical hit!$"
 
@@ -657,15 +657,15 @@ PetalburgCity_Gym_Text_BerkeDefeat:
 	.string "You're the real deal.$"
 
 PetalburgCity_Gym_Text_BerkePostBattle:
-	.string "Your father really is strong.\n"
-	.string "He's a Trainer worth my respect.\p"
+	.string "Our Leader really is strong.\n"
+	.string "She's a Trainer worth my respect.\p"
 	.string "And, I sense the same glow coming\n"
-	.string "from you as your father.\p"
+	.string "from you as our Leader.\p"
 	.string "I hope that you'll stage a terrific\n"
-	.string "battle with your father!$"
+	.string "battle with our Gym Leader!$"
 
 PetalburgCity_Gym_Text_BerkePostBadge:
-	.string "Since your dad became the Leader,\n"
+	.string "Since Greta became the Leader,\n"
 	.string "the Trainers of Petalburg City have\l"
 	.string "become a lot tougher.$"
 
@@ -715,17 +715,17 @@ PetalburgCity_Gym_Text_AlexiaPostBadge:
 PetalburgCity_Gym_Text_JodyIntro:
 	.string "Our Gym Leader told us to go all out\n"
 	.string "and beat you.\p"
-	.string "Even if you happen to be the\n"
-	.string "Leader's kid!$"
+	.string "Even if you happen to be some\n"
+	.string "little kid!$"
 
 PetalburgCity_Gym_Text_JodyDefeat:
 	.string "But… I went all out!$"
 
 PetalburgCity_Gym_Text_JodyPostBattle:
 	.string "The way you use your Pokémon…\n"
-	.string "It's like your father's style.\p"
-	.string "Go on through! The Gym Leader, your\n"
-	.string "father, is waiting!$"
+	.string "It's a bit like Greta's style.\p"
+	.string "Go on through! The Gym Leader is\n"
+	.string "waiting!$"
 
 PetalburgCity_Gym_Text_JodyPostBadge:
 	.string "Sure, it's fine to make your Pokémon\n"

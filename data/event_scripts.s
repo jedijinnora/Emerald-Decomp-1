@@ -1411,3 +1411,15 @@ Common_EventScript_DisableBPReward::
 	.include "data/maps/Route114_Edge/scripts.inc"
 
 	.include "data/maps/SummerSea_House1/scripts.inc"
+
+	.include "data/maps/HeavengrassTown_PokemonCenter_1F/scripts.inc"
+
+	.include "data/maps/HeavengrassTown_PokemonCenter_2F/scripts.inc"
+
+	.include "data/maps/HeavengrassTown_House1/scripts.inc"
+
+	.include "data/maps/HeavengrassTown_House2/scripts.inc"
+
+	.include "data/maps/HeavengrassTown_House3/scripts.inc"
+
+	.include "data/maps/HeavengrassTown_Dojo/scripts.inc"

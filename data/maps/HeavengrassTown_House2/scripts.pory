@@ -1,0 +1,96 @@
+mapscripts HeavengrassTown_House2_MapScripts {}
+
+script HeavengrassTown_House2_EventScript_Maniac {
+    lock
+    faceplayer
+    msgbox(format("I teach moves that strike 2-5 times! I know you want them!"))
+    dynmultipush("Move Tutor", 1)
+    dynmultipush("Battle", 2)
+    dynmultistack(0,0,FALSE,6,TRUE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 1:
+            call(HeavengrassTown_House2_EventScript_MultiHitTutor)
+        case 2:
+            call(HeavengrassTown_House2_EventScript_MultiHitBattle)
+        default:
+
+    }
+    msgbox(format("Come back! Don't you want my best multi-hit moves?"))
+    release
+    end
+}
+
+script HeavengrassTown_House2_EventScript_MultiHitTutor {
+    dynmultipush("Double Slap", 11)
+    dynmultipush("Fury Swipes", 12)
+    dynmultipush("Fury Attack", 13)
+    if(defeated(TRAINER_MULTI_HIT_TUTOR)) {
+        dynmultipush("Arm Thrust", 21)
+        dynmultipush("Beat Up", 22)
+        dynmultipush("Bone Rush", 23)
+        dynmultipush("Bullet Seed", 24)
+        dynmultipush("Icicle Spear", 25)
+        dynmultipush("Pin Missile", 26)
+        dynmultipush("Rock Blast", 27)
+        dynmultipush("Scale Shot", 28)
+        dynmultipush("Spike Cannon", 29)
+        dynmultipush("Tail Slap", 30)
+        dynmultipush("Water Shuriken", 31)
+    }
+    msgbox(format("Which move should I teach?"))
+    dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
+    switch(var(VAR_RESULT)) {
+        case 11:
+            setvar(VAR_0x8005, MOVE_DOUBLE_SLAP)
+        case 12:
+            setvar(VAR_0x8005, MOVE_FURY_SWIPES)
+        case 13:
+            setvar(VAR_0x8005, MOVE_FURY_ATTACK)
+        case 21:
+            setvar(VAR_0x8005, MOVE_ARM_THRUST)
+        case 22:
+            setvar(VAR_0x8005, MOVE_BEAT_UP)
+        case 23:
+            setvar(VAR_0x8005, MOVE_BONE_RUSH)
+        case 24:
+            setvar(VAR_0x8005, MOVE_BULLET_SEED)
+        case 25:
+            setvar(VAR_0x8005, MOVE_ICICLE_SPEAR)
+        case 26:
+            setvar(VAR_0x8005, MOVE_PIN_MISSILE)
+        case 27:
+            setvar(VAR_0x8005, MOVE_ROCK_BLAST)
+        case 28:
+            setvar(VAR_0x8005, MOVE_SCALE_SHOT)
+        case 29:
+            setvar(VAR_0x8005, MOVE_SPIKE_CANNON)
+        case 30:
+            setvar(VAR_0x8005, MOVE_TAIL_SLAP)
+        case 31:
+            setvar(VAR_0x8005, MOVE_WATER_SHURIKEN)
+        default:
+            return
+    }
+    call(MoveTutor_EventScript_OpenPartyMenu)
+    msgbox(format("Continue teaching moves?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, YES, HeavengrassTown_House2_EventScript_MultiHitTutor)
+    return
+}
+
+script HeavengrassTown_House2_EventScript_MultiHitBattle {
+    call(Common_EventScript_DisableBPReward)
+    msgbox(format("My Pokémon can strike again and again and again and again! Want to see?"), MSGBOX_YESNO)
+    goto_if_eq(VAR_RESULT, NO, HeavengrassTown_House2_EventScript_MultiHitAww)
+    trainerbattle_no_intro(TRAINER_MULTI_HIT_TUTOR, HeavengrassTown_House2_Text_MultiHitDefeat)
+    return
+}
+
+script HeavengrassTown_House2_EventScript_MultiHitAww {
+    msgbox(format("No? I guess you aren't much of a skilled technician."))
+    release
+    end
+}
+
+text HeavengrassTown_House2_Text_MultiHitDefeat {
+    "Let's go again!"
+}

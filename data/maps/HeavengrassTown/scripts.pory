@@ -13,7 +13,22 @@ script HeavengrassTown_EventScript_VisitHeavengrass {
 	return
 }
 
+script HeavengrassTown_EventScript_OldMan {
+    msgbox(format("Be careful of the long grass. The edges can slash you, just like paper cuts!"), MSGBOX_NPC)
+    end
+}
+
+script HeavengrassTown_EventScript_Youngster {
+    msgbox(format("When night comes, I like to lay back in the lush grass and watch the fireflies dance."), MSGBOX_NPC)
+    end
+}
+
 script HeavengrassTown_EventScript_HeavengrassTownSign {
     msgbox(format("Heavengrass Town\n “Where wind blows over a sea of green.”"), MSGBOX_SIGN)
+    end
+}
+
+script HeavengrassTown_EventScript_DojoSign {
+    msgbox(format("Heavengrass Dojo\n “Training the ultimate warriors!”"), MSGBOX_SIGN)
     end
 }

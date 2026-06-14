@@ -158,13 +158,13 @@ text ValleyOfSteel_Text_YinsenDefeat {
 	"Ack! Some dust got in my mouth!"
 }
 text ValleyOfSteel_Text_YinsenPostBattle {
-	"Mr. Stark, I don't feel so good."
+	"Mr. Stark, I don't feel so good.\n"
 	"Maybe it's all the toxic dust?"
 }
 
 script ValleyOfSteel_EventScript_Vanko {
 	trainerbattle_single(TRAINER_VANKO, ValleyOfSteel_Text_VankoIntro, ValleyOfSteel_Text_VankoDefeat)
-	msgbox(ValleyOfSteel_Text_YinsenPostBattle, MSGBOX_AUTOCLOSE)
+	msgbox(ValleyOfSteel_Text_VankoPostBattle, MSGBOX_AUTOCLOSE)
 	call(ValleyOfSteel_EventScript_TryYinsenRematch)
 	release
 	end

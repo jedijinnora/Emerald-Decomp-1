@@ -111,7 +111,7 @@ script EverGrandeCity_NatureShop_EventScript_MintBoy {
         release
         end
     }
-    msgbox(format("In Emerald Beryl if a Pokémon has a Sheen value other than 0, it overrides the personality value when calculating nature."))
+    msgbox(format("In Emerald++ if a Pokémon has a Sheen value other than 0, it overrides the personality value when calculating nature."))
     msgbox(format("This lets nature modification work without having to change the personality value or the Pokémon struct."))
     msgbox(format("Since Sheen is used for Mint natures, it can't be used for its original purpose and you can feed a Pokémon as many {POKEBLOCK}s as you want."))
     msgbox(format("Nature values max out at 25 but Sheen maxes out at 255, so Contests and the Condition summary screen will behave differently."))

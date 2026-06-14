@@ -12,7 +12,11 @@ script OldaleTown_NatureShop_EventScript_Clerk {
 	lock
     msgbox(gText_HowMayIServeYou)
 	waitmessage
-	pokemart(Oldale_NatureShop_Mart)
+	if (flag(FLAG_SYS_GAME_CLEAR)) {
+		pokemart(Oldale_NatureShop_MartChamp)
+	} else {
+		pokemart(Oldale_NatureShop_Mart)
+	}
 	msgbox(gText_PleaseComeAgain)
 	waitmessage
 	release
@@ -21,14 +25,21 @@ script OldaleTown_NatureShop_EventScript_Clerk {
 mart Oldale_NatureShop_Mart {
     ITEM_FRESH_WATER
 	ITEM_BERRY_JUICE
-    ITEM_MIRROR_HERB
-    ITEM_WHITE_HERB
-    ITEM_MENTAL_HERB
-    ITEM_POWER_HERB
+    ITEM_ABSORB_BULB
+    ITEM_LUMINOUS_MOSS
+}
+
+mart Oldale_NatureShop_MartChamp {
+    ITEM_FRESH_WATER
+	ITEM_BERRY_JUICE
     ITEM_ABSORB_BULB
     ITEM_BIG_ROOT
     ITEM_LUMINOUS_MOSS
     ITEM_SHED_SHELL
+    ITEM_WHITE_HERB
+    ITEM_MENTAL_HERB
+    ITEM_POWER_HERB
+	ITEM_MIRROR_HERB
 }
 
 script OldaleTown_NatureShop_EventScript_GrassStarterLass {

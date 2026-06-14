@@ -27,8 +27,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 7,
-      "y": 32,
+      "x": 21,
+      "y": 47,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -78,7 +78,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_MAN_5",
+      "graphics_id": "OBJ_EVENT_GFX_BIRD_KEEPER",
       "x": 10,
       "y": 50,
       "elevation": 0,
@@ -102,6 +102,32 @@
       "trainer_sight_or_berry_tree_id": "6",
       "script": "CrossgateHills_EventScript_Hunter",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 18,
+      "y": 55,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM22_ACROBATICS",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_TM22"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 9,
+      "y": 38,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_SHARP_BEAK",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_CROSSGATE_HILLS_SHARP_BEAK"
     }
   ],
   "warp_events": [
@@ -161,6 +187,34 @@
       "type": "weather",
       "x": 29,
       "y": 38,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
+    },
+    {
+      "type": "weather",
+      "x": 17,
+      "y": 54,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 17,
+      "y": 52,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
+    },
+    {
+      "type": "weather",
+      "x": 29,
+      "y": 22,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
+    },
+    {
+      "type": "weather",
+      "x": 29,
+      "y": 23,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_ROUTE119_CYCLE"
     }

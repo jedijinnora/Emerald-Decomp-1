@@ -100,6 +100,8 @@ script MossdeepCity_StevensHouse_EventScript_SteelSpecialistTutor {
             setvar(VAR_0x8005, MOVE_MAGNET_BOMB)
         case 43:
             setvar(VAR_0x8005, MOVE_METAL_CLAW)
+        case 44:
+            setvar(VAR_0x8005, MOVE_STEEL_ROLLER)
         default:
             return
     }
@@ -154,10 +156,14 @@ script MossdeepCity_StevensHouse_EventScript_SteelSpecialistUnlockOtherTutor {
     if (flag(FLAG_TUTOR_BASIC_MOVES)) {
         dynmultipush("Metal Claw", 43)
     }
+    if (flag(FLAG_TUTOR_TERRAIN_MOVES)) {
+        dynmultipush("Steel Roller", 44)
+    }
     return
 }
 
 script MossdeepCity_StevensHouse_EventScript_SteelSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Steel-only double battle", 3)

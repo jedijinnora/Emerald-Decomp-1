@@ -1,5 +1,5 @@
 const LOCALID_GLICK = 1
-const LOCALID_SHIRONA = 4
+const LOCALID_CYNTHIA = 4
 
 mapscripts VictoryRoad_B2F_MapScripts {
 	MAP_SCRIPT_ON_LOAD : VictoryRoad_B2F_OnLoad
@@ -12,7 +12,7 @@ script VictoryRoad_B2F_OnLoad {
 
 script VictoryRoad_B2F_OnTransition {
 	call_if_set(FLAG_CHALLENGE_HM_NONE, VictoryRoad_B2F_EventScript_MoveTrainers)
-	call_if_set(FLAG_MET_SHIRONA, VictoryRoad_B2F_EventScript_MoveShirona)
+	call_if_set(FLAG_MET_CYNTHIA, VictoryRoad_B2F_EventScript_MoveCynthia)
 	call(Common_EventScript_DisableBPReward)
 	end
 }
@@ -33,9 +33,9 @@ script VictoryRoad_B2F_EventScript_MoveTrainers {
 	return
 }
 
-script VictoryRoad_B2F_EventScript_MoveShirona {
-	setobjectxyperm(LOCALID_SHIRONA, 56, 18)
-	setobjectmovementtype(LOCALID_SHIRONA, MOVEMENT_TYPE_WANDER_AROUND)
+script VictoryRoad_B2F_EventScript_MoveCynthia {
+	setobjectxyperm(LOCALID_CYNTHIA, 65, 16)
+	setobjectmovementtype(LOCALID_CYNTHIA, MOVEMENT_TYPE_FACE_DOWN)
 	return
 }
 
@@ -124,9 +124,9 @@ script VictoryRoad_B2F_EventScript_TryHopeRematch {
 	return
 }
 
-script VictoryRoad_B2F_EventScript_Shirona {
+script VictoryRoad_B2F_EventScript_Cynthia {
 	lock
-	goto_if_set(FLAG_MET_SHIRONA, VictoryRoad_B2F_EventScript_TryShironaRematch)
+	goto_if_set(FLAG_MET_CYNTHIA, VictoryRoad_B2F_EventScript_TryCynthiaRematch)
 	msgbox(format("The ancient carvings found in the Hoenn region seem distantly related to those present in Celestica ruins in Sinnoh…"))
 	msgbox(format("I wonder how much communication there was between our regions long ago?"))
 	faceplayer
@@ -137,51 +137,50 @@ script VictoryRoad_B2F_EventScript_Shirona {
 		msgbox(format("You're here to challenge the Pokémon League? How nice."))
 	}
 	msgbox(format("I'm something of a strong Trainer myself."))
-	trainerbattle_no_intro(TRAINER_SHIRONA, VictoryRoad_B2F_Text_ShironaDefeat)
+	trainerbattle_no_intro(TRAINER_CYNTHIA, VictoryRoad_B2F_Text_CynthiaDefeat)
 	msgbox(format("That was excellent. Truly, an outstanding battle."))
 	msgbox(format("Oh, I've finished examining these ruins. Here, I'll let you by."))
 	waitmessage
 	waitbuttonpress
-	applymovement(LOCALID_SHIRONA, VictoryRoad_B2F_Movement_ShironaAway)
+	applymovement(LOCALID_CYNTHIA, VictoryRoad_B2F_Movement_CynthiaAway)
 	waitmovement(0)
-	setobjectmovementtype(LOCALID_SHIRONA, MOVEMENT_TYPE_FACE_UP)
-	setflag(FLAG_MET_SHIRONA)
+	setobjectmovementtype(LOCALID_CYNTHIA, MOVEMENT_TYPE_FACE_DOWN)
+	setflag(FLAG_MET_CYNTHIA)
 	release
 	end
 }
 
-text VictoryRoad_B2F_Text_ShironaDefeat {
+text VictoryRoad_B2F_Text_CynthiaDefeat {
 	"What a powerful Trainer!"
 }
 
-movement VictoryRoad_B2F_Movement_ShironaAway {
-	walk_right
-	walk_right
-	walk_right
-	walk_in_place_up
+movement VictoryRoad_B2F_Movement_CynthiaAway {
+	walk_right * 4
+	walk_up * 2
+	walk_in_place_down
 	step_end
 }
 
-script VictoryRoad_B2F_EventScript_TryShironaRematch {
+script VictoryRoad_B2F_EventScript_TryCynthiaRematch {
 	faceplayer
-	msgbox(format("I enjoy Pokémon battles and exploring ancient history."))
-	call_if_unset(FLAG_DAILY_SHIRONA_REMATCH, VictoryRoad_B2F_EventScript_ShironaRematch)
+	msgbox(format("Cynthia: I enjoy Pokémon battles and exploring ancient history."))
+	call_if_unset(FLAG_DAILY_CYNTHIA_REMATCH, VictoryRoad_B2F_EventScript_CynthiaRematch)
 	msgbox(format("I'm thinking of traveling to Unova next. I've heard of some amazing underwater ruins near Undella Town."))
 	release
 	end
 }
 
-script VictoryRoad_B2F_EventScript_ShironaRematch {
+script VictoryRoad_B2F_EventScript_CynthiaRematch {
 	msgbox(format("Are you interested in battling again?"), MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, NO, Common_EventScript_NopReturn)
-	setvar(VAR_0x8003, TRAINER_SHIRONA)
+	setvar(VAR_0x8003, TRAINER_CYNTHIA)
 	setvar(VAR_0x8004, 5)
 	call(Common_EventScript_CheckRecentRematchesSetBP)
-	trainerbattle_no_intro(TRAINER_SHIRONA, VictoryRoad_B2F_Text_ShironaDefeat)
-	msgbox(format("Once again, you prove the skill and teamwork of your Pokémon. Here, I'd like you to have these."))
+	trainerbattle_no_intro(TRAINER_CYNTHIA, VictoryRoad_B2F_Text_CynthiaDefeat)
+	msgbox(format("Cynthia: Once again, you prove the skill and teamwork of your Pokémon. Here, I'd like you to have these."))
 	giveitem(ITEM_HEART_SCALE, 5)
 	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
-	setflag(FLAG_DAILY_SHIRONA_REMATCH)
+	setflag(FLAG_DAILY_CYNTHIA_REMATCH)
 	msgbox(format("I'll stick around a bit longer if I can keep finding tough Trainers like you!"))
 	return
 }

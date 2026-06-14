@@ -4,13 +4,164 @@ mapscripts GraniteCave_1F_MapScripts {
 
 script GraniteCave_1F_OnTransition {
 	call(Common_EventScript_DisableBPReward)
+	call_if_ge(VAR_GRANITE_CAVE_STATE, 40, GraniteCave_1F_EventScript_HideRiley)
 	end
+}
+
+const LOCALID_RILEY = 5
+
+script GraniteCave_1F_EventScript_HideRiley {
+	setflag(FLAG_TEMP_11)
 }
 
 script GraniteCave_1F_EventScript_Hiker {
 	msgbox(format("Did you know? Flash will activate automatically if you have the HM and a Pokémon that could learn it in your party!"), MSGBOX_NPC)
 	release
 	end
+}
+
+script GraniteCave_1F_EventScript_Riley {
+	lock
+	faceplayer
+	switch(var(VAR_GRANITE_CAVE_STATE)) {
+		case 0:
+		case 1:
+			goto(GraniteCave_1F_EventScript_RileyIntro)
+		case 10:
+			goto(GraniteCave_1F_EventScript_RileyShowLucario)
+		case 20:
+			goto(GraniteCave_1F_EventScript_RileyReward)
+		default:
+			goto(GraniteCave_1F_EventScript_RileyBattle)
+	}
+	GraniteCave_1F_EventScript_RileylEnd:
+	release
+	end
+}
+
+script GraniteCave_1F_EventScript_RileyIntro {
+	msgbox(format("A new Trainer! Ooh, you have a strong aura."))
+	msgbox(format("I'm Riley. Mines and caves are my favorite places to train."))
+	msgbox(format("Riley: I once spent several months straight training deep inside Iron Island!"))
+	msgbox(format("Do you know the Pokémon Lucario?"))
+	msgbox(format("Not only are they strong battlers, they can sense the sort of person you are."))
+	msgbox(format("If you show me one, I'll give you a reward."))
+	setvar(VAR_GRANITE_CAVE_STATE, 10)
+	goto(GraniteCave_1F_EventScript_RileylEnd)
+}
+
+script GraniteCave_1F_EventScript_RileyShowLucario {
+	msgbox(format("Oh? Do you have a Lucario to show me?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, GraniteCave_1F_EventScript_RileyNoLucario)
+	special(ChoosePartyMon)
+	waitstate
+	lock
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, GraniteCave_1F_EventScript_RileyNoLucario)
+	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	goto_if_ne(VAR_RESULT, SPECIES_LUCARIO, GraniteCave_1F_EventScript_RileyNotLucario)
+	setvar(VAR_GRANITE_CAVE_STATE, 20)
+	msgbox(format("Riley: Yes! I can feel the strength of your bond."))
+	msgbox(format("I hope you will continue to train with Lucario!"))
+	GraniteCave_1F_EventScript_RileyReward:
+	msgbox(format("You deserve a reward. I hope you'll accept it as a token of our friendship."))
+	giveitem(ITEM_ABILITY_CAPSULE)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setvar(VAR_GRANITE_CAVE_STATE, 30)
+	msgbox(format("Riley: One more thing…"))
+	goto(GraniteCave_1F_EventScript_RileyBattle)
+	end
+}
+
+script GraniteCave_1F_EventScript_RileyNoLucario {
+	msgbox(format("Lucario are able to feel the aura inside humans."))
+	msgbox(format("That makes them skilled at picking worthy Trainers!"))
+	call(GraniteCave_1F_EventScript_RileyBattle)
+	release
+	end
+}
+
+script GraniteCave_1F_EventScript_RileyNotLucario {
+	msgbox(format("No, I said show me a Lucario."))
+	release
+	end
+}
+
+script GraniteCave_1F_EventScript_RileyBattle {
+	msgbox(format("If it's all right with you, I'd like to challenge you to a battle right now."))
+	msgbox(format("We can help you train your Pokémon to have lots of Attack EVs!"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, PetalburgWoods_EventScript_CherylEnd)
+	trainerbattle_no_intro(TRAINER_RILEY, GraniteCave_1F_Text_RileyDefeat)
+	msgbox(format("Riley: Know your enemy. If you know your opponent's Pokémon and what moves they use…"))
+	msgbox(format("If you have intelligence like that, your chances of winning are much improved."))
+	msgbox(format("If you want to battle me in the future, I'll be in the upstairs of any Pokémon Center."))
+	msgbox(format("I'm not the only stat trainer in the region. You should work on finding all of us!"))
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	closemessage
+	switch(var(VAR_TEMP_1)) {
+		case 8:
+			applymovement(LOCALID_RILEY, GraniteCave_1F_Movement_RileyLeaveSouth)
+		default:
+			applymovement(LOCALID_RILEY, GraniteCave_1F_Movement_RileyLeaveNorth)
+	}
+	waitmovement(0)
+	removeobject(LOCALID_RILEY)
+	setvar(VAR_GRANITE_CAVE_STATE, 40)
+	release
+	end
+}
+
+script GraniteCave_1F_EventScript_RileyTrigger {
+	lock
+	applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceLeft)
+	applymovement(LOCALID_RILEY, Common_Movement_WalkInPlaceRight)
+	waitmovement(0)
+	setvar(VAR_GRANITE_CAVE_STATE, 1)
+	goto(GraniteCave_1F_EventScript_RileyIntro)
+	end
+}
+
+text GraniteCave_1F_Text_RileyDefeat {
+	"At times we battle, and sometimes we\n"
+	"team up.\n"
+	"It's great how Trainers can interact."
+}
+
+movement GraniteCave_1F_Movement_RileyLeaveNorth {
+	walk_right * 8
+}
+
+movement GraniteCave_1F_Movement_RileyLeaveSouth {
+	walk_down * 6
+}
+
+
+script Common_EventScript_Riley {
+	lock
+	faceplayer
+	call(Common_EventScript_RileyBattle)
+	release
+	end
+}
+
+script Common_EventScript_RileyBattle {
+	msgbox(format("Riley: Ready to train your Pokémon's Attack?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Common_EventScript_NopReturn)
+	special(HealPlayerParty)
+	trainerbattle_no_intro(TRAINER_RILEY, GraniteCave_1F_Text_RileyDefeat)
+	special(HealPlayerParty)
+	switch(var(VAR_NUM_BADGES)) {
+		case 4:
+		case 5:
+		case 6:
+			giveitem(ITEM_EXP_CANDY_L, 2)
+		case 7:
+		case 8:
+			giveitem(ITEM_EXP_CANDY_XL, 2)
+		default:
+			giveitem(ITEM_EXP_CANDY_M, 2)
+	}
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	return
 }
 
 script GraniteCave_1F_EventScript_Igor {

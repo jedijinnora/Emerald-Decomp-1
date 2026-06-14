@@ -65,7 +65,7 @@ script EverGrandeCity_House3_EventScript_IceSpecialistTutor {
         case 11:
             setvar(VAR_0x8005, MOVE_AURORA_BEAM)
         case 12:
-            setvar(VAR_0x8005, MOVE_ICE_SPINNER)
+            setvar(VAR_0x8005, MOVE_ICE_HAMMER)
         case 21:
             setvar(VAR_0x8005, MOVE_ICE_SHARD)
         case 22:
@@ -112,7 +112,7 @@ script EverGrandeCity_House3_EventScript_IceSpecialistCheckMoves {
 
 script EverGrandeCity_House3_EventScript_IceSpecialistInitialUnlock {
     dynmultipush("Aurora Beam", 11)
-    dynmultipush("Ice Spinner", 12)
+    dynmultipush("Ice Hammer", 12)
     return
 }
 
@@ -148,6 +148,7 @@ script EverGrandeCity_House3_EventScript_IceSpecialistUnlockOtherTutor {
 }
 
 script EverGrandeCity_House3_EventScript_IceSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Ice-only double battle", 3)
@@ -171,14 +172,14 @@ script EverGrandeCity_House3_EventScript_IceSpecialistBattle {
 
 script EverGrandeCity_House3_EventScript_InitialBattle {
     if(!defeated(TRAINER_ELLIE_INITIAL)) {
-        msgbox(format("Winning a standard double battle will unlock the tutor moves Aurora Beam and Ice Spinner."))
+        msgbox(format("Winning a standard double battle will unlock the tutor moves Aurora Beam and Ice Hammer."))
         setflag(FLAG_TEMP_11)
     }
     msgbox(format("Ready to face the power of winter?"), MSGBOX_YESNO)
     goto_if_eq(VAR_RESULT, NO, EverGrandeCity_House3_EventScript_IceSpecialistMenu)
     trainerbattle_no_intro(TRAINER_ELLIE_INITIAL, EverGrandeCity_House3_Text_EllieDefeated)
     if(flag(FLAG_TEMP_11)) {
-        msgbox(format("Added Aurora Beam and Ice Spinner to the tutor list."))
+        msgbox(format("Added Aurora Beam and Ice Hammer to the tutor list."))
         clearflag(FLAG_TEMP_11)
     }
     return

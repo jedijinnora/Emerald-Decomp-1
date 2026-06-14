@@ -2,7 +2,7 @@
   "id": "MAP_HEAVENGRASS_TOWN",
   "name": "HeavengrassTown",
   "layout": "LAYOUT_HEAVENGRASS_TOWN",
-  "music": "MUS_FORTREE",
+  "music": "MUS_B_ARENA",
   "region_map_section": "MAPSEC_HEAVENGRASS_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -20,40 +20,72 @@
     },
     {
       "map": "MAP_SEASIDE_MEADOW",
-      "offset": -10,
+      "offset": -18,
       "direction": "down"
     }
   ],
   "object_events": [
-
+    {
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": 15,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_range_x": 2,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HeavengrassTown_EventScript_Youngster",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
+      "x": 12,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HeavengrassTown_EventScript_OldMan",
+      "flag": "0"
+    }
   ],
   "warp_events": [
     {
-      "x": 17,
-      "y": 23,
+      "x": 19,
+      "y": 29,
       "elevation": 0,
-      "dest_map": "MAP_HEAVENGRASS_TOWN",
+      "dest_map": "MAP_HEAVENGRASS_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 2,
-      "y": 25,
+      "x": 4,
+      "y": 31,
       "elevation": 0,
-      "dest_map": "MAP_HEAVENGRASS_TOWN",
+      "dest_map": "MAP_HEAVENGRASS_TOWN_HOUSE1",
       "dest_warp_id": "0"
     },
     {
-      "x": 6,
-      "y": 16,
+      "x": 7,
+      "y": 22,
       "elevation": 0,
-      "dest_map": "MAP_HEAVENGRASS_TOWN",
+      "dest_map": "MAP_HEAVENGRASS_TOWN_HOUSE2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_HEAVENGRASS_TOWN_HOUSE3",
       "dest_warp_id": "0"
     },
     {
       "x": 12,
-      "y": 15,
+      "y": 13,
       "elevation": 0,
-      "dest_map": "MAP_HEAVENGRASS_TOWN",
+      "dest_map": "MAP_HEAVENGRASS_TOWN_DOJO",
       "dest_warp_id": "0"
     }
   ],
@@ -63,27 +95,35 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 9,
-      "y": 23,
+      "x": 10,
+      "y": 29,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "HeavengrassTown_EventScript_HeavengrassTownSign"
     },
     {
       "type": "sign",
-      "x": 18,
-      "y": 23,
+      "x": 20,
+      "y": 29,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
     },
     {
       "type": "sign",
-      "x": 19,
-      "y": 23,
+      "x": 21,
+      "y": 29,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "HeavengrassTown_EventScript_DojoSign"
     }
   ]
 }

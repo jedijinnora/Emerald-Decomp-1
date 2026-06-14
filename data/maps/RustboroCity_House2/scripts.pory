@@ -160,6 +160,7 @@ script RustboroCity_House2_EventScript_RockSpecialistUnlockOtherTutor {
 }
 
 script RustboroCity_House2_EventScript_RockSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Rock-only double battle", 3)

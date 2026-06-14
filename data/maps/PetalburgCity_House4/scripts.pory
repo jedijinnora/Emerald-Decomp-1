@@ -97,6 +97,8 @@ script PetalburgCity_House4_EventScript_NormalSpecialistTutor {
             setvar(VAR_0x8005, MOVE_QUICK_ATTACK)
         case 47:
             setvar(VAR_0x8005, MOVE_ROUND)
+        case 48:
+            setvar(VAR_0x8005, MOVE_TERRAIN_PULSE)
         default:
             return
     }
@@ -167,10 +169,14 @@ script PetalburgCity_House4_EventScript_NormalSpecialistUnlockOtherTutor {
         dynmultipush("Quick Attack", 46)
         dynmultipush("Round", 47)
     }
+    if (flag(FLAG_TUTOR_TERRAIN_MOVES)) {
+        dynmultipush("Terrain Pulse", 48)
+    }
     return
 }
 
 script PetalburgCity_House4_EventScript_NormalSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Normal-only double battle", 3)

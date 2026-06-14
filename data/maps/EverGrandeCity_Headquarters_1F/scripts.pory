@@ -36,7 +36,8 @@ movement EverGrandeCity_Headquarters_1F_Movement_PlayerApproachDesk {
 script EverGrandeCity_Headquarters_1F_TrainerCount {
     lock
     buffernumberstring(STR_VAR_1, TRAINERS_COUNT)
-    msgbox(format("Trainers: {STR_VAR_1}"))
+    buffernumberstring(STR_VAR_2, VAR_NUM_BADGES)
+    msgbox(format("Trainers: {STR_VAR_1}\nBadges: {STR_VAR_2}"))
     release
     end
 }
@@ -69,7 +70,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_DeskLady {
     msgbox(format("The Exp. Share toggles whether all party Pokémon gain experience during battle."))
 
     giveitem(ITEM_CANDY_JAR)
-    msgbox(format("If you'd rather avoid grinding, the Candy Jar can level a Pokémon up to your current level cap."))
+    msgbox(format("If you'd rather avoid grinding, the Candy Jar is an infinite Rare Candy that works up to the current level cap."))
 
     giveitem(ITEM_VS_SEEKER)
     msgbox(format("The Vs. Seeker charges by walking and challenges nearby Trainers for a rematch."))
@@ -156,7 +157,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_InformationScientist {
 
 script EverGrandeCity_Headquarters_1F_EventScript_GymHMInfo {
     msgbox(format("In vanilla Emerald, the sequence of Gyms was mostly set by the need to obtain various HMs to move around the Hoenn region."))
-    msgbox(format("In Emerald Beryl, the ferry system has been expanded: Lilycove, Mossdeep, Sootopolis, Ever Grande, Slateport, Littleroot, Dewford, and Rustboro are all available destinations from the start."))
+    msgbox(format("In Emerald++, the ferry system has been expanded: Lilycove, Mossdeep, Sootopolis, Ever Grande, Slateport, Littleroot, Dewford, and Rustboro are all available destinations from the start."))
     msgbox(format("This and other map changes makes it possible to fight the Gyms in any order. Gym leaders may use different teams depending on which badge you are challenging them for."))
     msgbox(format("Wild Pokémon scale based on your party's average level, and enemy Trainers' levels will scale based on your number of badges."))
     msgbox(format("Still, be wary of encountering trainers with fully evolved teams or competitive builds before you are ready! Check the docs!"))
@@ -210,13 +211,13 @@ script EverGrandeCity_Headquarters_1F_EventScript_RoutesInfo {
 }
 
 script EverGrandeCity_Headquarters_1F_EventScript_StoryInfo {
-    msgbox(format("Emerald Beryl doesn't have a single mandatory storyline."))
+    msgbox(format("Emerald++ doesn't have a mandatory storyline."))
     msgbox(format("You could simple face all 8 Gyms and the Elite Four without engaging in other events…"))
     msgbox(format("But there's plenty going on if you explore!"))
     msgbox(format("Some events trigger by finding NPCs, some require a number of badges, and some trigger only after becoming Champion."))
     msgbox(format("The time period is years before RSE or ORAS, in a timeline without Mega Evolution, Z Moves, etc."))
-    msgbox(format("You may find plenty of characters you recognize from vanilla storylines!"))
-    msgbox(format("Please check the docs for more info if you want spoilers."))
+    msgbox(format("You may find characters you recognize from vanilla storylines!"))
+    msgbox(format("Please check the docs for more info."))
     return
 }
 
@@ -286,6 +287,9 @@ script EverGrandeCity_Headquarters_1F_EventScript_ViewChallengesDifficulty {
     if(flag(FLAG_NO_BAG_USE)) {
         msgbox(format("Items cannot be used during Trainer battles."))
     }
+    if(flag(FLAG_EASY_HM_USE)) {
+        msgbox(format("You have Easy HMs active."))
+    }
     call(EverGrandeCity_Headquarters_1F_EventScript_ViewCurrentChallenges)
     return
 }
@@ -321,27 +325,44 @@ script EverGrandeCity_Headquarters_1F_EventScript_SetChallengesToTempVar3 {
 }
 
 script EverGrandeCity_Headquarters_1F_EventScript_UpdateChallengesDifficulty {
-    call(EverGrandeCity_Headquarters_1F_EventScript_ViewChallengesDifficulty)
     msgbox(format("What would you like to do?"))
-    if(var(VAR_DIFFICULTY_SETTING) != 1) {
+    dynmultipush("View current settings", 0)
+    if (var(VAR_DIFFICULTY_SETTING) != 1) {
         dynmultipush("Forfeit difficulty to Easy", 1)
     }
-    if(var(VAR_DIFFICULTY_SETTING) == 2) {
+    if (var(VAR_DIFFICULTY_SETTING) == 2) {
         dynmultipush("Forfeit difficulty to Standard", 2)
     }
-    if(var(VAR_TEMP_3) != 0) {
+    call(EverGrandeCity_Headquarters_1F_EventScript_SetChallengesToTempVar3)
+    if (var(VAR_TEMP_3) != 0) {
         dynmultipush("Forfeit an active challenge", 3)
     }
-    if(flag(FLAG_NO_EV_GRINDING)) {
+    if (flag(FLAG_NO_EV_GRINDING)) {
         dynmultipush("Turn on Effort Values", 11)
-    } elif(!flag(FLAG_NO_EV_GRINDING)) {
+    } else {
         dynmultipush("Turn off Effort Values", 12)
     }
     dynmultipush("View Difficulty information", 20)
-    dynmultipush("Toggle followers on/off", 21)
+    if (flag(FLAG_NO_FOLLOWERS)) {
+        dynmultipush("Turn followers on", 21)
+    } else {
+        dynmultipush("Turn followers off", 21)
+    }
+    if (flag(FLAG_EASY_HM_USE)) {
+        dynmultipush("Turn Easy HMs off", 22)
+    } else {
+        dynmultipush("Turn Easy HMs on", 22)
+    }
+    if (flag(FLAG_SYS_DEXNAV_GET)) {
+        dynmultipush("Disable DexNav", 23)
+    } elif (var(VAR_DIFFICULTY_SETTING) != 2 || flag(FLAG_SYS_GAME_CLEAR)) {
+        dynmultipush("Enable DexNav", 23)
+    }
 
     dynmultistack(0,0,FALSE,6,FALSE,0,DYN_MULTICHOICE_CB_NONE)
     switch(var(VAR_RESULT)) {
+        case 0:
+            call(EverGrandeCity_Headquarters_1F_EventScript_ViewChallengesDifficulty)
         case 1:
             call(EverGrandeCity_Headquarters_1F_EventScript_ForfeitEasy)
         case 2:
@@ -356,6 +377,10 @@ script EverGrandeCity_Headquarters_1F_EventScript_UpdateChallengesDifficulty {
             call(EverGrandeCity_Headquarters_1F_EventScript_DifficultyRules)
         case 21:
             call(EverGrandeCity_Headquarters_1F_EventScript_ToggleFollowers)
+        case 22:
+            call(EverGrandeCity_Headquarters_1F_EventScript_ToggleEasyHMs)
+        case 23:
+            call(EverGrandeCity_Headquarters_1F_EventScript_ToggleDexNav)
         default:
             goto(EverGrandeCity_Headquarters_1F_EventScript_ScientistOut)
     }
@@ -510,10 +535,10 @@ script EverGrandeCity_Headquarters_1F_EventScript_EVOn {
 script EverGrandeCity_Headquarters_1F_EventScript_DifficultyRules {
     msgbox(format("The three difficulty options are Standard, Easy, and Hardcore."))
     msgbox(format("Standard: level caps enabled. Item use in battle is allowed. Battle style may be set in the Options menu."))
-    msgbox(format("Easy: no level caps. Enemy Trainers use the easier party available to them, and all NPC levels are reduced by 1."))
+    msgbox(format("Easy: no level caps. NPC Trainers do not use EVs, and all NPC levels are reduced by 1."))
     msgbox(format("Hardcore: level caps enabled. No item use in battle. Battle style is overridden to Set Mode."))
     msgbox(format("Also in Hardcore difficulty, your SS Ticket is used up when taking the ferry. You'll have to defeat a Gym Leader to get it back."))
-    msgbox(format("You may also choose to toggle EVs on or off."))
+    msgbox(format("You may always choose to toggle EVs on or off."))
     return
 }
 
@@ -570,6 +595,28 @@ script EverGrandeCity_Headquarters_1F_EventScript_ToggleFollowers {
         msgbox(format("Followers disabled."))
     }
     msgbox(format("View the Party screen or change maps for this change to take effect."))
+    return
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_ToggleEasyHMs {
+    if(flag(FLAG_EASY_HM_USE)) {
+        clearflag(FLAG_EASY_HM_USE)
+        msgbox(format("Easy HMs disabled. You will need a Pokémon able to learn HM moves to use them in the field."))
+    } else {
+        setflag(FLAG_EASY_HM_USE)
+        msgbox(format("Easy HMs enabled. You can use any HM as long as you have the item in your Bag."))
+    }
+    return
+}
+
+script EverGrandeCity_Headquarters_1F_EventScript_ToggleDexNav {
+    if(flag(FLAG_SYS_DEXNAV_GET)) {
+        clearflag(FLAG_SYS_DEXNAV_GET)
+        msgbox(format("DexNav off."))
+    } else {
+        setflag(FLAG_SYS_DEXNAV_GET)
+        msgbox(format("DexNav on. Because of memory restrictions, search levels are not enabled. The maximum chain is 100."))
+    }
     return
 }
 
@@ -695,7 +742,7 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
             FeaturesMenu:
             msgbox(format("Features will be listed by order of inclusion into this project."))
             msgbox(format("Which kind of features would you like to hear about?"))
-            dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Player quality of life", "Creator quality of life", "Minor tweaks and bug fixes")
+            dynmultichoice(0,0,FALSE,6,0,DYN_MULTICHOICE_CB_NONE, "Player quality of life", "Creator quality of life", "Sprites and Graphics", "Minor tweaks and bug fixes")
             switch(var(VAR_RESULT)) {
                 case 0: // Player QOL
                     msgbox(format("Nature stat colors, by DizzyEgg."))
@@ -710,7 +757,6 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Nickname Pokémon from party menu, by Shinny456, TheXaman, Lunos and Zadien."))
                     msgbox(format("Use HMs as long as a party Pokémon could learn them, by devolov and ScyrousFX."))
                     msgbox(format("Relearn moves from party menu, by Diego Mertens."))
-                    msgbox(format("Instead of ask to stop learning moves, ask to continue learning, by devolov."))
                     msgbox(format("Repeated field medicine use, by ghoulslash, AsparagusEduardo, and Alex N."))
                     msgbox(format("Swap party Pokémon with select button, by Lunos."))
                     msgbox(format("Display Hidden Power type in battle, by Lunos."))
@@ -727,7 +773,10 @@ script EverGrandeCity_Headquarters_1F_EventScript_CreditsLady {
                     msgbox(format("Removing EVs from stat calculations for no grinding mode was based on a Discord comment by Lunos."))
                     msgbox(format("The Candy Jar item's icon and palette were taken from Team Aqua's Asset Repo, by Pawkkie."))
                     goto(FeaturesMenu)
-                case 2: // Tweaks/Bugfixes
+                case 2: // Sprites/Graphics
+                    msgbox(format("The Dawn trainer sprite was edited from a rip by Kaori."))
+                    msgbox(format("The Kris trainer sprite was sourced from work by GregarLink10."))
+                case 3: // Tweaks/Bugfixes
                     msgbox(format("Disable unnecessary Union Room check, from the tutorial master list."))
                     msgbox(format("Surf dismount ground effects, from the tutorial master list."))
                     msgbox(format("Lanette's PC from game start, by devolov."))

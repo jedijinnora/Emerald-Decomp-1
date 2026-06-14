@@ -8,6 +8,12 @@ script Route110_OnLoad {
 	end
 }
 
+script Route110_EventScript_ClearCyclingChallenge {
+	setvar(VAR_CYCLING_CHALLENGE_STATE, 0)
+	clearflag(FLAG_SYS_CYCLING_ROAD)
+	end
+}
+
 script Route110_EventScript_TryBlockNewMauville {
 	checkitem(ITEM_BASEMENT_KEY)
 	goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)

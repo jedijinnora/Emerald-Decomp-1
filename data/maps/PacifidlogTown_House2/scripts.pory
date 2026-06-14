@@ -141,6 +141,7 @@ script PacifidlogTown_House2_EventScript_FlyingSpecialistUnlockOtherTutor {
 }
 
 script PacifidlogTown_House2_EventScript_FlyingSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Flying-only double battle", 3)

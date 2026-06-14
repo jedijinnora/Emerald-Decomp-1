@@ -5095,7 +5095,7 @@
       "id": "LAYOUT_CROSSGATE_HILLS",
       "name": "CrossgateHills_Layout",
       "width": 30,
-      "height": 60,
+      "height": 65,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/CrossgateHills/border.bin",
@@ -5344,10 +5344,10 @@
     {
       "id": "LAYOUT_HEAVENGRASS_TOWN",
       "name": "HeavengrassTown_Layout",
-      "width": 40,
+      "width": 32,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fortree",
+      "secondary_tileset": "gTileset_BattleFrontierOutsideEast",
       "border_filepath": "data/layouts/HeavengrassTown/border.bin",
       "blockdata_filepath": "data/layouts/HeavengrassTown/map.bin"
     },
@@ -5390,6 +5390,16 @@
       "secondary_tileset": "gTileset_Fallarbor",
       "border_filepath": "data/layouts/Route114_Edge/border.bin",
       "blockdata_filepath": "data/layouts/Route114_Edge/map.bin"
+    },
+    {
+      "id": "LAYOUT_HEAVENGRASS_TOWN_DOJO",
+      "name": "HeavengrassTown_Dojo_Layout",
+      "width": 16,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleArena",
+      "border_filepath": "data/layouts/HeavengrassTown_Dojo/border.bin",
+      "blockdata_filepath": "data/layouts/HeavengrassTown_Dojo/map.bin"
     }
   ]
 }

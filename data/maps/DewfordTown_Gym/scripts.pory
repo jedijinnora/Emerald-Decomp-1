@@ -71,6 +71,7 @@ script DewfordTown_Gym_EventScript_Sidney {
 }
 
 script DewfordTown_Gym_EventScript_SidneyDefeated {
+	call(DewfordTown_Gym_EventScript_SetLightsOn)
 	message(DewfordTown_Gym_Text_ReceivedKnuckleBadge)
 	waitmessage
 	call(Common_EventScript_PlayGymBadgeFanfare)

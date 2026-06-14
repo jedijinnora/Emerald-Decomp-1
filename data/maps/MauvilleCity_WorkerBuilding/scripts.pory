@@ -200,6 +200,7 @@ script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistUnlockOtherTuto
 }
 
 script MauvilleCity_WorkerBuilding_EventScript_ElectricSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Electric-only double battle", 3)

@@ -5,6 +5,7 @@ EverGrandeCity_HallOfFame_EventScript_SetGameClearFlags::
 	setflag FLAG_IS_CHAMPION
 	call EverGrandeCity_HallOfFame_EventScript_ResetDefeatedEventLegendaries
 	call EverGrandeCity_HallOfFame_EventScript_ResetStarterGifts
+	setflag FLAG_SYS_DEXNAV_GET
 	clearflag FLAG_HIDE_LILYCOVE_MOTEL_GAME_DESIGNERS
 	call EverGrandeCity_HallOfFame_EventScript_ResetEliteFour
 	special UpdateTrainerFanClubGameClear

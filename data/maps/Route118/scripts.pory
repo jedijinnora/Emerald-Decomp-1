@@ -5,7 +5,161 @@ mapscripts Route118_MapScripts {
 script Route118_OnTransition {
 	call(GabbyAndTy_EventScript_UpdateLocation)
 	call(Common_EventScript_DisableBPReward)
+	call_if_ge(VAR_ROUTE118_STATE, 40, Route118_EventScript_HideMarley)
 	end
+}
+
+const LOCALID_MARLEY = 18
+
+script Route118_EventScript_HideMarley {
+	setflag(FLAG_TEMP_12)
+	return
+}
+
+script Route118_EventScript_Marley {
+	lock
+	faceplayer
+	switch(var(VAR_ROUTE118_STATE)) {
+		case 0:
+		case 1:
+			goto(Route118_EventScript_MarleyIntro)
+		case 10:
+			goto(Route118_EventScript_ShowMarleyFastMon)
+		case 20:
+			goto(Route118_EventScript_TryGiveMint)
+		default:
+			goto(Route118_EventScript_MarleyBattle)
+	}
+	Route118_EventScript_MarleyEnd:
+	release
+	end
+}
+
+script Route118_EventScript_MarleyIntro {
+	msgbox(format("…I'm Marley.\n…You are?"))
+	msgbox(format("Marley: …Oh, {PLAYER}."))
+	msgbox(format("…I… I don't like to talk…\n…So I choose my words carefully…"))
+	msgbox(format("…My favorite Pokémon are fast…"))
+	msgbox(format("If you show me you like fast Pokémon too, I'll reward you…"))
+	setvar(VAR_ROUTE118_STATE, 10)
+	release
+	end
+}
+
+script Route118_EventScript_ShowMarleyFastMon {
+	msgbox(format("Marley: …Show me your fastest Pokémon."))
+	special(ChoosePartyMon)
+	waitstate
+	lock
+	goto_if_eq(VAR_0x8004, PARTY_NOTHING_CHOSEN, Route118_EventScript_MarleySlow)
+	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+	goto_if_eq(VAR_RESULT, SPECIES_REGIELEKI, Route118_EventScript_TryGiveMint)
+	goto_if_eq(VAR_RESULT, SPECIES_DEOXYS_SPEED, Route118_EventScript_TryGiveMint)
+	goto_if_eq(VAR_RESULT, SPECIES_NINJASK, Route118_EventScript_TryGiveMint)
+	goto_if_eq(VAR_RESULT, SPECIES_PHEROMOSA, Route118_EventScript_TryGiveMint)
+	goto_if_eq(VAR_RESULT, SPECIES_ELECTRODE, Route118_EventScript_TryGiveMint)
+	goto_if_eq(VAR_RESULT, SPECIES_ELECTRODE_HISUI, Route118_EventScript_TryGiveMint)
+	goto_if_eq(VAR_RESULT, SPECIES_DEOXYS_ATTACK, Route118_EventScript_TryGiveMint)
+	goto_if_eq(VAR_RESULT, SPECIES_ACCELGOR, Route118_EventScript_TryGiveMint)
+	Route118_EventScript_MarleySlow:
+	msgbox(format("…I can't say I'm impressed."))
+	goto(Route118_EventScript_MarleyBattle)
+	end
+}
+
+script Route118_EventScript_TryGiveMint {
+	setvar(VAR_ROUTE118_STATE, 20)
+	msgbox(format("Marley: Quick…"))
+	dynmultipush("Timid", 1)
+	dynmultipush("Hasty", 2)
+	dynmultipush("Jolly", 3)
+	dynmultipush("Naive", 4)
+	msgbox(format("…Which Nature is your favorite?"))
+	dynmultistack(0,0,FALSE,6,FALSE,1,DYN_MULTICHOICE_CB_NONE)
+	msgbox(format("…Here."))
+	switch(var(VAR_RESULT)) {
+		case 1:
+			giveitem(ITEM_TIMID_MINT)
+		case 2:
+			giveitem(ITEM_HASTY_MINT)
+		case 3:
+			giveitem(ITEM_JOLLY_MINT)
+		default:
+			giveitem(ITEM_NAIVE_MINT)
+	}
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	setvar(VAR_ROUTE118_STATE, 30)
+	goto(Route118_EventScript_MarleyBattle)
+	end
+}
+
+script Route118_EventScript_MarleyBattle {
+	msgbox(format("Marley: …If we train together, your Pokémon will become even faster."))
+	msgbox(format("…Want to battle?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Route118_EventScript_MarleyEnd)
+	trainerbattle_no_intro(TRAINER_MARLEY, Route118_Text_MarleyDefeat)
+	msgbox(format("Marley: …You're so strong. It makes me feel happy."))
+	msgbox(format("…I don't know why. This is a strange feeling…"))
+	msgbox(format("…If you want to battle again, find me in a Pokémon Center."))
+	msgbox(format("I'm not the only stat trainer…\nYou should find the others…"))
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+	closemessage
+	switch(var(VAR_TEMP_2)) {
+		case 12:
+			applymovement(LOCALID_MARLEY, Route118_Movement_MarleyLeaveWest)
+		default:
+			applymovement(LOCALID_MARLEY, Route118_Movement_MarleyLeaveSouth)
+	}
+	waitmovement(0)
+	removeobject(LOCALID_MARLEY)
+	setvar(VAR_ROUTE118_STATE, 40)
+	release
+	end
+}
+
+text Route118_Text_MarleyDefeat {
+	"…I might like battling with you.\n"
+	"…Just a little. Only a tiny bit."
+}
+
+movement Route118_Movement_MarleyLeaveSouth {
+	walk_down * 2
+	walk_left * 8
+}
+
+movement Route118_Movement_MarleyLeaveWest {
+	walk_left * 1
+	walk_down * 2
+	walk_left * 7
+}
+
+script Common_EventScript_Marley {
+	lock
+	faceplayer
+	call(Common_EventScript_MarleyBattle)
+	release
+	end
+}
+
+script Common_EventScript_MarleyBattle {
+	msgbox(format("Marley: Ready to train your Pokémon's Speed?"), MSGBOX_YESNO)
+	goto_if_eq(VAR_RESULT, NO, Common_EventScript_NopReturn)
+	special(HealPlayerParty)
+	trainerbattle_no_intro(TRAINER_MARLEY, Route118_Text_MarleyDefeat)
+	special(HealPlayerParty)
+	switch(var(VAR_NUM_BADGES)) {
+		case 4:
+		case 5:
+		case 6:
+			giveitem(ITEM_EXP_CANDY_L, 2)
+		case 7:
+		case 8:
+			giveitem(ITEM_EXP_CANDY_XL, 2)
+		default:
+			giveitem(ITEM_EXP_CANDY_M, 2)
+	}
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+	return
 }
 
 script Route118_EventScript_GoodRodFisherman {

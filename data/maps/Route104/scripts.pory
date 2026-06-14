@@ -136,7 +136,7 @@ script Route104_EventScript_Boy2 {
 	lock
 	faceplayer
 	msgbox(format("I like filling my mouth with seeds, then spitting them out fast!"))
-	msgbox(format("I learned from a tutor who teaches lots of different multi-hit moves."))
+	msgbox(format("I learned from a tutor in Heavengrass Town who teaches multi-hit moves."))
 	release
 	end
 }

@@ -4,7 +4,7 @@ script RustboroCity_House4_EventScript_PsychicF {
     lock
 	faceplayer
 	msgbox(format("Harness the power of your mind to achieve enlightenment!"))
-	goto_if_unset(FLAG_RECEIVED_TWISTED_SPOON, RustboroCity_House4_EventScript_NoSmartPokemon)
+	goto_if_unset(FLAG_RECEIVED_TWISTED_SPOON, RustboroCity_House4_EventScript_TryGiveTwistedSpoon)
 	msgbox(format("The whole world may be an illusion, but the shadows on the cave wall can still prove useful."))
 	msgbox(format("Do you feel real today?"), MSGBOX_YESNO)
 	goto_if_eq(VAR_RESULT, YES, RustboroCity_House4_EventScript_RealToday)

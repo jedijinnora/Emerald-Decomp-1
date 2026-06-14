@@ -46,7 +46,7 @@ script Route115_EventScript_Stash {
 }
 
 script Route115_EventScript_HideCobalion {
-    setflag(FLAG_TEMP_1D)
+    setflag(FLAG_TEMP_18)
     return
 }
 

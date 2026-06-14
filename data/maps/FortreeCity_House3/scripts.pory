@@ -170,6 +170,7 @@ script FortreeCity_House3_EventScript_GrassSpecialistUnlockOtherTutor {
 }
 
 script FortreeCity_House3_EventScript_GrassSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Grass-only double battle", 3)

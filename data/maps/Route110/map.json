@@ -468,6 +468,24 @@
       "var": "VAR_CYCLING_CHALLENGE_STATE",
       "var_value": "2",
       "script": "Route110_EventScript_CyclingChallengeEnd"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_CYCLING_CHALLENGE_STATE",
+      "var_value": "2",
+      "script": "Route110_EventScript_ClearCyclingChallenge"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_CYCLING_CHALLENGE_STATE",
+      "var_value": "2",
+      "script": "Route110_EventScript_ClearCyclingChallenge"
     }
   ],
   "bg_events": [

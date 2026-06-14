@@ -80,6 +80,8 @@ script SootopolisCity_House8_EventScript_WaterSpecialistTutor {
         case 41:
             setvar(VAR_0x8005, MOVE_SPIKE_CANNON)
         case 42:
+            setvar(VAR_0x8005, MOVE_WATER_SHURIKEN)
+        case 43:
             setvar(VAR_0x8005, MOVE_WATER_GUN)
         default:
             return
@@ -127,14 +129,16 @@ script SootopolisCity_House8_EventScript_WaterSpecialistChallengeUnlock {
 script SootopolisCity_House8_EventScript_WaterSpecialistUnlockOtherTutor {
     if (defeated(TRAINER_MULTI_HIT_TUTOR)) {
         dynmultipush("Spike Canon", 41)
+        dynmultipush("Water Shuriken", 42)
     }
     if (flag(FLAG_TUTOR_BASIC_MOVES)) {
-        dynmultipush("Water Gun", 42)
+        dynmultipush("Water Gun", 43)
     }
     return
 }
 
 script SootopolisCity_House8_EventScript_WaterSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Water-only double battle", 3)

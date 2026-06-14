@@ -61,12 +61,83 @@ script MeteorVillage_EventScript_ExpertM {
 script MeteorVillage_EventScript_BlackBelt {
     lock
     faceplayer
+    call_if_unset(FLAG_RECEIVED_DRAGON_FANG, MeteorVillage_EventScript_TryGiveDragonFang)
     msgbox(format("Up this slope is the original training grounds of our ancestors."))
     msgbox(format("Watch out! If you mess around, Aster will kick your butt."))
-    waitmessage
-    setvar(VAR_METEOR_VILLAGE_STATE, 1)
     release
     end
+}
+
+script MeteorVillage_EventScript_DragonTamer {
+    lock
+    faceplayer
+    call_if_unset(FLAG_RECEIVED_DRAGON_FANG, MeteorVillage_EventScript_TryGiveDragonFang)
+    goto_if_set(FLAG_RECEIVED_DRAGON_FANG, MeteorVillage_EventScript_ForAnOutsider)
+    msgbox(format("Sure, your Pokémon are tough. But are they Dragon tough?"))
+    release
+    end
+}
+
+script MeteorVillage_EventScript_ForAnOutsider {
+    msgbox(format("You'd make a pretty good Dragon Tamer, for an outsider."))
+    release
+    end
+}
+
+script MeteorVillage_EventScript_TryGiveDragonFang {
+    call(MeteorVillage_EventScript_CheckBigDragon)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+    playse(SE_PIN)
+    applymovement(VAR_LAST_TALKED, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    msgbox(format("Woah! Look at that {STR_VAR_1}!"))
+    msgbox(format("Such an imposing Dragon could make good use of this item!"))
+    giveitem(ITEM_DRAGON_FANG)
+    goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull)
+    setflag(FLAG_RECEIVED_DRAGON_FANG)
+    release
+    end
+}
+
+script MeteorVillage_EventScript_CheckBigDragon {
+    setvar(VAR_0x8004, SPECIES_DRAGONITE)
+    bufferspeciesname(STR_VAR_1, SPECIES_DRAGONITE)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+    goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+    setvar(VAR_0x8004, SPECIES_SALAMENCE)
+    bufferspeciesname(STR_VAR_1, SPECIES_SALAMENCE)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+    goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+    setvar(VAR_0x8004, SPECIES_GARCHOMP)
+    bufferspeciesname(STR_VAR_1, SPECIES_GARCHOMP)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+    goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+    setvar(VAR_0x8004, SPECIES_HYDREIGON)
+    bufferspeciesname(STR_VAR_1, SPECIES_HYDREIGON)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+    goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+    setvar(VAR_0x8004, SPECIES_GOODRA)
+    bufferspeciesname(STR_VAR_1, SPECIES_GOODRA)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+    goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+    setvar(VAR_0x8004, SPECIES_GOODRA_HISUI)
+    bufferspeciesname(STR_VAR_1, SPECIES_GOODRA_HISUI)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+    goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+    setvar(VAR_0x8004, SPECIES_GOODRA)
+    bufferspeciesname(STR_VAR_1, SPECIES_KOMMO_O)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+    goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+    setvar(VAR_0x8004, SPECIES_DRAGAPULT)
+    bufferspeciesname(STR_VAR_1, SPECIES_DRAGAPULT)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+    goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+    setvar(VAR_0x8004, SPECIES_BAXCALIBUR)
+    bufferspeciesname(STR_VAR_1, SPECIES_BAXCALIBUR)
+	specialvar(VAR_RESULT, CheckPartyForMon)
+    goto_if_eq(VAR_RESULT, TRUE, Common_EventScript_NopReturn)
+    setvar(VAR_RESULT, FALSE)
+    return
 }
 
 script MeteorVillage_EventScript_BugCatcher {
@@ -250,6 +321,7 @@ script MeteorVillage_EventScript_DragonSpecialistUnlockOtherTutor {
 }
 
 script MeteorVillage_EventScript_DragonSpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Dragon-only double battle", 3)

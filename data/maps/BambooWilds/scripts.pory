@@ -1,1 +1,126 @@
-mapscripts BambooWilds_MapScripts {}
+mapscripts BambooWilds_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION : BambooWilds_OnTransition
+}
+
+script BambooWilds_OnTransition {
+    call(Common_EventScript_DisableBPReward)
+    end
+}
+
+script BambooWilds_EventScript_Humfrey {
+    trainerbattle_single(TRAINER_HUMFREY, BambooWilds_Text_HumfreyIntro, BambooWilds_Text_HumfreyDefeat)
+	msgbox(BambooWilds_Text_HumfreyPostBattle, MSGBOX_AUTOCLOSE)
+	call(BambooWilds_EventScript_TryHumfreyRematch)
+	release
+	end
+}
+script BambooWilds_EventScript_TryHumfreyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_HUMFREY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_HUMFREY, BambooWilds_Text_HumfreyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text BambooWilds_Text_HumfreyIntro {
+	"Buggy buggy bugs!"
+}
+text BambooWilds_Text_HumfreyDefeat {
+	"Nooo! Bugs buggy!"
+}
+text BambooWilds_Text_HumfreyPostBattle {
+	"My favorite cartoon character is Bugs\n"
+	"Bunnelby."
+}
+
+script BambooWilds_EventScript_Eloise {
+    trainerbattle_single(TRAINER_ELOISE, BambooWilds_Text_EloiseIntro, BambooWilds_Text_EloiseDefeat)
+	msgbox(BambooWilds_Text_EloisePostBattle, MSGBOX_AUTOCLOSE)
+	call(BambooWilds_EventScript_TryEloiseRematch)
+	release
+	end
+}
+script BambooWilds_EventScript_TryEloiseRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_ELOISE)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_ELOISE, BambooWilds_Text_EloiseDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text BambooWilds_Text_EloiseIntro {
+	"Want to join us for lunch?"
+}
+text BambooWilds_Text_EloiseDefeat {
+	"Ack, my picnic basket!"
+}
+text BambooWilds_Text_EloisePostBattle {
+	"In Paldea you can transfer Egg Moves\n"
+	"between Pokémon by having a picnic!"
+}
+
+script BambooWilds_EventScript_Barnaby {
+    trainerbattle_single(TRAINER_BARNABY, BambooWilds_Text_BarnabyIntro, BambooWilds_Text_BarnabyDefeat)
+	msgbox(BambooWilds_Text_BarnabyPostBattle, MSGBOX_AUTOCLOSE)
+	call(BambooWilds_EventScript_TryBarnabyRematch)
+	release
+	end
+}
+script BambooWilds_EventScript_TryBarnabyRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_BARNABY)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_BARNABY, BambooWilds_Text_BarnabyDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text BambooWilds_Text_BarnabyIntro {
+	"I shall test your worth!"
+}
+text BambooWilds_Text_BarnabyDefeat {
+	"You are worthy!"
+}
+text BambooWilds_Text_BarnabyPostBattle {
+	"The Scroll of Darkness evolves Kubfu \n"
+	"into Urshifu's Single Strike form.\p"
+    "The Scroll of Waters evolves Kubfu \n"
+    "into Urshifu's Rapid Strike form."
+}
+
+script BambooWilds_EventScript_Miranda {
+    trainerbattle_single(TRAINER_MIRANDA, BambooWilds_Text_MirandaIntro, BambooWilds_Text_MirandaDefeat)
+	msgbox(BambooWilds_Text_MirandaPostBattle, MSGBOX_AUTOCLOSE)
+	call(BambooWilds_EventScript_TryMirandaRematch)
+	release
+	end
+}
+script BambooWilds_EventScript_TryMirandaRematch {
+	lock
+    call(Common_EventScript_ShouldDoRematch)
+	goto_if_eq(VAR_RESULT, FALSE, Common_EventScript_NopReturn)
+	setvar(VAR_0x8003, TRAINER_MIRANDA)
+	setvar(VAR_0x8004, 1)
+	call(Common_EventScript_CheckRecentRematchesSetBP)
+	trainerbattle_no_intro(TRAINER_MIRANDA, BambooWilds_Text_MirandaDefeat)
+	special(UpdateRecentTrainers)
+	return
+}
+text BambooWilds_Text_MirandaIntro {
+	"Hah! Scared to go into the grass?"
+}
+text BambooWilds_Text_MirandaDefeat {
+	"Atchoo! My allergies!"
+}
+text BambooWilds_Text_MirandaPostBattle {
+	"Bamboo is actually a grass!\n"
+	"Some species grow 4 feet a day!"
+}

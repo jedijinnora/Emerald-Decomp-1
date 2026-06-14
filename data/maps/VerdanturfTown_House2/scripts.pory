@@ -129,6 +129,7 @@ script VerdanturfTown_House2_EventScript_FairySpecialistUnlockOtherTutor {
 }
 
 script VerdanturfTown_House2_EventScript_FairySpecialistBattle {
+    call(Common_EventScript_DisableBPReward)
     dynmultipush("Standard double battle", 1)
     dynmultipush("Inverse double battle", 2)
     dynmultipush("Fairy-only double battle", 3)
