@@ -1789,7 +1789,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "A corkscrewing attack with\n"
             "the beak acting as a drill."),
         .effect = EFFECT_HIT,
-        .power = 80,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 90 : 80,
         .type = TYPE_FLYING,
         .accuracy = 100,
         .criticalHitStage = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 1 : 0,
@@ -8111,19 +8111,30 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Blast Burn"),
         .description = COMPOUND_STRING(
+        #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+            "Strong flames sear the foe.\n"
+            "Also hurts the user."),
+        #else
             "Powerful, but leaves the\n"
             "user immobile the next turn."),
+        #endif
         .effect = EFFECT_HIT,
-        .power = 150,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 120 : 150,
         .type = TYPE_FIRE,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
-        .pp = 5,
+        .recoil = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 33 : 0,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 15 : 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .additionalEffects = ADDITIONAL_EFFECTS({
+        #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+            .moveEffect = MOVE_EFFECT_BURN,
+            .chance = 10,
+        #else
             .moveEffect = MOVE_EFFECT_RECHARGE,
             .self = TRUE,
+        #endif
         }),
         .contestEffect = CONTEST_EFFECT_JAMS_OTHERS_BUT_MISS_ONE_TURN,
         .contestCategory = CONTEST_CATEGORY_BEAUTY,
@@ -8137,20 +8148,28 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Hydro Cannon"),
         .description = COMPOUND_STRING(
+        #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+            "Blasts water at high power.\n"
+            "Also hurts the user."),
+        #else
             "Powerful, but leaves the\n"
             "user immobile the next turn."),
+        #endif
         .effect = EFFECT_HIT,
-        .power = 150,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 120 : 150,
         .type = TYPE_WATER,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
-        .pp = 5,
+        .recoil = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 33 : 0,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 15 : 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
+        #if B_UPDATED_MOVE_DATA < GEN_CUSTOM
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_RECHARGE,
             .self = TRUE,
         }),
+        #endif
         .contestEffect = CONTEST_EFFECT_JAMS_OTHERS_BUT_MISS_ONE_TURN,
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
@@ -8912,21 +8931,29 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Frenzy Plant"),
         .description = COMPOUND_STRING(
+        #if B_UPDATED_MOVE_DATA >= GEN_CUSTOM
+            "Surging vines slam the foe.\n"
+            "Also hurts the user."),
+        #else
             "Powerful, but leaves the\n"
             "user immobile the next turn."),
+        #endif
         .effect = EFFECT_HIT,
-        .power = 150,
+        .power = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 120 : 150,
         .type = TYPE_GRASS,
         .accuracy = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 100 : 90,
-        .pp = 5,
+        .recoil = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 33 : 0,
+        .pp = B_UPDATED_MOVE_DATA >= GEN_CUSTOM ? 15 : 5,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .skyBattleBanned = TRUE,
+        #if B_UPDATED_MOVE_DATA < GEN_CUSTOM
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_RECHARGE,
             .self = TRUE,
         }),
+        #endif
         .contestEffect = CONTEST_EFFECT_JAMS_OTHERS_BUT_MISS_ONE_TURN,
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
