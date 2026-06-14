@@ -3725,9 +3725,20 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Lapras @ Weakness Policy
       Modest Nature
       Level: 16
-      Ability: Dry Skin
+      Ability: Shell Armor
       IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
       EVs: 4 HP / 252 SpA / 252 Spe
+      - Thunder
+      - Blizzard
+      - Hydro Pump
+      - Ancient Power
+
+   Lapras @ Assault Vest
+      Bold Nature
+      Level: 16
+      Ability: Shell Armor
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Def / 252 SpD
       - Thunder
       - Blizzard
       - Hydro Pump
@@ -27220,126 +27231,141 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Music: Suspicious
    Double Battle: Yes
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware / Risky
-
-   Drifblim @ Flame Orb
-   Timid Nature
-   Level: 16
-   Ability: Flare Boost
-   IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 Def / 252 SpA / 252 Spe
-   - Strength Sap
-   - Tailwind
-   - Air Cutter
-   - Destiny Bond
-
-   Zangoose @ Toxic Orb
-   Adamant Nature
-   Level: 16
-   Ability: Toxic Boost
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 Spe
-   - Swords Dance
-   - Facade
-   - Close Combat
-   - Knock Off
-
-   Milotic @ Flame Orb
-   Calm Nature
-   Level: 16
-   Ability: Marvel Scale
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 170 HP / 170 Def / 170 SpD
-   - Life Dew
-   - Coil
-   - Blizzard
-   - Breaking Swipe
-
-   Swellow @ Toxic Orb
-   Adamant Nature
-   Level: 16
-   Ability: Guts
-   IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 Atk / 252 Spe
-   - U Turn
-   - Facade
-   - Steel Wing
-   - Brave Bird
+   Party Size: 6
+   Pool Rules: Duplicates Allowed
+   Pool Prune: Badges
 
    Jolteon @ Flame Orb
-   Modest Nature
-   Level: 16
-   Ability: Quick Feet
-   IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 4 HP / 252 SpA / 252 Spe
-   - Weather Ball
-   - Electroweb
-   - Tickle
-   - Volt Switch
-
-   Girafarig @ Eviolite
-   Timid Nature
-   Level: 16
-   Ability: Early Bird
-   IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-   EVs: 252 HP / 4 SpA / 252 Spe
-   - Dazzling Gleam
-   - Expanding Force
-   - Rest
-   - Foul Play
-
-   Drifblim @ Flame Orb
-   Timid Nature
-   Level: 16
-   Ability: Flare Boost
-   - Strength Sap
-   - Tailwind
-   - Air Cutter
-   - Destiny Bond
-
-   Zangoose @ Toxic Orb
-   Adamant Nature
-   Level: 16
-   Ability: Toxic Boost
-   - Swords Dance
-   - Facade
-   - Close Combat
-   - Knock Off
-
-   Milotic @ Flame Orb
-   Calm Nature
-   Level: 16
-   Ability: Marvel Scale
-   - Life Dew
-   - Coil
-   - Blizzard
-   - Breaking Swipe
-
-   Swellow @ Toxic Orb
-   Adamant Nature
-   Level: 16
-   Ability: Guts
-   - U Turn
-   - Facade
-   - Steel Wing
-   - Brave Bird
+      Modest Nature
+      Level: 16
+      Ability: Quick Feet
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Weather Ball
+      - Electroweb
+      - Tickle
+      - Volt Switch
 
    Jolteon @ Flame Orb
-   Modest Nature
-   Level: 16
-   Ability: Quick Feet
-   - Weather Ball
-   - Electroweb
-   - Tickle
-   - Volt Switch
+      Modest Nature
+      Level: 16
+      Ability: Quick Feet
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 SpA / 252 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Weather Ball
+      - Electroweb
+      - Tickle
+      - Volt Switch
 
    Girafarig @ Eviolite
-   Timid Nature
-   Level: 16
-   Ability: Early Bird
-   - Dazzling Gleam
-   - Expanding Force
-   - Rest
-   - Foul Play
+      Timid Nature
+      Level: 16
+      Ability: Early Bird
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Dazzling Gleam
+      - Expanding Force
+      - Rest
+      - Foul Play
+
+   Girafarig @ Eviolite
+      Timid Nature
+      Level: 16
+      Ability: Early Bird
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 252 HP / 4 SpA / 252 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Dazzling Gleam
+      - Expanding Force
+      - Rest
+      - Foul Play
+
+   Swellow @ Toxic Orb
+      Adamant Nature
+      Level: 16
+      Ability: Guts
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - U Turn
+      - Facade
+      - Steel Wing
+      - Brave Bird
+
+   Swellow @ Toxic Orb
+      Adamant Nature
+      Level: 16
+      Ability: Guts
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - U Turn
+      - Facade
+      - Steel Wing
+      - Brave Bird
+
+   Zangoose @ Toxic Orb
+      Adamant Nature
+      Level: 16
+      Ability: Toxic Boost
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Swords Dance
+      - Facade
+      - Close Combat
+      - Knock Off
+
+   Zangoose @ Toxic Orb
+      Adamant Nature
+      Level: 16
+      Ability: Toxic Boost
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 HP / 252 Atk / 252 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Swords Dance
+      - Facade
+      - Close Combat
+      - Knock Off
+
+   Milotic @ Flame Orb
+      Calm Nature
+      Level: 16
+      Ability: Marvel Scale
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Life Dew
+      - Coil
+      - Blizzard
+      - Breaking Swipe
+
+   Milotic @ Flame Orb
+      Calm Nature
+      Level: 16
+      Ability: Marvel Scale
+      IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 170 HP / 170 Def / 170 SpD
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Life Dew
+      - Coil
+      - Blizzard
+      - Breaking Swipe
+
+   Drifblim @ Flame Orb
+      Timid Nature
+      Level: 16
+      Ability: Flare Boost
+      Tags: Badge 0 / Badge 1 / Badge 2
+      - Strength Sap
+      - Tailwind
+      - Air Cutter
+      - Destiny Bond
+
+   Drifblim @ Flame Orb
+      Timid Nature
+      Level: 16
+      Ability: Flare Boost
+      IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+      EVs: 4 Def / 252 SpA / 252 Spe
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      - Strength Sap
+      - Tailwind
+      - Air Cutter
+      - Destiny Bond
 
 
 /* Stat Trainers */
@@ -27350,7 +27376,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
 === TRAINER_CHERYL ===
    Name: Cheryl
    Class: Rival
-   Pic: Aroma Lady
+   Pic: Cheryl
    Gender: Female
    Music: Female
    Double Battle: No
@@ -27487,7 +27513,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
 === TRAINER_RILEY ===
    Name: Riley
    Class: Rival
-   Pic: Pokemon Ranger M
+   Pic: Riley
    Gender: Male
    Music: Cool
    Double Battle: No
@@ -27621,10 +27647,10 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Air Slash
       - Fire Blast
 
-=== TRAINER_BUCK ===
+=== TRAINER_BUCK_DEFENSE ===
    Name: Buck
    Class: Rival
-   Pic: Cooltrainer M
+   Pic: Buck
    Gender: Male
    Music: Cool
    Double Battle: No
@@ -27758,7 +27784,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
 === TRAINER_MIRA ===
    Name: Mira
    Class: Rival
-   Pic: Psychic F
+   Pic: Mira
    Gender: Female
    Music: Female
    Double Battle: No
@@ -27892,16 +27918,16 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       - Thunderbolt
       - Shadow Ball
 
-=== TRAINER_DAGAN ===
+=== TRAINER_BUCK_SP_DEF ===
    Name: Dagan
    Class: Rival
-   Pic: Expert M
+   Pic: Buck
    Gender: Male
    Music: Intense
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
    Party Size: 4
-   Pool Rules: Basic
+   Pool Rules: Duplicates Allowed
    Pool Prune: Badges
 
    Lotad @ Assault Vest
@@ -29675,7 +29701,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
 === TRAINER_RIVAL_KRIS ===
    Name: Kris
    Class: Rival
-   Pic: Leaf
+   Pic: Kris
    Gender: Female
    Music: Male
    Double Battle: No
@@ -29836,7 +29862,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
 === TRAINER_RIVAL_DAWN ===
    Name: Dawn
    Class: Rival
-   Pic: Leaf
+   Pic: Dawn
    Gender: Female
    Music: Male
    Double Battle: No
@@ -29997,7 +30023,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
 === TRAINER_RIVAL_REI ===
    Name: Rei
    Class: Rival
-   Pic: Red
+   Pic: Rei
    Gender: Male
    Music: Male
    Double Battle: No
@@ -30145,7 +30171,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
 === TRAINER_RIVAL_HILBERT ===
    Name: Hilbert
    Class: Rival
-   Pic: Red
+   Pic: Hilbert
    Gender: Male
    Music: Male
    Double Battle: No
@@ -30498,65 +30524,65 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    AI: Check Bad Move / Try To Faint / Check Viability / Smart Switching / Hp Aware
 
    Sceptile @ Miracle Seed
-   Bashful Nature
-   Level: 16
-   Ability: Overgrow
-   EVs: 200 HP / 100 Atk / 200 SpD
-   - Leaf Blade
-   - Earthquake
-   - Rock Tomb
-   - Aerial Ace
+      Bashful Nature
+      Level: 16
+      Ability: Overgrow
+      EVs: 200 HP / 100 Atk / 200 SpD
+      - Leaf Blade
+      - Earthquake
+      - Rock Tomb
+      - Aerial Ace
 
    Swellow @ Silk Scarf
-   Naive Nature
-   Level: 16
-   Ability: Guts
-   EVs: 100 HP / 100 Atk / 200 Spe
-   - Aerial Ace
-   - Steel Wing
-   - Quick Attack
-   - Facade
+      Naive Nature
+      Level: 16
+      Ability: Guts
+      EVs: 100 HP / 100 Atk / 200 Spe
+      - Aerial Ace
+      - Steel Wing
+      - Quick Attack
+      - Facade
 
    Pikachu @ Light Ball
-   Lonely Nature
-   Level: 16
-   Ability: Static
-   EVs: 100 HP / 100 Atk / 100 SpA / 200 Spe
-   - Thunderbolt
-   - Quick Attack
-   - Thunder Wave
-   - Iron Tail
+      Lonely Nature
+      Level: 16
+      Ability: Static
+      EVs: 100 HP / 100 Atk / 100 SpA / 200 Spe
+      - Thunderbolt
+      - Quick Attack
+      - Thunder Wave
+      - Iron Tail
 
    Latios @ Never Melt Ice
-   Quirky Nature
-   Level: 16
-   Ability: Levitate
-   IVs: 10 HP / 1 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-   EVs: 250 SpA / 250 Spe
-   - Thunderbolt
-   - Ice Beam
-   - Psychic
-   - Surf
+      Quirky Nature
+      Level: 16
+      Ability: Levitate
+      IVs: 10 HP / 1 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+      EVs: 250 SpA / 250 Spe
+      - Thunderbolt
+      - Ice Beam
+      - Psychic
+      - Surf
 
    Groudon @ Soft Sand
-   Rash Nature
-   Level: 16
-   Ability: Drought
-   EVs: 100 HP / 50 Atk / 100 SpA / 50 SpD / 200 Spe
-   - Dragon Claw
-   - Earthquake
-   - Solar Beam
-   - Eruption
+      Rash Nature
+      Level: 16
+      Ability: Drought
+      EVs: 100 HP / 50 Atk / 100 SpA / 50 SpD / 200 Spe
+      - Dragon Claw
+      - Earthquake
+      - Solar Beam
+      - Eruption
 
    Rayquaza @ Leftovers
-   Naive Nature
-   Level: 16
-   Ability: Air Lock
-   EVs: 250 HP / 200 SpA
-   - Fly
-   - Flamethrower
-   - Extreme Speed
-   - Dragon Claw
+      Naive Nature
+      Level: 16
+      Ability: Air Lock
+      EVs: 250 HP / 200 SpA
+      - Fly
+      - Flamethrower
+      - Extreme Speed
+      - Dragon Claw
 
 === TRAINER_RIVAL_1 ===
    Name: Jinnora
@@ -40768,7 +40794,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Level: 15
       Ability: Regenerator
       EVs: 200 Atk / 150 Def / 150 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
+      Tags: Badge 0 / Badge 1 / Badge 2
       - U Turn
       - Fake Out
       - Drain Punch
@@ -40779,7 +40805,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Level: 16
       Ability: Regenerator
       EVs: 200 Atk / 150 Def / 150 Spe
-      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - U Turn
       - Fake Out
       - Drain Punch
@@ -43767,7 +43793,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
    Double Battle: No
    AI: Check Bad Move / Try To Faint / Check Viability
    Party Size: 4
-   Pool Rules: Basic
+   Pool Rules: Duplicate Items Forms
    Pool Prune: Badges
 
    Raichu @ Air Balloon
@@ -55347,7 +55373,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Level: 15
       Ability: Inner Focus
       EVs: 100 Atk / 100 Def / 100 Spe
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Bounce
       - High Jump Kick
       - Fake Out
@@ -55358,7 +55384,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Level: 15
       Ability: Inner Focus
       EVs: 200 Atk / 150 Def / 150 Spe
-      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Bounce
       - High Jump Kick
       - Triple Axel
@@ -60921,7 +60947,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Jolly Nature
       Level: 16
       Ability: Reckless
-      Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3
+      Tags: Badge 0 / Badge 1 / Badge 2
       - Fake Out
       - High Jump Kick
       - Acrobatics
@@ -60932,7 +60958,7 @@ Tags: Badge 0 / Badge 1 / Badge 2 / Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badg
       Level: 16
       Ability: Reckless
       EVs: 200 Atk / 150 Def / 150 Spe
-      Tags: Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
+      Tags: Badge 3 / Badge 4 / Badge 5 / Badge 6 / Badge 7 / Badge 8
       - Fake Out
       - High Jump Kick
       - Acrobatics
