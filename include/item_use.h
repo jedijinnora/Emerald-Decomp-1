@@ -53,6 +53,7 @@ void ItemUseOutOfBattle_PokeBall(u8); //adding for Lunos's pokeball swap
 void ItemUseOutOfBattle_Mints(u8 taskId); //adding for mint implementation
 void ItemUseOutOfBattle_SootSack(u8); //soot sack
 u16 GetAshCount(void); //soot sack
+void ItemUseOutOfBattle_Plate(u8 taskId); // for reading plate engravings
 
 enum {
     BALL_THROW_UNABLE_TWO_MONS,

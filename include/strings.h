@@ -2428,4 +2428,23 @@ extern const u8 gText_CannotSendMonToBoxHM[];
 //Soot Sack
 extern const u8 gText_AshQty[];
 
+//Plates
+extern const u8 gText_FlamePlate[];
+extern const u8 gText_SplashPlate[];
+extern const u8 gText_ZapPlate[];
+extern const u8 gText_MeadowPlate[];
+extern const u8 gText_IciclePlate[];
+extern const u8 gText_FistPlate[];
+extern const u8 gText_ToxicPlate[];
+extern const u8 gText_EarthPlate[];
+extern const u8 gText_SkyPlate[];
+extern const u8 gText_MindPlate[];
+extern const u8 gText_InsectPlate[];
+extern const u8 gText_StonePlate[];
+extern const u8 gText_SpookyPlate[];
+extern const u8 gText_DracoPlate[];
+extern const u8 gText_DreadPlate[];
+extern const u8 gText_IronPlate[];
+extern const u8 gText_PixiePlate[];
+
 #endif // GUARD_STRINGS_H

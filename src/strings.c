@@ -1310,3 +1310,22 @@ const u8 gText_CannotSendMonToBoxHM[] = _("Cannot send that mon to the box,\nbec
 //Soot Sack
 const u8 gText_AshQty[] = _("Ash collected:\n{STR_VAR_1}{PAUSE_UNTIL_PRESS}");
 
+//Plates
+const u8 gText_FlamePlate[] =   _("The plate has engravings which read as\nfollows:\p“The land was molten and not yet\nformed.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_SplashPlate[] =  _("The plate has engravings which read as\nfollows:\p“The leviathan of the primordial seas\nrose to challenge the land.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_ZapPlate[] =     _("The plate has engravings which read as\nfollows:\p“Industry spread far and wide across\nthe growing civilizations.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_MeadowPlate[] =  _("The plate has engravings which read as\nfollows:\p“A gentle rain fell from the heavens,\nand the world began to fill with life.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_IciclePlate[] =  _("The plate has engravings which read as\nfollows:\p“Comets from beyond the heavens\nbrought water and ice to the surface.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_FistPlate[] =    _("The plate has engravings which read as\nfollows:\p“The foolish peoples brought oblivion\nupon themselves.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_ToxicPlate[] =   _("The plate has engravings which read as\nfollows:\p“The air itself became choked with smog\nand pollution.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_EarthPlate[] =   _("The plate has engravings which read as\nfollows:\p“The behemoth of the desolate lands\nshaped the first continents.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_SkyPlate[] =     _("The plate has engravings which read as\nfollows:\p“The guardian of the sky calmed the\nfighting cataclysms into slumber.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_MindPlate[] =    _("The plate has engravings which read as\nfollows:\p“The people explored the world's\nmysteries and began to learn.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_InsectPlate[] =  _("The plate has engravings which read as\nfollows:\p“Simple creatures gave way to\nincreasingly complex forms.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_StonePlate[] =   _("The plate has engravings which read as\nfollows:\p“Matter fell towards matter, and the\ncelestial spheres took shape.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_SpookyPlate[] =  _("The plate has engravings which read as\nfollows:\p“The world fell into distortion, and was\nswept away to begin the cycle anew.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_DracoPlate[] =   _("The plate has engravings which read as\nfollows:\p“The great battle between land and\nocean shaped the world.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_DreadPlate[] =   _("The plate has engravings which read as\nfollows:\p“In the beginning, the void was dark\nand silent.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_IronPlate[] =    _("The plate has engravings which read as\nfollows:\p“Iron sank to form the heart of the new\nEarth.”{PAUSE_UNTIL_PRESS}");
+const u8 gText_PixiePlate[] =   _("The plate has engravings which read as\nfollows:\p“Stars twinkled in the distance,\nheralding the light to come.”{PAUSE_UNTIL_PRESS}");
+

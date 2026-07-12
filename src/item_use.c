@@ -1646,5 +1646,81 @@ u16 GetAshCount(void)
 	return *ashGatherCount;
 }
 
+void ItemUseOutOfBattle_Plate(u8 taskId) 
+{
+    switch(gSpecialVar_ItemId) 
+    {
+    case ITEM_FLAME_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_FlamePlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_SPLASH_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_SplashPlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_ZAP_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_ZapPlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_MEADOW_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_MeadowPlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_ICICLE_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_IciclePlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_FIST_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_FistPlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_TOXIC_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_ToxicPlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_EARTH_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_EarthPlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_SKY_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_SkyPlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_MIND_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_MindPlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_INSECT_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_InsectPlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_STONE_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_StonePlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_SPOOKY_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_SpookyPlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_DRACO_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_DracoPlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_DREAD_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_DreadPlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_IRON_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_IronPlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    case ITEM_PIXIE_PLATE:
+        StringExpandPlaceholders(gStringVar4, gText_PixiePlate);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+        break;
+    default:
+    }
+}
+
 //this needs to be at the end
 #undef tUsingRegisteredKeyItem
