@@ -5248,7 +5248,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .baseAttack    = 80,
         .baseDefense   = 110,
         .baseSpeed     = 50,
-        .baseSpAttack  = 65,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 80 : 65,
         .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_ICE),
         .catchRate = 60,
@@ -5310,10 +5310,10 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_EISCUE_NOICE] =
     {
         .baseHP        = 75,
-        .baseAttack    = 80,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 90 : 80,
         .baseDefense   = 70,
         .baseSpeed     = 130,
-        .baseSpAttack  = 65,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 90 : 65,
         .baseSpDefense = 50,
         .types = MON_TYPES(TYPE_ICE),
         .catchRate = 60,
@@ -6909,9 +6909,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sKubfuLevelUpLearnset,
         .teachableLearnset = sKubfuTeachableLearnset,
         .evolutions = EVOLUTION({EVO_DARK_SCROLL, 0, SPECIES_URSHIFU_SINGLE_STRIKE},
-                                {EVO_ITEM, ITEM_DUSK_STONE, SPECIES_URSHIFU_SINGLE_STRIKE},
-                                {EVO_WATER_SCROLL, 0, SPECIES_URSHIFU_RAPID_STRIKE},
-                                {EVO_ITEM, ITEM_WATER_STONE, SPECIES_URSHIFU_RAPID_STRIKE}),
+                                {EVO_WATER_SCROLL, 0, SPECIES_URSHIFU_RAPID_STRIKE}),
     },
 
     [SPECIES_URSHIFU_SINGLE_STRIKE] =

@@ -6295,7 +6295,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = 0,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_PRESSURE, ABILITY_TELEPATHY, ABILITY_ANALYTIC },
+    #else
         .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_TELEPATHY },
+    #endif
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Dialga"),
         .cryId = CRY_DIALGA,
@@ -6365,7 +6369,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = 0,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_PRESSURE, ABILITY_TELEPATHY, ABILITY_DOWNLOAD },
+    #else
         .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_TELEPATHY },
+    #endif
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Dialga"),
         .cryId = CRY_DIALGA,
@@ -6442,7 +6450,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = 0,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_PRESSURE, ABILITY_TELEPATHY, ABILITY_ANALYTIC },
+    #else
         .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_TELEPATHY },
+    #endif
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Palkia"),
         .cryId = CRY_PALKIA,
@@ -6512,7 +6524,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = 0,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_PRESSURE, ABILITY_TELEPATHY, ABILITY_DOWNLOAD },
+    #else
         .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_TELEPATHY },
+    #endif
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Palkia"),
         .cryId = CRY_PALKIA,
@@ -6740,7 +6756,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = 0,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+    #if P_UPDATED_ABILITIES >= GEN_CUSTOM
+        .abilities = { ABILITY_DEFIANT, ABILITY_COMPETITIVE, ABILITY_BATTLE_ARMOR },
+    #else
         .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_TELEPATHY },
+    #endif
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Giratina"),
         .cryId = CRY_GIRATINA,
@@ -6811,7 +6831,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = 0,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_LEVITATE, ABILITY_NONE, P_UPDATED_ABILITIES >= GEN_CUSTOM ? ABILITY_SHADOW_TAG : ABILITY_NONE },
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Giratina"),
         .cryId = CRY_GIRATINA,

@@ -4194,7 +4194,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .baseAttack    = 45,
         .baseDefense   = 135,
         .baseSpeed     = 30,
-        .baseSpAttack  = 45,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 75 : 45,
         .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_ROCK),
         .catchRate = 255,
@@ -4269,8 +4269,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .baseAttack    = 55,
         .baseDefense   = 145,
         .baseSpeed     = 40,
-        .baseSpAttack  = 75,
-        .baseSpDefense = 150,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 95 : 75,
+        .baseSpDefense = P_UPDATED_STATS >= GEN_CUSTOM ? 145 : 150,
         .types = MON_TYPES(TYPE_ROCK, TYPE_STEEL),
         .catchRate = 60,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 184 : 198,
@@ -6503,6 +6503,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .catchRate = 125,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 80 : 137,
         .evYield_HP = 1,
+        .itemCommon = ITEM_BLUE_SHARD,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 40,
         .friendship = STANDARD_FRIENDSHIP,
@@ -6575,6 +6576,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .catchRate = 60,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 175 : 206,
         .evYield_HP = 2,
+        .itemCommon = ITEM_BLUE_SHARD,
         .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 40,
         .friendship = STANDARD_FRIENDSHIP,
@@ -7189,7 +7191,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .baseSpAttack  = 45,
         .baseSpDefense = 45,
     #if P_UPDATED_TYPES >= GEN_CUSTOM
-        .types = MON_TYPES(TYPE_GROUND, TYPE_BUG),
+        .types = MON_TYPES(TYPE_GROUND), // still undecided if I want to change Flygon line to ground/bug
     #else
         .types = MON_TYPES(TYPE_GROUND),
     #endif
@@ -7268,7 +7270,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 100 : 50,
         .baseSpDefense = 50,
     #if P_UPDATED_TYPES >= GEN_CUSTOM
-        .types = MON_TYPES(TYPE_GROUND, TYPE_BUG),
+        .types = MON_TYPES(TYPE_GROUND, TYPE_DRAGON), // still undecided if I want to change Flygon line to ground/bug
     #else
         .types = MON_TYPES(TYPE_GROUND, TYPE_DRAGON),
     #endif
@@ -7348,7 +7350,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 100 : 80,
         .baseSpDefense = 80,
     #if P_UPDATED_TYPES >= GEN_CUSTOM
-        .types = MON_TYPES(TYPE_GROUND, TYPE_BUG),
+        .types = MON_TYPES(TYPE_GROUND, TYPE_DRAGON), // still undecided if I want to change Flygon line to ground/bug
     #else
         .types = MON_TYPES(TYPE_GROUND, TYPE_DRAGON),
     #endif
@@ -7590,10 +7592,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_SWABLU] =
     {
         .baseHP        = 45,
-        .baseAttack    = 40,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 50 : 40,
         .baseDefense   = 60,
         .baseSpeed     = 50,
-        .baseSpAttack  = 40,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 50 : 40,
         .baseSpDefense = 75,
         .types = MON_TYPES(TYPE_NORMAL, TYPE_FLYING),
         .catchRate = 255,
@@ -7663,10 +7665,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_ALTARIA] =
     {
         .baseHP        = 75,
-        .baseAttack    = 70,
+        .baseAttack    = P_UPDATED_STATS >= GEN_CUSTOM ? 80 : 70,
         .baseDefense   = 90,
         .baseSpeed     = 80,
-        .baseSpAttack  = 70,
+        .baseSpAttack  = P_UPDATED_STATS >= GEN_CUSTOM ? 80 : 70,
         .baseSpDefense = 105,
     #if P_UPDATED_TYPES >= GEN_CUSTOM
         .types = MON_TYPES(TYPE_DRAGON, TYPE_FAIRY),
