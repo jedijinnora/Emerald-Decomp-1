@@ -319,7 +319,8 @@
     #define TRAINER_MULTIVERSE_MAY              (STORY_TRAINERS_START + 9)
     #define TRAINER_MULTIVERSE_WALLY            (STORY_TRAINERS_START + 10)
     #define TRAINER_MULTIVERSE_ZINNIA           (STORY_TRAINERS_START + 11)
-    #define STORY_TRAINERS_END                  TRAINER_MULTIVERSE_ZINNIA
+    #define TRAINER_WREN                        (STORY_TRAINERS_START + 12)
+    #define STORY_TRAINERS_END                  TRAINER_WREN
 
 // TPP Trainers
     #define TPP_TRAINERS_START                  (STORY_TRAINERS_END + 1)
@@ -403,7 +404,9 @@
     #define TRAINER_LISA_AND_RAY                (ROUTE_107_TRAINERS_START + 4) // Sis and Bro Lisa & Ray, always double
     #define TRAINER_CAMRON                      (ROUTE_107_TRAINERS_START + 5) // Swimming Triathlete-M Camron
     #define TRAINER_KENNETH                     (ROUTE_107_TRAINERS_START + 6) // Fisherman Kenneth, may double with Beth
-    #define ROUTE_107_TRAINERS_END              TRAINER_KENNETH
+    #define TRAINER_TAMA                        (ROUTE_107_TRAINERS_START + 7) // Bug Catcher Tama, may double with Moana
+    #define TRAINER_MOANA                       (ROUTE_107_TRAINERS_START + 8) // Lass Moana, may double with Tama
+    #define ROUTE_107_TRAINERS_END              TRAINER_MOANA
 
 // Route 108
     #define ROUTE_108_TRAINERS_START            (ROUTE_107_TRAINERS_END + 1)
@@ -1091,7 +1094,7 @@
 #define SAFETY_TRAINERS_END                 TRAINER_STEVEN
 
 #define TRAINERS_COUNT                      (SAFETY_TRAINERS_END + 1)
-//I think it's currently 697 (696 + TRAINER_NONE)
+//I think it's currently 700 (699 + TRAINER_NONE)
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 863 trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
