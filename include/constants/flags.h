@@ -78,7 +78,7 @@
 #define FLAG_NO_ENCOUNTER       0x3B 
 #define FLAG_NO_TRAINER_SEE     0x3C
 #define FLAG_NO_COLLISION       0x3D
-#define FLAG_FORCE_SHINY        0x3E // flag is cleared after generating a wild mon in wild_encounter.c
+#define FLAG_FORCE_SHINY        0x3E // flag is cleared after generating a wild mon in wild_encounter.c or generating a gift mon in script_pokemon_util.c
 #define FLAG_FORCE_NO_SHINY     0x3F
 
 #define FLAG_BP_FROM_REMATCHES  0x40 // if set, trainer rematches give BP instead of money
@@ -104,14 +104,14 @@
 #define FLAG_BOOSTED_SHINIES        0x4F // greatly increase shiny odds
 
 // Given/Received item Flags
-#define FLAG_GIVEN_POWER_ITEMS               0x50
+#define FLAG_GIVEN_POWER_ITEMS               0x50 // ever grande
 #define FLAG_GIVEN_ARRIVAL_FERRY_LEMONADE    0x51
 #define FLAG_RECEIVED_BLUNDER_POLICY         0x52 // tunneler's rest stop
 #define FLAG_RECEIVED_TUNNELER_GIFT          0x53 // given Eviolite if have HMs 4, 5, & 6
 #define FLAG_RECEIVED_SAFETY_GOGGLES         0x54 // desert oasis
 #define FLAG_RECEIVED_SPACE_CENTER_EJECT_PACK 0x55
-#define FLAG_RECEIVED_UTILITY_UMBRELLA       0x56
-#define FLAG_RECEIVED_EGC_BONUS_BERRIES      0x57
+#define FLAG_RECEIVED_UTILITY_UMBRELLA       0x56 // crossgate hills
+#define FLAG_RECEIVED_EGC_BONUS_BERRIES      0x57 // from aipom
 #define FLAG_RECEIVED_SITRUS_BERRY_ROUTE_104 0x58
 #define FLAG_RECEIVED_SPELON_BERRY           0x59 // Berry Master's wife
 #define FLAG_RECEIVED_PAMTRE_BERRY           0x5A // Berry Master's wife
@@ -121,13 +121,13 @@
 #define FLAG_RECEIVED_QUICK_CLAW             0x5E // trainer school, as vanilla
 #define FLAG_RECEIVED_MACHO_BRACE            0x5F // defeated winstrates and talk to victoria
 #define FLAG_RECEIVED_MT_CHIMNEY_PADS        0x60 
-#define FLAG_GIVEN_DEVON_SCOPE               0x61 // man outside mt pyre
-#define FLAG_RECEIVED_CLEANSE_TAG            0x62
-#define FLAG_RECEIVED_FOCUS_BAND             0x63
+#define FLAG_GIVEN_DEVON_SCOPE               0x61 // devon guy outside mt. pyre
+#define FLAG_RECEIVED_CLEANSE_TAG            0x62 // mt. pyre
+#define FLAG_RECEIVED_FOCUS_BAND             0x63 // shoal cave
 #define FLAG_GIVEN_SHINY_DUCKLETT_REWARD     0x64 // todo man in Petalburg offers reward if player has shiny ducklett in party
-#define FLAG_RECEIVED_DESTINY_KNOT           0x65
-#define FLAG_RECEIVED_DOWSING_MACHINE        0x66
-#define FLAG_GIVEN_BRANDON_COMET_SHARD       0x67
+#define FLAG_RECEIVED_DESTINY_KNOT           0x65 // daycare
+#define FLAG_RECEIVED_DOWSING_MACHINE        0x66 // rustboro from devon guy after picking up devon scope at mt. pyre
+#define FLAG_GIVEN_BRANDON_COMET_SHARD       0x67 // r134
 #define FLAG_CHOSE_VICTORY_ROAD_BONUS_ITEM   0x68
 #define FLAG_UNUSED_0x69                     0x69
 #define FLAG_GIVEN_DEWFORD_RESORT_LEEK       0x6A
@@ -135,18 +135,18 @@
 #define FLAG_GIVEN_SOFT_SAND                 0x6C // from pokefan on r107 after telling her about hiding son
 #define FLAG_GIVEN_RESORT_EVOLUTION_STONE    0x6D // receive evo stone of choice after defeating all resort trainers
 #define FLAG_GIVEN_FAIRY_FEATHER             0x6E // from school kid in petalburg after showing orange flower florges
-#define FLAG_RECEIVED_SHINY_CHARM            0x6F
+#define FLAG_RECEIVED_SHINY_CHARM            0x6F // show prof. birch a shiny
 #define FLAG_RECEIVED_SCOPE_LENS             0x70 // lass in cutter's house
 #define FLAG_RECEIVED_ROOM_SERVICE           0x71 // dewford resort house
 #define FLAG_RECEIVED_GRACIDEA               0x72 // defeat Anabel's Shaymin team with Shaymin in party
 #define FLAG_GIVEN_ZOOM_LENS                 0x73 // r124 observatory
 #define FLAG_GIVEN_WIDE_LENS                 0x74 // r124 observatory
-#define FLAG_RECEIVED_SILK_SCARF             0x75
-#define FLAG_RECEIVED_NEVER_MELT_ICE         0x76
-#define FLAG_RECEIVED_BLACK_BELT             0x77
-#define FLAG_RECEIVED_TWISTED_SPOON          0x78
-#define FLAG_RECEIVED_BLACK_GLASSES          0x79
-#define FLAG_RECEIVED_DRAGON_FANG            0x7A
+#define FLAG_RECEIVED_SILK_SCARF             0x75 // dewford, show cute > 100 or cute ribbon
+#define FLAG_RECEIVED_NEVER_MELT_ICE         0x76 // oldale, show beauty > 100 or beauty ribbon
+#define FLAG_RECEIVED_BLACK_BELT             0x77 // rustboro, show tough > 100 or tough ribbon
+#define FLAG_RECEIVED_TWISTED_SPOON          0x78 // rustboro, show smart > 100 or smart ribbon
+#define FLAG_RECEIVED_BLACK_GLASSES          0x79 // mauville, show cool > 100 or cool ribbon
+#define FLAG_RECEIVED_DRAGON_FANG            0x7A // meteor, show third stage pseudo-legendary dragon
 #define FLAG_UNUSED_0x7B                     0x7B
 #define FLAG_UNUSED_0x7C                     0x7C
 #define FLAG_UNUSED_0x7D                     0x7D
@@ -193,8 +193,8 @@
 #define FLAG_RECEIVED_TINKATINK              0xA0 // meteor village
 #define FLAG_RECEIVED_DITTO                  0xA1 // r117
 #define FLAG_RECEIVED_EEVEE                  0xA2 // littleroot
-#define FLAG_RECEIVED_TOGEPI                 0xA3 // verdanturf
-#define FLAG_RECEIVED_MINIOR                 0xA4 // fallarbor
+#define FLAG_RECEIVED_TOGEPI                 0xA3 // UNUSED
+#define FLAG_RECEIVED_MINIOR                 0xA4 // UNUSED
 #define FLAG_RECEIVED_WYNAUT                 0xA5 // dewford
 #define FLAG_RECEIVED_COMFEY                 0xA6 // dewford resort
 #define FLAG_RECEIVED_INKAY                  0xA7 // mossdeep
@@ -930,8 +930,8 @@
 #define FLAG_SCOTT_GIVES_BATTLE_POINTS                              0x355
 #define FLAG_OCEANIC_MUSEUM_MET_REPORTER                            0x356
 #define FLAG_CREDITS_LADY_INTRODUCTION                              0x357
-#define FLAG_MET_CYNTHIA                                            0x358 //moves Cynthia (in case you white out from a rematch, which leaves the trainer undefeated)
-#define FLAG_UNUSED_0x359                                           0x359
+#define FLAG_MET_CYNTHIA                                            0x358 //UNUSED, replaced by cynthia var
+#define FLAG_MET_MR_BRINEY                                          0x359
 
 //Script state, Door Flags
 #define FLAG_MAUVILLE_GYM_BARRIERS_STATE                            0x35A

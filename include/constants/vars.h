@@ -158,7 +158,7 @@
 #define VAR_CONTEST_PRIZE_PICKUP                         0x408A
 #define VAR_RECENT_SPRAY                                 0x408B // see include/config/item.h
 #define VAR_DIFFICULTY_SETTING                           0x408C // 0 = standard, 1 = easy, 2 = hard
-#define VAR_UNUSED_0x408D                                0x408D
+#define VAR_CAPTAIN_STERN_STATE                          0x408D
 #define VAR_VICTORY_ROAD_RIVAL_CHOICE                    0x408E // Jinnora: used to select rival trainer in Victory Road
 #define VAR_DEVON_CORP_3F_STATE                          0x408F
 #define VAR_BRINEY_HOUSE_STATE                           0x4090
@@ -202,17 +202,17 @@
 #define VAR_TRICK_HOUSE_PUZZLE_7_STATE_2                 0x40B6 // Leftover from RS, never set
 #define VAR_SLATEPORT_FAN_CLUB_STATE                     0x40B7 // changes for intro and how many scarves have been given out
 #define VAR_SAFARI_ZONE_STATE                            0x40B8 // 0: In or out of SZ, 1: Player exiting SZ, 2: Player entering SZ
-#define VAR_UNUSED_0x40B9                                0x40B9 // was mt pyre state
+#define VAR_CYNTHIA_STATE                                0x40B9 // was mt pyre state
 #define VAR_NEW_MAUVILLE_STATE                           0x40BA
-#define VAR_UNUSED_0x40BB                                0x40BB
+#define VAR_PAINTER_STATE                                0x40BB
 #define VAR_BRAVO_TRAINER_BATTLE_TOWER_ON                0x40BC
 #define VAR_JAGGED_PASS_ASH_WEATHER                      0x40BD
 #define VAR_GLASS_WORKSHOP_STATE                         0x40BE
-#define VAR_UNUSED_0x40BF                                0x40BF
+#define VAR_COSMOG_QUEST_STATE                           0x40BF // used to track gifts to space center maniac
 #define VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE              0x40C0
 #define VAR_TRICK_HOUSE_PRIZE_PICKUP                     0x40C1
 #define VAR_PACIFIDLOG_TM_RECEIVED_DAY                   0x40C2
-#define VAR_UNUSED_0x40C3                                0x40C3
+#define VAR_MAX_WILD_POKEMON_LEVEL                       0x40C3 // used to restrict wild pokemon level
 #define VAR_FOSSIL_RESURRECTION_STATE                    0x40C4 // used to handle revive sequence
 #define VAR_WHICH_FOSSIL_REVIVED                         0x40C5 // used to save choice of revived fossil
 #define VAR_DEXNAV_SPECIES                               0x40C6
