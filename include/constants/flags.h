@@ -1133,7 +1133,7 @@
 #define FLAG_ITEM_TM41      0x410 // Shadow Ball, gift from Phoebe (Lilycove)
 #define FLAG_ITEM_TM42      0x411 // Phantom Force, Mt. Pyre item ball
 #define FLAG_ITEM_TM43      0x412 // Iron Defense, Valley of Steel item ball
-#define FLAG_ITEM_TM44      0x413 // Iron Head, gift from Steven ()
+#define FLAG_ITEM_TM44      0x413 // Iron Head, gift from Steven (Mossdeep)
 #define FLAG_ITEM_TM45      0x414 // Flash Cannon, Route 105 item ball
 #define FLAG_ITEM_TM46      0x415 // Will-o-wisp, Summer Sea item ball
 #define FLAG_ITEM_TM47      0x416 // Sunny Day, purchase at Weather Institute (5 red shards)
@@ -1443,7 +1443,7 @@
 #define FLAG_SYS_SAFARI_MODE                        (SYSTEM_FLAGS + 0x2C)
 #define FLAG_SYS_CRUISE_MODE                        (SYSTEM_FLAGS + 0x2D)
 
-#define FLAG_UNUSED_0x88E                           (SYSTEM_FLAGS + 0x2E) // Unused Flag
+#define FLAG_SYS_AUTORUN                            (SYSTEM_FLAGS + 0x2E) // Jinnora added
 #define FLAG_UNUSED_0x88F                           (SYSTEM_FLAGS + 0x2F) // Unused Flag
 
 #define FLAG_SYS_TV_HOME                            (SYSTEM_FLAGS + 0x30)
