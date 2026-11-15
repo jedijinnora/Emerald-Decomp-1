@@ -3603,9 +3603,12 @@ const struct Item gItemsInfo[] =
         .name = _("Wishing Piece"),
         .price = 20,
         .description = COMPOUND_STRING(
-            "Throw into a\n"
-            "{PKMN} Den to attract\n"
-            "Dynamax Pokémon."),
+            "A mysterious shard\n"
+            "of a crystallized\n"
+            "wish."),
+            //"Throw into a\n"
+            //"{PKMN} Den to attract\n"
+            //"Dynamax Pokémon."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
@@ -14292,5 +14295,21 @@ const struct Item gItemsInfo[] =
         .effect = gItemEffect_RareCandy,
         .iconPic = gItemIcon_CandyJar,
         .iconPalette = gItemIconPalette_CandyJar,
+    },
+
+    [ITEM_POKE_VIAL] =
+    {
+        .name = _("Poké Vial"),
+        .pluralName = _("Poké Vial"),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .description = COMPOUND_STRING(
+            "Use to heal party.\n"
+            "Replenishes at\n"
+            "Pokémon Centers."),
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_PokeVial,
+        .iconPic = gItemIcon_PokeVial,
+        .iconPalette = gItemIconPalette_PokeVial,
     },
 };

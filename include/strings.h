@@ -2447,4 +2447,8 @@ extern const u8 gText_DreadPlate[];
 extern const u8 gText_IronPlate[];
 extern const u8 gText_PixiePlate[];
 
+//Poke Vial
+extern const u8 gText_PokeVial_Success[];
+extern const u8 gText_PokeVial_Failure[];
+
 #endif // GUARD_STRINGS_H

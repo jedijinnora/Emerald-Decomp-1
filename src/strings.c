@@ -711,8 +711,8 @@ const u8 gText_PkmnFainted_FldPsn[] = _("{STR_VAR_1} fainted…\p\n");
 #else
 const u8 gText_PkmnFainted_FldPsn[] = _("{STR_VAR_1} survived the poisoning.\nThe poison faded away!\p");
 #endif
-const u8 gText_Marco[] = _("MARCO");
-const u8 gText_TrainerCardName[] = _("NAME: ");
+const u8 gText_Marco[] = _("Marco");
+const u8 gText_TrainerCardName[] = _("Name: ");
 const u8 gText_TrainerCardIDNo[] = _("IDNo.");
 const u8 gText_TrainerCardMoney[] = _("Money");
 const u8 gText_PokeDollar[] = _("¥"); // Unused
@@ -1329,3 +1329,6 @@ const u8 gText_DreadPlate[] =   _("The plate has engravings which read as\nfollo
 const u8 gText_IronPlate[] =    _("The plate has engravings which read as\nfollows:\p“Iron sank to form the heart of the new\nEarth.”{PAUSE_UNTIL_PRESS}");
 const u8 gText_PixiePlate[] =   _("The plate has engravings which read as\nfollows:\p“Stars twinkled in the distance,\nheralding the light to come.”{PAUSE_UNTIL_PRESS}");
 
+// Poke Vial
+const u8 gText_PokeVial_Success[] = _("Poké Vial successfully healed party.\p{STR_VAR_1} more uses before needing\nto heal at a Pokémon Center.{PAUSE_UNTIL_PRESS}");
+const u8 gText_PokeVial_Failure[] = _("PokéVial is drained.\nHeal at a Pokémon Center to replenish.{PAUSE_UNTIL_PRESS}");

@@ -2103,3 +2103,5 @@ const u32 gItemIconPalette_TwiceSpicedRadish[] = INCBIN_U32("graphics/items/icon
 //Jinnora's added items
 const u32 gItemIcon_CandyJar[] = INCBIN_U32("graphics/items/icons/candy_jar.4bpp.lz");
 const u32 gItemIconPalette_CandyJar[] = INCBIN_U32("graphics/items/icon_palettes/candy_jar.gbapal.lz");
+const u32 gItemIcon_PokeVial[] = INCBIN_U32("graphics/items/icons/poke_vial.4bpp.lz");
+const u32 gItemIconPalette_PokeVial[] = INCBIN_U32("graphics/items/icon_palettes/poke_vial.gbapal.lz");

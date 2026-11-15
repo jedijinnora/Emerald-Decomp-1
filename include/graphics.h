@@ -1743,6 +1743,8 @@ extern const u32 gItemIconPalette_TwiceSpicedRadish[];
 //Jinnora's added items
 extern const u32 gItemIcon_CandyJar[];
 extern const u32 gItemIconPalette_CandyJar[];
+extern const u32 gItemIcon_PokeVial[];
+extern const u32 gItemIconPalette_PokeVial[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];
